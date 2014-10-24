@@ -1,0 +1,66 @@
+<?php if ($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
+<div class="block block-blog-categories">
+    <div class="block-title">
+        <strong><span><?php echo Mage::helper('blog')->__('Categories'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php $cats = $this->getCategories(); ?>
+        <div class="akordeon category-list">
+        <?php foreach ($cats as $cat): ?>
+                    <div class="blog-category akordeon-item has-no-children akordeon-item-first collapsed">
+                        <div class="akordeon-item-head akordeon-border-bottom">
+                            <div class="akordeon-item-head-container">
+                                <div class="akordeon-heading">
+                                    <a href="<?php echo $cat->getAddress(); ?>"><?php echo $cat->getTitle(); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php echo $this->getChildHtml('blog_tags'); ?>
+
+<?php if ($posts = $this->getRecent()): ?>
+<div class="block block-blog-recent">
+    <div class="block-title">
+        <strong><span><?php echo Mage::helper('blog')->__('Latest Posts'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <div>
+        <?php foreach ($posts as $post): ?>
+            <div class="akordeon-border-bottom post-items">
+                <div class="post-info clearfix">
+                    <?php
+                        if($post_image = $post->getImage()){
+                    ?>
+                    <div class="post-img">
+                        <a href="<?php echo $post->getAddress(); ?>" >
+                            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$post_image; ?>" alt=""/>
+                        </a>
+                    </div>
+                    <?php
+                        }
+                    ?>
+                    <div class="side-post-author">
+                        <p class="side-post-author-name"><?php echo $post->getUser(); ?></p>
+                        <div class="post-short-time"><?php echo date('d M Y', strtotime($post->getCreatedTime())); ?></div>
+                    </div>
+                </div>
+                <div class="post-short-content">
+                    <div class="post-short-arrow"></div>
+                    <p class="post-short-title"><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></p>
+                    <div class="post-short-content-data"><?php if(strlen($post->getShortContent()) > 150) echo substr($post->getShortContent(),0,150).'...'; else echo $post->getShortContent(); ?></div>
+                </div>
+                                
+                <!-- <div class="comments-count"><?php echo $post->getCommentCount(); ?>&nbsp;<?php echo $this->__('Comment(s)'); ?></div> -->
+                <div class="clear"></div>
+            </div>
+        <?php endforeach; ?>
+        </div>
+    </div>    
+</div>
+<?php endif; ?>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <authorizenetcim_adminhtml_about_index>
+        <reference name="content">
+            <block type="core/template" name="authorizenetcim.about" template="authorizenetcim/about.phtml" ></block>
+        </reference>
+    </authorizenetcim_adminhtml_about_index>
+
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTab"><name>customer_tab_card</name><block>authorizenetcim/adminhtml_tab_card</block></action>
+        </reference>
+    </adminhtml_customer_edit>
+</layout>

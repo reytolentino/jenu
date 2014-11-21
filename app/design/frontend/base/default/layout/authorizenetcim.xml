@@ -1,0 +1,34 @@
+<layout version="0.1.0">
+    <customer_account>
+        <block type="authorizenetcim/link" name="authorizenetcim_link_dashboard">
+            <action method="addDashboardLink" translate="label" module="authorizenetcim">
+                <block>customer_account_navigation</block><name>giftregistry</name><path>authorizenetcim/account/cards</path><label>My Credit Cards</label>
+            </action>
+        </block>
+    </customer_account>
+    
+    <authorizenetcim_account_cards translate="label">
+        <label>Customer My Account Stored Cards</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+           <block type="authorizenetcim/account_cards" name="cards" template="authorizenetcim/account/cards.phtml" />
+        </reference>
+    </authorizenetcim_account_cards>
+    
+    <authorizenetcim_account_add translate="label">
+        <label>Customer My Account Add Card</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+           <block type="authorizenetcim/account_cards_form" name="cards_form" template="authorizenetcim/account/cards/form.phtml" />           
+        </reference>
+    </authorizenetcim_account_add>
+    
+    <authorizenetcim_account_edit translate="label">
+        <label>Customer My Account Edit Card</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+           <block type="authorizenetcim/account_cards_form" name="cards_form" template="authorizenetcim/account/cards/form.phtml" />           
+        </reference>
+    </authorizenetcim_account_edit>
+    
+</layout>    

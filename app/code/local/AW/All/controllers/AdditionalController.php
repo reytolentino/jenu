@@ -24,17 +24,14 @@
  * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
  */
 
-class AW_All_Helper_Config extends Mage_Core_Helper_Abstract
+class AW_All_AdditionalController extends Mage_Adminhtml_Controller_Action
 {
-    /** Extensions feed path */
-    const EXTENSIONS_FEED_URL = 'http://media.aheadworks.com/feeds/extensions.xml';
-    /** Updates Feed path */
-    const UPDATES_FEED_URL = 'http://media.aheadworks.com/feeds/updates.xml';
-    /** Estore URL */
-    const STORE_URL = 'http://ecommerce.aheadworks.com/estore/';
-
-    /** EStore response cache key*/
-    const STORE_RESPONSE_CACHE_KEY = 'aw_all_store_response_cache_key';
-
-
+    public function indexAction()
+    {
+        $this
+            ->loadLayout()
+            ->_title($this->__('aheadWorks - Additional Info View'))
+            ->renderLayout()
+        ;
+    }
 }

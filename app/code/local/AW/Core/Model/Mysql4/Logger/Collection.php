@@ -20,23 +20,29 @@
  * =================================================================
  *
  * @category   AW
- * @package    AW_All
- * @version    2.2.1
+ * @package    AW_Sarp
+ * @version    1.7.0
  * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
  * @license    http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
  */
 
-class AW_All_Helper_Config extends Mage_Core_Helper_Abstract
+class AW_Core_Model_Mysql4_Logger_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
 {
-    /** Extensions feed path */
-    const EXTENSIONS_FEED_URL = 'http://media.aheadworks.com/feeds/extensions.xml';
-    /** Updates Feed path */
-    const UPDATES_FEED_URL = 'http://media.aheadworks.com/feeds/updates.xml';
-    /** Estore URL */
-    const STORE_URL = 'http://ecommerce.aheadworks.com/estore/';
 
-    /** EStore response cache key*/
-    const STORE_RESPONSE_CACHE_KEY = 'aw_all_store_response_cache_key';
+    public function _construct()
+    {
+        parent::_construct();
+        $this->_init('awcore/logger');
+    }
 
-
+    /**
+     * Add filter to find records older than specified date
+     * @param Zend_Date $Date
+     * @return AW_Core_Model_Mysql4_Logger_Collection
+     */
+    public function addOlderThanFilter(Zend_Date $Date)
+    {
+        $this->getSelect()->where('date<?', $Date->toString(AW_Core_Model_Abstract::DB_DATETIME_FORMAT));
+        return $this;
+    }
 }

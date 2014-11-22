@@ -1,31 +1,39 @@
 <?php
 /**
- * aheadWorks Co.
+* aheadWorks Co.
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the EULA
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
- * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ * http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
  *
  * =================================================================
  *                 MAGENTO EDITION USAGE NOTICE
  * =================================================================
- * This software is designed to work with Magento enterprise edition and
- * its use on an edition other than specified is prohibited. aheadWorks does not
- * provide extension support in case of incorrect edition use.
+ * This package designed for Magento ENTERPRISE edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento ENTERPRISE edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
  * =================================================================
  *
  * @category   AW
- * @package    AW_Sarp2
- * @version    2.0.0
+ * @package    AW_Sarp
+ * @version    1.7.0
  * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
- * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
  */
 
-class AW_All_Block_System_Config_Form_Fieldset_Awall_Additional extends Mage_Adminhtml_Block_System_Config_Form_Fieldset
+class AW_Core_Block_Adminhtml_System_Config_Form_Fieldset extends Mage_Adminhtml_Block_System_Config_Form_Fieldset
 {
+
+    /**
+     * Render fieldset html
+     * @param Varien_Data_Form_Element_Abstract $element
+     * @return string
+     */
     public function render(Varien_Data_Form_Element_Abstract $element)
     {
         $html = $this->_getHeaderHtml($element);
@@ -33,12 +41,11 @@ class AW_All_Block_System_Config_Form_Fieldset_Awall_Additional extends Mage_Adm
         foreach ($element->getElements() as $field) {
             $html .= $field->toHtml();
         }
-
         $html .= "<tr>
             <td class=\"label\"></td>
             <td class=\"value\">
-            <button class=\"scalable\" onclick=\"window.location='" . Mage::getSingleton('adminhtml/url')->getUrl('awall_admin/additional/index') . "'\" type=\"button\">
-                <span>View Additional info</span>
+            <button class=\"scalable\" onclick=\"window.location='" . Mage::getSingleton('adminhtml/url')->getUrl('awcore_admin/viewlog/index') . "'\" type=\"button\">
+                <span>View log</span>
             </button
             </td>
          </tr>

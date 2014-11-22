@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Jenu_Sarp>
+            <version>0.1.0</version>
+        </Jenu_Sarp>
+    </modules>
+
+    <global>
+        
+        <blocks>
+            <sarp>
+                <rewrite>
+                    <adminhtml_subscriptions_grid>Jenu_Sarp_Block_Adminhtml_Subscriptions_Grid</adminhtml_subscriptions_grid>
+                    <adminhtml_subscriptions_edit_tab_main>Jenu_Sarp_Block_Adminhtml_Subscriptions_Edit_Tab_Main</adminhtml_subscriptions_edit_tab_main>
+                </rewrite>
+            </sarp>
+        </blocks>
+
+        <helpers>
+            <jenusarp>
+                <class>Jenu_Sarp_Helper</class>
+            </jenusarp>
+        </helpers>
+
+        <models>
+            <jenusarp>
+                <class>Jenu_Sarp_Model</class>
+            </jenusarp>
+
+            <sarp>
+                <rewrite>
+                    <subscription>Jenu_Sarp_Model_Subscription</subscription>
+                    <web_service_client_authorizenetcim>Jenu_Sarp_Model_Web_Service_Client_Authorizenetcim</web_service_client_authorizenetcim>
+                </rewrite>
+            </sarp>
+        </models>
+
+        <events>
+            <suspended_subscription>
+                <observers>
+                    <jenusarp>
+                        <type>singleton</type>
+                        <class>jenusarp/observer</class>
+                        <method>notifyIsSuspended</method>
+                    </jenusarp>
+                </observers>
+            </suspended_subscription>
+            <sarp_subscription_cancel_before>
+                <observers>
+                    <jenusarp>
+                        <type>singleton</type>
+                        <class>jenusarp/observer</class>
+                        <method>onCancelBefore</method>
+                    </jenusarp>
+                </observers>
+            </sarp_subscription_cancel_before>
+        </events>
+
+        <template>
+            <email>
+                <sarp_emailtemplates_credit_card_issue_email_template translate="label" module="jenusarp">
+                    <label>Credit Card Issue Template</label>
+                    <file>jenu/credit_card_issue.html</file>
+                    <type>html</type>
+                </sarp_emailtemplates_credit_card_issue_email_template>
+            </email>
+        </template>
+        
+        <resources>
+            <jenu_sarp_setup>
+                <setup>
+                    <module>Jenu_Sarp</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </jenu_sarp_setup>
+            <jenu_sarp_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </jenu_sarp_write>
+            <jenu_sarp_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </jenu_sarp_read>
+        </resources>
+
+    </global>
+        
+    <admin>
+        <routers>
+            <sarp_admin>
+                <args>
+                    <modules>
+                        <Jenu_Sarp before="AW_Sarp">Jenu_Sarp</Jenu_Sarp>
+                    </modules>
+                </args>
+            </sarp_admin>
+        </routers>
+    </admin>
+    
+</config>

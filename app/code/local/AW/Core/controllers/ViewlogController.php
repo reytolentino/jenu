@@ -20,23 +20,38 @@
  * =================================================================
  *
  * @category   AW
- * @package    AW_All
- * @version    2.2.1
+ * @package    AW_Sarp
+ * @version    1.7.0
  * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
  * @license    http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
  */
 
-class AW_All_Helper_Config extends Mage_Core_Helper_Abstract
+class AW_Core_ViewlogController extends Mage_Adminhtml_Controller_action
 {
-    /** Extensions feed path */
-    const EXTENSIONS_FEED_URL = 'http://media.aheadworks.com/feeds/extensions.xml';
-    /** Updates Feed path */
-    const UPDATES_FEED_URL = 'http://media.aheadworks.com/feeds/updates.xml';
-    /** Estore URL */
-    const STORE_URL = 'http://ecommerce.aheadworks.com/estore/';
+    public function indexAction()
+    {
+        $this
+                ->loadLayout()
+                ->_addContent($this->getLayout()->createBlock('awcore/adminhtml_log'))
+                ->renderLayout();
+    }
 
-    /** EStore response cache key*/
-    const STORE_RESPONSE_CACHE_KEY = 'aw_all_store_response_cache_key';
+    /**
+     * Clears all records in log table
+     * @return AW_Core_ViewlogController
+     */
+    public function clearAction()
+    {
+        try {
+            Mage::getResourceSingleton('awcore/logger')->truncateAll();
+            Mage::getSingleton('adminhtml/session')->addSuccess("Log successfully cleared");
+            $this->_redirect('*/*');
 
+        } catch (Mage_Core_Exception $E) {
+            Mage::getSingleton('adminhtml/session')->addError($E->getMessage());
+            $this->_redirectReferer();
+        }
+        return $this;
+    }
 
 }

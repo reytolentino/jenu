@@ -20,23 +20,52 @@
  * =================================================================
  *
  * @category   AW
- * @package    AW_All
- * @version    2.2.1
+ * @package    AW_Sarp
+ * @version    1.7.0
  * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
  * @license    http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
  */
 
-class AW_All_Helper_Config extends Mage_Core_Helper_Abstract
+class AW_Core_Model_Logger extends Mage_Core_Model_Abstract
 {
-    /** Extensions feed path */
-    const EXTENSIONS_FEED_URL = 'http://media.aheadworks.com/feeds/extensions.xml';
-    /** Updates Feed path */
-    const UPDATES_FEED_URL = 'http://media.aheadworks.com/feeds/updates.xml';
-    /** Estore URL */
-    const STORE_URL = 'http://ecommerce.aheadworks.com/estore/';
 
-    /** EStore response cache key*/
-    const STORE_RESPONSE_CACHE_KEY = 'aw_all_store_response_cache_key';
+    /** Notice */
+    const LOG_SEVERITY_NOTICE = 1;
+    /** Strict notice */
+    const LOG_SEVERITY_STRICT_NOTICE = 2;
+    /** Warning */
+    const LOG_SEVERITY_WARNING = 4;
+    /** Error */
+    const LOG_SEVERITY_ERROR = 8;
+    /** Fatal */
+    const LOG_SEVERITY_FATAL = 8;
 
+    protected function _construct()
+    {
+        $this->_init('awcore/logger');
+    }
 
+    /**
+     * Prepares log entry for saving
+     * @return AW_Core_Model_Log
+     */
+    public function _beforeSave()
+    {
+        if (!$this->getSeverity()) {
+            $this->setSeverity(self::LOG_SEVERITY_NOTICE);
+        }
+        if (!$this->getDate()) {
+            $this->setDate(now());
+        }
+        return parent::_beforeSave();
+    }
+
+    /**
+     * Exorcise wrapper
+     * @return
+     */
+    public function exorcise()
+    {
+        return Mage::helper('awcore/logger')->exorcise();
+    }
 }

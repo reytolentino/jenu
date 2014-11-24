@@ -1,0 +1,10 @@
+app/etc/local.xml
+media/*
+*.zip
+var/cache/**/*
+var/session/**/*
+var/session/*
+var/log/*
+var/locks/*
+var/report/*
+

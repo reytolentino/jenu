@@ -52,15 +52,20 @@ $cart_html = $this->getChildHtml('cart_sidebar');
         <div class="header-right">
             <div class="header-top">
                 <div class="left">                    
-                    <?php echo $this->getChildHtml('topLinks') ?>    
+                    <?php //echo $this->getChildHtml('topLinks') ?>    
                 </div>
                 <div class="right clearfix block-container">
-                    <div class="block block-minicart">                        
-                        <?php echo $cart_html; ?>
-                    </div>
-                    <div class="block-switcher clearfix">                    
-                        <?php echo $switcher_html ?>         
-                    </div>               
+                   <div class="left">                    
+                        <?php echo $this->getChildHtml('topLinks') ?>    
+                   </div>
+                    <div class="right">  
+                        <div class="block block-minicart">                        
+                            <?php echo $cart_html; ?>
+                        </div>
+                        <div class="block-switcher clearfix">                    
+                            <?php echo $switcher_html ?>         
+                        </div> 
+                    </div>                  
                 </div>
             </div>
             <div class="mobile-bg"></div>

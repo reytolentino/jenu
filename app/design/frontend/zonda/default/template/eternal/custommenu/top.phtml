@@ -5,6 +5,8 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
 ?>
 <div class="nav-container">
     <div id="custommenu">
+
+
     <?php if ($helper->getConfig('general/type') == 'wide') : ?>
         <?php if ($this->showHomeLink()) : ?>
         <div class="menu home-link">
@@ -26,7 +28,8 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
             echo Mage::helper('blog')->getMenuWideLink();
         }?>
     <?php else: ?>
-        <ul id="nav">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_menu_block')->toHtml();?>
+        <?php /*?><ul id="nav">
             <?php if ($this->showHomeLink()) : ?>
             <li class="home-link">
                 <a href="<?php echo $this->getUrl('') ?>">
@@ -44,7 +47,7 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
             <?php if(Mage::helper('blog')->getEnabled() && Mage::helper('blog')->includeMenu()) {
                 echo Mage::helper('blog')->getMenuNarrowLink();
             }?>
-        </ul>
+        </ul><?php */?>
     <?php endif; ?>                
         <?php echo $this->drawCustomMenuLinks() ?>
         <?php echo $this->drawCustomMenuBlock() ?>        

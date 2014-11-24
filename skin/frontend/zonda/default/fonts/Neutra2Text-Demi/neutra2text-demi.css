@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Neutraface2TextDemi';
+    src: url('neutra2text-demi.eot');
+    src: url('neutra2text-demi.eot') format('embedded-opentype'),
+         url('neutra2text-demi.woff2') format('woff2'),
+         url('neutra2text-demi.woff') format('woff'),
+         url('neutra2text-demi.ttf') format('truetype'),
+         url('neutra2text-demi.svg#Neutraface2TextDemi') format('svg');
+}

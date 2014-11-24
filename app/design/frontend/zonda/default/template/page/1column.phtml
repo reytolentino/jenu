@@ -58,6 +58,7 @@ $b = $zonda->getConfigGroup();
     <?php if($b['gmap']['gmap_enable']): ?>
         <?php echo $this->getChildHtml('contact_google_map') ?>
     <?php endif; ?>
+    <div class="clearfix"></div>
     <div class="main-container">
         <?php
         $main_slider = $this->getChildHtml('main-slider');

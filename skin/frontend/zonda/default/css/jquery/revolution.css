@@ -1007,19 +1007,19 @@ website:       http://www.themepunch.com
     line-height: 1.4 !important; 
 }
 .tp-caption.small-button {
-    font-size: 12px;
-    font-family: 'Molengo', sans-serif;
-    font-weight: 600;
-    line-height: 35px;
-    padding: 0 20px;
-    background: #dad9d9;
+font-size: 14px !important;
+font-family: 'Neutraface2TextDemi', sans-serif;
+font-weight: normal;
+line-height: 35px;
+padding: 5px 30px !important;
+background: #008ab0;
 }
 .tp-caption.small-button:hover {
-    background: #add4d9;
+    background: #82d2e5;
 }
 .tp-caption.small-button a,
 .tp-caption.small-button a:hover {
-    color: #2a2a2a;
+    color: #ffffff;
     text-transform: uppercase;
 }
 .tp-caption.center {

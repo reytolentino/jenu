@@ -45,9 +45,9 @@ License (AFL 3.0)
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[skateboa_mgnt1]]></username>
+                    <username><![CDATA[skateboa_mgnt2]]></username>
                     <password><![CDATA[^oTb!ZLO993G]]></password>
-                    <dbname><![CDATA[skateboa_mgnt1]]></dbname>
+                    <dbname><![CDATA[skateboa_mgnt2]]></dbname>
                     <initStatements><![CDATA[SET NAMES 
 utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>

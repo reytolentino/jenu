@@ -1,10 +1,10 @@
-jenu/app/etc/local.xml
-jenu/media/*
-jenu/*.zip
-jenu/var/cache/**/*
-jenu/var/session/**/*
-jenu/var/session/*
-jenu/var/log/*
-jenu/var/locks/*
-jenu/var/report/*
+/jenu/app/etc/local.xml
+/jenu/media/*
+/jenu/*.zip
+/jenu/var/cache/**/*
+/jenu/var/session/**/*
+/jenu/var/session/*
+/jenu/var/log/*
+/jenu/var/locks/*
+/jenu/var/report/*
 

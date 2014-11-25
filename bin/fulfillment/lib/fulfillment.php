@@ -55,7 +55,7 @@ extends Eco_Fulfillment_Api
 		$pass = $this->_auth->pass();
 
 		// Log into the store
-		$this->_api = new SoapClient($wsdl, array('trace' => 1, 'proxy_login'=>'gorilla', 'proxy_password'=>'Monkey1'));
+		$this->_api = new SoapClient($wsdl, array('trace' => 1, 'proxy_login'=>'rtolentino', 'proxy_password'=>'Biosciences1'));
 		$sessionId = $this->_api->login($user, $pass);
 
 		// Capture the session ID for later use

@@ -3,7 +3,7 @@
 class Eco_Fulfillment_Auth_Catalog
 extends Eco_Fulfillment_Auth
 {
-	protected $_wsdl = 'http://www.jenu.com/index.php/api/soap?wsdl';
+	protected $_wsdl = 'http://dev.jenu.com/index.php/api/soap?wsdl';
 	protected $_user = 'prolog2m';
 	protected $_pass = 'pr0l0g2m;';
 	

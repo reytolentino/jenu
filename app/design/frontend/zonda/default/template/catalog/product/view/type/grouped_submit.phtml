@@ -1,0 +1,15 @@
+<?php $this->setPreconfiguredValue(); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php if($_product->isGrouped()):?>
+<?php $_associatedProducts = $this->getAssociatedProducts(); ?>
+<?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
+<?php if ($_hasAssociatedProducts): ?>
+<?php foreach ($_associatedProducts as $_item): ?>
+    <?php if ($_product->isSaleable()): ?>
+        <?php if ($_item->isSaleable()) : ?>
+            <input type="hidden" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="qty qty-sub-<?php echo $_item->getId() ?>" />
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endforeach; ?>
+<?php endif; ?>
+<?php endif; ?>

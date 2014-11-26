@@ -1,5 +1,5 @@
 /* System Config Styles */
-/* Created at 2014-11-24 19:27:10 */
+/* Created at 2014-11-26 10:13:46 */
 
 /*========== Common Styles ==========*/
 body {
@@ -525,11 +525,11 @@ div.eternal-custom-menu-popup a.level2:hover,
 .products-list .item-inner,
 .product-essential-inner .product-img-box,
 .cc-item-container {
-    background: #f8f8f8;
+    background: #fcfcfc;
     border: solid 1px #e0e0e0;
 }
 .products-grid .ratings {
-    background: #f8f8f8;
+    background: #fcfcfc;
 }
 .product-name a,
 .products-grid .product-name a,
@@ -561,7 +561,7 @@ div.eternal-custom-menu-popup a.level2:hover,
 .labels .sales,
 .labels .new {
     color: #ffffff;
-            font-family: "Carme", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Neutraface2TextBook";
         font-size: 14px;
 }
 .ratings .amount a {
@@ -590,7 +590,7 @@ div.eternal-custom-menu-popup a.level2:hover,
 .product-options dd,
 .availability,
 .quickview-main .product-shop .product-pricing{
-            font-family: "Carme", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Neutraface2TextBook";
         color: #999999;
 }
 .product-options-bottom,
@@ -612,14 +612,14 @@ div.eternal-custom-menu-popup a.level2:hover,
 
 /*========== Tab ==========*/
 .by_name {
-    color: #add4d9;
+    color: #b5b5b5;
 }
     .product-tabs-ul,
     .product-tabs-ul li{
         background-color: #eaeae9;        
     }
     .product-tabs-ul li.active {
-        background-color: #f8f8f8;
+        background-color: #b5b5b5;
     }
     .product-tabs-ul li a {
                     font-family: "Molengo", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -627,7 +627,7 @@ div.eternal-custom-menu-popup a.level2:hover,
         font-size: 12px;    
     }
     .product-tabs-ul li.active a {
-        color: #777777;
+        color: #ffffff;
     }
     .cc-item-container {
         border: solid 1px #e0e0e0;
@@ -636,7 +636,7 @@ div.eternal-custom-menu-popup a.level2:hover,
             height: 238px;
         }
                                     .product-tabs-ul {
-                    border-bottom: solid 2px #add4d9;
+                    border-bottom: solid 2px #b5b5b5;
                 }
                         
 /*========== Compare Products Page ==========*/
@@ -665,7 +665,7 @@ div.eternal-custom-menu-popup a.level2:hover,
 }
 .heading,
 .data-table th {
-            font-family: "Carme", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Neutraface2TextBook";
     }
 /*========== Category ==========*/
 .category-banner .category-title,

@@ -2133,7 +2133,7 @@ td,
     padding: 0 15px;
 }
 .product-img-box .add-links-wrap {
-    width: 138px;
+    width: 145px;
     position: absolute;
     right: 20px;
     margin-top: 13px;
@@ -3765,4 +3765,55 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
   color: #66b1b8 !important;
 }
 
-akordeon-border-bottom li:hover {
+.akordeon-border-bottom li:hover {
+    background:#fff;
+}
+
+/**************************** Detail Page ******************************/
+.add-to-box input.input-text {
+    background: #FFFFFF;
+}
+.catalog-product-view .product-options-bottom .button-up {
+    background-color: #E0E0E0;
+}
+.catalog-product-view .block-related h1.subtitle {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+    padding: 0 0 10px;
+    color: #999999 !important;
+}
+.catalog-product-view .block-related .products-grid {
+    margin: 15px 0 0;
+}
+.catalog-product-view .block-related .price-box {
+    padding-top: 0;
+}
+.catalog-product-view .block-related .products-grid .bx-has-controls-direction {
+    top: -54px;
+}
+.catalog-product-view .block-related .more-info {
+    left: 46.5%;
+}
+.catalog-product-view .product-img-box .button {
+    background-color: #D1D1D1;
+}
+.catalog-product-view .product-img-box .button:hover, .catalog-product-view .product-options-bottom .button-up:hover {
+    background-color: #b5b5b5;
+}
+.toplinks.links li {
+    line-height: 41px;
+}
+.catalog-product-view .elastislide-vertical {
+    margin-top: 0;
+}
+.catalog-product-view .add-to-cart .btn-cart {
+    line-height: 40px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+@media(max-width: 360px){
+.catalog-product-view .add-to-cart .btn-cart {
+    margin-right: 0;
+}
+}

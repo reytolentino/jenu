@@ -51,6 +51,7 @@ $homeslider = Mage::helper('eternal_homeslider');
             <?php echo $this->getChildHtml('global_notices') ?>
         </div>
     </div>
+
     <div class="header-container">
         <?php echo $this->getChildHtml('store_switcher') ?>
         <?php echo $this->getChildHtml('header') ?>
@@ -58,6 +59,7 @@ $homeslider = Mage::helper('eternal_homeslider');
     <?php if($b['gmap']['gmap_enable']): ?>
         <?php echo $this->getChildHtml('contact_google_map') ?>
     <?php endif; ?>
+     <div class="clearfix"></div>
     <div class="main-container">
         <?php
         $main_slider = $this->getChildHtml('main-slider');

@@ -1,0 +1,24 @@
+<?php $_categories = $this->getCurrentChildCategories() ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<div class="block block-category-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Products'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <div class="akordeon category-list">
+            <div class="akordeon-item">
+                <div class="akordeon-item-body">
+                    <div class="akordeon-item-content">
+                       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('products_sidebar')->toHtml();?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.akordeon.category-list').akordeon({ buttons: true, toggle: true });
+    });
+</script>
+

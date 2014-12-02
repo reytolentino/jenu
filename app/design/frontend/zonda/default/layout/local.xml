@@ -51,6 +51,7 @@
             <action method="addItem"><type>skin_css</type><name>css/jquery/jquery.selectbox.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/jquery/lightbox.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/jquery/bxslider-responsive.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>css/JeNu-CustomStyle.css</name><params/></action>
             
             <!-- base style -->            
             <action method="addCss"><stylesheet>css/eternal/jquery-ui-1.9.2.css</stylesheet></action>
@@ -285,16 +286,17 @@
             <action method="unsetChild"><name>currency</name></action>
         </reference>        
         
-        <reference name="right">
-            <block type="catalog/navigation" name="catalog.category" before="-" template="catalog/navigation/category_nav.phtml"/>
-            <block type="catalog/layer_view" name="catalog.rightnav" after="catalog.category" template="catalog/layer/view.phtml">
+       <reference name="right">
+            <!--<block type="catalog/navigation" name="catalog.category" before="-" template="catalog/navigation/category_nav.phtml"/>-->
+            <block type="catalog/navigation" name="catalog.products" before="-" template="catalog/navigation/product_nav.phtml"/>
+           <!-- <block type="catalog/layer_view" name="catalog.rightnav" after="catalog.category" template="catalog/layer/view.phtml">
                 <action method="unsetChild">
                     <name>category_filter</name>
                 </action>
             </block>            
             <block type="filterproducts/special_home_list" name="special" template="catalog/navigation/special_product.phtml" />
-            <block type="core/template" name="right.zonda.ads" template="eternal/zonda/advertising.phtml"/>
-        </reference>
+            <block type="core/template" name="right.zonda.ads" template="eternal/zonda/advertising.phtml"/>-->
+        </reference> 
         
     </catalog_category_default>
     
@@ -320,15 +322,16 @@
         </reference> 
         
         <reference name="right">
-            <block type="catalog/navigation" name="catalog.category" before="-" template="catalog/navigation/category_nav.phtml"/>
-            <block type="catalog/layer_view" name="catalog.rightnav" after="catalog.category" template="catalog/layer/view.phtml">
+             <!--<block type="catalog/navigation" name="catalog.category" before="-" template="catalog/navigation/category_nav.phtml"/>-->
+            <block type="catalog/navigation" name="catalog.products" before="-" template="catalog/navigation/product_nav.phtml"/>
+            <!--<block type="catalog/layer_view" name="catalog.rightnav" after="catalog.category" template="catalog/layer/view.phtml">
                 <action method="unsetChild">
                     <name>category_filter</name>
                 </action>
             </block>            
             <block type="filterproducts/special_home_list" name="special" template="catalog/navigation/special_product.phtml" />
-            <block type="core/template" name="right.zonda.ads" template="eternal/zonda/advertising.phtml"/>
-        </reference>
+            <block type="core/template" name="right.zonda.ads" template="eternal/zonda/advertising.phtml"/>-->
+        </reference> 
            
     </catalog_category_layered>  
     <catalog_product_view>
@@ -356,11 +359,11 @@
             <!-- add tabs -->
             <block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs" template="catalog/product/view/tabs.phtml" >
                 <!-- short description -->
-                <action method="addTab" translate="title" module="catalog"><alias>short_description</alias><title>Overview</title><block>catalog/product_view_description</block><template>catalog/product/view/short_description.phtml</template></action>
+                <!--<action method="addTab" translate="title" module="catalog"><alias>short_description</alias><title>Overview</title><block>catalog/product_view_description</block><template>catalog/product/view/short_description.phtml</template></action>-->
                 
                 <!-- description -->
                 <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
-                <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>Additional Info</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
+                <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>Details</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
                 
                 <!-- add reviews -->
                 <!-- see the second part: reference name="tabreviews".  Do not change 'tabreviews' alias. It is needed in JS script in catalog/product/view.phtml -->
@@ -370,7 +373,7 @@
                 <action method="addTab" translate="title" module="catalog"><alias>crosssell</alias><title>Cross Sells</title><block>catalog/product_view</block><template>catalog/product/view/crosssell.phtml</template></action>
                 
                 <!-- add tags -->
-                <action method="addTab" translate="title" module="tag"><alias>product.tags</alias><title>Product Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
+                <!--<action method="addTab" translate="title" module="tag"><alias>product.tags</alias><title>Product Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>-->
                 
             </block>
             

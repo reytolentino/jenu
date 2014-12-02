@@ -5,38 +5,6 @@
 #homeslider-revolution .revolution-slider {
     max-height: 800px;
 }
-
-.footer .icon-con{
-    background-image: url(../images/icons/icon_contact.png);
-    width: 36px;
-    height: 36px;
-    vertical-align: top;
-    margin-top: 1px;
-}
-.footer .footer-top .icon-con-tel{
-    background-position: 0 0;
-}
-.footer .footer-top .icon-con-mob{
-    background-position: -36px 0;
-}
-.footer .footer-top .icon-con-mail{
-    background-position: -72px 0;
-}
-.footer .footer-top .icon-con-sky{
-    background-position: -108px 0;
-}
-.footer .footer-main .icon-con-tel{
-    background-position: 0 -36px;
-}
-.footer .footer-main .icon-con-mob{
-    background-position: -36px -36px;
-}
-.footer .footer-main .icon-con-mail{
-    background-position: -72px -36px;
-}
-.footer .footer-main .icon-con-sky{
-    background-position: -108px -36px;
-}
 .footer .contact-detail{
     display: inline-block;
     margin-left: 15px;
@@ -47,66 +15,14 @@
     display: inline-block;
     margin: 2px;
 }
-.footer .social-links .icon {
-    background-image: url(../images/icons/icon_social.png);
-    width: 38px;
-    height: 39px;
-    padding: 0;
-}
-.footer .social-links a:hover .icon,
-.footer .social-links a:focus .icon {      
-    transition: background 300ms ease-in-out;
-    -moz-transition: background 300ms ease-in-out;
-    -webkit-transition: background 300ms ease-in-out;
-    -o-transition: background 300ms ease-in-out;
-}
 .footer .social-links .icon-facebook {
-    background-position: 0 0;
-}
-.footer .social-links a:hover .icon-facebook {
-    background-position: 0 -39px;
+    background-image: url(../images/icons/icon_fb.png);
 }
 .footer .social-links .icon-twitter {
-    background-position: -38px 0;
-}
-.footer .social-links a:hover .icon-twitter {
-    background-position: -38px -39px;
-}
-.footer .social-links .icon-rss {
-    background-position: -76px 0;
-}
-.footer .social-links a:hover .icon-rss {
-    background-position: -76px -39px;
-}
-.footer .social-links .icon-delicious {
-    background-position: -114px 0;
-}
-.footer .social-links a:hover .icon-delicious {
-    background-position: -114px -39px;
-}
-.footer .social-links .icon-linkedin {
-    background-position: -152px 0;
-}
-.footer .social-links a:hover .icon-linkedin {
-    background-position: -152px -39px;
-}
-.footer .social-links .icon-blog {
-    background-position: -190px 0;
-}
-.footer .social-links a:hover .icon-blog {
-    background-position: -190px -39px;
-}
-.footer .social-links .icon-skype {
-    background-position: -228px 0;
-}
-.footer .social-links a:hover .icon-skype {
-    background-position: -228px -39px;
+    background-image: url(../images/icons/icon_twitter.png);
 }
 .footer .social-links .icon-email {
-    background-position: -266px 0;
-}
-.footer .social-links a:hover .icon-email {
-    background-position: -266px -36px;
+    background-image: url(../images/icons/icon_email.png);
 }
 .fn.org,
 .adr,

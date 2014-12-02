@@ -51,12 +51,12 @@ $_helper = $this->helper('catalog/output');
                 </div>
                 <div class="price-review clearfix">
                     <?php echo $this->getPriceHtml($_product) ?>                    
-                    <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                    <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 </div>
                 <div class="info-container">
-                    <?php if ($this->canEmailToFriend()): ?>
+                    <?php /* if ($this->canEmailToFriend()): ?>
                         <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>" class="link-friend" title="<?php echo $this->__('Email to a Friend') ?>"><?php echo $this->__('Email To a Friend') ?></a></p>
-                    <?php endif; ?>
+                    <?php endif; */ ?>
                     
                     <?php echo $this->getChildHtml('alert_urls') ?>
                     <?php echo $this->getTierPriceHtml() ?>
@@ -65,6 +65,46 @@ $_helper = $this->helper('catalog/output');
                     <?php echo $this->getChildHtml('product_brand') ?>
                     <?php echo $this->getChildHtml('extrahint') ?>
                 </div>
+                
+                <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                    <?php echo $this->getBlockHtml('formkey') ?>
+                    <?php echo $this->getChildHtml('grouped_submit') ?>
+                    <div class="no-display">
+                        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                        <input type="hidden" name="related_product" id="related-products-field" value="" />
+                    </div>
+                <?php if (!$this->hasOptions()):?>
+                    <div class="add-to-box">
+                        <div class="product-options-bottom">
+                            <?php if($_product->isSaleable()): ?>
+                                <?php echo $this->getChildHtml('addtocart') ?>
+                            <?php endif; ?>
+                            <?php /* <div class="add-links-wrap clearfix">
+                                <?php echo $this->getChildHtml('addto') ?>
+                            </div> */ ?>
+                        </div>
+                    </div>
+                    <?php echo $this->getChildHtml('extra_buttons') ?>
+                <?php elseif (!$_product->isSaleable()): ?>
+                    <div class="add-to-box">     
+                        <div class="product-options-bottom">                   
+                            <div class="add-links-wrap clearfix">
+                                <?php echo $this->getChildHtml('addto') ?>                                
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <?php echo $this->getChildHtml('other');?>
+                
+                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                    <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                    <div class="add-to-box">
+                        <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                    </div>
+                <?php endif;?>
+                </form>
+
                 <?php if (($c['tabs']['tab_type'] == 'accordion') || (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'top'))): ?>
                 <div class="product-collateral">
                     <div class="product-info row">
@@ -90,44 +130,6 @@ $_helper = $this->helper('catalog/output');
                     </div>    
                 </div>
                 <?php endif; ?>
-                <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
-                    <?php echo $this->getBlockHtml('formkey') ?>
-                    <?php echo $this->getChildHtml('grouped_submit') ?>
-                    <div class="no-display">
-                        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
-                        <input type="hidden" name="related_product" id="related-products-field" value="" />
-                    </div>
-                <?php if (!$this->hasOptions()):?>
-                    <div class="add-to-box">
-                        <div class="product-options-bottom">
-                            <?php if($_product->isSaleable()): ?>
-                                <?php echo $this->getChildHtml('addtocart') ?>
-                            <?php endif; ?>
-                            <div class="add-links-wrap clearfix">
-                                <?php echo $this->getChildHtml('addto') ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php echo $this->getChildHtml('extra_buttons') ?>
-                <?php elseif (!$_product->isSaleable()): ?>
-                    <div class="add-to-box">     
-                        <div class="product-options-bottom">                   
-                            <div class="add-links-wrap clearfix">
-                                <?php echo $this->getChildHtml('addto') ?>                                
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php echo $this->getChildHtml('other');?>
-                
-                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                    <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-                    <div class="add-to-box">
-                        <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-                    </div>
-                <?php endif;?>
-                </form>
             </div>
         </div>
     

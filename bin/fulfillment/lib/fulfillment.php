@@ -55,7 +55,7 @@ extends Eco_Fulfillment_Api
 		$pass = $this->_auth->pass();
 
 		// Log into the store
-		$this->_api = new SoapClient($wsdl, array('trace' => 1, 'proxy_login'=>'prolog2m', 'proxy_password'=>'prolog2m'));
+		$this->_api = new SoapClient($wsdl, array('trace' => 1, 'proxy_login'=>'rtolentino', 'proxy_password'=>'Biosciences1'));
 		$sessionId = $this->_api->login($user, $pass);
 
 		// Capture the session ID for later use
@@ -570,7 +570,7 @@ extends Eco_Fulfillment_Api
 {
 	public $orderNumberPrefix = '845_'; // Needed for sandboxed environment
 	public $dateFormat = 'Y-m-d\Th:i:s'; // YYYY-MM-DDTHH:MM:SS
-	public $orderDelay = '999999'; //15; // Minutes
+	public $orderDelay = ''; //15; // Minutes
 	public $packingListMap = array(
 	// Defaul to consumer
         '__DEFAULT__' => '', // '57588416-82EE-4F96-B2C8-86309B74B176', 

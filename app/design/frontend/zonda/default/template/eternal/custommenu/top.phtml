@@ -1,10 +1,12 @@
 <?php
 $helper = $this->helper('eternal_custommenu');
 $_categories    = $this->getStoreCategories();
-if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNodes();
+if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNodes();    
 ?>
 <div class="nav-container">
     <div id="custommenu">
+
+
     <?php if ($helper->getConfig('general/type') == 'wide') : ?>
         <?php if ($this->showHomeLink()) : ?>
         <div class="menu home-link">
@@ -26,7 +28,8 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
             echo Mage::helper('blog')->getMenuWideLink();
         }?>
     <?php else: ?>
-        <ul id="nav">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_menu_block')->toHtml();?>
+        <?php /*?><ul id="nav">
             <?php if ($this->showHomeLink()) : ?>
             <li class="home-link">
                 <a href="<?php echo $this->getUrl('') ?>">
@@ -38,23 +41,25 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
                 </a>
             </li>
             <?php endif ?>
-            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_navigation')->toHtml(); ?>
+            <?php foreach ($_categories as $_category): ?>
+                <?php echo $this->drawCustomNarrowMenuItem($_category) ?>
+            <?php endforeach ?> 
             <?php if(Mage::helper('blog')->getEnabled() && Mage::helper('blog')->includeMenu()) {
                 echo Mage::helper('blog')->getMenuNarrowLink();
             }?>
-        </ul>
-    <?php endif; ?>
+        </ul><?php */?>
+    <?php endif; ?>                
         <?php echo $this->drawCustomMenuLinks() ?>
-        <?php echo $this->drawCustomMenuBlock() ?>
+        <?php echo $this->drawCustomMenuBlock() ?>        
         <div class="clearBoth"></div>
     </div>
     <div id="custommenu-mobile" style="display:none;">
         <div id="menu-button" onclick="eternalMenuButtonToggle()">
-            <a href="javascript:void(0);">
+            <a href="javascript:void(0);">                
                 <span type="button" class="btn btn-navbar navbar-btn" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                    
                 </span>
                 <span class="navbar-name">Navigation</span>
             </a>
@@ -72,10 +77,9 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
             <?php foreach ($_categories as $_category): ?>
                 <?php echo $this->drawCustomMenuMobileItem($_category) ?>
             <?php endforeach ?>
-            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_navigation_mobile')->toHtml(); ?>
             <?php if(Mage::helper('blog')->getEnabled() && Mage::helper('blog')->includeMenu()) {
                 echo Mage::helper('blog')->getMobileMenuLink();
-            }?>
+            }?> 
             <?php echo $this->drawCustomMobileMenuLinks() ?>
             <div class="clearBoth"></div>
         </div>

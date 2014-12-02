@@ -85,11 +85,6 @@ $b = $zonda->getConfigGroup();
             echo $this->getChildHtml('category.banner');
             
         ?>
-
-        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'dr-sonia-bahtra')): 
-             echo $this->getLayout()->createBlock('cms/block')->setBlockId('dr-sonia-bahtra-banner')->toHtml(); 
-        endif; ?>
-
         <?php $breadcrumbs_html = $this->getChildHtml('breadcrumbs') ?>
         <?php echo $breadcrumbs_html ?>
         <?php

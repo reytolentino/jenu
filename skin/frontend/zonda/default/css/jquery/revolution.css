@@ -1012,14 +1012,14 @@ font-family: 'Neutraface2TextDemi', sans-serif;
 font-weight: normal;
 line-height: 35px;
 padding: 5px 30px !important;
-background: #008ab0;
+background: #ffffff;
 }
 .tp-caption.small-button:hover {
     background: #82d2e5;
 }
 .tp-caption.small-button a,
 .tp-caption.small-button a:hover {
-    color: #ffffff;
+    color: #232323;
     text-transform: uppercase;
 }
 .tp-caption.center {

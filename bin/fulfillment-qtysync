@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo Sending request to synchronize quantity...
 SCR_DIR=$(dirname -- "$0")
 PHP_DIR=`which php`

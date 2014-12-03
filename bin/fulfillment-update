@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo Receiving orders from fulfillment...
 SCR_DIR=$(dirname -- "$0")
 PHP_DIR=`which php`

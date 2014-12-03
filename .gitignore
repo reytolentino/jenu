@@ -1,0 +1,13 @@
+app/etc/local.xml
+media/*
+media
+*.zip
+var/*
+.htaccess
+var/cache/**/*
+var/session/**/*
+var/session/*
+var/log/*
+var/locks/*
+var/report/*
+__MACOSX

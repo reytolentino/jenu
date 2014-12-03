@@ -234,7 +234,7 @@ abstract class Mage_Core_Helper_Abstract
      * @return  string
      */
     public function removeTags($html)
-    {
+    {/*
         $html = preg_replace_callback(
             "# <(?![/a-z]) | (?<=\s)>(?![a-z]) #xi",
             function ($matches) {
@@ -242,6 +242,7 @@ abstract class Mage_Core_Helper_Abstract
             },
             $html
         );
+*/
         $html =  strip_tags($html);
         return htmlspecialchars_decode($html);
     }

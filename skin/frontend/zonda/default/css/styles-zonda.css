@@ -3276,10 +3276,12 @@ div.cart-empty {
     z-index: 30;
     right: 0;
     bottom: 24%;
-    background-color: rgba(255,255,255,.85);
+    background-color: rgba(255,255,255,.65);
 	background-position: center center;
 	background-repeat: repeat;
-	opacity: 1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 #homeslider-revolution {
   	height:999px !important;
@@ -3287,7 +3289,6 @@ div.cart-empty {
 #homeslider-revolution .revolution-slider {
   max-height: 999px !important;
 }
-
 
 #homeslider-revolution .container .home-adv ul.bx-slider li{
     /*ewallchanges

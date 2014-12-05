@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Gorilla_GCatalog>
+            <version>0.1.0</version>
+        </Gorilla_GCatalog>
+    </modules>
+    
+    <frontend>
+        <routers>
+            <gcatalog>
+                <use>standard</use>
+                <args>
+                    <module>Gorilla_GCatalog</module>
+                    <frontName>gcatalog</frontName>
+                </args>
+            </gcatalog>
+        </routers>
+        <layout>
+            <updates>
+                <gcatalog>
+                    <file>gcatalog.xml</file>
+                </gcatalog>
+            </updates>
+        </layout>
+    </frontend>
+</config>

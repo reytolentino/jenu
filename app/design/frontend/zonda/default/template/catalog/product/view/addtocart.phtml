@@ -24,27 +24,231 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+$customer = Mage::getSingleton('customer/session');
+//echo $customer->isLoggedIn();
+$customerId = $customer->getId();
+$elements = array();
+if ($customerId > 0) {
+    unset($elements);
+    $elements = array();
+    $amount = Mage::getModel('sarp/subscription')
+        ->getCollection()
+        ->addCustomerFilter($customer)->count();
+    //echo $amount;
+
+
+    if ($amount) {
+        $collection = Mage::getModel('sarp/subscription')
+            ->getCollection()
+            ->addCustomerFilter($customer);
+        foreach ($collection as $subscription)	{
+            foreach ($subscription->getItems() as $item) {
+                //echo $item->getOrderItem()->getSku();
+                $elements[] = $item->getOrderItem()->getSku();
+            }
+        }
+
+        $elements = array_unique($elements);
+        //var_dump($elements);
+    } else {
+        $elements = array_unique($elements);
+    }
+} else {
+    $elements[] = 'gems1';
+    $elements[] = 'gems2';
+    $elements = array_unique($elements);
+}
+?>
+
+<?php
+$active_products = Mage::getStoreConfig('jenumodal/settings/active');
+$active_products = str_replace(' ', '', $active_products);
+$active = explode(',', $active_products);
+
+$canDo =  in_array($this->getProduct()->getSku(), $active);
+?>
+
+<script>
+    var current = '<?php echo $this->getProduct()->getSku() ?>';
+
+    beforeAdding = function() {
+        var loggedin = '<?php echo $customer->isLoggedIn() ?>';
+        var count = '<?php echo count($elements)?>';
+        var left1 = screen.width/2-416;
+        //alert(count);
+        if(loggedin && (count == 2)) {productAddToCartForm.submit(this);return true;}
+
+        //if(Get_Cookie('noallowed')) {productAddToCartForm.submit(this);return true;}
+        //if(!Get_Cookie('noallowed')) alert('Cookie was not set');
+        var active = '<?php echo $canDo ?>';
+        if (active=='1') {
+            $('subscription-wrapper').setStyle({ display: 'block' });
+            $('subscription-message').setStyle({ margin: '0 auto' });
+            $('subscription-message').setStyle({ top:'100px' });
+        } else {
+            productAddToCartForm.submit(this);
+        }
+    }
+
+    hideModal = function() {
+        $('subscription-wrapper').setStyle({ display: 'none' });
+        return false;
+    }
+
+    Set_Cookie = function( name, value, expires, path, domain, secure )
+    {
+        // set time, it’s in milliseconds
+        var today = new Date();
+        today.setTime( today.getTime() );
+
+        /*
+         if the expires variable is set, make the correct
+         expires time, the current script below will set
+         it for x number of days, to make it for hours,
+         delete * 24, for minutes, delete * 60 * 24
+         */
+        if ( expires ){
+            expires = expires * 1000 * 60 /** 60 * 24*/;
+        }
+
+
+        var expires_date = new Date( today.getTime() + (expires) );
+        document.cookie = name + "=" + escape( value ) +
+        ( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) +
+        ( ( path ) ? ";path=" + path : "" ) +
+        ( ( domain ) ? ";domain=" + domain : "" ) +
+        ( ( secure ) ? ";secure" : "" );
+    }
+
+    Get_Cookie = function( check_name ) {
+        // first we'll split this cookie up into name/value pairs
+        // note: document.cookie only returns name=value, not the other components
+        var a_all_cookies = document.cookie.split( ';' );
+        var a_temp_cookie = '';
+        var cookie_name = '';
+        var cookie_value = '';
+        var b_cookie_found = false; // set boolean t/f default f
+
+        for ( i = 0; i < a_all_cookies.length; i++ )
+        {
+            // now we'll split apart each name=value pair
+            a_temp_cookie = a_all_cookies[i].split( '=' );
+
+
+            // and trim left/right whitespace while we're at it
+            cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+
+            // if the extracted name matches passed check_name
+            if ( cookie_name == check_name )
+            {
+                b_cookie_found = true;
+                // we need to handle case where cookie has no value but exists (no = sign, that is):
+                if ( a_temp_cookie.length > 1 )
+                {
+                    cookie_value = unescape( a_temp_cookie[1].replace(/^\s+|\s+$/g, '') );
+                }
+                // note that in cases where cookie is initialized but no value, null is returned
+                return cookie_value;
+                break;
+            }
+            a_temp_cookie = null;
+            cookie_name = '';
+        }
+        if ( !b_cookie_found )
+        {
+            return null;
+        }
+    }
+</script>
+
+<script>
+    /*showResponse = function(){
+     alert('sent');
+     }*/
+
+    sleep = function(milliseconds) {
+        var start = new Date().getTime();
+
+        for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds) {
+                break;
+            }
+        }
+    }
+
+    function checkSubscription()
+    {
+        $$('.checkbox').each(function(e){
+
+            if (e.checked) {
+                var url = "<?php echo $this->getUrl('gcheckout/cart/sendqueue') ?>";
+                var ajaxRequest = new Ajax.Request(url, {
+                    method:       'get',
+                    parameters:   {product : e.id, aw_sarp_subscription_type : 4, aw_sarp_subscription_start : <?php echo date('m/d/y') ?>, agree : 1, qty : 1},
+                    asynchronous: false
+                });
+            }
+
+        });
+        //Set_Cookie('noallowed', 1, 0.1, '/' ,'', '');
+        sleep(4000);
+        productAddToCartForm.submit(this);
+
+    }
+
+</script>
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+        jQuery("span#continueButton").click(function(){
+            jQuery(this).html('Processing');
+        });
+    });
+</script>
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
-        <label for="qty"><?php echo $this->__('Qty:') ?></label>
-        <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
-        <a href="javascript:void(0)" class="button button-up"><span>+</span></a>
-        <script type="text/javascript">
-        //<![CDATA[
-        jQuery(function($) {
-            $('.add-to-cart .button-up').click(function() {
-                $qty = $(this).parent().find('.qty');
-                qty = parseInt($qty.val()) + 1;
-                $qty.val(qty);
-            });
-        });
-        //]]>
-        </script>
+            <label for="qty"><?php echo $this->__('Qty:') ?></label>
+            <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() == null ? 1 : $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
         <?php endif; ?>
-        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="<?php echo (int)Mage::getStoreConfig('jenumodal/settings/enabled') ? 'beforeAdding();return false;' : 'productAddToCartForm.submit(this)' ?>"><span><span><?php echo $buttonTitle ?></span></span></button>
+        <?php echo $this->getChildHtml('', true, true) ?>
     </div>
-    <div class="add-to-cart-extra"><?php echo $this->getChildHtml('', true, true) ?></div>
+
 <?php endif; ?>
+
+
+
+
+
+

@@ -258,7 +258,7 @@ p.required {
   -web-kit-box-shadow:0 1px 1px #d5d5d5; 
   -ms-box-shadow:0 1px 1px #d5d5d5; 
   line-height: 1.4825;
-  opacity: 1;
+  opacity: 0.9;
   position: relative;
   width: 100%;
   z-index: 100;
@@ -1433,7 +1433,7 @@ button.button span.name{
   color: #fff;
   content: "";
   display: inline-block;
-  font-weight: bold;
+  font-weight: normal;
   height: 29px;
   margin: 0 10px;
   padding: 6px;
@@ -3276,7 +3276,6 @@ div.cart-empty {
     z-index: 30;
     right: 0;
     bottom: 24%;
-    background-color: rgba(255,255,255,.85);
 	background-position: center center;
 	background-repeat: repeat;
 	opacity: 1;
@@ -3295,6 +3294,9 @@ div.cart-empty {
     padding: 9px 9px;
     width: 452px !important;
     border-bottom: 1px dotted #FFF;
+	    margin-bottom: 10px;
+	    background-color: rgba(255,255,255,0.9) !important;
+	border-radius:8px;
 }
 
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
@@ -3819,6 +3821,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-weight: normal;
 }
 /*********************************** CMS Pages **************************************/
+.cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container { 
+    position: absolute;
+} 
 .cms-page-view .breadcrumbs  {
     padding: 14px 0;
 }
@@ -3843,13 +3848,14 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     max-width: 100%;
 }
 .dr-content .dr-image {
-    width: 31.9%;
+    float: right;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 0;
+    width: auto;
 }
 .dr-content .dr-image img {
     max-width: 100%;
-}
-.dr-content .dr-right-content {
-    width: 68%;
 }
 .dr-content .dr-right-content .dr-name {
     color: #262626;
@@ -3866,6 +3872,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .dr-content .dr-right-content .dr-desc p {
     line-height: 1.2;
     margin: 0 0 15px;
+}
+.dr-content .dr-right-content .dr-desc p:last-child {
+    margin: 0;
 }
 .customer-content .col-title {
     border-bottom: 2px solid #262626;
@@ -3895,6 +3904,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .dr-content .dr-image {
     width: 100%;
     text-align: center;
+	padding-left: 0;
 }
 .dr-content .dr-image img {
     max-width: auto;
@@ -3913,3 +3923,298 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-right: 0;
 }
 }
+
+/********************************* Bio Sciences Page *****************************/
+.cms-jenu-biosciences .left-tabs {
+	width: 22.4%;
+}
+.cms-jenu-biosciences .bio-content {
+	width: 77.6%;
+}
+.cms-jenu-biosciences .left-tabs ul {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border-bottom: 2px solid #ebebeb;
+    padding-bottom: 10px;
+}
+.cms-jenu-biosciences .left-tabs ul li {
+}
+.cms-jenu-biosciences .left-tabs ul li a {
+    color: #777777;
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.cms-jenu-biosciences .left-tabs ul li.active a {
+    background-color: #EBEBEB;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.cms-jenu-biosciences .left-tabs ul li:hover a {
+    color: #66b1b8;
+    background-color: #FFFFFF;
+}
+.cms-jenu-biosciences .left-tabs ul li.active:hover a {
+    color: #777777;
+    background-color: #EBEBEB;
+}
+.cms-jenu-biosciences .bio-content h2 {
+    color: #008ab0;
+    font-family: Neutraface2TextDemi;
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+.cms-jenu-biosciences .bio-content p {
+    color: #262626;
+    font-family: Neutraface2TextBook;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+.bio-banner  img {
+	max-width: 100%;
+}
+
+@media(max-width: 767px){
+.cms-jenu-biosciences .left-tabs {
+	width: 100%;
+}
+.cms-jenu-biosciences .bio-content {
+	width: 100%;
+	margin-top: 25px;
+}	
+}
+/*********************************************************************************/
+
+/******************************* Home Page Bottom Section ************************/
+.cms-index-index .main-container .main {
+    display: block !important;
+}
+.footer-above {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+.footer-above .content {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.footer-above .content img {
+    width: 100%;
+}
+.footer-above .col4 .title {
+    background: none repeat scroll 0 0 #83d1e5;
+    border-radius: 0 3px 3px 0;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px 18px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 20px;
+    font-family: Neutraface2TextDemi;
+    line-height: 18px;
+    display: block;
+}
+.footer-above .col4 .learn {
+    background: none repeat scroll 0px 0px #008AAF;
+    border-radius: 6px;
+    bottom: 20px;
+    box-shadow: 0px 0px 3px 0px;
+    color: #FFF;
+    cursor: pointer;
+    padding: 10px 14px;
+    position: absolute;
+    right: 20px;
+    line-height: 12px;
+    display: block;
+    text-transform: uppercase;
+    font-family: "Neutraface2TextDemi";
+}
+.footer-above .col4 .text {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    left: 20px;
+    line-height: 18px;
+    position: absolute;
+    top: 80px;
+    width: 100px;
+    font-family: Neutraface2TextBook;
+    font-style: italic;    
+}
+.footer-above .clinical-results .text { 
+    width: 120px; 
+}
+
+@media(max-width: 991px){
+.footer-above .clinical-results {
+    margin-top: 30px;
+}
+}
+@media(max-width: 767px){
+.footer-above .jenu-system {
+    margin-top: 30px;
+}
+}
+/*********************************************************************************/
+
+/******************************* Ultrasound Page Design **************************/
+.ultra-banner img {
+    width: 100%;
+}
+.ultrasound {
+    display: block;
+    overflow: hidden;
+}
+.ultrasound .ultra-top {
+    clear: both;
+    display: block;
+    padding-bottom: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 70px;
+}
+.ultrasound .ultra-top h2 {
+    color: #262626;
+    margin-bottom: 10px;
+}
+.ultrasound .ultra-top p {
+    color: #262626;
+    font-family: Neutraface2TextBook;
+    font-size: 16px;
+    line-height: 1.2;
+} 
+.ultrasound .ultra-top .ultra-top-right {
+    text-align: center;
+}
+.ultrasound .ultra-bottom {
+    display: block;
+    overflow: hidden;
+    background: url("../images/image-bg2.png") no-repeat scroll center 0 transparent; 
+}
+.ultrasound .ultra-bottom-inner {
+    margin-top: 135px;
+}
+.ultrasound .timepoint.odd {
+    box-sizing: border-box;
+    float: left;
+    margin-bottom: 70px;
+    padding-right: 6px;
+    width: 50%;
+    position: relative;
+}
+.ultrasound .timepoint.even {
+    box-sizing: border-box;
+    float: right;
+    margin-top: 70px;
+    padding-left: 9px;
+    width: 50%;
+    position: relative;
+}
+.ultrasound .timepoint.odd .ultra-image {
+    box-sizing: border-box;
+    float: left;
+    padding-right: 21px;
+    width: 44.7%;
+}
+.ultrasound .timepoint.odd .ultra-year-text {
+    float: right;
+    width: 55.3%;
+}
+.ultrasound .timepoint.odd .ultra-text {
+    color: #3a3a3a;
+    font-family: Neutraface2TextBook;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 25px;
+    width: 80%;
+}
+.ultrasound .timepoint.even .ultra-image {
+    box-sizing: border-box;
+    float: right;
+    padding-left: 21px;
+    width: 44.7%;
+}
+.ultrasound .timepoint.even .ultra-year-text {
+    float: left;
+    width: 55.3%;
+}
+.ultrasound .timepoint.even .ultra-year {
+    text-align: right;
+}
+.ultrasound .timepoint.even .ultra-text {
+    clear: both;
+    color: #3a3a3a;
+    float: right;
+    font-family: Neutraface2TextBook;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 25px;
+    text-align: right;
+    width: 74%;
+}
+.ultrasound .timepoint.yr-1915 {
+    margin-top: 7px;
+}
+.ultrasound .timepoint.yr-1920-1940 {
+    margin-top: 77px;
+}
+.ultrasound .timepoint.yr-1942 {
+    margin-bottom: 48px;
+    margin-top: 6px;
+}
+.ultrasound .timepoint.yr-1953 {
+    margin-top: 76px;
+}
+.ultrasound .timepoint.yr-1958 {
+    margin-top: 28px;
+}
+.ultrasound .timepoint.yr-1980 {
+    margin-top: 77px;
+}
+.ultrasound .timepoint.yr-1990 {
+    margin-top: 8px;
+}
+.ultrasound .timepoint.yr-2009 {
+    margin-top: 76px;
+}
+.ultrasound .timepoint.yr-2015 {
+    margin-top: 12px;
+}
+.ultrasound .timepoint.yr-2015 .ultra-year-text { 
+    position: relative;
+}
+.ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
+    position: absolute;
+    top: 140px;
+    width: 68%;
+    color: #4f4f4f;
+    line-height: 1.4;
+}
+.ultrasound .timepoint.yr-1920-1940 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: right;
+    width: 67%;
+}
+.ultrasound .timepoint.yr-1980 .ultra-year { 
+    background: none repeat scroll 0 0 #ffffff;
+    float: right;
+    width: 33%;
+}
+.ultrasound .timepoint.yr-1990 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: left;
+    width: 33%;
+}
+.ultrasound .timepoint.yr-2009 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: right;
+    width: 32%;
+}
+.cms-ultrasound-101 .main {
+    margin-bottom: 2px;
+}
+/*********************************************************************************/

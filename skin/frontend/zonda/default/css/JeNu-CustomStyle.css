@@ -47,15 +47,24 @@
 
 #homeslider-revolution .small-button {
   font-size: 14px !important;
-  top: 540px !important;
+  top: 546px !important;
 /* left: 434px !important; */
 text-shadow: -1px -1px 2px rgba(0,0,0,.2);
+border-radius:10px;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
 }
+
+.tp-caption.small-button:hover {
+background-color:rgba(255,255,255,.85);	
+}
+
 
 #homeslider-revolution .black_small_text {
 	font-size:15px;
 	left:192px !important;
 }
+
 .header-container {
 background-color: rgba(255,255,255,.95) !important;
 background-position: center center;
@@ -71,8 +80,14 @@ font-weight: normal;
 padding: 0 48px !important;
 font-size: 12px;
 text-shadow: -1px -1px 2px rgba(0,0,0,.2);
+border-radius: 8px;
 }
 
+.button {
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+}
 
 div.menu a, #nav li a, #blog_nav li a, #nav-links a {
   font-family: "Neutraface2TextBook";

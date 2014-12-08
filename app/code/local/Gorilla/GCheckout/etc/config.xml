@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Gorilla_GCheckout>
+            <version>0.1.0</version>
+        </Gorilla_GCheckout>
+    </modules>
+    
+    <frontend>
+        <routers>
+            <gcheckout>
+                <use>standard</use>
+                <args>
+                    <module>Gorilla_GCheckout</module>
+                    <frontName>gcheckout</frontName>
+                </args>
+            </gcheckout>
+        </routers>
+        <layout>
+            <updates>
+                <gcheckout>
+                    <file>gcheckout.xml</file>
+                </gcheckout>
+            </updates>
+        </layout>
+    </frontend>
+    
+    <global>
+        <blocks>
+            <gcheckout><class>Gorilla_GCheckout_Block</class></gcheckout>
+        </blocks>
+        <routers>
+            <checkout>
+                <rewrite>
+                    <cart>
+                        <actions>
+                            <add>
+                                <to>gcheckout/cart/add</to>
+                            </add>
+                        </actions>
+                    </cart>
+                </rewrite>
+            </checkout>
+        </routers>
+    </global>
+
+</config>

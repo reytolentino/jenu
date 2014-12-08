@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Gorilla_GNewsletter>
+            <version>0.1.0</version>
+        </Gorilla_GNewsletter>
+    </modules>
+    
+    <frontend>
+        <routers>
+            <gnewsletter>
+                <use>standard</use>
+                <args>
+                    <module>Gorilla_GNewsletter</module>
+                    <frontName>gnewsletter</frontName>
+                </args>
+            </gnewsletter>
+        </routers>
+        <!--
+        <layout>
+            <updates>
+                <gnewsletter>
+                    <file>gnewsletter.xml</file>
+                </gnewsletter>
+            </updates>
+        </layout>
+        -->
+    </frontend>
+</config>

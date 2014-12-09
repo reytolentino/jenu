@@ -100,4 +100,4 @@ else {
 }
 
 // Send error report
-sendErrorReport();
+//sendErrorReport();

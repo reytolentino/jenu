@@ -3278,9 +3278,7 @@ div.cart-empty {
     bottom: 24%;
 	background-position: center center;
 	background-repeat: repeat;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+	opacity: 1;
 }
 #homeslider-revolution {
   	height:999px !important;
@@ -3288,6 +3286,7 @@ div.cart-empty {
 #homeslider-revolution .revolution-slider {
   max-height: 999px !important;
 }
+
 
 #homeslider-revolution .container .home-adv ul.bx-slider li{
     /*ewallchanges

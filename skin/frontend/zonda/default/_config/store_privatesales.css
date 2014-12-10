@@ -1,5 +1,5 @@
 /* System Config Styles */
-/* Created at 2014-12-01 19:51:59 */
+/* Created at 2014-12-06 06:33:07 */
 
 /*========== Common Styles ==========*/
 body {
@@ -141,7 +141,7 @@ textarea,
     width: 190px;
     line-height: 120px;
     text-align: center !important;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 .header-container.fixed .header-menu-container {
    max-width: 1030px;
@@ -151,7 +151,7 @@ textarea,
     height: 70px;
     line-height: 70px;
     text-align: center !important;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 .header-top{
     border-bottom: solid 1px rgba(0,0,0,0.2);    

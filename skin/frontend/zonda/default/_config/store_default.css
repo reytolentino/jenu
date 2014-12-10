@@ -1,5 +1,5 @@
 /* System Config Styles */
-/* Created at 2014-12-01 19:51:59 */
+/* Created at 2014-12-06 06:33:07 */
 
 /*========== Common Styles ==========*/
 body {
@@ -15,7 +15,7 @@ h5,
 h6,
 .page-title h1, 
 .page-title h2 {
-            font-family: "Neutraface2TextDemi";
+            font-family: "Conv_Neutraface2Text-Bold";
         color: #373737;
 }
 a {
@@ -141,7 +141,7 @@ textarea,
     width: 190px;
     line-height: 120px;
     text-align: center !important;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 .header-container.fixed .header-menu-container {
    max-width: 1030px;
@@ -151,11 +151,13 @@ textarea,
     height: 70px;
     line-height: 70px;
     text-align: center !important;
-    background-color: #ffffff;
+    background-color: transparent;
 }
-
+.header-top{
+    border-bottom: solid 1px rgba(0,0,0,0.2);    
+}
 .header-menu{
-    border-top: solid 0px rgba(255,255,255,0.1);    
+    border-top: solid 1px rgba(255,255,255,0.1);    
 }
 .header-container.fixed .header-menu{
     border: none;
@@ -270,16 +272,11 @@ div.menu{
 div.menu a,
 #nav li a,
 #blog_nav li a,
-
-
 #nav-links a{
     font-size: 14px;
-            font-family: "Neutraface2TextDemi"; /* DO NOT CHANGE */
+            font-family: "Conv_Neutraface2Text-Bold";
                 padding: 0 12px;
     }
-
-
-
 div.menu a:hover,
 div.menu a:focus,
 div.menu.active a,
@@ -419,7 +416,7 @@ div.eternal-custom-menu-popup a.level2:hover,
     background-repeat: repeat;
     font-size: 12px;
     font-weight: normal;
-    font-family: "Neutraface2TextBook", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Carme", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .footer-tweets {
     background-color: #e4e4e4;
@@ -455,7 +452,7 @@ div.eternal-custom-menu-popup a.level2:hover,
     color: #dadada;
     font-size: 14px;
     font-weight: normal;
-    font-family: "Neutraface2TextDemi", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Carme", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .footer-top h3,
 .footer-top .title {
@@ -514,9 +511,9 @@ div.eternal-custom-menu-popup a.level2:hover,
 /*========== Main ==========*/
 /*========== Breadcrumbs ==========*/
 .breadcrumbs {
-    color: #888;
-    font-family: "Neutraface2TextBook",Helvetica,sans-serif;
-    font-size: 12px;
+    color: #888888;
+            font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 12px;
     font-weight: normal;
 }
 .breadcrumbs a {
@@ -529,7 +526,7 @@ div.eternal-custom-menu-popup a.level2:hover,
 .product-essential-inner .product-img-box,
 .cc-item-container {
     background: #fcfcfc;
-    border: 1px solid #f4f4f4;
+    border: solid 1px #e0e0e0;
 }
 .products-grid .ratings {
     background: #fcfcfc;

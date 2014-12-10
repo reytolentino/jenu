@@ -6,7 +6,7 @@
  * @see Mage_Review_Block_Product_View
  */
 ?>
-<?php
+<?php 
 $zonda = $this->helper('zonda');
 $b = $zonda->getConfigGroup();
 $c = $zonda->getConfigGroupDesign();
@@ -22,13 +22,6 @@ $_helper = $this->helper('catalog/output');
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential row">
-        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
-            <?php echo $this->getBlockHtml('formkey') ?>
-            <?php echo $this->getChildHtml('grouped_submit') ?>
-            <div class="no-display">
-                <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
-                <input type="hidden" name="related_product" id="related-products-field" value="" />
-            </div>
         <div class="product-essential-inner col12">
             <div class="product-img-box">
                 <?php echo $this->getChildHtml('media') ?>
@@ -57,23 +50,29 @@ $_helper = $this->helper('catalog/output');
                     <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
                 <div class="price-review clearfix">
-                    <?php echo $this->getPriceHtml($_product) ?>
+                    <?php echo $this->getPriceHtml($_product) ?>                    
                     <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 </div>
                 <div class="info-container">
                     <?php /* if ($this->canEmailToFriend()): ?>
                         <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>" class="link-friend" title="<?php echo $this->__('Email to a Friend') ?>"><?php echo $this->__('Email To a Friend') ?></a></p>
                     <?php endif; */ ?>
-
+                    
                     <?php echo $this->getChildHtml('alert_urls') ?>
                     <?php echo $this->getTierPriceHtml() ?>
-                    <?php echo $this->getChildHtml('product_type_data') ?>
+                    <?php echo $this->getChildHtml('product_type_data') ?>                    
                     <?php echo $this->getChildHtml('product_code') ?>
                     <?php echo $this->getChildHtml('product_brand') ?>
                     <?php echo $this->getChildHtml('extrahint') ?>
                 </div>
-
-
+                
+                <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                    <?php echo $this->getBlockHtml('formkey') ?>
+                    <?php echo $this->getChildHtml('grouped_submit') ?>
+                    <div class="no-display">
+                        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                        <input type="hidden" name="related_product" id="related-products-field" value="" />
+                    </div>
                 <?php if (!$this->hasOptions()):?>
                     <div class="add-to-box">
                         <div class="product-options-bottom">
@@ -87,17 +86,17 @@ $_helper = $this->helper('catalog/output');
                     </div>
                     <?php echo $this->getChildHtml('extra_buttons') ?>
                 <?php elseif (!$_product->isSaleable()): ?>
-                    <div class="add-to-box">
-                        <div class="product-options-bottom">
+                    <div class="add-to-box">     
+                        <div class="product-options-bottom">                   
                             <div class="add-links-wrap clearfix">
-                                <?php echo $this->getChildHtml('addto') ?>
+                                <?php echo $this->getChildHtml('addto') ?>                                
                             </div>
                         </div>
                     </div>
                 <?php endif; ?>
 
                 <?php echo $this->getChildHtml('other');?>
-
+                
                 <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                     <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <div class="add-to-box">
@@ -106,89 +105,18 @@ $_helper = $this->helper('catalog/output');
                 <?php endif;?>
                 </form>
 
-                <?php if($_product->isSaleable()): ?>
-                    <div id="subscription-wrapper">
-                        <form action="<?php echo $this->getUrl('gcheckout/subscription/confirm') ?>" method="post" id="special_product_subscription">
-
-                            <div id="subscription-message">
-
-                                <div class="page-title">
-                                    <div class='product_image'></div>
-                                    <div class="information-title">
-                                        <h1>Beautiful skin and terrific savings - what's not to love?</h1>
-                                        <p>Join the Replenish & Save Program and you'll get a 20% discount on automatic refills of your favorite JeNu products!</p>
-                                    </div>
-                                    <div class="close-bottom" onclick="hideModal();">
-                                    </div>
-                                </div>
-                                <div class="title-separator"></div>
-                                <div class="notify-text">
-
-                                    <h1>Yes! Please enroll me in the Replenish & Save program</h1>
-				<span>It's easy! Every two months from the date of your first order (which we are shipping immediately), we will auto-ship the treatments you
-select below and give you a 20% discount. Checking the box(es) means you agree to have your credit card charged every two months
-when the Replenish & Save Program product(s) ship. But no worries, you can cancel your membership in the program at any time by
-calling JeNu Customer Service at 866-565-JENU.
-				</span>
-                                </div>
-                                <div class="box-new-product">
-                                    <?php
-                                    $active_offers = Mage::getStoreConfig('jenumodal/settings/offers');
-                                    $active_offers = str_replace(' ', '', $active_offers);
-                                    $offers = explode(',', $active_offers);
-                                    ?>
-                                    <?php foreach($offers as $n=>$offer): ?>
-                                        <div class="add-new-product">
-                                            <?php if (!in_array($offer, $elements) && !empty($offer)) : ?>
-                                                <?php $special_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $offer) ?>
-                                                <?php if (is_object($special_product)) : ?>
-                                                    <input type="checkbox" class="checkbox" alt="<?php echo $special_product->getName() ?>" id="<?php echo $special_product->getId() ?>">
-                                                    <div class="productname-area">
-                                                        <a href="<?php echo $special_product->getProductUrl() ?>" >
-                                                            <?php echo $special_product->getName() ?>
-                                                        </a>
-                                                        <span> - <?php echo Mage::helper('core')->formatPrice($special_product->getAwSarpSubscriptionPrice(), false); ?></span>
-                                                        <span class="lower-interests">- <?php echo 100 - number_format(($special_product->getAwSarpSubscriptionPrice()/$special_product->getPrice()) * 100, 0) ?>% savings</span>
-                                                    </div>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-                                        </div>
-                                        <script>
-                                            jQuery(".sub-image.<?php echo $offer ?>").mouseover(function(){
-                                                jQuery("#toll-tips-pdp.<?php echo $offer ?>").show();
-                                            });
-                                            jQuery(".sub-image.<?php echo $offer ?>").mouseout(function(){
-                                                jQuery("#toll-tips-pdp.<?php echo $offer ?>").hide();
-                                            });
-                                        </script>
-
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="buttons-confirmation">
-                                    <div class="button-spec" id="spec-sending" onclick="checkSubscription();">
-				<span>
-					<span id="continueButton"><?php echo $this->__('Continue to Cart') ?></span>
-				</span>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                <?php endif; ?>
-
                 <?php if (($c['tabs']['tab_type'] == 'accordion') || (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'top'))): ?>
                 <div class="product-collateral">
                     <div class="product-info row">
                         <div class="col12 product-tabs">
                             <div class="box-additional box-tabs">
-                                <?php
+                                <?php 
                                 $info_tabs_html = trim($this->getChildHtml('info_tabs'));
-                                if ($info_tabs_html)
-                                    echo $info_tabs_html;
+                                if ($info_tabs_html) 
+                                    echo $info_tabs_html; 
                                 ?>
                             </div>
-                        </div>
+                        </div>            
                         <script type="text/javascript">
                         //<![CDATA[
                         jQuery(function($){
@@ -199,12 +127,12 @@ calling JeNu Customer Service at 866-565-JENU.
                         });
                         //]]>
                         </script>
-                    </div>
+                    </div>    
                 </div>
                 <?php endif; ?>
             </div>
         </div>
-
+    
     <?php if(Mage::getStoreConfig('ajaxcart/addtocart/enableproduct')): ?>
         <script type="text/javascript">
         //<![CDATA[
@@ -253,7 +181,7 @@ calling JeNu Customer Service at 866-565-JENU.
                         } catch (e) {
                         }
                     }
-
+                                    
                     this.form.action = oldUrl;
                     if (e) {
                         throw e;
@@ -316,20 +244,19 @@ calling JeNu Customer Service at 866-565-JENU.
         </script>
         <?php endif; ?>
     </div>
-
     <?php if (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'left')) : ?>
         <div class="product-collateral">
-                    <div class="product-info row">
+                    <div class="product-info row">                    
                         <div class="col12 product-tabs">
                             <div class="box-additional box-tabs">
-                                <?php
+                                <?php 
                                 $info_tabs_html = trim($this->getChildHtml('info_tabs'));
-                                if ($info_tabs_html)
-                                    echo $info_tabs_html;
+                                if ($info_tabs_html) 
+                                    echo $info_tabs_html; 
                                 ?>
                             </div>
-                        </div>
-                    </div>
+                        </div>            
+                    </div>    
                 </div>
                 <script type="text/javascript">
                 //<![CDATA[

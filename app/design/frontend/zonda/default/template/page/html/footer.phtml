@@ -115,9 +115,13 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
             $gm_html = $this->getChildHtml('google_map');
         if ($b['footer']['footer_col_1'] == 'default' || $b['footer']['footer_col_2'] == 'default' || $b['footer']['footer_col_3'] == 'default' || $b['footer']['footer_col_4'] == 'default')   
             $links_html = $this->getChildHtml('footer_links');
-        
+
         $cols_main = array();
         $col_main_count = 0;
+        // loading the filter which will get the array we created and parse the block content
+        $filter = Mage::getModel('cms/template_filter');
+        /* @var $filter Mage_Cms_Model_Template_Filter */
+        $filter->setVariables($cols_main);
         for ($i = 1; $i <= 4; $i++) {
             $col = array();
             switch ($b['footer']['footer_col_'.$i]) {
@@ -151,7 +155,7 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
                         $block = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load($block_id);
                         if ($block) {
                             $col['title'] = $block->getTitle();
-                            $col['content'] = $block->getContent();
+                            $col['content'] = $filter->filter($block->getContent());
                         }
                     }
             }
@@ -166,10 +170,12 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
     <div class="footer-main">        
         <div class="container">
             <div class="row clearfix">
-                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_account_info')->toHtml(); ?>
-                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_our_offers')->toHtml(); ?>
-                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_footer_contact')->toHtml(); ?>
-                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_more_links')->toHtml(); ?>
+                <?php foreach ($cols_main as $col) : ?>
+                    <div class="<?php echo $col_main_class ?> footer_column footer-column-<?php echo $i; $i++; ?>">
+                        <?php if ($col['title']) : ?><h3 class="title"><?php echo $col['title'] ?></h3><?php endif; ?>
+                        <?php echo $col['content'] ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

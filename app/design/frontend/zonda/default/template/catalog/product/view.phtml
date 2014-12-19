@@ -107,6 +107,7 @@ $_helper = $this->helper('catalog/output');
                 </form>
 
                 <?php if($_product->isSaleable()): ?>
+                    <!--
                     <div id="subscription-wrapper">
                         <form action="<?php echo $this->getUrl('gcheckout/subscription/confirm') ?>" method="post" id="special_product_subscription">
 
@@ -175,6 +176,7 @@ calling JeNu Customer Service at 866-565-JENU.
                             </div>
                         </form>
                     </div>
+                    -->
                 <?php endif; ?>
 
                 <?php if (($c['tabs']['tab_type'] == 'accordion') || (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'top'))): ?>

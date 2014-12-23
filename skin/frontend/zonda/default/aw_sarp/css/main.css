@@ -3,8 +3,28 @@
 }
 
 .sarp-subscription li {
+    list-style: none;
     line-height: 1.5;
     padding: 2px 0;
+}
+
+.sarp-subscription li .sub-price {
+    display: inline-block;
+    font-size: 18px;
+    color: #66b1b8;
+    padding-left: 10px;
+}
+
+.sarp-subscription li span {
+    font-size: 16px;
+}
+
+.sarp-subscription li .sub-price .price-box {
+    padding: 0;
+}
+
+.sarp-subscription label {
+    display: none;
 }
 
 .sarp-subscription input.radio {
@@ -32,4 +52,8 @@
 .aw-sarp-first-subscription-notice .required {
     color: #EB340A
 }
-.catalog-product-view .sarp-subscription input.radio  {margin-top:0}
+.catalog-product-view .sarp-subscription input.radio  {margin: 8px 5px 0 0;}
+
+.product-shop .price-review {
+    display: none;
+}

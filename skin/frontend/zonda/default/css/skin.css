@@ -15,15 +15,6 @@
     display: inline-block;
     margin: 2px;
 }
-.footer .social-links .icon-facebook {
-    background-image: url(../images/icons/icon_fb.png);
-}
-.footer .social-links .icon-twitter {
-    background-image: url(../images/icons/icon_twitter.png);
-}
-.footer .social-links .icon-email {
-    background-image: url(../images/icons/icon_email.png);
-}
 .fn.org,
 .adr,
 .working-days,

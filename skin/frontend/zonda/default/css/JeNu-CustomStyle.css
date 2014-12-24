@@ -284,16 +284,3 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-family: "Neutraface2TextBook","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 
 }
-
-
-.footer h3, .footer .title {
-    color: #DADADA;
-    font-size: 14px;
-    font-weight: normal;
-    font-family: "Neutraface2TextDemi","Helvetica Neue",Helvetica,Arial,sans-serif !important;
-}
-
-.footer {
-    font-family: "Neutraface2TextBook","Helvetica Neue",Helvetica,Arial,sans-serif !important;
-    font-size:13px !important;
-}

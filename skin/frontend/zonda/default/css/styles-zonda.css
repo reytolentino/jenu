@@ -611,10 +611,9 @@ input.input-text {
     width: 64px;
     padding: 0;
 }
-.nav-container {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+.nav-container{
+    background: none;
     float: left;
-    width: 100%;
 }
 .quick-access{
     float: right;
@@ -3714,7 +3713,6 @@ div.eternal-custom-menu-popup > div, #custommenu-mobile #menu-content, #nav ul, 
     position: absolute;
     right: 0;
     z-index: 1000;
-    display: none;
 }
 #nav .float-right {
     float: right;

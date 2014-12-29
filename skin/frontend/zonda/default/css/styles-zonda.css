@@ -90,13 +90,9 @@ p {
     display: none;
 }
 [class^="icon-"], [class*=" icon-"] {
-    background-repeat: no-repeat;
     display: inline-block;
-    height: 36px;
     line-height: 14px;
     margin-top: 1px;
-    vertical-align: text-top;
-    width: 40px;
     padding: 0;
 }
 
@@ -447,6 +443,10 @@ p.required {
 .block-minicart .dropdown-menu .block-content {
     padding: 0;
 }
+.block-minicart .dropdown-menu .block-content .empty {
+    line-height: normal;
+    font-size: 13px;
+}
 .block .actions {
     padding: 5px 0;
 }
@@ -679,6 +679,7 @@ button.button span.name{
 }
 #custommenu-mobile .mobile-menu-content {
     margin: 0 15px;
+    z-index: 9;
 }
 #custommenu-mobile .btn-navbar {
     padding: 0;
@@ -1535,7 +1536,6 @@ button.button span.name{
 .product-view .box-up-sell h1.subtitle,
 .product-view .block-related h1.subtitle {
     font-size: 25px;
-    font-weight: 600;
 }
 .product-view .product-shop .price-review .price-box {
     float: left;
@@ -1591,6 +1591,12 @@ button.button span.name{
 .std address,
 .std blockquote {
     line-height: 1.6;
+}
+.product-tabs-content ul {
+    list-style:disc outside; padding-left:18px; margin:0 0 10px;
+}
+.product-tabs-content ul li {
+    margin-left: 15px;
 }
 .data-con {
     display: block;
@@ -1717,6 +1723,20 @@ button.button span.name{
 }
 .sbHolder {
     margin-left: 10px;
+}
+#payment_form_authorizenetcim {
+    padding-bottom: 8px;
+    float: left;
+    clear: both;
+    display: block;
+}
+#payment_form_authorizenetcim .sbHolder {
+    margin-left: 0;
+    width: 146px;
+}
+#payment_form_authorizenetcim li#authorizenetcim_cc_new_card_form ul li {
+    display: block;
+    margin-bottom: 8px;
 }
 .sorter .sort-by .sbHolder,
 .sorter .sort-by .sbOptions {
@@ -1945,7 +1965,7 @@ td,
     font-weight: normal;
 }
 .form-list li {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .form-list .input-box,
 .form-list textarea
@@ -2324,6 +2344,12 @@ td.for-desktop {
 .checkout-cart-index .cart-table td {
     vertical-align: top;
     font-size: 15px;
+}
+.order-review .product-image img {
+    width: auto;
+}
+.order-review .product-shop {
+    margin: 10px auto;
 }
 .rm-td .btn-remove {
     float: none;
@@ -3275,44 +3301,19 @@ div.cart-empty {
     position: absolute;
     z-index: 30;
     right: 0;
-    bottom: 8%;
-    background-position: center center;
-    background-repeat: repeat;
-    opacity: 1;
+    bottom: 10%;
 }
-#homeslider-revolution {
-    height:847px !important;
-}
-#homeslider-revolution .revolution-slider {
-    max-height: 847px !important;
-}
-
-
 #homeslider-revolution .container .home-adv ul.bx-slider li{
-    /*ewallchanges
-    background: url(../images/homeslider/slider_featured_bg.png) repeat;*/
-    padding: 9px 9px;
-    width: 452px !important;
-    border-bottom: 1px dotted #FFF;
-    margin-bottom: 10px;
-    background-color: rgba(255,255,255,0.9) !important;
-    border-radius:8px;
+    padding: 0;
+    width: 456px !important;
+    border: 2px solid #fff;
 }
-
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
-    /*ewall*/
-    /*height: 182px;
-    background: url(../images/homeslider/slider_featured_item_bg.png)
-    */
-    height: 145px;
-
+    height: 188px;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-photo {
-    /*ewall chanes
     width: 170px;
-    height: 180px;*/
-    width: 135px;
-    height: 145px;
+    height: 180px;
     float: left;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-photo img {
@@ -3320,36 +3321,32 @@ div.cart-empty {
     height: 100%;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-content {
-    margin-left: 135px;
-    padding: 19px;
-    background: #fff;
+    margin-left: 170px;
+    padding: 20px;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-content .home-adv-title{
-    font-family: "Neutraface2TextDemi", sans-serif;
-    color: #484848;
-    /*font-size: 26px;*/
-    font-size: 20px;
+    font-family: 'Tenor Sans', sans-serif;
+    color: #e7e7e7;
+    font-size: 26px;
     line-height: 1;
     text-transform: uppercase;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-content .home-adv-msg {
     font-family: 'Carme', sans;
-    color: #82d2e5;
-    /*font-size: 18px;*/
-    font-size: 14px;
+    color: #add4d9;
+    font-size: 18px;
     line-height: 1;
     margin-top: 8px;
     margin-bottom: 17px;
-    font-style: demi;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-content .home-adv-button .button {
     line-height: 28px;
     height: 28px;
     padding: 0 15px;
     font-size: 12px;
-    font-family: "Neutraface2TextDemi", sans-serif;
-    font-weight: normal;
-    /*color: #333333;*/
+    font-family: 'Molengo', sans-serif;
+    font-weight: 600;
+    color: #333333;
 }
 #homeslider-revolution .container .home-adv .bx-controls {
     position: absolute;
@@ -3687,9 +3684,6 @@ div.cart-empty {
 #nav ul, #nav div, #blog_nav ul {
     top: 56px !important;
 }
-.header-top {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1)!important;
-}
 
 .cms-index-index .footer-container {
     display: block!important;
@@ -3820,14 +3814,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-weight: normal;
 }
 /*********************************** CMS Pages **************************************/
-.cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container {
-    position: absolute;
-}
 .cms-page-view .breadcrumbs  {
     padding: 14px 0;
 }
 .cms-page-view .breadcrumbs  li a, .cms-page-view .breadcrumbs  li strong {
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 12px;
 }
 .cms-page-view .breadcrumbs  li.home a {
@@ -3858,15 +3849,13 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .dr-content .dr-right-content .dr-name {
     color: #262626;
-    font-family: Neutraface2TextDemi;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 30px;
     line-height: 28px;
     margin: 0 0 10px;
 }
 .dr-content .dr-right-content .dr-desc {
     color: #2b2b2b;
-    font-family: Neutraface2TextBook;
-    font-size: 16px;
 }
 .dr-content .dr-right-content .dr-desc p {
     line-height: 1.2;
@@ -3879,7 +3868,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     border-bottom: 2px solid #262626;
     color: #262626;
     float: left;
-    font-family: Neutraface2TextDemi;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 24px;
     line-height: normal;
     margin: 0 0 15px;
@@ -3891,7 +3880,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .customer-content .col-content p {
     margin: 0 0 15px;
     color: #2b2b2b;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.2;
 }
@@ -3924,20 +3913,20 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 /********************************* Bio Sciences Page, Order & Shipping, FAQ, Retailers, Customer-service, Customer-reviews  *****************************/
-.cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs{
+.cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs {
     width: 22.4%;
 }
-.cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content{
+.cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
     width: 77.6%;
 }
-.cms-jenu-biosciences .left-tabs ul, .cms-ordering-and-shipping .left-tabs ul, .cms-warranty .left-tabs ul, .cms-faqs .left-tabs ul,.cms-retailers .left-tabs ul, .cms-customer-support .left-tabs ul, .cms-customer-reviews .left-tabs ul{
+.cms-jenu-biosciences .left-tabs ul, .cms-ordering-and-shipping .left-tabs ul, .cms-warranty .left-tabs ul, .cms-faqs .left-tabs ul,.cms-retailers .left-tabs ul, .cms-customer-support .left-tabs ul, .cms-customer-reviews .left-tabs ul, .cms-box .left-tabs ul {
     background: none repeat scroll 0 0 #f7f7f7;
     border-bottom: 2px solid #ebebeb;
     padding-bottom: 10px;
 }
-.cms-jenu-biosciences .left-tabs ul li, .cms-ordering-and-shipping .left-tabs ul li, .cms-warranty .left-tabs ul li, .cms-faqs .left-tabs ul li, .cms-retailers .left-tabs ul li, .cms-customer-support .left-tabs ul li, .cms-customer-reviews .left-tabs ul li {
+.cms-jenu-biosciences .left-tabs ul li, .cms-ordering-and-shipping .left-tabs ul li, .cms-warranty .left-tabs ul li, .cms-faqs .left-tabs ul li, .cms-retailers .left-tabs ul li, .cms-customer-support .left-tabs ul li, .cms-customer-reviews .left-tabs ul li, .cms-box .left-tabs ul li {
 }
-.cms-jenu-biosciences .left-tabs ul li a, .cms-ordering-and-shipping .left-tabs ul li a, .cms-warranty .left-tabs ul li a, .cms-faqs .left-tabs ul li a, .cms-retailers .left-tabs ul li a, .cms-customer-support .left-tabs ul li a, .cms-customer-reviews .left-tabs ul li a {
+.cms-jenu-biosciences .left-tabs ul li a, .cms-ordering-and-shipping .left-tabs ul li a, .cms-warranty .left-tabs ul li a, .cms-faqs .left-tabs ul li a, .cms-retailers .left-tabs ul li a, .cms-customer-support .left-tabs ul li a, .cms-customer-reviews .left-tabs ul li a, .cms-box .left-tabs ul li a {
     color: #777777;
     display: block;
     font-size: 12px;
@@ -3945,28 +3934,27 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     text-transform: uppercase;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.cms-jenu-biosciences .left-tabs ul li.active a, .cms-ordering-and-shipping .left-tabs ul li.active a, .cms-warranty .left-tabs ul li.active a, .cms-faqs .left-tabs ul li.active a, .cms-retailers .left-tabs ul li.active a, .cms-customer-support .left-tabs ul li.active a, .cms-customer-reviews .left-tabs ul li.active a {
+.cms-jenu-biosciences .left-tabs ul li.active a, .cms-ordering-and-shipping .left-tabs ul li.active a, .cms-warranty .left-tabs ul li.active a, .cms-faqs .left-tabs ul li.active a, .cms-retailers .left-tabs ul li.active a, .cms-customer-support .left-tabs ul li.active a, .cms-customer-reviews .left-tabs ul li.active a, .cms-box .left-tabs ul li.active a {
     background-color: #EBEBEB;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.cms-jenu-biosciences .left-tabs ul li:hover a, .cms-ordering-and-shipping .left-tabs ul li:hover a, .cms-warranty .left-tabs ul li:hover a, .cms-faqs .left-tabs ul li:hover a, .cms-retailers .left-tabs ul li:hover a, .cms-customer-support .left-tabs ul li:hover a, .cms-customer-reviews .left-tabs ul li:hover a {
+.cms-jenu-biosciences .left-tabs ul li:hover a, .cms-ordering-and-shipping .left-tabs ul li:hover a, .cms-warranty .left-tabs ul li:hover a, .cms-faqs .left-tabs ul li:hover a, .cms-retailers .left-tabs ul li:hover a, .cms-customer-support .left-tabs ul li:hover a, .cms-customer-reviews .left-tabs ul li:hover a, .cms-box .left-tabs ul li:hover a {
     color: #66b1b8;
     background-color: #FFFFFF;
 }
-.cms-jenu-biosciences .left-tabs ul li.active:hover a, .cms-ordering-and-shipping .left-tabs ul li.active:hover a, .cms-warranty .left-tabs ul li.active:hover a, .cms-faqs .left-tabs ul li.active:hover a, .cms-retailers .left-tabs ul li.active:hover a, .cms-customer-reviews .left-tabs ul li.active:hover a{
+.cms-jenu-biosciences .left-tabs ul li.active:hover a, .cms-ordering-and-shipping .left-tabs ul li.active:hover a, .cms-warranty .left-tabs ul li.active:hover a, .cms-faqs .left-tabs ul li.active:hover a, .cms-retailers .left-tabs ul li.active:hover a, .cms-customer-reviews .left-tabs ul li.active:hover a {
     color: #777777;
     background-color: #EBEBEB;
 }
-.cms-jenu-biosciences .bio-content h2, .cms-ordering-and-shipping .bio-content h2, .cms-warranty .bio-content h2, .cms-faqs .bio-content h2, .cms-retailers .bio-content h2, .cms-customer-support .bio-content h2, .cms-customer-reviews .bio-content h2 {
+.cms-jenu-biosciences .bio-content h2, .cms-ordering-and-shipping .bio-content h2, .cms-warranty .bio-content h2, .cms-faqs .bio-content h2, .cms-retailers .bio-content h2, .cms-customer-support .bio-content h2, .cms-customer-reviews .bio-content h2, .cms-box .bio-content h2 {
     color: #008ab0;
-    font-family: Neutraface2TextDemi;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 24px;
     padding-bottom: 10px;
 }
-.cms-jenu-biosciences .bio-content p, .cms-ordering-and-shipping .bio-content p, .cms-warranty .bio-content p, .cms-faqs .bio-content p, .cms-retailers .bio-content p, .cms-customer-support .bio-content p, .cms-customer-reviews .bio-content p {
+.cms-jenu-biosciences .bio-content p, .cms-ordering-and-shipping .bio-content p, .cms-warranty .bio-content p, .cms-faqs .bio-content p, .cms-retailers .bio-content p, .cms-customer-support .bio-content p, .cms-customer-reviews .bio-content p, .cms-box .bio-content p {
     color: #262626;
-    font-family: Neutraface2TextBook;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 20px;
     margin-bottom: 30px;
 }
@@ -3992,22 +3980,22 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .contacts-index-index .sidebar-right p {
     color: #262626;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
 }
 .contacts-index-index .sidebar-right .block-title strong, .contacts-index-index #contactForm .heading {
     color: #008ab0;
-    font-family: Neutraface2TextDemi;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 24px;
 }
 .contacts-index-index .sidebar-right .block-title {
     margin-top:0 !important;
 }
 @media(max-width: 767px){
-    .cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs{
+    .cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs{
         width: 100%;
     }
-    .cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content{
+    .cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
         width: 100%;
         margin-top: 25px;
     }
@@ -4029,64 +4017,52 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     padding: 0;
     margin: 0;
     width: 100%;
+    background: #f2f2f2;
+    min-height: 300px;
+    padding: 30px 30px;
 }
 .footer-above .content img {
     width: 100%;
 }
 .footer-above .col4 .title {
-    background: none repeat scroll 0 0 #83d1e5;
-    border-radius: 0 3px 3px 0;
-    color: #ffffff;
-    font-size: 18px;
-    padding: 12px 18px;
-    position: absolute;
     text-transform: uppercase;
-    top: 20px;
-    font-family: Neutraface2TextDemi;
-    line-height: 18px;
     display: block;
+    font-size: 30px;
+    text-align: center;
 }
-
 
 .footer-above .col4 .learn {
-    background: none repeat scroll 0px 0px #008AAF;
-    border-radius: 6px;
-    bottom: 20px;
-    box-shadow: 0px 0px 3px 0px;
-    color: #FFF;
-    cursor: pointer;
-    padding: 10px 14px;
-    position: absolute;
-    right: 20px;
-    line-height: 12px;
+    background: #15323c;
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 8px;
     display: block;
     text-transform: uppercase;
-    font-family: "Neutraface2TextDemi";
-}
-.footer-above .col4 .text {
-    color: #444;
-    font-size: 18px;
-    font-weight: 300;
-    left: 20px;
-    line-height: 23px;
+    margin: 0 auto;
+    width: 170px;
+    text-align: center;
+    color: #fff;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 35px;
     position: absolute;
-    top: 80px;
-    width: 130px;
-    font-family: Conv_Neutra2Text-BookItalic;
-}
-.footer-above .clinical-results .text {
-    width: 140px;
 }
 
-@media(max-width: 991px){
-    .footer-above .clinical-results {
-        margin-top: 30px;
-    }
+.footer-above .col4 .learn:hover {
+    background-color: #20576a;
 }
-@media(max-width: 767px){
-    .footer-above .jenu-system {
-        margin-top: 30px;
-    }
+
+.footer-above .col4 .text {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    display: block;
+    margin: 24px auto;
+    font-family: "Univers_Condensed", Helvetica, Arial;
 }
 /*********************************************************************************/
 
@@ -4112,7 +4088,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .ultrasound .ultra-top p {
     color: #262626;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.2;
 }
@@ -4155,7 +4131,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .ultrasound .timepoint.odd .ultra-text {
     color: #3a3a3a;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 18px;
     line-height: 1.2;
     margin-top: 25px;
@@ -4178,7 +4154,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     clear: both;
     color: #3a3a3a;
     float: right;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 18px;
     line-height: 1.2;
     margin-top: 25px;
@@ -4246,6 +4222,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-ultrasound-101 .main {
     margin-bottom: 2px;
 }
+.ultrasound .ultra-bottom-title {
+    display: none;
+    text-align: center;
+}
 /*********************************************************************************/
 
 /************************** Clinical Results Page Design *************************/
@@ -4260,7 +4240,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinical-results .title-text h2 {
     color: #262626;
-    font-family: 'Conv_Neutra2Text-DemiItalic';
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 36px;
     font-weight: normal;
 }
@@ -4283,7 +4263,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinical-results .studies-section {
     display: block;
-    font-family: "Conv_Neutra2Text-BookItalic";
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     overflow: hidden;
 }
 .clinical-results .studies-bottom-inner {
@@ -4326,7 +4306,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinical-results .middle-section {
     display: block;
-    font-family: "Conv_Neutra2Text-BookItalic";
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     overflow: hidden;
 }
 .clinical-results .middle-section .middle-top {
@@ -4345,7 +4325,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     background: url("../images/versus.png") no-repeat scroll center 0 transparent;
     color: #4c4c4c;
     display: block;
-    font-family: "Conv_Neutraface2Text-Bold";
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 60px;
     height: 99px;
     line-height: 99px;
@@ -4371,7 +4351,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     display: block;
     overflow: hidden;
     padding: 30px 0;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 30px;
     line-height: 1.1;
     color: #262626;
@@ -4410,11 +4390,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     width: 30%;
 }
 .clinical-results .versus-content strong {
-    font-family: 'Conv_Neutraface2Text-Bold';
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-weight: normal;
 }
 .clinical-results .versus-content em {
-    font-family: 'Conv_Neutra2Text-DemiItalic';
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-style: normal;
 }
 .clinical-results .versus-content .versus-content-inner {
@@ -4475,7 +4455,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     text-align: right;
     top: 100px;
     width: 70%;
-    font-family: 'Conv_Neutra2Text-BookItalic';
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
 }
 .clinical-results .graph-section .graph-middle {
     margin: 80px 0;
@@ -4499,7 +4479,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     position: absolute;
     top: 35px;
     width: 73%;
-    font-family: 'Conv_Neutra2Text-BookItalic';
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
 }
 .clinical-results .graph-section .graph-middle-right {
     float: right;
@@ -4529,7 +4509,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinical-results .graph-bottom ul.graph-links li a {
     color: #262626;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 30px;
     line-height: 30px;
     padding: 0 12px;
@@ -4557,7 +4537,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinicalinfo-desktop .clinicrows {
     display: block;
-    font-family: Neutraface2TextBook;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 12px;
     font-color:#363636;
     background-color: #f5f5f5;
@@ -4633,7 +4613,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinicalinfo-desktop .clinicheading div {
     color: #383838;
-    font-family: Neutraface2TextDemi;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-weight: normal;
 }
 .clinicalinfo-mob, .versus-image-mob-left, .versus-image-mob-right, .versus-all-mob {
@@ -4840,7 +4820,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
         width:220px;
         font-weight: normal;
         text-align: center;
-        font-family: Neutraface2TextDemi;
+        font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-size: 14px;
         font-color:#383838;
         background-color: #d5d5d5;
@@ -4851,7 +4831,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
         border: solid;
         border-width: thin;
         padding: 7px;
-        font-family: Neutraface2TextBook;
+        font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-size: 12px;
         font-color:#363636;
         background-color: #f5f5f5;
@@ -4938,7 +4918,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     .versus-all-mob {
         display: block;
         color: #4c4c4c;
-        font-family: "Conv_Neutraface2Text-Bold";
+        font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-size: 40px;
         position: relative;
         text-transform: uppercase;

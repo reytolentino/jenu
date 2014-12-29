@@ -26,7 +26,7 @@
 /* Reset ================================================================================= */
 * { margin:0; padding:0; }
 
-body          { background:#fff; font:12px/1.35 Arial, Helvetica, sans-serif; color:#000; text-align:center; }
+body          { background:#fff; font:13px/1.35 Arial, Helvetica, sans-serif; color:#000; text-align:center; }
 
 img           { border:0; vertical-align:top; }
 
@@ -967,8 +967,8 @@ tr.summary-details-excluded { font-style:italic; }
 .tool-tip .tool-tip-content { padding:5px; }
 
 /* Gift Messages */
-.gift-messages {}
-.gift-messages-form { border:1px solid #ddd; background-color:#f5f5f5; }
+.gift-messages {margin-top: 15px;}
+.gift-messages-form { border:1px solid #ddd; background-color:#f5f5f5; padding: 10px; }
 .gift-messages-form { position:relative; }
 .gift-messages-form label { float:none !important; position:static !important; }
 .gift-messages-form h4 {}

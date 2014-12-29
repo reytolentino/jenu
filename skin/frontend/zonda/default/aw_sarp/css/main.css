@@ -13,10 +13,13 @@
     font-size: 18px;
     color: #66b1b8;
     padding-left: 10px;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
 }
 
-.sarp-subscription li span {
-    font-size: 16px;
+.sarp-subscription li input + span {
+    float: left;
+    font-size: 13px;
+    margin-top: 4px;
 }
 
 .sarp-subscription li .sub-price .price-box {

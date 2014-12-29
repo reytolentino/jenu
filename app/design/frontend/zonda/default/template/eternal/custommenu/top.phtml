@@ -61,7 +61,7 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                    
                 </span>
-                <span class="navbar-name">Navigation</span>
+                <span class="navbar-name">Menu</span>
             </a>
         </div>
         <div id="menu-content" class="mobile-menu-content" style="display:none;">
@@ -79,8 +79,8 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
             <?php endforeach ?>
             <?php if(Mage::helper('blog')->getEnabled() && Mage::helper('blog')->includeMenu()) {
                 echo Mage::helper('blog')->getMobileMenuLink();
-            }?> 
-            <?php echo $this->drawCustomMobileMenuLinks() ?>
+            }?>
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_mobile_menu')->toHtml();?>
             <div class="clearBoth"></div>
         </div>
     </div>

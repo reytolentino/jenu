@@ -3303,6 +3303,9 @@ div.cart-empty {
     right: 0;
     bottom: 10%;
 }
+#homeslider-revolution .container .home-adv .bx-viewport {
+    height: 396px !important;
+}
 #homeslider-revolution .container .home-adv ul.bx-slider li{
     padding: 0;
     width: 456px !important;
@@ -3829,6 +3832,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .dr-banner {
     max-width: 100%;
+    text-align: center;
 }
 .dr-caption {
     position:;
@@ -3968,6 +3972,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-bottom: 20px !important;
     float: left;
 }
+.bio-banner {
+    text-align: center;
+}
 .bio-banner  img, .bio-banner  img {
     max-width: 100%;
 }
@@ -4067,6 +4074,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /*********************************************************************************/
 
 /******************************* Ultrasound Page Design **************************/
+.ultra-banner {
+    text-align: center;
+}
 .ultra-banner img {
     width: 100%;
 }
@@ -4231,6 +4241,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /************************** Clinical Results Page Design *************************/
 .clinical-banner {
     max-width: 100%;
+    text-align: center;
 }
 .clinical-banner img {
     max-width: 100%;

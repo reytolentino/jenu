@@ -3,7 +3,7 @@
 class Eco_Fulfillment_Auth_Catalog
 extends Eco_Fulfillment_Auth
 {
-	protected $_wsdl = 'http://dev.jenu.com/index.php/api/soap?wsdl';
+	protected $_wsdl = 'http://www.jenu.com/index.php/api/soap?wsdl';
 	protected $_user = 'prolog2m';
 	protected $_pass = 'pr0l0g2m;';
 	
@@ -55,7 +55,7 @@ extends Eco_Fulfillment_Api
 		$pass = $this->_auth->pass();
 
 		// Log into the store
-		$this->_api = new SoapClient($wsdl, array('trace' => 1, 'proxy_login'=>'rtolentino', 'proxy_password'=>'Biosciences1'));
+		$this->_api = new SoapClient($wsdl, array('trace' => 1, 'proxy_login'=>'rtolentino', 'proxy_password'=>'Today1020'));
 		$sessionId = $this->_api->login($user, $pass);
 
 		// Capture the session ID for later use

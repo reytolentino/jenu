@@ -18,6 +18,32 @@
     .col8 {
         width: 100%;
     }
+    .footer-above .col4 {
+        width:33.33333333333333%;
+    }
+    .footer-above .content {
+        padding: 20px 20px;
+        min-height: 220px;
+    }
+    .footer-above .col4 .title {
+        font-size: 24px;
+    }
+
+    .footer-above .col4 .learn {
+        font-size: 18px;
+        line-height: 28px;
+        height: 28px;
+        padding: 1px 8px 0 8px;
+        margin: 0 auto;
+        width: 130px;
+        bottom: 20px;
+    }
+
+    .footer-above .col4 .text {
+        font-size: 16px;
+        line-height: 20px;
+        margin: 18px auto;
+    }
     .container{
         max-width: 768px;
         padding: 0 15px;
@@ -234,6 +260,61 @@
     .my-account .form-list .field .sbSelector {
         width: 185px;
     }
+    .header-abs .header-container {
+        position: relative;
+    }
+    #homeslider-revolution {
+        position: relative;
+        max-height: 500px !important;
+    }
+    .header-menu {
+        position: static;
+    }
+    .header-container {
+        position: relative;
+    }
+    .tp-caption.dark_big_text {
+        display: none !important;
+        font-size: 36px !important;
+        line-height: 40px !important;
+        top: 200px !important;
+        left: 200px !important;
+    }
+    .tp-caption.secondary_headline_text {
+        display: none !important;
+        font-size: 13px !important;
+        top: 290px !important;
+        left: 200px !important;
+    }
+    /*********************************** CMS Pages **************************************/
+    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+        position: static;
+    }
+    .left-qa.col4 {
+        margin-bottom: 20px;
+    }
+    .ultrasound .ultra-bottom {
+        background: none;
+    }
+    .ultrasound .ultra-bottom-inner {
+        margin-top: 0;
+    }
+    .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
+        margin: 20px 0;
+        width: 100%;
+    }
+    .ultrasound .ultra-top {
+        margin-bottom: 30px;
+    }
+    .ultrasound .ultra-top .ultra-top-right img {
+        width: 100%;
+    }
+    .ultrasound .ultra-top-left {
+        width: 100%;
+    }
+    .ultrasound .ultra-bottom-title {
+        display: block;
+    }
 }
 @media(max-width:767px){
     .col1,
@@ -244,7 +325,8 @@
     .col8,
     .col12,
     .col-copy,
-    .col-social {
+    .col-social,
+    .footer-above .col4 {
         float: none;
         width: 100%;
         margin: 0;
@@ -301,8 +383,9 @@
     .header-container .logo{
         float: none;
         margin: 0 auto;
-        margin-bottom: 10px;
         text-align: center;
+        line-height: normal;
+        height: auto;
     }
     .logo-bg-img {
         margin-left: auto;
@@ -358,7 +441,6 @@
     }
     .mobile-block-container{
         display: block;
-        margin-bottom: 10px;
     }
     .footer .social-links{
         text-align: center;
@@ -672,6 +754,64 @@
     .my-account .form-list .field .sbSelector {
         width: 353px;
     }
+    .tp-caption.dark_big_text {
+        font-size: 20px !important;
+        line-height: normal !important;
+        top: 100px !important;
+        left: 180px !important;
+        display: block !important;
+    }
+    .tp-caption.secondary_headline_text {
+        font-size: 11px !important;
+        top: 150px !important;
+        left: 180px !important;
+        max-width: 700px;
+        white-space: normal !important;
+        line-height: normal !important;
+        display: block !important;
+    }
+    #homeslider-revolution {
+        max-height: 300px !important;
+    }
+    .footer-above .col4 {
+        margin-bottom: 20px;
+    }
+    /*********************************** CMS Pages **************************************/
+    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+        position: static;
+    }
+    .ultrasound .timepoint.odd .ultra-image,
+    .ultrasound .timepoint.odd .ultra-image img,
+    .ultrasound .timepoint.even .ultra-image,
+    .ultrasound .timepoint.even .ultra-image img,
+    .ultrasound .timepoint.odd .ultra-text,
+    .ultrasound .timepoint.even .ultra-text {
+        width: 100%;
+        padding: 0;
+        text-align: left;
+    }
+    .ultrasound .timepoint.odd .ultra-year-text,
+    .ultrasound .timepoint.even .ultra-year-text {
+        padding: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .ultrasound .timepoint.even,
+    .ultrasound .timepoint.odd {
+        padding: 0;
+    }
+    .ultrasound .timepoint.even .ultra-year {
+        text-align: left;
+        width: 100%;
+    }
+    .ultrasound .timepoint.yr-2015 .ultra-year-text {
+        position: static;
+    }
+    .ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
+        position: static;
+        top: 0;
+        width: 100%;
+    }
 }
 @media(max-width: 480px){
     .login-container-big{
@@ -790,6 +930,20 @@
     }
     .my-account .form-list .field .sbSelector {
         width: 195px;
+    }
+    .tp-caption.dark_big_text {
+        font-size: 20px !important;
+        line-height: normal !important;
+        top: 100px !important;
+        left: 80px !important;
+    }
+    .tp-caption.secondary_headline_text {
+        font-size: 11px !important;
+        top: 150px !important;
+        left: 80px !important;
+        max-width: 700px;
+        white-space: normal !important;
+        line-height: normal !important;
     }
 }
 @media(max-width:320px) {

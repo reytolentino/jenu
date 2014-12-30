@@ -1035,6 +1035,11 @@ button.button span.name{
     margin-bottom: 30px;
     margin-top: 0;
 }
+.cms-index-index .main {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+    background-color: #0a2832;
+}
 /* Base Columns */
 .col-main {
     border: none;
@@ -2963,7 +2968,6 @@ div.cart-empty {
 .main-slider {
     overflow: hidden;
     position: relative;
-    border-bottom: 1px solid #eee;
 }
 .tool-tip .btn-close a { display:block; margin:0 0 0 auto; width:16px; height:16px; background:url(../images/buttons/btn_trash.png) 3px 3px no-repeat; text-align:left; text-indent:-999em; overflow:hidden; }
 .tool-tip .btn-close a:hover {

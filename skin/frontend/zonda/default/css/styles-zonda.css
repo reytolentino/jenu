@@ -430,7 +430,6 @@ p.required {
     padding-right: 0;
 }
 .block-minicart .product-name a {
-    color: #ffffff;
     white-space: normal;
     line-height: 1;
     font-size: 1em;
@@ -602,6 +601,7 @@ input.input-text {
     margin-top: 7px;
     right: -9px;
     padding: 10px;
+    color: #2e2e2e;
 }
 .mini-products-list .product-image {
     width: 64px;
@@ -3379,7 +3379,9 @@ div.cart-empty {
     color: #777777;
 }
 .block-minicart .block-content li.item {
-    background-color: #292929;
+    background-color: #ccc;
+    color: #2e2e2e;
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
 }
 .btn-remove2:hover,
 .btn-remove2:focus {

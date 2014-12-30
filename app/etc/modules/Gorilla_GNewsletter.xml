@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Gorilla_GNewsletter>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Newsletter/>
+            </depends>
+        </Gorilla_GNewsletter>
+    </modules>
+</config>

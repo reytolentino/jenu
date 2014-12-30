@@ -58,6 +58,7 @@ $b = $zonda->getConfigGroup();
     <?php if($b['gmap']['gmap_enable']): ?>
         <?php echo $this->getChildHtml('contact_google_map') ?>
     <?php endif; ?>
+    <div class="clearfix"></div>
     <div class="main-container">
         <?php
         $main_slider = $this->getChildHtml('main-slider');
@@ -84,6 +85,19 @@ $b = $zonda->getConfigGroup();
             echo $this->getChildHtml('category.banner');
             
         ?>
+
+        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'dr-sonia-batra')): 
+             echo $this->getLayout()->createBlock('cms/block')->setBlockId('dr-sonia-bahtra-banner')->toHtml(); 
+        endif; ?>
+		
+		<?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'jenu-biosciences')): 
+             echo $this->getLayout()->createBlock('cms/block')->setBlockId('biosciences-banner')->toHtml(); 
+        endif; ?>
+
+        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'ultrasound-101')): 
+             echo $this->getLayout()->createBlock('cms/block')->setBlockId('ultrasound-banner')->toHtml(); 
+        endif; ?>
+
         <?php $breadcrumbs_html = $this->getChildHtml('breadcrumbs') ?>
         <?php echo $breadcrumbs_html ?>
         <?php

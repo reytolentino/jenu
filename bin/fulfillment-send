@@ -1,0 +1,6 @@
+#!/bin/bash
+echo Sending orders to fulfillment...
+SCR_DIR=$(dirname -- "$0")
+PHP_DIR=`which php`
+$PHP_DIR $SCR_DIR/fulfillment/app/send.php
+echo Done.

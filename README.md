@@ -1,4 +1,0 @@
-jenu
-====
-
-JeNu BioSciences Repository

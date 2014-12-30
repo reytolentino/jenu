@@ -1,0 +1,21 @@
+<h1>About</h1>
+This module provides an integration with Authorize.net’s CIM (Customer Information Manager) API. This allows customers to save payment and credit card information to Authorize.net’s servers, allowing the convenience of stored credit cards without the burden of increased PCI compliance needs on the part of the e-commerce website.
+<br/>
+This module supports the following transactions:<br/>
+1	Add, Update, and Delete credit cards from My Account in a new tab labeled My Credit Cards<br/>
+-	Note, cards may only be deleted if they do not have any unsettled transactions associated with them on the Magento store.<br/>
+2	Use a stored credit card or enter a new credit card when checking out.<br/>
+3	The following Authorize.net transactions are supported:<br/>
+-	Authorize Only<br/>
+-	Capture Prior Authorization<br/>
+-	Authorize & Capture<br/>
+-	Refund<br/>
+-	Void<br/>
+4	Multiple captures are supported for a single order.<br/>
+-	A capture for less than the total order amount will create a new authorization.<br/>
+-	This will continue until the order is captured in full or any items that cannot be fulfilled are voided.<br/>
+-	This will work for both guest and registered checkout.<br/>
+5	Multiple online refunds for any Invoice.<br/>
+6	Can be used by Administrators in the admin panel<br/>
+-	Allows admins to use a customer’s stored card or add a new card for the customer when checking out. Updates/Edits of existing cards is not available within the admin panel.<br/>
+                

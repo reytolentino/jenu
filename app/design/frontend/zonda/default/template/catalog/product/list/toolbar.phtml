@@ -8,16 +8,16 @@
 <?php if($this->getCollection()->getSize()): ?>
 <div class="toolbar clearfix">
 <?php 
-            $_helper = $this->helper('catalog/product_compare');
+     $_helper = $this->helper('catalog/product_compare');
         ?>
     <?php if( $this->isExpanded() ): ?>
     <div class="sorter">
         <div class="sorter-holder clearfix">
         
         <div class="sort-by">
-            <?php if(Mage::app()->getFrontController()->getRequest()->getModuleName() != 'blog'):  ?>
+            <?php /*if(Mage::app()->getFrontController()->getRequest()->getModuleName() != 'blog'):  ?>
             <a class="button btn-compare" onclick="setLocation('<?php echo $_helper->getListUrl(); ?>')"><span><span><?php echo $this->__('Compare'); ?></span></span></a>
-            <?php endif; ?>
+            <?php endif; */?>
             <label><?php echo $this->__('Sort By') ?></label>
             <select onchange="setLocation(this.value)">
             <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
@@ -54,7 +54,7 @@
         <div class="limiter">
             <a class="button btn-compare" onclick="setLocation('<?php echo $_helper->getListUrl(); ?>')"><span><span><?php echo $this->__('Compare'); ?></span></span></a>
             <div class="show-by">
-                <label><?php echo $this->__('Show: ') ?></label>
+                <label><?php echo $this->__('View: ') ?></label>
                 <select onchange="setLocation(this.value)">
                 <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
                     <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>

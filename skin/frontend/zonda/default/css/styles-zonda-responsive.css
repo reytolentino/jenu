@@ -17,15 +17,41 @@
     }
     .col8 {
         width: 100%;
-    }    
+    }
+    .footer-above .col4 {
+        width:33.33333333333333%;
+    }
+    .footer-above .content {
+        padding: 20px 20px;
+        min-height: 220px;
+    }
+    .footer-above .col4 .title {
+        font-size: 24px;
+    }
+
+    .footer-above .col4 .learn {
+        font-size: 18px;
+        line-height: 28px;
+        height: 28px;
+        padding: 1px 8px 0 8px;
+        margin: 0 auto;
+        width: 130px;
+        bottom: 20px;
+    }
+
+    .footer-above .col4 .text {
+        font-size: 16px;
+        line-height: 20px;
+        margin: 18px auto;
+    }
     .container{
         max-width: 768px;
         padding: 0 15px;
     }
-	.cms-container .messages {
-		max-width: 768px;
-		padding: 0 15px !important;
-	}
+    .cms-container .messages {
+        max-width: 768px;
+        padding: 0 15px !important;
+    }
     .col-main {
         width: 70%;
     }
@@ -37,14 +63,14 @@
         margin-right: -15px;
         margin-left: -15px;
     }
-    .col1, 
-    .col2, 
-    .col3, 
-    .col4, 
-    .col6, 
+    .col1,
+    .col2,
+    .col3,
+    .col4,
+    .col6,
     .col8,
-    .col12, 
-    .col-social, 
+    .col12,
+    .col-social,
     .col-copy {
         padding-right: 15px;
         padding-left: 15px;
@@ -86,8 +112,8 @@
         float: none;
     }
     .header-menu-right .header-right .nav-container{
-        float: left;        
-    }    
+        float: left;
+    }
     html[xmlns] #menu-button, html[xmlns] .parentMenu{
         line-height: 40px;
         padding: 0;
@@ -102,10 +128,10 @@
         padding: 0 5px;
     }
     #menu-content{
-       margin-left: 20px; 
-       margin-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
-    
+
     /*footer*/
     .footer .footer-column-4{
         width: 100%;
@@ -122,7 +148,7 @@
     }
     .footer-tweets #twitter-slider {
         padding-left: 30px;
-		padding-right: 30px;
+        padding-right: 30px;
     }
     #twitter-slider .flex-direction-nav {
         left: 40%;
@@ -136,9 +162,9 @@
         margin-top: 10px;
     }
     .products-list .product-shop .description {
-            width: 100%;
-            padding: 0;
-            margin: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
     .products-list .list-border {
         position: relative;
@@ -202,7 +228,7 @@
     .shipping-container, .total-container {
         margin-top: 20px;
     }
-    .cms-no-route .number-container .container, 
+    .cms-no-route .number-container .container,
     .cms-no-route .text-container .container {
         padding: 20px 15px;
     }
@@ -213,14 +239,14 @@
         width: 100%;
     }
     .for-responsive {
-	    display: block;
-	}
-	.more-info {
-		display: none;
-	}
-	.for-more {
-		display: none;
-	}
+        display: block;
+    }
+    .more-info {
+        display: none;
+    }
+    .for-more {
+        display: none;
+    }
     .shipping-container,
     .total-container,
     .account-login .registered-users,
@@ -228,14 +254,94 @@
         float: none;
         width: 100%;
     }
-	.my-account .form-list .field .sbHolder {
+    .my-account .form-list .field .sbHolder {
         width: 226px;
     }
     .my-account .form-list .field .sbSelector {
         width: 185px;
     }
+    .header-abs .header-container {
+        position: relative;
+    }
+    #homeslider-revolution {
+        position: relative;
+        max-height: 500px !important;
+    }
+    .header-menu {
+        position: static;
+    }
+    .header-container {
+        position: relative;
+    }
+    .tp-caption.dark_big_text {
+        display: none !important;
+        font-size: 36px !important;
+        line-height: 40px !important;
+        top: 200px !important;
+        left: 200px !important;
+    }
+    .tp-caption.secondary_headline_text {
+        display: none !important;
+        font-size: 13px !important;
+        top: 290px !important;
+        left: 200px !important;
+    }
+    /*********************************** CMS Pages **************************************/
+    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+        position: static;
+    }
+    .left-qa.col4 {
+        margin-bottom: 20px;
+    }
+    .ultrasound .ultra-bottom {
+        background: none;
+    }
+    .ultrasound .ultra-bottom-inner {
+        margin-top: 0;
+    }
+    .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
+        margin: 20px 0;
+        width: 100%;
+    }
+    .ultrasound .ultra-top {
+        margin-bottom: 30px;
+    }
+    .ultrasound .ultra-top .ultra-top-right img {
+        width: 100%;
+    }
+    .ultrasound .ultra-top-left {
+        width: 100%;
+    }
+    .ultrasound .ultra-bottom-title {
+        display: block;
+    }
+    #homeslider-revolution .container .home-adv {
+        bottom: 10%;
+    }
+    #homeslider-revolution .hp-copy-fade {
+        width: 100%;
+        height: 70px;
+        bottom: 10%;
+        position: absolute;
+        font-size: 14px;
+        padding: 14px;
+    }
+    #homeslider-revolution .container .home-adv .bx-viewport {
+        height: 314px !important;
+    }
+    #homeslider-revolution .container .home-adv ul.bx-slider li{
+        width: 356px !important;
+    }
+
+    #homeslider-revolution .container .home-adv ul.bx-slider li img {
+        width: 100%;
+    }
+
+    #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
+        height: 147px;
+    }
 }
-@media(max-width:767px){  
+@media(max-width:767px){
     .col1,
     .col2,
     .col3,
@@ -244,12 +350,13 @@
     .col8,
     .col12,
     .col-copy,
-    .col-social {
+    .col-social,
+    .footer-above .col4 {
         float: none;
         width: 100%;
         margin: 0;
     }
-    .col-main, 
+    .col-main,
     .col-sidebar {
         float: none;
         width: 100%;
@@ -266,8 +373,8 @@
         height: 40px;
         position: absolute;
         width: 100%;
-        background-color: #404040;
-        bottom: 0;                
+        background-color: #15323c;
+        bottom: 0;
     }
     .block{
         margin-bottom: 10px;
@@ -297,28 +404,29 @@
         float: left;
         position: relative;
         left: -12px;
-    }    
+    }
     .header-container .logo{
         float: none;
-		margin: 0 auto;
-        margin-bottom: 10px;
+        margin: 0 auto;
         text-align: center;
+        line-height: normal;
+        height: auto;
     }
-	.logo-bg-img {
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .logo-bg-img {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .header-container .form-search .button{
         background: none;
-		padding: 0;
+        padding: 0;
     }
     .header-menu-right .header-right{
-        float: none;        
+        float: none;
         padding: 0 0 0 20px;
         margin-top: 10px;
     }
     .header-menu-right .container{
-        padding: 0;        
+        padding: 0;
     }
     .header-menu-right .header-right .nav-container{
         float: left;
@@ -328,7 +436,7 @@
     }
     html[xmlns] #menu-button,
     html[xmlns] .parentMenu{
-        padding: 0;        
+        padding: 0;
     }
     .quick-access{
         padding-top: 5px;
@@ -336,15 +444,15 @@
         position: relative;
     }
     .search-active .quick-access{
-        width: 100%;                
+        width: 100%;
     }
     .header-container .search-active .quick-access .form-search{
         background: none;
         text-align: right;
     }
-    .header-container .search-active .quick-access .form-search .input-text{        
+    .header-container .search-active .quick-access .form-search .input-text{
         padding-left: 0;
-    }    
+    }
     #custommenu-mobile #menu-button a,
     #custommenu-mobile #menu-button a:link,
     #custommenu-mobile #menu-button a:visited{
@@ -354,11 +462,10 @@
         height: 40px;
     }
     #custommenu-mobile #menu-content{
-       margin: 10px; 
+        margin: 10px;
     }
     .mobile-block-container{
         display: block;
-        margin-bottom: 10px;
     }
     .footer .social-links{
         text-align: center;
@@ -375,7 +482,7 @@
     }
     .footer-tweets #twitter-slider {
         padding-left: 20px;
-		padding-right: 20px;
+        padding-right: 20px;
     }
     #twitter-slider .flex-direction-nav {
         left: 30%;
@@ -385,13 +492,13 @@
     }
     /*category*/
     .category-banner {
-        background: none !important;                    
+        background: none !important;
         height: auto !important;
     }
     .banner-image {
         display: block;
     }
-    
+
     .category-banner .category-wrap .container .inner {
         top: 0;
     }
@@ -466,7 +573,7 @@
         padding-bottom: 40px;
     }
     .data-table.cart-table tbody td.sub-total span.mobile-show {
-        
+
     }
     .cart-table .product-name {
         margin: 0;
@@ -479,7 +586,7 @@
         margin: 15px 0;
     }
     .cart-table input.qty {
-        width: 100px; 
+        width: 100px;
         padding: 0 10px;
     }
     .cart-table .item-options > div {
@@ -524,7 +631,7 @@
     .my-wishlist .data-table thead tr.mobile-row {
         display: block;
     }
-    .cart-table tr, 
+    .cart-table tr,
     .cart-table td,
     .cart-table th,
     .order-review .data-table tr,
@@ -628,7 +735,7 @@
     .col2-set .col-2 {
         float: none;
         width: 100%;
-        padding: 0;        
+        padding: 0;
     }
     .form-list .field {
         float: none;
@@ -648,7 +755,7 @@
     .contacts-index-index .content .msg {
         margin-top: 15px;
     }
-    .cms-no-route .text-container .container h2, 
+    .cms-no-route .text-container .container h2,
     .cms-no-route .text-container .container .search-form {
         width: 400px;
     }
@@ -661,33 +768,102 @@
     }
     /*cms about us page*/
     .cms-container .block-testminial .minial-comments {
-        width: 330px;    
+        width: 330px;
     }
     #topcontrol {
-		display: none;
-	}
-	.my-account .form-list .field .sbHolder {
+        display: none;
+    }
+    .my-account .form-list .field .sbHolder {
         width: 394px;
     }
     .my-account .form-list .field .sbSelector {
         width: 353px;
     }
+    .tp-caption.dark_big_text {
+        font-size: 20px !important;
+        line-height: normal !important;
+        top: 100px !important;
+        left: 180px !important;
+        display: block !important;
+    }
+    .tp-caption.secondary_headline_text {
+        font-size: 11px !important;
+        top: 150px !important;
+        left: 180px !important;
+        max-width: 700px;
+        white-space: normal !important;
+        line-height: normal !important;
+        display: block !important;
+    }
+    #homeslider-revolution {
+        max-height: 300px !important;
+    }
+    .footer-above .col4 {
+        margin-bottom: 20px;
+    }
+    /*********************************** CMS Pages **************************************/
+    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+        position: static;
+    }
+    .ultrasound .timepoint.odd .ultra-image,
+    .ultrasound .timepoint.odd .ultra-image img,
+    .ultrasound .timepoint.even .ultra-image,
+    .ultrasound .timepoint.even .ultra-image img,
+    .ultrasound .timepoint.odd .ultra-text,
+    .ultrasound .timepoint.even .ultra-text {
+        width: 100%;
+        padding: 0;
+        text-align: left;
+    }
+    .ultrasound .timepoint.odd .ultra-year-text,
+    .ultrasound .timepoint.even .ultra-year-text {
+        padding: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .ultrasound .timepoint.even,
+    .ultrasound .timepoint.odd {
+        padding: 0;
+    }
+    .ultrasound .timepoint.even .ultra-year {
+        text-align: left;
+        width: 100%;
+    }
+    .ultrasound .timepoint.yr-2015 .ultra-year-text {
+        position: static;
+    }
+    .ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
+        position: static;
+        top: 0;
+        width: 100%;
+    }
+    #homeslider-revolution .hp-copy-fade {
+        width: 100%;
+        height: 90px;
+        bottom: 0;
+        position: absolute;
+        font-size: 13px;
+        padding: 10px;
+    }
+    #homeslider-revolution .hp-copy-fade p:first-child {
+        margin-bottom: 5px;
+    }
 }
 @media(max-width: 480px){
     .login-container-big{
         margin-top: 10px;
-    }       
+    }
     .footer-tweets #twitter-slider {
         width: 70%;
     }
     .footer-tweets #twitter-slider {
         padding-left: 5px;
-		padding-right: 5px;
+        padding-right: 5px;
     }
     #twitter-slider .flex-direction-nav {
         left: 15%;
     }
-    
+
     .category-banner .category-wrap .category-title,
     .category-banner .category-title h1 {
         padding-top: 5px;
@@ -728,12 +904,12 @@
     .product-options-bottom .button-up {
         margin-right: 10px;
     }
-    .elastislide-wrapper nav span.elastislide-prev, 
+    .elastislide-wrapper nav span.elastislide-prev,
     .elastislide-wrapper nav span.elastislide-next {
         width: 20px !important;
         padding: 0;
     }
-    .elastislide-next .icon-next, 
+    .elastislide-next .icon-next,
     .elastislide-prev .icon-prev {
         left: 4px !important;
     }
@@ -750,11 +926,11 @@
     .shipping-form .sbHolder,
     .shipping-form .form-list input.input-text {
         width: 270px;
-    }    
+    }
     .shipping-form .sbSelector {
         width: 230px;
     }
-    .cms-no-route .text-container .container h2, 
+    .cms-no-route .text-container .container h2,
     .cms-no-route .text-container .container .search-form {
         width: 100%;
     }
@@ -763,7 +939,7 @@
     }
     /*cms about us page*/
     .cms-container .block-testminial .minial-comments {
-        width: 180px;    
+        width: 180px;
     }
     .sort-by {
         margin-right: 5px;
@@ -785,15 +961,29 @@
         margin-left: 0;
         margin-right: 10px;
     }
-	.my-account .form-list .field .sbHolder {
+    .my-account .form-list .field .sbHolder {
         width: 236px;
     }
     .my-account .form-list .field .sbSelector {
         width: 195px;
     }
+    .tp-caption.dark_big_text {
+        font-size: 20px !important;
+        line-height: normal !important;
+        top: 100px !important;
+        left: 80px !important;
+    }
+    .tp-caption.secondary_headline_text {
+        font-size: 11px !important;
+        top: 150px !important;
+        left: 80px !important;
+        max-width: 700px;
+        white-space: normal !important;
+        line-height: normal !important;
+    }
 }
 @media(max-width:320px) {
-   .header-container .right .block {
-       margin-bottom: 0;
-   } 
+    .header-container .right .block {
+        margin-bottom: 0;
+    }
 }

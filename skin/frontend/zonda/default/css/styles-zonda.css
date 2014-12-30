@@ -8,9 +8,9 @@ body {
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 h1            { font-size:36px; font-weight:normal; line-height:1.15; }
 h2            { font-size:24px; font-weight:normal; line-height:1.25; }
@@ -35,12 +35,12 @@ select option {
     font-weight: normal;
     white-space: normal;
 }
-.radio, 
+.radio,
 .checkbox {
     min-height: 12px;
     display: inline-block;
 }
-input[type="radio"], 
+input[type="radio"],
 input[type="checkbox"] {
     margin-top: -2px;
 }
@@ -48,8 +48,8 @@ th.label,
 td.label {
     display: table-cell;
     -webkit-border-radius: 0;
-       -moz-border-radius: 0;
-            border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
 label,
 .product-options dt label{
@@ -90,13 +90,9 @@ p {
     display: none;
 }
 [class^="icon-"], [class*=" icon-"] {
-    background-repeat: no-repeat;
     display: inline-block;
-    height: 14px;
     line-height: 14px;
     margin-top: 1px;
-    vertical-align: text-top;
-    width: 14px;
     padding: 0;
 }
 
@@ -104,7 +100,7 @@ p {
 .row
 {
     margin-right: -15px;
-    margin-left: -15px; 
+    margin-left: -15px;
     text-align: left;
 }
 .row:before, .row:after{
@@ -172,7 +168,7 @@ a {
     transition:            color 300ms ease-in-out, background-color 300ms ease-in-out, opacity 150ms ease-in-out;
 }
 a,
-a:hover, 
+a,
 a:focus {
     text-decoration: none;
 }
@@ -250,15 +246,21 @@ p.required {
     padding-left: 15px;
     padding-right: 15px;
 }
-.header-container{
+.header-container {
+    /*border-bottom: 1px solid #cacaca;*/
+    box-shadow:0 1px 1px #d5d5d5;
+    -moz-box-shadow:0 1px 1px #d5d5d5;
+    -o-box-shadow:0 1px 1px #d5d5d5;
+    -web-kit-box-shadow:0 1px 1px #d5d5d5;
+    -ms-box-shadow:0 1px 1px #d5d5d5;
     line-height: 1.4825;
-    border: none;
+    opacity: 1;
     position: relative;
     width: 100%;
     z-index: 100;
 }
-.header-abs .header-container {
-    position: absolute;
+.tp-bgimg {
+    /* background-position: 226px 50px !important;*/
 }
 .cms-no-route.header-abs .header-container {
     position: relative;
@@ -270,23 +272,28 @@ p.required {
 .header-container .form-search .input-text {
     background: transparent;
 }
+
+.header-container.fixed .header-menu-back {
+    background-color: #FFF;
+    box-shadow: 1px 0px 3px rgba(0,0,0,0.2) !important;
+}
+
 .header-container.fixed .header-menu-back{
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #262626;
     z-index: 1000;
 }
-.header-container.fixed .header-menu-container{            
+.header-container.fixed .header-menu-container{
     margin: 0 auto;
 }
 .header-container .logo,
 .header-container.fixed .sticky-logo{
     display: block;
-    margin: 0;        
+    margin: 0;
     float: left;
-    width: 190px;    
+    width: 190px;
     z-index: 100;
     text-align: left;
 }
@@ -297,7 +304,7 @@ p.required {
 .header-container .logo img.logo-img,
 .header-container.fixed .sticky-logo img.logo-img {
     max-width: 90%;
-    max-height: 100%;
+    max-height: 90%;
 }
 .logo-img {
     position: relative;
@@ -327,7 +334,7 @@ p.required {
 .header-top,
 .mobile-block-container{
     font-size: 12px;
-    height: 40px;        
+    height: 40px;
     text-align: center;
 }
 .links li{
@@ -339,7 +346,7 @@ p.required {
     padding: 0;
 }
 .toplinks a{
-    text-decoration: none;    
+    text-decoration: none;
     line-height: 26px;
     margin-left: 12px;
     padding: 0 7px;
@@ -354,7 +361,7 @@ p.required {
 }
 
 .toplinks li:first-child a{
-    margin: 0;        
+    margin: 0;
 }
 .toplinks .logout-link,
 .toplinks .login-link{
@@ -382,8 +389,8 @@ p.required {
 .block-currency{
     float: right;
     height: 40px;
-    color: #dad9d9;   
-    margin-bottom: 0;         
+    color: #dad9d9;
+    margin-bottom: 0;
 }
 .block-currency{
     background: none;
@@ -394,7 +401,7 @@ p.required {
 .block-currency .block-content,
 .store-switcher .block-content{
     padding: 7px 0;
-    line-height: 26px;            
+    line-height: 26px;
     z-index: 10003;
 }
 .block-minicart .dropdown-menu{
@@ -417,13 +424,12 @@ p.required {
 .store-switcher .block-content a{
     border-width: 0;
     text-decoration: none;
-    display: block;    
+    display: block;
 }
 .block-minicart .block-content a{
     padding-right: 0;
 }
 .block-minicart .product-name a {
-    color: #ffffff;
     white-space: normal;
     line-height: 1;
     font-size: 1em;
@@ -431,6 +437,10 @@ p.required {
 }
 .block-minicart .dropdown-menu .block-content {
     padding: 0;
+}
+.block-minicart .dropdown-menu .block-content .empty {
+    line-height: normal;
+    font-size: 13px;
 }
 .block .actions {
     padding: 5px 0;
@@ -475,8 +485,8 @@ p.required {
     background: url(../images/icons/white/icon_minicart.png) no-repeat 0 0;
     margin-top: 0;
 }
-.header-menu{        
-/*    position: relative;*/
+.header-menu{
+    /*    position: relative;*/
 }
 
 /*For Dropdownmenu*/
@@ -487,10 +497,10 @@ p.required {
     width: 110px;
 }
 .open>a{
-    outline: 0;    
+    outline: 0;
 }
 .dropdown-menu{
-    position: absolute;    
+    position: absolute;
     right: 0;
     z-index: 1000;
     display: none;
@@ -581,7 +591,7 @@ input.input-text {
     position: relative;
     padding-left: 9px;
     padding-right: 9px;
-    right: -9px;    
+    right: -9px;
 }
 #mini-cart.open .mini-cart-button .icon-minicart {
     background-position: -12px 0 ;
@@ -591,6 +601,7 @@ input.input-text {
     margin-top: 7px;
     right: -9px;
     padding: 10px;
+    color: #2e2e2e;
 }
 .mini-products-list .product-image {
     width: 64px;
@@ -624,7 +635,7 @@ input.input-text {
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
-    border: none;       
+    border: none;
     right: 37px;
     top: 24px;
     z-index: 9999;
@@ -634,10 +645,10 @@ input.input-text {
 .pos-abs{
     position: absolute;
 }
-.form-search .button{        
-    width: 37px;    
+.form-search .button{
+    width: 37px;
     line-height: 30px;
-    height: 30px;        
+    height: 30px;
     padding: 0;
 }
 button.button span.name{
@@ -653,7 +664,7 @@ button.button span.name{
 /*for responsive*/
 /*header-top toplinks in mobile*/
 .header-right{
-/*    position: relative;*/
+    /*    position: relative;*/
 }
 .mobile-toplinks{
     display: none;
@@ -664,6 +675,7 @@ button.button span.name{
 }
 #custommenu-mobile .mobile-menu-content {
     margin: 0 15px;
+    z-index: 9;
 }
 #custommenu-mobile .btn-navbar {
     padding: 0;
@@ -679,7 +691,7 @@ button.button span.name{
 #custommenu-mobile .btn-navbar .icon-bar {
     display: block;
     width: 15px;
-    height: 3px;    
+    height: 3px;
 }
 #custommenu-mobile #menu-button {
     display: block;
@@ -700,7 +712,7 @@ button.button span.name{
 }
 .flex-direction-nav a,
 .bx-controls-direction a,
-.twitter-nav-container a{       
+.twitter-nav-container a{
     width: 16px;
     height: 17px;
     line-height: 1 !important;
@@ -776,7 +788,7 @@ button.button span.name{
 .footer ul.slides li{
     background: none;
 }
-.footer ul li a {        
+.footer ul li a {
     line-height: 2;
 }
 .footer-top,
@@ -789,7 +801,7 @@ button.button span.name{
 .footer-bottom {
     padding: 23px 10px;
     margin-top: 0;
-    background: url(../images/borders/borderx/border_line_x_2.png) repeat-x 50% 0;    
+    background: url(../images/borders/borderx/border_line_x_2.png) repeat-x 50% 0;
 }
 .footer .copyright {
     padding-top: 15px;
@@ -820,10 +832,10 @@ button.button span.name{
 .footer #block-map .gmnoprint{
     display: none;
 }
-.footer .gm-style a img { display:none; } 
+.footer .gm-style a img { display:none; }
 /*========== Footer Facebook like box ==========*/
 .footer .fblike-box {
-    background-color: transparent; 
+    background-color: transparent;
     border-width: 0;
     position: relative;
 }
@@ -842,13 +854,13 @@ button.button span.name{
     overflow: hidden;
     text-align: center;
 }
-.footer .fblike-box .icon-fblike {    
+.footer .fblike-box .icon-fblike {
     background-image: url(../images/icons/icon_fb_like.png);
     width: 30px;
     height: 30px;
     margin-top: 0;
     vertical-align: middle;
-    margin-right: 9px;    
+    margin-right: 9px;
 }
 .footer .fblike-box a:hover,
 .footer .fblike-box a:focus,
@@ -862,7 +874,7 @@ button.button span.name{
     -o-transition: opacity 300ms ease-in-out;
 }
 .footer .fblike-box a:hover .icon-fblike,
-.footer .fblike-box a:focus .icon-fblike{    
+.footer .fblike-box a:focus .icon-fblike{
     transition: background 100ms ease-in-out;
     -moz-transition: background 100ms ease-in-out;
     -webkit-transition: background 100ms ease-in-out;
@@ -877,7 +889,7 @@ button.button span.name{
     background-position: -34px -32px;
 }*/
 .footer .fblike-box .btn-mini {
-    float: right;    
+    float: right;
     text-transform: none;
     background: none;
 }
@@ -899,7 +911,7 @@ button.button span.name{
 .fb-person img {
     width: 100%;
     height: auto;
-    border: solid 5px transparent;    
+    border: solid 5px transparent;
     transition: border-color 300ms ease-in-out, border-width 300ms ease-in-out ;
     -moz-transition: border-color 300ms ease-in-out, border-width 300ms ease-in-out ;
     -webkit-transition: border-color 300ms ease-in-out, border-width 300ms ease-in-out ;
@@ -907,13 +919,13 @@ button.button span.name{
 }
 .footer-top .fb-person img {
     -webkit-box-shadow: 0 2px 2px #cecece;
-       -moz-box-shadow: 0 2px 2px #cecece;
-            box-shadow: 0 2px 2px #cecece;
+    -moz-box-shadow: 0 2px 2px #cecece;
+    box-shadow: 0 2px 2px #cecece;
 }
 .footer-main .fb-person img{
     -webkit-box-shadow: 0 2px 2px #202020;
-       -moz-box-shadow: 0 2px 2px #202020;
-            box-shadow: 0 2px 2px #202020;
+    -moz-box-shadow: 0 2px 2px #202020;
+    box-shadow: 0 2px 2px #202020;
 }
 .fb-person a,
 .fb-person span {
@@ -922,13 +934,13 @@ button.button span.name{
 }
 .fb-person a:hover img,
 .fb-person span:hover img{
-    border:solid 4px #ffffff;    
+    border:solid 4px #ffffff;
 }
 .footer-top .fb-person a:hover img,
-.footer-top .fb-person span:hover img{    
+.footer-top .fb-person span:hover img{
     -webkit-box-shadow: -1px 2px 2px #b5b5b5;
-       -moz-box-shadow: -1px 2px 2px #b5b5b5;
-            box-shadow: -1px 2px 2px #b5b5b5;
+    -moz-box-shadow: -1px 2px 2px #b5b5b5;
+    box-shadow: -1px 2px 2px #b5b5b5;
 }
 .footer .fblike-box a:hover img {
     opacity: 0.85;
@@ -937,8 +949,8 @@ button.button span.name{
 /*========== Footer Twitter Tweets ==========*/
 .footer-tweets {
     -webkit-box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3);
-       -moz-box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3);
-            box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3);
 }
 .footer-tweets .container{
     position: relative;
@@ -980,7 +992,7 @@ button.button span.name{
     font-size: 14px;
     margin-bottom: 6px;
 }
-.footer-tweets .date {    
+.footer-tweets .date {
     font-size: 14px;
 }
 .footer-tweets ul li {
@@ -1117,7 +1129,7 @@ button.button span.name{
     margin-top: 10px;
 }
 .form-list li.wide input.input-text
- {
+{
     width: 100%;
 }
 .account-login,
@@ -1152,10 +1164,10 @@ button.button span.name{
     font-size: 14px;
     text-transform: uppercase;
     color: #ffffff;
-    -webkit-transform: rotate(-45deg); 
-    -o-transform: rotate(-45deg); 
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg);     
+    transform: rotate(-45deg);
     filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=0.7071067811865475, M21=-0.7071067811865475, M22=0.7071067811865476); /* IE6,IE7 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=0.7071067811865475, M21=-0.7071067811865475, M22=0.7071067811865476)"; /* IE8 */
 }
@@ -1205,7 +1217,7 @@ button.button span.name{
     margin: 25px -12px 5px -12px !important;
 }
 .cms-index-index .tab-content .products-grid {
-    margin-top: 30px !important;    
+    margin-top: 30px !important;
 }
 .product-name a ,
 .col-sidebar .block-content ul li .product-name a{
@@ -1256,7 +1268,7 @@ button.button span.name{
     position: relative;
 }
 .products-grid .labels {
-    left: -1px;       
+    left: -1px;
 }
 .products-grid .labels.new-pro {
     right: -1px;
@@ -1276,7 +1288,7 @@ button.button span.name{
 .products-list .labels.new-pro {
     right: -1px;
     left: initial;
-} 
+}
 .products-list .product-image {
     width: 140px;
     height: auto;
@@ -1337,8 +1349,8 @@ button.button span.name{
 .products-list .price-box {
     float: right;
     margin: 0;
-    padding: 0;  
-    text-align:right;  
+    padding: 0;
+    text-align:right;
 }
 .products-list .btn-cart {
     float: right;
@@ -1377,12 +1389,12 @@ button.button span.name{
     -moz-transition:       opacity 300ms ease-in-out;
     -webkit-transition:    opacity 300ms ease-in-out;
     -o-transition:         opacity 300ms ease-in-out;
-     
+
 }
 .product-image .hover-image {
     position: absolute;
     top: 0;
-	left: 0;
+    left: 0;
     opacity: 0;
     filter:alpha(opacity=0);
     transition:            opacity 300ms ease-in-out;
@@ -1390,7 +1402,7 @@ button.button span.name{
     -webkit-transition:    opacity 300ms ease-in-out;
     -o-transition:         opacity 300ms ease-in-out;
 }
-.product-image:hover .hover-image {    
+.product-image:hover .hover-image {
     opacity: 1;
     filter:alpha(opacity=100);
 }
@@ -1401,7 +1413,7 @@ button.button span.name{
     -khtml-opacity: 1;
     filter: alpha(opacity=100);
 }
-.sw-product-quickview,
+/*.sw-product-quickview,
 .view-product {
     content: '';
     background-image: url(../images/product_view.png);
@@ -1411,6 +1423,19 @@ button.button span.name{
     margin: 0 10px;
     display: inline-block;
     text-indent: -9999em;
+}*/
+.sw-product-quickview, .view-product {
+    background: none repeat scroll 0 0 #7a7a7a;
+    color: #fff;
+    content: "";
+    display: inline-block;
+    font-weight: normal;
+    height: 29px;
+    margin: 0 10px;
+    padding: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
 }
 .sw-product-quickview {
     background-position: -40px 0;
@@ -1450,7 +1475,7 @@ button.button span.name{
     padding: 0 20px;
 }
 .add-to-links {
-/*    margin-right: 5px;*/
+    /*    margin-right: 5px;*/
     float: right;
     display: block;
 }
@@ -1478,9 +1503,9 @@ button.button span.name{
     filter:alpha(opacity=100);
 }
 /*product image*/
-.product-view .product-img-box 
+.product-view .product-img-box
 {
-    width:51%; 
+    width:51%;
     position: relative;
     border: solid 1px #e0e0e0;
     padding: 20px 20px 40px;
@@ -1493,9 +1518,9 @@ button.button span.name{
 .product-view .data-table td {
     padding: 5px;
 }
-.product-view .product-shop 
-{ 
-    width:49%; 
+.product-view .product-shop
+{
+    width:49%;
     padding-left: 35px;
 }
 .product-view .product-img-box .product-image {
@@ -1507,7 +1532,6 @@ button.button span.name{
 .product-view .box-up-sell h1.subtitle,
 .product-view .block-related h1.subtitle {
     font-size: 25px;
-    font-weight: 600;
 }
 .product-view .product-shop .price-review .price-box {
     float: left;
@@ -1564,11 +1588,17 @@ button.button span.name{
 .std blockquote {
     line-height: 1.6;
 }
+.product-tabs-content ul {
+    list-style:disc outside; padding-left:18px; margin:0 0 10px;
+}
+.product-tabs-content ul li {
+    margin-left: 15px;
+}
 .data-con {
     display: block;
 }
 .sbOptions {
-	overflow-y: auto !important;
+    overflow-y: auto !important;
 }
 /*Ajax Cart */
 #success-message-container .btn-cart {
@@ -1576,7 +1606,7 @@ button.button span.name{
 }
 /* Block: Additional */
 .product-view .box-additional {
-    
+
 }
 .product-tabs-content {
     padding-right: 40px;
@@ -1593,7 +1623,7 @@ button.button span.name{
     padding: 5px 0;
 }
 .product-essential .more-images img {
-    border: solid 1px #dddddd;    
+    border: solid 1px #dddddd;
     max-width: 100%;
 }
 .product-essential .product-image {
@@ -1603,11 +1633,11 @@ button.button span.name{
 .product-essential .product-image.no-empty-more {
     width: 78%;
 }
-/*Toolbar*/ 
+/*Toolbar*/
 .toolbar,
 .pager {
-/*    height: 40px;
-    line-height: 40px;*/
+    /*    height: 40px;
+        line-height: 40px;*/
     background-color: #ebebeb;
     padding: 7px 10px;
     border: none;
@@ -1690,6 +1720,20 @@ button.button span.name{
 .sbHolder {
     margin-left: 10px;
 }
+#payment_form_authorizenetcim {
+    padding-bottom: 8px;
+    float: left;
+    clear: both;
+    display: block;
+}
+#payment_form_authorizenetcim .sbHolder {
+    margin-left: 0;
+    width: 146px;
+}
+#payment_form_authorizenetcim li#authorizenetcim_cc_new_card_form ul li {
+    display: block;
+    margin-bottom: 8px;
+}
 .sorter .sort-by .sbHolder,
 .sorter .sort-by .sbOptions {
     width: 135px;
@@ -1741,7 +1785,7 @@ button.button span.name{
     border: none;
     padding: 10px 15px;
     background-color: #ebebeb;
-    min-height: 16px;    
+    min-height: 16px;
 }
 .block .block-content li.item {
     padding:5px;
@@ -1762,6 +1806,7 @@ button.button span.name{
 .block.block-minicart .block-subtitle {
     font-size: 12px;
     text-transform: none;
+    color: #2e2e2e !important;
 }
 .akordeon-item-last .akordeon-border-bottom {
     border-bottom: none;
@@ -1903,12 +1948,12 @@ dd.comments-item {
 .data-table {
     margin: 10px 0 15px;
 }
-caption, 
-th, 
+caption,
+th,
 td,
 .data-table th,
 .data-table td
- {
+{
     text-align: center;
     vertical-align: middle;
 }
@@ -1917,7 +1962,7 @@ td,
     font-weight: normal;
 }
 .form-list li {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .form-list .input-box,
 .form-list textarea
@@ -1962,7 +2007,7 @@ td,
     margin-bottom: 15px;
 }
 .cc-item-container {
-    padding: 16px;    
+    padding: 16px;
 }
 .cc-product-name a,
 .product-tabs-content li .cc-product-name a,
@@ -2024,7 +2069,7 @@ td,
     width: 130px;
 }
 #product-options-wrapper .sbHolder {
-    margin-left: 10px; 
+    margin-left: 10px;
 }
 #product-options-wrapper dl .qty-holder {
     display: block;
@@ -2109,7 +2154,7 @@ td,
     padding: 0 15px;
 }
 .product-img-box .add-links-wrap {
-    width: 138px;
+    width: 145px;
     position: absolute;
     right: 20px;
     margin-top: 13px;
@@ -2127,7 +2172,7 @@ td,
 }
 .box-up-sell .products-grid,
 .block-related .products-grid
- {
+{
     margin: 50px 0 0;
     position: relative;
 }
@@ -2167,7 +2212,7 @@ td,
 }
 .breadcrumbs.title-show {
     padding: 26px 0;
-} 
+}
 .breadcrumbs.title-show .page-title
 {
     float: left;
@@ -2176,7 +2221,7 @@ td,
 {
     display: block;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: normal;
     line-height: 30px;
     text-transform: uppercase;
 }
@@ -2280,7 +2325,7 @@ td.for-desktop {
 .catalog-product-compare-index .std ul ul,
 .catalog-product-compare-index .std ul.disc {
     list-style: none;
-    padding: 0;   
+    padding: 0;
 }
 .checkout-cart-index .show-your-carts {
     margin-top: -15px;
@@ -2296,6 +2341,12 @@ td.for-desktop {
 .checkout-cart-index .cart-table td {
     vertical-align: top;
     font-size: 15px;
+}
+.order-review .product-image img {
+    width: auto;
+}
+.order-review .product-shop {
+    margin: 10px auto;
 }
 .rm-td .btn-remove {
     float: none;
@@ -2453,7 +2504,7 @@ div.cart-empty {
     line-height: 30px;
 }
 .contacts-index-index .main-container .main {
-    
+
 }
 .contacts-index-index .content-left {
     width: 49%;
@@ -2554,7 +2605,7 @@ div.cart-empty {
 .cms-no-route .main-content .form-search button.button:hover {
     background-color: #add4d9;
 }
-/*about us page*/ 
+/*about us page*/
 .cms-heading-container {
     background: url(../images/backgrounds/about_header_bg.png);
     width: 100%;
@@ -2573,7 +2624,7 @@ div.cart-empty {
     width: 80%;
     color: #ffffff;
     padding-bottom: 30px;
-    border-bottom: solid 1px #ffffff; 
+    border-bottom: solid 1px #ffffff;
 }
 .cms-heading-container .cms-description .desc-short {
     font-size: 24px;
@@ -2810,7 +2861,7 @@ div.cart-empty {
 .cms-container .block-socials .bx-wrapper {
     max-width: 308px;
     margin: 10px auto;
-} 
+}
 .cms-container .block-socials .social-block {
     text-align: center;
     padding: 50px 0;
@@ -2819,7 +2870,7 @@ div.cart-empty {
 }
 .cms-container .in-blog.block-socials .social-block {
     height: 340px;
-} 
+}
 .cms-container .block-socials .social-block .social-block-title {
     font-size: 16px;
     font-weight: bold;
@@ -2918,7 +2969,7 @@ div.cart-empty {
 .tool-tip .btn-close a:hover {
     background-position: -12px 3px;
     background-color: #add4d9;
-    
+
 }
 
 /*tab with slider*/
@@ -2988,35 +3039,35 @@ div.cart-empty {
 }
 /*quick view*/
 .quickview-main {
-	padding: 35px 20px 20px;
+    padding: 35px 20px 20px;
 }
 .quickview-main .product-view .product-shop .price-review .price-box,
 .quickview-main .product-view .product-shop .price-review .ratings{
-	float: none;
-	width: 100%;
+    float: none;
+    width: 100%;
 }
 .quickview-main .ratings .amount {
-	margin-left: 10px;
+    margin-left: 10px;
 }
 .quickview-main .add-to-box .add-to-links,
 .quickview-main .product-img-box .add-links-wrap{
-	display: none;
+    display: none;
 }
 .quickview-main .product-img-box {
-	padding: 20px;
+    padding: 20px;
 }
 .quickview-main .product-view .product-options .options .clearfix .first,
 .quickview-main .product-view .product-options .options .clearfix .second{
-	float: none;
+    float: none;
 }
 .quickview-main .add-to-cart button.button {
-	margin: 0;
+    margin: 0;
 }
 .featured-scroll .products-grid .col1,
-.featured-scroll .products-grid .col2, 
-.featured-scroll .products-grid .col3, 
-.featured-scroll .products-grid .col4, 
-.featured-scroll .products-grid .col6, 
+.featured-scroll .products-grid .col2,
+.featured-scroll .products-grid .col3,
+.featured-scroll .products-grid .col4,
+.featured-scroll .products-grid .col6,
 .featured-scroll .products-grid .col12 {
     padding-left: 2px;
     padding-right: 0;
@@ -3052,7 +3103,7 @@ div.cart-empty {
     text-indent: -999em;
 }
 .middle-topup .scrolltop {
-    background-position: 0 -106px;    
+    background-position: 0 -106px;
 }
 .scrolltop:hover {
     background-position: 0 -53px;
@@ -3087,7 +3138,7 @@ div.cart-empty {
     margin-left: 170px;
 }
 .featured-products-container .product-item .product-item-image img {
-    
+
 }
 .featured-products-container .product-item .product-item-name {
     font-size: 17px;
@@ -3143,7 +3194,7 @@ div.cart-empty {
     display: block;
     width: 40px;
     text-indent: -9999em;
-    background: url(../images/homeslider/slider_action_icon.png) no-repeat; 
+    background: url(../images/homeslider/slider_action_icon.png) no-repeat;
     height: 28px;
     text-align: left;
     padding: 0;
@@ -3233,6 +3284,24 @@ div.cart-empty {
 .iosSlider .featured-products-container {
     bottom: 5px;
 }
+.sbToggle, .pager .pages ol li a, .pager .pages ol li.current {
+    background-color:#D4D2D3 !important;
+}
+.pager .pages ol li a:hover {
+    background-color: #84D2E6 !important;
+}
+#homeslider-revolution .hp-copy-fade {
+    background: url(../images/bg_hp_copy.png) repeat-y left center;
+    width: 100%;
+    height: 120px;
+    left: 0;
+    bottom: 20%;
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    padding: 24px;
+}
 #homeslider-revolution .container {
     height: 100%;
 }
@@ -3240,16 +3309,18 @@ div.cart-empty {
     position: absolute;
     z-index: 30;
     right: 0;
-    bottom: 10%;
+    bottom: 30%;
+}
+#homeslider-revolution .container .home-adv .bx-viewport {
+    height: 396px !important;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li{
-    background: url(../images/homeslider/slider_featured_bg.png) repeat;
-    padding: 7px 9px;
-    width: 452px !important; 
+    padding: 0;
+    width: 456px !important;
+    border: 2px solid #fff;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
-    height: 182px;
-    background: url(../images/homeslider/slider_featured_item_bg.png)
+    height: 188px;
 }
 #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container .home-adv-photo {
     width: 170px;
@@ -3296,20 +3367,22 @@ div.cart-empty {
 #homeslider-revolution .container .home-adv .bx-has-controls-direction .bx-controls-direction a {
     background-color: #000000;
     opacity: 0.5;
-    filter:Alpha(opacity=50);   
+    filter:Alpha(opacity=50);
     margin: 0 5px;
 }
 #homeslider-revolution .container .home-adv .bx-has-controls-direction .bx-controls-direction a:hover {
     background-color: #add4d9;
     opacity: 1;
-    filter:Alpha(opacity=100); 
+    filter:Alpha(opacity=100);
 }
 .cart-table .price,
 .cart .data-table tbody .price {
     color: #777777;
 }
 .block-minicart .block-content li.item {
-    background-color: #292929;
+    background-color: #ccc;
+    color: #2e2e2e;
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
 }
 .btn-remove2:hover,
 .btn-remove2:focus {
@@ -3477,13 +3550,13 @@ div.cart-empty {
 }
 .store-switcher a,
 .store-switcher .dropdown-menu > li > a{
-      text-align: left;
+    text-align: left;
 }
 .store-switcher a .icon-dropdown {
     float: right;
     margin-top: 10px;
 }
-#nav, 
+#nav,
 #blog_nav {
     float: left;
     border: none;
@@ -3582,42 +3655,1355 @@ div.cart-empty {
 .col-sidebar .block.block-reorder .block-content {
     padding: 10px;
 }
- .block-reorder input.checkbox {
-     margin-top: 9px;
- }
- .block .actions a {
-     line-height: 35px;
-     height: 35px;
-     margin-left: 10px;
- }
- .title-buttons {
-     margin-bottom: 10px;
- }
- .opc .step-title {
-     text-align: left;
- }
- #checkout-step-billing .sbHolder,
- #checkout-step-shipping .sbHolder{
-     margin-left: 0;
-     width: 240px;
- }
- #checkout-step-billing .sbSelector,
- #checkout-step-shipping .sbSelector {
-     width: 213px;
- }
- #checkout-step-billing .sbOptions,
- #checkout-step-shipping  .sbOptions{
-     width: 240px;
- }
- .sp-methods input[type="radio"] {
-     display: inline-block !important;
- }
- .col-sidebar .block.opc-block-progress .block-content {
-     padding:10px;
- }
- .col-sidebar .block.opc-block-progress .block-content dt {
-     line-height: 30px;
- }
- #checkout-review-table-wrapper .product-name {
-     font-size: 1.5em;
- }
+.block-reorder input.checkbox {
+    margin-top: 9px;
+}
+.block .actions a {
+    line-height: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+.title-buttons {
+    margin-bottom: 10px;
+}
+.opc .step-title {
+    text-align: left;
+}
+#checkout-step-billing .sbHolder,
+#checkout-step-shipping .sbHolder{
+    margin-left: 0;
+    width: 240px;
+}
+#checkout-step-billing .sbSelector,
+#checkout-step-shipping .sbSelector {
+    width: 213px;
+}
+#checkout-step-billing .sbOptions,
+#checkout-step-shipping  .sbOptions{
+    width: 240px;
+}
+.sp-methods input[type="radio"] {
+    display: inline-block !important;
+}
+.col-sidebar .block.opc-block-progress .block-content {
+    padding:10px;
+}
+.col-sidebar .block.opc-block-progress .block-content dt {
+    line-height: 30px;
+}
+#checkout-review-table-wrapper .product-name {
+    font-size: 1.5em;
+}
+#nav ul, #nav div, #blog_nav ul {
+    top: 56px !important;
+}
+
+.cms-index-index .footer-container {
+    display: block!important;
+}
+.cms-index-index .footer-top {
+    display: none;
+}
+div.eternal-custom-menu-popup > div, #custommenu-mobile #menu-content, #nav ul, #nav div, #blog_nav ul, #blog_nav div, #nav-links ul, #nav-links div {
+    padding: 8px;
+}
+#nav li.parent ul a:hover {
+    color: #008ab0;
+}
+.footer-column-2 .title {
+    visibility: visible;
+}
+
+.quick-access {
+    float: right;
+    padding-top: 21px;
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+}
+#nav .float-right {
+    float: right;
+    padding-bottom: 0px;
+    padding-top: 19px;
+}
+#custommenu > ul {
+    width: 100% !important;
+}
+/*#nav .float-right a {
+  background: none repeat scroll 0 0 #008ab0;
+  border-bottom: 5px solid #82d2e5;
+  border-top: 5px solid #82d2e5;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 35px;
+}*/
+#nav .float-right a:hover{
+    background: none repeat scroll 0 0 #82d2e5;
+    color: #fff;
+}
+#custommenu {
+    left: 0!important;
+}
+div.menu a, #nav li a, #blog_nav li a, #nav-links a {
+    padding: 0 15px;
+}
+
+#homeslider-revolution .container a{
+    background-color: #008ab0!important;
+    color: #ffffff!important;
+    display: inline-block;
+    font-family: "Molengo",Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+#homeslider-revolution .container a:hover{
+    background-color: #82d2e5 !important;
+    color: #fff !important;
+}
+.block .akordeon ul li a, .block .akordeon ol li a, .filter-item .filter-item-body ol li, .filter-item .filter-item-body ul li, .filter-item .filter-item-body ol li a, .filter-item .filter-item-body ul li a, .col-sidebar .block-content ul li a, .currently .label, .currently .value {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    text-transform: uppercase !important;
+}
+.col-sidebar .block-content .akordeon-item-content ul li {
+    line-height: 36px;
+    height: 36px;
+    padding-left: 0px;
+}
+.block .block-title {
+    background-color: #ebebeb;
+    border: medium none;
+    margin-top: 30px !important;
+    min-height: 16px;
+    padding: 10px 15px;
+}
+.block .akordeon ul li a:hover, .akordeon-heading a:hover, .filter-item .filter-item-body ol li a:hover, .filter-item .filter-item-body ul li a:hover, .col-sidebar .block-content ul li a:hover {
+    color: #66b1b8 !important;
+}
+
+.akordeon-border-bottom li:hover {
+    background:#fff;
+}
+
+/**************************** Detail Page ******************************/
+.add-to-box input.input-text {
+    background: #FFFFFF;
+}
+.catalog-product-view .product-options-bottom .button-up {
+    background-color: #E0E0E0;
+}
+.catalog-product-view .block-related h1.subtitle {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+    padding: 0 0 10px;
+    color: #999999 !important;
+}
+.catalog-product-view .block-related .products-grid {
+    margin: 15px 0 0;
+}
+.catalog-product-view .block-related .price-box {
+    padding-top: 0;
+}
+.catalog-product-view .block-related .products-grid .bx-has-controls-direction {
+    top: -54px;
+}
+.catalog-product-view .block-related .more-info {
+    left: 46.5%;
+}
+.catalog-product-view .product-img-box .button {
+    background-color: #D1D1D1;
+}
+.catalog-product-view .product-img-box .button:hover, .catalog-product-view .product-options-bottom .button-up:hover {
+    background-color: #b5b5b5;
+}
+.toplinks.links li {
+    line-height: 41px;
+}
+.catalog-product-view .elastislide-vertical {
+    margin-top: 0;
+}
+.catalog-product-view .add-to-cart .btn-cart {
+    line-height: 40px;
+    font-size: 13px;
+    font-weight: normal;
+}
+/*********************************** CMS Pages **************************************/
+.cms-page-view .breadcrumbs  {
+    padding: 14px 0;
+}
+.cms-page-view .breadcrumbs  li a, .cms-page-view .breadcrumbs  li strong {
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+}
+.cms-page-view .breadcrumbs  li.home a {
+    color: #008ab0;
+}
+.cms-page-view .breadcrumbs  li.cms_page strong {
+    color: #525252;
+}
+.dr-banner {
+    max-width: 100%;
+    text-align: center;
+}
+.dr-caption {
+    position:;
+}
+
+.dr-banner img {
+    max-width: 100%;
+}
+.dr-content .dr-image {
+    float: right;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 0;
+    width: auto;
+}
+.dr-content .dr-image img {
+    max-width: 100%;
+}
+.dr-content .dr-right-content .dr-name {
+    color: #262626;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    line-height: 28px;
+    margin: 0 0 10px;
+}
+.dr-content .dr-right-content .dr-desc {
+    color: #2b2b2b;
+}
+.dr-content .dr-right-content .dr-desc p {
+    line-height: 1.2;
+    margin: 0 0 15px;
+}
+.dr-content .dr-right-content .dr-desc p:last-child {
+    margin: 0;
+}
+.customer-content .col-title {
+    border-bottom: 2px solid #262626;
+    color: #262626;
+    float: left;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    line-height: normal;
+    margin: 0 0 15px;
+    padding-right: 10px;
+}
+.customer-content .col-content {
+    clear: both;
+}
+.customer-content .col-content p {
+    margin: 0 0 15px;
+    color: #2b2b2b;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.customer-content .col-content p a {
+    color: #008ab0;
+}
+
+@media(max-width: 767px){
+    .dr-content .dr-image {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+    .dr-content .dr-image img {
+        max-width: auto;
+    }
+    .dr-content .dr-right-content {
+        margin: 20px 0 0;
+        width: 100%;
+    }
+    .dr-content .dr-right-content .dr-name {
+        text-align: center;
+    }
+}
+
+@media(max-width: 360px){
+    .catalog-product-view .add-to-cart .btn-cart {
+        margin-right: 0;
+    }
+}
+
+/********************************* Bio Sciences Page, Order & Shipping, FAQ, Retailers, Customer-service, Customer-reviews  *****************************/
+.cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs {
+    width: 22.4%;
+}
+.cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
+    width: 77.6%;
+}
+.cms-jenu-biosciences .left-tabs ul, .cms-ordering-and-shipping .left-tabs ul, .cms-warranty .left-tabs ul, .cms-faqs .left-tabs ul,.cms-retailers .left-tabs ul, .cms-customer-support .left-tabs ul, .cms-customer-reviews .left-tabs ul, .cms-box .left-tabs ul {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border-bottom: 2px solid #ebebeb;
+    padding-bottom: 10px;
+}
+.cms-jenu-biosciences .left-tabs ul li, .cms-ordering-and-shipping .left-tabs ul li, .cms-warranty .left-tabs ul li, .cms-faqs .left-tabs ul li, .cms-retailers .left-tabs ul li, .cms-customer-support .left-tabs ul li, .cms-customer-reviews .left-tabs ul li, .cms-box .left-tabs ul li {
+}
+.cms-jenu-biosciences .left-tabs ul li a, .cms-ordering-and-shipping .left-tabs ul li a, .cms-warranty .left-tabs ul li a, .cms-faqs .left-tabs ul li a, .cms-retailers .left-tabs ul li a, .cms-customer-support .left-tabs ul li a, .cms-customer-reviews .left-tabs ul li a, .cms-box .left-tabs ul li a {
+    color: #777777;
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.cms-jenu-biosciences .left-tabs ul li.active a, .cms-ordering-and-shipping .left-tabs ul li.active a, .cms-warranty .left-tabs ul li.active a, .cms-faqs .left-tabs ul li.active a, .cms-retailers .left-tabs ul li.active a, .cms-customer-support .left-tabs ul li.active a, .cms-customer-reviews .left-tabs ul li.active a, .cms-box .left-tabs ul li.active a {
+    background-color: #EBEBEB;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.cms-jenu-biosciences .left-tabs ul li:hover a, .cms-ordering-and-shipping .left-tabs ul li:hover a, .cms-warranty .left-tabs ul li:hover a, .cms-faqs .left-tabs ul li:hover a, .cms-retailers .left-tabs ul li:hover a, .cms-customer-support .left-tabs ul li:hover a, .cms-customer-reviews .left-tabs ul li:hover a, .cms-box .left-tabs ul li:hover a {
+    color: #66b1b8;
+    background-color: #FFFFFF;
+}
+.cms-jenu-biosciences .left-tabs ul li.active:hover a, .cms-ordering-and-shipping .left-tabs ul li.active:hover a, .cms-warranty .left-tabs ul li.active:hover a, .cms-faqs .left-tabs ul li.active:hover a, .cms-retailers .left-tabs ul li.active:hover a, .cms-customer-reviews .left-tabs ul li.active:hover a {
+    color: #777777;
+    background-color: #EBEBEB;
+}
+.cms-jenu-biosciences .bio-content h2, .cms-ordering-and-shipping .bio-content h2, .cms-warranty .bio-content h2, .cms-faqs .bio-content h2, .cms-retailers .bio-content h2, .cms-customer-support .bio-content h2, .cms-customer-reviews .bio-content h2, .cms-box .bio-content h2 {
+    color: #008ab0;
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+.cms-jenu-biosciences .bio-content p, .cms-ordering-and-shipping .bio-content p, .cms-warranty .bio-content p, .cms-faqs .bio-content p, .cms-retailers .bio-content p, .cms-customer-support .bio-content p, .cms-customer-reviews .bio-content p, .cms-box .bio-content p {
+    color: #262626;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+.cms-customer-reviews .bio-content p {
+    margin-bottom: 0px !important;
+}
+.cms-customer-reviews .bio-content p.author {
+    float: right;
+}
+.cms-customer-reviews .bio-content li {
+    margin-bottom: 20px !important;
+    float: left;
+}
+.bio-banner {
+    text-align: center;
+}
+.bio-banner  img, .bio-banner  img {
+    max-width: 100%;
+}
+.cms-faqs .bio-content li, .cms-customer-reviews .bio-content li {
+    list-style: outside none none;
+}
+.cms-faqs .bio-content li p.ques{
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+.contacts-index-index .sidebar-right p {
+    color: #262626;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+}
+.contacts-index-index .sidebar-right .block-title strong, .contacts-index-index #contactForm .heading {
+    color: #008ab0;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+}
+.contacts-index-index .sidebar-right .block-title {
+    margin-top:0 !important;
+}
+@media(max-width: 767px){
+    .cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs{
+        width: 100%;
+    }
+    .cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
+        width: 100%;
+        margin-top: 25px;
+    }
+}
+/*********************************************************************************/
+
+/******************************* Home Page Bottom Section ************************/
+.cms-index-index .main-container .main {
+    display: block !important;
+}
+.cms-index-index .main-container .main {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    background-color: #0a2832;
+}
+.footer-above {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+.footer-above .content {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background: #f2f2f2;
+    min-height: 300px;
+    padding: 30px 30px;
+}
+.footer-above .content img {
+    width: 100%;
+}
+.footer-above .col4 .title {
+    text-transform: uppercase;
+    display: block;
+    font-size: 30px;
+    text-align: center;
+}
+
+.footer-above .col4 .learn {
+    background: #15323c;
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 8px;
+    display: block;
+    text-transform: uppercase;
+    margin: 0 auto;
+    width: 170px;
+    text-align: center;
+    color: #fff;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 35px;
+    position: absolute;
+}
+
+.footer-above .col4 .learn:hover {
+    background-color: #20576a;
+}
+
+.footer-above .col4 .text {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    display: block;
+    margin: 24px auto;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+}
+/*********************************************************************************/
+
+/******************************* Ultrasound Page Design **************************/
+.ultra-banner {
+    text-align: center;
+}
+.ultra-banner img {
+    width: 100%;
+}
+.ultrasound {
+    display: block;
+    overflow: hidden;
+}
+.ultrasound .ultra-top {
+    clear: both;
+    display: block;
+    padding-bottom: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 70px;
+}
+.ultrasound .ultra-top h2 {
+    color: #262626;
+    margin-bottom: 10px;
+}
+.ultrasound .ultra-top p {
+    color: #262626;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.ultrasound .ultra-top .ultra-top-right {
+    text-align: center;
+}
+.ultrasound .ultra-bottom {
+    display: block;
+    overflow: hidden;
+    background: url("../images/image-bg2.png") no-repeat scroll center 0 transparent;
+}
+.ultrasound .ultra-bottom-inner {
+    margin-top: 135px;
+}
+.ultrasound .timepoint.odd {
+    box-sizing: border-box;
+    float: left;
+    margin-bottom: 70px;
+    padding-right: 6px;
+    width: 50%;
+    position: relative;
+}
+.ultrasound .timepoint.even {
+    box-sizing: border-box;
+    float: right;
+    margin-top: 70px;
+    padding-left: 9px;
+    width: 50%;
+    position: relative;
+}
+.ultrasound .timepoint.odd .ultra-image {
+    box-sizing: border-box;
+    float: left;
+    padding-right: 21px;
+    width: 44.7%;
+}
+.ultrasound .timepoint.odd .ultra-year-text {
+    float: right;
+    width: 55.3%;
+}
+.ultrasound .timepoint.odd .ultra-text {
+    color: #3a3a3a;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 25px;
+    width: 80%;
+}
+.ultrasound .timepoint.even .ultra-image {
+    box-sizing: border-box;
+    float: right;
+    padding-left: 21px;
+    width: 44.7%;
+}
+.ultrasound .timepoint.even .ultra-year-text {
+    float: left;
+    width: 55.3%;
+}
+.ultrasound .timepoint.even .ultra-year {
+    text-align: right;
+}
+.ultrasound .timepoint.even .ultra-text {
+    clear: both;
+    color: #3a3a3a;
+    float: right;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 25px;
+    text-align: right;
+    width: 74%;
+}
+.ultrasound .timepoint.yr-1915 {
+    margin-top: 7px;
+}
+.ultrasound .timepoint.yr-1920-1940 {
+    margin-top: 77px;
+}
+.ultrasound .timepoint.yr-1942 {
+    margin-bottom: 48px;
+    margin-top: 6px;
+}
+.ultrasound .timepoint.yr-1953 {
+    margin-top: 76px;
+}
+.ultrasound .timepoint.yr-1958 {
+    margin-top: 28px;
+}
+.ultrasound .timepoint.yr-1980 {
+    margin-top: 77px;
+}
+.ultrasound .timepoint.yr-1990 {
+    margin-top: 8px;
+}
+.ultrasound .timepoint.yr-2009 {
+    margin-top: 76px;
+}
+.ultrasound .timepoint.yr-2015 {
+    margin-top: 12px;
+}
+.ultrasound .timepoint.yr-2015 .ultra-year-text {
+    position: relative;
+}
+.ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
+    position: absolute;
+    top: 140px;
+    width: 68%;
+    color: #4f4f4f;
+    line-height: 1.4;
+}
+.ultrasound .timepoint.yr-1920-1940 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: right;
+    width: 67%;
+}
+.ultrasound .timepoint.yr-1980 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: right;
+    width: 33%;
+}
+.ultrasound .timepoint.yr-1990 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: left;
+    width: 33%;
+}
+.ultrasound .timepoint.yr-2009 .ultra-year {
+    background: none repeat scroll 0 0 #ffffff;
+    float: right;
+    width: 32%;
+}
+.cms-ultrasound-101 .main {
+    margin-bottom: 2px;
+}
+.ultrasound .ultra-bottom-title {
+    display: none;
+    text-align: center;
+}
+/*********************************************************************************/
+
+/************************** Clinical Results Page Design *************************/
+.clinical-banner {
+    max-width: 100%;
+    text-align: center;
+}
+.clinical-banner img {
+    max-width: 100%;
+}
+.clinical-results .title-text {
+    text-align: center;
+}
+.clinical-results .title-text h2 {
+    color: #262626;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 36px;
+    font-weight: normal;
+}
+.clinical-results .studies {
+    display: block;
+    margin: 50px 0 30px;
+    position: relative;
+}
+.clinical-results .studies-inner {
+    border-top: 1px solid #bababa;
+    text-align: center;
+}
+.clinical-results .studies-inner span {
+    background-color: #ffffff;
+    color: #262626;
+    font-size: 24px;
+    padding: 0 10px;
+    position: relative;
+    top: -20px;
+}
+.clinical-results .studies-section {
+    display: block;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+}
+.clinical-results .studies-bottom-inner {
+    display: block;
+    overflow: hidden;
+}
+.clinical-results .studies-bottom-inner .absorption {
+    background: url("../images/left-big-arrow.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 379px;
+    width: 440px;
+    position: relative;
+}
+.clinical-results .studies-bottom-inner .absorption span {
+    color: #262626;
+    font-size: 36px;
+    left: 55px;
+    line-height: 1.1;
+    position: absolute;
+    top: 70px;
+    width: 70%;
+}
+.clinical-results .studies-bottom-inner .lotus {
+    float: left;
+    width: 300px;
+}
+.clinical-results .studies-bottom-inner .lotus img {
+    margin-top: 57px;
+}
+.clinical-results .studies-bottom-inner .anti-aging {
+    color: #262626;
+    float: left;
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 70px 0 0;
+    position: relative;
+    text-align: right;
+    width: 260px;
+}
+.clinical-results .middle-section {
+    display: block;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+}
+.clinical-results .middle-section .middle-top {
+    background: url("../images/midle-content.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 82px;
+    margin: 20px 0 80px;
+    padding-left: 185px;
+}
+.clinical-results .middle-section .middle-top span {
+    color: #262626;
+    font-size: 36px;
+    line-height: 1.1;
+}
+.clinical-results .middle-section .half-all {
+    background: url("../images/versus.png") no-repeat scroll center 0 transparent;
+    color: #4c4c4c;
+    display: block;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 60px;
+    height: 99px;
+    line-height: 99px;
+    position: relative;
+    text-transform: uppercase;
+}
+.clinical-results .middle-section .versus {
+    background: url("../images/horizontal-dot.png") repeat-x scroll center center transparent;
+}
+.clinical-results .middle-section .half-all .half {
+    background: none repeat scroll 0 0 #ffffff;
+    float: left;
+    padding-right: 10px;
+    letter-spacing: -2px;
+}
+.clinical-results .middle-section .half-all .all {
+    float: right;
+    background: none repeat scroll 0 0 #ffffff;
+    padding-left: 10px;
+    letter-spacing: -2px;
+}
+.clinical-results .versus-content {
+    display: block;
+    overflow: hidden;
+    padding: 30px 0;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #262626;
+    background: url("../images/vertical-dot.png") repeat-y scroll center 0 transparent;
+}
+.clinical-results .versus-content p {
+    line-height: 1.2;
+}
+.clinical-results .versus-content .versus-half {
+    float: left;
+    width: 50%;
+}
+.clinical-results .versus-content .versus-half .half-text {
+    float: left;
+    width: 70%;
+}
+.clinical-results .versus-content .versus-half .half-image {
+    float: left;
+    margin: 25px 0 0 2%;
+    text-align: left;
+    width: 28%;
+}
+.clinical-results .versus-content .versus-all {
+    float: right;
+    width: 50%;
+}
+.clinical-results .versus-content .versus-all .all-text {
+    float: right;
+    text-align: right;
+    width: 61%;
+}
+.clinical-results .versus-content .versus-all .all-image {
+    float: right;
+    margin: 25px 3% 0 0;
+    text-align: right;
+    width: 30%;
+}
+.clinical-results .versus-content strong {
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: normal;
+}
+.clinical-results .versus-content em {
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
+}
+.clinical-results .versus-content .versus-content-inner {
+    display: block;
+    overflow: hidden;
+}
+.clinical-results .versus-content .versus-images {
+    display: block;
+    margin: 40px 0 0;
+    overflow: hidden;
+}
+.clinical-results .versus-images .image-left {
+    float: left;
+    width: 50%;
+}
+.clinical-results .versus-images .image-right {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+.clinical-results .middle-section .dotted-border {
+    background: url("../images/solid-line.png") no-repeat scroll center 0 transparent;
+    margin: 80px 0 0;
+    position: relative;
+}
+.clinical-results .middle-section .dotted-border span {
+    background: url("../images/middle-arrow.png") no-repeat scroll center center transparent;
+    display: block;
+    height: 77px;
+    position: relative;
+    text-indent: -9999em;
+    top: -37px;
+}
+.clinical-results .graph-section .graph-top {
+    margin: 30px 0;
+    display: block;
+    overflow: hidden;
+}
+.clinical-results .graph-section .graph-top-left {
+    float: left;
+    width: 624px;
+}
+.clinical-results .graph-section .graph-top-right {
+    background: url("../images/big-arrow-right.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: right;
+    height: 379px;
+    margin: 25px 0 0;
+    position: relative;
+    width: 350px;
+}
+.clinical-results .graph-section .graph-top-right span {
+    color: #262626;
+    font-size: 32px;
+    line-height: 1.1;
+    position: absolute;
+    right: 40px;
+    text-align: right;
+    top: 100px;
+    width: 70%;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+.clinical-results .graph-section .graph-middle {
+    margin: 80px 0;
+    display: block;
+    overflow: hidden;
+}
+.clinical-results .graph-section .graph-middle-left {
+    background: url("../images/big-arrow-bottom.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 439px;
+    margin-top: 10px;
+    position: relative;
+    width: 440px;
+}
+.clinical-results .graph-section .graph-middle-left span {
+    color: #262626;
+    font-size: 32px;
+    left: 35px;
+    line-height: 1.1;
+    position: absolute;
+    top: 35px;
+    width: 73%;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+.clinical-results .graph-section .graph-middle-right {
+    float: right;
+}
+.clinical-results .graph-bottom {
+    display: block;
+    margin: 0 0 60px;
+    overflow: hidden;
+}
+.clinical-results .graph-bottom ul.graph-images {
+    display: block;
+    margin: 0 0 60px;
+    overflow: hidden;
+}
+.clinical-results .graph-bottom ul.graph-images li {
+    float: left;
+    margin: 0 3.5%;
+    width: 26.2%;
+}
+.clinical-results .graph-bottom ul.graph-links {
+    clear: both;
+    display: block;
+}
+.clinical-results .graph-bottom ul.graph-links li {
+    display: inline-block;
+    border-left: 1px solid #262626;
+}
+.clinical-results .graph-bottom ul.graph-links li a {
+    color: #262626;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+}
+.clinical-results .graph-bottom ul.graph-links li.first {
+    border: 0 none
+}
+.clinical-results .graph-bottom .graph-bottom-links {
+    text-align: center;
+    width: 100%;
+}
+.clinical-results .clinicalinfo-desktop {
+    margin: 0 auto;
+    max-width:1000px;
+}
+.clinicalinfo-desktop .clinicheading {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    font-color:#383838;
+    background-color: #d5d5d5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.clinicalinfo-desktop .clinicrows {
+    display: block;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-color:#363636;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid;
+    border-color: #ebebeb;
+}
+.clinicalinfo-desktop .name {
+    display: table-cell;
+    padding: 20px 5px 10px 25px;
+    text-align: left;
+    width: 16.5%;
+}
+.clinicalinfo-desktop .type {
+    display: table-cell;
+    padding: 20px 5px 10px 15px;
+    text-align: left;
+    width: 14%;
+}
+.clinicalinfo-desktop .test {
+    display: table-cell;
+    padding: 20px 5px 10px 15px;
+    text-align: left;
+    width: 11%;
+}
+.clinicalinfo-desktop .part {
+    display: table-cell;
+    padding: 20px 5px 10px 15px;
+    text-align: left;
+    width: 11%;
+}
+.clinicalinfo-desktop .time {
+    display: table-cell;
+    padding: 20px 5px 10px 15px;
+    text-align: left;
+    width: 8%;
+}
+.clinicalinfo-desktop .reaction {
+    display: table-cell;
+    padding: 20px 5px 10px 15px;
+    text-align: left;
+    width: 6%;
+}
+.clinicalinfo-desktop .conc {
+    display: table-cell;
+    padding: 20px 25px 10px 15px;
+    text-align: left;
+    width: 35.5%;
+}
+.clinicalinfo-desktop .clinicrows.last {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.clinicalinfo-desktop .clinicrows.last div {
+    padding-bottom: 25px;
+}
+.clinicalinfo-desktop .clinicrows .type {
+    padding-left: 12px;
+}
+.clinicalinfo-desktop .clinicrows .test {
+    padding-left: 9px;
+}
+.clinicalinfo-desktop .clinicrows .part {
+    padding-left: 7px;
+}
+.clinicalinfo-desktop .clinicrows .time {
+    padding-left: 6px;
+}
+.clinicalinfo-desktop .clinicrows .reaction {
+    padding-left: 4px;
+}
+.clinicalinfo-desktop .clinicrows .conc {
+    padding-left: 25px;
+}
+.clinicalinfo-desktop .clinicheading div {
+    color: #383838;
+    font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: normal;
+}
+.clinicalinfo-mob, .versus-image-mob-left, .versus-image-mob-right, .versus-all-mob {
+    display: none;
+}
+
+@media(max-width: 991px){
+    .clinical-results .studies-bottom-inner .absorption {
+        background: none repeat scroll 0 0 #e1f4f9;
+        height: 180px;
+        padding: 30px;
+        width: 100%;
+    }
+    .clinical-results .studies-bottom-inner .absorption span {
+        width: 92%;
+        top:29px;
+        left:32px;
+    }
+    .clinical-results .studies-bottom-inner .lotus {
+        float: left;
+        width: 50%;
+    }
+    .clinical-results .studies-bottom-inner .lotus img {
+        margin-top: 20px;
+    }
+    .clinical-results .studies-bottom-inner .anti-aging {
+        margin: 33px 60 0;
+    }
+    .clinical-results .middle-section .middle-top {
+        height: auto;
+    }
+    .clinical-results .versus-images .image-left img, .clinical-results .versus-images .image-right img {
+        max-width: 95%;
+    }
+    .clinical-results .graph-section .graph-top {
+        margin: 0;
+    }
+    .clinical-results .graph-section .graph-top-right {
+        background: none repeat scroll 0 0 #e1f4f9;
+        float: none;
+        height: 120px;
+        margin: 0 0 25px;
+        width: 100%;
+    }
+    .clinical-results .graph-section .graph-top-right span {
+        right: 5%;
+        text-align: center;
+        top: 25px;
+        width: 90%;
+    }
+    .clinical-results .graph-section .graph-top-left {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .clinical-results .graph-section .graph-middle {
+        margin: 30px 0;
+    }
+    .clinical-results .graph-section .graph-middle-left {
+        background: none repeat scroll 0 0 #e1f4f9;
+        float: none;
+        height: 225px;
+        margin: 0 0 25px;
+        width: 100%;
+    }
+    .clinical-results .graph-section .graph-middle-left span {
+        left: 5%;
+        top: 25px;
+        width: 90%;
+    }
+    .clinical-results .graph-section .graph-middle-right {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .clinical-results .graph-bottom ul.graph-images li {
+        margin: 0 2.5%;
+        width: 27.2%;
+    }
+    .clinical-results .graph-bottom ul.graph-images li img {
+        max-width: 100%;
+    }
+    .clinical-results .graph-bottom ul.graph-links li a {
+        font-size: 23px;
+        line-height: 23px;
+    }
+    .clinical-results .graph-bottom {
+        margin: 0 0 30px;
+    }
+    .clinicalinfo-desktop .name {
+        padding: 20px 5px 10px 15px;
+        width: 14.5%;
+    }
+    .clinicalinfo-desktop .clinicrows .type {
+        padding-left: 10px;
+    }
+    .clinicalinfo-desktop .clinicrows .test {
+        padding-left: 0;
+        width: 10%;
+    }
+    .clinicalinfo-desktop .clinicrows .part {
+        padding-left: 6px;
+    }
+    .clinicalinfo-desktop .part {
+        width: 13%;
+    }
+    .clinicalinfo-desktop .clinicrows .time {
+        padding-left: 4px;
+    }
+    .clinicalinfo-desktop .time {
+        width: 11%;
+    }
+    .clinicalinfo-desktop .clinicrows .reaction {
+        padding-left: 2px;
+        width: 8%;
+    }
+}
+
+@media(max-width: 767px){
+    .clinical-results .studies-bottom-inner .absorption {
+        background: none repeat scroll 0 0 #e1f4f9;
+        height: 108px;
+        padding: 20px;
+        width: 100%;
+    }
+    .clinical-results .studies-bottom-inner .absorption span {
+        font-size: 22px;
+        left: 5%;
+        top: 25px;
+        width: 90%;
+    }
+    .clinical-results .studies-bottom-inner .lotus {
+        width: 50%;
+    }
+    .clinical-results .studies-bottom-inner .lotus img {
+        margin-top: 20px;
+        width: 80%;
+    }
+    .clinical-results .studies-bottom-inner .lotus {
+        width: 50%;
+        margin-right: 12px;
+    }
+    .clinical-results .studies-bottom-inner .anti-aging {
+        font-size: 22px;
+        margin: 20px 0 0;
+        position: relative;
+        width: 210px;
+    }
+    .clinical-results .middle-section .middle-top {
+        margin: 0 0 40px;
+    }
+    .clinical-results .middle-section .middle-top span {
+        font-size: 22px;
+    }
+    .clinical-results .versus-content {
+        font-size: 22px;
+    }
+    .clinical-results .versus-content .versus-half .half-text {
+        width: 68%;
+    }
+    .clinical-results .versus-content .versus-all .all-text {
+        width: 56%;
+    }
+    .clinical-results .versus-content .versus-all .all-image {
+        width: 39%;
+    }
+    .clinical-results .middle-section .dotted-border {
+        margin: 55px 0 0;
+    }
+    .clinical-results .graph-section .graph-top-right {
+        height: 100px;
+    }
+    .clinical-results .graph-section .graph-top-right span {
+        font-size: 22px;
+    }
+    .clinical-results .graph-section .graph-top-left img {
+        max-width: 100%;
+    }
+    .clinical-results .graph-section .graph-middle-left {
+        height: 145px;
+    }
+    .clinical-results .graph-section .graph-middle-left span {
+        font-size: 22px;
+    }
+    .clinical-results .graph-bottom ul.graph-links li a {
+        font-size: 17px;
+        line-height: 17px;
+    }
+    .clinicalinfo-desktop {
+        display: none;
+    }
+    .clinicalinfo-mob {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    .clinicalinfo-mob .clinicrow {
+        display: table-row;
+    }
+    .clinicalinfo-mob .clinicheading {
+        display: table-cell;
+        border-width: 1px;
+        width:220px;
+        font-weight: normal;
+        text-align: center;
+        font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        font-color:#383838;
+        background-color: #d5d5d5;
+        padding: 7px;
+    }
+    .clinicalinfo-mob .cliniccontent {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding: 7px;
+        font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-size: 12px;
+        font-color:#363636;
+        background-color: #f5f5f5;
+        border-bottom: 1px;
+        border-color: #ebebeb;
+        width:70%;
+    }
+    .clinicalinfo-mob .clinicalinfo {
+        margin-bottom: 20px;
+    }
+}
+@media(max-width: 599px){
+    .clinical-results .title-text h2 {
+        font-size: 28px;
+    }
+    .clinical-results .studies-inner span {
+        font-size: 15px;
+        top: -12px;
+    }
+    .clinical-results .studies {
+        margin: 35px 0 15px;
+    }
+    .clinical-results .studies-bottom-inner .absorption span {
+        font-size: 17px;
+    }
+    .clinical-results .studies-bottom-inner .lotus {
+        margin-right: 3%;
+        width: 47%;
+    }
+    .clinical-results .studies-bottom-inner .anti-aging {
+        font-size: 17px;
+        width: 50%;
+    }
+    .clinical-results .middle-section .middle-top {
+        background: url("../images/midle-content.png") no-repeat scroll 0 0 / 35% auto transparent;
+        margin: 0 0 25px;
+        padding-left: 110px;
+    }
+    .clinical-results .middle-section .middle-top span {
+        font-size: 17px;
+    }
+    .clinical-results .middle-section .versus {
+        background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+    }
+    .clinical-results .middle-section .half-all {
+        background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+        font-size: 40px;
+        height: 99px;
+        text-align: center;
+    }
+    .clinical-results .middle-section .half-all .half {
+        float: none;
+        padding-right: 0;
+    }
+    .clinical-results .middle-section .half-all .all {
+        float: none;
+        padding-left: 0;
+        display: none;
+    }
+    .clinical-results .versus-content {
+        background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+        padding: 0;
+    }
+    .clinical-results .versus-content .versus-images {
+        display: none;
+    }
+    .versus-image-mob-left, .versus-image-mob-right {
+        clear: both;
+        display: block;
+        padding-top: 25px;
+    }
+    .clinical-results .versus-content .versus-half {
+        float: left;
+        width: 100%;
+    }
+    .versus-image-mob-left img, .versus-image-mob-right img {
+        max-width: 100%;
+    }
+    .clinical-results .versus-content .versus-all {
+        float: left;
+        margin-top: 25px;
+        width: 100%;
+    }
+    .versus-all-mob {
+        display: block;
+        color: #4c4c4c;
+        font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-size: 40px;
+        position: relative;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 30px 0 0;
+    }
+    .versus-all-mob img {
+        display: block;
+        margin: 0 auto;
+    }
+    .versus-all-mob .all {
+        display: block;
+        margin: 25px 0 0;
+    }
+    .clinical-results .versus-content {
+        font-size: 17px;
+    }
+    .clinical-results .versus-content .versus-half .half-image {
+        margin: 0 0 0 2%;
+    }
+    .clinical-results .versus-content .versus-all .all-image {
+        margin: 0 3% 0 0;
+    }
+    .clinical-results .graph-section .graph-top-right span {
+        font-size: 17px;
+    }
+    .clinical-results .graph-section .graph-middle {
+        margin: 25px 0;
+    }
+    .clinical-results .graph-section .graph-middle-left {
+        height: 150px;
+    }
+    .clinical-results .graph-section .graph-middle-left span {
+        font-size: 17px;
+        top: 20px;
+    }
+    .clinical-results .graph-section .graph-middle-right img {
+        max-width: 100%;
+    }
+    .clinical-results .graph-bottom ul.graph-images li {
+        margin: 0 1%;
+        width: 31%;
+    }
+    .clinical-results .graph-bottom ul.graph-images {
+        margin: 0 0 30px;
+    }
+    .clinical-results .graph-bottom ul.graph-links li {
+        border: 0 none;
+        display: block;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+}
+/*********************************************************************************/
+
+
+
+
+
+
+
+

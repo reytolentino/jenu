@@ -26,7 +26,7 @@
 /* Reset ================================================================================= */
 * { margin:0; padding:0; }
 
-body          { background:#fff; font:12px/1.35 Arial, Helvetica, sans-serif; color:#000; text-align:center; }
+body          { background:#fff; font:13px/1.35 Arial, Helvetica, sans-serif; color:#000; text-align:center; }
 
 img           { border:0; vertical-align:top; }
 
@@ -254,7 +254,7 @@ p.control input.radio { margin-right:6px; }
 .fieldset .legend { float:left; font-weight:bold; font-size:13px; border:1px solid #fefefe; background:#dedede; color:#333; margin:-33px 0 0 -10px; padding:0 8px; position:relative; }
 
 /* Form Validation */
-.validation-advice { clear:both; min-height:13px; margin:3px 0 0; padding-left:17px; font-size:10px; line-height:13px; background:url(../images/validation_advice_bg.gif) 2px 1px no-repeat; color:#f00; }
+.validation-advice { clear:both; min-height:13px; margin:3px 0 0; font-size:10px; line-height:13px; color:#f00; }
 .validation-failed { border:1px dashed #f00 !important; background:#faebe7 !important; }
 .validation-passed {}
 p.required { font-size:10px; text-align:right; color:#f00; }
@@ -342,7 +342,7 @@ p.required { font-size:10px; text-align:right; color:#f00; }
 .data-table tbody.even tr.border td { border-bottom-width:1px; }
 .data-table th .tax-flag { white-space:nowrap; font-weight:normal; }
 .data-table td.label,
-.data-table th.label { font-weight:bold; background-color:#f6f6f6; }
+.data-table th.label { font-weight:normal; background-color:#f6f6f6; }
 .data-table td.value {}
 
 /* Shopping cart total summary row expandable to details */
@@ -967,8 +967,8 @@ tr.summary-details-excluded { font-style:italic; }
 .tool-tip .tool-tip-content { padding:5px; }
 
 /* Gift Messages */
-.gift-messages {}
-.gift-messages-form { border:1px solid #ddd; background-color:#f5f5f5; }
+.gift-messages {margin-top: 15px;}
+.gift-messages-form { border:1px solid #ddd; background-color:#f5f5f5; padding: 10px; }
 .gift-messages-form { position:relative; }
 .gift-messages-form label { float:none !important; position:static !important; }
 .gift-messages-form h4 {}

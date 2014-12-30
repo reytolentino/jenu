@@ -1,0 +1,86 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento ENTERPRISE edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento ENTERPRISE edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Sarp
+ * @version    1.7.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-ENTERPRISE.txt
+ */
+?>
+<?php
+?>
+<?php $subscription = $this->getSubscription() ?>
+<?php $_product = $this->getProduct(); ?>
+<?php if ($subscription->getProduct()->getAwSarpEnabled()): ?>
+
+
+<div class="sarp-subscription">
+    <label><?php echo $this->__('Subscription type') ?>:</label>
+
+    <?php if (($types = $subscription->getSubscriptionTypes()) && (sizeof($types) > 1)): ?>
+		<?php foreach ($types as $item): ?>
+		<li>
+			<input name="aw_sarp_subscription_type" class="radio" type="radio" value="<?php echo $item['value']?>" <?php echo ($item['value'] == -1 ? "checked" : ""); ?> >
+				<span><?php echo $item['label']?></span>
+			</input>
+			<?php if($item['label'] != Mage::helper('sarp')->__('One-time Purchase')): ?>
+				<div class="sub-price">
+					<?php echo $this->helper('core')->currency( $_product->getAwSarpSubscriptionPrice(),true,false) ?>
+				</div>
+				<div class="sub-image"></div>
+				<div id="toll-tips-pdp">
+					<?php if ($_product->getSku() == 'J0139'): ?>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('toll-tips-pdp-lip')->toHtml() ?>
+					<?php endif; ?>
+					<?php if ($_product->getSku() == 'J0002'): ?>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('toll-tips-pdp-eye')->toHtml() ?>
+					<?php endif; ?>
+				</div>	
+				<?php?>
+				<?php else: ?>
+					<div class="sub-price">
+						<?php echo $this->getPriceHtml($_product); ?>
+					</div>
+			<?php endif; ?>
+        <?php endforeach; ?>
+    
+    <?php elseif ($types && (count($types) == 1)): ?>
+    <span><input type="hidden" name="aw_sarp_subscription_type"
+    value="<?php echo $types[0]['value']?>"/><?php echo $types[0]['label']?>
+	</span>
+	</li>
+	<?php endif;?>
+</div>
+
+<?php endif; ?>
+<script type="text/javascript">
+				 
+					jQuery(document).ready(function(){
+					  jQuery(".sub-image").mouseover(function(){
+					   jQuery("#toll-tips-pdp").show();
+					  });
+					  jQuery(".sub-image").mouseout(function(){
+						jQuery("#toll-tips-pdp").hide();
+					  });
+					});
+												
+</script>

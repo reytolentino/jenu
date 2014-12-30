@@ -286,7 +286,7 @@ extends Eco_Fulfillment_Api
 		switch ($orderData['shipping_method']) {
 
 			case 'freeshipping_freeshipping':
-				$shippingService = 'FEDEX3';
+				$shippingService = 'FEDEXG';
 				break;
 
 			// FedEx: Standard Overnight
@@ -299,7 +299,7 @@ extends Eco_Fulfillment_Api
 				break;
 
 			default:
-				$shippingService = 'FEDEX3';
+				$shippingService = 'FEDEXG';
 		}
 		return $shippingService;
 	}

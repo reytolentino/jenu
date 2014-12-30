@@ -46,6 +46,18 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'apexsanslightst';
+    src: url('../fonts/apexsanslightst-webfont.eot');
+    src: url('../fonts/apexsanslightst-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/apexsanslightst-webfont.woff2') format('woff2'),
+    url('../fonts/apexsanslightst-webfont.woff') format('woff'),
+    url('../fonts/apexsanslightst-webfont.ttf') format('truetype'),
+    url('../fonts/apexsanslightst-webfont.svg#apexsanslightstregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 ul.ul, ul.ul li {
     list-style: disc outside;
 }

@@ -1035,11 +1035,6 @@ button.button span.name{
     margin-bottom: 30px;
     margin-top: 0;
 }
-.cms-index-index .main {
-    margin-bottom: 0;
-    padding-bottom: 30px;
-    background-color: #0a2832;
-}
 /* Base Columns */
 .col-main {
     border: none;
@@ -4024,6 +4019,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /******************************* Home Page Bottom Section ************************/
 .cms-index-index .main-container .main {
     display: block !important;
+}
+.cms-index-index .main-container .main {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    background-color: #0a2832;
 }
 .footer-above {
     display: block;

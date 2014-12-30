@@ -315,6 +315,31 @@
     .ultrasound .ultra-bottom-title {
         display: block;
     }
+    #homeslider-revolution .container .home-adv {
+        bottom: 10%;
+    }
+    #homeslider-revolution .hp-copy-fade {
+        width: 100%;
+        height: 70px;
+        bottom: 10%;
+        position: absolute;
+        font-size: 14px;
+        padding: 14px;
+    }
+    #homeslider-revolution .container .home-adv .bx-viewport {
+        height: 314px !important;
+    }
+    #homeslider-revolution .container .home-adv ul.bx-slider li{
+        width: 356px !important;
+    }
+
+    #homeslider-revolution .container .home-adv ul.bx-slider li img {
+        width: 100%;
+    }
+
+    #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
+        height: 147px;
+    }
 }
 @media(max-width:767px){
     .col1,
@@ -811,6 +836,17 @@
         position: static;
         top: 0;
         width: 100%;
+    }
+    #homeslider-revolution .hp-copy-fade {
+        width: 100%;
+        height: 90px;
+        bottom: 0;
+        position: absolute;
+        font-size: 13px;
+        padding: 13px;
+    }
+    #homeslider-revolution .hp-copy-fade p:first-child {
+        margin-bottom: 5px;
     }
 }
 @media(max-width: 480px){

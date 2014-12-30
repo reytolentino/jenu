@@ -137,7 +137,7 @@ function header_fixed() {
                 nice.resize();
             }
             if ($('body').hasClass('header-abs')) {
-                $('.header-abs .header-container').css('position','absolute');
+                /**$('.header-abs .header-container').css('position','absolute');**/
                 $('body').css('margin-top', 0);
                 $('#loading-mask,#after-loading-success-message').css('margin-top',0);
             } else {

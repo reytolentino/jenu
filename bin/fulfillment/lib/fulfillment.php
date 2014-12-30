@@ -286,8 +286,7 @@ extends Eco_Fulfillment_Api
 		switch ($orderData['shipping_method']) {
 
 			case 'freeshipping_freeshipping':
-			case 'usps_Priority Mail':
-				$shippingService = 'USPSPRI';
+				$shippingService = 'FEDEX3';
 				break;
 
 			// FedEx: Standard Overnight
@@ -300,7 +299,7 @@ extends Eco_Fulfillment_Api
 				break;
 
 			default:
-				$shippingService = 'USPSPRI';
+				$shippingService = 'FEDEX3';
 		}
 		return $shippingService;
 	}

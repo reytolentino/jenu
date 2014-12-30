@@ -262,10 +262,6 @@ p.required {
 .tp-bgimg {
     /* background-position: 226px 50px !important;*/
 }
-
-.header-abs .header-container {
-    position: absolute;
-}
 .cms-no-route.header-abs .header-container {
     position: relative;
 }
@@ -3292,7 +3288,19 @@ div.cart-empty {
     background-color:#D4D2D3 !important;
 }
 .pager .pages ol li a:hover {
-    background-color:#84D2E6 !important;
+    background-color: #84D2E6 !important;
+}
+#homeslider-revolution .hp-copy-fade {
+    background: url(../images/bg_hp_copy.png) repeat-y left center;
+    width: 100%;
+    height: 120px;
+    left: 0;
+    bottom: 20%;
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    padding: 24px;
 }
 #homeslider-revolution .container {
     height: 100%;
@@ -3301,7 +3309,7 @@ div.cart-empty {
     position: absolute;
     z-index: 30;
     right: 0;
-    bottom: 10%;
+    bottom: 30%;
 }
 #homeslider-revolution .container .home-adv .bx-viewport {
     height: 396px !important;

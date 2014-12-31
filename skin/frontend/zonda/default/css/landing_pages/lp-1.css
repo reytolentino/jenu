@@ -1,0 +1,345 @@
+.container.cms-box {
+	max-width: 100%;
+}
+
+.lp-hero-container {
+	width: 100%;
+	height: 528px;
+	overflow: hidden;
+	background: #19353f;
+    color: #272727;
+    font-size: 13px;
+}
+
+.lp-hero-container h1 {
+	font-family: "Univers_Condensed", Helvetica, Arial;
+	font-size: 24px;
+	margin: 30px auto;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.lp-hero-inner {
+    width: 100%;
+    height: 528px;
+    overflow:hidden;
+    background: url('/media/landing_pages/bg-hero.jpg') no-repeat center center;
+}
+
+.lp-hero-content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.lp-hero-left {
+    width: 380px;
+    float: left;
+    margin: 15px 0 0 215px;
+}
+
+.lp-hero-left h2 {
+    font-size: 18px;
+    display: block;
+    margin: 0 0 0 10px;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.lp-hero-left .freeshipping {
+    font-size: 16px;
+    display: block;
+    margin: 62px 0 0 10px;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    color: #008ab0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.lp-hero-left .freegift {
+    display: block;
+    margin: 60px 0 0 0;
+}
+
+.lp-hero-right .offerbox {
+    width: 320px;
+    float: right;
+    margin: 60px 48px 0 0;
+}
+
+.lp-hero-right .offerbox .ltocopy {
+    display: block;
+    margin: 0;
+}
+
+.lp-hero-right .offerbox .pricingcopy {
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lp-hero-right .offerbox .pricingcopy .yousave {
+    text-transform: uppercase;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    font-size: 20px;
+}
+
+.lp-hero-right .offerbox p.freeshipping {
+    text-transform: uppercase;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    font-size: 20px;
+}
+
+.lp-hero-right .addtocart {
+    background: #1c3842;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+.lp-hero-right .addtocart:hover {
+    background:#0d252e;
+}
+
+.lp-hero-container .red {
+    color: red;
+}
+
+.lp-hero-container .linethrough {
+    text-decoration: line-through;
+}
+
+.lp-content {
+    width: 1000px;
+    padding: 0;
+    margin: 0 auto 40px auto;
+    overflow: hidden;
+    clear: both;
+    float: none;
+}
+
+.lp-content-ba {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 40px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+.lp-content-clinical {
+    width: 1000px;
+    margin: 0 auto;
+    min-height: 557px;
+    background:url('/media/landing_pages/bg-clinical.jpg') no-repeat top left;
+    overflow: hidden;
+    position: relative;
+}
+
+.lp-content-ba .lp-description {
+    width: 422px;
+    float: right;
+    font-size: 13px;
+}
+
+.lp-content-ba .lp-description p {
+    line-height: 18px;
+}
+
+.lp-content-clinical .clinicalcopy {
+    width: 460px;
+    float: right;
+    margin-top: 55px;
+}
+
+.lp-content-clinical .clinicalcopy h3 {
+    font-size: 18px;
+    color:#272727;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    font-weight: bold;
+}
+
+.lp-content-clinical .clinicalcopy .prodwrap {
+    margin: 20px 0 0;
+}
+
+.lp-content-clinical .clinicalcopy .prodbox {
+    display: inline-block;
+}
+
+.lp-content-clinical .clinicalcopy .prodbox2 {
+    margin-right: 50px;
+}
+
+.lp-content-clinical .clinicalcopy .topcopy {
+    width: 306px;
+    float: left;
+    margin: 10px 0 0 40px;
+}
+
+.lp-content-clinical .clinicalcopy .bottomcopy {
+    width: 220px;
+    float: left;
+    margin: 10px 0 0 0;
+}
+
+.lp-content-clinical .clinicalmain {
+    width: 225px;
+    margin: 90px 0 0 200px;
+    float: left;
+    font-size: 16px;
+    font-style: italic;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+}
+
+.lp-small-copy {
+    color:#999;
+    font-size: 11px;
+    text-align: right;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    display: block;
+    font-style: italic;
+}
+
+.lp-content-press {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.lp-content-press-inner {
+    background:url('/media/landing_pages/bg-press.jpg') no-repeat top center;
+    overflow: hidden;
+}
+
+.lp-content-press-text {
+    border-top:1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 20px 0;
+    margin: 360px auto 0 auto;
+    font-family: Georgia, Arial, Helvetica;
+    font-style: italic;
+    width: 500px;
+    font-size: 18px;
+}
+
+.lp-content-press-text blockquote {
+  padding-left: 46px;
+  background-image: url(/media/landing_pages/blockquote.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.lp-content-press-text p.byline {
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    font-size: 18px;
+    text-align: right;
+    display: block;
+    margin: 0;
+}
+
+.lp-content-testimonials {
+    width: 1000px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.lp-content-testimonials-inner {
+    padding: 0 20px;
+}
+
+.lp-testimonial-wrap {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 30px;
+    margin-top: 30px;
+}
+
+.lp-content-testimonials .lp-testimonial-wrap:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.lp-testimonial-wrap p.featured {
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.lp-testimonial-wrap .featured-review {
+    width:695px;
+    float: right;
+    margin: 0;
+}
+
+.lp-testimonial-wrap .featured-review blockquote {
+  padding-left: 46px;
+  padding-top: 13px;
+  background-image: url(/media/landing_pages/blockquote.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.lp-testimonial-wrap .featured-review blockquote .byline {
+    text-align: right;
+    font-weight:bold;
+}
+
+.lp-testimonial-wrap .lp-testimonial-title-wrap {
+    width: 75%;
+    float: left;
+}
+
+.lp-testimonial-wrap .lp-testimonial-title-wrap h4 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0;
+}
+
+.lp-testimonial-wrap .lp-testimonial-title-wrap p {
+    font-size: 11px;
+    margin-top:0;
+}
+
+.lp-testimonial-wrap .rating-box-wrap {
+    width: 25%;
+    float: right;
+}
+
+.rating-box {
+    height: 15px;
+    width: 80px;
+    float: right;
+}
+
+.lp-heading {
+    font-size: 20px;
+    color:#272727;
+    text-transform: uppercase;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    border-bottom: 2px solid #82d2e5;
+    display: block;
+    margin: 0 0 30px 0;
+}
+
+.lp-heading span {
+    display: block;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-bottom: 4px solid #008ab0;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

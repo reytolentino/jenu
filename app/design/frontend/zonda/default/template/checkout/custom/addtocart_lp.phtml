@@ -1,0 +1,2 @@
+<?php $product = Mage::getModel('catalog/product')->load($this->getProduct()) ?>
+<?php echo Mage::helper('checkout/cart')->getAddUrl($product) ?>

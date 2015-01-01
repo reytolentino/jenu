@@ -143,11 +143,11 @@
 .lp-content-ba .lp-description {
     width: 422px;
     float: right;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .lp-content-ba .lp-description p {
-    line-height: 18px;
+    margin: 16px 0;
 }
 
 .lp-content-clinical .clinicalcopy {

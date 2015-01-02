@@ -251,7 +251,14 @@
         <reference name="left">
             <!-- remove cart sidebar -->
             <action method="unsetChild"><name>cart_sidebar</name></action>
-        </reference> 
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="removeLinkByName"><name>billing_agreements</name></action>
+            <action method="removeLinkByName"><name>recurring_profiles</name></action>
+            <action method="removeLinkByName"><name>tags</name></action>
+            <action method="removeLinkByName"><name>OAuth Customer Tokens</name></action>
+            <action method="removeLinkByName"><name>downloadable_products</name></action>
+        </reference>
     </customer_account>
     <customer_account_index>
         <reference name="breadcrumbs">
@@ -268,16 +275,6 @@
             </block>
         </reference>
     </customer_account_index>
-
-    <customer_account>
-        <reference name="customer_account_navigation" >
-            <action method="removeLinkByName"><name>billing_agreements</name></action>
-            <action method="removeLinkByName"><name>recurring_profiles</name></action>
-            <action method="removeLinkByName"><name>tags</name></action>
-            <action method="removeLinkByName"><name>OAuth Customer Tokens</name></action>
-            <action method="removeLinkByName"><name>downloadable_products</name></action>
-        </reference>
-    </customer_account>
     
     <!-- CATALOG -->
     <catalog_category_default>

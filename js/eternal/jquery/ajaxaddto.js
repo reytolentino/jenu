@@ -18,8 +18,10 @@ jQuery.noConflict();
 		{
 			url = url.split("?")[0];
 		}
-		url += 'isAjax/1';
-        url = url.replace("https://","http://");
+        if (window.location.protocol == "http:") {
+            url=url.replace("https://","http://");
+        }
+        url += 'isAjax/1';
 		url = url.replace("checkout/cart","ajaxcart/index");
 
 		jQuery('#loading-mask').show();

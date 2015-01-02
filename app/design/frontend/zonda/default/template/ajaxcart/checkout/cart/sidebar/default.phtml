@@ -13,7 +13,7 @@
 		<?php if(Mage::getStoreConfig('ajaxcart/addtocart/deletefromsidebarcart')): ?>
 			<?php 
 				$params = $this->getRequest()->getParams();
-				if($params['isAjax'] == 1){
+				if(isset($params['isAjax']) && $params['isAjax'] == 1){
 					$refererUrl = Mage::registry('referrer_url');
 					if (empty($refererUrl)) {
 						$refererUrl = Mage::getBaseUrl();

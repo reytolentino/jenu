@@ -18,9 +18,6 @@ jQuery.noConflict();
 		{
 			url = url.split("?")[0];
 		}
-        if (window.location.protocol == "http:") {
-            url=url.replace("https://","http://");
-        }
         url += 'isAjax/1';
 		url = url.replace("checkout/cart","ajaxcart/index");
 

@@ -264,7 +264,7 @@ p.required { font-size:10px; text-align:right; color:#f00; }
 
 /* Global Messages  */
 .success { color:#3d6611; font-weight:bold; }
-.error { color:#f00; font-weight:bold; }
+.error, .hify { color:#f00; font-weight:bold; }
 .notice { color:#ccc; }
 
 .messages,

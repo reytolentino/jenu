@@ -1,5 +1,6 @@
 .container.cms-box {
     max-width: 100%;
+    -webkit-text-size-adjust: none;
 }
 
 .lp-hero-container {

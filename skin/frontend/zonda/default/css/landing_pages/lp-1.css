@@ -1,5 +1,6 @@
 .container.cms-box {
     max-width: 100%;
+    -webkit-text-size-adjust: none;
 }
 
 .lp-hero-container {
@@ -356,7 +357,7 @@
     .lp-hero-inner {
         background-size: 1540px auto;
         height: 424px;
-        background-position: -380px center;
+        background-position: -360px center;
     }
     .lp-hero-container {
         height: 424px;

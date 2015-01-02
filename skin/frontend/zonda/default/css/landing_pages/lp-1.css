@@ -1,23 +1,23 @@
 .container.cms-box {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .lp-hero-container {
-	width: 100%;
-	height: 528px;
-	overflow: hidden;
-	background: #19353f;
+    width: 100%;
+    height: 528px;
+    overflow: hidden;
+    background: #19353f;
     color: #272727;
     font-size: 13px;
 }
 
 .lp-hero-container h1 {
-	font-family: "Univers_Condensed", Helvetica, Arial;
-	font-size: 24px;
-	margin: 30px auto;
-	color: #fff;
-	text-align: center;
-	text-transform: uppercase;
+    font-family: "Univers_Condensed", Helvetica, Arial;
+    font-size: 24px;
+    margin: 30px auto;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .lp-hero-inner {
@@ -35,7 +35,7 @@
 .lp-hero-left {
     width: 380px;
     float: left;
-    margin: 15px 0 0 215px;
+    margin: 15px 0 0 170px;
 }
 
 .lp-hero-left h2 {
@@ -65,7 +65,7 @@
 .lp-hero-right .offerbox {
     width: 320px;
     float: right;
-    margin: 60px 48px 0 0;
+    margin: 60px 88px 0 0;
 }
 
 .lp-hero-right .offerbox .ltocopy {
@@ -230,10 +230,10 @@
 }
 
 .lp-content-press-text blockquote {
-  padding-left: 46px;
-  background-image: url(/media/landing_pages/blockquote.png);
-  background-position: top left;
-  background-repeat: no-repeat;
+    padding-left: 46px;
+    background-image: url(/media/landing_pages/blockquote.png);
+    background-position: top left;
+    background-repeat: no-repeat;
 }
 
 .lp-content-press-text p.byline {
@@ -279,11 +279,11 @@
 }
 
 .lp-testimonial-wrap .featured-review blockquote {
-  padding-left: 46px;
-  padding-top: 13px;
-  background-image: url(/media/landing_pages/blockquote.png);
-  background-position: top left;
-  background-repeat: no-repeat;
+    padding-left: 46px;
+    padding-top: 13px;
+    background-image: url(/media/landing_pages/blockquote.png);
+    background-position: top left;
+    background-repeat: no-repeat;
 }
 
 .lp-testimonial-wrap .featured-review blockquote .byline {
@@ -342,4 +342,253 @@
 
 .right {
     float: right;
+}
+
+@media(max-width: 991px){
+    .lp-content {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .lp-hero-content,
+    .lp-content-testimonials {
+        width: 100%;
+    }
+    .lp-hero-inner {
+        background-size: 1540px auto;
+        height: 424px;
+        background-position: -380px center;
+    }
+    .lp-hero-container {
+        height: 424px;
+    }
+    .lp-hero-container h1 {
+        font-size: 18px;
+        margin: 20px auto;
+    }
+    .lp-hero-left {
+        margin: 15px 0 0 120px;
+        width: 310px;
+    }
+    .lp-hero-left .freeshipping {
+        margin-top: 50px;
+    }
+    .lp-hero-left .freegift {
+        margin-top: 45px;
+    }
+    .lp-hero-left .freegift {
+        width: 135px;
+    }
+    .lp-hero-left .freegift img {
+        width: 100%;
+        height: 100%;
+    }
+    .lp-hero-right .offerbox {
+        float: left;
+        margin: 60px 0 0 30px;
+        width: 255px;
+    }
+    .lp-content {
+        margin: 0 auto 30px auto;
+    }
+    .lp-hero-right .offerbox .pricingcopy {
+        font-size: 14px;
+    }
+    .lp-content-ba img {
+        width: 60%;
+        height: 100%;
+    }
+    .lp-content-ba .lp-description {
+        width: 38%;
+        font-size: 12px;
+    }
+    .lp-content-ba .lp-description p:first-child {
+        margin-top: 0;
+    }
+    .lp-content-ba .lp-description p {
+        margin: 8px 0;
+    }
+    .lp-content-ba {
+        padding: 30px 0;
+    }
+    .lp-content-testimonials {
+        margin: 20px auto;
+    }
+    .lp-content-clinical {
+        width: 100%;
+        background-size: 560px auto;
+        background-position: left top;
+        min-height: 480px;
+    }
+    .lp-content-clinical .clinicalmain {
+        font-size: 14px;
+        margin: 70px 0 0 150px;
+        width: 200px;
+    }
+    .lp-content-clinical .clinicalcopy {
+        width: 260px;
+        float: left;
+        margin-left: 60px;
+    }
+    .lp-content-clinical .clinicalcopy h3 {
+        font-size: 14px;
+    }
+    .lp-content-clinical .clinicalcopy .topcopy {
+        font-size: 12px;
+        width: 180px;
+    }
+    .lp-content-clinical .clinicalcopy .bottomcopy {
+        font-size: 12px;
+        width: 170px;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox2 {
+        margin-right: 0;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.left {
+        width: 25px;
+        height: auto;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.left img {
+        width: 100%;
+        height: 100%;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.right{
+        width: 80px;
+        height: auto;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.right img {
+        width: 100%;
+        height: 100%;
+    }
+    .lp-content-press {
+        width: 100%;
+    }
+    .lp-content-press-inner {
+        background-size: 100%;
+    }
+    .lp-content-press-text {
+        margin-top: 310px;
+        font-size: 16px;
+    }
+    .lp-content-press-text p.byline {
+        font-size: 16px;
+    }
+    .lp-content-testimonials-inner .lp-testimonial-wrap:first-child img {
+        width: 30%;
+        height: auto;
+    }
+    .lp-content-testimonials-inner .lp-testimonial-wrap .featured-review {
+        width: 65%;
+    }
+}
+
+@media(max-width:767px){
+    .lp-hero-container {
+        height: auto;
+        font-size: 12px;
+        background: #fff;
+    }
+    .lp-hero-inner {
+        background-position: -340px top;
+        background-size: 1300px auto;
+        height: auto;
+        padding: 0 10px;
+        background-repeat: no-repeat;
+    }
+    .lp-hero-container h1 {
+        font-size: 14px;
+        margin: 12px auto;
+        min-height: 32px;
+    }
+    .lp-hero-left {
+        margin: 12px 0 0 70px;
+        width: 100%;
+    }
+    .lp-hero-left h2 {
+        font-size: 14px;
+    }
+    .lp-hero-left .freeshipping {
+        margin-top: 40px;
+        font-size: 13px;
+    }
+    .lp-hero-left .freegift {
+        margin-top: 38px;
+        width: 115px;
+    }
+    .lp-hero-right .offerbox {
+        float: left;
+        margin: 120px 0 0;
+        width: 100%;
+    }
+    .lp-content-ba img {
+        width: 100%;
+        height: 100%;
+    }
+    .lp-content-ba .lp-description {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .lp-content-clinical {
+        background-size: 430px auto;
+        min-height: 0;
+    }
+    .lp-content-clinical .clinicalmain {
+        font-size: 11px;
+        margin: 50px 0 0 120px;
+        width: 150px;
+        float: none;
+    }
+    .lp-content-clinical .clinicalcopy {
+        float: none;
+        margin-left: 0;
+        margin-top: 200px;
+        width: 100%;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.left {
+        height: auto;
+        width: 35px;
+    }
+    .lp-content-clinical .clinicalcopy .topcopy {
+        font-size: 12px;
+        width: 230px;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.right {
+        width: 120px;
+    }
+    .lp-content-clinical .clinicalcopy .bottomcopy {
+        font-size: 12px;
+        width: 180px;
+    }
+    .lp-content-clinical .lp-small-copy {
+        position: static;
+        bottom: 0;
+        right: 0;
+        text-align: left;
+        margin-top: 20px;
+    }
+    .lp-content-press-text {
+        font-size: 13px;
+        margin-top: 150px;
+        width: 100%;
+    }
+    .lp-content-testimonials-inner .lp-testimonial-wrap:first-child img {
+        height: auto;
+        width: 100%;
+    }
+    .lp-content-testimonials-inner .lp-testimonial-wrap .featured-review {
+        margin-top: 20px;
+        width: 100%;
+    }
+    .lp-testimonial-wrap .featured-review blockquote .byline {
+        display: none;
+    }
+    .lp-content-testimonials-inner .lp-testimonial-wrap:first-child p {
+        margin-top: 20px;
+    }
+    .lp-testimonial-wrap .lp-testimonial-title-wrap {
+        float: none;
+        width: 100%;
+    }
+}
+
+@media(max-width: 480px){
 }

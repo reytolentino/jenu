@@ -85,7 +85,6 @@
 					url = jQuery('#product_addtocart_form').attr('action');
 				}
 				url = url.replace("checkout/cart","ajaxcart/index"); // New Code
-                url = url.replace("https://","http://");
 				var data = jQuery('#product_addtocart_form').serialize();
 				data += '&isAjax=1';
 				jQuery('#loading-mask').show();

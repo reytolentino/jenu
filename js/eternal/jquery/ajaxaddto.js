@@ -20,8 +20,8 @@ jQuery.noConflict();
 		}
         url += 'isAjax/1';
 		url = url.replace("checkout/cart","ajaxcart/index");
-
-		jQuery('#loading-mask').show();
+        url = url.replace("http://","https://");
+        jQuery('#loading-mask').show();
 
 		try {
 			jQuery.ajax( {

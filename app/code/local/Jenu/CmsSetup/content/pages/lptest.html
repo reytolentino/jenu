@@ -1,0 +1,290 @@
+ID:                 lptest
+Status:             published
+Title:              JeNu Ultrasound Systems Test
+Layout:             one_column
+Layout update:
+<reference name="head">
+    <action method="addCss"><stylesheet>css/landing_pages/lp-1.css</stylesheet></action>
+</reference>
+<reference name="content">
+    <remove name="breadcrumbs"/>
+</reference>
+stores:             admin
+---
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".addtocart").click(function(e){
+            e.preventDefault();
+
+        });
+    });
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=123785867805361&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container cms-box">
+<div class="row">
+
+<div class="lp-hero-container">
+    <div class="lp-hero-inner">
+        <div class="lp-hero-content">
+            <h1><strong>Clinically Proven</strong> to Make Leading Anti-Aging Products Work <strong>Better & Faster</strong></h1>
+            <div class="clear"></div>
+            <div class="lp-hero-left">
+                <h2>JeNu Ultrasound System</h2>
+                <div class="freeshipping">Free Shipping When You Order Today</div>
+                <div class="freegift"><img src="{{media url="landing_pages/freegifts.png"}}" width="157" height="115" alt="3 Free Gifts | Over $100 Value"></div>
+            </div>
+            <div class="lp-hero-right">
+                <div class="offerbox">
+                    <h2 class="ltocopy">
+                        <img src="{{media url="landing_pages/lto.png"}}" alt="Limited Time Offer" width="148" height="18">
+                    </h2>
+                    <p class="pricingcopy">
+                        Total Retail Value: <span class="linethrough">$300.00</span><br>
+                        Today's Price: <span class="red">$195.00 + 3 FREE GIFTS</span><br>
+													<span class="yousave">You Save: <span class="red">$105.00 (35%)</span>
+												</span>
+                    </p>
+                    <div class="fb-like" data-href="http://jenu.com/lp-1" data-width="320" data-layout="standard" data-action="like" data-show-faces="true" data-share="false" style="margin: 20px 0 0;"></div>
+                    <a href="#" onclick="setLocationAjax('{{block type="core/template" template="checkout/custom/addtocart_lp.phtml" product="11"}}')";    class="addtocart" >Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lp-content clearfix">
+    <div class="lp-content-ba">
+        <img src="{{media url="landing_pages/ba.jpg"}}" width="543" height="401" alt="Before & After" class="left">
+        <div class="lp-description">
+            <p>The sleek, handheld JeNu wand delivers 365,000 pulses of ultrasound energy per second, which, together with the MicroSphere Conducting Gel™ “vibrates” the gel’s microspheres on the skin creating temporarily dilated pathways through which your favorite serum’s ingredients can travel, helping them perform better and faster. Best of all? It’s pain-free, quick, and safe for home use.</p>
+            <p><strong>MicroSphere Conducting Gel™ – FREE GIFT</strong><br>
+                This special conducting gel is the key to using the JeNu wand with <strong><em>any</em></strong> of your favorite anti-aging products.</p>
+            <p><strong>Active-Youth Eye Treatment – FREE GIFT</strong><br>
+                Blurs the look of crows feet in as little as 14 days when used with the JeNu wand.</p>
+            <p><strong>Active-Youth lip Serum – FREE GIFT</strong><br>
+                Instantly hydrates and plumps lips when used with the JeNU wand.</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="lp-content clearfix">
+    <div class="lp-content-clinical">
+        <div class="clinicalmain">
+            In 5 clinical studies using different anti-aging products, the JeNu System was shown to be <strong>effective</strong> at decreasing the look of fine lines and wrinkles <strong>on women with moderate and severe wrinkles</strong>.
+        </div>
+        <div class="clinicalcopy">
+            <h3>Clinically proven to double the absorption of prestige anti-aging products*</h3>
+            <div class="clearfix"></div>
+            <div class="prodwrap">
+                <div class="prodbox left">
+                    <img src="{{media url="landing_pages/genericproduct.jpg"}}" alt="Anti-Aging Cream" width="36" height="78">
+                </div>
+                <div class="topcopy">
+                    When using an anti-aging cream alone, <strong>50%</strong> of women saw improvement in the appearance of their fine lines and wrinkles.
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="prodwrap">
+                <div class="prodbox prodbox2 right">
+                    <img src="{{media url="landing_pages/product-system.jpg"}}" alt="JeNu System" width="161" height="106">
+                </div>
+                <div class="bottomcopy">
+                    When using  the <strong>JeNu System</strong> with their anti-aging cream, <strong>100%</strong> of women saw an improvement in the appearance of their fine lines and wrinkles.
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <p class="lp-small-copy">*Based on a 31 person clinical evaluation where prestige skin care products were used with the JeNu System vs alone.</p>
+    </div>
+</div>
+
+<div class="lp-content clearfix">
+    <div class="lp-content-press">
+        <h3 class="lp-heading"><span>In The Press</span></h3>
+        <div class="lp-content-press-inner">
+            <div class="lp-content-press-text">
+                <blockquote><strong>JeNu</strong> bumps up the power of topicals by using ultrasound waves to propel more ingredients in the skin than what penetrates through standard slathering. It <strong>smooths</strong> and tightens and <strong>diminishes</strong> the appearance of <strong>lines and wrinkles</strong>.</blockquote>
+                <p class="byline">- Elle Magazine</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lp-content clearfix">
+    <div class="lp-content-testimonials">
+        <h3 class="lp-heading"><span>Testimonials</span></h3>
+        <div class="lp-content-testimonials-inner">
+            <div class="lp-testimonial-wrap">
+                <div class="clearfix"></div>
+                <img src="{{media url="landing_pages/drbatra.jpg"}}" alt="Dr. Sonia Batra" width="189" height="262" class="left">
+                <div class="featured-review">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <blockquote>
+                        JeNu is one of the most innovative at home products I’ve seen. Most people know that the ingredients are key to effective skin care, but few know that delivery systems are equally important.  The best ingredients can’t do anything unless they can get to the right place. My patients spend thousands on skin care products, but unfortunately, many of those products either evaporate or are washed off before being absorbed into the skin.  JeNu will make them all more potent. I recommend use of JeNu to all of my patients.
+                        <p class="byline">- Dr. Sonia Batra, MD, MSc, MPH</p>
+                    </blockquote>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    <em><strong>Dr. Sonia Batra</strong><br>
+                        Medical, Surgical and Cosmetic Dermatologist <br>
+                        Harvard University BS, MD, MPH<br>
+                        Oxford University MSc Rhodes Scholar
+                    </em>
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">At-home device works great for reducing fine lines and wrinkles</h4>
+                    <p>by Jennifer G., Texas</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "Everyone is going for mini face lifts and plastic surgery and I feel that I have tapped into a safe, organic easy way to achieve the same results."
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">Seeing a difference with my anti-aging concerns</h4>
+                    <p>by Susan S., Florida</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "I really enjoy using the JeNu system. I absolutely believe that it has made a difference in the areas where I have concerns."
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">New favorite anti-aging device!</h4>
+                    <p>by Amanda T., California</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "My Lines look reduced and skin is much smoother"
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">Jenu is my fountain of youth</h4>
+                    <p>by Deborah M., Washington</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "Using this wand twice a day gives such luxurious results. I didn't think I had a lot of lines to get rid of, but was unhappy with the puffiness under my eyes. I'm thrilled to say I've seen a very dramatic improvement. I was a little older when I became a mom, so my kids' friends' moms are much younger than I am. I really feel like the results I got from this system visually closed that gap by at least five years...in three weeks' time."
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">Easy to use with incredible results</h4>
+                    <p>by Penelope, New York</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:80%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "I fell in "love" with this device...it is genius the way it plugs into the wall and is so easy to use... it has that magnetic device to adhere to the unit while plugged in so that you do not drop it. And I love the handheld applicator and how it fits into my hand so conveniently. This item is a definite must in my house if I want to look young and beautiful."
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">Smoother lines and wrinkles</h4>
+                    <p>by Amy, Florida</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "I like using the device because of its ease and convenience. I like the appearance of the under eye area because it seems smoother and lines look less visible."
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">Brighter Eyes!</h4>
+                    <p>by Kristie H., Illinois</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:80%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "I do believe that the JeNu wand makes the eyes look brighter and more awake."
+                </p>
+            </div>
+            <div class="lp-testimonial-wrap">
+                <div class="lp-testimonial-title-wrap">
+                    <h4 class="lp-testimonial-title">Goodbye crows feet.</h4>
+                    <p>by Carrie, Wyoming</p>
+                </div>
+                <div class="rating-box-wrap">
+                    <div class="rating-box">
+                        <div style="width:100%" class="rating"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    "The device is great ….my eye area feels firm and refreshed"
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- Facebook Conversion Code for ATC_LP-1 -->
+<script>(function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+    }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6020966636451', {'value':'100.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020966636451&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>

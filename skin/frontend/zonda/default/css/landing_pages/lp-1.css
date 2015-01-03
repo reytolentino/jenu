@@ -12,6 +12,10 @@
     font-size: 13px;
 }
 
+.lp-hero-container .fb-like {
+    margin-top: 20px;
+}
+
 .lp-hero-container h1 {
     font-family: "Univers_Condensed", Helvetica, Arial;
     font-size: 24px;
@@ -350,14 +354,15 @@
         width: 100%;
         padding: 0 10px;
     }
-    .lp-hero-content,
     .lp-content-testimonials {
         width: 100%;
+    }
+    .lp-hero-content {
+        width: 768px;
     }
     .lp-hero-inner {
         background-size: 1540px auto;
         height: 424px;
-        background-position: -380px center;
     }
     .lp-hero-container {
         height: 424px;
@@ -483,15 +488,18 @@
 }
 
 @media(max-width:767px){
+    .lp-hero-content {
+        width: 100%;
+    }
     .lp-hero-container {
-        height: auto;
+        height: 358px;
         font-size: 12px;
         background: #fff;
     }
     .lp-hero-inner {
         background-position: -340px top;
         background-size: 1300px auto;
-        height: auto;
+        height: 358px;
         padding: 0 10px;
         background-repeat: no-repeat;
     }
@@ -502,7 +510,7 @@
     }
     .lp-hero-left {
         margin: 12px 0 0 70px;
-        width: 100%;
+        width: 250px;
     }
     .lp-hero-left h2 {
         font-size: 14px;
@@ -517,8 +525,20 @@
     }
     .lp-hero-right .offerbox {
         float: left;
-        margin: 120px 0 0;
-        width: 100%;
+        margin: 45px 0 0 40px;
+        width: 160px;
+    }
+    .lp-hero-right .offerbox .pricingcopy {
+        font-size: 12px;
+    }
+    .lp-hero-right .offerbox .pricingcopy .yousave {
+        font-size: 14px;
+    }
+    .lp-hero-right .fb-like {
+        display: none !important;
+    }
+    .lp-hero-right .addtocart {
+        margin: 20px 0 0;
     }
     .lp-content-ba img {
         width: 100%;
@@ -568,7 +588,7 @@
     }
     .lp-content-press-text {
         font-size: 13px;
-        margin-top: 150px;
+        margin-top: 300px;
         width: 100%;
     }
     .lp-content-testimonials-inner .lp-testimonial-wrap:first-child img {
@@ -589,7 +609,46 @@
         float: none;
         width: 100%;
     }
+    .lp-content-clinical .clinicalcopy .prodbox.right {
+        float: left !important;
+        margin-right: 10px
+    }
 }
 
 @media(max-width: 480px){
+    .lp-hero-container,
+    .lp-hero-inner {
+        height: auto;
+    }
+    .lp-hero-right .offerbox {
+        width: 100%;
+        margin: 120px 0 0;
+    }
+    .lp-hero-right .fb-like {
+        display: block !important;
+    }
+    .lp-hero-right .offerbox .pricingcopy {
+        font-size: 14px;
+    }
+    .lp-hero-right .offerbox .pricingcopy .yousave {
+        font-size: 18px;
+    }
+    .lp-content-clinical .clinicalcopy .topcopy {
+        font-size: 12px;
+        width: 220px;
+        margin-left: 10px;
+    }
+    .lp-content-clinical .clinicalcopy .prodbox.right {
+        float: left !important;
+    }
+    .lp-content-clinical .clinicalcopy .bottomcopy {
+        font-size: 12px;
+        margin: 0 0 0 10px;
+        width: 170px;
+    }
+    .lp-content-press-text {
+        font-size: 13px;
+        margin-top: 150px;
+        width: 100%;
+    }
 }

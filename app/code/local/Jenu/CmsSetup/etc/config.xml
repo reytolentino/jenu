@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Jenu_CmsSetup>
+            <version>1.7.9</version>
+        </Jenu_CmsSetup>>
+    </modules>
+    <global>
+        <resources>
+            <jenu_cmssetup>
+                <setup>
+                    <module>Jenu_CmsSetup</module>
+                    <class>Guidance_CmsSetup_Model_Resource_Setup</class>
+                </setup>
+            </jenu_cmssetup>
+        </resources>
+    </global>
+</config>

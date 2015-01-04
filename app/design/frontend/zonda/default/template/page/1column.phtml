@@ -85,17 +85,12 @@ $b = $zonda->getConfigGroup();
             echo $this->getChildHtml('category.banner');
             
         ?>
-
-        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'dr-sonia-batra')): 
-             echo $this->getLayout()->createBlock('cms/block')->setBlockId('dr-sonia-bahtra-banner')->toHtml(); 
-        endif; ?>
-		
-		<?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'jenu-biosciences')): 
-             echo $this->getLayout()->createBlock('cms/block')->setBlockId('biosciences-banner')->toHtml(); 
+        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'dr-sonia-batra')):
+             echo $this->getLayout()->createBlock('cms/block')->setBlockId('dr-sonia-bahtra-banner')->toHtml();
         endif; ?>
 
-        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'ultrasound-101')): 
-             echo $this->getLayout()->createBlock('cms/block')->setBlockId('ultrasound-banner')->toHtml(); 
+		<?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'jenu-biosciences')):
+             echo $this->getLayout()->createBlock('cms/block')->setBlockId('biosciences-banner')->toHtml();
         endif; ?>
 
         <?php $breadcrumbs_html = $this->getChildHtml('breadcrumbs') ?>
@@ -108,7 +103,7 @@ $b = $zonda->getConfigGroup();
             <div class="<?php if ($this->getRequest()->getModuleName() == 'cms'): echo 'cms-container'; else: echo 'container'; endif;?>">
                 <div class="main-content col-main col-main-full">
 		    <?php echo $this->getChildHtml('global_messages') ?>
-                    <?php echo $this->getChildHtml('content') ?>                    
+                    <?php echo $this->getChildHtml('content') ?>
                 </div>
             </div>
         </div>

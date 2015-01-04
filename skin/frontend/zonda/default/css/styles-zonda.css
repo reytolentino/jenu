@@ -4088,7 +4088,139 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 /*********************************************************************************/
 
+/******************************* CMS Page Design Overrides **************************/
+
+.cms-page-view {
+    background: #11323c;
+}
+
+.cms-page-view .main-container {
+    background: url('../images/backgrounds/green_glow.jpg') no-repeat top center;
+}
+
+.cms-page-view .breadcrumbs {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.cms-page-view .breadcrumbs .container {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background: #fff;
+}
+
+.cms-page-view .main-content .container {
+    overflow: hidden;
+    background: #fff;
+}
+
+.cms-box {
+    padding-bottom: 30px;
+}
+
+.main {
+    margin-bottom: 0;
+}
+
+.cms-box.ultrasound101 h1,
+.cms-box.using-jenu h1 {
+    font-size: 62px;
+    font-family: 'apexsanslightst', "Helvetica Neue", Helvetica, sans-serif;
+    border-bottom: 1px solid #fff;
+    text-transform: uppercase;
+    margin: 30px 0 30px 0;
+    padding: 0 0 20px 64px;
+    color: #fff;
+    display: inline-block;
+    margin-left: -15px;
+}
+
+.cms-box.using-jenu h1 {
+    font-size: 52px;
+}
+
+.cms-page-view.cms-ultrasound-101 .main-container .main-content,
+.cms-page-view.cms-using-jenu .main-container .main-content {
+    background: url('../images/backgrounds/ultrasound_content_bg.jpg') repeat-y top center;
+}
+
+.cms-page-view.cms-ultrasound-101 .cms-box,
+.cms-page-view.cms-ultrasound-101 .breadcrumbs .container,
+.cms-page-view.cms-using-jenu .cms-box,
+.cms-page-view.cms-using-jenu .breadcrumbs .container{
+    background: transparent;
+    overflow: hidden;
+}
+
+.cms-page-view.cms-ultrasound-101 .breadcrumbs li.cms_page strong,
+.cms-page-view.cms-ultrasound-101 .breadcrumbs,
+.cms-page-view.cms-using-jenu .breadcrumbs li.cms_page strong,
+.cms-page-view.cms-using-jenu .breadcrumbs {
+    color: #fff;
+}
+
+.cms-box.ultrasound101,
+.cms-box.using-jenu {
+    background: transparent;
+    color: #fff;
+    position: relative;
+}
+
 /******************************* Ultrasound Page Design **************************/
+
+
+.cms-box.ultrasound101 .whatis {
+    width: 90%;
+    margin: 40px auto 0 auto;
+}
+
+.cms-box.ultrasound101 .wand {
+    position: absolute;
+    width: 100%;
+    margin-top: -40%;
+}
+
+.cms-box.ultrasound101 .wand img {
+    width: 100%;
+}
+
+.cms-box.ultrasound101 h2 {
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 30px;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    padding-bottom: 16px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.cms-box.ultrasound101 .history .timeline {
+    margin: 38px auto;
+    width: 100%;
+}
+
+.cms-box.ultrasound101 .history .timeline img {
+    width: 100%;
+}
+
+.cms-box.ultrasound101 .history h2 {
+    margin: 35% 0 0 46%;
+}
+
+.cms-box.ultrasound101 .whatis p {
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 18px 0;
+}
+
+
+
+
+
+
+
+
 .ultra-banner {
     text-align: center;
 }
@@ -4252,6 +4384,129 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     text-align: center;
 }
 /*********************************************************************************/
+
+/************************** How To Use JeNu Page Design *************************/
+
+.cms-box.using-jenu .stepswrap {
+    margin: 0 5%;
+}
+
+.cms-box.using-jenu .step {
+    overflow: hidden;
+    margin: 10px;
+}
+.cms-box.using-jenu .step h4 {
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 18px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.cms-box.using-jenu .numbox {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 90px;
+}
+
+.cms-box.using-jenu .numbox .num {
+    float: left;
+    font-size: 82px;
+    font-family: 'apexsanslightst', "Helvetica Neue", Arial, sans-serif;
+    margin-right: 5%;
+    width: auto;
+}
+
+.cms-box.using-jenu .numbox .numtxt {
+    float: left;
+    font-size: 28px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    text-transform: uppercase;
+    line-height: normal;
+    margin-top: 28px;
+    width: 70%;
+}
+
+.cms-box.using-jenu .step1 .facewrap,
+.cms-box.using-jenu .step2 .devicewrap {
+    margin: 20px 4%;
+    width: 100%;
+}
+
+.cms-box.using-jenu .step2 .devicewrap .device {
+    text-align: center;
+    margin: 10px 0;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    width: 218px;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.cms-box.using-jenu .step2 .devicewrap .dasharrow {
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 10px 70px 10px;
+}
+
+.cms-box.using-jenu .step2 .devicewrap .device span {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #fff;
+    display: block;
+    min-height: 150px;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+.cms-box.using-jenu .step1 .facewrap .face {
+    text-align: center;
+    margin: 10px 2%;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    width: 136px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.cms-box.using-jenu .experttip {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.cms-box.using-jenu .experttip .roundtip {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #fff;
+    background: #19353f;
+    text-align: center;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 20px;
+    border-radius: 50%;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 20px;
+    float: left;
+}
+
+.cms-box.using-jenu .experttip .tip {
+    font-size: 20px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    padding-left: 184px;
+    margin-left: -154px;
+    display: inline-block;
+    width: 80%;
+    float: left;
+    margin-top: 10px;
+}
+
+.cms-box.using-jenu .bottom-note {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 20px 0;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+}
 
 /************************** Clinical Results Page Design *************************/
 .clinical-banner {

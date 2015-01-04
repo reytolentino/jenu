@@ -4422,8 +4422,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-size: 28px;
     font-family: 'Univers_Condensed', Arial, Helvetica;
     text-transform: uppercase;
-    line-height: normal;
-    margin-top: 28px;
+    line-height: 28px;
+    margin-top: 36px;
     width: 70%;
 }
 

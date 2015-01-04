@@ -156,6 +156,14 @@
             <action method="insert" ifconfig="zonda_setting/twitter/show_in_bottom"><name>social_twitter_tweets</name></action>
         </reference>
 	</cms_index_index>
+    <cms_page translate="label">
+        <reference name="root">
+            <action method="unsetChild"><name>breadcrumbs</name></action>
+        </reference>
+        <reference name="content">
+            <action method="insert"><child>breadcrumbs</child></action>
+        </reference>
+    </cms_page>
     <customer_account_login>
         <reference name="breadcrumbs">
             <action method="addCrumb">

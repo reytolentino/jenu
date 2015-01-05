@@ -4123,7 +4123,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-box.ultrasound101 h1,
-.cms-box.using-jenu h1 {
+.cms-box.using-jenu h1,
+.cms-box.how-jenu-works h1 {
     font-size: 62px;
     font-family: 'apexsanslightst', "Helvetica Neue", Helvetica, sans-serif;
     border-bottom: 1px solid #fff;
@@ -4135,19 +4136,23 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-left: -15px;
 }
 
-.cms-box.using-jenu h1 {
+.cms-box.using-jenu h1,
+.cms-box.how-jenu-works h1 {
     font-size: 52px;
 }
 
 .cms-page-view.cms-ultrasound-101 .main-container .main-content,
-.cms-page-view.cms-using-jenu .main-container .main-content {
+.cms-page-view.cms-using-jenu .main-container .main-content,
+.cms-page-view.cms-how-jenu-works .main-container .main-content {
     background: url('../images/backgrounds/ultrasound_content_bg.jpg') repeat-y top center;
 }
 
 .cms-page-view.cms-ultrasound-101 .cms-box,
 .cms-page-view.cms-ultrasound-101 .breadcrumbs .container,
 .cms-page-view.cms-using-jenu .cms-box,
-.cms-page-view.cms-using-jenu .breadcrumbs .container{
+.cms-page-view.cms-using-jenu .breadcrumbs .container,
+.cms-page-view.cms-how-jenu-works .cms-box,
+.cms-page-view.cms-how-jenu-works .breadcrumbs .container {
     background: transparent;
     overflow: hidden;
 }
@@ -4155,12 +4160,15 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view.cms-ultrasound-101 .breadcrumbs li.cms_page strong,
 .cms-page-view.cms-ultrasound-101 .breadcrumbs,
 .cms-page-view.cms-using-jenu .breadcrumbs li.cms_page strong,
-.cms-page-view.cms-using-jenu .breadcrumbs {
+.cms-page-view.cms-using-jenu .breadcrumbs,
+.cms-page-view.cms-how-jenu-works .breadcrumbs li.cms_page strong,
+.cms-page-view.cms-how-jenu-works .breadcrumbs {
     color: #fff;
 }
 
 .cms-box.ultrasound101,
-.cms-box.using-jenu {
+.cms-box.using-jenu,
+.cms-box.how-jenu-works {
     background: transparent;
     color: #fff;
     position: relative;
@@ -4213,13 +4221,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     line-height: 24px;
     margin: 18px 0;
 }
-
-
-
-
-
-
-
 
 .ultra-banner {
     text-align: center;
@@ -4384,6 +4385,117 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     text-align: center;
 }
 /*********************************************************************************/
+
+/******************************* How JeNu Works Page Design **************************/
+
+.cms-box .how-jenu-works-inner {
+    margin: 0 54px 80px 54px;
+}
+
+.cms-box.how-jenu-works h4 {
+    font-size: 20px;
+    color: #fff;
+    margin: 30px 0;
+}
+
+.cms-box.how-jenu-works h5 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 20px 0 10px 0;
+}
+
+.cms-box.how-jenu-works h2 {
+    font-size: 28px;
+    color: #fff;
+    margin: 0 0 20px 0;
+}
+
+.cms-box.how-jenu-works h2 strong {
+    font-size: 36px;
+}
+
+.cms-box.how-jenu-works .imgbox {
+    margin: 30px 0 60px 6%;
+}
+
+.cms-box.how-jenu-works .imgbox .img1 img {
+    position: absolute;
+    z-index: 1;
+}
+
+.cms-box.how-jenu-works .imgbox .img1 {
+    position: relative;
+    width: 531px;
+    height: 361px;
+    margin-bottom: 30px;
+}
+
+.cms-box.how-jenu-works .imgbox .img1 .roundtip {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #fff;
+    background: #19353f;
+    text-align: center;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 25px;
+    top: 40px;
+    right: -72px;
+    vertical-align: middle;
+    position: absolute;
+    z-index: 2;
+}
+
+.cms-box.how-jenu-works .how-bottomcopy {
+    font-size: 20px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+}
+
+.cms-box.how-jenu-works .buttons-wrap {
+    margin: 30px 0;
+}
+
+.cms-box.how-jenu-works a.btn-lto {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    border: 1px solid #fff;
+    height: 44px;
+    line-height: 46px;
+    padding: 0 18px;
+    color: #fff;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.cms-box.how-jenu-works a.btn-lto:hover {
+    border: 1px solid #ededed;
+    background-color: #ededed;
+    color: #0a252f;
+}
+
+.cms-box.how-jenu-works a.btn-learn {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    border: 1px solid #ededed;
+    background-color: #ededed;
+    height: 44px;
+    line-height: 46px;
+    padding: 0 18px;
+    color: #0a252f;
+    display: inline-block;
+}
+
+.cms-box.how-jenu-works a.btn-learn:hover {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+}
+
 
 /************************** How To Use JeNu Page Design *************************/
 

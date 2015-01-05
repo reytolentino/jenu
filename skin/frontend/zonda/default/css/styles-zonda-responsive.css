@@ -862,7 +862,8 @@
     }
     .cms-box.ultrasound101 h1,
     .cms-box.using-jenu h1,
-    .cms-box.how-jenu-works h1 {
+    .cms-box.how-jenu-works h1,
+    .cms-box.clinical-results h1 {
         font-size: 35px;
         margin: 30px 0 15px 0;
         padding: 0 0 10px 0;
@@ -972,6 +973,77 @@
     }
     .cms-box.how-jenu-works a.btn-learn {
         font-size: 16px;
+    }
+    .cms-box .clinical-inner {
+        margin: 0 0 10px 0;
+    }
+    .cms-box .clinical-inner .clinical-sub {
+        font-size: 22px;
+        margin: 20px 0;
+    }
+    .cms-box .clinical-inner .clinical-sub span {
+        display: inline;
+        font-size: 18px;
+        margin-top: 0;
+    }
+    .cms-box .clinical-inner .clinical-list {
+        font-size: 16px;
+        margin: 15px 0;
+        line-height: 20px;
+    }
+    .cms-box .clinical-inner img.clinical-jars, .cms-box .clinical-inner img.clinical-graph {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+    .cms-box .clinical-inner .flowerswrap {
+        margin-left: 0;
+    }
+    .cms-box .clinical-inner .flowerswrap .flowersbox {
+        display: inline-block;
+        font-size: 14px;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+    .cms-box .clinical-inner .flowerswrap .flowersbox.versus {
+        font-size: 24px;
+        height: 60px;
+        line-height: 60px;
+        padding: 0;
+        width: auto;
+    }
+    .cms-box .clinical-inner .flowerswrap .flowersbox span {
+        display: block;
+    }
+    .cms-box .clinical-inner .clinical-data-wrap {
+        margin-left: 0;
+        font-size: 14px;
+        float: none;
+    }
+    .cms-box .clinical-inner .clinical-data-left {
+        float: none;
+        font-size: 80px;
+    }
+    .cms-box .clinical-inner .clinical-data-right {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .cms-box .clinical-inner .clinical-circles-wrap {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle:first-child {
+        margin-left: auto;
+    }
+    .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle {
+        margin: 20px auto;
+        display: block;
+    }
+    .cms-box.clinical-results table.clinical-grid {
+        display: none;
     }
 }
 @media(max-width: 480px){

@@ -4124,7 +4124,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-box.ultrasound101 h1,
 .cms-box.using-jenu h1,
-.cms-box.how-jenu-works h1 {
+.cms-box.how-jenu-works h1,
+.cms-box.clinical-results h1 {
     font-size: 62px;
     font-family: 'apexsanslightst', "Helvetica Neue", Helvetica, sans-serif;
     border-bottom: 1px solid #fff;
@@ -4137,13 +4138,15 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-box.using-jenu h1,
-.cms-box.how-jenu-works h1 {
+.cms-box.how-jenu-works h1,
+.cms-box.clinical-results h1 {
     font-size: 52px;
 }
 
 .cms-page-view.cms-ultrasound-101 .main-container .main-content,
 .cms-page-view.cms-using-jenu .main-container .main-content,
-.cms-page-view.cms-how-jenu-works .main-container .main-content {
+.cms-page-view.cms-how-jenu-works .main-container .main-content,
+.cms-page-view.cms-clinical-results .main-container .main-content {
     background: url('../images/backgrounds/ultrasound_content_bg.jpg') repeat-y top center;
 }
 
@@ -4152,7 +4155,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view.cms-using-jenu .cms-box,
 .cms-page-view.cms-using-jenu .breadcrumbs .container,
 .cms-page-view.cms-how-jenu-works .cms-box,
-.cms-page-view.cms-how-jenu-works .breadcrumbs .container {
+.cms-page-view.cms-how-jenu-works .breadcrumbs .container,
+.cms-page-view.cms-clinical-results .cms-box,
+.cms-page-view.cms-clinical-results .breadcrumbs .container {
     background: transparent;
     overflow: hidden;
 }
@@ -4162,16 +4167,165 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view.cms-using-jenu .breadcrumbs li.cms_page strong,
 .cms-page-view.cms-using-jenu .breadcrumbs,
 .cms-page-view.cms-how-jenu-works .breadcrumbs li.cms_page strong,
-.cms-page-view.cms-how-jenu-works .breadcrumbs {
+.cms-page-view.cms-how-jenu-works .breadcrumbs,
+.cms-page-view.cms-clinical-results .breadcrumbs li.cms_page strong,
+.cms-page-view.cms-clinical-results .breadcrumbs {
     color: #fff;
 }
 
 .cms-box.ultrasound101,
 .cms-box.using-jenu,
-.cms-box.how-jenu-works {
+.cms-box.how-jenu-works,
+.cms-box.clinical-results {
     background: transparent;
     color: #fff;
     position: relative;
+}
+
+/******************************* Clinical Results Page Design **************************/
+
+.cms-box .clinical-inner {
+    margin: 0 54px 20px 54px;
+}
+
+.cms-box .clinical-inner .clinical-sub {
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 28px;
+    text-transform: uppercase;
+    line-height: normal;
+    margin: 30px 0;
+}
+
+.cms-box .clinical-inner .clinical-sub span {
+    font-size: 22px;
+    text-transform: none;
+    display: block;
+    margin-top: 4px;
+}
+
+.cms-box .clinical-inner .clinical-list {
+    font-size: 20px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    margin: 20px 0;
+}
+
+.cms-box .clinical-inner .clinical-list.clinical-list-lg {
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.cms-box .clinical-inner .clinical-list:before {
+    content: "•";
+    padding-right: 10px;
+}
+
+.cms-box .clinical-inner img.clinical-jars,
+.cms-box .clinical-inner img.clinical-graph {
+    margin: 10px 0 10px 10%;
+}
+
+.cms-box .clinical-inner img.clinical-graph {
+    margin-left: 15%;
+}
+
+.cms-box .clinical-inner .flowerswrap {
+    display: inline-block;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.cms-box .clinical-inner .flowerswrap .flowersbox {
+    width: 186px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 20px;
+}
+
+.cms-box .clinical-inner .flowerswrap .flowersbox.versus {
+    font-size: 20px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    height: 187px;
+    line-height: 187px;
+    padding: 0 20px;
+    width: auto;
+}
+
+.cms-box .clinical-inner .flowerswrap .flowersbox img {
+    margin-bottom: 10px;
+}
+
+.cms-box .clinical-inner .clinical-data-wrap {
+    overflow: hidden;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    margin: 10px 2%;
+    font-size: 20px;
+}
+
+.cms-box .clinical-inner .clinical-data-left {
+    font-size: 100px;
+    float: left;
+    line-height: normal;
+}
+
+.cms-box .clinical-inner .clinical-data-right {
+    float: left;
+    margin-left: 20px;
+}
+
+.cms-box .clinical-inner .clinical-circles-wrap {
+    text-align: center;
+    margin: 40px 0 40px 10%;
+    display: inline-block;
+}
+
+.cms-box .clinical-inner .clinical-circles-wrap .clinical-circle {
+    width: 138px;
+    height: 138px;
+    border: 1px solid #fff;
+    background: #19353f;
+    text-align: center;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 40px 25px 25px 25px;
+    margin: 0 30px;
+    text-transform: uppercase;
+}
+
+.cms-box .clinical-inner .clinical-circles-wrap .clinical-circle:first-child {
+    margin-left: 0;
+}
+
+.cms-box.clinical-results table.clinical-grid {
+    margin-bottom: 30px;
+}
+
+.cms-box.clinical-results table.clinical-grid,
+.cms-box.clinical-results table.clinical-grid th,
+.cms-box.clinical-results table.clinical-grid td {
+    border: 1px solid #fff;
+    text-align: left;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 12px;
+}
+
+.cms-box.clinical-results table.clinical-grid td,
+.cms-box.clinical-results table.clinical-grid th {
+    padding: 8px;
+    line-height: normal;
+}
+
+.cms-box.clinical-results table.clinical-grid th {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cms-box.clinical-results table.clinical-grid {
+    border-collapse: collapse;
 }
 
 /******************************* Ultrasound Page Design **************************/

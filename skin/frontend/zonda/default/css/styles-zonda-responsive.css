@@ -343,7 +343,6 @@
     .cms-box.using-jenu .numbox .num {
         font-size: 62px;
     }
-
     .cms-box.using-jenu .numbox .numtxt {
         font-size: 18px;
         line-height: 18px;
@@ -390,6 +389,10 @@
     }
     .main {
         margin-bottom: 20px;
+    }
+    .cms-page-view .main {
+        padding-bottom: 20px;
+        margin-bottom: 0;
     }
     .header-top .container .toplinks,
     .header-top .container .login-container-big,

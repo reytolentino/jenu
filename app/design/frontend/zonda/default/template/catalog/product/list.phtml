@@ -13,8 +13,8 @@ $store = Mage::app()->getStore();
 $code  = $store->getCode();
 $b = $zonda->getConfigGroup();
 //Default image size
-$imgWidth = 205;
-$imgHeight = 205;
+$imgWidth = 410;
+$imgHeight = 410;
 //Aspect Ratio
 if ($b['product']['aspect_ratio'])
     $imgHeight = $imgWidth * $b['product']['image_ratio'];
@@ -103,7 +103,7 @@ if ($b['product']['aspect_ratio'])
                     <div class="product-image-thumbnail">
                         <?php 
                         if ($b['category']['hover_image'])
-                            $hoverImgHtml = $zonda->getHoverImageHtml($_product, $imgWidth, $imgHeight); 
+                            $hoverImgHtml = $zonda->getHoverImageHtml($_product, $imgWidth, $imgHeight);
                         ?>            
 			            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>">
                             <img<?php if ($hoverImgHtml) echo ' class="primary-image"'; ?> src="<?php echo $zonda->getImage($_product, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />

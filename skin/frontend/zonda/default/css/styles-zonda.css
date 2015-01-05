@@ -4095,7 +4095,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-page-view .main-container {
-    background: url('../images/backgrounds/green_glow.jpg') no-repeat top center;
+    background: url('../images/backgrounds/green_glow.png') repeat-y top center;
 }
 
 .cms-page-view .breadcrumbs {

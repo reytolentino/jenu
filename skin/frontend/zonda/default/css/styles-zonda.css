@@ -4118,7 +4118,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     padding-bottom: 30px;
 }
 
-.main {
+.cms-page-view .main {
     margin-bottom: 0;
 }
 

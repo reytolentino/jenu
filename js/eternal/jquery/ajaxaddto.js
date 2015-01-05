@@ -21,6 +21,11 @@ jQuery.noConflict();
         url += 'isAjax/1';
 		url = url.replace("checkout/cart","ajaxcart/index");
         url = url.replace("http://","https://");
+        if (window.location.protocol == "https:") {
+            url=url.replace("http://","https://");
+        } else {
+            url=url.replace("https://","http://");
+        }
         jQuery('#loading-mask').show();
 
 		try {

@@ -5,12 +5,15 @@ jQuery.noConflict();
 		}else{
 			if(jQuery('.block-minicart .block-content')){
                 jQuery('.block-minicart .block-content').replaceWith(data.minicart);
-                jQuery('[data-hover="dropdown"]').dropdownHover(); // bootstrap dropdown hover                 
+                if(eternalIsMobile.any() == null) {
+                    jQuery('[data-hover="dropdown"]').dropdownHover(); // bootstrap dropdown hover
+                }
             }
-	        jQuery.fancybox.close();
-			if(type!='item'){
-				jQuery('#after-loading-success-message').show();
-			}
+            jQuery.fancybox.close();
+            if(type!='item'){
+                jQuery('#after-loading-success-message').show();
+            }
+
 		}
 	}
 	function setLocationAjax(url,id,type){

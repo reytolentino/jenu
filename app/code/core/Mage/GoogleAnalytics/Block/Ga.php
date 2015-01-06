@@ -102,6 +102,7 @@ class Mage_GoogleAnalytics_Block_Ga extends Mage_Core_Block_Template
         return "
 ga('create', '{$this->jsQuoteEscape($accountId)}', 'auto');
 " . $this->_getAnonymizationCode() . "
+ga('require', 'displayfeatures');
 ga('send', 'pageview');
 ";
     }

@@ -57,6 +57,17 @@
 }
 .catalog-product-view .sarp-subscription input.radio  {margin: 8px 5px 0 0;}
 
-.product-shop .price-review {
+.product-shop .price-review .price-box {
     display: none;
+}
+
+.product-view .product-shop .price-review .ratings {
+    margin-bottom: -35px;
+}
+
+@media(max-width:767px){
+    .product-view .product-shop .price-review .ratings {
+        margin-bottom: 0;
+        float: left;
+    }
 }

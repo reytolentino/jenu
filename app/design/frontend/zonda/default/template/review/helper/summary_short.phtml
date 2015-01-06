@@ -37,18 +37,4 @@ $c = $zonda->getConfigGroupDesign();
         <?php endif;?>
         <span class="amount"><a href="#customer-reviews" id="goto-reviews"><?php echo $this->__('%d Review(s)', $this->getReviewsCount()) ?></a></span>
     </div>
-<?php elseif ($this->getDisplayIfEmpty()): ?>
-    <div class="ratings">
-            <div class="rating-box">
-                <div class="rating" style="width:0"></div>
-            </div>
-        <span class="amount"><?php echo $this->__('Not yet rated') ?></span>
-    </div>
-<?php elseif ($c['product']['review_empty']): ?>
-    <div class="ratings">
-            <div class="rating-box">
-                <div class="rating" style="width:0"></div>
-            </div>
-        <span class="amount"><?php echo $this->__('Not yet rated') ?></span>
-    </div>
 <?php endif; ?>

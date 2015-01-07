@@ -47,4 +47,8 @@ $amount = number_format($order->getGrandTotal(),2);
     </div>
 </noscript>
 <!--Taboola-->
-<img src="//trc.taboola.com/jenu-sc/log/3/action?name=sale&item-url={encoded_page_url}" width="0" height="0" />
+<script type="text/javascript">
+    window._tfa = window._tfa || [];
+    _tfa.push({notify:"action", name: 'sale'});
+</script>
+<script src="//cdn.taboola.com/libtrc/jenu-sc/tfa.js"></script>

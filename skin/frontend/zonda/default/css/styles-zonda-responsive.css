@@ -394,6 +394,9 @@
         padding-bottom: 20px;
         margin-bottom: 0;
     }
+    .cms-page-view.cms-in-the-press .main {
+        background: #fff;
+    }
     .header-top .container .toplinks,
     .header-top .container .login-container-big,
     .cart-value,
@@ -1177,6 +1180,13 @@
         max-width: 700px;
         white-space: normal !important;
         line-height: normal !important;
+    }
+    .cms-box.in-the-press .col4-set .col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .cms-box.in-the-press .in-the-press-inner {
+        margin-top: 20px;
     }
 }
 @media(max-width:320px) {

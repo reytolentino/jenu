@@ -4182,6 +4182,42 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     position: relative;
 }
 
+/******************************* In The Press Page Design **************************/
+
+.cms-box.in-the-press .col4-set {
+    margin: 30px 0;
+}
+
+.cms-box.in-the-press .col4-set div {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cms-box.in-the-press .col4-set div a {
+    color: #0c303c;
+    font-family:"Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+.cms-box.in-the-press .col4-set div a:hover {
+    color: #66b1b8;
+}
+
+.cms-box.in-the-press .col4-set img {
+    width: 100%;
+    height: auto;
+}
+
+.cms-box .inthepress-ul {
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+
+.cms-box .inthepress-ul li {
+    width: 202px;
+    display: inline-block;
+}
+
 /******************************* Clinical Results Page Design **************************/
 
 .cms-box .clinical-inner {

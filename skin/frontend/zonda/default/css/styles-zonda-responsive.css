@@ -348,6 +348,9 @@
         line-height: 18px;
         margin-top: 32px;
     }
+    .cms-box.before-afters .col2-set div p {
+        font-size: 12px;
+    }
 }
 @media(max-width:767px){
     .col1,
@@ -394,7 +397,8 @@
         padding-bottom: 20px;
         margin-bottom: 0;
     }
-    .cms-page-view.cms-in-the-press .main {
+    .cms-page-view.cms-in-the-press .main,
+    .cms-page-view.cms-before-afters .main {
         background: #fff;
     }
     .header-top .container .toplinks,
@@ -1188,6 +1192,7 @@
     .cms-box.in-the-press .in-the-press-inner {
         margin-top: 20px;
     }
+
 }
 @media(max-width:320px) {
     .header-container .right .block {

@@ -4086,6 +4086,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin: 24px auto;
     font-family: "Univers_Condensed", Helvetica, Arial;
 }
+
+.authorize-seal {
+    margin-top: 20px;
+}
 /*********************************************************************************/
 
 /******************************* CMS Page Design Overrides **************************/

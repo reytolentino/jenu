@@ -24,7 +24,7 @@ if (!is_array($imageSize)){
 	<?php if (!empty($gotocarttext)): ?>
 		<?php echo $gotocarttext; ?>
 	<?php else:?>
-		<?php echo $this->__("Go to cart page") ?>
+		<?php echo $this->__("Checkout") ?>
 	<?php endif;?>
 	</span></span></button>
 	<br/><br/>
@@ -39,6 +39,6 @@ if (!is_array($imageSize)){
 	</span></span></button>
 </div>	
 <script type='text/javascript'>
-		jQuery('#finish_and_checkout').click(function(){location.href = '<?php echo $this->getUrl('checkout/cart') ?>'});
+		jQuery('#finish_and_checkout').click(function(){location.href = '<?php echo $this->getUrl('checkout/onepage/') ?>'});
 		jQuery('#continue_shopping').click(function(){jQuery('#after-loading-success-message').fadeOut();}); 
 </script>

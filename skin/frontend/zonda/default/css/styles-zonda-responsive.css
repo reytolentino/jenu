@@ -1052,6 +1052,18 @@
     .cms-box.clinical-results table.clinical-grid {
         display: none;
     }
+    #homeslider-revolution .lto-mobile {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        border: 1px solid #fff;
+        width: 55%;
+    }
+    #homeslider-revolution .lto-mobile img {
+        width: 100%;
+        height: auto;
+    }
 }
 @media(max-width: 480px){
     .login-container-big{

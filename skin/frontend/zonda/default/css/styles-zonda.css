@@ -3375,6 +3375,9 @@ div.cart-empty {
     opacity: 1;
     filter:Alpha(opacity=100);
 }
+#homeslider-revolution .lto-mobile {
+    display: none;
+}
 .cart-table .price,
 .cart .data-table tbody .price {
     color: #777777;

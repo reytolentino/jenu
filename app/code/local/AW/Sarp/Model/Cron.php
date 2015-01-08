@@ -61,13 +61,13 @@ class AW_Sarp_Model_Cron extends Varien_Object
 
 Mage::log("AW_Sarp_Model_Cron::processTodaySubscriptions() :1[start]",6,'sarp.log');
         foreach ($this->getTodayPendingSubscriptions() as $subscription) {
-            //	try{
+            try{
             $subscription->payForDate(new Zend_Date);
 Mage::log("AW_Sarp_Model_Cron::processTodaySubscriptions() :2[subscription->payForDate()]",5,'sarp.log');
             return;
-            //	}catch(Core_Exception $e){
-            //		throw  $e;
-            //	}
+            	}catch(Core_Exception $e){
+            		throw  $e;
+            	}
         }
     }
 

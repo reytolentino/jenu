@@ -6,7 +6,6 @@
 .lp-hero-container {
     width: 100%;
     height: 528px;
-    overflow: hidden;
     background: #19353f;
     color: #272727;
     font-size: 13px;
@@ -14,6 +13,7 @@
 
 .lp-hero-container .fb-like {
     margin-top: 20px;
+    width: 300px;
 }
 
 .lp-hero-container h1 {
@@ -28,7 +28,7 @@
 .lp-hero-inner {
     width: 100%;
     height: 528px;
-    overflow:hidden;
+    float: left;
     background: url('/media/landing_pages/bg-hero.jpg') no-repeat center center;
 }
 

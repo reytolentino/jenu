@@ -29,7 +29,7 @@
             <action method="addJs"><script>eternal/jquery/fancybox/jquery.fancybox.pack.js</script></action>
             <action method="addItem"><type>js_css</type><name>eternal/jquery/fancybox/jquery.fancybox.css</name></action>
             <action method="addItem"><type>skin_css</type><name>css/jquery/ajaxaddto.css</name></action>
-            <block type="core/template" name="ajaxcart_head" template="ajaxcart/head.phtml"/>           
+            <!--<block type="core/template" name="ajaxcart_head" template="ajaxcart/head.phtml"/>-->
             <!-- jquery plugins -->
             <action method="addJs"><script>eternal/jquery/jquery.easing.min.js</script></action>
 			<action method="addJs"><script>eternal/jquery/jquery.selectbox-0.2.min.js</script></action>

@@ -3982,7 +3982,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .cms-customer-reviews .bio-content li {
     margin-bottom: 20px !important;
-    float: left;
+    float: right;
+    text-align: right;
 }
 .bio-banner {
     text-align: center;

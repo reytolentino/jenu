@@ -113,11 +113,11 @@
     
 }
 .elastislide-next {
-    left: 0;
+    right: 0;
     bottom: -26px;
 }
 .elastislide-prev {
-    right: 0;
+    left: 0;
     bottom: -26px;
 } 
 .elastislide-next .icon-next,
@@ -131,8 +131,8 @@
     left: 13px;
 }
 .elastislide-next .icon-next {
-    background-position: 0 0;
+    background-position: 0 -5px;
 }
 .elastislide-prev .icon-prev {
-    background-position: 0 -5px;
+    background-position: 0 0;
 }

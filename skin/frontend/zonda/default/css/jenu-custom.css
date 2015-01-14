@@ -107,17 +107,12 @@ ul.ul {
 }
 
 ul#nav li.order-now {
-    margin-left: 40px;
-}
-
-ul#nav li.order-now a {
-    background-color: #294048;
-    color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 ul#nav li.order-now a:hover {
-    background-color: #c8c8c8;
-    color: #282828;
+    background: none;
 }
 
 div.menu a, #nav li a, #blog_nav li a, #nav-links a {

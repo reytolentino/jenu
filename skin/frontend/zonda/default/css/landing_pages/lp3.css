@@ -634,6 +634,7 @@ ul#nav li.order-now {
     .lphero-box {
         width: 100%;
         float: left;
+        text-align: center;
     }
     .lphero-box h1 {
         font-size: 22px;
@@ -645,6 +646,7 @@ ul#nav li.order-now {
         float: left;
         margin-left: 20px;
         width: 460px;
+        text-align: left;
     }
     .lphero-box .ctabox .heading-box h2 {
         font-size: 18px;

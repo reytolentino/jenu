@@ -13,6 +13,7 @@
 
 .lpbox, .lpbox p, .lpbox h1, .lpbox h2, .lpbox h3, .lpbox h4, .lpbox h5 {
     color: #272727;
+    font-family: "Univers_Condensed", Arial, Helvetica;
 }
 
 .lphero {

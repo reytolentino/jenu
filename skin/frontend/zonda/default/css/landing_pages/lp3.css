@@ -16,10 +16,13 @@
     font-family: "Univers_Condensed", Arial, Helvetica;
 }
 
+.lphero .container {
+    overflow: visible;
+}
+
 .lphero {
     min-height: 514px;
     background: #f2f2f2 url('/media/landing_pages/lp3/bg-model.jpg') no-repeat top left;
-    overflow: hidden;
 }
 
 .lphero-box {

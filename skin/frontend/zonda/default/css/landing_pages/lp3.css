@@ -620,3 +620,7 @@
 .strike {
     text-decoration: line-through;
 }
+
+ul#nav li.order-now {
+    display: none;
+}

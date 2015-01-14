@@ -624,3 +624,361 @@
 ul#nav li.order-now {
     display: none;
 }
+
+@media(max-width: 991px){
+    .lphero {
+        background-color: #f2f2f2;
+        background-image: none;
+        min-height: 500px;
+    }
+    .lphero-box {
+        width: 100%;
+        float: left;
+    }
+    .lphero-box h1 {
+        font-size: 22px;
+        line-height: 22px;
+        margin: 24px 0;
+        text-align: center;
+    }
+    .lphero-box .ctabox {
+        float: left;
+        margin-left: 20px;
+        width: 460px;
+    }
+    .lphero-box .ctabox .heading-box h2 {
+        font-size: 18px;
+    }
+    .lphero-box .ctabox p {
+        font-size: 13px;
+        margin: 16px 0;
+    }
+    .lphero-box p.bottomcopy {
+        font-size: 11px;
+    }
+    .lpbox .subnav {
+        height: 40px;
+    }
+    .lpbox .subnav ul li a {
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+    }
+    .lpbox .sectionbox {
+        padding: 36px 0;
+    }
+    .lpbox h2.section-title {
+        font-size: 36px;
+        margin-bottom: 28px;
+    }
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .boostbox,
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .reviewsbox {
+        width: 100%;
+    }
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .reviewsbox {
+        margin-top: 28px;
+    }
+    .lpbox .sectionbox h3 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        padding-bottom: 10px;
+    }
+    .boostbox .elle-featured {
+        margin: 0 auto;
+    }
+    .boostbox p.most-people {
+        font-size: 14px;
+        margin: 20px 0;
+        padding: 0;
+    }
+    .boostbox .batrabox .batra-quote {
+        float: left;
+        margin-left: 60px;
+        width: 500px;
+        font-size: 14px;
+    }
+    .boostbox .batrabox .drbatra {
+        float: left;
+    }
+    .greatforuse {
+        background-size: 50%;
+        background-position: right;
+        min-height: 230px;
+    }
+    .howjenu p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #howjenu .withoutjenu {
+        float: left;
+        margin: 20px auto;
+        width: 48%;
+    }
+    #howjenu .withoutjenu img,
+    #howjenu .withjenu img{
+        width: 100%;
+        height: auto;
+    }
+    #howjenu .withjenu {
+        float: right;
+        width: 48%;
+        margin: 20px auto;
+    }
+    #howjenu .withjenu p, #howjenu .withoutjenu p {
+        font-size: 14px;
+    }
+    #howjenu .circleswrap .circles {
+        font-size: 13px;
+        height: 90px;
+        padding-top: 28px;
+        width: 90px;
+    }
+    .sectionbox.proofjenu p {
+        font-size: 14px;
+    }
+    .sectionbox.proofjenu .imgproof {
+        width: 100%;
+    }
+    .sectionbox.proofjenu .twice {
+        width: 60%;
+    }
+    .sectionbox.proofjenu .eighty {
+        width: 38%;
+    }
+    .sectionbox.proofjenu .twice img {
+        width: 20%;
+    }
+    .sectionbox.proofjenu .twice .list {
+        font-size: 14px;
+        line-height: 24px;
+        width: 78%;
+    }
+    .sectionbox.proofjenu .eighty img {
+        width: 60%;
+    }
+    .sectionbox.proofjenu .eighty .list {
+        float: right;
+        font-family: "Univers_Condensed",Arial,Helvetica;
+        font-size: 18px;
+        line-height: 24px;
+        width: 38%;
+    }
+    .sectionbox.whostalking .mention {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .sectionbox.whostalking .mention .by {
+        margin: 14px 0;
+    }
+    .sectionbox.whostalking .magazines {
+        width: 100%;
+    }
+    #bottomoffer {
+        background-color: #fff;
+        background-image: none;
+    }
+    .sectionbox.bottomoffer .bottomwand {
+       width: 48%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        margin-top: 40px;
+        width: 48%;
+        color: #272727;
+    }
+    .sectionbox.bottomoffer .heading-box h2 {
+        color: #008ab4;
+        font-size: 18px;
+    }
+    .lphero-box .ctabox .heading-box .ratings,
+    .sectionbox.bottomoffer .heading-box .ratings {
+        margin-top: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+        color: #272727;
+        float: none;
+        font-size: 14px;
+        line-height: 24px;
+        width: 100%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto strong {
+        display: block;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        float: none;
+        margin: 10px 0 0 30px;
+        width: 50%;
+    }
+    .sectionbox.bot-disclaimer {
+        padding-top: 0;
+    }
+    .sectionbox.bottomoffer .heading-box .ratings .amount a {
+        color: #272727;
+    }
+}
+
+@media(max-width:767px) {
+    .lphero {
+        min-height: auto;
+        overflow: hidden;
+    }
+    .lphero-box .product-container {
+        float: none;
+        width: 100%;
+    }
+    .lphero-box .product-container img {
+        display: block;
+        margin: 0 auto;
+    }
+    .lphero-box .ctabox {
+        float: none;
+        margin-left: 0;
+        margin-top: 16px;
+        width: 100%;
+    }
+    .lpbox .subnav {
+        height: auto;
+    }
+    .lpbox .subnav ul {
+        padding: 0;
+        margin: 0;
+    }
+    .lpbox .subnav ul li {
+        border-left: 0;
+        border-top: 1px solid #fff;
+        display: block;
+    }
+    .lpbox .subnav ul li:first-child {
+        border-top: none;
+    }
+    .lpbox .sectionbox {
+        padding: 24px 0;
+    }
+    .lpbox h2.section-title {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .reviewsbox {
+        margin-top: 20px;
+    }
+    .boostbox .elle-featured {
+        background-color: #ebebeb;
+        background-position: right top;
+        height: auto;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .boostbox .elle-featured p {
+        font-size: 12px;
+        margin: 0;
+        padding: 30px 146px 10px 20px;
+    }
+    .boostbox .batrabox .drbatra {
+        display: block;
+        float: none;
+        margin: 0 auto 20px;
+    }
+    .boostbox .batrabox .batra-quote {
+        float: none;
+        font-size: 13px;
+        margin-left: 10%;
+        width: 90%;
+    }
+    .boostbox .batrabox .batra-quote:before {
+        font-size: 60px;
+        left: -24px;
+        top: -20px;
+    }
+    .results-matter {
+        margin-top: 20px;
+    }
+    .results-matter .bx-controls-direction {
+        top: 32%;
+    }
+    .results-matter .batitle {
+        margin-top: 20px;
+    }
+    #howjenu .withoutjenu {
+        float: none;
+        margin: 20px auto;
+        width: 100%;
+    }
+    #howjenu .withjenu {
+        float: none;
+        margin: 20px auto;
+        width: 100%;
+        position: relative;
+    }
+    #howjenu .withjenu .withimg .roundtip {
+        font-size: 10px;
+        height: 90px;
+        padding-top: 20px;
+        top: 90px;
+        width: 90px;
+    }
+    #howjenu .withjenu .withimg {
+        position: static;
+    }
+    #howjenu .withjenu .withimg img {
+        position: static;
+    }
+    #howjenu .circleswrap {
+        margin-top: 12px;
+    }
+    .sectionbox.proofjenu .imgproof {
+        margin: 20px auto;
+    }
+    .sectionbox.proofjenu .twice,
+    .sectionbox.proofjenu .eighty {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .sectionbox.proofjenu .twice img {
+        width: 25%;
+    }
+    .sectionbox.proofjenu .twice .list {
+        font-size: 11px;
+        line-height: 16px;
+        width: 70%;
+    }
+    .sectionbox.proofjenu .eighty .list {
+        font-size: 18px;
+        line-height: 20px;
+        width: 42%;
+    }
+    .sectionbox.proofjenu .eighty img {
+        width: 50%;
+    }
+    .sectionbox.whostalking {
+        text-align: left;
+    }
+    .sectionbox.whostalking .asseen {
+        display: block;
+        width: 100%;
+    }
+    .sectionbox.bottomoffer .bottomwand {
+        width: 100%;
+        float: none;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        color: #272727;
+        float: none;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .lpbox .sectionbox {
+        padding: 16px 0;
+        font-size: 11px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        display: block;
+        float: left;
+        margin: 20px 0 0;
+        width: auto;
+        clear: both;
+    }
+    .greatforuse {
+        background-image: none;
+    }
+}

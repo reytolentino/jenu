@@ -3871,14 +3871,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     line-height: 28px;
     margin: 0 0 10px;
 }
-.dr-content .dr-right-content .dr-desc {
-    color: #2b2b2b;
-}
 .dr-content .dr-right-content .dr-desc p {
-    line-height: 1.2;
-    margin: 0 0 15px;
+    margin: 15px 0 0;
 }
-.dr-content .dr-right-content .dr-desc p:last-child {
+.dr-content .dr-right-content .dr-desc p:first-child {
     margin: 0;
 }
 .customer-content .col-title {

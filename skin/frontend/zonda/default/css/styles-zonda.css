@@ -4642,15 +4642,16 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     background: #19353f;
     text-align: center;
     font-family: 'Univers_Condensed', Arial, Helvetica;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 50%;
     display: inline-block;
-    padding: 25px;
+    padding-top: 30px;
     top: 40px;
     right: -72px;
     vertical-align: middle;
     position: absolute;
     z-index: 2;
+    text-transform: uppercase;
 }
 
 .cms-box.how-jenu-works .how-bottomcopy {

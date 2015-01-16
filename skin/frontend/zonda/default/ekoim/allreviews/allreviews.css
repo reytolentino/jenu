@@ -1,7 +1,7 @@
 #all-reviews .rich-snippet-markup{ display: none; }
 
 #all-reviews-table .clear{ clear: both; }
-#all-reviews-table td{ border-bottom: 1px dashed #E2E2E2; padding: 24px 10px; border-left: 1px dashed #E2E2E2;}
+#all-reviews-table td{ border-bottom: 1px dashed #E2E2E2; padding: 24px 0; border-left: 1px dashed #E2E2E2;}
 #all-reviews-table td.first{ border-left: none !important; }
 
 #all-reviews-table .review-body a.product-image{ float: left; padding-right: 20px; width: 180px; }
@@ -33,6 +33,10 @@
 .all-reviews-stars span{ display: block; height: 50px; background: url(5-stars-full.png) no-repeat; }
 
 #all-reviews-table .rating-box {width: 80px; height: 15px; margin-left: 20px; float: right;}
+
+#all-reviews-table .product-image img, .cc-img img {
+    padding: 0;
+}
 
 @media(max-width: 767px){
     #all-reviews-table .review-body a.product-image{ width: 320px; float: none;display: block;margin-left: auto;margin-right: auto; }

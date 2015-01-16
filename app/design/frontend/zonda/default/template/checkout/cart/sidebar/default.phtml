@@ -24,19 +24,17 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(),     
         <?php if(Mage::getStoreConfig('ajaxcart/addtocart/enableothers')): ?>
             <?php 
                 $params = $this->getRequest()->getParams();
-
-            if(isset($params['isAjax'])) {
-                if ($params['isAjax'] == 1) {
-                    $refererUrl = Mage::registry('referrer_url');
-                    if (empty($refererUrl)) {
-                        $refererUrl = Mage::getBaseUrl();
-                    }
-                    $deleteUrl = $this->getUrl('checkout/cart/delete', array('id' => $_item->getId(), Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->helper('core/url')->getEncodedUrl($refererUrl)));
+                if (empty($refererUrl)) {
+                    $refererUrl = Mage::getBaseUrl();
                 }
-            } else {
-                    
-                    $deleteUrl = $this->getUrl('checkout/cart/delete',array('id'=>$_item->getId(),Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->helper('core/url')->getEncodedUrl($refererUrl)));
-                }     
+                if(isset($params['isAjax'])) {
+                    if ($params['isAjax'] == 1) {
+                        $refererUrl = Mage::registry('referrer_url');
+                        $deleteUrl = $this->getUrl('checkout/cart/delete', array('id' => $_item->getId(), Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->helper('core/url')->getEncodedUrl($refererUrl)));
+                    }
+                } else {
+                        $deleteUrl = $this->getUrl('checkout/cart/delete', array('id'=>$_item->getId(),Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->helper('core/url')->getEncodedUrl($refererUrl)));
+                }
             ?>
             <a href="javascript:deleteAction('<?php echo $deleteUrl ?>','<?php echo $_item->getId()?>','<?php echo $this->__('Are you sure you would like to remove this item from the shopping cart?') ?>')" title="<?php echo $this->__('Remove This Item') ?>" class="btn-remove2 a-center"><i class="icon-remove">&nbsp;</i>
             </a>

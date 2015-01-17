@@ -820,6 +820,16 @@ ul#nav li.order-now {
 }
 
 @media(max-width:767px) {
+    .data-con {
+        height: 300px;
+    }
+    .reviewsbox .review-title {
+        width: 65%;
+        font-size: 14px;
+    }
+    .std .lpbox dd {
+        padding: 0;
+    }
     .lphero {
         min-height: auto;
         overflow: hidden;

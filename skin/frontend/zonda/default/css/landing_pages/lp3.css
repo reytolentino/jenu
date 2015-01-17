@@ -900,6 +900,9 @@ ul#nav li.order-now {
     .results-matter .batitle {
         margin-top: 20px;
     }
+    .results-matter .bx-caption {
+        font-size: 14px;
+    }
     #howjenu .withoutjenu {
         float: none;
         margin: 20px auto;

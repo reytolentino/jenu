@@ -393,6 +393,20 @@
     .main {
         margin-bottom: 20px;
     }
+    .review-row .review-title {
+        font-size: 18px;
+        line-height: normal;
+        float: left;
+    }
+    .review-row .ratings {
+        float: left;
+        margin-top: 10px;
+        clear: both;
+    }
+    .product-view .data-table th {
+        padding: 10px 3px;
+        font-size: 11px;
+    }
     .cms-page-view .main {
         padding-bottom: 20px;
         margin-bottom: 0;

@@ -1513,7 +1513,7 @@ button.button span.name{
 
 /* Product Shop */
 .product-view .data-table th {
-    padding: 20px 0;
+    padding: 20px 10px;
 }
 .product-view .data-table td {
     padding: 5px;
@@ -1593,6 +1593,14 @@ button.button span.name{
 }
 .product-tabs-content ul li {
     margin-left: 15px;
+}
+.product-tabs-content ul.form-list {
+    margin-left: 0;
+    list-style: none;
+    padding-left: 0;
+}
+.product-tabs-content ul.form-list li {
+    margin-left: 0;
 }
 .data-con {
     display: block;

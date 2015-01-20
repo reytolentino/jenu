@@ -27,7 +27,7 @@
 
 #all-reviews-table .box-review-form .form-add .data-table{ margin: 15px 0px; }
 
-.all-reviews-summary{ border-bottom: 1px dashed #E2E2E2; margin-bottom: 15px; }	
+.all-reviews-summary{ border-bottom: 1px dashed #E2E2E2; margin-bottom: 15px;display: none; }
 .all-reviews-summary p{ text-align: center; padding-top: 5px;  }	
 .all-reviews-stars{ height: 50px; width: 262px; background: url(5-stars-empty.png) no-repeat; margin: 0 auto; }	
 .all-reviews-stars span{ display: block; height: 50px; background: url(5-stars-full.png) no-repeat; }
@@ -39,5 +39,5 @@
 }
 
 @media(max-width: 767px){
-    #all-reviews-table .review-body a.product-image{ width: 320px; float: none;display: block;margin-left: auto;margin-right: auto; }
+    #all-reviews-table .review-body a.product-image{ width: auto; float: none;display: block;margin-left: auto;margin-right: auto;padding-right: 0; }
 }

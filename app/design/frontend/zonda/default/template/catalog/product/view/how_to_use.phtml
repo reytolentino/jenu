@@ -1,0 +1,14 @@
+<?php
+/**
+ * Product short description template
+ *
+ * @see Mage_Catalog_Block_Product_View_Description
+ */
+?>
+<?php $_howtouse = Mage::registry('current_product')->getData('how_to_use'); ?>
+<?php if ($_howtouse): ?>
+    <h2><?php echo $this->__('How To use') ?></h2>
+    <div class="std">
+        <?php echo $_howtouse; ?>
+    </div>
+<?php endif; ?>

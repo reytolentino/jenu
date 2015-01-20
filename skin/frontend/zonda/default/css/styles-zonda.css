@@ -4237,6 +4237,69 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     height: auto;
 }
 
+.cms-box.before-afters .before-afters-inner {
+    margin-top: 24px;
+}
+
+.cms-box.before-afters .before-afters-inner {
+    text-align: center;
+}
+
+.cms-box.before-afters .before-afters-inner h3 {
+    text-align: left;
+}
+
+.cms-box.before-afters .before-afters-inner .batitle {
+    margin-bottom: 20px;
+    margin-top: 40px;
+    display: inline-block;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 16px;
+    background: url('/media/landing_pages/lp3/bg-title.png') repeat-x center center;
+    padding: 0 30px;
+}
+
+.cms-box.before-afters .before-afters-inner .batitle:first-of-type {
+    margin-top: 0;
+}
+
+.cms-box.before-afters .before-afters-inner .batitle span {
+    background: #fff;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.cms-box.before-afters .before-afters-inner .baslideswrap {
+    max-width: 948px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.cms-box.before-afters .before-afters-inner .baslides {
+    width: 100%;
+    margin: 0 auto 40px auto;
+}
+
+.cms-box.before-afters .before-afters-inner .baslides img {
+    width: 100%;
+}
+
+.cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-left.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
+.cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev:hover {display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-left.png) no-repeat bottom left; width:28px; height:28px; text-indent: -9999px;}
+.cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-right.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
+.cms-box.before-afters .before-afters-inner .baslideswrap .bx-next:hover {display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-right.png) no-repeat bottom left; width:28px; height:28px; text-indent: -9999px;}
+
+.cms-box.before-afters .before-afters-inner .bx-controls-direction {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+}
+
+.cms-box.before-afters .before-afters-inner .results-disclaimer {
+    margin-top: 30px;
+    text-align: left;
+}
+
 /******************************* Clinical Results Page Design **************************/
 
 .cms-box .clinical-inner {

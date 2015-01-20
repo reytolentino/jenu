@@ -351,6 +351,9 @@
     .cms-box.before-afters .col2-set div p {
         font-size: 12px;
     }
+    .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+        top: 35%;
+    }
 }
 @media(max-width:767px){
     .col1,
@@ -1077,6 +1080,12 @@
     #homeslider-revolution .lto-mobile img {
         width: 100%;
         height: auto;
+    }
+    .cms-box.before-afters .before-afters-inner .bx-wrapper .bx-controls-direction {
+        top: 33%;
+    }
+    .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+        top: 25%;
     }
 }
 @media(max-width: 480px){

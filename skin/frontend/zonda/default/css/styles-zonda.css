@@ -3442,18 +3442,18 @@ div.cart-empty {
     padding: 20px 20px 20px 75px !important;
 }
 .success-msg {
-    border-color: #b9dbbd;
-    background-color: #d2eedb;
+    border-color: #66b1b8;
+    background-color: #66b1b8;
     background-image: url(../images/i_msg-success.png);
-    color: #69a671;
+    color: #fff;
 }
 .note-msg, .notice-msg {
-    border-color: #eddcad;
-    background-color: #f5e7c0;
+    border-color: #c03e3e;
+    background-color: #c03e3e;
     background-image: url(../images/i_msg-note.png);
-    color: #d1b361;
+    color: #fff;
 }
-.error-msg { border-color:#efcbca; background-color:#f5d7d6; background-image:url(../images/i_msg-error.png); color:#cc7572; }
+.error-msg { border-color:#c03e3e; background-color:#c03e3e; background-image:url(../images/i_msg-error.png); color:#fff; }
 .block-layered-nav .currently {
     padding: 10px;
 }

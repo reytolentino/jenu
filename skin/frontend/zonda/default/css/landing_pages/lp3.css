@@ -23,6 +23,7 @@
 .lphero {
     min-height: 514px;
     background: #f2f2f2 url('/media/landing_pages/lp3/bg-model.jpg') no-repeat top left;
+    overflow: hidden;
 }
 
 .lphero-box {
@@ -112,6 +113,11 @@
 .lphero-box p.bottomcopy {
     font-size: 13px;
     text-transform: uppercase;
+    padding-top: 30px;
+}
+.fb_iframe_widget {
+    position: absolute !important;
+    z-index: 9;
 }
 
 .lpbox .subnav {
@@ -662,9 +668,7 @@ ul#nav li.order-now {
         font-size: 13px;
         margin: 16px 0;
     }
-    .lphero-box p.bottomcopy {
-        font-size: 11px;
-    }
+
     .lpbox .subnav {
         height: 40px;
     }
@@ -885,7 +889,7 @@ ul#nav li.order-now {
         background-position: right top;
         height: auto;
         margin: 0 auto;
-        width: 100%;
+        width: 300px;
     }
     .boostbox .elle-featured p {
         font-size: 12px;

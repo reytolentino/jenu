@@ -89,6 +89,10 @@
     float: left;
 }
 
+.lpbox .data-con {
+    height:740px;
+}
+
 .lphero-box .moneyback1 {
     display: inline-block;
     float: right;
@@ -636,6 +640,9 @@ ul#nav li.order-now {
         float: left;
         text-align: center;
     }
+    .lpbox .data-con {
+        height:500px;
+    }
     .lphero-box h1 {
         font-size: 22px;
         line-height: 22px;
@@ -820,7 +827,7 @@ ul#nav li.order-now {
 }
 
 @media(max-width:767px) {
-    .data-con {
+    .lpbox .data-con {
         height: 300px;
     }
     .reviewsbox .review-title {

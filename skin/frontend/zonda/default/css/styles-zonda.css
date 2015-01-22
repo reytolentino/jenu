@@ -3978,8 +3978,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     line-height: 20px;
     margin-bottom: 30px;
 }
-.cms-customer-reviews .bio-content p {
-    margin-bottom: 0px !important;
+.cms-customer-reviews .bio-content p, .cms-faqs .bio-content p {
+    margin-bottom: 0px;
+}
+.cms-faqs ul.faqs-copy li {
+    margin-bottom: 30px;
 }
 .cms-customer-reviews .bio-content p.author {
     float: right;
@@ -3995,8 +3998,15 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .bio-banner  img, .bio-banner  img {
     max-width: 100%;
 }
-.cms-faqs .bio-content li, .cms-customer-reviews .bio-content li {
+.cms-customer-reviews .bio-content li {
     list-style: outside none none;
+}
+.cms-faqs ul.faqs-links {
+    margin: 30px 0;
+}
+.cms-faqs ul.faqs-links li {
+    list-style: disc;
+    margin-left: 20px;
 }
 .cms-faqs .bio-content li p.ques{
     font-weight: bold;

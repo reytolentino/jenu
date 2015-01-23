@@ -161,6 +161,12 @@ p {
 .col-social{
     width:58.333333333333336%;
 }
+.col-copy.copyright {
+    width: 100%;
+}
+.footer .col-social {
+    display: none;
+}
 a {
     -webkit-transition:    color 300ms ease-in-out, background-color 300ms ease-in-out, opacity 150ms ease-in-out;
     -moz-transition:       color 300ms ease-in-out, background-color 300ms ease-in-out, opacity 150ms ease-in-out;

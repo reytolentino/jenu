@@ -807,6 +807,9 @@ button.button span.name{
     padding-top: 15px;
     margin-bottom: 0;
 }
+.footer .copyright p {
+    margin-bottom: 10px;
+}
 .footer .social-links{
     text-align: right;
 }

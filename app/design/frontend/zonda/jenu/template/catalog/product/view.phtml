@@ -7,7 +7,7 @@
  */
 ?>
 <?php
-$aCmsPage = Mage::getModel('cms/page')->load('ft00323', 'identifier');
+$aCmsPage = Mage::getModel('cms/page')->load('ft00324', 'identifier');
 $theContent = $aCmsPage->getContent();
 $theContent = Mage::helper('cms')->getPageTemplateProcessor()->filter($aCmsPage->getContent());
 echo $theContent;

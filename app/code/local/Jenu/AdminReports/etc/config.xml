@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jenu_AdminReports>
+            <version>0.1.0</version>
+        </Jenu_AdminReports>
+    </modules>
+
+    <global>
+        <models>
+            <jenu_adminreports>
+                <class>Jenu_AdminReports_Model</class>
+                <resourceModel>jenu_adminreports_resource</resourceModel>
+            </jenu_adminreports>
+            <jenu_adminreports_resource>
+                <class>Jenu_AdminReports_Model_Resource</class>
+            </jenu_adminreports_resource>
+        </models>
+        <blocks>
+            <jenu_adminreports>
+                <class>Jenu_AdminReports_Block</class>
+            </jenu_adminreports>
+        </blocks>
+        <helpers>
+            <jenu_adminreports>
+                <class>Jenu_AdminReports_Helper</class>
+            </jenu_adminreports>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Jenu_AdminReports before="Mage_Adminhtml">Jenu_AdminReports_Adminhtml</Jenu_AdminReports>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <jenu_adminreports>
+                    <file>jenu_adminreports/report.xml</file>
+                </jenu_adminreports>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

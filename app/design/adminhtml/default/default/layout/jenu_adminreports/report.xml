@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <adminhtml_subscribedcustomers_index>
+        <reference name="content">
+            <block type="jenu_adminreports/adminhtml_subscribedcustomers" name="jenu_adminreports.subscribedcustomers"/>
+        </reference>
+    </adminhtml_subscribedcustomers_index>
+</layout>

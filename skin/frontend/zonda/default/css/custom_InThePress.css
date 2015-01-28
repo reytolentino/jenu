@@ -1,0 +1,82 @@
+/* CSS Document */
+
+@media(min-width: 992px){
+
+.border-bottom{
+	border-bottom: 1px solid #C4C4C4;
+}
+
+.container_row{
+	margin: 0px auto;
+	padding: 10px 0px;
+}
+
+.page_header_InThePress{ 
+	font-weight:bold;
+	margin: 0px auto;
+}
+
+.logo_image{
+	margin: 0px auto;
+}
+
+.logo_caption{
+	margin: 0px auto;
+	line-height: 15px;
+	text-align: justify;
+}
+
+.logo_caption_source{
+	font-weight:bold;
+	color: #000000;
+}
+
+.logo_caption_outer_container{
+	margin: 0px auto;
+}
+
+.logo_caption_inner_container{
+	margin: 0px auto;
+	padding-top: 30px;
+}
+
+.container{
+	color: #000000;
+}
+
+}
+
+@media(max-width: 991px){
+.border-bottom{
+	border-bottom: 1px solid #C4C4C4;
+}
+
+.container_row{
+	margin: 0px auto;
+	padding-bottom: 40px;
+}
+
+.logo_caption_inner_container{
+	margin: 0px auto;
+	padding-top: 40px;
+	text-align: center;
+}
+
+.logo_caption{
+	margin: 0px auto;
+	line-height: 20px;
+}
+
+.logo_caption_source{
+	font-weight:bold;
+	color: #000000;
+}
+
+.logo_image{
+	margin: 0px auto;
+}
+
+.container{
+	color: #000000;
+}
+}

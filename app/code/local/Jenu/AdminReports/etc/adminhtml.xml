@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <report>
+            <children>
+                <jenu_adminreports>
+                    <title>Jenu reports</title>
+                    <sort_order>10</sort_order>
+                    <children>
+                        <productsordered translate="title" module="jenu_adminreports">
+                            <title>Subscribed Customers Report</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/subscribedcustomers/index</action>
+                        </productsordered>
+                    </children>
+                </jenu_adminreports>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <report>
+                        <children>
+                            <jenu_adminreports>
+                                <title>Jenu reports</title>
+                                <sort_order>10</sort_order>
+                                <children>
+                                    <productsordered translate="title" module="jenu_adminreports">
+                                        <title>Subscribed Customers Report</title>
+                                    </productsordered>
+                                </children>
+                            </jenu_adminreports>
+                        </children>
+                    </report>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

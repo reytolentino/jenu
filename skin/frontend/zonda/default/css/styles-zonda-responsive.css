@@ -880,6 +880,7 @@
         position: absolute;
         font-size: 13px;
         padding: 10px;
+        top: auto;
     }
     #homeslider-revolution .hp-copy-fade p:first-child {
         margin-bottom: 5px;
@@ -1068,18 +1069,6 @@
     }
     .cms-box.clinical-results table.clinical-grid {
         display: none;
-    }
-    #homeslider-revolution .lto-mobile {
-        display: block;
-        position: absolute;
-        top: 30px;
-        right: 10px;
-        border: 1px solid #fff;
-        width: 55%;
-    }
-    #homeslider-revolution .lto-mobile img {
-        width: 100%;
-        height: auto;
     }
     .cms-box.before-afters .before-afters-inner .bx-wrapper .bx-controls-direction {
         top: 33%;

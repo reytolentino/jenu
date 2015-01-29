@@ -1,5 +1,11 @@
 /* CSS Document */
 
+
+.container h1, .container h2{
+	color: #19353f !important;
+    font-family: "Univers_Condensed" !important;
+}
+
 @media(min-width: 992px){
 
 .border-bottom{
@@ -11,7 +17,7 @@
 	padding: 10px 0px;
 }
 
-.page_header_InThePress{ 
+.page_header_InThePress{
 	font-weight:bold;
 	margin: 0px auto;
 }

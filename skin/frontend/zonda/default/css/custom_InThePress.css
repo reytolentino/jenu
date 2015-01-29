@@ -2,19 +2,19 @@
 
 
 
-.container:not(.clearfix){
+#page-contents.container{
 	color: #272727;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 	font-size: 16px;
 	padding-bottom: 50px;
 }
 
-.container h1{
+#page-contents.container h1{
 	margin-bottom: 16px;
 }
 
 
-.container h4{
+#page-contents.container h4{
 	margin-bottom: 0px;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 	line-height: 16px;
@@ -26,21 +26,21 @@ img.logo_image{
 }
 
 
-.container h6.logo_caption_source a.logo_caption_read_more{
+#page-contents.container h6.logo_caption_source a.logo_caption_read_more{
 	color: #008ab0;
 	font-weight: normal;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 }
 
 
-.container h6.logo_caption_source{
+#page-contents.container h6.logo_caption_source{
 	font-weight:bold;
 	font-size: 16px;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 }
 
 
-.container .border-bottom{
+#page-contents.container .border-bottom{
 	border-bottom: 1px solid #f2f2f2;
 	margin: 18px 0px;
 }
@@ -49,10 +49,10 @@ span.pipe{
 	font-weight: normal;
 }
 
-.container .logo_caption_inner_container{
+#page-contents.container .logo_caption_inner_container{
 }
 
-.container .logo_caption_inner_container .logo_caption, .container .logo_caption_inner_container h4{
+#page-contents.container .logo_caption_inner_container .logo_caption, .container .logo_caption_inner_container h4{
 	font-style: italic;
 }
 
@@ -93,11 +93,12 @@ span.pipe{
 		padding: 10px 0px;
 	}
 
-	.container .row .col-md-3 img.img-responsive.logo_image{
+	#page-contents.container .row .col-sm-3 img.img-responsive.logo_image{
 		display: inline-block;
+		margin-bottom: 20px;
 	}
 
-	.container .row .col-md-3{
+	.container .row .col-sm-3{
 		text-align: center;
 	}
 
@@ -112,23 +113,29 @@ span.pipe{
 		line-height: 20px;
 	}
 
-	.container .border-bottom{
+	#page-contents.container .border-bottom{
 		margin: 2px 0px 20px 0px;
 	}
 
-	.container:not(.clearfix){
+	#page-contents.container{
 		font-size:14px;
 	}
 
 
-	.container h4{
+	#page-contents.container h4{
 	line-height: 14px;
 	font-size: 14px;
 	}
 
 
-	.container h6.logo_caption_source{
-		font-size: 16px;
+	#page-contents.container h6.logo_caption_source{
+		font-size: 14px;
 	}
+
+	#page-contents.container h6.logo_caption_source a.logo_caption_read_more{
+		font-size: 14px;
+	}
+
+
 
 }

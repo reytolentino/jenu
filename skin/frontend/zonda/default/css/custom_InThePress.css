@@ -16,11 +16,12 @@
 
 .container .logo_caption_source{
 	font-weight:bold;
-	color: #000000;
+	font-size: 16px;
 }
 
 .container .border-bottom{
 	border-bottom: 1px solid #f2f2f2;
+	margin: 18px 0px;
 }
 
 
@@ -30,13 +31,9 @@
 
 @media(min-width: 992px){
 
-	.container .border-bottom{
-		 margin: 0 0 6px 0;
-	}
-
 	.container_row{
 		margin: 0px auto;
-		padding: 10px 0px;
+		padding-bottom: 10px;
 	}
 
 	.page_header_InThePress{
@@ -54,11 +51,6 @@
 		text-align: justify;
 	}
 
-	.logo_caption_source{
-		font-weight:bold;
-		color: #000000;
-	}
-
 	.logo_caption_outer_container{
 		margin: 0px auto;
 	}
@@ -72,14 +64,16 @@
 
 @media(max-width: 991px){
 
+
 	.container_row{
 		margin: 0px auto;
-		padding-bottom: 40px;
+		padding: 10px 0px;
 	}
+
 
 	.logo_caption_inner_container{
 		margin: 0px auto;
-		padding-top: 40px;
+		padding-top: 0px;
 		text-align: center;
 	}
 
@@ -89,10 +83,13 @@
 	}
 
 
-
 	.logo_image{
 		margin: 0px auto;
 	}
 
+	.container .border-bottom{
+	margin: 2px 0px;
+
+}
 
 }

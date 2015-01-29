@@ -1,88 +1,98 @@
 /* CSS Document */
 
 
-#inThePress.container h1, #inThePress.container h2{
-	color: #19353f;
-    font-family: "Univers_Condensed", Arial, Helvetica;
+
+.container{
+	color: #272727;
+	font-family: "Univers_Condensed", Helvetica, Arial ;
+	font-size: 16px;
+}
+
+.container h6.logo_caption_source a.logo_caption_read_more{
+	color: #008ab0;
+	font-weight: normal;
+	font-family: "Univers_Condensed", Helvetica, Arial ;
+}
+
+.container h6.logo_caption_source{
+	font-weight:bold;
+	font-size: 16px;
+	font-family: "Univers_Condensed", Helvetica, Arial ;
+}
+
+
+
+.container .border-bottom{
+	border-bottom: 1px solid #f2f2f2;
+	margin: 18px 0px;
+}
+
+
+.container .logo_caption_inner_container .logo_caption, .container .logo_caption_inner_container h4{
+	font-style: italic;
 }
 
 @media(min-width: 992px){
 
-.border-bottom{
-	border-bottom: 1px solid #C4C4C4;
-}
+	.container_row{
+		margin: 0px auto;
+		padding-bottom: 10px;
+	}
 
-.container_row{
-	margin: 0px auto;
-	padding: 10px 0px;
-}
+	.page_header_InThePress{
+		font-weight:bold;
+		margin: 0px auto;
+	}
 
-.page_header_InThePress{
-	font-weight:bold;
-	margin: 0px auto;
-}
+	.logo_image{
+		margin: 0px auto;
+	}
 
-.logo_image{
-	margin: 0px auto;
-}
+	.logo_caption{
+		margin: 0px auto;
+		line-height: 15px;
+		text-align: justify;
+	}
 
-.logo_caption{
-	margin: 0px auto;
-	line-height: 15px;
-	text-align: justify;
-}
+	.logo_caption_outer_container{
+		margin: 0px auto;
+	}
 
-.logo_caption_source{
-	font-weight:bold;
-	color: #000000;
-}
-
-.logo_caption_outer_container{
-	margin: 0px auto;
-}
-
-.logo_caption_inner_container{
-	margin: 0px auto;
-	padding-top: 30px;
-}
-
-.container{
-	color: #000000;
-}
+	.logo_caption_inner_container{
+		margin: 0px auto;
+		padding-top: 30px;
+	}
 
 }
 
 @media(max-width: 991px){
-.border-bottom{
-	border-bottom: 1px solid #C4C4C4;
+
+
+	.container_row{
+		margin: 0px auto;
+		padding: 10px 0px;
+	}
+
+
+	.logo_caption_inner_container{
+		margin: 0px auto;
+		padding-top: 0px;
+		text-align: center;
+	}
+
+	.logo_caption{
+		margin: 0px auto;
+		line-height: 20px;
+	}
+
+
+	.logo_image{
+		margin: 0px auto;
+	}
+
+	.container .border-bottom{
+	margin: 2px 0px;
+
 }
 
-.container_row{
-	margin: 0px auto;
-	padding-bottom: 40px;
-}
-
-.logo_caption_inner_container{
-	margin: 0px auto;
-	padding-top: 40px;
-	text-align: center;
-}
-
-.logo_caption{
-	margin: 0px auto;
-	line-height: 20px;
-}
-
-.logo_caption_source{
-	font-weight:bold;
-	color: #000000;
-}
-
-.logo_image{
-	margin: 0px auto;
-}
-
-.container{
-	color: #000000;
-}
 }

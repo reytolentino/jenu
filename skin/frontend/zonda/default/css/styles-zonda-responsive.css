@@ -320,11 +320,18 @@
     }
     #homeslider-revolution .hp-copy-fade {
         width: 100%;
-        height: 70px;
+        height: 80px;
         bottom: 10%;
         position: absolute;
-        font-size: 14px;
         padding: 14px;
+    }
+    #homeslider-revolution .hp-copy-inner p {
+        font-size: 14px;
+        line-height: inherit;
+    }
+    #homeslider-revolution .hp-copy-inner p:first-child {
+        font-size: 24px;
+        font-family: "apexsanslightst", Arial, Helvetica;
     }
     #homeslider-revolution .container .home-adv .bx-viewport {
         height: 314px !important;
@@ -875,15 +882,22 @@
     }
     #homeslider-revolution .hp-copy-fade {
         width: 100%;
-        height: 90px;
+        height: auto;
         bottom: 0;
         position: absolute;
-        font-size: 13px;
         padding: 10px;
         top: auto;
     }
     #homeslider-revolution .hp-copy-fade p:first-child {
         margin-bottom: 5px;
+    }
+    #homeslider-revolution .hp-copy-inner p {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    #homeslider-revolution .hp-copy-inner p:first-child {
+        font-size: 18px;
+        font-family: "apexsanslightst", Arial, Helvetica;
     }
     .cms-box.ultrasound101 h1,
     .cms-box.using-jenu h1,

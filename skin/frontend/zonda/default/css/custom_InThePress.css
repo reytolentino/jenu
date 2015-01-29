@@ -1,9 +1,9 @@
 /* CSS Document */
 
 
-.container h1, .container h2{
-	color: #19353f !important;
-    font-family: "Univers_Condensed" !important;
+#inThePress.container h1, #inThePress.container h2{
+	color: #19353f;
+    font-family: "Univers_Condensed", Arial, Helvetica;
 }
 
 @media(min-width: 992px){

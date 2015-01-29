@@ -3320,6 +3320,18 @@ div.cart-empty {
     padding: 24px 48px 24px 24px;
     text-align: right;
 }
+#homeslider-revolution .hp-copy-inner {
+    display: inline-block;
+    text-align: left;
+}
+#homeslider-revolution .hp-copy-inner p {
+    font-size: 20px;
+    line-height: inherit;
+}
+#homeslider-revolution .hp-copy-inner p:first-child {
+    font-size: 32px;
+    font-family: "apexsanslightst", Arial, Helvetica;
+}
 #homeslider-revolution .container {
     height: 100%;
 }

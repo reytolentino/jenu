@@ -2,13 +2,13 @@
 
 
 
-.container
+.container{
 	color: #272727;
 	font-family: "Univers_Condensed", Helvetica, Arial ;
 	font-size: 16px;
 }
 
-.container a{
+.container h6.logo_caption_source a.logo_caption_read_more{
 	color: #008ab0;
 	font-weight: normal;
 	font-family: "Univers_Condensed", Helvetica, Arial ;
@@ -20,10 +20,6 @@
 	font-family: "Univers_Condensed", Helvetica, Arial ;
 }
 
-.container .border-bottom{
-	border-bottom: 1px solid #f2f2f2;
-	margin: 18px 0px;
-}
 
 
 .container .logo_caption_inner_container .logo_caption, .container .logo_caption_inner_container h4{

@@ -2,7 +2,7 @@
 
 
 
-.container{
+.container
 	color: #272727;
 	font-family: "Univers_Condensed", Helvetica, Arial ;
 	font-size: 16px;
@@ -14,9 +14,10 @@
 	font-family: "Univers_Condensed", Helvetica, Arial ;
 }
 
-.container .logo_caption_source{
+.container h6.logo_caption_source{
 	font-weight:bold;
 	font-size: 16px;
+	font-family: "Univers_Condensed", Helvetica, Arial ;
 }
 
 .container .border-bottom{

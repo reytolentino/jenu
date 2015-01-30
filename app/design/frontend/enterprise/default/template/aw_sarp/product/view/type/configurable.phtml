@@ -28,13 +28,12 @@
 ?>
 <?php
 ?>
+
 <?php $subscription = $this->getSubscription() ?>
-<?php $_product = $subscription->getProduct() ?>
+<?php $_product = $this->getProduct() ?>
 
 <script type="text/javascript">
-    var SarpOptionsPrice;
-    if (typeof(optionsPrice.productPrice) == 'undefined') SarpOptionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
-    else SarpOptionsPrice = optionsPrice;
+    var SarpOptionsPrice = optionsPrice;
 </script>
 
 <?php if ($_product->isSaleable()): ?>
@@ -67,6 +66,7 @@
 
 <?php echo $this->getPriceHtml($_product); ?>
 
+<?php echo $this->getChildHtml('samples') ?>
 
 <?php echo $this->getChildHtml('sarp_html_calendar'); ?>
 <?php echo $this->getChildHtml('sarp_html_calendar_init'); ?>

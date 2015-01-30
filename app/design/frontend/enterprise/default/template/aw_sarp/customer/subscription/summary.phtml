@@ -28,19 +28,19 @@
 ?>
 <?php
 ?>
-<div class="my-account">
-    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<div class="page-title button-level">
-    <h1><?php echo $this->getTitle()?></h1>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-head button-level">
+    <h3><?php echo $this->getTitle()?></h3>
 
 </div>
 
-    <div class="inner">
+<div class="">
     <div class="col-1 primary-address-list">
+        <h4><?php echo $this->__('Addresses') ?></h4>
 
-        <div class="col2-set info-box">
+        <div class="col2-set generic-box">
             <div class="col-1">
-                <h3><?php echo $this->__('Billing Address') ?></h3>
+                <h5><?php echo $this->__('Billing Address') ?></h5>
                 <address>
 
                     <?php echo $this->getSubscription()->getOrder()->getBillingAddress()->format('html') ?><br/>
@@ -54,7 +54,7 @@
 
             </div>
             <div class="col-2">
-                <h3><?php echo $this->__('Payment Method') ?></h3>
+                <h5><?php echo $this->__('Payment Method') ?></h5>
                 <?php echo $this->getPaymentBlock()->toHtml() ?>
                 <?php if ($this->getSubscription()->isActive() && (1 /*$this->getSubscription()->getDateStart()->compare(new Zend_Date) < 1*/)): ?>
                 <strong>
@@ -69,9 +69,9 @@
             </div>
         </div>
         <?php if ($this->getSubscription()->getHasShipping()): ?>
-        <div class="col2-set info-box">
+        <div class="col2-set generic-box">
             <div class="col-1">
-                <h3><?php echo $this->__('Shipping Address') ?></h3>
+                <h5><?php echo $this->__('Shipping Address') ?></h5>
                 <address>
                     <?php echo $this->getSubscription()->getOrder()->getShippingAddress()->format('html') ?><br/>
                 </address>
@@ -82,7 +82,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-2">
-                <h3><?php echo $this->__('Shipping Method') ?></h3>
+                <h5><?php echo $this->__('Shipping Method') ?></h5>
                 <?php if ($this->getOrder()->getShippingDescription()): ?>
                 <?php echo $this->getOrder()->getShippingDescription() ?>
                 <?php else: ?>
@@ -91,8 +91,8 @@
             </div>
         </div>
         <?php endif;?>
-        <div class="col2-set info-box">
-            <h3><?php echo $this->__('Subscription Status') ?></h3>
+        <div class="col2-set generic-box">
+            <h5><?php echo $this->__('Subscription Status') ?></h5>
 
             <p><strong><?php echo $this->__('Status')?></strong>:<?php echo $this->getSubscriptionStatusLabel() ?> </p>
 
@@ -149,7 +149,8 @@
         </div>
 
     </div>
-
+    <div class="button-set">
+        <a href="<?php echo $this->getUrl('*/*') ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
     </div>
 </div>
 

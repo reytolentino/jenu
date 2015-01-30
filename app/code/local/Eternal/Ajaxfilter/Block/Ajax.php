@@ -13,7 +13,11 @@ class Eternal_Ajaxfilter_Block_Ajax extends Mage_Core_Block_Template{
 		$this->overlayOpacity = $this->config['ajax_conf']['overlay_opacity'];
 		$this->loadingText = $this->config['ajax_conf']['loading_text'];
 		$this->loadingTextColor = $this->config['ajax_conf']['loading_text_color'];
-		$this->loadingImage = $this->config['ajax_conf']['loading_image'];
+        if(isset($this->config['ajax_conf']['loading_image'])) {
+            $this->loadingImage = $this->config['ajax_conf']['loading_image'];
+        } else {
+            $this->loadingImage = '';
+        }
 		if($this->loadingImage == '' || $this->loadingImage == null){
 			$this->loadingImage = $this->url.'media/wysiwyg/eternal/ajaxfilter/default/ajax-loader.gif';
 		}else{

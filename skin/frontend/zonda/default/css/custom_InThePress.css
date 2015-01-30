@@ -2,40 +2,45 @@
 
 
 
-.container{
+#page-contents.container{
 	color: #272727;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 	font-size: 16px;
 	padding-bottom: 50px;
 }
 
-.container h1{
+#page-contents.container h1{
 	margin-bottom: 16px;
 }
 
 
-.container h4{
+#page-contents.container h4{
 	margin-bottom: 0px;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 	line-height: 16px;
 	font-size: 16px;
 }
 
-.container h6.logo_caption_source a.logo_caption_read_more{
+img.logo_image{
+	margin: auto;
+}
+
+
+#page-contents.container h6.logo_caption_source a.logo_caption_read_more{
 	color: #008ab0;
 	font-weight: normal;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 }
 
 
-.container h6.logo_caption_source{
+#page-contents.container h6.logo_caption_source{
 	font-weight:bold;
 	font-size: 16px;
 	font-family: "Univers_Condensed", Helvetica, Arial;
 }
 
 
-.container .border-bottom{
+#page-contents.container .border-bottom{
 	border-bottom: 1px solid #f2f2f2;
 	margin: 18px 0px;
 }
@@ -44,14 +49,14 @@ span.pipe{
 	font-weight: normal;
 }
 
-.container .logo_caption_inner_container{
+#page-contents.container .logo_caption_inner_container{
 }
 
-.container .logo_caption_inner_container .logo_caption, .container .logo_caption_inner_container h4{
+#page-contents.container .logo_caption_inner_container .logo_caption, .container .logo_caption_inner_container h4{
 	font-style: italic;
 }
 
-@media(min-width: 992px){
+@media(min-width: 1201px){
 
 	.container_row{
 		margin: 0px auto;
@@ -60,10 +65,6 @@ span.pipe{
 
 	.page_header_InThePress{
 		font-weight:bold;
-		margin: 0px auto;
-	}
-
-	.logo_image{
 		margin: 0px auto;
 	}
 
@@ -84,7 +85,7 @@ span.pipe{
 
 }
 
-@media(max-width: 991px){
+@media(max-width: 1200px){
 
 
 	.container_row{
@@ -92,6 +93,14 @@ span.pipe{
 		padding: 10px 0px;
 	}
 
+	#page-contents.container .row .col-sm-3 img.img-responsive.logo_image{
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+
+	.container .row .col-sm-3{
+		text-align: center;
+	}
 
 	.logo_caption_inner_container{
 		margin: 0px auto;
@@ -104,14 +113,29 @@ span.pipe{
 		line-height: 20px;
 	}
 
-
-	.logo_image{
-		margin: 0px auto 21px auto;
+	#page-contents.container .border-bottom{
+		margin: 2px 0px 20px 0px;
 	}
 
-	.container .border-bottom{
-	margin: 2px 0px;
+	#page-contents.container{
+		font-size:14px;
 	}
+
+
+	#page-contents.container h4{
+	line-height: 14px;
+	font-size: 14px;
+	}
+
+
+	#page-contents.container h6.logo_caption_source{
+		font-size: 14px;
+	}
+
+	#page-contents.container h6.logo_caption_source a.logo_caption_read_more{
+		font-size: 14px;
+	}
+
 
 
 }

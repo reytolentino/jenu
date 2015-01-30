@@ -527,7 +527,7 @@ extends Eco_Fulfillment_Api
 		//var_dump($result);/
 		$orderIds = array();
 		foreach ($result as $shipmentInfo) {
-            if(isset($shipmentInfo['order_id']) {
+            if(isset($shipmentInfo['order_id'])) {
                 $orderIds[] = $shipmentInfo['order_id'];   //$orderIds[] = $shipmentInfo['increment_id'];
             }
 		}

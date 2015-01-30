@@ -148,11 +148,11 @@ class Gorilla_AuthorizenetCim_Model_Gateway extends Mage_Payment_Model_Method_Cc
         }
         //Mage::getSingleton('adminhtml/session_quote')->getStoreId()
         Mage::log('Gorilla_AuthorizenetCim_Model_Gateway '.$storeId.': '.$field, null, 'authnet_cim_gatway.log');
-        if (null === $storeId) {
+        if ($storeId === null) {
             $storeId = $this->getStore();
         }
         $path = 'payment/'.$this->getCode().'/'.$field;
-        Mage::log('Gorilla_AuthorizenetCim_Model_Gateway ('.$storeId.') '.$field.' : '.Mage::getStoreConfig($path, $storeId).'.', null, 'authnet_cim_gatway.log');
+        Mage::log('Gorilla_AuthorizenetCim_Model_Gateway ('.$storeId.') '.$field.' : '.Mage::getStoreConfig($path, $storeId).'.', null, 'authnet_cim_gateway.log');
         return Mage::getStoreConfig($path, $storeId);
     }
 

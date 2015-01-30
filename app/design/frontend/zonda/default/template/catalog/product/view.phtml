@@ -140,6 +140,7 @@ calling JeNu Customer Service at 866-565-JENU.
                                     ?>
                                     <?php foreach($offers as $n=>$offer): ?>
                                         <div class="add-new-product">
+                                        <?php if (is_array($elements)) : ?>
                                             <?php if (!in_array($offer, $elements) && !empty($offer)) : ?>
                                                 <?php $special_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $offer) ?>
                                                 <?php if (is_object($special_product)) : ?>
@@ -153,6 +154,7 @@ calling JeNu Customer Service at 866-565-JENU.
                                                     </div>
                                                 <?php endif; ?>
                                             <?php endif; ?>
+                                        <?php endif; ?>
                                         </div>
                                         <script>
                                             jQuery(".sub-image.<?php echo $offer ?>").mouseover(function(){

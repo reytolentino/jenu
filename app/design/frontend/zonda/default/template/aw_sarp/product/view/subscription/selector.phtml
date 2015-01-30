@@ -54,9 +54,8 @@
 					<?php if ($_product->getSku() == 'J0002'): ?>
 						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('toll-tips-pdp-eye')->toHtml() ?>
 					<?php endif; ?>
-				</div>	
-				<?php?>
-				<?php else: ?>
+				</div>
+            <?php else: ?>
 					<div class="sub-price">
 						<?php echo $this->getPriceHtml($_product); ?>
 					</div>

@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Eternal_Ajaxcart>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </Eternal_Ajaxcart>
     </modules>

@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Gorilla_GCheckout>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </Gorilla_GCheckout>
     </modules>

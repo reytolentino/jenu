@@ -1090,6 +1090,9 @@
     .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
         top: 25%;
     }
+    .top-block {
+        display: none;
+    }
 }
 @media(max-width: 480px){
     .login-container-big{

@@ -3751,6 +3751,34 @@ div.eternal-custom-menu-popup > div, #custommenu-mobile #menu-content, #nav ul, 
     right: 0;
     z-index: 1000;
 }
+.top-block {
+    float: right;
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+    text-align: right;
+    color: #fff;
+}
+.top-block .top-copy {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+.top-block .and {
+    display: inline-block;
+    margin: 11px 5px 0 5px;
+}
+.top-block .risk-free {
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+.top-block .risk-free .top-freeshipping,
+.top-block .risk-free .top-returns {
+    color:#6bb1c3;
+}
+.top-block .risk-free a:hover {
+    text-decoration: underline;
+}
 #nav .float-right {
     float: right;
     padding-bottom: 0px;
@@ -3953,20 +3981,20 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 /********************************* Bio Sciences Page, Order & Shipping, FAQ, Retailers, Customer-service, Customer-reviews  *****************************/
-.cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs {
+.cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-riskfree .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs {
     width: 22.4%;
 }
-.cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
+.cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-riskfree .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
     width: 77.6%;
 }
-.cms-jenu-biosciences .left-tabs ul, .cms-ordering-and-shipping .left-tabs ul, .cms-warranty .left-tabs ul, .cms-faqs .left-tabs ul,.cms-retailers .left-tabs ul, .cms-customer-support .left-tabs ul, .cms-customer-reviews .left-tabs ul, .cms-box .left-tabs ul {
+.cms-jenu-biosciences .left-tabs ul, .cms-ordering-and-shipping .left-tabs ul, .cms-riskfree .left-tabs ul, .cms-faqs .left-tabs ul,.cms-retailers .left-tabs ul, .cms-customer-support .left-tabs ul, .cms-customer-reviews .left-tabs ul, .cms-box .left-tabs ul {
     background: none repeat scroll 0 0 #f7f7f7;
     border-bottom: 2px solid #ebebeb;
     padding-bottom: 10px;
 }
-.cms-jenu-biosciences .left-tabs ul li, .cms-ordering-and-shipping .left-tabs ul li, .cms-warranty .left-tabs ul li, .cms-faqs .left-tabs ul li, .cms-retailers .left-tabs ul li, .cms-customer-support .left-tabs ul li, .cms-customer-reviews .left-tabs ul li, .cms-box .left-tabs ul li {
+.cms-jenu-biosciences .left-tabs ul li, .cms-ordering-and-shipping .left-tabs ul li, .cms-riskfree .left-tabs ul li, .cms-faqs .left-tabs ul li, .cms-retailers .left-tabs ul li, .cms-customer-support .left-tabs ul li, .cms-customer-reviews .left-tabs ul li, .cms-box .left-tabs ul li {
 }
-.cms-jenu-biosciences .left-tabs ul li a, .cms-ordering-and-shipping .left-tabs ul li a, .cms-warranty .left-tabs ul li a, .cms-faqs .left-tabs ul li a, .cms-retailers .left-tabs ul li a, .cms-customer-support .left-tabs ul li a, .cms-customer-reviews .left-tabs ul li a, .cms-box .left-tabs ul li a {
+.cms-jenu-biosciences .left-tabs ul li a, .cms-ordering-and-shipping .left-tabs ul li a, .cms-riskfree .left-tabs ul li a, .cms-faqs .left-tabs ul li a, .cms-retailers .left-tabs ul li a, .cms-customer-support .left-tabs ul li a, .cms-customer-reviews .left-tabs ul li a, .cms-box .left-tabs ul li a {
     color: #777777;
     display: block;
     font-size: 12px;
@@ -3974,28 +4002,32 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     text-transform: uppercase;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.cms-jenu-biosciences .left-tabs ul li.active a, .cms-ordering-and-shipping .left-tabs ul li.active a, .cms-warranty .left-tabs ul li.active a, .cms-faqs .left-tabs ul li.active a, .cms-retailers .left-tabs ul li.active a, .cms-customer-support .left-tabs ul li.active a, .cms-customer-reviews .left-tabs ul li.active a, .cms-box .left-tabs ul li.active a {
+.cms-jenu-biosciences .left-tabs ul li.active a, .cms-ordering-and-shipping .left-tabs ul li.active a, .cms-riskfree .left-tabs ul li.active a, .cms-faqs .left-tabs ul li.active a, .cms-retailers .left-tabs ul li.active a, .cms-customer-support .left-tabs ul li.active a, .cms-customer-reviews .left-tabs ul li.active a, .cms-box .left-tabs ul li.active a {
     background-color: #EBEBEB;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.cms-jenu-biosciences .left-tabs ul li:hover a, .cms-ordering-and-shipping .left-tabs ul li:hover a, .cms-warranty .left-tabs ul li:hover a, .cms-faqs .left-tabs ul li:hover a, .cms-retailers .left-tabs ul li:hover a, .cms-customer-support .left-tabs ul li:hover a, .cms-customer-reviews .left-tabs ul li:hover a, .cms-box .left-tabs ul li:hover a {
+.cms-jenu-biosciences .left-tabs ul li:hover a, .cms-ordering-and-shipping .left-tabs ul li:hover a, .cms-riskfree .left-tabs ul li:hover a, .cms-faqs .left-tabs ul li:hover a, .cms-retailers .left-tabs ul li:hover a, .cms-customer-support .left-tabs ul li:hover a, .cms-customer-reviews .left-tabs ul li:hover a, .cms-box .left-tabs ul li:hover a {
     color: #66b1b8;
     background-color: #FFFFFF;
 }
-.cms-jenu-biosciences .left-tabs ul li.active:hover a, .cms-ordering-and-shipping .left-tabs ul li.active:hover a, .cms-warranty .left-tabs ul li.active:hover a, .cms-faqs .left-tabs ul li.active:hover a, .cms-retailers .left-tabs ul li.active:hover a, .cms-customer-reviews .left-tabs ul li.active:hover a {
+.cms-jenu-biosciences .left-tabs ul li.active:hover a, .cms-ordering-and-shipping .left-tabs ul li.active:hover a, .cms-riskfree .left-tabs ul li.active:hover a, .cms-faqs .left-tabs ul li.active:hover a, .cms-retailers .left-tabs ul li.active:hover a, .cms-customer-reviews .left-tabs ul li.active:hover a {
     color: #777777;
     background-color: #EBEBEB;
 }
-.cms-jenu-biosciences .bio-content h2, .cms-ordering-and-shipping .bio-content h2, .cms-warranty .bio-content h2, .cms-faqs .bio-content h2, .cms-retailers .bio-content h2, .cms-customer-support .bio-content h2, .cms-customer-reviews .bio-content h2, .cms-box .bio-content h2 {
+.cms-jenu-biosciences .bio-content h2, .cms-ordering-and-shipping .bio-content h2, .cms-riskfree .bio-content h2, .cms-faqs .bio-content h2, .cms-retailers .bio-content h2, .cms-customer-support .bio-content h2, .cms-customer-reviews .bio-content h2, .cms-box .bio-content h2 {
     color: #008ab0;
     font-size: 24px;
     padding-bottom: 10px;
 }
-.cms-jenu-biosciences .bio-content p, .cms-ordering-and-shipping .bio-content p, .cms-warranty .bio-content p, .cms-faqs .bio-content p, .cms-retailers .bio-content p, .cms-customer-support .bio-content p, .cms-customer-reviews .bio-content p, .cms-box .bio-content p {
+.cms-jenu-biosciences .bio-content p, .cms-ordering-and-shipping .bio-content p, .cms-riskfree .bio-content p, .cms-faqs .bio-content p, .cms-retailers .bio-content p, .cms-customer-support .bio-content p, .cms-customer-reviews .bio-content p, .cms-box .bio-content p {
     color: #262626;
     font-size: 13px;
     line-height: 20px;
     margin-bottom: 30px;
+}
+.cms-riskfree img.free-ship-returns {
+    display: block;
+    margin: 0 auto 24px auto;
 }
 .cms-customer-reviews .bio-content p, .cms-faqs .bio-content p {
     margin-bottom: 0px;
@@ -4045,10 +4077,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-top:0 !important;
 }
 @media(max-width: 767px){
-    .cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-warranty .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs{
+    .cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-riskfree .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs{
         width: 100%;
     }
-    .cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-warranty .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
+    .cms-jenu-biosciences .bio-content, .cms-ordering-and-shipping .bio-content, .cms-riskfree .bio-content, .cms-faqs .bio-content,.cms-retailers .bio-content, .cms-customer-support .bio-content, .cms-customer-reviews .bio-content, .cms-box .bio-content {
         width: 100%;
         margin-top: 25px;
     }

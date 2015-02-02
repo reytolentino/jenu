@@ -2,6 +2,7 @@
 <layout>
     <default>    
         <reference name="root">
+            <remove name="top.search" />
             <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
             <block type="core/text_list" name="main-slider" as="main-slider" translate="label">
                 <label>Page Slider</label>

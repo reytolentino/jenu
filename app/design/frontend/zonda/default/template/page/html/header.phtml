@@ -68,6 +68,7 @@ $cart_html = $this->getChildHtml('cart_sidebar');
                 <div class="header-menu-container clearfix">
                     <h1 class="sticky-logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="sticky-logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
                     <div class="header-menu clearfix">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top_right_header_block')->toHtml(); ?>
                         <div class="quick-access">
                             <?php echo $this->getChildHtml('topSearch') ?>
                         </div>

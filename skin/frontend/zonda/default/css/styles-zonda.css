@@ -4210,10 +4210,13 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-left: -15px;
 }
 
-.cms-box.using-jenu h1,
 .cms-box.how-jenu-works h1,
 .cms-box.clinical-results h1 {
     font-size: 52px;
+}
+
+.cms-box.using-jenu h1 {
+    font-size: 42px;
 }
 
 .cms-page-view.cms-ultrasound-101 .main-container .main-content,
@@ -4859,30 +4862,43 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-box.using-jenu .numbox .num {
-    float: left;
     font-size: 82px;
+    height: 82px;
+    line-height: 82px;
     font-family: 'apexsanslightst', "Helvetica Neue", Arial, sans-serif;
     margin-right: 5%;
     width: auto;
+    display: inline-block;
 }
 
 .cms-box.using-jenu .numbox .numtxt {
-    float: left;
+    display: inline-block;
     font-size: 28px;
     font-family: 'Univers_Condensed', Arial, Helvetica;
     text-transform: uppercase;
     line-height: 28px;
-    margin-top: 36px;
+    margin-top: 30px;
     width: 70%;
 }
 
+.cms-box.using-jenu .step ul {
+    list-style: disc;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.cms-box.using-jenu .step ul li {
+    margin-left: 20px;
+}
+
 .cms-box.using-jenu .step1 .facewrap,
-.cms-box.using-jenu .step2 .devicewrap {
+.cms-box.using-jenu .step3 .devicewrap {
     margin: 20px 4%;
     width: 100%;
 }
 
-.cms-box.using-jenu .step2 .devicewrap .device {
+.cms-box.using-jenu .step3 .devicewrap .device {
     text-align: center;
     margin: 10px 0;
     font-family: 'Univers_Condensed', Arial, Helvetica;
@@ -4892,22 +4908,22 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     vertical-align: top;
 }
 
-.cms-box.using-jenu .step2 .devicewrap .dasharrow {
+.cms-box.using-jenu .step3 .devicewrap .dasharrow {
     font-family: 'Univers_Condensed', Arial, Helvetica;
-    font-size: 18px;
+    font-size: 14px;
     display: inline-block;
     vertical-align: bottom;
-    margin: 0 10px 70px 10px;
+    margin: 0 10px 90px 10px;
 }
 
-.cms-box.using-jenu .step2 .devicewrap .device span {
+.cms-box.using-jenu .step3 .devicewrap .device span {
     width: 100%;
     padding: 15px;
     border: 1px solid #fff;
     display: block;
-    min-height: 150px;
+    min-height: 180px;
     margin-top: 40px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .cms-box.using-jenu .step1 .facewrap .face {
@@ -4921,12 +4937,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-box.using-jenu .experttip {
     width: 100%;
-    margin: 20px auto;
+    margin: 60px auto;
 }
 
 .cms-box.using-jenu .experttip .roundtip {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border: 1px solid #fff;
     background: #19353f;
     text-align: center;
@@ -4935,7 +4951,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     border-radius: 50%;
     text-transform: uppercase;
     display: inline-block;
-    padding: 20px;
+    padding: 23px;
     float: left;
 }
 
@@ -4947,7 +4963,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     display: inline-block;
     width: 80%;
     float: left;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .cms-box.using-jenu .bottom-note {

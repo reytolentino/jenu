@@ -347,13 +347,17 @@
     #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
         height: 147px;
     }
+    .cms-box.using-jenu .numbox {
+        height: auto;
+    }
     .cms-box.using-jenu .numbox .num {
-        font-size: 62px;
+        font-size: 52px;
+        height: 52px;
+        line-height: 52px;
     }
     .cms-box.using-jenu .numbox .numtxt {
         font-size: 18px;
         line-height: 18px;
-        margin-top: 32px;
     }
     .cms-box.before-afters .col2-set div p {
         font-size: 12px;
@@ -931,18 +935,23 @@
     .cms-box.using-jenu .numbox .numtxt {
         font-size: 14px;
         line-height: 14px;
-        margin-top: 26px;
     }
-    .cms-box.using-jenu .step h4 {
+    .cms-box.using-jenu .step h4,
+    .cms-box.using-jenu .step ul {
         font-size: 14px;
         margin: 10px 0;
     }
-    .cms-box.using-jenu .step2 .devicewrap .dasharrow {
+    .cms-box.using-jenu .step3 .devicewrap .dasharrow {
         display: none;
+    }
+    .cms-box.using-jenu .experttip {
+        margin: 30px 0;
+        text-align: center;
     }
     .cms-box.using-jenu .experttip .roundtip {
         float: none;
         margin: 0 auto;
+        display: block;
     }
     .cms-box.using-jenu .experttip .tip {
         font-size: 16px;
@@ -956,6 +965,7 @@
     .cms-box.using-jenu .bottom-note {
         font-size: 14px;
         line-height: 18px;
+        margin-top: 0;
     }
     .cms-box .how-jenu-works-inner {
         margin: 0;

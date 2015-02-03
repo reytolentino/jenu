@@ -21,7 +21,7 @@
 }
 
 .lphero {
-    min-height: 552px;
+    min-height: 500px;
     background: #f2f2f2 url('/media/landing_pages/lp4/bg-model.jpg') no-repeat top left;
     overflow: hidden;
 }
@@ -45,6 +45,11 @@
     margin-top: -30px;
 }
 
+.lphero-box .product-container img {
+    width: 220px;
+    height: auto;
+}
+
 .lphero-box .ctabox {
     width: 534px;
     float: right;
@@ -54,7 +59,7 @@
 .lphero-box .ctabox p {
     font-size: 14px;
     font-family: 'Univers_Condensed', Arial, Helvetica;
-    margin: 16px 0;
+    margin: 10px 0 0;
 }
 
 .lphero-box .ctabox p.lto {
@@ -98,7 +103,7 @@
     width: 100%;
     background: #daebf0;
     overflow: hidden;
-    height: 61px;
+    height: 51px;
 }
 
 .greatforuse .check {
@@ -107,15 +112,15 @@
     font-size: 15px;
     text-transform: uppercase;
     float: left;
-    line-height: 61px;
-    height: 61px;
+    line-height: 51px;
+    height: 51px;
     font-family: 'Univers_Condensed', Arial, Helvetica;
     margin: 0 8px;
 }
 .greatforuse h3 {
     font-size: 20px;
-    height: 61px;
-    line-height: 61px;
+    height: 51px;
+    line-height: 51px;
     display: inline-block;
     float: left;
     text-transform: uppercase;
@@ -168,6 +173,10 @@
 .reviewsbox {
     width: 465px;
     float: right;
+}
+
+.lpbox .sectionbox.realpeople {
+    padding: 20px 0 50px 0;
 }
 
 .realcta {

@@ -85,9 +85,6 @@ $b = $zonda->getConfigGroup();
             echo $this->getChildHtml('category.banner');
             
         ?>
-        <?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'dr-sonia-batra')):
-             echo $this->getLayout()->createBlock('cms/block')->setBlockId('dr-sonia-bahtra-banner')->toHtml();
-        endif; ?>
 
 		<?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'jenu-biosciences')):
              echo $this->getLayout()->createBlock('cms/block')->setBlockId('biosciences-banner')->toHtml();

@@ -4191,8 +4191,45 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     padding-bottom: 30px;
 }
 
+.cms-page-view .jenu-vid {
+    display: block;
+    margin: 0 auto;
+}
+
 .cms-page-view .main {
     margin-bottom: 0;
+}
+
+.cms-page-view .drbanner {
+    margin: 0 auto 24px auto;
+    display: block;
+    position: relative;
+}
+
+.cms-page-view .drbanner-img {
+    margin: 0 auto;
+    display: block;
+}
+
+.cms-page-view .drbanner-title {
+    position: absolute;
+    right: 100px;
+    top: 130px;
+}
+
+.cms-page-view .drbanner-title h1,
+.cms-page-view .drbanner-title h2 {
+    color: #fff;
+    font-family: 'apexsanslightst', "Helvetica Neue", Helvetica, sans-serif;
+    text-shadow: 1px 1px #000;
+}
+
+.cms-page-view .drbanner-title h1 {
+    font-size: 60px;
+}
+
+.cms-page-view .drbanner-title h2 {
+    font-size: 32px;
 }
 
 .cms-box.ultrasound101 h1,

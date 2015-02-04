@@ -28,7 +28,7 @@
 
 #custom .big-image {
     height: 643px;
-    background: url("http://jenu-dev:8888/media/wysiwyg/hp-bg.jpg") center no-repeat;
+    background: url("../media/wysiwyg/hp-bg.jpg") center no-repeat;
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -37,7 +37,7 @@
 }
 
 #custom .big-text {
-    background: url("http://jenu-dev:8888/skin/frontend/zonda/default/images/bg_hp_copy.png") transparent;
+    background: url("../images/bg_hp_copy.png") transparent;
     width: 100%;
     height: 130px;
     left: 0px;

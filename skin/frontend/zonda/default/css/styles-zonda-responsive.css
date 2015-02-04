@@ -365,6 +365,26 @@
     .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
         top: 35%;
     }
+
+    .cms-page-view .drbanner-img {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+    }
+
+    .cms-page-view .drbanner-title {
+        position: absolute;
+        right: 100px;
+        top: 80px;
+    }
+
+    .cms-page-view .drbanner-title h1 {
+        font-size: 50px;
+    }
+
+    .cms-page-view .drbanner-title h2 {
+        font-size: 24px;
+    }
 }
 @media(max-width:767px){
     .col1,
@@ -1103,6 +1123,25 @@
     .top-block {
         display: none;
     }
+    .cms-page-view .drbanner-title {
+        left: 40%;
+        top: 20%;
+        right: 0;
+    }
+    .cms-page-view .drbanner-title h1 {
+        font-size: 24px;
+    }
+    .cms-page-view .drbanner-title h2 {
+        font-size: 14px;
+    }
+    .cms-page-view .batravid {
+        width: 300px;
+        height: 169px;
+    }
+    .cms-page-view .jenu-vid {
+        width: 320px;
+        height: 180px;
+    }
 }
 @media(max-width: 480px){
     .login-container-big{
@@ -1243,7 +1282,10 @@
     .cms-box.in-the-press .in-the-press-inner {
         margin-top: 20px;
     }
-
+    .cms-page-view .jenu-vid {
+        width: 256px;
+        height: 144px;
+    }
 }
 @media(max-width:320px) {
     .header-container .right .block {

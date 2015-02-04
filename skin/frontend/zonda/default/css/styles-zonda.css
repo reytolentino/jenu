@@ -3898,6 +3898,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view .breadcrumbs  li.cms_page strong {
     color: #525252;
 }
+.cms-page-view .batra-qatitle {
+    margin-bottom: 24px;
+}
+.cms-page-view .batravid2 {
+    margin-top: 18px;
+}
 .dr-banner {
     max-width: 100%;
     text-align: center;

@@ -3901,8 +3901,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view .batra-qatitle {
     margin-bottom: 24px;
 }
-.cms-page-view .batravid2 {
+.cms-page-view .dr-image2 {
     margin-top: 18px;
+}
+.cms-page-view .dr-image2 em {
+    display: block;
+    margin-bottom: 4px;
 }
 .dr-banner {
     max-width: 100%;

@@ -1738,10 +1738,11 @@ button.button span.name{
     margin-left: 10px;
 }
 #payment_form_authorizenetcim {
-    padding-bottom: 8px;
-    float: left;
-    clear: both;
     display: block;
+    float: left;
+    margin-left: 20px;
+    padding-bottom: 8px;
+    width: 100%;
 }
 #payment_form_authorizenetcim .sbHolder {
     margin-left: 0;

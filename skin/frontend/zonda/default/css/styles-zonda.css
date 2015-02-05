@@ -4826,19 +4826,13 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-box.how-jenu-works .imgbox {
-    margin: 30px 0 60px 0;
+    margin: 0 0 40px 0;
+    float: left;
 }
 
-.cms-box.how-jenu-works .imgbox .img1 img {
-    position: absolute;
-    z-index: 1;
-}
-
-.cms-box.how-jenu-works .imgbox .img1 {
-    position: relative;
-    width: 531px;
-    height: 361px;
-    margin-bottom: 30px;
+.cms-box.how-jenu-works .imgbox img {
+    width: 100%;
+    height: auto;
 }
 
 .cms-box.how-jenu-works .imgbox .img1 .roundtip {
@@ -4852,8 +4846,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     border-radius: 50%;
     display: inline-block;
     padding-top: 30px;
-    top: 40px;
-    right: -72px;
+    top: 80px;
+    right: -40px;
     vertical-align: middle;
     position: absolute;
     z-index: 2;

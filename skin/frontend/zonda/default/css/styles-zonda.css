@@ -4265,9 +4265,16 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-left: -15px;
 }
 
-.cms-box.how-jenu-works h1,
-.cms-box.clinical-results h1 {
+.cms-box.how-jenu-works h1 {
     font-size: 52px;
+}
+
+.cms-box.clinical-results h1 {
+    font-size: 36px;
+}
+
+.cms-box.clinical-results h3 {
+    color: #fff;
 }
 
 .cms-box.using-jenu h1 {
@@ -4426,11 +4433,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-box .clinical-inner .clinical-sub {
+    color: #fff;
     font-family: 'Univers_Condensed', Arial, Helvetica;
     font-size: 28px;
     text-transform: uppercase;
     line-height: normal;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 .cms-box .clinical-inner .clinical-sub span {
@@ -4440,8 +4448,14 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-top: 4px;
 }
 
+.cms-box .clinical-inner p {
+    font-size: 18px;
+    line-height: inherit;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+}
+
 .cms-box .clinical-inner .clinical-list {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Univers_Condensed', Arial, Helvetica;
     margin: 20px 0;
 }
@@ -4451,7 +4465,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-style: italic;
 }
 
-.cms-box .clinical-inner .clinical-list:before {
+.cms-box .clinical-inner .clinical-list li:before {
     content: "•";
     padding-right: 10px;
 }
@@ -4502,9 +4516,14 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-box .clinical-inner .clinical-data-left {
-    font-size: 100px;
-    float: left;
+    font-size: 80px;
     line-height: normal;
+    text-align: center;
+}
+
+.cms-box .clinical-inner .disclaimer p {
+    font-size: 13px;
+    font-family: inherit;
 }
 
 .cms-box .clinical-inner .clinical-data-right {

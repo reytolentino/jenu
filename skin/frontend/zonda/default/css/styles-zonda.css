@@ -3912,12 +3912,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     max-width: 100%;
     text-align: center;
 }
-.dr-caption {
-    position:;
-}
-
 .dr-banner img {
     max-width: 100%;
+}
+.dr-content h1 {
+    margin-bottom: 24px;
 }
 .dr-content .dr-image {
     float: right;
@@ -3925,6 +3924,19 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     padding-left: 30px;
     padding-right: 0;
     width: auto;
+}
+.dr-content .dr-vidbox {
+    border-top: 1px solid #ccc;
+    padding: 24px 0 0;
+    margin: 24px 0 0;
+    overflow: hidden;
+}
+.dr-content .dr-vid {
+    display: block;
+    margin: 0 auto;
+}
+.dr-content .dr-vid iframe {
+    width: 100%;
 }
 .dr-content .dr-image img {
     max-width: 100%;
@@ -4210,7 +4222,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-bottom: 0;
 }
 
-.cms-page-view .drbanner {
+.cms-page-view .nner {
     margin: 0 auto 24px auto;
     display: block;
     position: relative;
@@ -4222,16 +4234,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-page-view .drbanner-title {
-    position: absolute;
-    right: 100px;
-    top: 130px;
+
 }
 
 .cms-page-view .drbanner-title h1,
 .cms-page-view .drbanner-title h2 {
-    color: #fff;
     font-family: 'apexsanslightst', "Helvetica Neue", Helvetica, sans-serif;
-    text-shadow: 1px 1px #000;
 }
 
 .cms-page-view .drbanner-title h1 {
@@ -4240,6 +4248,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-page-view .drbanner-title h2 {
     font-size: 32px;
+    margin-bottom: 8px;
 }
 
 .cms-box.ultrasound101 h1,
@@ -5523,6 +5532,13 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
         padding-left: 2px;
         width: 8%;
     }
+    .dr-content .dr-vid {
+        width: 50%;
+    }
+    .dr-content .dr-vid iframe {
+        width: 320px;
+        height: 180px;
+    }
 }
 
 @media(max-width: 767px){
@@ -5634,6 +5650,20 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     }
     .clinicalinfo-mob .clinicalinfo {
         margin-bottom: 20px;
+    }
+    .dr-content .dr-image {
+        float: none;
+    }
+    .dr-content .dr-image img {
+        width: auto;
+    }
+    .dr-content .dr-vid {
+        width: 100%;
+        padding: 0;
+    }
+    .dr-content .dr-vid iframe {
+        width: 300px;
+        height: 169px;
     }
 }
 @media(max-width: 599px){

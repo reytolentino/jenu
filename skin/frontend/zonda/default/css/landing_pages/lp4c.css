@@ -1,0 +1,1278 @@
+.container.cms-box {
+    max-width: 100%;
+    -webkit-text-size-adjust: none;
+}
+
+.cms-page-view .main-content .container {
+    background: transparent;
+}
+
+.cms-page-view .main-container {
+    background: #fff;
+}
+
+.lpbox, .lpbox p, .lpbox h1, .lpbox h2, .lpbox h3, .lpbox h4, .lpbox h5 {
+    color: #272727;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+}
+
+.cms-page-view .main-content .lphero .container {
+    overflow: visible;
+}
+
+.lphero {
+    min-height: 500px;
+    background: #f2f2f2 url('/media/landing_pages/lp4/bg-model.jpg') no-repeat top left;
+    overflow: hidden;
+}
+
+.lp-batravid {
+    width: 480px;
+    height: 270px;
+}
+
+.lphero-box {
+    width: 800px;
+    float: right;
+}
+
+.lphero-box h1 {
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 28px;
+    margin: 35px 0 17px 0;
+    text-align: center;
+}
+
+.lphero-box .product-container {
+    float: left;
+    display: inline-block;
+    margin-top: -30px;
+}
+
+.lphero-box .product-container img {
+    width: 220px;
+    height: auto;
+}
+
+.lphero-box .ctabox {
+    width: 534px;
+    float: right;
+    margin-top: 20px;
+}
+
+.lphero-box .ctabox p {
+    font-size: 14px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    margin: 10px 0 0;
+}
+
+.lphero-box .ctabox p.lto {
+
+}
+
+.lphero-box .ctabox .heading-box {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    overflow: hidden;
+}
+
+.lphero-box .ctabox .heading-box h2 {
+    font-size: 24px;
+    font-family: 'apexsanslightst', Arial, Verdana;
+    color: #008ab4;
+    display: inline-block;
+    float: left;
+}
+
+.lphero-box .ctabox .heading-box .ratings .amount a {
+    color: #272727;
+    text-transform: uppercase;
+    padding-top: 2px;
+    font-size: 12px;
+}
+
+.lphero-box .ctabox .heading-box .ratings {
+    float: right;
+    margin-top: 4px;
+    text-align: right;
+    width: 165px;
+}
+
+.lphero-box .ctabox .heading-box .ratings .rating-box {
+    float: left;
+}
+
+.greatforuse {
+    display: block;
+    width: 100%;
+    background: #daebf0;
+    overflow: hidden;
+    height: 51px;
+}
+
+.greatforuse .check {
+    background: url("/media/landing_pages/lp4/check.png") no-repeat left center;
+    padding-left: 25px;
+    font-size: 15px;
+    text-transform: uppercase;
+    float: left;
+    line-height: 51px;
+    height: 51px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    margin: 0 8px;
+}
+.greatforuse h3 {
+    font-size: 20px;
+    height: 51px;
+    line-height: 51px;
+    display: inline-block;
+    float: left;
+    text-transform: uppercase;
+    color: #272727;
+    margin-right: 10px;
+}
+
+.results-matter {
+    width: 494px;
+    float: left;
+}
+
+.results-matter .baslideswrap {
+    max-width: 432px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.results-matter .baslides {
+    width: 100%;
+    margin: 0 auto 40px auto;
+}
+
+.results-matter .baslides img {
+    width: 100%;
+}
+
+.results-matter .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
+.results-matter .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
+.results-matter .baslideswrap .bx-prev:hover,
+.results-matter .baslideswrap .bx-next:hover {
+    background-color: transparent;
+}
+
+.results-matter .bx-controls-direction {
+    position: absolute;
+    top:40%;
+    width: 100%;
+}
+
+.results-matter .bx-wrapper:first-child .bx-controls-direction {
+    top:25%;
+}
+
+.results-matter .results-disclaimer {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.reviewsbox {
+    width: 465px;
+    float: right;
+}
+
+.lpbox .sectionbox.realpeople {
+    padding: 20px 0 50px 0;
+}
+
+.realcta {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin: 30px 0;
+    padding-top: 30px;
+}
+
+.realcta-batra {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.lpbox .sectionbox .realcta h3 {
+    color:#008ab4;
+    font-size: 20px;
+    font-family:'apexsanslightst', arial, verdana;
+    text-transform: none;
+    border-bottom: 0;
+    margin-bottom: 16px;
+}
+
+.lpbox .realcta a.btn-cart {
+    float: left;
+    margin-top: 35px;
+}
+
+.lpbox .realcta .moneyback1 {
+    float: left;
+    margin-left: 60px;
+}
+
+.proofimg {
+    margin: 0 auto;
+    display: block;
+    max-width: 974px;
+    width: 100%;
+}
+
+.realcta .bottomcopy {
+    font-size: 13px;
+    margin: 24px 0;
+}
+
+.lpbox .data-con {
+    height:740px;
+}
+
+.lphero-box .moneyback1 {
+    display: inline-block;
+    float: right;
+    margin-top: -20px;
+}
+
+.lphero-box a.btn-cart,
+.realcta a.btn-cart {
+    color: #fff;
+    background: #13323c;
+    margin-top: 10px;
+}
+
+.lphero-box a.btn-cart:hover,
+.realcta a.btn-cart:hover {
+    background:#0d252e;
+}
+
+.lphero-box p.bottomcopy {
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-top: 30px;
+}
+.fb_iframe_widget {
+    position: absolute !important;
+    z-index: 9;
+}
+
+.lpbox .subnav {
+    background: #cdd3d5;
+    height: 48px;
+    margin-top: 3px;
+}
+
+.lpbox .subnav ul {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.lpbox .subnav ul li a {
+    display: block;
+    font-size: 16px;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 20px;
+    color: #06242e;
+    text-transform: uppercase;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+}
+
+.lpbox .subnav ul li a:hover {
+    color:#008ab4;
+}
+
+.lpbox .subnav ul li {
+    display: inline-block;
+    border-left: 3px solid #fff;
+}
+
+.lpbox .subnav ul li:first-child {
+    border-left: none;
+}
+
+.lpbox h2.section-title {
+    font-size: 42px;
+    font-family:'apexsanslightst', Arial, Verdana;
+    color: #008bb4;
+    margin-bottom: 35px;
+}
+
+.lpbox .whyjenu .boostbox,
+.lpbox .whyjenu .inthepress {
+    width: 48%;
+    display: inline-block;
+}
+
+.lpbox .whyjenu .boostbox {
+    float: left;
+}
+
+.lpbox .whyjenu .inthepress {
+    float: right;
+}
+
+.lpbox .sectionbox {
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.lpbox .sectionbox h3 {
+    font-size: 24px;
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.boostbox .elle-featured {
+    width: 494px;
+    height: 220px;
+    background: url('/media/landing_pages/lp4/bg-elle.jpg') no-repeat top;
+}
+
+.boostbox .elle-featured p {
+    display: block;
+    font-size: 15px;
+    padding: 40px 146px 0 25px;
+    margin: 0;
+}
+
+.boostbox p.most-people {
+    margin: 25px 0;
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.boostbox .elle-featured span.elle-by {
+    text-align: right;
+    display: block;
+}
+
+.boostbox .batrabox {
+    overflow: hidden;
+}
+
+.boosbox .batrabox .drbatra {
+    float: left;
+}
+
+.boostbox .batrabox .batra-quote {
+    font-size: 15px;
+    width: 300px;
+    float: right;
+    display: block;
+    position: relative;
+    padding-top: 10px;
+    font-style: italic;
+}
+
+.boostbox .batrabox .batra-quote:before {
+    content: '“';
+    font-size: 100px;
+    color: #93dae9;
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;;
+    position: absolute;
+    left: -45px;
+    top: -10px;
+    line-height: 100px;
+}
+
+.boostbox .batrabox .batra-quote .by {
+    font-size: 13px;
+    text-align: right;
+    margin: 20px 0;
+    line-heght: normal;
+    display: block;
+}
+
+.inthepress {
+    text-align: center;
+}
+
+.inthepress .asseen {
+    display: inline-block;
+    margin 0 auto 30px auto;
+}
+
+.inthepress .mention {
+    font-size: 16px;
+    width: 80%;
+    display: block;
+    position: relative;
+    padding-top: 10px;
+    font-style: italic;
+    font-family: Georgia, Arial, Helvetica;
+    line-height: 24px;
+    text-align: left;
+    margin: 30px auto;
+}
+
+.inthepress .mention:before {
+    content: '“';
+    font-size: 100px;
+    color: #93dae9;
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;;
+    position: absolute;
+    left: -45px;
+    top: -10px;
+    line-height: 100px;
+}
+
+.inthepress .mention .by {
+    font-family:Arial , "Helvetica Neue", Helvetica, sans-serif;
+    text-align: right;
+    margin: 20px 0;
+    line-heght: normal;
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.reviewsbox dl {
+    color: #272727;
+}
+
+.reviewsbox .review-title {
+    font-size: 16px;
+    line-height: normal;
+    font-weight: bold;
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
+    display: inline-block;
+    width: 70%;
+}
+
+.reviewsbox .review-row .ratings {
+    margin-top: 0;
+}
+
+.reviewsbox .name_date {
+    font-size: 11px;
+}
+
+.reviewsbox .on_date,
+.reviewsbox .by_name {
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
+    color: #272727;
+}
+
+.nicescroll-rails {
+    background: url("../../images/backgrounds/nicescroll_bg.png") repeat-y scroll center center rgba(0, 0, 0, 0);
+}
+
+.results-matter {
+    text-align: center;
+}
+
+.results-matter h3 {
+    text-align: left;
+}
+
+.results-matter .batitle {
+    margin-bottom: 20px;
+    margin-top: 40px;
+    display: inline-block;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    font-size: 16px;
+    background: url('/media/landing_pages/lp3/bg-title.png') repeat-x center center;
+    padding: 0 30px;
+}
+
+.results-matter .batitle:first-of-type {
+    margin-top: 0;
+}
+
+.results-matter .batitle span {
+    background: #fff;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+#whostalking, #whyjenu, #proofjenu {
+    background-color:#f7f7f7;
+}
+
+#bottomoffer {
+    background: #19353f;
+}
+
+#bottomoffer h2 {
+    color: #fff;
+    margin-bottom: 0;
+}
+
+#proofjenu h4.clinicalhead {
+    font-size: 24px;
+    color:#272727;
+    margin-bottom: 16px;
+}
+
+#proofjenu ul.clinicallist {
+    display: block;
+    width: 45%;
+    padding-right: 2%;
+    border-right: 1px solid #ccc;
+    font-size: 16px;
+    float: left;
+    padding-bottom: 60px;
+}
+
+#proofjenu ul.clinicallist li {
+    margin-top: 35px;
+    line-height: 20px;
+}
+
+#proofjenu ul.clinicallist li span {
+    font-size: 24px;
+}
+
+#proofjenu .percent {
+    width: 50%;
+    text-align:center;
+    font-size: 16px;
+    float: right;
+}
+
+#proofjenu .percent span {
+    font-size: 24px;
+}
+
+#proofjenu .percent img {
+    display: block;
+    margin: 10px auto;
+}
+
+#proofjenu .disclaimer {
+    font-size: 13px;
+    margin-top: 50px;
+}
+
+.howjenu p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#howjenu .withjenu {
+    width: 499px;
+    float: right;
+    margin: 20px 0;
+}
+
+#howjenu .withoutjenu {
+    width: 449px;
+    float: left;
+    margin: 20px 0;
+}
+
+#howjenu .withjenu p,
+#howjenu .withoutjenu p {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    margin-bottom: 24px;
+}
+
+#howjenu .withjenu .withimg {
+    position: relative;
+}
+
+#howjenu .withjenu .withimg img {
+    position: absolute;
+}
+
+#howjenu .withjenu .withimg .roundtip {
+    background: none repeat scroll 0 0 #19353f;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    display: inline-block;
+    font-family: "Univers_Condensed",Arial,Helvetica;
+    font-size: 11px;
+    height: 110px;
+    padding-top: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 40px;
+    vertical-align: middle;
+    width: 110px;
+    z-index: 2;
+    color: #fff;
+}
+
+#howjenu .circleswrap {
+    text-align: center;
+    margin-top: 24px;
+}
+
+#howjenu .circleswrap .circles {
+    display: inline-block;
+    background: none repeat scroll 0 0 #19353f;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    font-family: "Univers_Condensed",Arial,Helvetica;
+    font-size: 15px;
+    height: 110px;
+    padding-top: 35px;
+    right: 0;
+    text-align: center;
+    top: 40px;
+    vertical-align: middle;
+    width: 110px;
+    z-index: 2;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 20px;
+}
+
+.sectionbox.proofjenu {
+    overflow: hidden;
+}
+
+.sectionbox.proofjenu p {
+    font-size: 16px;
+}
+
+.sectionbox.proofjenu .imgproof {
+    display: block;
+    margin: 40px auto;
+}
+
+.sectionbox.proofjenu .whenusing {
+    margin-top: 40px;
+}
+
+.sectionbox.proofjenu .twice {
+    width: 600px;
+    float: left;
+    overflow: hidden;
+}
+
+.sectionbox.proofjenu .eighty {
+    width: 380px;
+    float: right;
+    overflow: hidden;
+}
+
+.sectionbox.proofjenu .twice img,
+.sectionbox.proofjenu .eighty img {
+    float: left;
+    display: inline-block;
+}
+
+.sectionbox.proofjenu .twice .list {
+    font-size: 18px;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+    line-height: 30px;
+    width: 445px;
+    float: right;
+}
+
+.sectionbox.proofjenu .eighty .list {
+    font-size: 24px;
+    line-height: 30px;
+    width: 130px;
+    float: right;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+}
+
+.sectionbox.bottomoffer {
+    padding-bottom: 0;
+}
+
+.sectionbox.bottomoffer .bottomwand {
+    float: left;
+    display: inline-block;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box {
+    width: 534px;
+    float: right;
+    margin-top: 20px;
+    color:#fff;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .freegifts {
+    display:inline-block;
+    float: right;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .freeship {
+    font-size: 13px;
+    text-transform: uppercase;
+    color:#fff;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+    margin-top: 20px;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box a.btn-cart {
+    border: 1px solid #fff;
+    margin-top: 24px;
+    background: #000;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .main-heading {
+    font-size: 24px;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .moneyback1 {
+    float: right;
+}
+
+.sectionbox.bottomoffer .heading-box {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.sectionbox.bottomoffer .heading-box h2 {
+    font-size: 24px;
+    font-family: 'apexsanslightst', Arial, Verdana;
+    display: inline-block;
+    float: left;
+    color:#fff;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .amount a {
+    color: #fff;
+    text-transform: uppercase;
+    padding-top: 2px;
+    font-size: 12px;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings {
+    float: right;
+    margin-top: 4px;
+    text-align: right;
+    width: 165px;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .rating-box {
+    float: left;
+}
+
+.sectionbox.bottomoffer a.btn-cart {
+    color: #fff;
+    background: #13323c;
+    margin-top: 15px;
+}
+
+.sectionbox.bottomoffer a.btn-cart:hover {
+    background:#0d252e;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+ul#nav li.order-now {
+    display: none;
+}
+
+@media(max-width: 991px){
+    .lphero {
+        background-color: #f2f2f2;
+        background-image: none;
+        min-height: 500px;
+    }
+    .lphero-box {
+        width: 100%;
+        float: left;
+        text-align: center;
+    }
+    .lpbox .data-con {
+        height:500px;
+    }
+    .lphero-box h1 {
+        font-size: 22px;
+        line-height: 22px;
+        margin: 24px 0;
+        text-align: center;
+    }
+    .lphero-box .ctabox {
+        float: left;
+        margin-left: 20px;
+        width: 460px;
+        text-align: left;
+    }
+    .lphero-box .ctabox .heading-box h2 {
+        font-size: 18px;
+    }
+    .lphero-box .ctabox p {
+        font-size: 13px;
+        margin: 16px 0;
+    }
+    .lpbox .subnav {
+        height: 40px;
+    }
+    .lpbox .subnav ul li a {
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+    }
+    .results-matter {
+        float: none;
+        margin: 0 auto 30px auto;
+    }
+    .reviewsbox {
+        float: none;
+        margin: 0 auto;
+        height: 400px;
+        width: 90%;
+    }
+    .lpbox .whyjenu .inthepress {
+        float: none;
+        width: 100%;
+    }
+    .proofimg {
+        height: auto;
+    }
+    #proofjenu img {
+        width: 100%;
+        height: auto;
+    }
+    #proofjenu .percent img {
+        width: auto;
+    }
+    .lpbox .sectionbox {
+        padding: 36px 0;
+    }
+    .lpbox h2.section-title {
+        font-size: 36px;
+        margin-bottom: 28px;
+    }
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .boostbox,
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .reviewsbox {
+        width: 100%;
+    }
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .reviewsbox {
+        margin-top: 28px;
+    }
+    .lpbox .sectionbox h3 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        padding-bottom: 10px;
+    }
+    .boostbox .elle-featured {
+        margin: 0 auto;
+    }
+    .boostbox p.most-people {
+        font-size: 14px;
+        margin: 20px 0;
+        padding: 0;
+    }
+    .boostbox .batrabox .batra-quote {
+        float: left;
+        margin-left: 60px;
+        width: 500px;
+        font-size: 14px;
+    }
+    .boostbox .batrabox .drbatra {
+        float: left;
+    }
+    .greatforuse {
+        height: auto;
+    }
+    .howjenu p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #howjenu .withoutjenu {
+        float: left;
+        margin: 20px auto;
+        width: 48%;
+    }
+    #howjenu .withoutjenu img,
+    #howjenu .withjenu img{
+        width: 100%;
+        height: auto;
+    }
+    #howjenu .withjenu {
+        float: right;
+        width: 48%;
+        margin: 20px auto;
+    }
+    #howjenu .withjenu p, #howjenu .withoutjenu p {
+        font-size: 14px;
+    }
+    #howjenu .circleswrap .circles {
+        font-size: 13px;
+        height: 90px;
+        padding-top: 28px;
+        width: 90px;
+    }
+    .sectionbox.proofjenu p {
+        font-size: 14px;
+    }
+    .sectionbox.proofjenu .imgproof {
+        width: 100%;
+    }
+    .sectionbox.proofjenu .twice {
+        width: 60%;
+    }
+    .sectionbox.proofjenu .eighty {
+        width: 38%;
+    }
+    .sectionbox.proofjenu .twice img {
+        width: 20%;
+    }
+    .sectionbox.proofjenu .twice .list {
+        font-size: 14px;
+        line-height: 24px;
+        width: 78%;
+    }
+    .sectionbox.proofjenu .eighty img {
+        width: 60%;
+    }
+    .sectionbox.proofjenu .eighty .list {
+        float: right;
+        font-family: "Univers_Condensed",Arial,Helvetica;
+        font-size: 18px;
+        line-height: 24px;
+        width: 38%;
+    }
+    .sectionbox.whostalking .mention {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .sectionbox.whostalking .mention .by {
+        margin: 14px 0;
+    }
+    .sectionbox.whostalking .magazines {
+        width: 100%;
+    }
+    .sectionbox.bottomoffer {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .main-heading {
+        font-size: 18px;
+    }
+    .sectionbox.bottomoffer .bottomwand {
+       width: 48%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        margin-top: 0;
+        width: 48%;
+        color: #fff;
+    }
+    .sectionbox.bottomoffer .heading-box .ratings {
+        float: left;
+    }
+    .sectionbox.bottomoffer .heading-box h2 {
+        color: #fff;
+        font-size: 18px;
+    }
+    .lphero-box .ctabox .heading-box .ratings,
+    .sectionbox.bottomoffer .heading-box .ratings {
+        margin-top: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+        color: #fff;
+        float: none;
+        font-size: 14px;
+        line-height: 24px;
+        width: 100%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto strong {
+        display: block;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        float: none;
+        margin: 10px 0 0 30px;
+        width: 50%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freeship {
+        font-size: 11px;
+    }
+    .sectionbox.bot-disclaimer {
+        padding-top: 0;
+    }
+    .sectionbox.bottomoffer .heading-box .ratings .amount a {
+        color: #fff;
+    }
+    .lp-batravid {
+        margin: 0 auto;
+        display: block;
+    }
+    .lp-howtovid {
+        width: 380px;
+        height: 214px;
+    }
+    #proofjenu ul.clinicallist {
+        padding-bottom: 0;
+    }
+    #proofjenu ul.clinicallist li {
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:767px) {
+
+    .lpbox .data-con {
+        height: 300px;
+    }
+    .reviewsbox .review-title {
+        width: 65%;
+        font-size: 14px;
+    }
+    .std .lpbox dd {
+        padding: 0;
+    }
+    .lphero {
+        min-height: auto;
+        overflow: hidden;
+    }
+    .lphero-box .product-container {
+        float: none;
+        width: 100%;
+        margin-top: 0;
+    }
+    .lphero-box .ctabox .heading-box h2 {
+        float: none;
+        clear: both;
+        display: block;
+    }
+    .lphero-box .ctabox .heading-box .ratings, .sectionbox.bottomoffer .heading-box .ratings {
+        float: left;
+        clear: both;
+    }
+    .lphero-box .product-container img {
+        display: block;
+        margin: 0 auto;
+    }
+    .lphero-box .ctabox {
+        float: none;
+        margin-left: 0;
+        margin-top: 16px;
+        width: 100%;
+    }
+    .greatforuse h3 {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        display: block;
+        clear: both;
+        float: none;
+    }
+    .greatforuse .check {
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        font-size: 13px;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .results-matter {
+        width: 100%;
+    }
+    .inthepress .magazines {
+        width: 100%;
+        height: auto;
+    }
+    .lpbox .sectionbox .realcta h3 {
+        margin-bottom: 30px;
+    }
+    .lpbox .realcta a.btn-cart {
+        margin-top: 0;
+    }
+    .lpbox .realcta .moneyback1 {
+        margin-left: 20px;
+        margin-top: -30px;
+    }
+    .lpbox .subnav ul {
+        padding: 0;
+        margin: 0;
+    }
+    .lpbox .subnav ul li {
+        border-left: 0;
+        border-top: 1px solid #fff;
+        display: block;
+    }
+    .lpbox .subnav ul li:first-child {
+        border-top: none;
+    }
+    .lpbox .sectionbox {
+        padding: 24px 0;
+    }
+    .lpbox h2.section-title {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .lpbox .whyjenu .boostbox, .lpbox .whyjenu .reviewsbox {
+        margin-top: 20px;
+    }
+    .boostbox .elle-featured {
+        background-color: #ebebeb;
+        background-position: right top;
+        height: auto;
+        margin: 0 auto;
+        width: 300px;
+    }
+    .boostbox .elle-featured p {
+        font-size: 12px;
+        margin: 0;
+        padding: 30px 146px 10px 20px;
+    }
+    .boostbox .batrabox .drbatra {
+        display: block;
+        float: none;
+        margin: 0 auto 20px;
+    }
+    .boostbox .batrabox .batra-quote {
+        float: none;
+        font-size: 13px;
+        margin-left: 10%;
+        width: 90%;
+    }
+    .boostbox .batrabox .batra-quote:before {
+        font-size: 60px;
+        left: -24px;
+        top: -20px;
+    }
+    #proofjenu h4.clinicalhead {
+        font-size: 18px;
+    }
+    #proofjenu ul.clinicallist {
+        border-right: 0 none;
+        float: none;
+        font-size: 14px;
+        padding-right: 0;
+        width: 100%;
+    }
+    #proofjenu ul.clinicallist li span {
+        font-size: 18px;
+    }
+    #proofjenu .percent {
+        float: none;
+        font-size: 18px;
+        margin-top: 24px;
+        width: 100%;
+    }
+    .results-matter {
+        margin-top: 20px;
+    }
+    .results-matter .bx-controls-direction {
+        top: 32%;
+    }
+    .results-matter .batitle {
+        margin-top: 20px;
+    }
+    .results-matter .bx-caption {
+        font-size: 14px;
+    }
+    #howjenu .withoutjenu {
+        float: none;
+        margin: 20px auto;
+        width: 100%;
+    }
+    #howjenu .withjenu {
+        float: none;
+        margin: 20px auto;
+        width: 100%;
+        position: relative;
+    }
+    #howjenu .withjenu .withimg .roundtip {
+        font-size: 10px;
+        height: 90px;
+        padding-top: 20px;
+        top: 90px;
+        width: 90px;
+    }
+    #howjenu .withjenu .withimg {
+        position: static;
+    }
+    #howjenu .withjenu .withimg img {
+        position: static;
+    }
+    #howjenu .circleswrap {
+        margin-top: 12px;
+    }
+    .sectionbox.proofjenu .imgproof {
+        margin: 20px auto;
+    }
+    .sectionbox.proofjenu .twice,
+    .sectionbox.proofjenu .eighty {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .sectionbox.proofjenu .twice img {
+        width: 25%;
+    }
+    .sectionbox.proofjenu .twice .list {
+        font-size: 11px;
+        line-height: 16px;
+        width: 70%;
+    }
+    .sectionbox.proofjenu .eighty .list {
+        font-size: 18px;
+        line-height: 20px;
+        width: 42%;
+    }
+    .sectionbox.proofjenu .eighty img {
+        width: 50%;
+    }
+    .sectionbox.whostalking {
+        text-align: left;
+    }
+    .sectionbox.whostalking .asseen {
+        display: block;
+        width: 100%;
+    }
+    .sectionbox.bottomoffer .bottomwand {
+        width: 100%;
+        float: none;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        color: #fff;
+        float: none;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .lpbox .sectionbox {
+        padding: 16px 0;
+        font-size: 11px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .main-heading {
+        font-size: 15px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        display: block;
+        float: left;
+        margin: 20px 0 0;
+        width: auto;
+        clear: both;
+    }
+    .cms-page-view .main {
+        padding-bottom: 0;
+    }
+    .lp-batravid {
+        width: 300px;
+        height: 169px;
+    }
+    .lp-howtovid {
+        width: 300px;
+        height: 169px;
+    }
+    #proofjenu .percent {
+        text-align: left;
+    }
+}

@@ -3323,13 +3323,16 @@ div.cart-empty {
     display: inline-block;
     text-align: left;
 }
-#homeslider-revolution .hp-copy-inner p {
+#homeslider-revolution .hp-copy-inner h2 {
     font-size: 20px;
     line-height: inherit;
+    color: #fff;
 }
-#homeslider-revolution .hp-copy-inner p:first-child {
+#homeslider-revolution .hp-copy-inner h1 {
     font-size: 32px;
     font-family: "apexsanslightst", Arial, Helvetica;
+    line-height: inherit;
+    color: #fff;
 }
 #homeslider-revolution .container {
     height: 100%;

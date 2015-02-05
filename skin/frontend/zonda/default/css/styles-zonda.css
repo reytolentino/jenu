@@ -3325,6 +3325,7 @@ div.cart-empty {
 }
 #homeslider-revolution .hp-copy-inner h2 {
     font-size: 20px;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
     line-height: inherit;
     color: #fff;
 }
@@ -3809,16 +3810,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 #homeslider-revolution .container a{
-    background-color: #008ab0!important;
-    color: #ffffff!important;
-    display: inline-block;
     font-family: "Molengo",Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 12px;
     text-transform: uppercase;
-}
-#homeslider-revolution .container a:hover{
-    background-color: #82d2e5 !important;
-    color: #fff !important;
 }
 .block .akordeon ul li a, .block .akordeon ol li a, .filter-item .filter-item-body ol li, .filter-item .filter-item-body ul li, .filter-item .filter-item-body ol li a, .filter-item .filter-item-body ul li a, .col-sidebar .block-content ul li a, .currently .label, .currently .value {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);

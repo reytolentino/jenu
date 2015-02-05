@@ -1004,6 +1004,7 @@
     }
     .cms-box.how-jenu-works .imgbox {
         margin: 20px 0 40px 0;
+        float: none;
     }
     .cms-box.how-jenu-works .imgbox .img1,
     .cms-box.how-jenu-works .imgbox .img1 .roundtip,
@@ -1019,12 +1020,12 @@
         position: relative;
     }
     .cms-box.how-jenu-works .imgbox .img1 .roundtip {
-        width: 100px;
-        height: 100px;
-        font-size: 12px;
-        padding: 20px;
-        top: 10px;
-        right: 10px;
+        width: 80px;
+        height: 80px;
+        font-size: 10px;
+        padding-top: 20px;
+        top: 5px;
+        right: 5px;
         z-index: 2;
         position: absolute;
     }

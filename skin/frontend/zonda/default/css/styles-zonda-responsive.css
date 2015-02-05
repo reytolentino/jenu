@@ -325,11 +325,11 @@
         position: absolute;
         padding: 14px;
     }
-    #homeslider-revolution .hp-copy-inner p {
+    #homeslider-revolution .hp-copy-inner h2 {
         font-size: 14px;
         line-height: inherit;
     }
-    #homeslider-revolution .hp-copy-inner p:first-child {
+    #homeslider-revolution .hp-copy-inner h1 {
         font-size: 24px;
         font-family: "apexsanslightst", Arial, Helvetica;
     }
@@ -912,14 +912,14 @@
         padding: 10px;
         top: auto;
     }
-    #homeslider-revolution .hp-copy-fade p:first-child {
+    #homeslider-revolution .hp-copy-fade h1 {
         margin-bottom: 5px;
     }
-    #homeslider-revolution .hp-copy-inner p {
+    #homeslider-revolution .hp-copy-inner h2 {
         font-size: 13px;
         line-height: 16px;
     }
-    #homeslider-revolution .hp-copy-inner p:first-child {
+    #homeslider-revolution .hp-copy-inner h1 {
         font-size: 18px;
         font-family: "apexsanslightst", Arial, Helvetica;
     }

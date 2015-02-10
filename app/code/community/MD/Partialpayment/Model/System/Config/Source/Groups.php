@@ -31,7 +31,6 @@ class MD_Partialpayment_Model_System_Config_Source_Groups
         $options = array();
         
             $options = Mage::getResourceModel('customer/group_collection')
-                    ->setRealGroupsFilter()
                 ->loadData()->toOptionArray();
         
         return $options;

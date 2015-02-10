@@ -1,0 +1,143 @@
+<?php
+    $helper = Mage::helper('md_partialpayment');
+    $paymentConfig = Mage::getSingleton('payment/config');
+    $methods = $this->getActiveMethods();
+    $oneMethod = count($methods) <= 1;
+    $ccTypes = $paymentConfig->getCcTypes();
+    $months = $paymentConfig->getMonths();
+    $years = $paymentConfig->getYears();
+    
+    $_ccRequiredMethod = array(
+    Mage_Paygate_Model_Authorizenet::METHOD_CODE,
+     'authorizenet_directpost',
+     'ccsave'
+    );
+    
+    $_ccRedirectMethod = array(
+        Mage_Paypal_Model_Config::METHOD_WPS
+    );
+    
+    $_adminRequiredActionMethod = array(
+        'cashondelivery',
+        'checkmo'
+    );
+    
+    $checkPaybleto = Mage::getStoreConfig('payment/checkmo/payable_to');
+    $checkMailingAddress = Mage::getStoreConfig('payment/checkmo/mailing_address');
+    
+    $cashOnDeliveryInstructions = Mage::getStoreConfig('payment/cashondelivery/instructions');
+    
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Payment Information') ?></h1>
+</div>
+<?php if (empty($methods)): ?>
+<dl>
+   <dt>
+        <?php echo $this->__('No Payment Methods') ?>
+    </dt> 
+</dl>
+    
+<?php else:?> <dl class="partial-payment-methods"> <?php
+    
+    foreach ($methods as $_method):
+        $_code = $_method->getCode();
+?>
+
+    <dt>
+        <input id="partial_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="partial[method]" title="<?php echo $this->escapeHtml($_method->getTitle()) ?>" class="radio" />
+        <label for="partial_method_<?php echo $_code ?>"><?php echo $this->escapeHtml($_method->getTitle()) ?></label>
+    </dt>   
+    <?php if($_method->getCode() && in_array($_code,$_ccRequiredMethod)): ?>
+    <dd>
+        <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+            <?php if($_method->getCode() == 'ccsave'): ?>
+            <li>
+                <label for="<?php echo $_code ?>_cc_owner" class="required"><em>*</em><?php echo $this->__('Name on Card') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('Name on Card') ?>" class="input-text required-entry" id="<?php echo $_code ?>_cc_owner" name="<?php echo $_code ?>[cc_owner]" value="<?php echo $this->escapeHtml($this->getInfoData('cc_owner')) ?>" />
+                </div>
+            </li>
+            <?php endif; ?>
+            <li>
+                <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                <label for="<?php echo $_code ?>_cc_type" class="required">
+                <em>*</em>
+                    <?php echo $this->__('Credit Card Type') ?>
+                </label>
+                <div class="input-box">
+                    <select id="<?php echo $_code ?>_cc_type" name="<?php echo $_code ?>[cc_type]" class="required-entry validate-cc-type-select" title="<?php echo $this->__('Credit Card Type') ?>" autocomplete="off">
+                        <option value=""><?php echo $this->__('--Please Select--')?></option>
+                        <?php foreach($ccTypes as $code=>$label): ?>
+                            <option value="<?php echo $code ?>"><?php echo $label ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label for="<?php echo $_code ?>_cc_number" class="required"><em>*</em><?php echo $this->__('Credit Card Number') ?></label>
+                <div class="input-box">
+                    <input type="text" id="<?php echo $_code ?>_cc_number" name="<?php echo $_code ?>[cc_number]" title="<?php echo $this->__('Credit Card Number') ?>" class="input-text validate-cc-number validate-cc-type" value="" />
+                </div>
+            </li>
+            <li id="<?php echo $_code ?>_cc_type_exp_div">
+                <label for="<?php echo $_code ?>_expiration" class="required"><em>*</em><?php echo $this->__('Expiration Date') ?></label>
+                <div class="input-box">
+            <div class="v-fix">
+                <select id="<?php echo $_code ?>_expiration" name="<?php echo $_code ?>[cc_exp_month]" class="month validate-cc-exp required-entry">
+                
+                <?php foreach ($months as $k=>$v): ?>
+                    <option value="<?php echo $k?$k:'' ?>"><?php echo $v ?></option>
+                <?php endforeach ?>
+                </select>
+            </div>
+            <div class="v-fix">
+                
+                <select id="<?php echo $_code ?>_expiration_yr" name="<?php echo $_code ?>[cc_exp_year]" class="year required-entry">
+                <?php foreach ($years as $k=>$v): ?>
+                    <option value="<?php echo $k?$k:'' ?>"><?php echo $v ?></option>
+                <?php endforeach ?>
+                </select>
+            </div>
+        </div>
+            </li>
+            <?php echo $_method->getChildHtml() ?>
+    <?php if($_method->hasVerification()): ?>
+    <li id="<?php echo $_code ?>_cc_type_cvv_div">
+        <label for="<?php echo $_code ?>_cc_cid" class="required"><em>*</em><?php echo $this->__('Card Verification Number') ?></label>
+        <div class="input-box">
+            <div class="v-fix">
+                <input type="text" pattern="\d*" title="<?php echo $this->__('Card Verification Number') ?>" class="input-text cvv required-entry validate-cc-cvn" id="<?php echo $_code ?>_cc_cid" name="<?php echo $_code ?>[cc_cid]" value="" />
+            </div>
+            <!--<a href="#" class="cvv-what-is-this"><?php echo $this->__('What is this?') ?></a>-->
+        </div>
+    </li>
+    <?php endif; ?>
+        </ul>
+    </dd>
+    <?php elseif($_method->getCode() && (in_array($_method->getCode(),$_ccRedirectMethod) || in_array($_method->getCode(),$_adminRequiredActionMethod))): ?>
+    <dd>
+        <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+            <?php if($_method->getCode() == Mage_Paypal_Model_Config::METHOD_WPS): ?>
+            <li class="form-alt"><?php echo $this->__('You will be redirected to the PayPal website when you place an order.'); ?></li>
+            <?php elseif($_method->getCode() == 'cashondelivery' && $cashOnDeliveryInstructions): ?>
+            <li>
+                <div class="cashondelivery-instructions-content">
+                    <?php echo nl2br($cashOnDeliveryInstructions) ?>
+                </div>
+            </li>
+            <?php elseif($_method->getCode() == 'checkmo'): ?>
+            <?php if($checkPaybleto): ?>
+            <li><label><?php echo $this->__('Make Check payable to: ') ?></label><?php echo $checkPaybleto ?></li>
+            <?php endif; ?>
+            <?php if($checkMailingAddress): ?>
+            <li><label><?php echo $this->__('Send Check to: ') ?></label><address class="checkmo-mailing-address"><?php echo nl2br($checkPaybleto) ?></address></li>
+            <?php endif; ?>
+            <?php endif; ?>
+        </ul>
+    </dd>
+    <?php endif; ?>
+<?php endforeach;?>
+</dl>    
+<?php
+endif; ?>

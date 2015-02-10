@@ -4,8 +4,8 @@
         <reference name="head">
             <action method="addItem"><type>skin_css</type><name>md/partialpayment/style.css</name></action>
         </reference>
-        <reference name="product.info.addtocart">
-            <block type="md_partialpayment/options" name="partialpayment.options" template="md/partialpayment/options.phtml" />
+        <reference name="product.info">
+            <block type="md_partialpayment/options" name="partialpayment.options" as="partialoptions" template="md/partialpayment/options.phtml"/>
         </reference>
     </catalog_product_view>
     <customer_account>

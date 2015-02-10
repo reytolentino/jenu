@@ -29,7 +29,7 @@
 <config>
     <modules>
         <MD_Partialpayment>
-            <version>1.0.3</version>
+            <version>1.0.1</version>
         </MD_Partialpayment>
     </modules>
     <frontend>

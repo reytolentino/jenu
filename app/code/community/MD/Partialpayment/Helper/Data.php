@@ -219,11 +219,15 @@ class MD_Partialpayment_Helper_Data extends Mage_Core_Helper_Abstract
             $config = (string)Mage::getStoreConfig("md_partialpayment/general/customer_groups");
                 $value = explode(",",$config);
         }
-
-        if(in_array($customerGroupId,$value)){
+        
+        if(strlen($config) <= 0){
+            $isAllowed = true;
+        }elseif(count($value) < 0){
+            $isAllowed = true;
+        }elseif(in_array($customerGroupId,$value)){
             $isAllowed = true;
         }
-
+        
         return $isAllowed;
     }
     

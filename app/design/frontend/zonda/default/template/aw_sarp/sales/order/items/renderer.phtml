@@ -30,7 +30,8 @@
 ?>
 <?php $_item = $this->getItem() ?>
 <tr class="border" id="order-item-row-<?php echo $_item->getId() ?>">
-<td><h3 class="product-name sub-title"><?php echo $this->htmlEscape($_item->getName()) ?></h3>
+<td><h5 class="title"><?php echo $this->htmlEscape($_item->getName()) ?></h5>
+
     <?php if ($_options = $this->getItemOptions()): ?>
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
@@ -47,11 +48,10 @@
                         </dl>
                     </div>
                     <?php endif; ?>
-                    <br/>
                 </dd>
                 <?php else: ?>
                 <dd><?php echo $this->htmlEscape((isset($_option['print_value']) ? $_option['print_value']
-                            : $_option['value'])) ?><br/></dd>
+                            : $_option['value'])) ?></dd>
                 <?php endif; ?>
             <?php endforeach; ?>
         </dl>
@@ -63,9 +63,7 @@
                 onclick="return giftMessageToogle('<?php echo $_item->getId() ?>')"><?php echo Mage::helper('sales')->__('Gift Message') ?></a>
         <?php endif; ?>
 </td>
-<td>
-    <span>SKU <?php echo Mage::helper('core/string')->splitInjection($this->getSku()) ?></span>
-</td>
+<td><?php echo Mage::helper('core/string')->splitInjection($this->getSku()) ?></td>
 <td class="a-right nowrap">
     <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
     <span class="price-excl-tax">
@@ -196,10 +194,23 @@
             </span>
     <?php endif; ?>
 </td>
-<td class="a-center nowrap">
+<td class="a-right nowrap">
         <span class="nobr">
-            <?php if ($this->getItem()->getQtyOrdered() > 0): ?>
+                <?php if ($this->getItem()->getQtyOrdered() > 0): ?>
+            <?php echo Mage::helper('sales')->__('Ordered'); ?>:
             <strong><?php echo $this->getItem()->getQtyOrdered() * 1 ?></strong><br/>
+            <?php endif; ?>
+            <?php if ($this->getItem()->getQtyShipped() > 0): ?>
+            <?php echo Mage::helper('sales')->__('Shipped'); ?>:
+            <strong><?php echo $this->getItem()->getQtyShipped() * 1 ?></strong><br/>
+            <?php endif; ?>
+            <?php if ($this->getItem()->getQtyCanceled() > 0): ?>
+            <?php echo Mage::helper('sales')->__('Canceled'); ?>:
+            <strong><?php echo $this->getItem()->getQtyCanceled() * 1 ?></strong><br/>
+            <?php endif; ?>
+            <?php if ($this->getItem()->getQtyRefunded() > 0): ?>
+            <?php echo Mage::helper('sales')->__('Refunded'); ?>:
+            <strong><?php echo $this->getItem()->getQtyRefunded() * 1 ?></strong><br/>
             <?php endif; ?>
         </span>
 </td>

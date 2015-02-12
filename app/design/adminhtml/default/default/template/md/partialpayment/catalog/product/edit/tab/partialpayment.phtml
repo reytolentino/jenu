@@ -1,0 +1,95 @@
+<?php
+    $helper = Mage::helper('md_partialpayment');
+    $partialPaymentOptions = $this->getPartialPaymentOption();
+
+    $isNew = (!$partialPaymentOptions || !$partialPaymentOptions->getId() || !is_object($partialPaymentOptions)) ? true: false;
+    $status = $initialPaymentAmount = $additionalPaymentAmount = $frequencyPayment = $installments = null;
+    if(!$isNew){
+        $status = ($partialPaymentOptions->getId() && !is_null($partialPaymentOptions->getData('status'))) ? $partialPaymentOptions->getData('status'): null;
+        $initialPaymentAmount = ($partialPaymentOptions->getId() && !is_null($partialPaymentOptions->getData('initial_payment_amount'))) ? $partialPaymentOptions->getData('initial_payment_amount'): null;
+        $additionalPaymentAmount = ($partialPaymentOptions->getId() && !is_null($partialPaymentOptions->getData('additional_payment_amount'))) ? $partialPaymentOptions->getData('additional_payment_amount'): null;
+        $customerGroups = ($partialPaymentOptions->getId() && !is_null($partialPaymentOptions->getData('customer_groups'))) ? $partialPaymentOptions->getData('customer_groups'): null;
+        $frequencyPayment = ($partialPaymentOptions->getId() && !is_null($partialPaymentOptions->getData('frequency_payment'))) ? $partialPaymentOptions->getData('frequency_payment'): null;
+        $installments = ($partialPaymentOptions->getId() && !is_null($partialPaymentOptions->getData('installments'))) ? $partialPaymentOptions->getData('installments'): null;
+    }
+    ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $helper->__('Partial Payment Configuration') ?></h4>
+    </div>
+    <div class="fieldset " id="partialpayment_partial_payment_options">
+        <div class="hor-scroll">
+            <table cellspacing="0" class="form-list">
+                <tbody>
+                    <tr>
+                        <td class="label"><label for="partialpayment_status"><?php echo $helper->__('Enable') ?></label></td>
+                        <td class="value">
+                            
+                            <select id="partialpayment_status" name="partialpayment[status]" class=" select">
+                                <option value="0" <?php if($status == 0): ?>selected="selected"<?php endif; ?>><?php echo $helper->__('No') ?></option>
+                                <option value="1" <?php if($status == 1): ?>selected="selected"<?php endif; ?>><?php echo $helper->__('Yes') ?></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><label for="partialpayment_additional_payment_amount"><?php echo $helper->__('Additional Payment Amount') ?></label></td>
+                        <td class="value">
+                            <?php $_checked = (is_null($additionalPaymentAmount) || $isNew) ? 'checked="checked"' : '' ?>
+                            <?php $_disabled = (is_null($additionalPaymentAmount) || $isNew) ? ' disabled="disabled"' : '' ?>
+                            <input id="partialpayment_additional_payment_amount" name="partialpayment[additional_payment_amount]" value="<?php echo $additionalPaymentAmount ?>" title="Additional Payment Amount" class="input-text required-entry validate-zero-or-greater" type="text"<?php echo $_disabled ?> />            
+                             
+                            <input type="hidden" id="partialpayment_additional_payment_amount_default">
+                            <input onclick="toggleValueElements(this, this.parentNode);" type="checkbox" id="partialpayment_use_config_additional_payment_amount" name="partialpayment[use_config_additional_payment_amount]" value="1" class="checkbox" <?php echo $_checked ?> />
+                            <label for="partialpayment_use_config_additional_payment_amount" class="normal"><?php echo $helper->__('Use Config Settings') ?></label>
+                            <script type="text/javascript">toggleValueElements($('partialpayment_additional_payment_amount'), $('partialpayment_use_config_additional_payment_amount').parentNode);</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><label for="partialpayment_initial_payment_amount"><?php echo $helper->__('Initial Payment Amount') ?></label></td>
+                        <td class="value">
+                            <?php $_checked = (is_null($initialPaymentAmount) || $isNew) ? 'checked="checked"' : '' ?>
+                            <?php $_disabled = (is_null($initialPaymentAmount) || $isNew) ? ' disabled="disabled"' : '' ?>
+                            <input id="partialpayment_initial_payment_amount" value="<?php echo $initialPaymentAmount ?>" name="partialpayment[initial_payment_amount]" title="Additional Payment Amount" class="input-text required-entry validate-greater-than-zero" type="text"<?php echo $_disabled ?> />            
+                            
+                            <input type="hidden" id="partialpayment_initial_payment_amount_default">
+                            <input onclick="toggleValueElements(this, this.parentNode);" type="checkbox" id="partialpayment_use_config_initial_payment_amount" name="partialpayment[use_config_initial_payment_amount]" value="1" class="checkbox" <?php echo $_checked ?> />
+                            <label for="partialpayment_use_config_initial_payment_amount" class="normal"><?php echo $helper->__('Use Config Settings') ?></label>
+                            <script type="text/javascript">toggleValueElements($('partialpayment_initial_payment_amount'), $('partialpayment_use_config_initial_payment_amount').parentNode);</script>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="label"><label for="partialpayment_frequency_payment"><?php echo $helper->__('Frequency Of Payment') ?></label></td>
+                        <td class="value">
+                            <?php $_checked = (is_null($frequencyPayment) || $isNew) ? 'checked="checked"' : '' ?>
+                            <?php $_disabled = (is_null($frequencyPayment) || $isNew) ? ' disabled="disabled"' : '' ?>
+                            <select id="partialpayment_frequency_payment" name="partialpayment[frequency_payment]" class=" select"<?php echo $_disabled ?>>
+                                <?php foreach($this->getFrequency() as $id=>$label): ?>
+                                <option value="<?php echo $id ?>" <?php if($id == $frequencyPayment): ?>selected="selected"<?php endif; ?>><?php echo $label ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            
+                            <input type="hidden" id="partialpayment_frequency_payment_default" />
+                            <input onclick="toggleValueElements(this, this.parentNode);" type="checkbox" id="partialpayment_use_config_frequency_payment" name="partialpayment[use_config_frequency_payment]" value="1" class="checkbox" <?php echo $_checked ?> />
+                            <label for="partialpayment_use_config_frequency_payment" class="normal"><?php echo $helper->__('Use Config Settings') ?></label>
+                            <script type="text/javascript">toggleValueElements($('partialpayment_frequency_payment'), $('partialpayment_use_config_frequency_payment').parentNode);</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><label for="partialpayment_installments"><?php echo $helper->__('No of Installments') ?></label></td>
+                        <td class="value">
+                            <?php $_checked = (is_null($installments)) ? 'checked="checked"' : '' ?>
+                            <?php $_disabled = (is_null($installments) || $isNew) ? ' disabled="disabled"' : '' ?>
+                            <input id="partialpayment_installments" name="partialpayment[installments]" value="<?php echo $installments ?>" title="No of Installments" class="input-text required-entry validate-number validate-greater-than-zero" type="text"<?php echo $_disabled ?> />            
+                            
+                            <input type="hidden" id="partialpayment_installments_default" />
+                            <input onclick="toggleValueElements(this, this.parentNode);" type="checkbox" id="partialpayment_use_config_installments" name="partialpayment[use_config_installments]" value="1" class="checkbox" <?php echo $_checked ?> />
+                            <label for="partialpayment_use_config_installments" class="normal"><?php echo $helper->__('Use Config Settings') ?></label>
+                            <script type="text/javascript">toggleValueElements($('partialpayment_installments'), $('partialpayment_use_config_installments').parentNode);</script>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1563,9 +1563,6 @@ button.button span.name{
     clear: both;
     margin: 10px 0;
 }
-.product-view .product-collateral {
-    margin-top: 20px;
-}
 .product-view .info-container p,
 .product-view .info-container p.alert-urls a,
 .product-view .info-container .product-pricing {
@@ -2131,7 +2128,7 @@ td,
 }
 .product-options-bottom .add-to-cart {
     line-height: 35px;
-    height: 35px;
+    height: auto;
     float: left;
 }
 .input-text.qty  {

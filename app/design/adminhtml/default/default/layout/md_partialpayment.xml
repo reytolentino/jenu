@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_catalog_product_edit>
+        <reference name="head">
+            <action method="addJs"><script>md/partialpayment/main.js</script></action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+    <adminhtml_catalog_product_new>
+        <reference name="head">
+            <action method="addJs"><script>md/partialpayment/main.js</script></action>
+        </reference>
+    </adminhtml_catalog_product_new>
+    <md_partialpayment_adminhtml_summary_index>
+        <reference name="content">
+            <block type="md_partialpayment/adminhtml_summary" name="md.partialpayment.summary.grid" />
+        </reference>
+    </md_partialpayment_adminhtml_summary_index>
+    <md_partialpayment_adminhtml_summary_view>
+        <reference name="content">
+            <block type="md_partialpayment/adminhtml_summary_view" name="md.partialpayment.summary.view">
+                <block type="md_partialpayment/adminhtml_summary_view_details" name="summary.general.info" />
+                <block type="md_partialpayment/adminhtml_summary_view_installments" name="summary.installments.info" />
+            </block>
+        </reference>
+    </md_partialpayment_adminhtml_summary_view>
+    <md_partialpayment_adminhtml_summary_report>
+        <reference name="content">
+            <block type="md_partialpayment/adminhtml_report" template="md/partialpayment/report/grid.phtml" name="md.partialpayment.report.grid.container">
+                <block type="md_partialpayment/adminhtml_report_form" name="grid.filter.form">
+                    <action method="setFieldVisibility">
+                        <field>report_type</field>
+                        <visibility>0</visibility>
+                    </action>
+                    <action method="setFieldVisibility">
+                        <field>show_order_statuses</field>
+                        <visibility>0</visibility>
+                    </action>
+                    <action method="setFieldVisibility">
+                        <field>order_statuses</field>
+                        <visibility>0</visibility>
+                    </action>
+                 </block>
+            </block>
+        </reference>
+    </md_partialpayment_adminhtml_summary_report>
+</layout>

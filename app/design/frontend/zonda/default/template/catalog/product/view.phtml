@@ -78,6 +78,7 @@ $_helper = $this->helper('catalog/output');
                     <div class="add-to-box">
                         <div class="product-options-bottom">
                             <?php if($_product->isSaleable()): ?>
+                                <?php echo $this->getChildHtml('partialoptions') ?>
                                 <?php echo $this->getChildHtml('addtocart') ?>
                             <?php endif; ?>
                             <?php /* <div class="add-links-wrap clearfix">

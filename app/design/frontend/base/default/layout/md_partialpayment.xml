@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>md/partialpayment/style.css</name></action>
+        </reference>
+        <reference name="product.info">
+            <block type="md_partialpayment/options" name="partialpayment.options" as="partialoptions" template="md/partialpayment/options.phtml"/>
+        </reference>
+    </catalog_product_view>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="md_partialpayment"><name>pending_installments</name><path>md_partialpayment/summary/list/</path><label>Pending Installments</label></action>
+        </reference>
+    </customer_account>
+    <md_partialpayment_summary_list>
+        <label>Customer My Account Order History</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>md/partialpayment/style.css</name></action>
+            <action method="setTitle" translate="title"><title>Installments lists</title></action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="md_partialpayment/summary_list" name="md.partialpayment.summary.list">
+                
+            </block>
+        </reference>
+    </md_partialpayment_summary_list>
+    <md_partialpayment_summary_view>
+        <label>Customer My Account Installments View</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>md/partialpayment/style.css</name></action>
+            <action method="setTitle" translate="title"><title>Installments Summary</title></action>
+        </reference>
+        <reference name="my.account.wrapper"> 
+            <block type="md_partialpayment/summary_view" name="md.partialpayment.summary.view">
+                <block type="md_partialpayment/summary_payment_methods" name="md.partialpayment.payment.methods" />
+            </block>
+        </reference>
+    </md_partialpayment_summary_view>
+    <md_partialpayment_payments_summary>
+        <block type="md_partialpayment/email_payments_summary" name="md.partialpayments.email.summary" />
+    </md_partialpayment_payments_summary>
+    
+    <PRODUCT_TYPE_grouped translate="label" module="catalog">
+        <reference name="product.info.addtocart">
+            <remove name="partialpayment.options" />
+        </reference>
+    </PRODUCT_TYPE_grouped>
+    
+</layout>

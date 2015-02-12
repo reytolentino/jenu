@@ -1,0 +1,61 @@
+<?php
+$option = $this->getPartialPaymentOption();
+?>
+<?php if($option && $option->getId() && $option->isActive()): ?>
+    <?php $helper = Mage::helper('md_partialpayment') ?>
+    <div class="partialpayment-box-container">
+        <ul class="form-list">
+            <li class="control partialpayment">
+                <div class="input-box"><input onclick="origPrice();" class="checkbox" type="radio" name="custom_options[partialpayment]" value="-1" checked/></div>
+                <label for="custom_options"><?php echo $helper->__('Buy Today and Pay Only $195 (you save 22%)') ?></label>
+            </li>
+            <li class="control partialpayment">
+                <div class="input-box"><input onclick="partialPrice();" class="checkbox" type="radio" name="custom_options[partialpayment]" value="1"/></div>
+                <label for="custom_options"><?php echo $helper->__('Pay with 3 Installments of $83') ?></label>
+
+                <?php
+                $terms = $helper->getTermsContents();
+                ?>
+                <?php if(count($terms) > 0 && array_key_exists('link_title',$terms) && array_key_exists('content',$terms)): ?>
+                    <a class="link-tip" href="javascript::void(0);" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>">(<?php echo $terms['link_title'] ?>)</a>
+                    <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
+                        <a href="javascript::void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
+                        <div class="partial-terms-popup-heading">
+                            <h3><?php echo $this->__('Terms And Conditions') ?></h3>
+                        </div>
+                        <div class="partial-terms-popup-content">
+                            <?php echo $terms['content'] ?>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        Event.observe(window, 'load', function() {
+                            Event.observe('partial-terms-link-popup','click',function(e){
+                                e.preventDefault();
+                                if($('partial-terms-popup').getStyle('display') == 'none'){
+                                    $('partial-terms-popup').setStyle({display:'block'});
+                                }else{
+                                    $('partial-terms-popup').setStyle({display:'none'});
+                                }
+                            });
+                            Event.observe('partial-terms-popup-close','click',function(e){
+                                e.preventDefault();
+                                $('partial-terms-popup').hide();
+                            });
+                        });
+                        function partialPrice() {
+                            jQuery('.price-box .old-price .price').css('color','inherit');
+                            jQuery('.price-box .old-price .price').css('text-decoration','none');
+                            jQuery('.special-price').hide();
+                        }
+                        function origPrice() {
+                            jQuery('.price-box .old-price .price').css('color','#444444');
+                            jQuery('.price-box .old-price .price').css('text-decoration','line-through');
+                            jQuery('.special-price').show();
+                        }
+                    </script>
+                <?php endif; ?>
+            </li>
+        </ul>
+    </div>
+<?php endif; ?>

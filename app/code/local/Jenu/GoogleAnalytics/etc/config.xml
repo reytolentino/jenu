@@ -1,0 +1,16 @@
+<config>
+    <modules>
+        <Jenu_GoogleAnalytics>
+            <version>0.1.0</version>
+        </Jenu_GoogleAnalytics>
+    </modules>
+    <global>
+        <blocks>
+            <googleanalytics>
+                <rewrite>
+                    <ga>Jenu_GoogleAnalytics_Block_Ga</ga>
+                </rewrite>
+            </googleanalytics>
+        </blocks>
+    </global>
+</config>

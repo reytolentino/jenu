@@ -10,7 +10,7 @@ $wsdl = $baseUrl . 'index.php/api/soap?wsdl';
 $catalogAuth = new Eco_Fulfillment_Auth_Catalog($wsdl);
 $catalog = new Eco_Fulfillment_Api_Catalog($catalogAuth);
 
-if($baseUrl == 'http://www.jenu.com/') {
+if($baseUrl == 'https://www.jenu.com/') {
     $fulfillmentAuth = new Eco_Fulfillment_Auth_Prowares_Prod;
     echo "Using Production credentials\n";
 }

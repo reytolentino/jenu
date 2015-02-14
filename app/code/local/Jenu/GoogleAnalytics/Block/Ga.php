@@ -11,11 +11,10 @@ class Jenu_GoogleAnalytics_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
 
     protected function _getPageTrackingCodeUniversal($accountId)
     {
-        $visitorData = Mage::getSingleton('core/session')->getVisitorData();
-        $loggedInId = $visitorData['visitor_id'];
+        $userID = Mage::getSingleton("core/session")->getEncryptedSessionId();
         return "
         var customUserId;
-        customUserId = '{$loggedInId}';
+        customUserId = '{$userID}';
         ga('create', '{$this->jsQuoteEscape($accountId)}', {'userId': customUserId});
         ga('create', '{$this->jsQuoteEscape($accountId)}', 'auto');
         " . $this->_getAnonymizationCode() . "

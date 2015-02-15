@@ -28,6 +28,7 @@ class Jenu_GoogleAnalytics_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
             var customUserId = cookieValues[2];
            }
         }
+        console.log('customUserId:' + customUserId);
         ga('create', '{$this->jsQuoteEscape($accountId)}', {'userId': customUserId});
         ga('create', '{$this->jsQuoteEscape($accountId)}', 'auto');
         " . $this->_getAnonymizationCode() . "

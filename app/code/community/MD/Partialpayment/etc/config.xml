@@ -369,6 +369,7 @@
                         <ccsave />
                         <cashondelivery />
                         <checkmo />
+                        <authorizenetcim />
                     </methods>
                 </payment>
             </allowed>
@@ -422,6 +423,14 @@
                     <model>md_partialpayment/observer::sendInstallmentReminderEmail</model>
                 </run>
             </send_installment_reminder>
+            <collect_authorizecim_payment>
+                <schedule>
+                    <cron_expr>0 12 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>md_partialpayment/observer::captureAuthorizeCimPayment</model>
+                </run>
+            </collect_authorizecim_payment>
         </jobs>
     </crontab>
 </config>

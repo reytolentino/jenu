@@ -38,7 +38,11 @@ $summaryStatusMap = array(
     </thead>
     <tbody>
         <?php foreach($_summary as $_pay): ?>
+        <?php if(!$helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>
+        <?php $disabled = true; ?>
+        <?php else: ?>
         <?php $disabled = (in_array($_pay->getStatus(),array(MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS, MD_Partialpayment_Model_Summary::PAYMENT_PROCESS)) || ($_pay->getId() != $nextPaidSummary)) ? true: false; ?>
+        <?php endif; ?>
         <?php $paidDate = ($_pay->getPaidDate()) ? $this->formatDate($_pay->getPaidDate(), 'medium'): 'N / A'; ?>
         <?php $dueDate = ($_pay->getDueDate()) ? $this->formatDate($_pay->getDueDate(), 'medium'): 'N / A'; ?>
         <tr style="<?php echo $summaryStatusMap[$_pay->getStatus()]['class'] ?>">
@@ -61,6 +65,7 @@ $summaryStatusMap = array(
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php if($helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>    
 <div id="partialpayment_installment_payment">
     <?php echo $this->getChildHtml('md.partialpayment.payment.methods') ?>
 </div>
@@ -153,12 +158,13 @@ $summaryStatusMap = array(
     }
     var mdPartial = new MDPartial.Payments('my-summary-table', '<?php echo $this->getUrl('*/*/paymentOptions') ?>', 'partialpayment_installment_payment');
 </script>
+<?php endif; ?>
 <?php else: ?>
     <p><?php echo $helper->__('You have Installment Summary available.'); ?></p>
-    <div class="buttons-set">
+<?php endif; ?>
+<div class="buttons-set">
         <p class="back-link">
             <a href="<?php echo $this->getBackUrl() ?>"><small>« </small><?php echo $helper->__('Back'); ?></a>
         </p>
     </div> 
-<?php endif; ?>
     

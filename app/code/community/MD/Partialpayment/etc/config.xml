@@ -369,6 +369,7 @@
                         <ccsave />
                         <cashondelivery />
                         <checkmo />
+                        <authorizenetcim />
                     </methods>
                 </payment>
             </allowed>

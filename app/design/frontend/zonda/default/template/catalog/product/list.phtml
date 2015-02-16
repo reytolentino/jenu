@@ -38,7 +38,7 @@ if ($b['product']['aspect_ratio'])
 			<img src="<?php echo $zonda->getImage($_product, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
 		    </a>    
                 </div>
-                <?php if ($b['product']['price_on_image']) : ?>
+                <?php if (isset($b['product']['price_on_image'])) : ?>
                     <?php echo $this->getPriceHtml($_product, true) ?>
                 <?php endif; ?>
             </div>

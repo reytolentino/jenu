@@ -1,0 +1,91 @@
+<?php
+/**
+* Magedelight
+* Copyright (C) 2014 Magedelight <info@magedelight.com>
+*
+* NOTICE OF LICENSE
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see http://opensource.org/licenses/gpl-3.0.html.
+*
+* @category MD
+* @package MD_Partialpayment
+* @copyright Copyright (c) 2014 Mage Delight (http://www.magedelight.com/)
+* @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+* @author Magedelight <info@magedelight.com>
+*/
+?>
+<?php
+   $_product = $this->getProduct(); 
+?>
+
+<?php if($_product): ?>
+<?php $option = $this->getPartialPaymentOption(); ?>
+<form action="<?php echo $this->getSubmitUrl() ?>" method="post" id="product_addtocart_form">
+<?php echo $this->getBlockHtml('formkey') ?>
+    <div class="product-view">
+        <div class="product-essential">
+            <div class="product-shop">
+                <div class="add-to-box">
+                    <div class="add-to-cart">
+                        <input type="hidden" name="qty" value="1" />
+                        <button type="submit" title="<?php echo $this->__('Add to Cart') ?>" id="product-addtocart-button" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                        <?php if($option && $option->getId() && $option->isActive()): ?>
+<br />
+<?php $helper = Mage::helper('md_partialpayment') ?>
+<div class="partialpayment-box-container">
+<ul class="form-list">
+    <li class="control partialpayment">
+        <div class="input-box"><input class="checkbox" type="checkbox" name="custom_options[partialpayment]" value="1"/></div>
+        <label for="custom_options"><?php echo $helper->__('Pay with installments') ?></label>
+    <?php 
+        $terms = $helper->getTermsContents();
+    ?>
+    <?php if(count($terms) > 0 && array_key_exists('link_title',$terms) && array_key_exists('content',$terms)): ?>
+    <a class="link-tip" href="javascript::void(0);" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>"><?php echo $terms['link_title'] ?></a>
+    <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
+        <a href="javascript::void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
+        <div class="partial-terms-popup-heading">
+            <h3><?php echo $this->__('Terms And Conditions') ?></h3>
+        </div>
+        <div class="partial-terms-popup-content">
+            <?php echo $terms['content'] ?>
+        </div>
+    </div>
+
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+    Event.observe('partial-terms-link-popup','click',function(){
+        if($('partial-terms-popup').getStyle('display') == 'none'){
+            $('partial-terms-popup').setStyle({display:'block'});
+        }else{
+            $('partial-terms-popup').setStyle({display:'none'});
+        }
+    });
+    Event.observe('partial-terms-popup-close','click',function(){
+        $('partial-terms-popup').hide();
+    });
+});
+</script>
+    <?php endif; ?>
+</li>
+</ul>
+</div>
+<?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<?php endif; ?>

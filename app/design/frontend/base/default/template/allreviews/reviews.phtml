@@ -71,7 +71,7 @@
 	</table>
 
 	<?php if($_reviews['settings']['enable_rich_snippet'] == "1"):?>
-	<div text-align="center" class="rich-snippet-markup" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="itemreviewed"><?php echo Mage::getStoreConfig('general/store_information/name')?></span> <span itemprop="rating" itemscope itemtype="http://data-vocabulary.org/Rating">is ranked <span itemprop="average"><?php echo $_reviews['totals']['total_of_five']; ?></span> out of <span itemprop="best">5</span></span>. Based on <span itemprop="count"><?php echo $_reviews['totals']['total_reviews']; ?></span> user reviews.</div>
+	<div text-align="center" class="rich-snippet-markup" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="itemreviewed"><?php echo Mage::getStoreConfig('general/store_information/name')?></span> <span itemprop="rating" itemscope itemtype="http://data-vocabulary.org/Rating">is ranked <span itemprop="average"><?php echo $_reviews['totals']['total_of_five']; ?></span> out of <span itemprop="best">5</span></span>. Based on <span itemprop="ratingCount"><?php echo $_reviews['totals']['total_reviews']; ?></span> user reviews.</div>
 		<?php endif; ?><?php if($_reviews['settings']['enable_module_credit'] == "1"):?><?php echo $this->getModuleCredit(); ?>
 	<?php endif; ?>
 </div>

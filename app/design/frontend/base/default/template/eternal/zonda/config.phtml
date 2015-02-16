@@ -381,7 +381,7 @@ textarea,
 <?php endif; ?>
 /*========== Main Menu ==========*/
 .header-menu {
-    <?php if ($menu_texture): ?>background-image: url(<?php echo $menu_texture ?>);<?php endif; ?>
+    <?php if (isset($menu_texture)): ?>background-image: url(<?php echo $menu_texture ?>);<?php endif; ?>
     background-position: center center;
     background-repeat: repeat;    
     position: relative;

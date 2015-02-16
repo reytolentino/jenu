@@ -71,7 +71,11 @@ if ($b['product']['aspect_ratio'])
                         if ($specialPriceFromDate && $specialPriceToDate && Mage::app()->getLocale()->isStoreDateInInterval(Mage::app()->getStore(), $specialPriceFromDate, $specialPriceToDate)) {
                             $price = $_product->getPrice();
                             $specialprice = $_product->getSpecialPrice();
-                            $sales_html = '<div class="sales ' . $b['product']['sale_label_type'] . '">' . round(($specialprice - $price) / $price * 100) . '%</div>';
+                            if (isset($b['product']['sale_label_type'])) {
+                                $sales_html = '<div class="sales ' . $b['product']['sale_label_type'] . '">' . round(($specialprice - $price) / $price * 100) . '%</div>';
+                            } else {
+                                $sales_html = '<div class="sales">' . round(($specialprice - $price) / $price * 100) . '%</div>';
+                            }
                         }
                         if(isset($b['product']['sale_label_pos'])){
                             switch ($b['product']['sale_label_pos']) {

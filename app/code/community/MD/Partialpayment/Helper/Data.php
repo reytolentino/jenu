@@ -235,5 +235,10 @@ class MD_Partialpayment_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return (boolean)Mage::getStoreConfig('md_partialpayment/general/enabled');
     }
+    
+    public function shouldDisplayOtherPayments(Mage_Sales_Model_Order_Payment $orderPayment)
+    {
+        return (boolean)($orderPayment->getMethod() != Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE);
+    }
 }
 

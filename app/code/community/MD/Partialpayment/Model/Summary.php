@@ -41,6 +41,7 @@ class MD_Partialpayment_Model_Summary extends Mage_Core_Model_Abstract
         'cashondelivery'=>'md_partialpayment/payment_cashondelivery',
         'ccsave'=>'md_partialpayment/payment_ccsave',
         'checkmo'=>'md_partialpayment/payment_checkmo',
+        Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE => 'md_partialpayment/payment_authorizenetcim',
     );
     
     public function _construct(){

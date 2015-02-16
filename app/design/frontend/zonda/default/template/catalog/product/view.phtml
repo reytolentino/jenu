@@ -141,18 +141,20 @@ calling JeNu Customer Service at 866-565-JENU.
                                     ?>
                                     <?php foreach($offers as $n=>$offer): ?>
                                         <div class="add-new-product">
-                                        <?php if (is_array($elements)) : ?>
-                                            <?php if (!in_array($offer, $elements) && !empty($offer)) : ?>
-                                                <?php $special_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $offer) ?>
-                                                <?php if (is_object($special_product)) : ?>
-                                                    <input type="checkbox" class="checkbox" alt="<?php echo $special_product->getName() ?>" id="<?php echo $special_product->getId() ?>">
-                                                    <div class="productname-area">
-                                                        <a href="<?php echo $special_product->getProductUrl() ?>" >
-                                                            <?php echo $special_product->getName() ?>
-                                                        </a>
-                                                        <span> - <?php echo Mage::helper('core')->formatPrice($special_product->getAwSarpSubscriptionPrice(), false); ?></span>
-                                                        <span class="lower-interests">- <?php echo 100 - number_format(($special_product->getAwSarpSubscriptionPrice()/$special_product->getPrice()) * 100, 0) ?>% savings</span>
-                                                    </div>
+                                        <?php if (isset($elements)) : ?>
+                                            <?php if (is_array($elements)) : ?>
+                                                <?php if (!in_array($offer, $elements) && !empty($offer)) : ?>
+                                                    <?php $special_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $offer) ?>
+                                                    <?php if (is_object($special_product)) : ?>
+                                                        <input type="checkbox" class="checkbox" alt="<?php echo $special_product->getName() ?>" id="<?php echo $special_product->getId() ?>">
+                                                        <div class="productname-area">
+                                                            <a href="<?php echo $special_product->getProductUrl() ?>" >
+                                                                <?php echo $special_product->getName() ?>
+                                                            </a>
+                                                            <span> - <?php echo Mage::helper('core')->formatPrice($special_product->getAwSarpSubscriptionPrice(), false); ?></span>
+                                                            <span class="lower-interests">- <?php echo 100 - number_format(($special_product->getAwSarpSubscriptionPrice()/$special_product->getPrice()) * 100, 0) ?>% savings</span>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         <?php endif; ?>

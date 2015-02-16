@@ -41,6 +41,7 @@ else {
                 $incrementId = str_replace('845_', '', $order['OrderNumber']);
                 $catalog->setOrderFulfillmentStatus($incrementId, 'SENT', 'processing');
             } else { // Failure condition logged in sendOrder
+                $incrementId = str_replace('845_', '', $order['OrderNumber']);
                 echo "Unable to send standard order $incrementId. \n";
             }
         } catch (Exception $e) {
@@ -80,6 +81,7 @@ else {
                 $incrementId = str_replace('845_', '', $order['OrderNumber']);
                 $catalog->setOrderFulfillmentStatus($incrementId, 'SENT', 'processing');
             } else { // Failure condition logged in sendOrder
+                $incrementId = str_replace('845_', '', $order['OrderNumber']);
                 echo "Unable to send etailers order $incrementId. \n";
             }
         } catch (Exception $e) {

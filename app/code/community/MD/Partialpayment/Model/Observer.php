@@ -658,5 +658,162 @@ class MD_Partialpayment_Model_Observer
         }
         return $this;
     }
+    
+    public function captureAuthorizeCimPayment(Varien_Event_Observer $observer)
+    {
+        $adapter = Mage::getSingleton('core/resource');
+        $gorillaHelper = Mage::helper('authorizenetcim');
+        $gateway = Mage::getSingleton('authorizenetcim/gateway');
+        $summatyTable = $adapter->getTableName('md_partialpayment/summary');
+        $partialPaymentTable = $adapter->getTableName('md_partialpayment/payments');
+        $orderTable = $adapter->getTableName('sales/order');
+        $paymentTable = $adapter->getTableName('sales/order_payment');
+      
+        $readAdapter = $adapter->getConnection('core_read');
+        $writeAdapter = $adapter->getConnection('core_write');
+        
+        $query = "SELECT e.*,p.order_id,o.increment_id,op.authorizenetcim_customer_id,op.authorizenetcim_payment_id FROM `".$summatyTable."` as `e` LEFT JOIN `".$partialPaymentTable."` AS `p` ON `e`.payment_id=`p`.payment_id LEFT JOIN `".$orderTable."` AS `o` ON `p`.order_id=`o`.increment_id LEFT JOIN `".$paymentTable."` AS `op` ON `o`.entity_id=`op`.parent_id  WHERE DATEDIFF(e.due_date,now()) <= 0 AND `e`.status NOT IN (".MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS.",".MD_Partialpayment_Model_Summary::PAYMENT_PROCESS.") AND `op`.method='".Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE."'";
+        
+        $queryResult = $readAdapter->fetchAll($query);
+        
+        if(is_array($queryResult) && count($queryResult) > 0)
+        {
+            foreach($queryResult as $_result){
+                
+                $responseBody = false;
+                if(!is_null($_result['authorizenetcim_customer_id']) && strlen($_result['authorizenetcim_customer_id']) > 0 && !is_null($_result['authorizenetcim_payment_id']) && strlen($_result['authorizenetcim_payment_id']))
+                {
+                    $isTestMode = (boolean)$gateway->getConfigData('test',$_result['store_id']);
+                    $apiLoginId = ($isTestMode) ? $gateway->getConfigData('test_login',$_result['store_id']): $gateway->getConfigData('login',$_result['store_id']);
+                    $transactionKey = ($isTestMode) ? $gateway->getConfigData('test_trans_key',$_result['store_id']): $gateway->getConfigData('trans_key',$_result['store_id']);
+                    $wsdlUrl = ($isTestMode) ? $gateway->getConfigData('test_gateway_wsdl',$_result['store_id']): $gateway->getConfigData('gateway_wsdl',$_result['store_id']);
+                    $gatewayUrl = ($isTestMode) ? $gateway->getConfigData('test_gateway_url',$_result['store_id']): $gateway->getConfigData('gateway_url',$_result['store_id']);
+                    $paymentAction = $gateway->getConfigData('payment_action',$_result['store_id']);
+                    $anetTransType = ($paymentAction == Mage_Payment_Model_Method_Abstract::ACTION_AUTHORIZE) ? Gorilla_AuthorizenetCim_Model_Profile::TRANS_AUTH_ONLY: Gorilla_AuthorizenetCim_Model_Profile::TRANS_AUTH_CAPTURE;
+ 
+                    $soap_env = array(
+                    Gorilla_AuthorizenetCim_Model_Profile::TRANS_CREATE_TRANS => array(
+                        'merchantAuthentication' => array(
+                            'name' => $apiLoginId,
+                            'transactionKey' => $transactionKey
+                        ),
+                        'transaction' => array(
+                            $anetTransType => array(
+                                'amount' => $_result['amount'],
+                                'tax'=>array(
+                                    'amount' => 0
+                                ),
+                                'shipping'=>array(
+                                    'amount' => 0  
+                                ),
+                                'customerProfileId' => $_result['authorizenetcim_customer_id'],
+                                'customerPaymentProfileId' => $_result['authorizenetcim_payment_id'],
+                                'order' => array(
+                                    'invoiceNumber' => $_result['increment_id'].'Partial Summary Id: '.$_result['summary_id']
+                                )
+                            )
+                        ),
+                        'extraOptions' => 'x_delim_char='.  Gorilla_AuthorizenetCim_Model_Gateway::RESPONSE_DELIM_CHAR . '&x_duplicate_window=' . $gateway->getConfigData('transaction_timeout',$_result['store_id']),
+                        'x_duplicate_window' => $gateway->getConfigData('transaction_timeout',$_result['store_id'])
+                    )
+                    );
+                    try{
+                        
+                        $directResponse = Mage::getSingleton('authorizenetcim/profile')->doCall(Gorilla_AuthorizenetCim_Model_Profile::TRANS_CREATE_TRANS, $soap_env);
+                        $responseBody = $directResponse->CreateCustomerProfileTransactionResult->directResponse;
+                        
+                    }catch(Exception $e){
+                        $responseBody = false;
+                        echo $e->getMessage().'<br />';
+                    }
+                    
+                
+                if($responseBody){
+                    $r = explode(Gorilla_AuthorizenetCim_Model_Gateway::RESPONSE_DELIM_CHAR, $responseBody);
+                    if ($r) {
+                        $summary = Mage::getModel('md_partialpayment/summary')->load($_result['summary_id']);
+                        $payments = $summary->getPayments();
+                        $order = $payments->getOrder();
+                        $text = '';
+                        $result = Mage::getModel('authorizenetcim/gateway_result');
+                        $result->setResponseCode((int)str_replace('"','',$r[0]))
+                               ->setResponseSubcode((int)str_replace('"','',$r[1]))
+                                ->setResponseReasonCode((int)str_replace('"','',$r[2]))
+                                ->setResponseReasonText($r[3])->setApprovalCode($r[4])->setAvsResultCode($r[5])
+                                ->setTransactionId($r[6])->setInvoiceNumber($r[7])->setDescription($r[8])
+                                ->setAmount($r[9])->setMethod($r[10])->setTransactionType($r[11])
+                                ->setCustomerId($r[12])->setMd5Hash($r[37])->setCardCodeResponseCode($r[38])
+                                ->setCAVVResponseCode( (isset($r[39])) ? $r[39] : null)->setSplitTenderId($r[52])
+                                ->setAccNumber($r[50])->setCardType($r[51])->setRequestedAmount($r[53])
+                                ->setBalanceOnCard($r[54])->setCcLast4(substr($r[50], -4));
+                        
+                        
+                        switch ($result->getResponseCode()) {
+                             case Gorilla_AuthorizenetCim_Model_Gateway::RESPONSE_CODE_APPROVED:
+                                     $text = $gorillaHelper->__('successful');
+                                     $summary->setPaidDate(date('Y-m-d'))
+                                        ->setStatus(MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS)
+                                        ->setTransactionId($result->getTransactionId())
+                                        ->setPaymentMethod(Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE)
+                                        ->setPaymentFailCount($summary->getPaymentFailCount() + 0)
+                                        ->setTransactionDetails(serialize($result->getData()));
+                                 
+                                     $payments->setPaidAmount($payments->getPaidAmount() + $result->getAmount())
+                                        ->setDueAmount(max(0,($payments->getDueAmount() - $result->getAmount())))
+                                        ->setLastInstallmentDate(date('Y-m-d'))
+                                        ->setPaidInstallments($payments->getPaidInstallments() + 1)
+                                        ->setDueInstallments(max(0,($payments->getDueInstallments() - 1)))
+                                        ->setUpdatedAt(date('Y-m-d H:i:s'));
+                                     
+                                    $order->setTotalPaid($order->getTotalPaid() + $result->getAmount())
+                                        ->setBaseTotalPaid($order->getBaseTotalPaid() + $result->getAmount())
+                                        ->setTotalDue(max(0,($order->getTotalDue() - $result->getAmount())))
+                                        ->setBaseTotalDue(max(0,($order->getBaseTotalDue() - $result->getAmount())));
+                                     
+                                     break;
+                             case Gorilla_AuthorizenetCim_Model_Gateway::RESPONSE_CODE_DECLINED:
+                             case Gorilla_AuthorizenetCim_Model_Gateway::RESPONSE_CODE_ERROR:
+                                 $text = $gorillaHelper->__('failed');
+                                 $summary->setPaidDate(date('Y-m-d'))
+                                        ->setStatus(MD_Partialpayment_Model_Summary::PAYMENT_FAIL)
+                                        ->setTransactionId($result->getTransactionId())
+                                        ->setPaymentMethod(Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE)
+                                        ->setPaymentFailCount($summary->getPaymentFailCount() + 1)
+                                        ->setTransactionDetails(serialize($result->getData()));
+                                 break;
+                             default:
+                                 break;
+                        }
+                        
+                        if(strlen($text) > 0){
+                            
+                            $operation = ($paymentAction == Mage_Payment_Model_Method_Abstract::ACTION_AUTHORIZE) ? 'authorize': 'authorize and capture';
+                            $amount = $gorillaHelper->__('amount %s',$order->formatPrice($result->getAmount()));
+                            $card = $gorillaHelper->__('Credit Card: xxxx-%s', $result->getCcLast4());
+                            $transactionString = $gorillaHelper->__('Authorize.Net CIM Transaction ID %s', $result->getTransactionId());
+                            $statusHistryText = $gorillaHelper->__('%s %s %s - %s. %s. %s', $card, strip_tags($amount), $operation, $text, $transactionString, $result->getResponseReasonText());
+                            $order->addStatusHistoryComment($statusHistryText);
+                            $transaction = Mage::getModel('core/resource_transaction');
+                            $transaction->addObject($summary);
+                            $transaction->addObject($payments);
+                            $transaction->addObject($order);
+                            try{
+                                $transaction->save();
+                                $summary->sendStatusPaymentEmail(true,true);
+                            }catch(Exception $e){
+                                Mage::getSingleton('core/session')->addError($e->getMessage());
+                            }
+                            
+                        }
+                        
+                    }
+                }
+                }
+            }
+        }
+        
+        return $this;
+    }
+    
 }
 

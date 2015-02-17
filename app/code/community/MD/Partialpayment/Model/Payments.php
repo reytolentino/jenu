@@ -115,5 +115,15 @@ class MD_Partialpayment_Model_Payments extends Mage_Core_Model_Abstract
 		}
 		return $nextPaidId;
 	}
+	
+	public function canAllowToDoPayments()
+	{
+		$can = false;
+		$dueInstllments = (int)$this->getDueInstallments();
+		if($dueInstllments > 0){
+			$can = true;
+		}
+		return $can;
+	}
 }
 

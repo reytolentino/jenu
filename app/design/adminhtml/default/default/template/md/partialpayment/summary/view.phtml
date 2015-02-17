@@ -248,6 +248,7 @@
         });
     });
 </script>
+<?php if($payment->canAllowToDoPayments()): ?>
 <div class="entry-edit">
     <div class="entry-edit-head">
         <h4><?php echo $helper->__('Payment Methods') ?></h4>
@@ -286,4 +287,5 @@
         </div>
     </fieldset>
 </div>
+<?php endif; ?>
 </form>

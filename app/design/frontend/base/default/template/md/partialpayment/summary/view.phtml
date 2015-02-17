@@ -61,7 +61,7 @@ $summaryStatusMap = array(
         <?php endforeach; ?>
     </tbody>
 </table>
-<?php //if($helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>
+<?php if($payment->canAllowToDoPayments()): ?>
 <div id="partialpayment_installment_payment">
     
     <?php echo $this->getChildHtml('md.partialpayment.payment.methods') ?>
@@ -159,7 +159,7 @@ $summaryStatusMap = array(
     }
     var mdPartial = new MDPartial.Payments('my-summary-table', '<?php echo $this->getUrl('*/*/paymentOptions') ?>', 'partialpayment_installment_payment');
 </script>
-<?php //endif; ?>
+<?php endif; ?>
 <?php else: ?>
     <p><?php echo $helper->__('You have Installment Summary available.'); ?></p>
     <div class="buttons-set">

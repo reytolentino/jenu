@@ -37,7 +37,7 @@ class AW_Sarp_Block_Sales_Order_Items_Renderer_Default extends Mage_Sales_Block_
             if (isset($options['info_buyRequest'])) {
                 $startDateLabel = $this->getOrderItem()->getIsVirtual() ? $this->__("Subscription start:")
                         : $this->__("First delivery:");
-                $periodTypeId = (isset(@$options['info_buyRequest']['aw_sarp_subscription_type']) ? @$options['info_buyRequest']['aw_sarp_subscription_type'] : null);
+                $periodTypeId = @$options['info_buyRequest']['aw_sarp_subscription_type'];
                 $periodStartDate = @$options['info_buyRequest']['aw_sarp_subscription_start'];
                 if (($periodTypeId > 0) && $periodStartDate) {
                     $result[] = array(

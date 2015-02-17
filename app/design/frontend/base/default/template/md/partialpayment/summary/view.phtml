@@ -91,21 +91,25 @@ $summaryStatusMap = array(
                Event.observe($(element),'change',this.requestPaymentOptions.bindAsEventListener(this)); 
             }.bind(this));*/
             $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
-                Event.observe($(element),'change',function(event){
+                if(element.name == "partial[method]"){
+				Event.observe($(element),'change',function(event){
                     var tElement = event.element();
-                    if(tElement.name != "<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]"){
+                    
+					if(tElement.name != "<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]"){
                         $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
-
-                                if(tmpElement.value == tElement.value){
-                                    $('payment_form_'+tmpElement.value).setStyle({display:"block"});
-                                    $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
-                                    $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
-                                }else{
-                                    $('payment_form_'+tmpElement.value).setStyle({display:"none"});
-                                }
+								if(tmpElement.name == "partial[method]"){
+									if(tmpElement.value == tElement.value){
+										$('payment_form_'+tmpElement.value).setStyle({display:"block"});
+										$('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+										$('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
+									}else{
+										$('payment_form_'+tmpElement.value).setStyle({display:"none"});
+									}
+								}
                         });
                     }
                 });
+				}
            }.bind(this));
         },
         requestPaymentOptions: function(event){

@@ -3,7 +3,6 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 {
 
 	public function getReviews($numberOfReviews){
-				
 		$_reviews = Mage::getModel('review/review')
 			->getResourceCollection()
 			->addStoreFilter(Mage::app()->getStore()->getId()) 
@@ -25,7 +24,6 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 		
 		// Get the number of reviews to display
 		$numberOfReviews = Mage::getStoreConfig('ekoim/allreviews/number_of_reviews');
-
 		// Get the reviews
 		$_reviews = $this->getReviews($numberOfReviews);
 		
@@ -109,8 +107,8 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 	}
 	
 	public function getTotalReviews(){
-		
-		$_reviews = $this->getReviews();
+        $numberOfReviews = Mage::getStoreConfig('ekoim/allreviews/number_of_reviews');
+		$_reviews = $this->getReviews($numberOfReviews);
 		
 		$i=0;
 		$cumulativePercentage = 0;

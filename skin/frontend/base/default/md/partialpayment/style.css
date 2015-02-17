@@ -21,3 +21,13 @@ ul.form-list .partialpayment .input-box{position: relative;margin: 5px 0 0 0;pad
 .partial-payment-methods select.year{width: 96px;}
 .partial-payment-methods select.month{width: 120px;margin-right: 10px;}
 .partial-payment-methods p.required{margin-bottom: 5px;float: right;font-size: 12px;margin-top: 0px;color:red;}
+.partial-payment-methods .form-list label {float: none;}
+.partial-payment-methods #authorizenetcim_cc_new_card_form {width: 50%;}
+
+#my-payments-table th {
+    white-space: normal;
+}
+
+@media(max-width:767px) {
+    .partial-payment-methods #authorizenetcim_cc_new_card_form {width: 100%;}
+}

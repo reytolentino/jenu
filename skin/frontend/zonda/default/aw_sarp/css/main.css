@@ -62,6 +62,10 @@
     display: none;
 }
 
+.info-container .price-box {
+    overflow: hidden;
+}
+
 .info-container .sarp-subscription .price-box {
     display: block;
 }

@@ -240,5 +240,63 @@ class MD_Partialpayment_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return (boolean)($orderPayment->getMethod() != Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE);
     }
+    
+    public function getAuthorizeNetCimSavedCard(Mage_Customer_Model_Customer $customer,  MD_Partialpayment_Model_Payments $payments)
+    {
+        $cards = array();
+        if($customer instanceof Mage_Customer_Model_Customer && $payments instanceof MD_Partialpayment_Model_Payments)
+        {
+            $cimGatewayId = $customer->getCimGatewayId();
+            if (!$cimGatewayId) {
+                $orderPayment = $payments->getOrder()->getPayment();
+                    if ($orderPayment) {
+                        $cimCustomerId = $orderPayment->getData('authorizenetcim_customer_id');
+                        $cimPaymentId = $orderPayment->getData('authorizenetcim_payment_id');
+                    }
+            }
+            
+            if($cimGatewayId)
+            {
+                $cim_profile = Mage::getModel('authorizenetcim/profile')->getCustomerProfile($cimGatewayId);
+                if ($cim_profile) {
+                    if (isset($cim_profile->paymentProfiles) && is_object($cim_profile->paymentProfiles)) {
+                        if (is_array($cim_profile->paymentProfiles->CustomerPaymentProfileMaskedType)) {
+                            $payment_profiles = $cim_profile->paymentProfiles->CustomerPaymentProfileMaskedType;
+                        } else {
+                            $payment_profiles = array($cim_profile->paymentProfiles->CustomerPaymentProfileMaskedType);
+                        }
+                    }
+                }
+            }else{
+                if ($cimCustomerId && $cimPaymentId) {
+                    $payment_profiles = array(Mage::getModel('authorizenetcim/profile')->getCustomerPaymentProfile($cimCustomerId, $cimPaymentId));
+                } else {
+                    return false;
+                }
+            }
+             if (isset($payment_profiles) && $payment_profiles) {
+                 foreach ($payment_profiles as $payment_profile) {
+                     $card = new Varien_Object();
+                     $card->setCcNumber($payment_profile->payment->creditCard->cardNumber)
+                        ->setGatewayId($payment_profile->customerPaymentProfileId)
+                        ->setFirstname($payment_profile->billTo->firstName)
+                        ->setLastname($payment_profile->billTo->lastName)
+                        ->setAddress($payment_profile->billTo->address)
+                        ->setCity($payment_profile->billTo->city)
+                        ->setState($payment_profile->billTo->state)
+                        ->setZip($payment_profile->billTo->zip)
+                        ->setCountry($payment_profile->billTo->country);
+                    $cards[] = $card;
+                 }
+             }
+        }
+        return $cards;
+    }
+    
+    public function getCardsByMethods($methodCode, $store=0)
+    {
+        $cards = Mage::getStoreConfig('payment/'.$methodCode.'/cctypes',$store);
+        return explode(",",$cards);
+    }
 }
 

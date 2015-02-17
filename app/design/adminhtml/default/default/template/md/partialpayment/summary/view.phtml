@@ -263,21 +263,23 @@
                 $$('.partial-payment-methods')[0].select('input[type="radio"]').each(function(element){
                 Event.observe($(element),'change',function(event){
                     var tElement = event.element();
-                    $$('.partial-payment-methods')[0].select('input[type="radio"]').each(function(tmpElement){
-                        if(tmpElement.value == tElement.value){
-                            $('payment_form_'+tmpElement.value).setStyle({display:"block"});
-                            $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
-                            $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
-                            $('payment_form_'+tmpElement.value).select('input[type="text"]','select').each(function(listElement){
-                                listElement.disabled=false;
-                            });
-                        }else{
-                            $('payment_form_'+tmpElement.value).setStyle({display:"none"});
-                            $('payment_form_'+tmpElement.value).select('input[type="text"]','select').each(function(listElement){
-                                listElement.disabled=true;
-                            });
-                        }
-                    });
+                    if(tElement.name != "<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]"){
+                        $$('.partial-payment-methods')[0].select('input[type="radio"]').each(function(tmpElement){
+                            if(tmpElement.value == tElement.value){
+                                $('payment_form_'+tmpElement.value).setStyle({display:"block"});
+                                $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+                                $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
+                                $('payment_form_'+tmpElement.value).select('input[type="text"]','select').each(function(listElement){
+                                    listElement.disabled=false;
+                                });
+                            }else{
+                                $('payment_form_'+tmpElement.value).setStyle({display:"none"});
+                                $('payment_form_'+tmpElement.value).select('input[type="text"]','select').each(function(listElement){
+                                    listElement.disabled=true;
+                                });
+                            }
+                        });
+                    }
                 });
            });
             </script>

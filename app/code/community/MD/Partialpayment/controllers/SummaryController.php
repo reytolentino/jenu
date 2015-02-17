@@ -39,7 +39,8 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
         'ccsave'=>'md_partialpayment/payment_ccsave',
         'checkmo'=>'md_partialpayment/payment_checkmo',
         'cashondelivery'=>'md_partialpayment/payment_cashondelivery',
-        'authorizenet_directpost' => 'md_partialpayment/payment_authorizenet_directpost'
+        'authorizenet_directpost' => 'md_partialpayment/payment_authorizenet_directpost',
+        Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE => 'md_partialpayment/payment_authorizenetcim'
     );
     
     protected $_redirectAction = array(
@@ -133,7 +134,6 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
         $data = $this->getRequest()->getPost();
         $summaryId = $this->getRequest()->getParam('summary_id', null);
         Mage::getModel('md_partialpayment/payment_authorizenet_directpost')->process($data, $summaryId);
-        Mage::log($data,false,'local_response.log');
     }
     
     public function listAction()

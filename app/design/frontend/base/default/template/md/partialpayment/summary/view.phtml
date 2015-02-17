@@ -38,11 +38,7 @@ $summaryStatusMap = array(
     </thead>
     <tbody>
         <?php foreach($_summary as $_pay): ?>
-        <?php if(!$helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>
-        <?php $disabled = true; ?>
-        <?php else: ?>
         <?php $disabled = (in_array($_pay->getStatus(),array(MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS, MD_Partialpayment_Model_Summary::PAYMENT_PROCESS)) || ($_pay->getId() != $nextPaidSummary)) ? true: false; ?>
-        <?php endif; ?>
         <?php $paidDate = ($_pay->getPaidDate()) ? $this->formatDate($_pay->getPaidDate(), 'medium'): 'N / A'; ?>
         <?php $dueDate = ($_pay->getDueDate()) ? $this->formatDate($_pay->getDueDate(), 'medium'): 'N / A'; ?>
         <tr style="<?php echo $summaryStatusMap[$_pay->getStatus()]['class'] ?>">
@@ -65,9 +61,11 @@ $summaryStatusMap = array(
         <?php endforeach; ?>
     </tbody>
 </table>
-<?php if($helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>    
+<?php //if($helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>
 <div id="partialpayment_installment_payment">
+    
     <?php echo $this->getChildHtml('md.partialpayment.payment.methods') ?>
+    
 </div>
     <div class="buttons-set">
         <button class="button" type="submit" name="partialpayment.pay"><span><span><?php echo $helper->__('Pay'); ?></span></span></button>
@@ -95,15 +93,18 @@ $summaryStatusMap = array(
             $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
                 Event.observe($(element),'change',function(event){
                     var tElement = event.element();
-                    $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
-                        if(tmpElement.value == tElement.value){
-                            $('payment_form_'+tmpElement.value).setStyle({display:"block"});
-                            $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
-                            $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
-                        }else{
-                            $('payment_form_'+tmpElement.value).setStyle({display:"none"});
-                        }
-                    })
+                    if(tElement.name != "<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]"){
+                        $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
+
+                                if(tmpElement.value == tElement.value){
+                                    $('payment_form_'+tmpElement.value).setStyle({display:"block"});
+                                    $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+                                    $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
+                                }else{
+                                    $('payment_form_'+tmpElement.value).setStyle({display:"none"});
+                                }
+                        });
+                    }
                 });
            }.bind(this));
         },
@@ -158,13 +159,14 @@ $summaryStatusMap = array(
     }
     var mdPartial = new MDPartial.Payments('my-summary-table', '<?php echo $this->getUrl('*/*/paymentOptions') ?>', 'partialpayment_installment_payment');
 </script>
-<?php endif; ?>
+<?php //endif; ?>
 <?php else: ?>
     <p><?php echo $helper->__('You have Installment Summary available.'); ?></p>
-<?php endif; ?>
-<div class="buttons-set">
+    <div class="buttons-set">
         <p class="back-link">
             <a href="<?php echo $this->getBackUrl() ?>"><small>« </small><?php echo $helper->__('Back'); ?></a>
         </p>
     </div> 
+<?php endif; ?>
+
     

@@ -160,11 +160,18 @@ class MD_Partialpayment_Model_Payment_Paypal_Standard extends MD_Partialpayment_
                     ->setLastInstallmentDate(date('Y-m-d'))
                     ->setPaidInstallments($payments->getPaidInstallments() + $installmentCount)
                     ->setDueInstallments(max(0,($payments->getDueInstallments() - $installmentCount)))
-                    ->setUpdatedAt(date('Y-m-d H:i:s'));
+                    ->setUpdatedAt(Mage::getSingleton('core/date')->gmtDate());
+            if($payments->getDueInstallments() > 0){
+                $orderDueAmount = max(0,($order->getTotalDue() - $amount));
+                $baseOrderDueAmount = max(0,($order->getBaseTotalDue() - $amount));
+            }else{
+                    $orderDueAmount = 0;
+                    $baseOrderDueAmount = 0;
+            }
             $order->setTotalPaid($order->getTotalPaid() + $amount)
                         ->setBaseTotalPaid($order->getBaseTotalPaid() + $amount)
-                        ->setTotalDue(max(0,($order->getTotalDue() - $amount)))
-                        ->setBaseTotalDue(max(0,($order->getBaseTotalDue() - $amount)));
+                        ->setTotalDue($orderDueAmount)
+                        ->setBaseTotalDue($baseOrderDueAmount);
 
             if(strlen($histryString) > 0){
                 $order->addStatusHistoryComment($histryString);

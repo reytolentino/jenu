@@ -3,7 +3,7 @@
     <modules>
         <MD_Partialpayment>
             <codePool>community</codePool>
-            <active>true</active>
+            <active>false</active>
         </MD_Partialpayment>
     </modules>
 </config>

@@ -395,10 +395,11 @@ class MD_Partialpayment_Model_Observer
         
         $query = "SELECT e.summary_id  FROM `".$table."` as e WHERE DATEDIFF(e.due_date, now()) = '".$days."' AND e.status NOT IN ('".MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS."')";
         $summaryIds = $readConnection->fetchCol($query);
-        
+        /*
         if(count($summaryIds) > 0){
             Mage::helper('md_partialpayment')->sendReminderEmail($summaryIds);
         }
+        */
         
        return $this;
     }

@@ -7,6 +7,11 @@
 ?>
 <?php if ($this->getIsNeedToDisplaySideBar()): ?>
 <?php
+$quote = Mage::getModel('checkout/session')->getQuote();
+$quoteData= $quote->getData();
+$grandTotal=$quoteData['grand_total'];
+?>
+<?php
     $_cartQty = $this->getSummaryCount();
     if ($_cartQty > 0)
         $cartTitle = $this->__('View Cart');
@@ -29,7 +34,7 @@
                 <?php if ($this->canApplyMsrp()): ?>
                     <span class="price"><?php echo $this->__('MSRP') ?></span>
                 <?php else: ?>
-                    <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()); ?>
+                    <?php echo Mage::helper('checkout')->formatPrice($grandTotal); ?>
                 <?php endif; ?>
             </span>
         <?php else: //no products ?>
@@ -67,7 +72,7 @@
                                 <?php if ($this->canApplyMsrp()): ?>
                                     <span class="price"><?php echo $this->__('MSRP') ?></span>
                                 <?php else: ?>
-                                    <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()); ?>
+                                    <?php echo Mage::helper('checkout')->formatPrice($grandTotal); ?>
                                 <?php endif; ?>
                             <?php else: //no products ?>
                                 <?php echo Mage::helper('checkout')->formatPrice(0); ?>

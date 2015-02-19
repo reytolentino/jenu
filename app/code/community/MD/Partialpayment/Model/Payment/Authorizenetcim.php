@@ -12,6 +12,7 @@ class MD_Partialpayment_Model_Payment_Authorizenetcim extends MD_Partialpayment_
         $summary = $this->getSummary();
         $order = $this->getOrder();
         $methodObject = Mage::getModel($this->_paymentModel[$details['method']]);
+		$paymentAction = $methodObject->getConfigData('payment_action',$payments->getStoreId());
         $soap_env = $this->_buildRequest($details, $methodObject);
         if($soap_env instanceof Varien_Object  && count($soap_env->getData()) > 0)
         {

@@ -200,22 +200,7 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
         $payments = $summary->getPayments();
         $order = $payments->getOrder();
         
-        
-        if(in_array($method, $this->_redirectMethods)){
-            
-            $this->_redirect($this->_redirectAction[$method], array('_secure' => true,'summary_id'=>$summaryId,'p'=>$p,'limit'=>$limit));
-        }
-        else{
-            try{
-            Mage::getModel($this->_processMethod[$method])
-                        ->setSummary($summary)
-                        ->setPayments($payments)
-                        ->setOrder($order)
-                        ->pay($info);
-                }catch(Exception $e){
-                Mage::getSingleton('core/session')->addError($e->getMessage());
-            }
-            $returnUrl = Mage::getUrl('md_partialpayment/summary/view',array('payment_id'=>$summary->getPaymentId()));
+		$returnUrl = Mage::getUrl('md_partialpayment/summary/view',array('payment_id'=>$summary->getPaymentId()));
             if($p && $limit){
                 $returnUrl .= '?p='.$p.'&limit='.$limit;
             }elseif($p){
@@ -223,9 +208,30 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
             }elseif($limit){
                 $returnUrl .= '?limit='.$limit;
             }
+		
+        if($summary->getStatus() != MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS)
+		{
+			if(in_array($method, $this->_redirectMethods)){
+				
+				$this->_redirect($this->_redirectAction[$method], array('_secure' => true,'summary_id'=>$summaryId,'p'=>$p,'limit'=>$limit));
+			}
+			else{
+				try{
+				Mage::getModel($this->_processMethod[$method])
+							->setSummary($summary)
+							->setPayments($payments)
+							->setOrder($order)
+							->pay($info);
+					}catch(Exception $e){
+					Mage::getSingleton('core/session')->addError($e->getMessage());
+				}
+				
+				$this->getResponse()->setRedirect($returnUrl);
+			}    
+        }else{
+			Mage::getSingleton("core/session")->addError(Mage::helper('md_partialpayment')->__('This installment has already paid.'));
             $this->getResponse()->setRedirect($returnUrl);
-        }    
-        
+		}
     }
 }
 

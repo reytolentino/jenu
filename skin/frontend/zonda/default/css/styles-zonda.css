@@ -2343,8 +2343,13 @@ td.for-desktop {
     padding: 0;
 }
 .checkout-cart-index .show-your-carts {
-    margin-top: -15px;
     margin-bottom: 10px;
+}
+.checkout-cart-index .success-msg {
+    display: none;
+}
+.checkout-cart-index .cart .success-msg {
+    display: block;
 }
 .checkout-cart-index .cart-table {
     margin-top: 30px;

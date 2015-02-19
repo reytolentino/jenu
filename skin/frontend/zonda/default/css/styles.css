@@ -898,7 +898,7 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .totals .checkout-types .paypal-or { clear:both; display:block; padding:3px 55px 8px 0; line-height:1.0; font-size:11px; }
 
 /* Shopping Cart Table */
-.cart-table .item-msg { font-size:10px; }
+.cart-table .item-msg { font-size:13px;color:#c03e3e; }
 
 /* Shopping Cart Collateral boxes */
 .cart .cart-collaterals { padding:25px 0 0; }

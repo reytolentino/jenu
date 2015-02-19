@@ -11,7 +11,7 @@ class LinkstureDCCL_ApplyCoupon_IndexController extends Mage_Core_Controller_Fro
 		{
 			Mage::getSingleton("checkout/session")->setData("coupon_code",$coupon_code);
 			Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($coupon_code)->save();
-			Mage::getSingleton('core/session')->addSuccess($this->__('Coupon was automatically applied'));
+			Mage::getSingleton('core/session')->addSuccess($this->__('Discount applied at checkout'));
 		}
 		else 
 		{

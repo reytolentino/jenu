@@ -2492,7 +2492,6 @@ td.for-desktop {
 }
 .cart .total-container .data-table td,
 .cart .total-container .data-table .price{
-    font-family: 'carme';
     font-size: 16px;
 }
 .cart .total-container tbody td {

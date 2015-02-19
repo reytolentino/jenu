@@ -189,8 +189,8 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
     public function payAction()
     {
         $params = $this->getRequest()->getParams();
-        $p = ($params['p']) ? $params['p']: null;
-        $limit = ($params['limit']) ? $params['limit']: null;
+        $p = (isset($params['p'])) ? $params['p']: null;
+        $limit = (isset($params['limit'])) ? $params['limit']: null;
         $summaryId = $params['payment_summary'];
         $summary = Mage::getModel('md_partialpayment/summary')->load($summaryId);
         $method = $params['partial']['method'];

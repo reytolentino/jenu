@@ -213,12 +213,12 @@ class MD_Partialpayment_Model_Payment_Authorizenetcim extends MD_Partialpayment_
                     )
                 );
         }  
-            return $soap_env;
+            return new Varien_Object($soap_env);
     }
     
-    public function _postRequest($soap_env){
+    public function _postRequest(Varien_Object $request, $methodObject){
         try{      
-                $directResponse = Mage::getSingleton('authorizenetcim/profile')->doCall(Gorilla_AuthorizenetCim_Model_Profile::TRANS_CREATE_TRANS, $soap_env);
+                $directResponse = Mage::getSingleton('authorizenetcim/profile')->doCall(Gorilla_AuthorizenetCim_Model_Profile::TRANS_CREATE_TRANS, $request->getData());
                 $responseBody = $directResponse->CreateCustomerProfileTransactionResult->directResponse;       
         }catch(Exception $e){
             $responseBody = false;

@@ -84,6 +84,11 @@ $summaryStatusMap = array(
                 jQuery("#payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?> input:radio").attr('checked', false);
                 jQuery("input:radio[name='<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]']:first").attr('checked', 'checked');
                 $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+                if(jQuery("input[id*='cc_saved']").length > 0) {
+                    //Exists, do something...cc_enter_new_card
+                    jQuery("input#cc_enter_new_card").parent().css('display', 'none');
+                    jQuery("#authorizenetcim_cc_new_card_form").parent().css('display', 'none');
+                }
             }
             //end hard code cim styling
         });

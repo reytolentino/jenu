@@ -90,7 +90,15 @@ $summaryStatusMap = array(
             /*$(containerId).select('input[type="radio"]').each(function(element){
                Event.observe($(element),'change',this.requestPaymentOptions.bindAsEventListener(this)); 
             }.bind(this));*/
-
+            //hard code cim styling
+            var cim = '<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>';
+            if(cim) {
+                jQuery("#partial_method_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>").prop("checked", true);
+                $('payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>').setStyle({display: "block"});
+                jQuery("input:radio[name='<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]'][disabled=false]:first").prop('checked', true);
+                $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+            }
+            //end hard code cim styling
             $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
                 if(element.name == "partial[method]"){
 				Event.observe($(element),'change',function(event){

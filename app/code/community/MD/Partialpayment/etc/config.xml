@@ -415,6 +415,7 @@
     </default>
     <crontab>
         <jobs>
+            <!--
             <send_installment_reminder>
                 <schedule>
                     <cron_expr>0 22 * * *</cron_expr>
@@ -423,6 +424,7 @@
                     <model>md_partialpayment/observer::sendInstallmentReminderEmail</model>
                 </run>
             </send_installment_reminder>
+            -->
             <collect_authorizecim_payment>
                 <schedule>
                     <cron_expr>0 12 * * *</cron_expr>

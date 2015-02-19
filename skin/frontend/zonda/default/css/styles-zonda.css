@@ -2346,7 +2346,7 @@ td.for-desktop {
     margin-bottom: 10px;
 }
 .checkout-cart-index .success-msg {
-    display: none;
+    display: block;
 }
 .checkout-cart-index .cart .success-msg {
     display: none;

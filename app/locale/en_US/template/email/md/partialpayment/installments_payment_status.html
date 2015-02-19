@@ -43,8 +43,8 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
                         Thank you for your order from {{var store.getFrontendName()}}.<br />
                         Once your package ships we will send an email with a link to track your order.
                     </p>
-                    <p style="font-size:12px; line-height:16px; margin:0;">
-                        We will bill your next 2 monthly installments automatically but you can pay them in advance by logging into your account and clicking on Pending Installments.<br>
+                    <p style="font-size:12px; line-height:16px; margin:10px 0 0;">
+                        We will bill your next 2 monthly installments automatically but you can pay them in advance by <a href="{{store url='customer/account'}}">logging into your account</a> and clicking on Pending Installments.<br>
                         If you do not have an account, you can manage your installments by contacting us at <span class="nobr">{{config path='general/store_information/phone'}}</span> Monday - Friday, 8am - 5pm PST.
                     </p>
                     </p>
@@ -143,7 +143,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
                 <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;">
                     <center>
                         <p style="font-size:12px; margin:0;">For any questions about your order you can email us at <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> or call us at <span class="nobr">{{config path='general/store_information/phone'}}</span> Monday - Friday, 8am - 5pm PST.</p>
-                        <p style="font-size:12px; margin:0;"><em>Loving Your {{var store.getFrontendName()}}? <a href="{{store url="/products/infuser"}}"></a><strong>Click Here</strong></a> to write a review.</em></p>
+                        <p style="font-size:12px; margin:10px 0 0;"><em>Loving Your {{var store.getFrontendName()}}? <a href="{{store url="/products/infuser"}}"></a><strong>Click Here</strong></a> to write a review.</em></p>
                 </center></td>
                     </tr>
     </tbody>

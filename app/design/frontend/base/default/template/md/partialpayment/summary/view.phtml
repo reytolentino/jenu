@@ -81,8 +81,8 @@ $summaryStatusMap = array(
         if(cim) {
             jQuery("#partial_method_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>").prop("checked", true);
             $('payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>').setStyle({display: "block"});
-            //jQuery("#payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?> input:radio").prop('checked', false);
-            jQuery("input:radio[name='<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]'][disabled=false]:first").prop('checked', true);
+            jQuery("#payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?> input:radio").prop('checked', false);
+            jQuery("input:radio[name='<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]']:first").prop('checked', true);
             $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
         }
         //end hard code cim styling

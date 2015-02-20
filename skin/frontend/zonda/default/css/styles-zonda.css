@@ -2360,7 +2360,7 @@ td.for-desktop {
     font-size: 15px;
 }
 .order-review .product-image img {
-    width: auto;
+    width: 50px;
 }
 .order-review .product-shop {
     margin: 10px auto;
@@ -3724,7 +3724,8 @@ div.cart-empty {
     line-height: 30px;
 }
 #checkout-review-table-wrapper .product-name {
-    font-size: 1.5em;
+    font-size: inherit;
+    font-family: inherit;
 }
 #nav ul, #nav div, #blog_nav ul {
     top: 56px !important;

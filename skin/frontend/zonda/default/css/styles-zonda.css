@@ -3728,6 +3728,10 @@ div.cart-empty {
 .sp-methods input[type="radio"] {
     display: inline-block !important;
 }
+.sp-methods .ship-free {
+    color: red;
+    text-transform: uppercase;
+}
 .col-sidebar .block.opc-block-progress .block-content {
     padding:10px;
 }

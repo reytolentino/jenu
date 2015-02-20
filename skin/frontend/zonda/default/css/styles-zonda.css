@@ -3731,6 +3731,7 @@ div.cart-empty {
 .sp-methods .ship-free {
     color: red;
     text-transform: uppercase;
+    font-weight: bold;
 }
 .col-sidebar .block.opc-block-progress .block-content {
     padding:10px;

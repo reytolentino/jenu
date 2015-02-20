@@ -81,12 +81,20 @@ class MD_Partialpayment_Model_Payment_Authorizenet extends MD_Partialpayment_Mod
                         ->setLastInstallmentDate(date('Y-m-d'))
                         ->setPaidInstallments($this->getPayments()->getPaidInstallments() + $installmentCount)
                         ->setDueInstallments(max(0,($this->getPayments()->getDueInstallments() - $installmentCount)))
-                        ->setUpdatedAt(date('Y-m-d H:i:s'));
+                        ->setUpdatedAt(Mage::getSingleton('core/date')->gmtDate());
+        if($payments->getDueInstallments() > 0){
+                $orderDueAmount = max(0,($this->getOrder()->getTotalDue() - $amount));
+                $baseOrderDueAmount = max(0,($this->getOrder()->getBaseTotalDue() - $amount));
+        }else{
+                $orderDueAmount = 0;
+                $baseOrderDueAmount = 0;
+        }
+        
         $order = $this->getOrder()
                     ->setTotalPaid($this->getOrder()->getTotalPaid() + $amount)
                     ->setBaseTotalPaid($this->getOrder()->getBaseTotalPaid() + $amount)
-                    ->setTotalDue(max(0,($this->getOrder()->getTotalDue() - $amount)))
-                    ->setBaseTotalDue(max(0,($this->getOrder()->getBaseTotalDue() - $amount)));
+                    ->setTotalDue($orderDueAmount)
+                    ->setBaseTotalDue($baseOrderDueAmount);
         
         if(strlen($this->getResponseText($result->getData())) > 0){
                 $order->addStatusHistoryComment($this->getResponseText($result->getData()));
@@ -191,7 +199,6 @@ class MD_Partialpayment_Model_Payment_Authorizenet extends MD_Partialpayment_Mod
                 ->setResponseReasonText($e->getMessage());
 
             $debugData['result'] = $result->getData();
-            Mage::log($debugData,false,'partialpayment_debug.log');
             Mage::throwException($e->getMessage());
         }
         $responseBody = $response->getBody();
@@ -225,7 +232,7 @@ class MD_Partialpayment_Model_Payment_Authorizenet extends MD_Partialpayment_Mod
                 Mage::helper('paygate')->__('Error in payment gateway.')
             );
         }
-        Mage::log($result->getData(),false,'partialpayment_debug.log');
+        
         return $result;
     }
     

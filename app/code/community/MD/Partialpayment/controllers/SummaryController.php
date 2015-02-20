@@ -39,7 +39,8 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
         'ccsave'=>'md_partialpayment/payment_ccsave',
         'checkmo'=>'md_partialpayment/payment_checkmo',
         'cashondelivery'=>'md_partialpayment/payment_cashondelivery',
-        'authorizenet_directpost' => 'md_partialpayment/payment_authorizenet_directpost'
+        'authorizenet_directpost' => 'md_partialpayment/payment_authorizenet_directpost',
+        Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE => 'md_partialpayment/payment_authorizenetcim'
     );
     
     protected $_redirectAction = array(
@@ -133,7 +134,6 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
         $data = $this->getRequest()->getPost();
         $summaryId = $this->getRequest()->getParam('summary_id', null);
         Mage::getModel('md_partialpayment/payment_authorizenet_directpost')->process($data, $summaryId);
-        Mage::log($data,false,'local_response.log');
     }
     
     public function listAction()
@@ -189,8 +189,8 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
     public function payAction()
     {
         $params = $this->getRequest()->getParams();
-        $p = ($params['p']) ? $params['p']: null;
-        $limit = ($params['limit']) ? $params['limit']: null;
+        $p = (isset($params['p'])) ? $params['p']: null;
+        $limit = (isset($params['limit'])) ? $params['limit']: null;
         $summaryId = $params['payment_summary'];
         $summary = Mage::getModel('md_partialpayment/summary')->load($summaryId);
         $method = $params['partial']['method'];
@@ -200,22 +200,7 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
         $payments = $summary->getPayments();
         $order = $payments->getOrder();
         
-        
-        if(in_array($method, $this->_redirectMethods)){
-            
-            $this->_redirect($this->_redirectAction[$method], array('_secure' => true,'summary_id'=>$summaryId,'p'=>$p,'limit'=>$limit));
-        }
-        else{
-            try{
-            Mage::getModel($this->_processMethod[$method])
-                        ->setSummary($summary)
-                        ->setPayments($payments)
-                        ->setOrder($order)
-                        ->pay($info);
-                }catch(Exception $e){
-                Mage::getSingleton('core/session')->addError($e->getMessage());
-            }
-            $returnUrl = Mage::getUrl('md_partialpayment/summary/view',array('payment_id'=>$summary->getPaymentId()));
+		$returnUrl = Mage::getUrl('md_partialpayment/summary/view',array('payment_id'=>$summary->getPaymentId()));
             if($p && $limit){
                 $returnUrl .= '?p='.$p.'&limit='.$limit;
             }elseif($p){
@@ -223,9 +208,30 @@ class MD_Partialpayment_SummaryController extends Mage_Core_Controller_Front_Act
             }elseif($limit){
                 $returnUrl .= '?limit='.$limit;
             }
+		
+        if($summary->getStatus() != MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS)
+		{
+			if(in_array($method, $this->_redirectMethods)){
+				
+				$this->_redirect($this->_redirectAction[$method], array('_secure' => true,'summary_id'=>$summaryId,'p'=>$p,'limit'=>$limit));
+			}
+			else{
+				try{
+				Mage::getModel($this->_processMethod[$method])
+							->setSummary($summary)
+							->setPayments($payments)
+							->setOrder($order)
+							->pay($info);
+					}catch(Exception $e){
+					Mage::getSingleton('core/session')->addError($e->getMessage());
+				}
+				
+				$this->getResponse()->setRedirect($returnUrl);
+			}    
+        }else{
+			Mage::getSingleton("core/session")->addError(Mage::helper('md_partialpayment')->__('This installment has already paid.'));
             $this->getResponse()->setRedirect($returnUrl);
-        }    
-        
+		}
     }
 }
 

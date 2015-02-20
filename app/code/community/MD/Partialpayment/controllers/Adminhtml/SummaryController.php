@@ -40,7 +40,8 @@ class MD_Partialpayment_Adminhtml_SummaryController extends Mage_Adminhtml_Contr
         'ccsave'=>'md_partialpayment/payment_ccsave',
         'checkmo'=>'md_partialpayment/payment_checkmo',
         'cashondelivery'=>'md_partialpayment/payment_cashondelivery',
-        'authorizenet_directpost' => 'md_partialpayment/payment_authorizenet_directpost'
+        'authorizenet_directpost' => 'md_partialpayment/payment_authorizenet_directpost',
+        Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE => 'md_partialpayment/payment_authorizenetcim'
     );
     
     protected $_redirectAction = array(
@@ -172,12 +173,21 @@ class MD_Partialpayment_Adminhtml_SummaryController extends Mage_Adminhtml_Contr
                         ->setPaidInstallments($payments->getPaidInstallments() + 1)
                         ->setDueInstallments($payments->getDueInstallments() - 1)
                         ->setUpdatedAt(date('Y-m-d H:i:s'));
+            
+            if($payments->getDueInstallments() > 0){
+                    $orderDueAmount = max(0,($payments->getOrder()->getTotalDue() - $amount));
+                    $baseOrderDueAmount = max(0,($payments->getOrder()->getBaseTotalDue() - $amount));
+            }else{
+                    $orderDueAmount = 0;
+                    $baseOrderDueAmount = 0;
+            }
+            
             $order = $payments->getOrder();
             
                    $order->setTotalPaid($order->getTotalPaid() + $amount)
                     ->setBaseTotalPaid($order->getBaseTotalPaid() + $amount)
-                    ->setTotalDue($order->getTotalDue() - $amount)
-                    ->setBaseTotalDue($order->getBaseTotalDue() - $amount);
+                    ->setTotalDue($orderDueAmount)
+                    ->setBaseTotalDue($baseOrderDueAmount);
             $transaction = Mage::getModel('core/resource_transaction');
             $transaction->addObject($summary);
             $transaction->addObject($payments);
@@ -324,10 +334,9 @@ class MD_Partialpayment_Adminhtml_SummaryController extends Mage_Adminhtml_Contr
     
     public function payAction()
     {
-        //die("Hello");
+        
         $params = $this->getRequest()->getParams();
-        //echo "<pre>";print_r($params);
-        //die();
+        
         $summaryId = $params['payment_summary'];
         $summary = Mage::getModel('md_partialpayment/summary')->load($summaryId);
         $requestArea = 'adminhtml';
@@ -352,8 +361,8 @@ class MD_Partialpayment_Adminhtml_SummaryController extends Mage_Adminhtml_Contr
                         ->setPaymentRequestArea('adminhtml')
                         ->pay($info);
                 }catch(Exception $e){
-                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-            }
+                    Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                }
             $this->_redirect('*/*/view',array('id'=>$summary->getPaymentId()));
         }    
     }

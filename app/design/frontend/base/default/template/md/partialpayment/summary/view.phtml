@@ -5,13 +5,13 @@ $_summary = $this->getSummary();
 $payment = $this->getPayment();
 $nextPaidSummary = $payment->getNextPaidInstallmentId();
 $summaryStatusMap = array(
-        MD_Partialpayment_Model_Summary::PAYMENT_FAIL=>array("label"=>$helper->__('Failed'),"class"=>"color:#df280a !important;background:#faebe7;"),
-        MD_Partialpayment_Model_Summary::PAYMENT_PENDING=>array("label"=>$helper->__('Pending'),"class"=>"color:#3d6611 !important;background:#fffbf0;"),
-        MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS=>array("label"=>$helper->__('Paid'),"class"=>"color:#3d6611 !important;background:#eff5ea;"),
-        MD_Partialpayment_Model_Summary::PAYMENT_HOLD=>array("label"=>$helper->__('Hold'),"class"=>"color:#3d6611 !important;background:#fffbf0;"),
-        MD_Partialpayment_Model_Summary::PAYMENT_DECLINED=>array("label"=>$helper->__('Declined'),"class"=>"color:#df280a !important;background:#faebe7;"),
-        MD_Partialpayment_Model_Summary::PAYMENT_PROCESS=>array("label"=>$helper->__('Processing'),"class"=>"color:#3d6611 !important;background:#fffbf0;"),
-    );
+    MD_Partialpayment_Model_Summary::PAYMENT_FAIL=>array("label"=>$helper->__('Failed'),"class"=>"color:#df280a !important;background:#faebe7;"),
+    MD_Partialpayment_Model_Summary::PAYMENT_PENDING=>array("label"=>$helper->__('Pending'),"class"=>"color:#3d6611 !important;background:#fffbf0;"),
+    MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS=>array("label"=>$helper->__('Paid'),"class"=>"color:#3d6611 !important;background:#eff5ea;"),
+    MD_Partialpayment_Model_Summary::PAYMENT_HOLD=>array("label"=>$helper->__('Hold'),"class"=>"color:#3d6611 !important;background:#fffbf0;"),
+    MD_Partialpayment_Model_Summary::PAYMENT_DECLINED=>array("label"=>$helper->__('Declined'),"class"=>"color:#df280a !important;background:#faebe7;"),
+    MD_Partialpayment_Model_Summary::PAYMENT_PROCESS=>array("label"=>$helper->__('Processing'),"class"=>"color:#3d6611 !important;background:#fffbf0;"),
+);
 ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <div class="page-title">
@@ -19,152 +19,176 @@ $summaryStatusMap = array(
 </div>
 <?php echo $this->getPagerHtml(); ?>
 <?php if($_summary->getSize()): ?>
-<form method="post" id="payment-summary-form" name="payment.summary.form" action="<?php echo $this->getUrl('*/*/pay',array('p'=>$p)) ?>">
-<table class="data-table summary" id="my-summary-table">
-    <col width="1" />
-    <col width="1" />
-    <col width="1"/>
-    <col width="1" />
-    <col width="1" />
-    <col width="1" />
-    <thead>
-        <tr>
-            <th class="a-center number">&nbsp;</th>
-            <th class="a-center total"><span class="nobr"><?php echo $helper->__('Amount') ?></span></th>
-            <th class="a-center number"><span class="nobr"><?php echo $helper->__('Due Date') ?></span></th>
-            <th class="a-center number"><span class="nobr"><?php echo $helper->__('Paid Date') ?></span></th>
-            <th class="a-center number"><span class="nobr"><?php echo $helper->__('Status') ?></span></th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach($_summary as $_pay): ?>
-        <?php if(!$helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>
-        <?php $disabled = true; ?>
-        <?php else: ?>
-        <?php $disabled = (in_array($_pay->getStatus(),array(MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS, MD_Partialpayment_Model_Summary::PAYMENT_PROCESS)) || ($_pay->getId() != $nextPaidSummary)) ? true: false; ?>
-        <?php endif; ?>
-        <?php $paidDate = ($_pay->getPaidDate()) ? $this->formatDate($_pay->getPaidDate(), 'medium'): 'N / A'; ?>
-        <?php $dueDate = ($_pay->getDueDate()) ? $this->formatDate($_pay->getDueDate(), 'medium'): 'N / A'; ?>
-        <tr style="<?php echo $summaryStatusMap[$_pay->getStatus()]['class'] ?>">
-            <td class="a-center">
-                <input <?php if(!$disabled): ?>class="validate-one-required-by-name"<?php endif; ?> type="radio" name="payment_summary" id="payment_summary_<?php echo $_pay->getId() ?>" value="<?php echo $_pay->getId() ?>" <?php if($disabled): ?>disabled="disabled"<?php endif; ?>/>
-            </td>
-            <td class="a-center">
-                <?php echo $payment->getOrder()->formatPrice($_pay->getAmount()) ?>
-            </td>
-            <td class="a-center">
-                <?php echo $dueDate ?>
-            </td>
-            <td class="a-center">
-                <?php echo $paidDate ?>
-            </td>
-            <td class="a-center">
-                <?php echo $summaryStatusMap[$_pay->getStatus()]['label'] ?>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-<?php if($helper->shouldDisplayOtherPayments($payment->getOrder()->getPayment())): ?>    
-<div id="partialpayment_installment_payment">
-    <?php echo $this->getChildHtml('md.partialpayment.payment.methods') ?>
-</div>
-    <div class="buttons-set">
-        <button class="button" type="submit" name="partialpayment.pay"><span><span><?php echo $helper->__('Pay'); ?></span></span></button>
-        <p class="back-link">
-            <a href="<?php echo $this->getBackUrl() ?>"><small>« </small><?php echo $helper->__('Back'); ?></a>
-        </p>
-    </div> 
-</form>
-<script type="text/javascript">
-    decorateTable('my-summary-table');
-    var partialPaymentForm = new VarienForm('payment-summary-form');
-    if(typeof MDPartial=='undefined') {
-        var MDPartial = {};
-    }
-    MDPartial.Payments = Class.create();
-    MDPartial.Payments.prototype = {
-        initialize: function(containerId, ajaxUrl, responseContainer){
-            this.ajaxUrl = ajaxUrl;
-            this.responseElementId = responseContainer;
-            $('payment-summary-form').select('button[type="submit"]')[0].disabled=true;
-            $('payment-summary-form').select('button[type="submit"]')[0].addClassName('disabled');
-            /*$(containerId).select('input[type="radio"]').each(function(element){
-               Event.observe($(element),'change',this.requestPaymentOptions.bindAsEventListener(this)); 
-            }.bind(this));*/
-            $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
-                Event.observe($(element),'change',function(event){
-                    var tElement = event.element();
-                    $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
-                        if(tmpElement.value == tElement.value){
-                            $('payment_form_'+tmpElement.value).setStyle({display:"block"});
-                            $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
-                            $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
-                        }else{
-                            $('payment_form_'+tmpElement.value).setStyle({display:"none"});
-                        }
-                    })
-                });
-           }.bind(this));
-        },
-        requestPaymentOptions: function(event){
-            var element = event.element();
-            var elementValue = element.value;
-            if(elementValue){
-                request = new Ajax.Request(
-                    this.ajaxUrl,
-                    {method:'get',parameters:{summary_id:elementValue}, onSuccess: this.onAjaxSuccess, onFailure: this.onAjaxFailure, onLoading: this.onAjaxLoading}
-                );
+    <form method="post" id="payment-summary-form" name="payment.summary.form" action="<?php echo $this->getUrl('*/*/pay',array('p'=>$p)) ?>">
+        <table class="data-table summary" id="my-summary-table">
+            <col width="1" />
+            <col width="1" />
+            <col width="1"/>
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <thead>
+            <tr>
+                <th class="a-center number">&nbsp;</th>
+                <th class="a-center total"><span class="nobr"><?php echo $helper->__('Amount') ?></span></th>
+                <th class="a-center number"><span class="nobr"><?php echo $helper->__('Due Date') ?></span></th>
+                <th class="a-center number"><span class="nobr"><?php echo $helper->__('Paid Date') ?></span></th>
+                <th class="a-center number"><span class="nobr"><?php echo $helper->__('Status') ?></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($_summary as $_pay): ?>
+                <?php $disabled = (in_array($_pay->getStatus(),array(MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS, MD_Partialpayment_Model_Summary::PAYMENT_PROCESS)) || ($_pay->getId() != $nextPaidSummary)) ? true: false; ?>
+                <?php $paidDate = ($_pay->getPaidDate()) ? $this->formatDate($_pay->getPaidDate(), 'medium'): 'N / A'; ?>
+                <?php $dueDate = ($_pay->getDueDate()) ? $this->formatDate($_pay->getDueDate(), 'medium'): 'N / A'; ?>
+                <tr style="<?php echo $summaryStatusMap[$_pay->getStatus()]['class'] ?>">
+                    <td class="a-center">
+                        <input <?php if(!$disabled): ?>class="validate-one-required-by-name"<?php endif; ?> type="radio" name="payment_summary" id="payment_summary_<?php echo $_pay->getId() ?>" value="<?php echo $_pay->getId() ?>" <?php if($disabled): ?>disabled="disabled"<?php endif; ?>/>
+                    </td>
+                    <td class="a-center">
+                        <?php echo $payment->getOrder()->formatPrice($_pay->getAmount()) ?>
+                    </td>
+                    <td class="a-center">
+                        <?php echo $dueDate ?>
+                    </td>
+                    <td class="a-center">
+                        <?php echo $paidDate ?>
+                    </td>
+                    <td class="a-center">
+                        <?php echo $summaryStatusMap[$_pay->getStatus()]['label'] ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php if($payment->canAllowToDoPayments()): ?>
+        <div id="partialpayment_installment_payment">
+
+            <?php echo $this->getChildHtml('md.partialpayment.payment.methods') ?>
+
+        </div>
+        <div class="buttons-set">
+            <button class="button" type="submit" name="partialpayment.pay"><span><span><?php echo $helper->__('Pay'); ?></span></span></button>
+            <p class="back-link">
+                <a href="<?php echo $this->getBackUrl() ?>"><small>« </small><?php echo $helper->__('Back'); ?></a>
+            </p>
+        </div>
+    </form>
+    <script type="text/javascript">
+        jQuery(function() {
+            //hard code cim styling
+            var cim = '<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>';
+            if(cim) {
+                jQuery("#partial_method_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>").prop("checked", true);
+                $('payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>').setStyle({display: "block"});
+                jQuery("#payment_form_<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?> input:radio").attr('checked', false);
+                jQuery("input:radio[name='<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]']:first").attr('checked', 'checked');
+                $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+                if(jQuery("input[id*='cc_saved']").length > 0) {
+                    //Exists, do something...cc_enter_new_card
+                    //jQuery("input#cc_enter_new_card").parent().css('display', 'none');
+                    jQuery("#authorizenetcim_cc_new_card_form").css('display', 'none');
+                }
             }
-            //console.log(elementValue);
-        },
-        onAjaxSuccess: function(transport){
-           $('partialpayment_installment_payment').setStyle({backgroundImage:"none"});    
-           $('partialpayment_installment_payment').update(transport.responseText);
-           $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
-                Event.observe($(element),'change',function(event){
-                    var tElement = event.element();
-                    $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
-                        if(tmpElement.value == tElement.value){
-                            $('payment_form_'+tmpElement.value).setStyle({display:"block"});
-                            $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
-                            $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
-                        }else{
-                            $('payment_form_'+tmpElement.value).setStyle({display:"none"});
-                        }
-                    })
-                });
-           }.bind(this));
-        },
-        onAjaxFailure: function(){
-            
-        },
-        onAjaxLoading: function(){
-            console.log('');
-            $('partialpayment_installment_payment').update('');
-            $('partialpayment_installment_payment').setStyle({
-                        backgroundImage:'url("<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>")',
-                        backgroundRepeat:"no-repeat",
-                        backgroundPosition:"center",
-                        zIndex:"3",
-                        opacity: "0.8",
-                        display:"block"
-                    });
-        },
-        displayDetails: function(event){
-            var element = event.element();
-            alert(element.value);
+            //end hard code cim styling
+        });
+
+        decorateTable('my-summary-table');
+        var partialPaymentForm = new VarienForm('payment-summary-form');
+        if(typeof MDPartial=='undefined') {
+            var MDPartial = {};
         }
-    }
-    var mdPartial = new MDPartial.Payments('my-summary-table', '<?php echo $this->getUrl('*/*/paymentOptions') ?>', 'partialpayment_installment_payment');
-</script>
+        MDPartial.Payments = Class.create();
+        MDPartial.Payments.prototype = {
+            initialize: function(containerId, ajaxUrl, responseContainer){
+                this.ajaxUrl = ajaxUrl;
+                this.responseElementId = responseContainer;
+                $('payment-summary-form').select('button[type="submit"]')[0].disabled=true;
+                $('payment-summary-form').select('button[type="submit"]')[0].addClassName('disabled');
+                /*$(containerId).select('input[type="radio"]').each(function(element){
+                 Event.observe($(element),'change',this.requestPaymentOptions.bindAsEventListener(this));
+                 }.bind(this));*/
+                $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
+                    if(element.name == "partial[method]"){
+                        Event.observe($(element),'change',function(event){
+                            var tElement = event.element();
+
+                            if(tElement.name != "<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>[<?php echo Gorilla_AuthorizenetCim_Model_Gateway::METHOD_CODE ?>_payment_id]"){
+                                $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
+                                    if(tmpElement.name == "partial[method]"){
+                                        if(tmpElement.value == tElement.value){
+                                            $('payment_form_'+tmpElement.value).setStyle({display:"block"});
+                                            $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+                                            $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
+                                        }else{
+                                            $('payment_form_'+tmpElement.value).setStyle({display:"none"});
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }.bind(this));
+            },
+            requestPaymentOptions: function(event){
+                var element = event.element();
+                var elementValue = element.value;
+                if(elementValue){
+                    request = new Ajax.Request(
+                        this.ajaxUrl,
+                        {method:'get',parameters:{summary_id:elementValue}, onSuccess: this.onAjaxSuccess, onFailure: this.onAjaxFailure, onLoading: this.onAjaxLoading}
+                    );
+                }
+                //console.log(elementValue);
+            },
+            onAjaxSuccess: function(transport){
+                $('partialpayment_installment_payment').setStyle({backgroundImage:"none"});
+                $('partialpayment_installment_payment').update(transport.responseText);
+                $('partialpayment_installment_payment').select('input[type="radio"]').each(function(element){
+                    Event.observe($(element),'change',function(event){
+                        var tElement = event.element();
+                        $('partialpayment_installment_payment').select('input[type="radio"]').each(function(tmpElement){
+                            if(tmpElement.value == tElement.value){
+                                $('payment_form_'+tmpElement.value).setStyle({display:"block"});
+                                $('payment-summary-form').select('button[type="submit"]')[0].disabled=false;
+                                $('payment-summary-form').select('button[type="submit"]')[0].removeClassName('disabled');
+                            }else{
+                                $('payment_form_'+tmpElement.value).setStyle({display:"none"});
+                            }
+                        })
+                    });
+                }.bind(this));
+            },
+            onAjaxFailure: function(){
+
+            },
+            onAjaxLoading: function(){
+                console.log('');
+                $('partialpayment_installment_payment').update('');
+                $('partialpayment_installment_payment').setStyle({
+                    backgroundImage:'url("<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>")',
+                    backgroundRepeat:"no-repeat",
+                    backgroundPosition:"center",
+                    zIndex:"3",
+                    opacity: "0.8",
+                    display:"block"
+                });
+            },
+            displayDetails: function(event){
+                var element = event.element();
+                alert(element.value);
+            }
+        }
+        var mdPartial = new MDPartial.Payments('my-summary-table', '<?php echo $this->getUrl('*/*/paymentOptions') ?>', 'partialpayment_installment_payment');
+    </script>
 <?php endif; ?>
 <?php else: ?>
     <p><?php echo $helper->__('You have Installment Summary available.'); ?></p>
-<?php endif; ?>
-<div class="buttons-set">
+    <div class="buttons-set">
         <p class="back-link">
             <a href="<?php echo $this->getBackUrl() ?>"><small>« </small><?php echo $helper->__('Back'); ?></a>
         </p>
-    </div> 
+    </div>
+<?php endif; ?>
+
     

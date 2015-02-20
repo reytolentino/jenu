@@ -120,7 +120,6 @@ class MD_Partialpayment_Model_Payment_Authorizenet_Directpost  extends MD_Partia
         );
         $request->setXFpTimestamp($fpTimestamp)
                 ->setXFpHash($hash);
-        Mage::log($request->getData(),false,'authorizenet_directpost_request.log');
         return $request;
     }
 }

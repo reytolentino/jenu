@@ -139,7 +139,7 @@ class MD_Partialpayment_Model_Summary extends Mage_Core_Model_Abstract
                 
             }
             
-            return $data;
+            return $string;
         }
         return null;
     }

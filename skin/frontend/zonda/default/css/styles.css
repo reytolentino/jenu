@@ -245,7 +245,7 @@ p.control input.radio { margin-right:6px; }
 .form-list .customer-dob .dob-year input.input-text { width:134px; }
 
 .buttons-set { clear:both; margin:5px 0 0; padding:5px; border:1px solid #ddd; }
-.buttons-set .back-link { float:left; }
+.buttons-set .back-link { float:left;}
 .buttons-set button.button { float:right; }
 .buttons-set p.required { margin:0 0 5px; }
 
@@ -898,7 +898,7 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .totals .checkout-types .paypal-or { clear:both; display:block; padding:3px 55px 8px 0; line-height:1.0; font-size:11px; }
 
 /* Shopping Cart Table */
-.cart-table .item-msg { font-size:10px; }
+.cart-table .item-msg { font-size:13px;color:#c03e3e; }
 
 /* Shopping Cart Collateral boxes */
 .cart .cart-collaterals { padding:25px 0 0; }

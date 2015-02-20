@@ -37,7 +37,10 @@ class MD_Partialpayment_Model_Payments extends Mage_Core_Model_Abstract
     
     protected function _beforeSave() {
         parent::_beforeSave();
-        $this->setUpdatedAt(date('Y-m-d H:i:s'));
+        $this->setUpdatedAt(Mage::getSingleton('core/date')->gmtDate());
+        if($this->getDueInstallments() == 0){
+            $this->setDueAmount(0);
+        }
     }
     
     protected function _beforeDelete() {
@@ -111,6 +114,16 @@ class MD_Partialpayment_Model_Payments extends Mage_Core_Model_Abstract
 			$nextPaidId = $allIds[$key + 1];
 		}
 		return $nextPaidId;
+	}
+	
+	public function canAllowToDoPayments()
+	{
+		$can = false;
+		$dueInstllments = (int)$this->getDueInstallments();
+		if($dueInstllments > 0){
+			$can = true;
+		}
+		return $can;
 	}
 }
 

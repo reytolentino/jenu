@@ -21,3 +21,32 @@ ul.form-list .partialpayment .input-box{position: relative;margin: 5px 0 0 0;pad
 .partial-payment-methods select.year{width: 96px;}
 .partial-payment-methods select.month{width: 120px;margin-right: 10px;}
 .partial-payment-methods p.required{margin-bottom: 5px;float: right;font-size: 12px;margin-top: 0px;color:red;}
+.partial-payment-methods .form-list label {float: none;}
+.partial-payment-methods #authorizenetcim_cc_new_card_form {width: 50%;}
+
+.partial-terms-popup-content p {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+#my-payments-table th {
+    white-space: normal;
+}
+
+.cms-container .product-view .product-shop {
+    padding-left: 0;
+    width: 100%;
+}
+
+.cms-container ul.form-list .partialpayment .checkbox {
+    margin-top: 10px;
+}
+
+#authorizenetcim_save_card_wrapper br {
+    display: none;
+}
+
+@media(max-width:767px) {
+    .partial-payment-methods #authorizenetcim_cc_new_card_form {width: 100%;}
+    #partial-terms-popup {width:90%;}
+}

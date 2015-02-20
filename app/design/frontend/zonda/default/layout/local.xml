@@ -450,6 +450,7 @@
     
     <checkout_cart_index>
         <reference name="breadcrumbs">
+            <remove name="checkout.cart.shipping" />
             <action method="addCrumb">
                 <crumbName>Home</crumbName>
                 <params helper="eternal_all/getHomeUrl" />

@@ -1457,8 +1457,19 @@ button.button span.name{
 .special-price {
     float: left;
 }
+.cart-price .old-price,
+.cart-price .special-price {
+    float: none;
+    clear: both;
+}
 .old-price {
     margin-right: 10px;
+}
+.cart-price .old-price {
+    margin-right: 0;
+}
+.cart .data-table tbody .special-price .price {
+    color: #c03e3e;
 }
 .old-price .price-label,
 .special-price .price-label {

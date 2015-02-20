@@ -55,14 +55,18 @@
                         <?php endif; ?>
 
                         <?php endif; ?>
-                        <label for="s_method_<?php echo $_rate->getCode() ?>"><?php echo $this->escapeHtml($_rate->getMethodTitle()) ?>
-                        <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
-                        <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
-                        <?php echo $_excl; ?>
-                        <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
-                            (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
-                        <?php endif; ?>
-                        </label>
+                       <label for="s_method_<?php echo $_rate->getCode() ?>"><?php echo $_rate->getMethodTitle() ?>
+                           <?php if($_rate->getPrice() > 0) : ?>
+                               <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
+                               <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
+                               <?php echo $_excl; ?>
+                               <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+                                   (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+                               <?php endif; ?>
+                           <?php else : ?>
+                               <span class="ship-free">(<?php echo $this->__('Free'); ?>)</span>
+                           <?php endif; ?>
+                       </label>
                    <?php endif ?>
                 </li>
             <?php endforeach; ?>

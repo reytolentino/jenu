@@ -60,13 +60,7 @@ $b = $zonda->getConfigGroup();
     <?php endif; ?>
     <div class="clearfix"></div>
     <div class="main-container">
-        <?php
-        $main_slider = $this->getChildHtml('main-slider');
-        if ($main_slider) : ?>
-        <div class="main-slider">
-            <?php echo $main_slider; ?>
-        </div>
-        <?php endif; ?>
+
         <?php $cms_heading = $this->getChildHtml('page_cms_heading') ?>
         <?php if ($cms_heading) : ?>
             <div class="cms-heading">
@@ -81,9 +75,9 @@ $b = $zonda->getConfigGroup();
         </div>
         <?php endif; ?>
         <?php
-        if ($b['category']['banner_position'] == 'top') 
+        if ($b['category']['banner_position'] == 'top')
             echo $this->getChildHtml('category.banner');
-            
+
         ?>
 
 		<?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'jenu-biosciences')):
@@ -93,7 +87,7 @@ $b = $zonda->getConfigGroup();
         <?php $breadcrumbs_html = $this->getChildHtml('breadcrumbs') ?>
         <?php echo $breadcrumbs_html ?>
         <?php
-        if ($b['category']['banner_position'] == 'bottom') 
+        if ($b['category']['banner_position'] == 'bottom')
             echo $this->getChildHtml('category.banner');
         ?>
         <div class="main">

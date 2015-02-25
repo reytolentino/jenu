@@ -44,11 +44,11 @@ $_product = $this->getProduct();
                                     <ul class="form-list">
                                         <li class="control partialpayment">
                                             <div class="input-box"><input class="checkbox" type="radio" name="custom_options[partialpayment]" value="-1" checked/></div>
-                                            <label for="custom_options"><?php echo $helper->__('Buy Today and Pay Only $195 (you save 22%)') ?></label>
+                                            <label for="custom_options"><?php echo $helper->__('Buy Today and Pay Only $186.75 (you save 25%)') ?></label>
                                         </li>
                                         <li class="control partialpayment">
                                             <div class="input-box"><input class="checkbox" type="radio" name="custom_options[partialpayment]" value="1"/></div>
-                                            <label for="custom_options"><?php echo $helper->__('Pay with 3 Installments of $83') ?></label>
+                                            <label for="custom_options"><?php echo $helper->__('Pay with 3 Easy Installments of $83') ?></label>
                                             <?php
                                             $terms = $helper->getTermsContents();
                                             ?>
@@ -57,7 +57,7 @@ $_product = $this->getProduct();
                                                 <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
                                                     <a href="javascript::void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
                                                     <div class="partial-terms-popup-heading">
-                                                        <h3><?php echo $this->__('Terms And Conditions') ?></h3>
+                                                        <h3>(<?php echo $this->__('Terms And Conditions') ?>)</h3>
                                                     </div>
                                                     <div class="partial-terms-popup-content">
                                                         <?php echo $terms['content'] ?>

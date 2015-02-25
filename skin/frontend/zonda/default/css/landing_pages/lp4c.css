@@ -58,7 +58,7 @@
 .lphero-box .ctabox {
     width: 534px;
     float: right;
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 .lphero-box .ctabox p {
@@ -253,7 +253,7 @@
 .lphero-box p.bottomcopy {
     font-size: 13px;
     text-transform: uppercase;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 .fb_iframe_widget {
     position: absolute !important;
@@ -784,6 +784,35 @@
 ul#nav li.order-now {
     display: none;
 }
+
+/** partial pay style updates **/
+#product_addtocart_form, .product-view,
+.product-essential {
+    display: inline-block;
+}
+
+.partialpayment-box-container .form-list li {
+    margin-bottom: 0;
+}
+
+.partialpayment-box-container ul.form-list .partialpayment label {
+    padding: 4px 0 4px 25px;
+}
+
+.add-to-cart button.button {
+    margin-top: 6px;
+}
+
+.cms-container ul.form-list .partialpayment .checkbox {
+    margin-top: 8px;
+}
+
+.product-shop {
+    width: auto;
+    float: none;
+    display: inline-block;
+}
+
 
 @media(max-width: 991px){
     .lphero {

@@ -38,8 +38,7 @@ class MD_Partialpayment_Model_Quote_Address_Total_Installment_Due extends Mage_S
             $address->addTotal(array(
                 'code'  => 'md_partialpayment_due',
                 'title' => Mage::helper('md_partialpayment')->__('Amount To be Paid Later'),
-                'value' => $amount,
-                'area'  => 'footer',
+                'value' => $amount
             ));
         }
         return $this;

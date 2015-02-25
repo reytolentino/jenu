@@ -188,7 +188,7 @@ a:focus {
 }
 .data-table th {
     border: solid 1px #f2f2f0;
-    padding: 20px;
+    padding: 12px;
     text-transform: uppercase;
     font-weight: normal;
     vertical-align: top;
@@ -198,7 +198,7 @@ a:focus {
 .data-table td {
     border: solid 1px #f2f2f0;
     vertical-align: top;
-    padding: 20px;
+    padding: 12px;
 }
 .data-table thead tr.mobile-row,
 .data-table .mobile-label {
@@ -2507,11 +2507,11 @@ td.for-desktop {
 }
 .cart .total-container tbody td {
     text-transform: capitalize;
-    padding: 25px 20px;
+    padding: 12px 20px;
 }
 .cart .total-container tfoot td {
     text-transform: uppercase;
-    padding: 35px 20px;
+    padding: 12px 20px;
 }
 .checkout-types li {
     margin-bottom: 10px;

@@ -41,7 +41,7 @@ class MD_Partialpayment_Model_Quote_Address_Total_Installment_Paid extends Mage_
         if($amount != 0){
             $address->addTotal(array(
                 'code'  => 'md_partialpayment_paid',
-                'title' => Mage::helper('md_partialpayment')->__('TOTAL YOU PAY TODAY'),
+                'title' => Mage::helper('md_partialpayment')->__('PORTION YOU PAY TODAY'),
                 'value' => $amount,
                 'area' => 'footer'
             ));

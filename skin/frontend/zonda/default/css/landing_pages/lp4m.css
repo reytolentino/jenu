@@ -211,9 +211,14 @@
     margin-top: 35px;
 }
 
-.lpbox .realcta .moneyback1 {
-    float: left;
-    margin-left: 60px;
+.realcta .moneyback1 {
+    float: right;
+}
+
+p.bottom-retail {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 .proofimg {
@@ -225,7 +230,7 @@
 
 .realcta .bottomcopy {
     font-size: 13px;
-    margin: 24px 0;
+    margin: 60px 0 0;
 }
 
 .lpbox .data-con {
@@ -254,6 +259,9 @@
     font-size: 13px;
     text-transform: uppercase;
     padding-top: 15px;
+}
+.fb-like {
+    margin: 12px 0;
 }
 .fb_iframe_widget {
     position: absolute !important;
@@ -329,6 +337,17 @@
     padding-bottom: 10px;
     margin-bottom: 30px;
     text-transform: uppercase;
+}
+
+.lpbox .partial-terms-popup .partial-terms-popup-heading h3 {
+    font-size: 14px;
+    margin: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    border-bottom: none;
 }
 
 .boostbox .elle-featured {
@@ -813,6 +832,28 @@ ul#nav li.order-now {
     display: inline-block;
 }
 
+.bottom-offer-box ul.form-list .partialpayment label {
+    color: #fff;
+}
+
+.partialpayment-box-container ul.form-list .partialpayment label {
+    position: static;
+}
+
+.bottom-offer-box .btn-cart {
+    color: #fff;
+    background: #13323c;
+    margin-top: 15px;
+    border: 1px solid #fff;
+}
+
+ul.form-list .partialpayment a.link-tip {
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
 
 @media(max-width: 991px){
     .lphero {
@@ -898,6 +939,71 @@ ul#nav li.order-now {
         font-size: 18px;
         margin-bottom: 24px;
         padding-bottom: 10px;
+    }
+    .partial-terms-popup .partial-terms-popup-heading h3 {
+        font-size: 14px;
+        margin: 0;
+        overflow: hidden;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: break-word;
+    }
+    .lpbox, .lpbox p, .lpbox h1, .lpbox h2, .lpbox h3, .lpbox h4, .lpbox h5 {
+        color: #272727;
+        font-family: "Univers_Condensed",Arial,Helvetica;
+    }
+    h1, h2, h3, h4, h5, h6, .page-title h1, .page-title h2 {
+        color: #333333;
+        font-family: "apexsanslightst","Helvetica Neue",Helvetica,Arial;
+    }
+    h3 {
+        font-size: 21px;
+        font-weight: normal;
+        line-height: 1.25;
+    }
+    h3 {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.25;
+    }
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .partial-terms-popup {
+        text-align: left;
+    }
+    li {
+        line-height: inherit;
+    }
+    .std ul, .std ol, .std dl, .std p, .std address, .std blockquote {
+        line-height: 1.6;
+    }
+    ul, ol {
+        list-style: outside none none;
+    }
+    .partialpayment-box-container {
+        line-height: normal;
+        text-align: left;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        color: #fff;
+    }
+    .lpbox, .lpbox p, .lpbox h1, .lpbox h2, .lpbox h3, .lpbox h4, .lpbox h5 {
+        color: #272727;
+        font-family: "Univers_Condensed",Arial,Helvetica;
+    }
+    body {
+        color: #19353f;
+        font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    }
+    body {
+        line-height: 1.42857;
+        text-align: left;
     }
     .boostbox .elle-featured {
         margin: 0 auto;
@@ -995,7 +1101,7 @@ ul#nav li.order-now {
         font-size: 18px;
     }
     .sectionbox.bottomoffer .bottomwand {
-        width: 48%;
+       width: 48%;
     }
     .sectionbox.bottomoffer .bottom-offer-box {
         margin-top: 0;
@@ -1050,6 +1156,9 @@ ul#nav li.order-now {
     }
     #proofjenu ul.clinicallist li {
         margin-top: 20px;
+    }
+    .product-view .product-shop {
+        margin-top: 0;
     }
 }
 

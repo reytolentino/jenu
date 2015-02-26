@@ -1,12 +1,13 @@
 <?php
-class MD_Partialpayment_Model_Quote_Address_Total_Installment_Paid extends Mage_Sales_Model_Quote_Address_Total_Abstract
+class  MD_Partialpayment_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Totals
 {
+
     public function collect(Mage_Sales_Model_Quote_Address $address)
     {
         parent::collect($address);
         $totalPaidAmount = 0;
         $baseTotalPaidAmount = 0;
-        
+
         $items = $address->getAllItems();
         $isPartialExists = false;
         foreach ($items as $item) {
@@ -34,19 +35,37 @@ class MD_Partialpayment_Model_Quote_Address_Total_Installment_Paid extends Mage_
         }
         return $this;
     }
-    
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+
+    public function renderTotals($area = null, $colspan = 1)
     {
-        $amount = $address->getPartialpaymentPaidAmount();
-        if($amount != 0){
-            $address->addTotal(array(
-                'code'  => 'md_partialpayment_paid',
-                'title' => Mage::helper('md_partialpayment')->__('PORTION YOU PAY TODAY'),
-                'value' => $amount,
-                'area' => 'footer'
-            ));
+        return $this->_replaceLabels(parent::renderTotals($area, $colspan));
+    }
+
+    protected function _replaceLabels($html){
+        $cart = Mage::getModel('checkout/cart')->getQuote();
+        $items = $cart->getAllItems();
+        $isPartialExists = false;
+        foreach ($items as $item) {
+            if ($item instanceof Mage_Sales_Model_Quote_Address_Item) {
+                $quoteItem = $item->getAddress()->getQuote()->getItemById($item->getQuoteItemId());
+            }
+            else {
+                $quoteItem = $item;
+            }
+            if (!$quoteItem->getParentItem()) {
+                if($quoteItem->getPartialpaymentOptionSelected() == 1){
+                    $isPartialExists = true;
+                }
+            }
         }
-        return $this;
+        $labelMap = array();
+        if($isPartialExists) {
+            $labelMap['Tax'] = "Tax (you will be charged this amount today)";
+        }
+        foreach($labelMap as $key => $value){
+            $html = str_replace($key, $value,$html) ;
+        }
+        return $html;
     }
 }
 

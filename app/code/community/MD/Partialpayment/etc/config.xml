@@ -180,6 +180,11 @@
             <md_partialpayment>
                 <class>MD_Partialpayment_Block</class>
             </md_partialpayment>
+            <checkout>
+                <rewrite>
+                    <cart_totals>MD_Partialpayment_Block_Cart_Totals</cart_totals>
+                </rewrite>
+            </checkout>
         </blocks>
         <helpers>
             <md_partialpayment>

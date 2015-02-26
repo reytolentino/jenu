@@ -48,55 +48,64 @@ $_product = $this->getProduct();
                                         </li>
                                         <li class="control partialpayment">
                                             <div class="input-box"><input class="checkbox" type="radio" name="custom_options[partialpayment]" value="1"/></div>
-                                            <label for="custom_options"><strong><?php echo $helper->__('Pay with 3 Easy Installments') ?></strong><br><?php echo $helper->__('First Payment: $83.00') ?></label>
-                                            <?php
-                                            $terms = $helper->getTermsContents();
-                                            ?>
-                                            <?php if(count($terms) > 0 && array_key_exists('link_title',$terms) && array_key_exists('content',$terms)): ?>
-                                                <a class="link-tip" href="javascript:void(0);" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>"><?php echo $terms['link_title'] ?></a>
-                                                <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
-                                                    <a href="javascript:void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
-                                                    <div class="partial-terms-popup-heading">
-                                                        <h3><?php echo $this->__('Terms And Conditions') ?></h3>
+                                            <label for="custom_options"><strong><?php echo $helper->__('Pay with 3 Easy Installments') ?></strong><br><?php echo $helper->__('First Payment: $83.00') ?>
+                                                <?php
+                                                $terms = $helper->getTermsContents();
+                                                ?>
+                                                <?php if(count($terms) > 0 && array_key_exists('link_title',$terms) && array_key_exists('content',$terms)): ?>
+                                                    <a class="link-tip" href="javascript:void(0);" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>"><?php echo $terms['link_title'] ?></a>
+                                                    <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
+                                                        <a href="javascript:void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
+                                                        <div class="partial-terms-popup-heading">
+                                                            <h3><?php echo $this->__('Terms And Conditions') ?></h3>
+                                                        </div>
+                                                        <div class="partial-terms-popup-content">
+                                                            <?php echo $terms['content'] ?>
+                                                        </div>
                                                     </div>
-                                                    <div class="partial-terms-popup-content">
-                                                        <?php echo $terms['content'] ?>
-                                                    </div>
-                                                </div>
 
-                                                <script type="text/javascript">
-                                                    /*
-                                                    Event.observe(window, 'load', function(e) {
-                                                        e.preventDefault();
-                                                        Event.observe('partial-terms-link-popup','click',function(){
-                                                            if($('partial-terms-popup').getStyle('display') == 'none'){
-                                                                $('partial-terms-popup').setStyle({display:'block'});
-                                                            }else{
-                                                                $('partial-terms-popup').setStyle({display:'none'});
+                                                    <script type="text/javascript">
+                                                        /*
+                                                         Event.observe(window, 'load', function(e) {
+                                                         e.preventDefault();
+                                                         Event.observe('partial-terms-link-popup','click',function(){
+                                                         if($('partial-terms-popup').getStyle('display') == 'none'){
+                                                         $('partial-terms-popup').setStyle({display:'block'});
+                                                         }else{
+                                                         $('partial-terms-popup').setStyle({display:'none'});
+                                                         }
+                                                         });
+                                                         Event.observe('partial-terms-popup-close','click',function(e){
+                                                         e.preventDefault();
+                                                         $('partial-terms-popup').hide();
+                                                         });
+                                                         });
+                                                         */
+
+                                                        jQuery( ".partial-terms-popup-close" ).click(function() {
+                                                            jQuery('.partial-terms-popup').hide();
+                                                        });
+
+
+
+                                                        jQuery('.link-tip').click(function(e){
+
+                                                            jQuery('.partial-terms-popup').toggle();
+
+                                                        });
+
+                                                        jQuery('body').click(function(e) {
+                                                            var target = jQuery(e.target);
+                                                            if(!target.is('.link-tip') && !target.is('.partial-terms-popup')) {
+                                                                if ( jQuery('.partial-terms-popup').is(':visible') ) jQuery('.partial-terms-popup').hide();
                                                             }
                                                         });
-                                                        Event.observe('partial-terms-popup-close','click',function(e){
-                                                            e.preventDefault();
-                                                            $('partial-terms-popup').hide();
-                                                        });
-                                                    });
-                                                    */
-
-                                                    jQuery( ".partial-terms-popup-close" ).click(function() {
-                                                        jQuery('.partial-terms-popup').hide();
-                                                    });
 
 
-                                                    jQuery('.link-tip').each(function() {
-                                                        jQuery(this).click(function() {
-                                                            jQuery('.partial-terms-popup').each(function() {
-                                                                jQuery(this).toggle();
-                                                            });
-                                                        });
-                                                    });
+                                                    </script>
+                                                <?php endif; ?>
+                                            </label>
 
-                                                </script>
-                                            <?php endif; ?>
                                         </li>
                                     </ul>
                                 </div>

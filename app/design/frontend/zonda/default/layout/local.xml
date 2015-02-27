@@ -462,6 +462,7 @@
             <block type="zonda/pagetitle" name="page.title">
                 <action method="setPageTitle" translate="title"><title>Shopping Cart</title></action>
             </block>
+            <block type="core/template" name="support" as="support" template="page/html/support.phtml"/>
         </reference>
     </checkout_cart_index>
     <checkout_onepage_index>

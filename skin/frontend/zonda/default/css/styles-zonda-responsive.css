@@ -1185,7 +1185,7 @@
         text-align: center;
         width: 100%;
     }
-    .checkout-cart-index .btn-continue, .checkout-cart-index .or,
+    .checkout-cart-index .contbox,
     .checkout-cart-index .checkout-box ul.checkout-types {
         float: left;
     }

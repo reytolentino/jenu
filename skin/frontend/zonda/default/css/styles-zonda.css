@@ -2407,6 +2407,9 @@ td.for-desktop {
     color: #66b1b8;
     text-transform: none;
 }
+.checkout-cart-index .btn-continue {
+    float: left;
+}
 .checkout-cart-index a:hover {
     color: #1c5055;
 }
@@ -2415,10 +2418,19 @@ td.for-desktop {
     background: transparent;
     color: #1c5055;
 }
+.checkout-cart-index .contbox {
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+}
 .checkout-cart-index .or {
     color: #95a3a7;
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 10px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
 }
 .checkout-cart-index .cartleftbox {
     float: left;

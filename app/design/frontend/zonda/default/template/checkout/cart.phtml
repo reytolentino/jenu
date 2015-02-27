@@ -27,8 +27,10 @@ $zonda = $this->helper('zonda');
          else {
              $continuShppingUrl = $this->getContinueShoppingUrl();
          }?>
-         <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $continuShppingUrl ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
-         <span class="or"><?php echo $this->__('or') ?></span>
+         <div class="contbox">
+             <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $continuShppingUrl ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+             <span class="or"><?php echo $this->__('or') ?></span>
+         </div>
      <?php endif; ?>
      <?php if(!$this->hasError()): ?>
          <ul class="checkout-types">
@@ -148,8 +150,10 @@ $zonda = $this->helper('zonda');
                     else {
                         $continuShppingUrl = $this->getContinueShoppingUrl();
                     }?>
-                    <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $continuShppingUrl ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
-                    <span class="or"><?php echo $this->__('or') ?></span>
+                    <div class="contbox">
+                        <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $continuShppingUrl ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+                        <span class="or"><?php echo $this->__('or') ?></span>
+                    </div>
                 <?php endif; ?>
                 <?php if(!$this->hasError()): ?>
                     <ul class="checkout-types">

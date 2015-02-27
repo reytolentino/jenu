@@ -1,0 +1,8 @@
+<?php
+$storePhone = Mage::getStoreConfig('general/store_information/phone');
+?>
+<div class="support-box">
+    <span class="need-help"><?php echo $this->__('Need Help?') ?></span> <span class="call"><?php echo $this->__('Call') ?> <?php echo $storePhone ?></span>
+    <div class="clearfix"></div>
+    <a href="/contacts" class="email-support"><?php echo $this->__('Email Customer Care') ?></a>
+</div>

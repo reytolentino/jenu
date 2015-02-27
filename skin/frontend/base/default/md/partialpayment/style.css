@@ -6,7 +6,7 @@
 .partial-terms-popup .partial-terms-popup-heading h3{font-size: 14px;margin: 0;overflow: hidden;white-space: nowrap;word-wrap: break-word;text-align: left;text-overflow: ellipsis;}
 .partial-terms-popup .partial-terms-popup-content{border-top: 1px solid #ededed;padding: 10px;margin: 0 10px;overflow: hidden;text-align: left;overflow: auto;height: 305px;}
 ul.form-list .partialpayment{clear: both;}
-ul.form-list .partialpayment label{color:#272727;width: auto;max-width: none;min-width: inherit;padding:6px 0 6px 25px;margin-bottom: 0;margin-right: 0;}
+ul.form-list .partialpayment label{z-index:1;color:#272727;width: auto;max-width: none;min-width: inherit;padding:6px 0 6px 25px;margin-bottom: 0;margin-right: 0;}
 ul.form-list .partialpayment a.link-tip{font-size: 11px;font-weight: normal;margin-left:5px;}
 ul.form-list .partialpayment .checkbox{float: left;margin-right: -40px !important;margin-top: 6px;z-index: 100;position: relative;}
 ul.form-list .partialpayment .input-box{position: relative;margin: 5px 0 0 0;padding: 0;}

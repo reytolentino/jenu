@@ -1161,8 +1161,9 @@
     }
     .checkout-cart-index .or {
         font-size: 12px;
-        margin-left: 8px;
-        margin-right: 0;
+        margin: 0 10px;
+        height: 40px;
+        line-height: 40px;
     }
     .checkout-cart-index .checkout-box {
         width: 100%;
@@ -1183,6 +1184,10 @@
         margin-left: 0;
         text-align: center;
         width: 100%;
+    }
+    .checkout-cart-index .btn-continue, .checkout-cart-index .or,
+    .checkout-cart-index .checkout-box ul.checkout-types {
+        float: left;
     }
 
 }

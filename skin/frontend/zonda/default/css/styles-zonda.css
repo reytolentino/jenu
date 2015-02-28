@@ -2365,9 +2365,6 @@ td.for-desktop {
 .checkout-cart-index .success-msg {
     display: block;
 }
-.checkout-cart-index .cart .success-msg {
-    display: none;
-}
 .checkout-cart-index .cart-table th {
     border: 0;
     text-align: center;

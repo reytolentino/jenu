@@ -4308,14 +4308,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 /******************************* CMS Page Design Overrides **************************/
 
-.cms-page-view {
-    background: #11323c;
-}
-
-.cms-page-view .main-container {
-    background: url('../images/backgrounds/green_glow.png') repeat-y top center;
-}
-
 .cms-page-view .breadcrumbs {
     padding-top: 0;
     padding-bottom: 0;
@@ -4324,12 +4316,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view .breadcrumbs .container {
     padding-top: 14px;
     padding-bottom: 14px;
-    background: #fff;
-}
-
-.cms-page-view .main-content .container {
-    overflow: hidden;
-    background: #fff;
 }
 
 .cms-box {
@@ -4345,7 +4331,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-bottom: 0;
 }
 
-.cms-page-view .nner {
+.cms-page-view .inner {
     margin: 0 auto 24px auto;
     display: block;
     position: relative;
@@ -4354,10 +4340,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-page-view .drbanner-img {
     margin: 0 auto;
     display: block;
-}
-
-.cms-page-view .drbanner-title {
-
 }
 
 .cms-page-view .drbanner-title h1,
@@ -4380,13 +4362,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-box.clinical-results h1 {
     font-size: 62px;
     font-family: 'apexsanslightst', "Helvetica Neue", Helvetica, sans-serif;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #333;
     text-transform: uppercase;
     margin: 30px 0 30px 0;
     padding: 0 0 20px 64px;
-    color: #fff;
     display: inline-block;
-    margin-left: -15px;
 }
 
 .cms-box.how-jenu-works h1 {
@@ -4395,45 +4375,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-box.clinical-results h1 {
     font-size: 36px;
-    color: #008ab0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #333;
 }
 
 .cms-box.using-jenu h1 {
     font-size: 42px;
-}
-
-.cms-page-view.cms-ultrasound-101 .main-container .main-content,
-.cms-page-view.cms-using-jenu .main-container .main-content,
-.cms-page-view.cms-how-jenu-works .main-container .main-content {
-    background: url('../images/backgrounds/ultrasound_content_bg.jpg') repeat-y top center;
-}
-
-.cms-page-view.cms-ultrasound-101 .cms-box,
-.cms-page-view.cms-ultrasound-101 .breadcrumbs .container,
-.cms-page-view.cms-using-jenu .cms-box,
-.cms-page-view.cms-using-jenu .breadcrumbs .container,
-.cms-page-view.cms-how-jenu-works .cms-box,
-.cms-page-view.cms-how-jenu-works .breadcrumbs .container{
-    background: transparent;
-    overflow: hidden;
-}
-
-.cms-page-view.cms-ultrasound-101 .breadcrumbs li.cms_page strong,
-.cms-page-view.cms-ultrasound-101 .breadcrumbs,
-.cms-page-view.cms-using-jenu .breadcrumbs li.cms_page strong,
-.cms-page-view.cms-using-jenu .breadcrumbs,
-.cms-page-view.cms-how-jenu-works .breadcrumbs li.cms_page strong,
-.cms-page-view.cms-how-jenu-works .breadcrumbs {
-    color: #fff;
-}
-
-.cms-box.ultrasound101,
-.cms-box.using-jenu,
-.cms-box.how-jenu-works {
-    background: transparent;
-    color: #fff;
-    position: relative;
 }
 
 /******************************* In The Press Page Design **************************/
@@ -4892,22 +4838,18 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-box.how-jenu-works h4 {
     font-size: 20px;
-    color: #fff;
     margin: 30px 0;
     font-family: 'Univers_Condensed', Arial, Helvetica;
 }
 
 .cms-box.how-jenu-works h5 {
     font-size: 16px;
-    text-transform: uppercase;
-    color: #fff;
     margin: 20px 0 10px 0;
     font-family: 'Univers_Condensed', Arial, Helvetica;
 }
 
 .cms-box.how-jenu-works h2 {
     font-size: 28px;
-    color: #fff;
     margin: 0 0 20px 0;
     font-family: 'Univers_Condensed', Arial, Helvetica;
 }
@@ -4943,6 +4885,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     position: absolute;
     z-index: 2;
     text-transform: uppercase;
+    color: #fff;
 }
 
 .cms-box.how-jenu-works .how-bottomcopy {
@@ -4977,19 +4920,19 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-size: 26px;
     text-transform: uppercase;
     font-family: 'Univers_Condensed', Arial, Helvetica;
-    border: 1px solid #ededed;
-    background-color: #ededed;
+    border: 1px solid #333;
+    background-color: #333;
     height: 44px;
     line-height: 46px;
     padding: 0 18px;
-    color: #0a252f;
+    color: #fff;
     display: inline-block;
 }
 
 .cms-box.how-jenu-works a.btn-learn:hover {
-    border: 1px solid #fff;
+    border: 1px solid #=000;
+    background-color: #000;
     color: #fff;
-    background-color: transparent;
 }
 
 
@@ -5006,7 +4949,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-box.using-jenu .step h4 {
     font-family: 'Univers_Condensed', Arial, Helvetica;
     font-size: 18px;
-    color: #fff;
     margin: 10px 0;
 }
 
@@ -5109,6 +5051,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     display: inline-block;
     padding: 23px;
     float: left;
+    color: #fff;
 }
 
 .cms-box.using-jenu .experttip .tip {
@@ -5141,7 +5084,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     text-align: center;
 }
 .clinical-results .title-text h2 {
-    color: #262626;
     font-family: "Univers_Condensed", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-size: 36px;
     font-weight: normal;

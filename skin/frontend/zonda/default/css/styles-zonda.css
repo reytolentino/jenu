@@ -4523,15 +4523,17 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     width: 100%;
 }
 
-.cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-left.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
-.cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev:hover {display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-left.png) no-repeat bottom left; width:28px; height:28px; text-indent: -9999px;}
-.cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-right.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
-.cms-box.before-afters .before-afters-inner .baslideswrap .bx-next:hover {display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-right.png) no-repeat bottom left; width:28px; height:28px; text-indent: -9999px;}
+.cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/content/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
+.cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/content/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
 
 .cms-box.before-afters .before-afters-inner .bx-controls-direction {
     position: absolute;
     top: 40%;
     width: 100%;
+}
+
+.cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+    top: 38%;
 }
 
 .cms-box.before-afters .before-afters-inner .results-disclaimer {

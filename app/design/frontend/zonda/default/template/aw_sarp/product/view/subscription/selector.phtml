@@ -46,6 +46,16 @@
 				<div class="sub-price">
 					<?php echo $this->helper('core')->currency( $_product->getAwSarpSubscriptionPrice(),true,false) ?>
 				</div>
+                <div class="clearfix"></div>
+                <div class="smallcap">
+                    <?php
+                    if ($_product->getSku() == "N002") {
+                        echo $this->__('(Ships every 60 days)');
+                        } else {
+                        echo $this->__('(Ships every 30 days)');
+                    }
+                    ?>
+                </div>
                 <a class="sarp-link-tip" href="javascript:void(0);" id="sarp-terms-link-popup" title="Terms & Conditions"><?php echo $this->__('Terms & Conditions') ?></a>
                 <div id="sarp-terms-popup" class="sarp-terms-popup" style="display:none;">
                     <a href="javascript:void(0);" class="sarp-terms-popup-close" id="sarp-terms-popup-close">&times;</a>
@@ -56,7 +66,6 @@
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('asp-tc')->toHtml() ?>
                     </div>
                 </div>
-
             <?php else: ?>
 					<div class="sub-price">
 						<?php echo $this->getPriceHtml($_product); ?>

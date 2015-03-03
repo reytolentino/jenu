@@ -4736,6 +4736,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin-left: 0;
 }
 
+
 /******************************* Ultrasound Page Design **************************/
 
 
@@ -5585,6 +5586,57 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .clinicalinfo-mob, .versus-image-mob-left, .versus-image-mob-right, .versus-all-mob {
     display: none;
 }
+
+/* Porter Clinical Result Styles */
+
+.clinical-results-graph--inner {
+  height: 265px;
+  margin: 40px 0 0; }
+
+ul.clinical-results-graph--bars {
+  bottom: 30px;
+  height: auto;
+  right: auto; }
+
+.clinical-results-graph-bars--item {
+  margin-bottom: 1px;
+  margin-right: 0;
+  position: relative; }
+  .clinical-results-graph-bars--item.bar-1 {
+    height: 76px;
+    margin-left: 0;
+    width: 51%; }
+  .clinical-results-graph-bars--item.bar-2 {
+    height: 76px;
+    margin-left: 0;
+    width: 71%; }
+  .clinical-results-graph-bars--item.bar-3 {
+    height: 76px;
+    margin-left: 0;
+    width: 81%; }
+  .clinical-results-graph-bars--item > span {
+    bottom: auto;
+    font-size: 24px;
+    padding-left: 20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+
+ul.clinical-results-graph--perc {
+  padding-left: 20px; }
+
+.clinical-results-graph-perc--item {
+  border-left: 1px solid #e7e7e7;
+  border-bottom: 0;
+  float: right;
+  height: 100%;
+  width: 9.09090909090909%; }
+  .clinical-results-graph-perc--item span {
+    bottom: 0;
+    margin-left: 5px;
+    position: absolute;
+    width: auto; } }
 
 @media(max-width: 991px){
     .clinical-results .studies-bottom-inner .absorption {

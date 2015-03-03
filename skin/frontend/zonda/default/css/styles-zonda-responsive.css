@@ -1191,7 +1191,9 @@
     }
     .cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-left.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
     .cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-right.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
-
+    .sarp-terms-popup {
+        width: 90%;
+    }
 }
 @media(max-width: 480px){
     .login-container-big{

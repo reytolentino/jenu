@@ -1215,6 +1215,71 @@ button.button span.name{
     padding: 1px;
     background: #ebebeb;
 }
+/** auto refill terms **/
+.sarp-terms-popup {
+    background: #FFFFFF;
+    border: 5px solid #cccccc;
+    margin: 12px 0 0;
+    position: absolute;
+    text-align: left;
+    width: 500px;
+    z-index: 100;
+}
+.sarp-terms-popup .sarp-terms-popup-close {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 36px;
+    width: 36px;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+}
+.sarp-terms-popup .sarp-terms-popup-heading{
+    padding: 8px 10px;
+    margin-right: 40px;
+    width: auto;
+}
+.sarp-terms-popup .sarp-terms-popup-heading h3{
+    font-size: 14px;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: break-word;
+    text-align: left;
+    text-overflow: ellipsis;
+}
+.sarp-terms-popup .sarp-terms-popup-content{
+    border-top: 1px solid #ededed;
+    padding: 10px;
+    margin: 0 10px;
+    overflow: hidden;
+    text-align: left;
+    overflow: auto;
+    height: 305px;
+
+}
+.product-view .info-container .sarp-terms-popup-content p {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    text-transform: none;
+}
+.product-view .info-container .sarp-terms-popup-content ul li {
+    list-style: disc;
+    margin-left: 12px;
+    font-size: 12px;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+.product-view .info-container .sarp-terms-popup-content ul {
+    margin-bottom: 10px;
+}
+a.sarp-link-tip{
+    font-size: 11px;
+    font-weight: normal;
+    margin-left:5px;
+}
 /*products grid*/
 .item-first {
     clear: left;

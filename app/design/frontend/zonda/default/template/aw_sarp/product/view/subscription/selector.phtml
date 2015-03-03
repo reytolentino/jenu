@@ -46,15 +46,26 @@
 				<div class="sub-price">
 					<?php echo $this->helper('core')->currency( $_product->getAwSarpSubscriptionPrice(),true,false) ?>
 				</div>
-				<div class="sub-image"></div>
-				<div id="toll-tips-pdp">
-					<?php if ($_product->getSku() == 'J0139'): ?>
-						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('toll-tips-pdp-lip')->toHtml() ?>
-					<?php endif; ?>
-					<?php if ($_product->getSku() == 'J0002'): ?>
-						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('toll-tips-pdp-eye')->toHtml() ?>
-					<?php endif; ?>
-				</div>
+                <div class="clearfix"></div>
+                <div class="smallcap">
+                    <?php
+                    if ($_product->getSku() == "N002") {
+                        echo $this->__('(Ships every 60 days)');
+                        } else {
+                        echo $this->__('(Ships every 30 days)');
+                    }
+                    ?>
+                </div>
+                <a class="sarp-link-tip" href="javascript:void(0);" id="sarp-terms-link-popup" title="Terms & Conditions"><?php echo $this->__('Terms & Conditions') ?></a>
+                <div id="sarp-terms-popup" class="sarp-terms-popup" style="display:none;">
+                    <a href="javascript:void(0);" class="sarp-terms-popup-close" id="sarp-terms-popup-close">&times;</a>
+                    <div class="sarp-terms-popup-heading">
+                        <h3><?php echo $this->__('Automatic Shipments Program') ?></h3>
+                    </div>
+                    <div class="sarp-terms-popup-content">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('asp-tc')->toHtml() ?>
+                    </div>
+                </div>
             <?php else: ?>
 					<div class="sub-price">
 						<?php echo $this->getPriceHtml($_product); ?>
@@ -74,12 +85,19 @@
 <script type="text/javascript">
 				 
 					jQuery(document).ready(function(){
-					  jQuery(".sub-image").mouseover(function(){
-					   jQuery("#toll-tips-pdp").show();
-					  });
-					  jQuery(".sub-image").mouseout(function(){
-						jQuery("#toll-tips-pdp").hide();
-					  });
-					});
+                        jQuery( ".sarp-terms-popup-close" ).click(function() {
+                            jQuery('.sarp-terms-popup').hide();
+                        });
+                        jQuery('.sarp-link-tip').click(function(e){
+                            jQuery('.sarp-terms-popup').toggle();
+                        });
+                        jQuery('body').click(function(e) {
+                            var target = jQuery(e.target);
+                            if(!target.is('.sarp-link-tip') && !target.is('.sarp-terms-popup')) {
+                                if ( jQuery('.sarp-terms-popup').is(':visible') ) jQuery('.sarp-terms-popup').hide();
+                            }
+                        });
+
+                    });
 												
 </script>

@@ -31,12 +31,12 @@ class Jenu_GoogleAnalytics_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
         console.log('customUserId:' + customUserId);
         ga('create', '{$this->jsQuoteEscape($accountId)}', {'userId': customUserId});
         ga('create', '{$this->jsQuoteEscape($accountId)}', 'auto', {'allowLinker': true});
+        ga('require', 'linker');
+        ga('linker:autoLink', ['skin.faboverfifty.com','jenu.com'], false, true);
         " . $this->_getAnonymizationCode() . "
         ga('require', 'displayfeatures');
         ga('set', 'dimension1', customUserId);
         ga('send', 'pageview');
-        ga('require', 'linker');
-        ga('linker:autoLink', ['jenu.com','skin.faboverfifty.com'], false, true);
         ";
     }
 

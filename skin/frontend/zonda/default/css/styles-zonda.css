@@ -1270,6 +1270,7 @@ button.button span.name{
     list-style: disc;
     margin-left: 12px;
     font-size: 12px;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
 }
 .product-view .info-container .sarp-terms-popup-content ul {
     margin-bottom: 10px;

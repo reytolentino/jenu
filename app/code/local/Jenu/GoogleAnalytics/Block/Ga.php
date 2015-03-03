@@ -29,8 +29,7 @@ class Jenu_GoogleAnalytics_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
            }
         }
         console.log('customUserId:' + customUserId);
-        ga('create', '{$this->jsQuoteEscape($accountId)}', {'userId': customUserId});
-        ga('create', '{$this->jsQuoteEscape($accountId)}', 'auto', {'allowLinker': true});
+        ga('create', '{$this->jsQuoteEscape($accountId)}', 'auto', {'allowLinker': true,'userId': customUserId});
         ga('require', 'linker');
         ga('linker:autoLink', ['skin.faboverfifty.com']);
         " . $this->_getAnonymizationCode() . "

@@ -5368,6 +5368,7 @@ ul.clinical-results--list {
 .clinical-results-simulation--inner {
   height: 100%;
   width: 100%;
+  margin: 0 0 80px;
 }
 .clinical-results-simulation--inner img {
   display: block;

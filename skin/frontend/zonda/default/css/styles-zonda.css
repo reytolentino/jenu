@@ -5265,9 +5265,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .clinical-results {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding: 0;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0 !important;
   text-align: center;
 }
 .clinical-results .row {
@@ -5527,7 +5525,7 @@ ul.clinical-results-graph--perc {
   width: 104.3%;
 }
 .clinical-results-cta--copy {
-  background: url("../images/bg-lto-cta.png") no-repeat 62% 0;
+  background: url("/media/content/bg-lto-cta.png") no-repeat 62% 0;
   background-size: 87px auto;
   height: 250px;
   position: relative;

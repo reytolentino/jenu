@@ -5368,6 +5368,7 @@ ul.clinical-results--list {
 .clinical-results-simulation--inner {
   height: 100%;
   width: 100%;
+  margin: 0 0 80px;
 }
 .clinical-results-simulation--inner img {
   display: block;
@@ -5381,10 +5382,12 @@ ul.clinical-results--list {
   display: inline-block;
   margin: 10px 0;
   padding: 5px 20px;
+  text-decoration: none;
 }
 .clinical-results-cta--btn:hover {
   background: #1389d5;
   color: #fff;
+  text-decoration: none;
 }
 .clinical-results-header {
   margin: 0 auto;

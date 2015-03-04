@@ -5406,7 +5406,7 @@ ul.clinical-results--list.three-up li {
   width: 32.3%;
 }
 ul.clinical-results--list.three-up li:last-child {
-  margin-bottom: 0;
+  margin-right: 0;
 }
 .clinical-results-list--copy {
   width: 80%;

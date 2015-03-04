@@ -2382,14 +2382,17 @@ td.for-desktop {
   float: none;
   margin: 0 auto;
 }
-#shopping-cart-table .product-image img {
+#shopping-cart-table .product-image img,
+#shopping-cart-table .pr-img-td img {
   width: 50px;
 }
 .cart-table .product-name {
   margin-bottom: 10px;
 }
-.cart-table .product-name a {
+.cart-table .product-name a,
+.cart-table .product-name-td .product-name {
   color: #66b1b8;
+  font-family: "Univers_Condensed","Helvetica Neue",Helvetica,Arial;
 }
 .cart-table .product-name a:hover {
   color: #1c5055;

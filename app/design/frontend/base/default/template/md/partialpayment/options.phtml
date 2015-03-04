@@ -7,11 +7,11 @@ $option = $this->getPartialPaymentOption();
         <ul class="form-list">
             <li class="control partialpayment">
                 <div class="input-box"><input onclick="origPrice();" class="checkbox" type="radio" name="custom_options[partialpayment]" value="-1" checked/></div>
-                <label for="custom_options"><strong><?php echo $helper->__('BUY TODAY & SAVE 25% + 3 FREE GIFTS ($78 value)') ?></strong><br><?php echo $helper->__('YOUR PRICE: $186.75') ?></label>
+                <label for="custom_options"><strong><?php echo $helper->__('BUY TODAY & SAVE 25%') ?></strong><br><?php echo $helper->__('YOUR PRICE: $186.75') ?></label>
             </li>
             <li class="control partialpayment">
                 <div class="input-box"><input onclick="partialPrice();" class="checkbox" type="radio" name="custom_options[partialpayment]" value="1"/></div>
-                <label for="custom_options"><strong><?php echo $helper->__('Pay with 3 Easy Installments + 3 FREE GIFTS ($78 value)') ?></strong><br><?php echo $helper->__('First Payment: $83.00') ?>
+                <label for="custom_options"><strong><?php echo $helper->__('Pay with 3 Easy Installments') ?></strong><br><?php echo $helper->__('First Payment: $83.00') ?>
                     <?php
                     $terms = $helper->getTermsContents();
                     ?>

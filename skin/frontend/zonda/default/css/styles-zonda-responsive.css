@@ -1,1618 +1,1635 @@
-@media(max-width: 991px){
-    /*common styles*/
-    .col1{
-        width:16.666666666666664%;
-    }
-    .col2{
-        width:25%;
-    }
-    .col3{
-        width: 33.33333333333333%;
-    }
-    .col4{
-        width:50%;
-    }
-    .col6{
-        width: 100%;
-    }
-    .col8 {
-        width: 100%;
-    }
-    .footer-above .col4 {
-        width:33.33333333333333%;
-    }
-    .footer-above .content {
-        padding: 20px 20px;
-        min-height: 220px;
-    }
-    .footer-above .col4 .title {
-        font-size: 24px;
-    }
-
-    .footer-above .col4 .learn {
-        font-size: 18px;
-        line-height: 28px;
-        height: 28px;
-        padding: 1px 8px 0 8px;
-        margin: 0 auto;
-        width: 130px;
-        bottom: 20px;
-    }
-
-    .footer-above .col4 .text {
-        font-size: 16px;
-        line-height: 20px;
-        margin: 18px auto;
-    }
-    .container{
-        max-width: 768px;
-        padding: 0 15px;
-    }
-    .cms-container .messages {
-        max-width: 768px;
-        padding: 0 15px !important;
-    }
-    .col-main {
-        width: 70%;
-    }
-    .col-sidebar {
-        width: 30%;
-        padding: 0;
-    }
-    .row {
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-    .col1,
-    .col2,
-    .col3,
-    .col4,
-    .col6,
-    .col8,
-    .col12,
-    .col-social,
-    .col-copy {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-    /*header & menu*/
-    .block .item-name,
-    .mobile-hide,
-    .mobile-hide-inline{
-        display: none;
-    }
-    .mobile-show-inline{
-        display: inline-block;
-    }
-    .block .item-value,
-    .block-language .dropdown-menu .mobile-show-inline{
-        text-transform: uppercase;
-    }
-    .dropdown>a {
-        max-width: 70px;
-    }
-    .dropdown-menu{
-        min-width: 70px;
-    }
-    .store-switcher .block-content {
-        width: auto;
-    }
-    .store-switcher .dropdown>a {
-        max-width: none;
-        width: auto;
-    }
-    .store-switcher .dropdown-menu {
-        min-width: 110px;
-        width: 100%;
-    }
-    .icon-dropdown{
-        margin-left: 12px;
-    }
-    .header-menu-right .header-right{
-        float: none;
-    }
-    .header-menu-right .header-right .nav-container{
-        float: left;
-    }
-    html[xmlns] #menu-button, html[xmlns] .parentMenu{
-        line-height: 40px;
-        padding: 0;
-    }
-    div.level1,
-    .menu-mobile.level0
-    {
-        padding: 0;
-    }
-    .menu-mobile.level1,
-    .menu-mobile.level2 {
-        padding: 0 5px;
-    }
-    #menu-content{
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    /*footer*/
-    .footer .footer-column-4{
-        width: 100%;
-        margin-left: 0;
-    }
-    .col-copy {
-        padding-right: 0;
-    }
-    .col-social {
-        padding-left: 0;
-    }
-    .footer-tweets #twitter-slider {
-        width: 85%;
-    }
-    .footer-tweets #twitter-slider {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    #twitter-slider .flex-direction-nav {
-        left: 40%;
-    }
-    .toolbar .pager,
-    .toolbar .sorter {
-        float: none;
-        text-align: center;
-    }
-    .toolbar .pager {
-        margin-top: 10px;
-    }
-    .products-list .product-shop .description {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-    .products-list .list-border {
-        position: relative;
-        width: 100%;
-        height: 1px;
-        margin: 0;
-        clear: left;
-        padding: 20px 10px 0 10px;
-    }
-    .products-list .list-border .list-border-item {
-        height: 1px;
-        width: 100%;
-    }
-    .products-list .price-box {
-        float: left;
-        width: 100%;
-        text-align: left;
-    }
-    .products-list .product-shop .actions {
-        width: 100%;
-        margin-top: 20px;
-    }
-    .products-list .btn-cart {
-        float: left;
-    }
-    .products-list .add-to-links {
-        clear: none;
-    }
-    /*product view*/
-    .product-view .product-img-box {
-        float: none;
-        width: 100%;
-    }
-    .product-view .product-shop {
-        float: none;
-        width: 100%;
-        padding: 0;
-        margin-top: 30px;
-    }
-    #shopping-cart-table .product-image img {
-        width: 80px;
-    }
-    .checkout-cart-index .cart-collaterals {
-        padding-top: 0;
-    }
-    .checkout-cart-index .cartleftbox,
-    .coupon-box,
-    .riskfree-box,
-    .shipping-container,
-    .total-container {
-        float: none;
-        width: 100%;
-    }
-    .cart .checkout-types {
-        float: none;
-        text-align: left;
-    }
-    .checkout-types li {
-        margin-left: 0;
-        float: none;
-    }
-    .coupon-box {
-        margin-top: 15px;
-    }
-    .shipping-container, .total-container {
-        margin-top: 20px;
-    }
-    .cms-no-route .number-container .container,
-    .cms-no-route .text-container .container {
-        padding: 20px 15px;
-    }
-    /*cms about us page*/
-    .cms-container .block-we .img-slider,
-    .cms-container .block-we .who-we-content {
-        float: none;
-        width: 100%;
-    }
-    .for-responsive {
-        display: block;
-    }
-    .more-info {
-        display: none;
-    }
-    .for-more {
-        display: none;
-    }
-    .shipping-container,
-    .total-container,
-    .account-login .registered-users,
-    .account-login .new-users {
-        float: none;
-        width: 100%;
-    }
-    .my-account .form-list .field .sbHolder {
-        width: 226px;
-    }
-    .my-account .form-list .field .sbSelector {
-        width: 185px;
-    }
-    .header-abs .header-container {
-        position: relative;
-    }
-    #homeslider-revolution {
-        position: relative;
-        max-height: 500px !important;
-    }
-    .header-menu {
-        position: static;
-    }
-    .header-container {
-        position: relative;
-    }
-    .tp-caption.dark_big_text {
-        display: none !important;
-        font-size: 36px !important;
-        line-height: 40px !important;
-        top: 200px !important;
-        left: 200px !important;
-    }
-    .tp-caption.secondary_headline_text {
-        display: none !important;
-        font-size: 13px !important;
-        top: 290px !important;
-        left: 200px !important;
-    }
-    /*********************************** CMS Pages **************************************/
-    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
-        position: static;
-    }
-    .left-qa.col4 {
-        margin-bottom: 20px;
-    }
-    .ultrasound .ultra-bottom {
-        background: none;
-    }
-    .ultrasound .ultra-bottom-inner {
-        margin-top: 0;
-    }
-    .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
-        margin: 20px 0;
-        width: 100%;
-    }
-    .ultrasound .ultra-top {
-        margin-bottom: 30px;
-    }
-    .ultrasound .ultra-top .ultra-top-right img {
-        width: 100%;
-    }
-    .ultrasound .ultra-top-left {
-        width: 100%;
-    }
-    .ultrasound .ultra-bottom-title {
-        display: block;
-    }
-    #homeslider-revolution .container .home-adv {
-        bottom: 10%;
-    }
-    #homeslider-revolution .hp-copy-fade {
-        width: 100%;
-        height: 80px;
-        bottom: 10%;
-        position: absolute;
-        padding: 14px;
-    }
-    #homeslider-revolution .hp-copy-inner h2 {
-        font-size: 14px;
-        line-height: inherit;
-    }
-    #homeslider-revolution .hp-copy-inner h1 {
-        font-size: 24px;
-        font-family: "apexsanslightst", Arial, Helvetica;
-    }
-    #homeslider-revolution .container .home-adv .bx-viewport {
-        height: 314px !important;
-    }
-    #homeslider-revolution .container .home-adv ul.bx-slider li{
-        width: 356px !important;
-    }
-
-    #homeslider-revolution .container .home-adv ul.bx-slider li img {
-        width: 100%;
-    }
-
-    #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
-        height: 147px;
-    }
-    .cms-box.using-jenu .numbox {
-        height: auto;
-    }
-    .cms-box.using-jenu .numbox .num {
-        font-size: 52px;
-        height: 52px;
-        line-height: 52px;
-    }
-    .cms-box.using-jenu .numbox .numtxt {
-        font-size: 18px;
-        line-height: 18px;
-    }
-    .cms-box.before-afters .col2-set div p {
-        font-size: 12px;
-    }
-    .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
-        top: 35%;
-    }
-
-    .cms-page-view .drbanner-img {
-        margin: 0 auto;
-        display: block;
-        width: 100%;
-    }
-
-    .cms-page-view .drbanner-title {
-        position: absolute;
-        right: 100px;
-        top: 80px;
-    }
-
-    .cms-page-view .drbanner-title h1 {
-        font-size: 50px;
-    }
-
-    .cms-page-view .drbanner-title h2 {
-        font-size: 24px;
-    }
-    .cms-box .clinical-inner img.clinical-jars {
-        width: 100%;
-        height: auto;
-    }
-
-    /*********************************** Clinical Results Styles **************************************/
-    .clinical-results-header {
-      margin: 0 auto;
-      width: 70%; }
-
-    ul.clinical-results--list.two-up li {
-      margin: 0 10px 40px 0;
-      min-height: 134px;
-      width: 49.29%; }
-      ul.clinical-results--list.two-up li:last-child {
-        margin-right: 0; }
-      ul.clinical-results--list.two-up li:nth-child(even) {
-        margin-right: 0; }
-
-    ul.clinical-results--list.three-up li {
-      margin: 0 10px 40px 0;
-      width: 32.3%; }
-      ul.clinical-results--list.three-up li:last-child {
-        margin-right: 0; }
-
-    .clinical-results-list--copy {
-      width: 80%; }
-
-    .clinical-results-divider {
-      margin-left: auto;
-      margin-right: auto;
-      width: 70%; }
-
-    .clinical-results-graph-bars--item {
-      width: 33%; }
-
-    .clinical-results--cta {
-      height: 220px; }
-
-    .clinical-results-cta--copy {
-      background-position: 62% 0;
-      background-size: 87px auto;
-      height: 250px; }
-
-    .clinical-results-cta-copy--inner {
-      left: 50%;
-      line-height: 45px;
-      margin-left: -170px;
-      top: 58px;
-      width: 240px; }
-      .clinical-results-cta-copy--inner .copy-main {
-        font-size: 60px; }
-      .clinical-results-cta-copy--inner .copy-sub {
-        font-size: 40px; } }
+@media(max-width: 991px) {
+  /*common styles*/
+  
+  .col1 {
+    width: 16.666666666666664%;
+  }
+  .col2 {
+    width: 25%;
+  }
+  .col3 {
+    width: 33.33333333333333%;
+  }
+  .col4 {
+    width: 50%;
+  }
+  .col6 {
+    width: 100%;
+  }
+  .col8 {
+    width: 100%;
+  }
+  .footer-above .col4 {
+    width: 33.33333333333333%;
+  }
+  .footer-above .content {
+    padding: 20px 20px;
+    min-height: 220px;
+  }
+  .footer-above .col4 .title {
+    font-size: 24px;
+  }
+  .footer-above .col4 .learn {
+    font-size: 18px;
+    line-height: 28px;
+    height: 28px;
+    padding: 1px 8px 0 8px;
+    margin: 0 auto;
+    width: 130px;
+    bottom: 20px;
+  }
+  .footer-above .col4 .text {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 18px auto;
+  }
+  .container {
+    max-width: 768px;
+    padding: 0 15px;
+  }
+  .cms-container .messages {
+    max-width: 768px;
+    padding: 0 15px !important;
+  }
+  .col-main {
+    width: 70%;
+  }
+  .col-sidebar {
+    width: 30%;
+    padding: 0;
+  }
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .col1, .col2, .col3, .col4, .col6, .col8, .col12, .col-social, .col-copy {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  /*header & menu*/
+  
+  .block .item-name, .mobile-hide, .mobile-hide-inline {
+    display: none;
+  }
+  .mobile-show-inline {
+    display: inline-block;
+  }
+  .block .item-value, .block-language .dropdown-menu .mobile-show-inline {
+    text-transform: uppercase;
+  }
+  .dropdown>a {
+    max-width: 70px;
+  }
+  .dropdown-menu {
+    min-width: 70px;
+  }
+  .store-switcher .block-content {
+    width: auto;
+  }
+  .store-switcher .dropdown>a {
+    max-width: none;
+    width: auto;
+  }
+  .store-switcher .dropdown-menu {
+    min-width: 110px;
+    width: 100%;
+  }
+  .icon-dropdown {
+    margin-left: 12px;
+  }
+  .header-menu-right .header-right {
+    float: none;
+  }
+  .header-menu-right .header-right .nav-container {
+    float: left;
+  }
+  html[xmlns] #menu-button, html[xmlns] .parentMenu {
+    line-height: 40px;
+    padding: 0;
+  }
+  div.level1, .menu-mobile.level0 {
+    padding: 0;
+  }
+  .menu-mobile.level1, .menu-mobile.level2 {
+    padding: 0 5px;
+  }
+  #menu-content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  /*footer*/
+  
+  .footer .footer-column-4 {
+    width: 100%;
+    margin-left: 0;
+  }
+  .col-copy {
+    padding-right: 0;
+  }
+  .col-social {
+    padding-left: 0;
+  }
+  .footer-tweets #twitter-slider {
+    width: 85%;
+  }
+  .footer-tweets #twitter-slider {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  #twitter-slider .flex-direction-nav {
+    left: 40%;
+  }
+  .toolbar .pager, .toolbar .sorter {
+    float: none;
+    text-align: center;
+  }
+  .toolbar .pager {
+    margin-top: 10px;
+  }
+  .products-list .product-shop .description {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .products-list .list-border {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    clear: left;
+    padding: 20px 10px 0 10px;
+  }
+  .products-list .list-border .list-border-item {
+    height: 1px;
+    width: 100%;
+  }
+  .products-list .price-box {
+    float: left;
+    width: 100%;
+    text-align: left;
+  }
+  .products-list .product-shop .actions {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .products-list .btn-cart {
+    float: left;
+  }
+  .products-list .add-to-links {
+    clear: none;
+  }
+  /*product view*/
+  
+  .product-view .product-img-box {
+    float: none;
+    width: 100%;
+  }
+  .product-view .product-shop {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-top: 30px;
+  }
+  #shopping-cart-table .product-image img {
+    width: 80px;
+  }
+  .checkout-cart-index .cart-collaterals {
+    padding-top: 0;
+  }
+  .checkout-cart-index .cartleftbox, .coupon-box, .riskfree-box, .shipping-container, .total-container {
+    float: none;
+    width: 100%;
+  }
+  .cart .checkout-types {
+    float: none;
+    text-align: left;
+  }
+  .checkout-types li {
+    margin-left: 0;
+    float: none;
+  }
+  .coupon-box {
+    margin-top: 15px;
+  }
+  .shipping-container, .total-container {
+    margin-top: 20px;
+  }
+  .cms-no-route .number-container .container, .cms-no-route .text-container .container {
+    padding: 20px 15px;
+  }
+  /*cms about us page*/
+  
+  .cms-container .block-we .img-slider, .cms-container .block-we .who-we-content {
+    float: none;
+    width: 100%;
+  }
+  .for-responsive {
+    display: block;
+  }
+  .more-info {
+    display: none;
+  }
+  .for-more {
+    display: none;
+  }
+  .shipping-container, .total-container, .account-login .registered-users, .account-login .new-users {
+    float: none;
+    width: 100%;
+  }
+  .my-account .form-list .field .sbHolder {
+    width: 226px;
+  }
+  .my-account .form-list .field .sbSelector {
+    width: 185px;
+  }
+  .header-abs .header-container {
+    position: relative;
+  }
+  #homeslider-revolution {
+    position: relative;
+    max-height: 500px !important;
+  }
+  .header-menu {
+    position: static;
+  }
+  .header-container {
+    position: relative;
+  }
+  .tp-caption.dark_big_text {
+    display: none !important;
+    font-size: 36px !important;
+    line-height: 40px !important;
+    top: 200px !important;
+    left: 200px !important;
+  }
+  .tp-caption.secondary_headline_text {
+    display: none !important;
+    font-size: 13px !important;
+    top: 290px !important;
+    left: 200px !important;
+  }
+  /*********************************** CMS Pages **************************************/
+  
+  .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+    position: static;
+  }
+  .left-qa.col4 {
+    margin-bottom: 20px;
+  }
+  .ultrasound .ultra-bottom {
+    background: none;
+  }
+  .ultrasound .ultra-bottom-inner {
+    margin-top: 0;
+  }
+  .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
+    margin: 20px 0;
+    width: 100%;
+  }
+  .ultrasound .ultra-top {
+    margin-bottom: 30px;
+  }
+  .ultrasound .ultra-top .ultra-top-right img {
+    width: 100%;
+  }
+  .ultrasound .ultra-top-left {
+    width: 100%;
+  }
+  .ultrasound .ultra-bottom-title {
+    display: block;
+  }
+  #homeslider-revolution .container .home-adv {
+    bottom: 10%;
+  }
+  #homeslider-revolution .hp-copy-fade {
+    width: 100%;
+    height: 80px;
+    bottom: 10%;
+    position: absolute;
+    padding: 14px;
+  }
+  #homeslider-revolution .hp-copy-inner h2 {
+    font-size: 14px;
+    line-height: inherit;
+  }
+  #homeslider-revolution .hp-copy-inner h1 {
+    font-size: 24px;
+    font-family: "apexsanslightst", Arial, Helvetica;
+  }
+  #homeslider-revolution .container .home-adv .bx-viewport {
+    height: 314px !important;
+  }
+  #homeslider-revolution .container .home-adv ul.bx-slider li {
+    width: 356px !important;
+  }
+  #homeslider-revolution .container .home-adv ul.bx-slider li img {
+    width: 100%;
+  }
+  #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
+    height: 147px;
+  }
+  .cms-box.using-jenu .numbox {
+    height: auto;
+  }
+  .cms-box.using-jenu .numbox .num {
+    font-size: 52px;
+    height: 52px;
+    line-height: 52px;
+  }
+  .cms-box.using-jenu .numbox .numtxt {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .cms-box.before-afters .col2-set div p {
+    font-size: 12px;
+  }
+  .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+    top: 35%;
+  }
+  .cms-page-view .drbanner-img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+  .cms-page-view .drbanner-title {
+    position: absolute;
+    right: 100px;
+    top: 80px;
+  }
+  .cms-page-view .drbanner-title h1 {
+    font-size: 50px;
+  }
+  .cms-page-view .drbanner-title h2 {
+    font-size: 24px;
+  }
+  .cms-box .clinical-inner img.clinical-jars {
+    width: 100%;
+    height: auto;
+  }
+  /*********************************** Clinical Results Styles **************************************/
+  
+  .clinical-results-header {
+    margin: 0 auto;
+    width: 100%;
+  }
+  ul.clinical-results--list.two-up li {
+    margin: 0 10px 40px 0;
+    min-height: 134px;
+    width: 100%;
+  }
+  ul.clinical-results--list.two-up li:last-child {
+    margin-right: 0;
+  }
+  ul.clinical-results--list.two-up li:nth-child(even) {
+    margin-right: 0;
+  }
+  ul.clinical-results--list.three-up li {
+    margin: 0 10px 40px 0;
+    width: 100%;
+  }
+  ul.clinical-results--list.three-up li:last-child {
+    margin-right: 0;
+  }
+  .clinical-results-list--item {
+    float: left;
+    margin: 0 0 40px 0;
+    width: 100%;
+  }
+  .clinical-results-graph--inner {
+    height: 400px;
+    margin: 40px 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .clinical-results--graph {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 0 20px;
+  }
+  .clinical-results-graph--inner {
+    height: 400px;
+    margin: 40px 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  ul.clinical-results-graph--bars {
+    bottom: 0;
+    height: 100%;
+    right: 0;
+    width: 83%;
+  }
+  .clinical-results-graph-bars--item {
+    box-shadow: inset -1px 0 0 0 #fff;
+    bottom: 0;
+    float: left;
+    margin-right: 1px;
+    padding: 5px;
+    position: absolute;
+    vertical-align: bottom;
+  }
+  .clinical-results-graph-bars--item:last-child {
+    box-shadow: inset 0 0 0 0 #fff;
+  }
+  .clinical-results-graph-bars--item.bar-1 {
+    background: #628ba6;
+    height: 47%;
+    width: 33%;
+  }
+  .clinical-results-graph-bars--item.bar-2 {
+    background: #3c7da6;
+    height: 65%;
+    margin-left: 33%;
+    width: 33%;
+  }
+  .clinical-results-graph-bars--item.bar-3 {
+    background: #0f6ba6;
+    height: 74%;
+    margin-left: 66%;
+    width: 33%;
+  }
+  .clinical-results-graph-bars--item > span {
+    bottom: 0;
+    color: #fff;
+    display: block;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    left: auto;
+    padding: 5px;
+    position: absolute;
+    text-align: left;
+    text-transform: uppercase;
+    top: auto;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .clinical-results-graph-bars--item .jenu {
+    text-transform: none;
+  }
+  ul.clinical-results-graph--perc {
+    padding-left: 0;
+  }
+  .clinical-results-graph-perc--item {
+    border-bottom: 1px solid #e7e7e7;
+    border-left: 0;
+    color: #525252;
+    float: none;
+    font-size: 16px;
+    font-weight: 300;
+    height: 9.09090909090909%;
+    position: relative;
+    width: 100%;
+  }
+  .clinical-results-graph-perc--item span {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    text-align: right;
+    width: 40px;
+  }
+  .clinical-results--cta {
+    background: #f9f9f9;
+    height: 150px;
+    position: relative;
+    width: 104.3%;
+  }
+  .clinical-results-cta--copy {
+    background: url("../images/bg-lto-cta.png") no-repeat 70% 0;
+    background-size: 57px auto;
+    height: 180px;
+    position: relative;
+    top: -20px;
+    width: 100%;
+  }
+  .clinical-results-cta-copy--inner {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    left: 50%;
+    line-height: 30px;
+    margin-left: -120px;
+    position: relative;
+    top: 42px;
+    text-transform: uppercase;
+    width: 160px;
+  }
+  .clinical-results-cta-copy--inner .copy-main {
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .clinical-results-cta-copy--inner .copy-sub {
+    display: block;
+    font-size: 27px;
+    font-weight: 300;
+  }
 }
-@media(max-width:767px){
-    .col1,
-    .col2,
-    .col3,
-    .col4,
-    .col6,
-    .col8,
-    .col12,
-    .col-copy,
-    .col-social,
-    .footer-above .col4 {
-        float: none;
-        width: 100%;
-        margin: 0;
-    }
-    .col-main,
-    .col-sidebar {
-        float: none;
-        width: 100%;
-        padding: 0;
-    }
-    .col-sidebar {
-        margin-top: 10px;
-    }
-    .row {
-        margin-left: -15px;
-        margin-right: -15px;
-    }
-    .mobile-bg{
-        height: 40px;
-        position: absolute;
-        width: 100%;
-        background-color: #15323c;
-        bottom: 0;
-    }
-    .block{
-        margin-bottom: 10px;
-    }
-    .main {
-        margin-bottom: 20px;
-    }
-    .review-row .review-title {
-        font-size: 18px;
-        line-height: normal;
-        float: left;
-    }
-    .review-row .ratings {
-        float: left;
-        margin-top: 10px;
-        clear: both;
-    }
-    .product-view .data-table th {
-        padding: 10px 3px;
-        font-size: 11px;
-    }
-    .cms-page-view .main {
-        padding-bottom: 20px;
-        margin-bottom: 0;
-    }
-    .cms-page-view.cms-in-the-press .main,
-    .cms-page-view.cms-before-afters .main {
-        background: #fff;
-    }
-    .header-top .container .toplinks,
-    .header-top .container .login-container-big,
-    .cart-value,
-    .menu-active .quick-access,
-    .search-active .nav-container,
-    .block-container{
-        display: none;
-    }
-    .toplinks{
-        left: 0;
-    }
-    .mobile-toplinks{
-        display: block;
-        padding: 0 15px;
-    }
-    .header-top .right{
-        float: none !important;
-    }
-    .block-switcher{
-        float: left;
-        position: relative;
-        left: -12px;
-    }
-    .header-container .logo{
-        float: none;
-        margin: 0 auto;
-        text-align: center;
-        line-height: normal;
-        height: auto;
-    }
-    .logo-bg-img {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .header-container .form-search .button{
-        background: none;
-        padding: 0;
-    }
-    .header-menu-right .header-right{
-        float: none;
-        padding: 0 0 0 20px;
-        margin-top: 10px;
-    }
-    .header-menu-right .container{
-        padding: 0;
-    }
-    .header-menu-right .header-right .nav-container{
-        float: left;
-    }
-    #custommenu-mobile #menu-button{
-        margin: 0;
-    }
-    html[xmlns] #menu-button,
-    html[xmlns] .parentMenu{
-        padding: 0;
-    }
-    .quick-access{
-        padding-top: 5px;
-        padding-bottom: 4px;
-        position: relative;
-    }
-    .search-active .quick-access{
-        width: 100%;
-    }
-    .header-container .search-active .quick-access .form-search{
-        background: none;
-        text-align: right;
-    }
-    .header-container .search-active .quick-access .form-search .input-text{
-        padding-left: 0;
-    }
-    #custommenu-mobile #menu-button a,
-    #custommenu-mobile #menu-button a:link,
-    #custommenu-mobile #menu-button a:visited{
-        padding: 13px 0;
-        padding-bottom: 14px;
-        line-height: 40px;
-        height: 40px;
-    }
-    #custommenu-mobile #menu-content{
-        margin: 10px;
-    }
-    .mobile-block-container{
-        display: block;
-    }
-    .footer .social-links{
-        text-align: center;
-        padding-right: 0;
-    }
-    .footer .copyright {
-        padding-left: 0;
-    }
-    .footer .copyright address {
-        text-align: center;
-    }
-    .footer-tweets #twitter-slider {
-        width: 80%;
-    }
-    .footer-tweets #twitter-slider {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    #twitter-slider .flex-direction-nav {
-        left: 30%;
-    }
-    .main-content {
-        padding: 0;
-    }
-    /*category*/
-    .category-banner {
-        background: none !important;
-        height: auto !important;
-    }
-    .banner-image {
-        display: block;
-    }
-
-    .category-banner .category-wrap .container .inner {
-        top: 0;
-    }
-    .category-banner .category-wrap .category-title,
-    .category-banner .category-title h1{
-        padding-top: 20px;
-        font-size: 30px;
-    }
-    .category-banner .category-wrap .category-description {
-        display: none;
-    }
-    .products-list .product-shop {
-        margin: 0;
-    }
-    .products-list .product-image {
-        margin-bottom: 20px;
-    }
-    .product-view .product-options .options .clearfix .option {
-        float: none;
-    }
-    /*compare products*/
-    .for-desktop {
-        display: none !important;
-    }
-    .for-mobile {
-        display: block !important;
-    }
-    table.for-mobile {
-        display: table !important;
-    }
-    tr.for-mobile {
-        display: table-row !important;
-    }
-    .catalog-product-compare-index .data-table th {
-        text-align: center;
-    }
-    /*shopping cart*/
-    .cart-table thead {
-        display: none;
-    }
-    .data-table.cart-table tbody td {
-        display: block;
-        padding: 0;
-        width: 100%;
-        border: 0;
-        line-height: 30px;
-    }
-    .data-table.cart-table tbody tr {
-        padding: 0;
-        position: relative;
-        display: block;
-        clear: both;
-    }
-    .data-table.cart-table tbody tr.last {
-        border-bottom-width: 2px;
-    }
-    .data-table.cart-table tbody td.pr-img-td {
-        clear: both;
-        padding: 30px;
-    }
-    .data-table.cart-table tbody td.pr-img-td .btn-remove2 {
-        margin-bottom: 10px;
-    }
-    .data-table.cart-table tbody td.product-name-td {
-        padding-top: 0;
-        text-align: center !important;
-    }
-    .data-table.cart-table tbody td.pr-img-td a.product-image {
-        width: 100%;
-    }
-    .data-table.cart-table tbody td.sub-total {
-        padding-bottom: 40px;
-    }
-    .data-table.cart-table tbody td.sub-total span.mobile-show {
-
-    }
-    .cart-table .product-name {
-        margin: 0;
-        line-height: 30px;
-    }
-    .cart-table .product-image img {
-        width: 100%;
-    }
-    .cart-table .qty-holder {
-        margin: 15px 0;
-    }
-    .cart-table input.qty {
-        width: 100px;
-        padding: 0 10px;
-    }
-    .cart-table .item-options > div {
-        line-height: 30px;
-    }
-    span.for-mobile-inline {
-        display: inline !important;
-    }
-    .button-up.for-mobile {
-        display: inline-block !important;
-    }
-    #shopping-cart-table .product-image img {
-        width: 100%;
-    }
-    .cart .data-table .btn-continue {
-        float: none;
-    }
-    .checkout-cart-index .cart-table tfoot td {
-        text-align: center !important;
-    }
-    .checkout-cart-index .cart-table tfoot td .button {
-        margin: 5px 0;
-    }
-    .shipping-form {
-        padding: 10px;
-    }
-    .cart-table col,
-    .order-review .data-table col,
-    .my-account .data-table col,
-    .my-wishlist .data-table col {
-        display: none;
-    }
-    .cart-table thead tr,
-    .order-review .data-table thead tr,
-    .my-account .data-table thead tr,
-    .my-wishlist .data-table thead tr {
-        display: none;
-    }
-    .cart-table thead tr.mobile-row,
-    .order-review .data-table thead tr.mobile-row,
-    .my-account .data-table thead tr.mobile-row,
-    .my-wishlist .data-table thead tr.mobile-row {
-        display: block;
-    }
-    .cart-table tr,
-    .cart-table td,
-    .cart-table th,
-    .order-review .data-table tr,
-    .order-review .data-table td,
-    .order-review .data-table th,
-    .my-account .data-table tr,
-    .my-account .data-table td,
-    .my-account .data-table th,
-    .my-wishlist .data-table tr,
-    .my-wishlist .data-table td,
-    .my-wishlist .data-table th {
-        border-left: none !important;
-        border-right: none !important;
-        display: block;
-        padding: 0 !important;
-        text-align: center !important;
-    }
-    .cart-table td,
-    .cart-table th,
-    .order-review .data-table td,
-    .order-review .data-table th,
-    .my-account .data-table td,
-    .my-account .data-table th,
-    .my-wishlist .data-table td,
-    .my-wishlist .data-table th {
-        padding: 10px 5px !important;
-    }
-    .cart-table tbody td:first-child,
-    .cart-table tbody th:first-child,
-    .order-review .data-table tbody td:first-child,
-    .order-review .data-table tbody th:first-child,
-    .my-account .data-table tbody td:first-child,
-    .my-account .data-table tbody th:first-child,
-    .my-wishlist .data-table tbody td:first-child,
-    .my-wishlist .data-table tbody th:first-child {
-        padding-top: 20px !important;
-    }
-    .cart-table tbody td:last-child,
-    .cart-table tbody th:last-child,
-    .order-review .data-table tbody td:last-child,
-    .order-review .data-table tbody th:last-child,
-    .my-account .data-table tbody td:last-child,
-    .my-account .data-table tbody th:last-child,
-    .my-wishlist .data-table tbody td:last-child,
-    .my-wishlist .data-table tbody th:last-child {
-        padding-bottom: 20px !important;
-    }
-    .cart-table thead tr.mobile-row th,
-    .order-review .data-table thead tr.mobile-row th,
-    .my-account .data-table thead tr.mobile-row th,
-    .my-wishlist .data-table thead tr.mobile-row th {
-        padding: 20px 10px !important;
-    }
-    .cart-table tbody td,
-    .cart-table tbody tr.last td,
-    .order-review .data-table tbody td,
-    .order-review .data-table tbody tr.last td,
-    .my-account .data-table tbody td,
-    .my-account .data-table tbody tr.last td,
-    .my-wishlist .data-table tbody td,
-    .my-wishlist .data-table tbody tr.last td {
-        border-bottom-width: 0;
-    }
-    .cart-table tbody td.last,
-    .cart-table tbody tr.last td.last,
-    .order-review .data-table tbody td.last,
-    .order-review .data-table tbody tr.last td.last,
-    .my-account .data-table tbody td.last,
-    .my-account .data-table tbody tr.last td.last {
-        border-bottom-width: 1px;
-    }
-    .data-table .product-image {
-        float: none;
-        width: 150px;
-        margin: 15px auto;
-    }
-    .data-table .product-shop {
-        float: none;
-        padding-left: 0;
-        text-align: center;
-    }
-    .data-table .actions {
-        margin-top: 0;
-    }
-    .data-table .item-options {
-        float: none;
-    }
-    .data-table .item-options dt,
-    .data-table .item-options dd {
-        float: none;
-        display: inline;
-    }
-    .data-table .cart-price {
-        margin-top: 0;
-        display: inline;
-    }
-    .data-table .total-price .cart-price {
-        padding-right: 0;
-    }
-    .col2-set .col-1,
-    .col2-set .col-2 {
-        float: none;
-        width: 100%;
-        padding: 0;
-    }
-    .form-list .field {
-        float: none;
-        width: 100%;
-    }
-    .form-list .fields {
-        margin-bottom: 8px;
-    }
-    #contact-block-map {
-        height: 250px;
-    }
-    .contacts-index-index .content-left,
-    .contacts-index-index .content-right {
-        float: none;
-        width: 100%;
-    }
-    .contacts-index-index .content .msg {
-        margin-top: 15px;
-    }
-    .cms-no-route .text-container .container h2,
-    .cms-no-route .text-container .container .search-form {
-        width: 400px;
-    }
-    /*about us page*/
-    .cms-heading-container {
-        padding-top: 50px;
-    }
-    .cms-heading-container .page-title h1 {
-        color: #000000;
-    }
-    /*cms about us page*/
-    .cms-container .block-testminial .minial-comments {
-        width: 330px;
-    }
-    #topcontrol {
-        display: none;
-    }
-    .my-account .form-list .field .sbHolder {
-        width: 394px;
-    }
-    .my-account .form-list .field .sbSelector {
-        width: 353px;
-    }
-    .tp-caption.dark_big_text {
-        font-size: 20px !important;
-        line-height: normal !important;
-        top: 100px !important;
-        left: 180px !important;
-        display: block !important;
-    }
-    .tp-caption.secondary_headline_text {
-        font-size: 11px !important;
-        top: 150px !important;
-        left: 180px !important;
-        max-width: 700px;
-        white-space: normal !important;
-        line-height: normal !important;
-        display: block !important;
-    }
-    #homeslider-revolution {
-        max-height: 300px !important;
-    }
-    .footer-above .col4 {
-        margin-bottom: 20px;
-    }
-    /*********************************** CMS Pages **************************************/
-    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
-        position: static;
-    }
-    .ultrasound .timepoint.odd .ultra-image,
-    .ultrasound .timepoint.odd .ultra-image img,
-    .ultrasound .timepoint.even .ultra-image,
-    .ultrasound .timepoint.even .ultra-image img,
-    .ultrasound .timepoint.odd .ultra-text,
-    .ultrasound .timepoint.even .ultra-text {
-        width: 100%;
-        padding: 0;
-        text-align: left;
-    }
-    .ultrasound .timepoint.odd .ultra-year-text,
-    .ultrasound .timepoint.even .ultra-year-text {
-        padding: 0;
-        margin-top: 10px;
-        width: 100%;
-    }
-    .ultrasound .timepoint.even,
-    .ultrasound .timepoint.odd {
-        padding: 0;
-    }
-    .ultrasound .timepoint.even .ultra-year {
-        text-align: left;
-        width: 100%;
-    }
-    .ultrasound .timepoint.yr-2015 .ultra-year-text {
-        position: static;
-    }
-    .ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
-        position: static;
-        top: 0;
-        width: 100%;
-    }
-    #homeslider-revolution .hp-copy-fade {
-        width: 100%;
-        height: auto;
-        bottom: 0;
-        position: absolute;
-        padding: 10px;
-        top: auto;
-    }
-    #homeslider-revolution .hp-copy-fade h1 {
-        margin-bottom: 5px;
-    }
-    #homeslider-revolution .hp-copy-inner h2 {
-        font-size: 13px;
-        line-height: 16px;
-    }
-    #homeslider-revolution .hp-copy-inner h1 {
-        font-size: 18px;
-        font-family: "apexsanslightst", Arial, Helvetica;
-    }
-    .cms-box.ultrasound101 h1,
-    .cms-box.using-jenu h1,
-    .cms-box.how-jenu-works h1,
-    .cms-box.clinical-results h1 {
-        font-size: 35px;
-        margin: 30px 0 15px 0;
-        padding: 0 0 10px 0;
-    }
-    .cms-box.ultrasound101 h2 {
-        font-size: 16px;
-        padding-bottom: 8px;
-        text-transform: uppercase;
-        color: #fff;
-    }
-    .cms-box.ultrasound101 .whatis {
-        width: 100%;
-        margin: 30px auto 0 auto;
-    }
-    .cms-box.ultrasound101 .whatis p {
-        font-size: 13px;
-        line-height: 18px;
-        margin: 10px 0;
-    }
-    .cms-box.using-jenu .numbox {
-        height: auto;
-    }
-    .cms-box.using-jenu .numbox .num {
-        font-size: 52px;
-    }
-    .cms-box.using-jenu .numbox .numtxt {
-        font-size: 14px;
-        line-height: 14px;
-    }
-    .cms-box.using-jenu .step h4,
-    .cms-box.using-jenu .step ul {
-        font-size: 14px;
-        margin: 10px 0;
-    }
-    .cms-box.using-jenu .step3 .devicewrap .dasharrow {
-        display: none;
-    }
-    .cms-box.using-jenu .experttip {
-        margin: 30px 0;
-        text-align: center;
-    }
-    .cms-box.using-jenu .experttip .roundtip {
-        float: none;
-        margin: 0 auto;
-        display: block;
-    }
-    .cms-box.using-jenu .experttip .tip {
-        font-size: 16px;
-        padding-left: 0;
-        margin-left: auto;
-        display: block;
-        width: 100%;
-        float: none;
-        margin-top: 20px;
-    }
-    .cms-box.using-jenu .bottom-note {
-        font-size: 14px;
-        line-height: 18px;
-        margin-top: 0;
-    }
-    .cms-box .how-jenu-works-inner {
-        margin: 0;
-    }
-    .cms-box.how-jenu-works h4 {
-        font-size: 16px;
-        margin: 20px 0;
-    }
-    .cms-box.how-jenu-works h5 {
-        font-size: 14px;
-        margin: 10px 0 10px 0;
-    }
-    .cms-box.how-jenu-works .imgbox {
-        margin: 20px 0 40px 0;
-        float: none;
-    }
-    .cms-box.how-jenu-works .imgbox .img1,
-    .cms-box.how-jenu-works .imgbox .img1 .roundtip,
-    .cms-box.how-jenu-works .imgbox .img1 img {
-        position: static;
-    }
-    .cms-box.how-jenu-works .imgbox img,
-    .cms-box.how-jenu-works .imgbox .img1 {
-        width: 100%;
-        height: auto;
-    }
-    .cms-box.how-jenu-works .imgbox .img1 {
-        position: relative;
-    }
-    .cms-box.how-jenu-works .imgbox .img1 .roundtip {
-        width: 80px;
-        height: 80px;
-        font-size: 10px;
-        padding-top: 20px;
-        top: 5px;
-        right: 5px;
-        z-index: 2;
-        position: absolute;
-    }
-    .cms-box.how-jenu-works h2 {
-        font-size: 22px;
-        margin: 0 0 10px 0;
-    }
-    .cms-box.how-jenu-works h2 strong {
-        font-size: 24px;
-    }
-    .cms-box.how-jenu-works .how-bottomcopy {
-        font-size: 16px;
-    }
-    .cms-box.how-jenu-works .buttons-wrap {
-        margin: 15px 0;
-    }
-    .cms-box.how-jenu-works a.btn-lto {
-        margin-bottom: 10px;
-    }
-    .cms-box.how-jenu-works a.btn-learn {
-        font-size: 16px;
-    }
-    .cms-box .clinical-inner {
-        margin: 0 0 10px 0;
-    }
-    .cms-box .clinical-inner .clinical-sub {
-        font-size: 22px;
-        margin: 20px 0;
-    }
-    .cms-box .clinical-inner .clinical-sub span {
-        display: inline;
-        font-size: 18px;
-        margin-top: 0;
-    }
-    .cms-box .clinical-inner .clinical-list {
-        font-size: 16px;
-        margin: 15px 0;
-        line-height: 20px;
-    }
-    .cms-box .clinical-inner img.clinical-jars, .cms-box .clinical-inner img.clinical-graph {
-        width: 100%;
-        height: auto;
-    }
-    .cms-box .clinical-inner .flowerswrap {
-        margin-left: 0;
-    }
-    .cms-box .clinical-inner .flowerswrap .flowersbox {
-        display: inline-block;
-        font-size: 14px;
-        margin: 10px 0;
-        text-align: center;
-        width: 100%;
-    }
-    .cms-box .clinical-inner .flowerswrap .flowersbox.versus {
-        font-size: 24px;
-        height: 60px;
-        line-height: 60px;
-        padding: 0;
-        width: auto;
-    }
-    .cms-box .clinical-inner .flowerswrap .flowersbox span {
-        display: block;
-    }
-    .cms-box .clinical-inner .clinical-data-wrap {
-        margin-left: 0;
-        font-size: 14px;
-        float: none;
-    }
-    .cms-box .clinical-inner .clinical-data-left {
-        float: none;
-        font-size: 80px;
-    }
-    .cms-box .clinical-inner .clinical-data-right {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-    .cms-box .clinical-inner .clinical-circles-wrap {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle:first-child {
-        margin-left: auto;
-    }
-    .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle {
-        margin: 20px auto;
-        display: block;
-    }
-    .cms-box.clinical-results table.clinical-grid {
-        display: none;
-    }
-    .cms-box.before-afters .before-afters-inner .bx-wrapper .bx-controls-direction {
-        top: 33%;
-    }
-    .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
-        top: 25%;
-    }
-    .top-block {
-        display: none;
-    }
-    .cms-page-view .drbanner-title {
-        left: 40%;
-        top: 20%;
-        right: 0;
-    }
-    .cms-page-view .drbanner-title h1 {
-        font-size: 24px;
-    }
-    .cms-page-view .drbanner-title h2 {
-        font-size: 14px;
-    }
-    .cms-page-view .batravid {
-        width: 300px;
-        height: 169px;
-    }
-    .cms-page-view .jenu-vid {
-        width: 320px;
-        height: 180px;
-    }
-    .checkout-cart-index .support-box {
-        width: 100%;
-        text-align: left;
-        margin-top: 0;
-    }
-    .checkout-cart-index .btn-continue, .checkout-cart-index .btn-update {
-        font-size: 13px;
-        padding: 0;
-    }
-    .checkout-cart-index .or {
-        font-size: 12px;
-        margin: 0 10px;
-        height: 40px;
-        line-height: 40px;
-    }
-    .checkout-cart-index .checkout-box {
-        width: 100%;
-        margin-top: 12px;
-        text-align: left;
-    }
-    .checkout-cart-index .riskfree-box {
-        width: 100%;
-    }
-    .checkout-cart-index .riskfree-box .riskfree-seal {
-        text-align: center;
-        float: none;
-        display: block;
-    }
-    .checkout-cart-index .riskfree-box .riskfree-copy {
-        border: none;
-        padding-left: 0;
-        margin-left: 0;
-        text-align: center;
-        width: 100%;
-    }
-    .checkout-cart-index .contbox,
-    .checkout-cart-index .checkout-box ul.checkout-types {
-        float: left;
-    }
-    .cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-left.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
-    .cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp3/arrow-right.png) no-repeat top left; width:28px; height:28px; text-indent: -9999px;}
-    .sarp-terms-popup {
-        width: 90%;
-    }
+@media(max-width:767px) {
+  .col1, .col2, .col3, .col4, .col6, .col8, .col12, .col-copy, .col-social, .footer-above .col4 {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  .col-main, .col-sidebar {
+    float: none;
+    width: 100%;
+    padding: 0;
+  }
+  .col-sidebar {
+    margin-top: 10px;
+  }
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .mobile-bg {
+    height: 40px;
+    position: absolute;
+    width: 100%;
+    background-color: #15323c;
+    bottom: 0;
+  }
+  .block {
+    margin-bottom: 10px;
+  }
+  .main {
+    margin-bottom: 20px;
+  }
+  .review-row .review-title {
+    font-size: 18px;
+    line-height: normal;
+    float: left;
+  }
+  .review-row .ratings {
+    float: left;
+    margin-top: 10px;
+    clear: both;
+  }
+  .product-view .data-table th {
+    padding: 10px 3px;
+    font-size: 11px;
+  }
+  .cms-page-view .main {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
+  .cms-page-view.cms-in-the-press .main, .cms-page-view.cms-before-afters .main {
+    background: #fff;
+  }
+  .header-top .container .toplinks, .header-top .container .login-container-big, .cart-value, .menu-active .quick-access, .search-active .nav-container, .block-container {
+    display: none;
+  }
+  .toplinks {
+    left: 0;
+  }
+  .mobile-toplinks {
+    display: block;
+    padding: 0 15px;
+  }
+  .header-top .right {
+    float: none !important;
+  }
+  .block-switcher {
+    float: left;
+    position: relative;
+    left: -12px;
+  }
+  .header-container .logo {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    line-height: normal;
+    height: auto;
+  }
+  .logo-bg-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header-container .form-search .button {
+    background: none;
+    padding: 0;
+  }
+  .header-menu-right .header-right {
+    float: none;
+    padding: 0 0 0 20px;
+    margin-top: 10px;
+  }
+  .header-menu-right .container {
+    padding: 0;
+  }
+  .header-menu-right .header-right .nav-container {
+    float: left;
+  }
+  #custommenu-mobile #menu-button {
+    margin: 0;
+  }
+  html[xmlns] #menu-button, html[xmlns] .parentMenu {
+    padding: 0;
+  }
+  .quick-access {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    position: relative;
+  }
+  .search-active .quick-access {
+    width: 100%;
+  }
+  .header-container .search-active .quick-access .form-search {
+    background: none;
+    text-align: right;
+  }
+  .header-container .search-active .quick-access .form-search .input-text {
+    padding-left: 0;
+  }
+  #custommenu-mobile #menu-button a, #custommenu-mobile #menu-button a:link, #custommenu-mobile #menu-button a:visited {
+    padding: 13px 0;
+    padding-bottom: 14px;
+    line-height: 40px;
+    height: 40px;
+  }
+  #custommenu-mobile #menu-content {
+    margin: 10px;
+  }
+  .mobile-block-container {
+    display: block;
+  }
+  .footer .social-links {
+    text-align: center;
+    padding-right: 0;
+  }
+  .footer .copyright {
+    padding-left: 0;
+  }
+  .footer .copyright address {
+    text-align: center;
+  }
+  .footer-tweets #twitter-slider {
+    width: 80%;
+  }
+  .footer-tweets #twitter-slider {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #twitter-slider .flex-direction-nav {
+    left: 30%;
+  }
+  .main-content {
+    padding: 0;
+  }
+  /*category*/
+  
+  .category-banner {
+    background: none !important;
+    height: auto !important;
+  }
+  .banner-image {
+    display: block;
+  }
+  .category-banner .category-wrap .container .inner {
+    top: 0;
+  }
+  .category-banner .category-wrap .category-title, .category-banner .category-title h1 {
+    padding-top: 20px;
+    font-size: 30px;
+  }
+  .category-banner .category-wrap .category-description {
+    display: none;
+  }
+  .products-list .product-shop {
+    margin: 0;
+  }
+  .products-list .product-image {
+    margin-bottom: 20px;
+  }
+  .product-view .product-options .options .clearfix .option {
+    float: none;
+  }
+  /*compare products*/
+  
+  .for-desktop {
+    display: none !important;
+  }
+  .for-mobile {
+    display: block !important;
+  }
+  table.for-mobile {
+    display: table !important;
+  }
+  tr.for-mobile {
+    display: table-row !important;
+  }
+  .catalog-product-compare-index .data-table th {
+    text-align: center;
+  }
+  /*shopping cart*/
+  
+  .cart-table thead {
+    display: none;
+  }
+  .data-table.cart-table tbody td {
+    display: block;
+    padding: 0;
+    width: 100%;
+    border: 0;
+    line-height: 30px;
+  }
+  .data-table.cart-table tbody tr {
+    padding: 0;
+    position: relative;
+    display: block;
+    clear: both;
+  }
+  .data-table.cart-table tbody tr.last {
+    border-bottom-width: 2px;
+  }
+  .data-table.cart-table tbody td.pr-img-td {
+    clear: both;
+    padding: 30px;
+  }
+  .data-table.cart-table tbody td.pr-img-td .btn-remove2 {
+    margin-bottom: 10px;
+  }
+  .data-table.cart-table tbody td.product-name-td {
+    padding-top: 0;
+    text-align: center !important;
+  }
+  .data-table.cart-table tbody td.pr-img-td a.product-image {
+    width: 100%;
+  }
+  .data-table.cart-table tbody td.sub-total {
+    padding-bottom: 40px;
+  }
+  .data-table.cart-table tbody td.sub-total span.mobile-show {} .cart-table .product-name {
+    margin: 0;
+    line-height: 30px;
+  }
+  .cart-table .product-image img {
+    width: 100%;
+  }
+  .cart-table .qty-holder {
+    margin: 15px 0;
+  }
+  .cart-table input.qty {
+    width: 100px;
+    padding: 0 10px;
+  }
+  .cart-table .item-options > div {
+    line-height: 30px;
+  }
+  span.for-mobile-inline {
+    display: inline !important;
+  }
+  .button-up.for-mobile {
+    display: inline-block !important;
+  }
+  #shopping-cart-table .product-image img {
+    width: 100%;
+  }
+  .cart .data-table .btn-continue {
+    float: none;
+  }
+  .checkout-cart-index .cart-table tfoot td {
+    text-align: center !important;
+  }
+  .checkout-cart-index .cart-table tfoot td .button {
+    margin: 5px 0;
+  }
+  .shipping-form {
+    padding: 10px;
+  }
+  .cart-table col, .order-review .data-table col, .my-account .data-table col, .my-wishlist .data-table col {
+    display: none;
+  }
+  .cart-table thead tr, .order-review .data-table thead tr, .my-account .data-table thead tr, .my-wishlist .data-table thead tr {
+    display: none;
+  }
+  .cart-table thead tr.mobile-row, .order-review .data-table thead tr.mobile-row, .my-account .data-table thead tr.mobile-row, .my-wishlist .data-table thead tr.mobile-row {
+    display: block;
+  }
+  .cart-table tr, .cart-table td, .cart-table th, .order-review .data-table tr, .order-review .data-table td, .order-review .data-table th, .my-account .data-table tr, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table tr, .my-wishlist .data-table td, .my-wishlist .data-table th {
+    border-left: none !important;
+    border-right: none !important;
+    display: block;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+  .cart-table td, .cart-table th, .order-review .data-table td, .order-review .data-table th, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table td, .my-wishlist .data-table th {
+    padding: 10px 5px !important;
+  }
+  .cart-table tbody td:first-child, .cart-table tbody th:first-child, .order-review .data-table tbody td:first-child, .order-review .data-table tbody th:first-child, .my-account .data-table tbody td:first-child, .my-account .data-table tbody th:first-child, .my-wishlist .data-table tbody td:first-child, .my-wishlist .data-table tbody th:first-child {
+    padding-top: 20px !important;
+  }
+  .cart-table tbody td:last-child, .cart-table tbody th:last-child, .order-review .data-table tbody td:last-child, .order-review .data-table tbody th:last-child, .my-account .data-table tbody td:last-child, .my-account .data-table tbody th:last-child, .my-wishlist .data-table tbody td:last-child, .my-wishlist .data-table tbody th:last-child {
+    padding-bottom: 20px !important;
+  }
+  .cart-table thead tr.mobile-row th, .order-review .data-table thead tr.mobile-row th, .my-account .data-table thead tr.mobile-row th, .my-wishlist .data-table thead tr.mobile-row th {
+    padding: 20px 10px !important;
+  }
+  .cart-table tbody td, .cart-table tbody tr.last td, .order-review .data-table tbody td, .order-review .data-table tbody tr.last td, .my-account .data-table tbody td, .my-account .data-table tbody tr.last td, .my-wishlist .data-table tbody td, .my-wishlist .data-table tbody tr.last td {
+    border-bottom-width: 0;
+  }
+  .cart-table tbody td.last, .cart-table tbody tr.last td.last, .order-review .data-table tbody td.last, .order-review .data-table tbody tr.last td.last, .my-account .data-table tbody td.last, .my-account .data-table tbody tr.last td.last {
+    border-bottom-width: 1px;
+  }
+  .data-table .product-image {
+    float: none;
+    width: 150px;
+    margin: 15px auto;
+  }
+  .data-table .product-shop {
+    float: none;
+    padding-left: 0;
+    text-align: center;
+  }
+  .data-table .actions {
+    margin-top: 0;
+  }
+  .data-table .item-options {
+    float: none;
+  }
+  .data-table .item-options dt, .data-table .item-options dd {
+    float: none;
+    display: inline;
+  }
+  .data-table .cart-price {
+    margin-top: 0;
+    display: inline;
+  }
+  .data-table .total-price .cart-price {
+    padding-right: 0;
+  }
+  .col2-set .col-1, .col2-set .col-2 {
+    float: none;
+    width: 100%;
+    padding: 0;
+  }
+  .form-list .field {
+    float: none;
+    width: 100%;
+  }
+  .form-list .fields {
+    margin-bottom: 8px;
+  }
+  #contact-block-map {
+    height: 250px;
+  }
+  .contacts-index-index .content-left, .contacts-index-index .content-right {
+    float: none;
+    width: 100%;
+  }
+  .contacts-index-index .content .msg {
+    margin-top: 15px;
+  }
+  .cms-no-route .text-container .container h2, .cms-no-route .text-container .container .search-form {
+    width: 400px;
+  }
+  /*about us page*/
+  
+  .cms-heading-container {
+    padding-top: 50px;
+  }
+  .cms-heading-container .page-title h1 {
+    color: #000000;
+  }
+  /*cms about us page*/
+  
+  .cms-container .block-testminial .minial-comments {
+    width: 330px;
+  }
+  #topcontrol {
+    display: none;
+  }
+  .my-account .form-list .field .sbHolder {
+    width: 394px;
+  }
+  .my-account .form-list .field .sbSelector {
+    width: 353px;
+  }
+  .tp-caption.dark_big_text {
+    font-size: 20px !important;
+    line-height: normal !important;
+    top: 100px !important;
+    left: 180px !important;
+    display: block !important;
+  }
+  .tp-caption.secondary_headline_text {
+    font-size: 11px !important;
+    top: 150px !important;
+    left: 180px !important;
+    max-width: 700px;
+    white-space: normal !important;
+    line-height: normal !important;
+    display: block !important;
+  }
+  #homeslider-revolution {
+    max-height: 300px !important;
+  }
+  .footer-above .col4 {
+    margin-bottom: 20px;
+  }
+  /*********************************** CMS Pages **************************************/
+  
+  .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+    position: static;
+  }
+  .ultrasound .timepoint.odd .ultra-image, .ultrasound .timepoint.odd .ultra-image img, .ultrasound .timepoint.even .ultra-image, .ultrasound .timepoint.even .ultra-image img, .ultrasound .timepoint.odd .ultra-text, .ultrasound .timepoint.even .ultra-text {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+  .ultrasound .timepoint.odd .ultra-year-text, .ultrasound .timepoint.even .ultra-year-text {
+    padding: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
+    padding: 0;
+  }
+  .ultrasound .timepoint.even .ultra-year {
+    text-align: left;
+    width: 100%;
+  }
+  .ultrasound .timepoint.yr-2015 .ultra-year-text {
+    position: static;
+  }
+  .ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
+    position: static;
+    top: 0;
+    width: 100%;
+  }
+  #homeslider-revolution .hp-copy-fade {
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+    top: auto;
+  }
+  #homeslider-revolution .hp-copy-fade h1 {
+    margin-bottom: 5px;
+  }
+  #homeslider-revolution .hp-copy-inner h2 {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  #homeslider-revolution .hp-copy-inner h1 {
+    font-size: 18px;
+    font-family: "apexsanslightst", Arial, Helvetica;
+  }
+  .cms-box.ultrasound101 h1, .cms-box.using-jenu h1, .cms-box.how-jenu-works h1, .cms-box.clinical-results h1 {
+    font-size: 35px;
+    margin: 30px 0 15px 0;
+    padding: 0 0 10px 0;
+  }
+  .cms-box.ultrasound101 h2 {
+    font-size: 16px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .cms-box.ultrasound101 .whatis {
+    width: 100%;
+    margin: 30px auto 0 auto;
+  }
+  .cms-box.ultrasound101 .whatis p {
+    font-size: 13px;
+    line-height: 18px;
+    margin: 10px 0;
+  }
+  .cms-box.using-jenu .numbox {
+    height: auto;
+  }
+  .cms-box.using-jenu .numbox .num {
+    font-size: 52px;
+  }
+  .cms-box.using-jenu .numbox .numtxt {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .cms-box.using-jenu .step h4, .cms-box.using-jenu .step ul {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .cms-box.using-jenu .step3 .devicewrap .dasharrow {
+    display: none;
+  }
+  .cms-box.using-jenu .experttip {
+    margin: 30px 0;
+    text-align: center;
+  }
+  .cms-box.using-jenu .experttip .roundtip {
+    float: none;
+    margin: 0 auto;
+    display: block;
+  }
+  .cms-box.using-jenu .experttip .tip {
+    font-size: 16px;
+    padding-left: 0;
+    margin-left: auto;
+    display: block;
+    width: 100%;
+    float: none;
+    margin-top: 20px;
+  }
+  .cms-box.using-jenu .bottom-note {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 0;
+  }
+  .cms-box .how-jenu-works-inner {
+    margin: 0;
+  }
+  .cms-box.how-jenu-works h4 {
+    font-size: 16px;
+    margin: 20px 0;
+  }
+  .cms-box.how-jenu-works h5 {
+    font-size: 14px;
+    margin: 10px 0 10px 0;
+  }
+  .cms-box.how-jenu-works .imgbox {
+    margin: 20px 0 40px 0;
+    float: none;
+  }
+  .cms-box.how-jenu-works .imgbox .img1, .cms-box.how-jenu-works .imgbox .img1 .roundtip, .cms-box.how-jenu-works .imgbox .img1 img {
+    position: static;
+  }
+  .cms-box.how-jenu-works .imgbox img, .cms-box.how-jenu-works .imgbox .img1 {
+    width: 100%;
+    height: auto;
+  }
+  .cms-box.how-jenu-works .imgbox .img1 {
+    position: relative;
+  }
+  .cms-box.how-jenu-works .imgbox .img1 .roundtip {
+    width: 80px;
+    height: 80px;
+    font-size: 10px;
+    padding-top: 20px;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    position: absolute;
+  }
+  .cms-box.how-jenu-works h2 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+  }
+  .cms-box.how-jenu-works h2 strong {
+    font-size: 24px;
+  }
+  .cms-box.how-jenu-works .how-bottomcopy {
+    font-size: 16px;
+  }
+  .cms-box.how-jenu-works .buttons-wrap {
+    margin: 15px 0;
+  }
+  .cms-box.how-jenu-works a.btn-lto {
+    margin-bottom: 10px;
+  }
+  .cms-box.how-jenu-works a.btn-learn {
+    font-size: 16px;
+  }
+  .cms-box .clinical-inner {
+    margin: 0 0 10px 0;
+  }
+  .cms-box .clinical-inner .clinical-sub {
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  .cms-box .clinical-inner .clinical-sub span {
+    display: inline;
+    font-size: 18px;
+    margin-top: 0;
+  }
+  .cms-box .clinical-inner .clinical-list {
+    font-size: 16px;
+    margin: 15px 0;
+    line-height: 20px;
+  }
+  .cms-box .clinical-inner img.clinical-jars, .cms-box .clinical-inner img.clinical-graph {
+    width: 100%;
+    height: auto;
+  }
+  .cms-box .clinical-inner .flowerswrap {
+    margin-left: 0;
+  }
+  .cms-box .clinical-inner .flowerswrap .flowersbox {
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .cms-box .clinical-inner .flowerswrap .flowersbox.versus {
+    font-size: 24px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0;
+    width: auto;
+  }
+  .cms-box .clinical-inner .flowerswrap .flowersbox span {
+    display: block;
+  }
+  .cms-box .clinical-inner .clinical-data-wrap {
+    margin-left: 0;
+    font-size: 14px;
+    float: none;
+  }
+  .cms-box .clinical-inner .clinical-data-left {
+    float: none;
+    font-size: 80px;
+  }
+  .cms-box .clinical-inner .clinical-data-right {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  .cms-box .clinical-inner .clinical-circles-wrap {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle:first-child {
+    margin-left: auto;
+  }
+  .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle {
+    margin: 20px auto;
+    display: block;
+  }
+  .cms-box.clinical-results table.clinical-grid {
+    display: none;
+  }
+  .cms-box.before-afters .before-afters-inner .bx-wrapper .bx-controls-direction {
+    top: 33%;
+  }
+  .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+    top: 25%;
+  }
+  .top-block {
+    display: none;
+  }
+  .cms-page-view .drbanner-title {
+    left: 40%;
+    top: 20%;
+    right: 0;
+  }
+  .cms-page-view .drbanner-title h1 {
+    font-size: 24px;
+  }
+  .cms-page-view .drbanner-title h2 {
+    font-size: 14px;
+  }
+  .cms-page-view .batravid {
+    width: 300px;
+    height: 169px;
+  }
+  .cms-page-view .jenu-vid {
+    width: 320px;
+    height: 180px;
+  }
+  .checkout-cart-index .support-box {
+    width: 100%;
+    text-align: left;
+    margin-top: 0;
+  }
+  .checkout-cart-index .btn-continue, .checkout-cart-index .btn-update {
+    font-size: 13px;
+    padding: 0;
+  }
+  .checkout-cart-index .or {
+    font-size: 12px;
+    margin: 0 10px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .checkout-cart-index .checkout-box {
+    width: 100%;
+    margin-top: 12px;
+    text-align: left;
+  }
+  .checkout-cart-index .riskfree-box {
+    width: 100%;
+  }
+  .checkout-cart-index .riskfree-box .riskfree-seal {
+    text-align: center;
+    float: none;
+    display: block;
+  }
+  .checkout-cart-index .riskfree-box .riskfree-copy {
+    border: none;
+    padding-left: 0;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .checkout-cart-index .contbox, .checkout-cart-index .checkout-box ul.checkout-types {
+    float: left;
+  }
+  .cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {
+    left: -20px;
+    float: left;
+    display: block;
+    z-index: 90;
+    cursor: pointer;
+    position: relative;
+    background: url(/media/landing_pages/lp3/arrow-left.png) no-repeat top left;
+    width: 28px;
+    height: 28px;
+    text-indent: -9999px;
+  }
+  .cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {
+    right: -20px;
+    float: right;
+    display: block;
+    z-index: 90;
+    cursor: pointer;
+    position: relative;
+    background: url(/media/landing_pages/lp3/arrow-right.png) no-repeat top left;
+    width: 28px;
+    height: 28px;
+    text-indent: -9999px;
+  }
+  .sarp-terms-popup {
+    width: 90%;
+  }
 }
-@media(max-width: 480px){
-    .login-container-big{
-        margin-top: 10px;
-    }
-    .footer-tweets #twitter-slider {
-        width: 70%;
-    }
-    .footer-tweets #twitter-slider {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    #twitter-slider .flex-direction-nav {
-        left: 15%;
-    }
-
-    .category-banner .category-wrap .category-title,
-    .category-banner .category-title h1 {
-        padding-top: 5px;
-    }
-    .toolbar .sorter .btn-compare {
-        display: none;
-    }
-    .toolbar .pager .btn-compare {
-        display: inline-block;
-        float: left;
-    }
-    .toolbar .limiter {
-        width: 100%;
-    }
-    .toolbar .pager .show-by {
-        float: right;
-    }
-    .toolbar .pager .pages {
-        width: 100%;
-        margin-top: 10px;
-    }
-    .footer-tweets #twitter-slider .twitter-content {
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-    .data-table .qty-holder-con {
-        width: 90px;
-    }
-    .data-table .qty-holder-con .input-text.qty {
-        width: 40px;
-    }
-    .product-options-bottom .add-to-cart{
-        width: 100%;
-    }
-    .product-options-bottom .add-to-links {
-        margin-top: 20px;
-    }
-    .product-options-bottom .button-up {
-        margin-right: 10px;
-    }
-    .elastislide-wrapper nav span.elastislide-prev,
-    .elastislide-wrapper nav span.elastislide-next {
-        width: 20px !important;
-        padding: 0;
-    }
-    .elastislide-next .icon-next,
-    .elastislide-prev .icon-prev {
-        left: 4px !important;
-    }
-    .catalog-product-compare-index .breadcrumbs .page-title,
-    .catalog-product-compare-index .breadcrumbs ul,
-    .checkout-cart-index .breadcrumbs .page-title,
-    .checkout-cart-index .breadcrumbs ul
-    {
-        float: none;
-    }
-    .breadcrumbs.title-show .ul-right {
-        float: none !important;
-    }
-    .shipping-form .sbHolder,
-    .shipping-form .form-list input.input-text {
-        width: 270px;
-    }
-    .shipping-form .sbSelector {
-        width: 230px;
-    }
-    .cms-no-route .text-container .container h2,
-    .cms-no-route .text-container .container .search-form {
-        width: 100%;
-    }
-    .cms-no-route .main-content .form-search .input-text {
-        width: 220px;
-    }
-    /*cms about us page*/
-    .cms-container .block-testminial .minial-comments {
-        width: 180px;
-    }
-    .sort-by {
-        margin-right: 5px;
-    }
-    .sort-by .sbHolder {
-        margin-left: 5px;
-    }
-    .sorter .view-mode .grid {
-        margin-right: 5px;
-    }
-    .discount-form .btn-box,
-    .discount-form .input-box {
-        width: 100%;
-    }
-    .discount-form .btn-box {
-        margin-top: 10px;
-    }
-    .discount-form .btn-box .button{
-        margin-left: 0;
-        margin-right: 10px;
-    }
-    .my-account .form-list .field .sbHolder {
-        width: 236px;
-    }
-    .my-account .form-list .field .sbSelector {
-        width: 195px;
-    }
-    .tp-caption.dark_big_text {
-        font-size: 20px !important;
-        line-height: normal !important;
-        top: 100px !important;
-        left: 80px !important;
-    }
-    .tp-caption.secondary_headline_text {
-        font-size: 11px !important;
-        top: 150px !important;
-        left: 80px !important;
-        max-width: 700px;
-        white-space: normal !important;
-        line-height: normal !important;
-    }
-    .cms-box.in-the-press .col4-set .col {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .cms-box.in-the-press .in-the-press-inner {
-        margin-top: 20px;
-    }
-    .cms-page-view .jenu-vid {
-        width: 256px;
-        height: 144px;
-    }
-    .cms-box.how-jenu-works .contentvid {
-        width: 300px;
-        height: 169px;
-    }
-
-    /*********************************** Clinical Results Styles **************************************/
-    .clinical-results {
-      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      padding: 0;
-      text-align: center; }
-      .clinical-results .row {
-        text-align: center; }
-        .clinical-results .row > div {
-          padding: 0 30px; }
-      .clinical-results h1, .clinical-results h2, .clinical-results h3, .clinical-results h4, .clinical-results h5, .clinical-results h6, .clinical-results p {
-        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-    .clinical-results--simulation .row > div, .clinical-results--better-results .row > div {
-      padding: 0 15px; }
-
-    .clinical-results-header h2 {
-      color: #0f6ba6;
-      font-size: 36px; }
-    .clinical-results-header h3 {
-      color: #0f6ba6;
-      font-size: 30px; }
-    .clinical-results-header h4 {
-      color: #525252;
-      font-size: 20px;
-      font-weight: 700; }
-
-    .clinical-results-header--heading {
-      font-weight: 300;
-      margin: 0 auto;
-      text-transform: uppercase;
-      width: 90%; }
-
-    h3.clinical-results-header--heading-blue {
-      color: #0f6ba6;
-      line-height: 20px;
-      margin-bottom: 10px; }
-      h3.clinical-results-header--heading-blue .sup-text {
-        display: inline-block;
-        font-size: 20px;
-        position: relative;
-        top: -3px; }
-      h3.clinical-results-header--heading-blue .bottom-text {
-        font-size: 18px;
-        font-weight: 700; }
-
-    ul.clinical-results--list {
-      margin: 80px 0;
-      overflow: hidden; }
-
-    .clinical-results-list--item {
-      float: left;
-      margin: 0 0 40px 0;
-      width: 100%; }
-
-    .clinical-results-list--heading {
-      color: #525252;
-      font-weight: 700;
-      text-transform: uppercase; }
-
-    .clinical-results-list--image {
-      border: 1px solid #e5e5e5;
-      box-shadow: inset 2px 0 2px #cccccc;
-      height: 200px;
-      margin: 0 auto 20px;
-      overflow: hidden;
-      position: relative;
-      width: 200px;
-      z-index: 10;
-      -moz-border-radius: 200px;
-      -webkit-border-radius: 200px;
-      border-radius: 200px; }
-      .clinical-results-list--image img {
-        height: auto;
-        left: 0;
-        position: absolute;
-        width: 100%; }
-
-    .clinical-results-list--copy {
-      color: #525252;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 26px;
-      margin: 0 auto;
-      width: 60%; }
-
-    .clinical-results-divider {
-      border-top: 1px solid #79afde;
-      margin: 0 0 80px 0; }
-
-    .clinical-results--graph {
-      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 0 0 20px; }
-
-    .clinical-results-graph--inner {
-      height: 400px;
-      margin: 40px 10px 0;
-      overflow: hidden;
-      position: relative; }
-
-    ul.clinical-results-graph--bars {
-      height: 100%;
-      position: absolute;
-      right: 0;
-      width: 83%;
-      z-index: 10; }
-
-    .clinical-results-graph-bars--item {
-      box-shadow: inset -1px 0 0 0 #fff;
-      bottom: 0;
-      float: left;
-      margin-right: 1px;
-      padding: 5px;
-      position: absolute;
-      vertical-align: bottom;
-      width: 33%; }
-      .clinical-results-graph-bars--item:last-child {
-        box-shadow: inset 0 0 0 0 #fff; }
-      .clinical-results-graph-bars--item.bar-1 {
-        background: #628ba6;
-        height: 47%; }
-      .clinical-results-graph-bars--item.bar-2 {
-        background: #3c7da6;
-        height: 65%;
-        margin-left: 33%; }
-      .clinical-results-graph-bars--item.bar-3 {
-        background: #0f6ba6;
-        height: 74%;
-        margin-left: 66%; }
-      .clinical-results-graph-bars--item > span {
-        bottom: 0;
-        color: #fff;
-        display: block;
-        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        font-size: 14px;
-        padding: 5px;
-        position: absolute;
-        text-align: left;
-        text-transform: uppercase; }
-      .clinical-results-graph-bars--item .jenu {
-        text-transform: none; }
-
-    ul.clinical-results-graph--perc {
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      z-index: 1; }
-
-    .clinical-results-graph-perc--item {
-      border-bottom: 1px solid #e7e7e7;
-      color: #525252;
-      font-size: 16px;
-      font-weight: 300;
-      height: 9.09090909090909%;
-      position: relative; }
-      .clinical-results-graph-perc--item span {
-        display: block;
-        float: left;
-        margin-top: 10px;
-        text-align: right;
-        width: 40px; }
-
-    .clinical-results-graph--note {
-      color: #525252;
-      margin: 0 0 80px; }
-
-    .clinical-results-simulation--inner {
-      height: 100%;
-      width: 100%; }
-      .clinical-results-simulation--inner img {
-        display: block;
-        width: 100%;
-        height: auto; }
-
-    .clinical-results--cta {
-      background: #f9f9f9;
-      height: 150px;
-      position: relative;
-      width: 104.3%; }
-
-    .clinical-results-cta--copy {
-      background: url("../images/bg-lto-cta.png") no-repeat 70% 0;
-      background-size: 57px auto;
-      height: 180px;
-      position: relative;
-      top: -20px;
-      width: 100%; }
-
-    .clinical-results-cta-copy--inner {
-      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      left: 50%;
-      line-height: 30px;
-      margin-left: -120px;
-      position: relative;
-      top: 42px;
-      text-transform: uppercase;
-      width: 160px; }
-      .clinical-results-cta-copy--inner .copy-main {
-        display: block;
-        font-size: 40px;
-        font-weight: 700; }
-      .clinical-results-cta-copy--inner .copy-sub {
-        display: block;
-        font-size: 27px;
-        font-weight: 300; }
-
-    .clinical-results-cta--btn {
-      background: #0f6ba6;
-      color: #fff;
-      font-size: 20px;
-      display: inline-block;
-      margin: 10px 0;
-      padding: 5px 20px; }
-      .clinical-results-cta--btn:hover {
-        background: #1389d5;
-        color: #fff; }
+@media(max-width: 480px) {
+  .login-container-big {
+    margin-top: 10px;
+  }
+  .footer-tweets #twitter-slider {
+    width: 70%;
+  }
+  .footer-tweets #twitter-slider {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #twitter-slider .flex-direction-nav {
+    left: 15%;
+  }
+  .category-banner .category-wrap .category-title, .category-banner .category-title h1 {
+    padding-top: 5px;
+  }
+  .toolbar .sorter .btn-compare {
+    display: none;
+  }
+  .toolbar .pager .btn-compare {
+    display: inline-block;
+    float: left;
+  }
+  .toolbar .limiter {
+    width: 100%;
+  }
+  .toolbar .pager .show-by {
+    float: right;
+  }
+  .toolbar .pager .pages {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .footer-tweets #twitter-slider .twitter-content {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .data-table .qty-holder-con {
+    width: 90px;
+  }
+  .data-table .qty-holder-con .input-text.qty {
+    width: 40px;
+  }
+  .product-options-bottom .add-to-cart {
+    width: 100%;
+  }
+  .product-options-bottom .add-to-links {
+    margin-top: 20px;
+  }
+  .product-options-bottom .button-up {
+    margin-right: 10px;
+  }
+  .elastislide-wrapper nav span.elastislide-prev, .elastislide-wrapper nav span.elastislide-next {
+    width: 20px !important;
+    padding: 0;
+  }
+  .elastislide-next .icon-next, .elastislide-prev .icon-prev {
+    left: 4px !important;
+  }
+  .catalog-product-compare-index .breadcrumbs .page-title, .catalog-product-compare-index .breadcrumbs ul, .checkout-cart-index .breadcrumbs .page-title, .checkout-cart-index .breadcrumbs ul {
+    float: none;
+  }
+  .breadcrumbs.title-show .ul-right {
+    float: none !important;
+  }
+  .shipping-form .sbHolder, .shipping-form .form-list input.input-text {
+    width: 270px;
+  }
+  .shipping-form .sbSelector {
+    width: 230px;
+  }
+  .cms-no-route .text-container .container h2, .cms-no-route .text-container .container .search-form {
+    width: 100%;
+  }
+  .cms-no-route .main-content .form-search .input-text {
+    width: 220px;
+  }
+  /*cms about us page*/
+  
+  .cms-container .block-testminial .minial-comments {
+    width: 180px;
+  }
+  .sort-by {
+    margin-right: 5px;
+  }
+  .sort-by .sbHolder {
+    margin-left: 5px;
+  }
+  .sorter .view-mode .grid {
+    margin-right: 5px;
+  }
+  .discount-form .btn-box, .discount-form .input-box {
+    width: 100%;
+  }
+  .discount-form .btn-box {
+    margin-top: 10px;
+  }
+  .discount-form .btn-box .button {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  .my-account .form-list .field .sbHolder {
+    width: 236px;
+  }
+  .my-account .form-list .field .sbSelector {
+    width: 195px;
+  }
+  .tp-caption.dark_big_text {
+    font-size: 20px !important;
+    line-height: normal !important;
+    top: 100px !important;
+    left: 80px !important;
+  }
+  .tp-caption.secondary_headline_text {
+    font-size: 11px !important;
+    top: 150px !important;
+    left: 80px !important;
+    max-width: 700px;
+    white-space: normal !important;
+    line-height: normal !important;
+  }
+  .cms-box.in-the-press .col4-set .col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .cms-box.in-the-press .in-the-press-inner {
+    margin-top: 20px;
+  }
+  .cms-page-view .jenu-vid {
+    width: 256px;
+    height: 144px;
+  }
+  .cms-box.how-jenu-works .contentvid {
+    width: 300px;
+    height: 169px;
+  }
+  /*********************************** Clinical Results Styles **************************************/
+  
+  .clinical-results {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0;
+    text-align: center;
+  }
+  .clinical-results .row {
+    text-align: center;
+  }
+  .clinical-results .row > div {
+    padding: 0 30px;
+  }
+  .clinical-results h1, .clinical-results h2, .clinical-results h3, .clinical-results h4, .clinical-results h5, .clinical-results h6, .clinical-results p {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .clinical-results--simulation .row > div, .clinical-results--better-results .row > div {
+    padding: 0 15px;
+  }
+  .clinical-results-header h2 {
+    color: #0f6ba6;
+    font-size: 36px;
+  }
+  .clinical-results-header h3 {
+    color: #0f6ba6;
+    font-size: 30px;
+  }
+  .clinical-results-header h4 {
+    color: #525252;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .clinical-results-header--heading {
+    font-weight: 300;
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 90%;
+  }
+  h3.clinical-results-header--heading-blue {
+    color: #0f6ba6;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  h3.clinical-results-header--heading-blue .sup-text {
+    display: inline-block;
+    font-size: 20px;
+    position: relative;
+    top: -3px;
+  }
+  h3.clinical-results-header--heading-blue .bottom-text {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  ul.clinical-results--list {
+    margin: 80px 0;
+    overflow: hidden;
+  }
+  .clinical-results-list--item {
+    float: left;
+    margin: 0 0 40px 0;
+    width: 100%;
+  }
+  .clinical-results-list--heading {
+    color: #525252;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .clinical-results-list--image {
+    border: 1px solid #e5e5e5;
+    box-shadow: inset 2px 0 2px #cccccc;
+    height: 200px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    z-index: 10;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    border-radius: 200px;
+  }
+  .clinical-results-list--image img {
+    height: auto;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  .clinical-results-list--copy {
+    color: #525252;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    margin: 0 auto;
+    width: 60%;
+  }
+  .clinical-results-divider {
+    border-top: 1px solid #79afde;
+    margin: 0 0 80px 0;
+  }
+  .clinical-results--graph {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 0 20px;
+  }
+  .clinical-results-graph--inner {
+    height: 400px;
+    margin: 40px 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  ul.clinical-results-graph--bars {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 83%;
+    z-index: 10;
+  }
+  .clinical-results-graph-bars--item {
+    box-shadow: inset -1px 0 0 0 #fff;
+    bottom: 0;
+    float: left;
+    margin-right: 1px;
+    padding: 5px;
+    position: absolute;
+    vertical-align: bottom;
+    width: 33%;
+  }
+  .clinical-results-graph-bars--item:last-child {
+    box-shadow: inset 0 0 0 0 #fff;
+  }
+  .clinical-results-graph-bars--item.bar-1 {
+    background: #628ba6;
+    height: 47%;
+  }
+  .clinical-results-graph-bars--item.bar-2 {
+    background: #3c7da6;
+    height: 65%;
+    margin-left: 33%;
+  }
+  .clinical-results-graph-bars--item.bar-3 {
+    background: #0f6ba6;
+    height: 74%;
+    margin-left: 66%;
+  }
+  .clinical-results-graph-bars--item > span {
+    bottom: 0;
+    color: #fff;
+    display: block;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    padding: 5px;
+    position: absolute;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .clinical-results-graph-bars--item .jenu {
+    text-transform: none;
+  }
+  ul.clinical-results-graph--perc {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  .clinical-results-graph-perc--item {
+    border-bottom: 1px solid #e7e7e7;
+    color: #525252;
+    font-size: 16px;
+    font-weight: 300;
+    height: 9.09090909090909%;
+    position: relative;
+  }
+  .clinical-results-graph-perc--item span {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    text-align: right;
+    width: 40px;
+  }
+  .clinical-results-graph--note {
+    color: #525252;
+    margin: 0 0 80px;
+  }
+  .clinical-results-simulation--inner {
+    height: 100%;
+    width: 100%;
+  }
+  .clinical-results-simulation--inner img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .clinical-results--cta {
+    background: #f9f9f9;
+    height: 150px;
+    position: relative;
+    width: 104.3%;
+  }
+  .clinical-results-cta--copy {
+    background: url("../images/bg-lto-cta.png") no-repeat 70% 0;
+    background-size: 57px auto;
+    height: 180px;
+    position: relative;
+    top: -20px;
+    width: 100%;
+  }
+  .clinical-results-cta-copy--inner {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    left: 50%;
+    line-height: 30px;
+    margin-left: -120px;
+    position: relative;
+    top: 42px;
+    text-transform: uppercase;
+    width: 160px;
+  }
+  .clinical-results-cta-copy--inner .copy-main {
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .clinical-results-cta-copy--inner .copy-sub {
+    display: block;
+    font-size: 27px;
+    font-weight: 300;
+  }
+  .clinical-results-cta--btn {
+    background: #0f6ba6;
+    color: #fff;
+    font-size: 20px;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 5px 20px;
+  }
+  .clinical-results-cta--btn:hover {
+    background: #1389d5;
+    color: #fff;
+  }
 }
 @media(max-width:320px) {
-    .header-container .right .block {
-        margin-bottom: 0;
-    }
+  .header-container .right .block {
+    margin-bottom: 0;
+  }
 }

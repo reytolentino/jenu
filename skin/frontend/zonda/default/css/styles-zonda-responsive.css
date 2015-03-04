@@ -1588,7 +1588,7 @@
     width: 104.3%;
   }
   .clinical-results-cta--copy {
-    background: url("../images/bg-lto-cta.png") no-repeat 70% 0;
+    background: url("/media/content/bg-lto-cta.png") no-repeat 70% 0;
     background-size: 57px auto;
     height: 180px;
     position: relative;

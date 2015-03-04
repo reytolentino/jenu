@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Web2Market_Report>
+            <version>0.1.0</version>
+            <depends>
+                <Mage_Adminhtml />
+                <Mage_Sales />
+            </depends>
+        </Web2Market_Report>
+    </modules>
+
+    <global>
+        <models>
+            <queryreport>
+                <class>Web2Market_Report_Model</class>
+                <resourceModel>queryreport_mysql4</resourceModel>
+            </queryreport>
+            <queryreport_mysql4>
+                <class>Web2Market_Report_Model_Mysql4</class>
+				
+				<entities>		  
+			  			<reportsave>
+							<table>queryreport</table>   
+			  			</reportsave>					
+        		</entities>				
+            </queryreport_mysql4>
+        </models>
+		
+		<resources>
+	  		<queryreport_setup>
+				<setup>
+		  			<module>Web2Market_Report</module>
+				</setup>
+				<connection>
+		  			<use>core_setup</use>
+				</connection>
+	  		</queryreport_setup>	  		
+			<queryreport_write>
+				<connection>
+		  			<use>core_write</use>
+				</connection>
+	  		</queryreport_write>	  		
+			<queryreport_read>
+				<connection>
+		  			<use>core_read</use>
+				</connection>
+	  		</queryreport_read>
+		</resources>	
+		
+		
+		
+        <helpers>
+            <queryreport>
+                <class>Web2Market_Report_Helper</class>
+            </queryreport>
+        </helpers>
+        <blocks>
+            <queryreport>
+                <class>Web2Market_Report_Block</class>
+            </queryreport>
+        </blocks>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Web2Market_Report before="Mage_Adminhtml">Web2Market_Report_Adminhtml</Web2Market_Report>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <queryreport>
+                    <file>queryreport.xml</file>
+                </queryreport>
+            </updates>
+        </layout>
+    </adminhtml>
+
+</config>

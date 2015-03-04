@@ -5381,10 +5381,12 @@ ul.clinical-results--list {
   display: inline-block;
   margin: 10px 0;
   padding: 5px 20px;
+  text-decoration: none;
 }
 .clinical-results-cta--btn:hover {
   background: #1389d5;
   color: #fff;
+  text-decoration: none;
 }
 .clinical-results-header {
   margin: 0 auto;

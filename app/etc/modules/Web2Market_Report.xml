@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Web2Market_Report>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Web2Market_Report>
+    </modules>
+</config>

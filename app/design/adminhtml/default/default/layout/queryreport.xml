@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_report_index>
+        <reference name="content">
+		       <block type="queryreport/adminhtml_report" template="queryreport/grid/container.phtml" name="queryreport_report_grid_container">
+			     <block type="queryreport/adminhtml_filter_form" name="grid.filter.form" />
+				  </block>           
+        </reference>
+    </adminhtml_report_index>
+</layout>

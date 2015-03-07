@@ -5931,3 +5931,7 @@ ul.clinical-results-graph--perc {
   }
 }
 /*********************************************************************************/
+
+.catalog-category-view .special-price {
+    display: none;
+}

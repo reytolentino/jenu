@@ -355,6 +355,16 @@
         </reference>
         
         <reference name="product.info">
+            <block type="page/html_pager" name="product_review_list.toolbar" />
+            <block type="core/template" name="product_review_list.count" template="review/product/view/count.phtml" />
+            <block type="review/product_view_list" name="product_customer_reviews" as="product_customer_reviews" template="review/product/view/list.phtml">
+                <block type="review/form" name="product.review.form" as="review_form">
+                    <block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before" translate="label">
+                        <label>Review Form Fields Before</label>
+                        <action method="setMayBeInvisible"><value>1</value></action>
+                    </block>
+                </block>
+            </block>
             <action method="insert">
                 <block>catalog.product.related</block>
             </action>
@@ -371,8 +381,6 @@
                 <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
                 <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>How To Use</title><block>catalog/product_view_attributes</block><template>catalog/product/view/how_to_use.phtml</template></action>
                 <!-- add reviews -->
-                <!-- see the second part: reference name="tabreviews".  Do not change 'tabreviews' alias. It is needed in JS script in catalog/product/view.phtml -->
-                <action method="addTab" translate="title" module="catalog"><alias>tabreviews</alias><title>Reviews</title><block>review/product_view_list</block><template>review/product/view/list.phtml</template></action>
                 <!-- cross sell products -->
                 <action method="addTab" translate="title" module="catalog"><alias>crosssell</alias><title>Cross Sells</title><block>catalog/product_view</block><template>catalog/product/view/crosssell.phtml</template></action>
                 
@@ -394,16 +402,6 @@
                 <block type="core/template" name="productPixels" template="pixels/catalog/product/view.phtml"/>
             </reference>
             -->
-        </reference>
-        
-        <!-- reviews tab -->
-        <reference name="tabreviews">
-            <block type="review/form" name="product.review.form" as="review_form">
-                <block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before" translate="label">
-                    <label>Review Form Fields Before</label>
-                    <action method="setMayBeInvisible"><value>1</value></action>
-                </block>
-            </block>
         </reference>
         
         <!-- remove product tags block (already inserted as a tab) -->

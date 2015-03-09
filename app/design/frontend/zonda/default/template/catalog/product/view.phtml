@@ -323,6 +323,11 @@ calling JeNu Customer Service at 866-565-JENU.
         <?php endif; ?>
     </div>
 
+    <div class="product-essential-reviews row">
+        <?php echo $this->getChildHtml('product_customer_reviews') ?>
+        <?php echo $this->getChildHtml('review_form') ?>
+    </div><!--product-essential-reviews-->
+
     <?php if (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'left')) : ?>
         <div class="product-collateral">
                     <div class="product-info row">

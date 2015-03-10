@@ -365,20 +365,20 @@ calling JeNu Customer Service at 866-565-JENU.
             <?php if($_product->getId() == 7): ?>
                 <div class="gallerywrap">
                     <div class="videogallery">
-                        <h3>Video Gallery</h3>
+                        <h3><?php echo $this->__('Video Gallery') ?></h3>
                         <div class="clearfix"></div>
                         <div class="vid">
-                            <h4>How to Use Video</h4>
-                            <a class="vidlink fancybox.iframe" href="http://www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a>
+                            <h4><?php echo $this->__('How to Use Video') ?></h4>
+                            <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a>
                         </div>
                         <div class="vid">
-                            <h4>How it Works Video</h4>
-                            <a class="vidlink fancybox.iframe" href="http://www.youtube.com/embed/5W25baTE42I?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howjenuworks.jpg'); ?>"/></a>
+                            <h4><?php echo $this->__('How it Works Video') ?></h4>
+                            <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/5W25baTE42I?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howjenuworks.jpg'); ?>"/></a>
                         </div>
                     </div>
                     <div class="bagallery">
-                        <h3>Before & After Gallery</h3>
-                        <h4>Clinical Study Photos</h4>
+                        <h3><?php echo $this->__('Before & After Gallery') ?></h3>
+                        <h4><?php echo $this->__('Clinical Study Photos') ?></h4>
                         <div class="baslideswrap">
                             <ul class="baslides ba-set2">
                                 <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'landing_pages/lp3/ba-clinical1.jpg'; ?>" alt="Before And After" /></li>

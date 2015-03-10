@@ -56,22 +56,32 @@ $_helper = $this->helper('catalog/output');
                 <div class="product-name">
                     <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
-                <div class="price-review clearfix">
+                <div class="price-review">
                     <?php echo $this->getPriceHtml($_product) ?>
-                    <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                    <div class="price-review-wrap">
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <a href="#customer-reviews" class="highlight-link review-toggle" id="write-review-link"><?php echo $this->__('Write a Review') ?></a>
+                    </div>
                 </div>
                 <div class="info-container">
+                    <?php if($_product->getId() == 7): ?>
+                        <a class="riskfree" href="<?php echo $this->getUrl('riskfree'); ?>"><img src="<?php echo $this->getSkinUrl('images/riskfree.png'); ?>"/></a>
+                    <?php endif; ?>
                     <?php /* if ($this->canEmailToFriend()): ?>
                         <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>" class="link-friend" title="<?php echo $this->__('Email to a Friend') ?>"><?php echo $this->__('Email To a Friend') ?></a></p>
                     <?php endif; */ ?>
-
                     <?php echo $this->getChildHtml('alert_urls') ?>
                     <?php echo $this->getTierPriceHtml() ?>
+                    <?php if($_product->getId() == 7): ?>
+                        <p class="warranty"><?php echo $this->__('Comes With 1 Year Warranty') ?></p>
+                    <?php endif; ?>
                     <?php echo $this->getChildHtml('product_type_data') ?>
                     <?php echo $this->getChildHtml('product_brand') ?>
                     <?php echo $this->getChildHtml('extrahint') ?>
+                    <?php if($_product->getId() == 7): ?>
+                        <a href="<?php echo $this->getUrl('ft00324q'); ?>" class="highlight-link"><?php echo $this->__('Click here for special limited time offer.') ?></a></p>
+                    <?php endif; ?>
                 </div>
-
 
                 <?php if (!$this->hasOptions()):?>
                     <div class="add-to-box">
@@ -208,6 +218,32 @@ calling JeNu Customer Service at 866-565-JENU.
                     </div>
                 </div>
                 <?php endif; ?>
+                <?php if($_product->getId() == 7): ?>
+                    <?php
+                        $obj = Mage::getModel('catalog/product');
+                        $_extraproduct = $obj->load(9); // Enter your Product Id in $product_id
+                    ?>
+                    <div class="alsobought">
+                        <h3><?php echo $this->__('Customers Also Bought') ?></h3>
+                        <div class="prod-image">
+                            <img src="<?php echo $_extraproduct->getImageUrl();?>"/>
+                        </div>
+                        <div class="prod-info-right">
+                            <div class="prodname">
+                                <a href="<?php echo $_extraproduct->getProductUrl();?>" class="highlight-link"><?php echo $_extraproduct->getName();?></a>
+                            </div>
+                            <?php echo $this->getReviewsSummaryHtml($_extraproduct, 'short') ?>
+                            <script>
+                                jQuery('.prod-info-right .goto-reviews').attr('href','<?php echo $_extraproduct->getProductUrl();?>#customer-reviews');
+                            </script>
+                            <div class="price-box">
+                                <span class="regular-price">
+                                    <span class="price"><?php echo Mage::helper('core')->formatPrice($_extraproduct->getPrice(), false); ?></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -324,8 +360,71 @@ calling JeNu Customer Service at 866-565-JENU.
     </div>
 
     <div class="product-essential-reviews row">
-        <?php echo $this->getChildHtml('product_customer_reviews') ?>
-        <?php echo $this->getChildHtml('review_form') ?>
+        <div class="product-essential-inner col12">
+
+            <?php if($_product->getId() == 7): ?>
+                <div class="gallerywrap">
+                    <div class="videogallery">
+                        <h3>Video Gallery</h3>
+                        <div class="clearfix"></div>
+                        <div class="vid">
+                            <h4>How to Use Video</h4>
+                            <a class="vidlink fancybox.iframe" href="http://www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a>
+                        </div>
+                        <div class="vid">
+                            <h4>How it Works Video</h4>
+                            <a class="vidlink fancybox.iframe" href="http://www.youtube.com/embed/5W25baTE42I?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howjenuworks.jpg'); ?>"/></a>
+                        </div>
+                    </div>
+                    <div class="bagallery">
+                        <h3>Before & After Gallery</h3>
+                        <h4>Clinical Study Photos</h4>
+                        <div class="baslideswrap">
+                            <ul class="baslides ba-set2">
+                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'landing_pages/lp3/ba-clinical1.jpg'; ?>" alt="Before And After" /></li>
+                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'landing_pages/lp3/ba-clinical2.jpg'; ?>" alt="Before And After" /></li>
+                            </ul>
+                        </div>
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            jQuery(document).ready(function(){
+                                jQuery('.ba-set2').bxSlider({
+                                    mode: 'horizontal',
+                                    captions: true,
+                                    pager: false
+                                });
+                                jQuery(".vidlink").fancybox({
+                                    maxWidth	: 640,
+                                    maxHeight	: 360,
+                                    fitToView	: true,
+                                    width		: '640',
+                                    height		: '360',
+                                    autoSize	: true,
+                                    aspectRatio: true,
+                                    closeClick	: true,
+                                    openEffect	: 'none',
+                                    closeEffect	: 'none'
+                                });
+                            });
+                            //]]>
+                        </script>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php $reviewcount = $_product->getRatingSummary()->getReviewsCount(); ?>
+            <?php if ($reviewcount > 0):?>
+                <div class="reviews-summary-wrap">
+                    <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?><div class="btn-writereview"><input type="button" class="button button-normal review-toggle" value="Write Your Review"></div>
+                </div>
+                <div class="line-separator1"></div>
+            <?php endif; ?>
+            <div class="reviews-bottomwrap">
+                <?php echo $this->getChildHtml('product_customer_reviews') ?>
+                <?php echo $this->getChildHtml('review_form') ?>
+            </div>
+
+        </div>
+
     </div><!--product-essential-reviews-->
 
     <?php if (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'left')) : ?>

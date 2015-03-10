@@ -1517,15 +1517,23 @@ a.sarp-link-tip {
 .product-view .product-name, .product-view .product-name h1, .review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
   font-size: 25px;
 }
+.product-view .product-shop .price-review {
+    clear: both;
+    overflow: hidden;
+}
 .product-view .product-shop .price-review .price-box {
   float: left;
   padding-top: 15px;
 }
-.product-view .product-shop .price-review .ratings {
+.product-view .product-shop .price-review .ratings,
+.product-view .product-shop .price-review-wrap {
   float: right;
   width: 165px;
   text-align: right;
   margin-top: 17px;
+}
+.product-view .product-shop .price-review .ratings {
+    margin-top: 0;
 }
 .product-view .price-review .ratings .rating-box {
   float: left;
@@ -1534,8 +1542,7 @@ a.sarp-link-tip {
   font-size: 18px;
 }
 .product-view .info-container {
-  clear: both;
-  margin: 10px 0;
+  margin: 0 0 10px;
 }
 .product-view .info-container p, .product-view .info-container p.alert-urls a, .product-view .info-container .product-pricing {
   font-size: 13px;
@@ -1543,8 +1550,55 @@ a.sarp-link-tip {
   font-weight: normal;
   line-height: 1.8;
 }
+.product-view .alsobought h3 {
+    border-bottom: 1px solid #e0e0e0;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    font-size: 18px;
+    padding-bottom: 4px;
+    margin-bottom: 14px;
+}
+.product-view .alsobought .prod-image {
+    width: 124px;
+    overflow: hidden;
+    float: left;
+}
+.product-view .alsobought .prod-image img {
+    width: 130px;
+    height: auto;
+    margin-left: -14px;
+}
+.product-view .alsobought .prod-info-right {
+    float: left;
+    display: inline-block;
+}
+.product-view .alsobought .ratings {
+    text-align: left;
+    margin: 0;
+    width: 100%;
+}
+.product-view .alsobought .prod-info-right .prodname a {
+    font-size: 18px;
+}
+.product-view .riskfree {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: block;
+    right: 0;
+    margin-top: 20px;
+}
+.product-view .riskfree img {
+    width: 100px;
+    height: 100px;
+}
 .availability span {
   font-weight: normal;
+}
+a.highlight-link {
+    color: #008ab0;
+    font-weight: bold;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
 }
 .availability span.item-title, .product-view .info-container p span.item-title {
   color: #666666;
@@ -1581,6 +1635,252 @@ a.sarp-link-tip {
 .sbOptions {
   overflow-y: auto !important;
 }
+.product-view .gallerywrap {
+    border-top: 1px solid #7bb1df;
+    border-bottom: 1px solid #7bb1df;
+    margin: 30px 0;
+    padding: 30px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-view .gallerywrap .videogallery,
+.product-view .gallerywrap .bagallery {
+    width: 49%;
+}
+
+.product-view .gallerywrap h3 {
+    color: #0f6ba6;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    margin-bottom: 10px;
+}
+
+.product-view .gallerywrap .videogallery {
+    float: left;
+}
+
+.product-view .gallerywrap .videogallery .vid {
+    width: 230px;
+    display: inline-block;
+}
+
+.product-view .gallerywrap .videogallery .vid {
+    margin-right: 10px;
+}
+
+.product-view .gallerywrap .videogallery .vid h4,
+.product-view .gallerywrap .bagallery h4 {
+    font-size: 18px;
+    color: #193540;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    margin-bottom: 5px;
+}
+
+.product-view .gallerywrap .videogallery .vid img {
+    width: 230px;
+    height: auto;
+}
+
+.product-view .gallerywrap .bagallery {
+    float: right;
+}
+
+.product-view .gallerywrap .bagallery .baslideswrap {
+    margin: 0 auto;
+    width: 96%;
+    position: relative;
+}
+.product-view .gallerywrap .bagallery .baslides {
+    width: 100%;
+    margin: 0 auto 40px auto;
+}
+.product-view .gallerywrap .bagallery .baslides img {
+    width: 100%;
+}
+.product-view .gallerywrap .bagallery .baslideswrap .bx-prev {
+    left: -10px;
+    float: left;
+    display: block;
+    z-index: 90;
+    cursor: pointer;
+    position: relative;
+    background: url(../images/arrows-square.png) no-repeat top left;
+    width: 26px;
+    height: 41px;
+    text-indent: -9999px;
+    background-size: 52px auto;
+}
+.product-view .gallerywrap .bagallery .baslideswrap .bx-next {
+    right: -10px;
+    float: right;
+    display: block;
+    z-index: 90;
+    cursor: pointer;
+    position: relative;
+    background: url(../images/arrows-square.png) no-repeat top right;
+    width: 26px;
+    height: 41px;
+    text-indent: -9999px;
+    background-size: 52px auto;
+}
+.product-view .gallerywrap .bagallery .bx-controls-direction {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+}
+
+.product-view .reviews-summary-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.product-view .reviews-summary-wrap .ratings {
+    width: auto;
+    display: inline-block;
+}
+
+.product-view .reviews-summary-wrap .rating-box {
+    float: right;
+    background: url("../images/bkg_rating_lg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 37px;
+    line-height: 0;
+    margin: 0;
+    overflow: hidden;
+    text-indent: -9999em;
+    width: 200px;
+}
+
+.product-view .reviews-summary-wrap .rating-box .rating {
+    background: url("../images/bkg_rating_lg.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
+    height: 37px;
+}
+
+.product-view .reviews-summary-wrap .btn-writereview {
+    display: inline-block;
+    border-left: 1px solid #a1a1a1;
+    margin-left: 15px;
+    padding-left: 18px;
+    vertical-align: top;
+}
+
+.product-view .reviews-summary-wrap .btn-writereview input {
+    margin: 0;
+}
+
+.product-view .reviews-summary-wrap .amount a {
+    float: left;
+    font-size: 30px;
+    color: #08232d;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    border-right: 1px solid #a1a1a1;
+    margin-right: 15px;
+    padding-right: 15px;
+}
+
+.product-view .reviews-summary-wrap .amountnum {
+    color: #178baf;
+    font-weight: bold;
+}
+
+.reviews-bottomwrap {
+    margin-top: 30px;
+}
+
+.reviews-bottomwrap .review-row .review-title {
+    float: none;
+}
+.reviews-bottomwrap .review-row .ratings {
+    float: none;
+    margin-top: 0;
+}
+
+.reviews-bottomwrap .ratings {
+    text-align: left;
+    margin: 0;
+}
+
+.reviews-bottomwrap .name_date {
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    font-size: 16px;
+    color: #454a4c;
+    text-transform: uppercase;
+}
+
+.reviews-bottomwrap .by_name,
+.reviews-bottomwrap .on_date {
+    font-weight: bold;
+}
+
+.reviews-bottomwrap .comments-item {
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    font-size: 16px;
+}
+
+.reviews-bottomwrap .pager {
+    background-color: transparent;
+    color: #888888;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .pages {
+    float: none;
+}
+
+.reviews-bottomwrap .pager .pages ol li a {
+    background-color: #e6e6e6 !important;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    color: #2b9fc3;
+    height: 39px;
+    line-height: 39px;
+    width: 39px;
+}
+
+.reviews-bottomwrap .pager .pages ol li a:hover {
+    background-color: #0d303b !important;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .pages ol li.current {
+    background-color: #0d303b !important;
+    font-family: "Univers_Condensed", "Helvetica Neue", Helvetica, Arial;
+    height: 39px;
+    line-height: 39px;
+    width: 39px;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .amount,
+.reviews-bottomwrap .pager .limiter {
+    display: none;
+}
+
+.product-view .line-separator1 {
+    display: block;
+    width: 30%;
+    background-color: #bad7ee;
+    height: 1px;
+    margin: 40px auto;
+}
+
+.product-view .line-separator2 {
+    display: block;
+    width: 20%;
+    background-color: #bad7ee;
+    height: 1px;
+    margin: 30px auto;
+}
+
+.product-view .box-reviews {
+    width: 70%;
+    margin: 0 auto 30px auto;
+}
+
 /*Ajax Cart */
 
 #success-message-container .btn-cart {
@@ -1894,11 +2194,11 @@ a.sarp-link-tip {
 /*comments tab*/
 
 .review-row .review-title {
-  float: left;
+    float: left;
 }
 .review-row .ratings {
-  float: right;
-  margin-top: 14px;
+    float: right;
+    margin-top: 14px;
 }
 .name_date {
   margin-bottom: 10px;

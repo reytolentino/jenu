@@ -77,8 +77,13 @@
     display: block;
 }
 
-.product-view .product-shop .price-review .ratings {
-    margin-bottom: -35px;
+.product-view .product-shop .price-review {
+    clear: none;
+    overflow: visible;
+}
+
+.product-view .info-container {
+    margin: 10px 0 10px;
 }
 
 @media(max-width:767px){

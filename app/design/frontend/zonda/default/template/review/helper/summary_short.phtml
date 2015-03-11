@@ -35,6 +35,6 @@ $c = $zonda->getConfigGroupDesign();
                 <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
             </div>
         <?php endif;?>
-        <span class="amount"><a href="#customer-reviews" id="goto-reviews"><?php echo $this->__('%d Review(s)', $this->getReviewsCount()) ?></a></span>
+        <span class="amount"><a href="#customer-reviews" id="goto-reviews" class="goto-reviews"><span class="amountnum"><?php echo $this->__('%d', $this->getReviewsCount()) ?></span><?php echo $this->__(' Review(s)') ?></a></span>
     </div>
 <?php endif; ?>

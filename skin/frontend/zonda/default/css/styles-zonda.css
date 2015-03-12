@@ -4164,6 +4164,331 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 /*********************************** CMS Pages **************************************/
 
+.cms-page-view .main-content .cms-banner .container,
+.cms-page-view .main-content .cms-batra .container {
+    background: transparent;
+}
+
+.cms-wrapper {
+    color: #747474;
+}
+
+.cms-wrapper a {
+    color: #0069a7;
+    outline: none;
+}
+
+/** new batra **/
+
+.cms-banner {
+    max-width: 1440px;
+    height: 340px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.cms-banner h1 {
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size: 50px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+    display: inline;
+}
+
+.cms-banner h3 {
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size: 32px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+}
+
+.cms-banner p {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    text-transform: uppercase;
+    margin-top: 30px;
+    line-height: 24px;
+}
+
+.batra-banner {
+    background: url('../images/batra-banner.jpg') no-repeat center top;
+    background-size: auto 340px;
+    height: 340px;
+}
+
+.batra-banner .banner-content {
+    margin-top:6%;
+    margin-right: 2%;
+    float: right;
+}
+
+.cms-batra .batra-videoquote {
+    padding: 50px 0;
+}
+
+.cms-batra .batra-quote:before,
+.cms-batra .batra-quote2:before{
+    content:'';
+    position:absolute;
+    width: 89px;
+    height: 70px;
+    display: block;
+    background: url('../images/quote-before.png') no-repeat top left;
+    top: 8px;
+    left: 40px;
+}
+
+.cms-batra .batra-quote2:before {
+    left: 0;
+}
+
+.cms-batra .batra-quote:after,
+.cms-batra .batra-quote2:after {
+    content:'';
+    position:absolute;
+    width: 89px;
+    height: 70px;
+    display: block;
+    background: url('../images/quote-after.png') no-repeat top left;
+    bottom: 24px;
+    right: 40px;
+}
+
+.cms-batra .batra-quote2:after {
+    right: 0;
+}
+
+.cms-batra .batra-quote,
+.cms-batra .batra-quote2 {
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size: 20px;
+    color: #0069a7;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    padding: 42px 40px 52px 40px;
+    font-weight: 300;
+}
+
+.cms-batra .batra-quote2 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cms-batra .batra-video {
+    float: right;
+}
+
+.cms-batra .batra-video p {
+    font-size: 12px;
+}
+
+.cms-batra .batra-recommend {
+    background-color: #f4faff;
+    height: 346px;
+}
+
+.cms-batra .batra-recommend .row.batra-rec-box {
+    background: url('../images/batra-recommend-bg.jpg') no-repeat top left;
+    height: 346px;
+    border-bottom: 2px solid #75aedf;
+}
+
+.cms-batra .batra-recommend-copy {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cms-batra .batra-recommend-copy h3,
+.cms-batra .batra-qa-right h3 {
+    font-size: 36px;
+    color: #0069a7;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+}
+
+.cms-batra .batra-recommend-copy h3 {
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+.cms-batra .batra-recommend-copy h3 span.title-top {
+    font-weight: 300;
+}
+
+.cms-batra .batra-qa-right h3 {
+    margin-bottom: 16px;
+}
+
+.cms-batra .batra-qa-box {
+    padding: 50px 0;
+}
+
+.cms-batra .qabox {
+    padding: 16px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.cms-batra .qabox a.question {
+    text-transform: uppercase;
+    color:#75aedf;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+}
+
+.cms-batra .qabox a.question:hover {
+    text-decoration: none;
+}
+
+.cms-batra .qabox a.question:after {
+    position: absolute;
+    content: '+';
+    right: 0;
+    font-size: 25px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.cms-batra .qabox a.question.opened:after {
+    content: '-';
+    right:3px;
+}
+
+.cms-batra .qabox .answer {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 16px;
+    display: none;
+}
+
+.lato-light {
+    font-weight: 300;
+}
+
+.lato-regular {
+    font-weight: 400;
+}
+
+@media(max-width: 991px) {
+    .cms-batra .batra-video iframe {
+        width: 408px;
+        height: 230px;
+    }
+    .cms-batra .batra-video {
+        margin-top: 30px;
+    }
+    .cms-batra .batra-quote, .cms-batra .batra-quote2 {
+        font-size: 18px;
+    }
+    .cms-batra .batra-recommend-copy h3,
+    .cms-batra .batra-qa-right h3 {
+        font-size: 30px;
+    }
+    .cms-batra .batra-videoquote {
+        padding: 30px 0;
+    }
+    .cms-batra .batra-recommend-copy {
+        margin-top: 30px;
+    }
+    .cms-batra .batra-recommend-copy p {
+        font-size: 13px;
+    }
+    .cms-batra .batra-qa-left .batra-headshot {
+        width: 100%;
+    }
+    .cms-batra .qabox a.question {
+        font-size: 14px;
+    }
+    .cms-batra .qabox a.question:after {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+
+@media(max-width: 767px) {
+    .cms-banner h1 {
+        font-size: 32px;
+    }
+
+    .cms-banner h3 {
+        font-size: 20px;
+    }
+
+    .cms-banner p {
+        font-size: 16px;
+        font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+        text-transform: uppercase;
+        margin-top: 24px;
+        line-height: 24px;
+    }
+
+    .batra-banner .banner-content {
+        margin-left: 20px;
+        margin-right: 10%;
+        float: right;
+        margin-top: 15%;
+    }
+
+    .cms-batra .batra-quote,
+    .cms-batra .batra-quote2 {
+        font-size: 18px;
+        padding: 32px 20px 32px 20px;
+    }
+
+    .cms-batra .batra-quote:before {
+        left: 0;
+    }
+
+    .cms-batra .batra-quote:after {
+        right: 0;
+    }
+
+    .cms-batra .batra-video iframe {
+        width: 100%;
+        height: 320px;
+    }
+
+    .cms-batra .batra-video {
+        margin-top: 0;
+        float: none;
+    }
+
+    .cms-batra .batra-recommend .row.batra-rec-box {
+        background-image: none;
+        height: auto;
+        border-bottom: 2px solid #75aedf;
+    }
+
+    .cms-batra .batra-recommend-copy {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .cms-batra .batra-headshot {
+        width: auto;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .cms-batra .batra-recommend {
+        height: auto;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/** end new batra **/
+
 .cms-page-view .breadcrumbs {
   padding: 14px 0;
 }
@@ -4455,11 +4780,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /*********************************************************************************/
 /******************************* CMS Page Design Overrides **************************/
 
-.cms-page-view {
-  background: #11323c;
-}
 .cms-page-view .main-container {
-  background: url('../images/backgrounds/green_glow.png') repeat-y top center;
+  /** background: url('../images/backgrounds/green_glow.png') repeat-y top center; **/
 }
 .cms-page-view .breadcrumbs {
   padding-top: 0;

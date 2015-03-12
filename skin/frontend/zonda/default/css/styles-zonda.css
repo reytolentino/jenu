@@ -4289,6 +4289,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 .cms-batra .batra-recommend {
     background-color: #f4faff;
     height: 346px;
+    width: 100%;
+    margin: 0;
 }
 
 .cms-batra .batra-recommend .row.batra-rec-box {

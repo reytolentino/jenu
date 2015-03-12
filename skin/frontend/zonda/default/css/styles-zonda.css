@@ -4192,7 +4192,6 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /** new batra **/
 
 .cms-banner {
-    max-width: 1440px;
     height: 340px;
     margin: 0 auto;
     color: #fff;
@@ -4226,8 +4225,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .batra-banner {
     background: url('../images/batra-banner.jpg') no-repeat center top;
-    background-size: auto 340px;
-    height: 340px;
+    background-size: auto 100%;
+    height: 420px;
 }
 
 .batra-banner .banner-content {
@@ -4497,6 +4496,18 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
         width: 100%;
         padding: 0;
         margin: 0;
+    }
+
+    .batra-banner {
+        background-size: auto auto;
+        height: 300px;
+        background-position: top center;
+    }
+
+    .batra-banner .banner-content {
+        margin-top:40px;
+        margin-right: 15%;
+        float: right;
     }
 }
 

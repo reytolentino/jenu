@@ -4165,8 +4165,19 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /*********************************** CMS Pages **************************************/
 
 .cms-page-view .main-content .cms-banner .container,
-.cms-page-view .main-content .cms-batra .container {
+.cms-page-view .main-content .cms-batra .container,
+.cms-page-view .main-content .cms-faqs .container{
     background: transparent;
+}
+
+.cms-page-view.cms-dr-sonia-batra,
+.cms-page-view.cms-faqs {
+    background: none;
+}
+
+.cms-page-view.cms-dr-sonia-batra .main-container,
+.cms-page-view.cms-faqs .main-container {
+    background: none;
 }
 
 .cms-wrapper {
@@ -4491,6 +4502,98 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 /** end new batra **/
 
+/** new faqs **/
+
+.cms-faqs {
+    padding-bottom: 40px;
+}
+
+.cms-faqs h1 {
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-weight: 300;
+    color: #0069a7;
+    margin-bottom: 16px;
+}
+
+.cms-faqs .cslinks li.faqs,
+.cms-faqs .cslinks li.faqs a {
+    color: #0069a7;
+}
+
+.cms-faqs .cslinks li.faqs a:hover {
+    text-decoration: none;
+}
+
+.cms-faqs .faqs-left {
+    padding-right: 20px;
+}
+
+.cms-faqs .faqs-left li {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.cms-faqs .faqs-left li a {
+    font-size: 12px;
+    color: #747474;
+}
+
+.cms-faqs .faqs-right {
+    border-left: 1px solid #b7b7b7;
+    padding-left: 40px;
+}
+
+.cms-faqs .faqbox {
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.cms-faqs .faqbox a.question {
+    color:#75aedf;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    display: block;
+    position: relative;
+    padding-right: 30px;
+}
+
+.cms-faqs .faqbox a.question:hover {
+    text-decoration: none;
+}
+
+.cms-faqs .faqbox a.question:after {
+    position: absolute;
+    content: '+';
+    right: 0;
+    font-size: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 20px;
+    top: 0;
+}
+
+.cms-faqs .faqbox a.question.opened:after {
+    content: '-';
+    right:3px;
+}
+
+.cms-faqs .faqbox .answer {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 16px;
+    display: none;
+    font-size: 13px;
+}
+
+@media(max-width: 767px) {
+    .cms-faqs .faqs-right {
+        border-left: none;
+        padding: 0 15px;
+    }
+}
+
+/** end new faqs **/
+
 .cms-page-view .breadcrumbs {
   padding: 14px 0;
 }
@@ -4782,8 +4885,12 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 /*********************************************************************************/
 /******************************* CMS Page Design Overrides **************************/
 
+.cms-page-view {
+    background: #11323c;
+}
+
 .cms-page-view .main-container {
-  /** background: url('../images/backgrounds/green_glow.png') repeat-y top center; **/
+  background: url('../images/backgrounds/green_glow.png') repeat-y top center;
 }
 .cms-page-view .breadcrumbs {
   padding-top: 0;

@@ -4389,6 +4389,9 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 /** How It Works Styles 031215 **/
 
+.jenu-howitworks-container {
+  background: #fff;
+}
 h2.jenu-howitworks-header-h2 {
   color: #0069a7;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -4499,7 +4502,14 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-feature img {
   width: 100%;
 }
+.jenu-howitworks-bodyfeatures-container {
+  text-align: center;
+}
 .jenu-howitworks-body-features {
+  padding: 40px 0;
+  text-align: center;
+}
+.jenu-howitworks-body-features p {
   padding: 40px 0;
   text-align: center;
 }

@@ -4223,6 +4223,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     color: #0069a7;
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-weight: 300;
 }
 
 .cms-howtouse p {

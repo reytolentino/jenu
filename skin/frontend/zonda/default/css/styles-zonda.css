@@ -4427,7 +4427,7 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-hero-wide-banner {
   height: 346px;
-  padding: 100px 0;
+  padding: 64px 0;
   position: relative;
   width: 100%;
 }
@@ -4456,6 +4456,9 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-hero-wide-banner--howitworks {
   background: url("../images/howitworks-banner-desktop.jpg") no-repeat;
   background-size: cover;
+}
+.jenu-howitworks-video-full {
+  padding: 40px 0 0;
 }
 .jenu-howitworks-video-full img {
   width: 100%;

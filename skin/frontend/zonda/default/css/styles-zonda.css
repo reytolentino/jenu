@@ -4508,6 +4508,9 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-bodyfeatures-container {
   text-align: center;
 }
+.jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
+  text-align: center;
+}
 .jenu-howitworks-body-features {
   padding: 40px 0;
   text-align: center;

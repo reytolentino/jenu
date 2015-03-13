@@ -595,6 +595,24 @@
     margin: 0 auto;
     width: 70%;
   }
+  .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
+    margin: 0 auto 10px;
+    width: 100%;
+  }
+    .jenu-howitworks-text-copy-img img.howitworks-device-hand {
+        width: auto;
+        display: block;
+        margin: 20px auto 0 auto;
+    }
+    .jenu-howitworks-minute {
+        margin-top: 50px;
+    }
+    .jenu-howitworks-minute h2 {
+        font-size: 28px;
+    }
+    .jenu-howitworks-minute p {
+        padding: 0;
+    }
 }
 @media(max-width:767px) {
   .col1, .col2, .col3, .col4, .col6, .col8, .col12, .col-copy, .col-social, .footer-above .col4 {
@@ -642,7 +660,6 @@
     font-size: 11px;
   }
   .cms-page-view .main {
-    padding-bottom: 20px;
     margin-bottom: 0;
   }
   .cms-page-view.cms-in-the-press .main, .cms-page-view.cms-before-afters .main {
@@ -1325,74 +1342,121 @@
   .sarp-terms-popup {
     width: 90%;
   }
-    .product-view .product-shop .price-review .price-box {
-        float: none;
-        padding-top: 0;
+  .product-view .product-shop .price-review .price-box {
+      float: none;
+      padding-top: 0;
+  }
+  .product-view .product-shop .price-review .ratings,
+  .product-view .product-shop .price-review-wrap {
+      float: none;
+      margin-top: 4px;
+      text-align: left;
+      width: 100%;
+  }
+  .product-view .product-shop .price-review-wrap .amount {
+      margin-left: 4px;
+  }
+  .product-view .product-shop .price-review-wrap .review-toggle {
+      margin: 5px 0;
+      display: inline-block;
+  }
+  .product-view .riskfree {
+      margin-top: -50px;
+      right: 10px;
+  }
+  .product-view .alsobought .prod-image {
+      width: 100px;
+  }
+  .product-view .alsobought .prod-info-right {
+      margin-left: 5px;
+      width: 180px;
+  }
+  .product-view .alsobought .prod-info-right .prodname a {
+      font-size: 14px;
+  }
+  .product-view .gallerywrap .videogallery .vid {
+      width: 100%;
+      margin-bottom: 16px;
+  }
+  .product-view .gallerywrap .bagallery .bx-controls-direction {
+      top: 28%;
+  }
+  .product-view .reviews-summary-wrap .rating-box {
+      float: none;
+  }
+  .product-view .reviews-summary-wrap .amount a {
+      display: block;
+      float: none;
+      padding: 0;
+      margin: 6px 0;
+      border: none;
+      font-size: 20px;
+  }
+  .product-view .reviews-summary-wrap .btn-writereview {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: block;
+  }
+  .product-view .line-separator1 {
+      margin: 30px auto;
+      width: 40%;
+  }
+  .product-view .box-reviews {
+      width: 100%;
+  }
+  .reviews-bottomwrap .name_date {
+      font-size: 14px;
+  }
+  .product-view .line-separator2 {
+      margin: 20px auto;
+  }
+
+  .jenu-howitworks-feature div {
+    text-align: center;
+  }
+  .jenu-howitworks-feature p {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .jenu-howitworks-features .jenu-howitworks-text-copy-img {
+    text-align: center;
+  }
+  .jenu-howitworks-features .jenu-howitworks-text-copy-img img {
+    width: 80%;
+  }
+  .jenu-howitworks-bodyfeatures-container ul.jenu-howitworks-text-copy-list {
+    margin-bottom: 20px;
+  }
+  .jenu-howitworks-absorption-img {
+    width: 100%;
+  }
+  .jenu-howitworks-feature img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 60px;
+  }
+  .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
+    margin: 0 auto 10px;
+    width: 212px;
+  }
+  .jenu-howitworks-minute {
+    margin-top: 0;
+  }
+    .howitworks-banner .banner-content {
+        width: 300px;
+        margin-top: 20%;
+        margin-left: 5%;
     }
-    .product-view .product-shop .price-review .ratings,
-    .product-view .product-shop .price-review-wrap {
-        float: none;
-        margin-top: 4px;
-        text-align: left;
-        width: 100%;
+    .howitworks-banner .banner-content h1 {
+        font-size: 22px;
+        line-height: 36px;
     }
-    .product-view .product-shop .price-review-wrap .amount {
-        margin-left: 4px;
-    }
-    .product-view .product-shop .price-review-wrap .review-toggle {
-        margin: 5px 0;
-        display: inline-block;
-    }
-    .product-view .riskfree {
-        margin-top: -50px;
-        right: 10px;
-    }
-    .product-view .alsobought .prod-image {
-        width: 100px;
-    }
-    .product-view .alsobought .prod-info-right {
-        margin-left: 5px;
-        width: 180px;
-    }
-    .product-view .alsobought .prod-info-right .prodname a {
-        font-size: 14px;
-    }
-    .product-view .gallerywrap .videogallery .vid {
-        width: 100%;
-        margin-bottom: 16px;
-    }
-    .product-view .gallerywrap .bagallery .bx-controls-direction {
-        top: 28%;
-    }
-    .product-view .reviews-summary-wrap .rating-box {
-        float: none;
-    }
-    .product-view .reviews-summary-wrap .amount a {
+    .howitworks-banner .banner-content .jenu-howitworks-sub-text {
         display: block;
-        float: none;
-        padding: 0;
-        margin: 6px 0;
-        border: none;
-        font-size: 20px;
-    }
-    .product-view .reviews-summary-wrap .btn-writereview {
-        border: none;
-        padding: 0;
-        margin: 0;
-        display: block;
-    }
-    .product-view .line-separator1 {
-        margin: 30px auto;
-        width: 40%;
-    }
-    .product-view .box-reviews {
-        width: 100%;
-    }
-    .reviews-bottomwrap .name_date {
-        font-size: 14px;
-    }
-    .product-view .line-separator2 {
-        margin: 20px auto;
+        font-size: 16px;
+        line-height: 24px;
+        text-shadow: 0 0 0;
     }
 }
 @media(max-width: 480px) {
@@ -1805,15 +1869,6 @@
   .jenu-howitworks-feature h3, .jenu-howitworks-feature p {
     text-align: center;
     width: 100%;
-  }
-  .jenu-howitworks-feature img {
-    display: block;
-    margin: 0 auto 10px;
-    width: 60px;
-  }
-  .jenu-howitworks-body-features .jenu-howitworks-text-copy-img {
-    margin: 0 auto 10px;
-    width: 80%;
   }
   .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
     margin-bottom: 20px;

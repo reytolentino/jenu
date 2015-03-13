@@ -4166,17 +4166,20 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-page-view .main-content .cms-banner .container,
 .cms-page-view .main-content .cms-batra .container,
-.cms-page-view .main-content .cms-faqs .container{
+.cms-page-view .main-content .cms-faqs .container,
+.cms-page-view .main-content .cms-using-jenu .container{
     background: transparent;
 }
 
 .cms-page-view.cms-dr-sonia-batra,
-.cms-page-view.cms-faqs {
+.cms-page-view.cms-faqs,
+.cms-page-view.cms-using-jenu {
     background: none;
 }
 
 .cms-page-view.cms-dr-sonia-batra .main-container,
-.cms-page-view.cms-faqs .main-container {
+.cms-page-view.cms-faqs .main-container,
+.cms-page-view.cms-using-jenu .main-container {
     background: none;
 }
 
@@ -4188,6 +4191,201 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     color: #0069a7;
     outline: none;
 }
+
+/** new howtouse **/
+
+.cms-banner.howtouse-banner {
+    height: 374px;
+}
+
+.howtouse-banner {
+    background: url('../images/howtouse-banner.jpg') no-repeat center top;
+    background-size: auto 100%;
+    height: 374px;
+}
+
+.howtouse-banner .banner-content {
+    margin-top:8%;
+    margin-left: 2%;
+    float: left;
+}
+
+.howtouse-banner .banner-content span {
+    display: block;
+}
+
+.howtouse-banner .banner-content h1 {
+    font-size: 48px;
+}
+
+.cms-howtouse h2 {
+    font-size: 36px;
+    color: #0069a7;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.cms-howtouse p {
+    line-height: 24px;
+}
+
+.cms-howtouse .howtouse-copy {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cms-howtouse p {
+    font-size: 14px;
+}
+
+.cms-howtouse .howtouse-videoblock {
+    padding: 50px 0;
+}
+
+.cms-howtouse .howtouse-stepsblock {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.cms-howtouse .howtouse-stepsblock:before {
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #75aedf;
+    top: 243px;
+}
+
+.cms-howtouse .howtouse-stepsblock .steps-img img {
+    width: 100%;
+}
+
+.cms-howtouse .howtouse-stepsblock .steps-copy {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.cms-howtouse .howtouse-stepsblock h5 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #75aedf;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 8px;
+}
+
+.cms-howtouse .howtouse-model img {
+    width: 100%;
+}
+
+.cms-howtouse .howtouse-three {
+    background: #f9fcff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f9fcff 0%, #ebf6fe 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9fcff), color-stop(100%,#ebf6fe)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f9fcff 0%,#ebf6fe 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f9fcff 0%,#ebf6fe 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f9fcff 0%,#ebf6fe 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f9fcff 0%,#ebf6fe 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fcff', endColorstr='#ebf6fe',GradientType=0 ); /* IE6-9 */
+    padding: 50px 0;
+}
+
+.cms-page-view .main-content .cms-howtouse .howtouse-three .container {
+    background: transparent;
+}
+
+.cms-howtouse .howtouse-three {
+    width: 100%;
+    margin: 0;
+}
+
+.cms-howtouse .howtouse-threebox img {
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+}
+
+.cms-howtouse .howtouse-threebox {
+    text-align: center;
+}
+
+.cms-howtouse .howtouse-threebox p {
+    display: block;
+    margin: 0 auto;
+}
+
+@media(max-width: 991px) {
+    .howtouse-banner .banner-content h1 {
+        font-size: 36px;
+    }
+    .cms-howtouse .howtouse-video iframe {
+        width: 408px;
+        height: 230px;
+    }
+    .cms-howtouse .howtouse-videoblock {
+        padding-top: 30px 0;
+    }
+    .cms-howtouse .howtouse-copy {
+        margin-top: 0;
+    }
+    .cms-howtouse .howtouse-stepsblock:before {
+        top: 167px;
+    }
+    .cms-howtouse .howtouse-stepsblock .steps-copy {
+        padding: 0;
+    }
+}
+
+@media(max-width: 767px) {
+    .howtouse-banner .banner-content h1 {
+        font-size: 24px;
+    }
+    .howtouse-banner .banner-content {
+        margin-top: 100px;
+    }
+    .cms-howtouse .howtouse-video {
+        margin-top: 30px;
+    }
+    .cms-howtouse .howtouse-video iframe {
+        width: 100%;
+        height: 320px;
+    }
+    .cms-howtouse .howtouse-stepsblock {
+        margin-bottom: 15px;
+    }
+    .cms-howtouse .howtouse-stepsblock:before {
+        display: none;
+    }
+    .cms-howtouse .howtouse-stepsblock .steps-img {
+        border-bottom: 1px solid #75aedf;
+    }
+
+    .cms-howtouse .howtouse-stepsblock .steps-img img {
+        width: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .cms-howtouse .howtouse-stepsblock .steps-box {
+        margin-bottom: 30px;
+    }
+    .cms-howtouse .howtouse-model {
+        margin-top: 0;
+    }
+    .cms-howtouse .howtouse-threebox {
+        margin-bottom: 30px;
+    }
+    .cms-howtouse .howtouse-threebox img {
+        width: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/** end howtouse **/
 
 /** new batra **/
 
@@ -4202,7 +4400,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-size: 50px;
     color: #fff;
     text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
     display: inline;
 }
 
@@ -4389,6 +4587,15 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 /** How It Works Styles 031215 **/
 
+.jenu-howitworks-container {
+  background: #fff;
+}
+.jenu-howitworks-minute {
+    margin-top: 80px;
+}
+.jenu-howitworks-minute p {
+    padding: 0 40px;
+}
 h2.jenu-howitworks-header-h2 {
   color: #0069a7;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -4424,14 +4631,15 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-hero-wide-banner {
   height: 346px;
-  padding: 100px 0;
+  padding: 64px 0;
   position: relative;
   width: 100%;
 }
-.jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text {
+.howitworks-banner .banner-content {
   width: 510px;
+    margin-top: 10%;
 }
-.jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text h1 {
+.howitworks-banner .banner-content h1 {
   color: #fff;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
@@ -4440,27 +4648,34 @@ h2.jenu-howitworks-header-h2 strong {
   text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
 }
-.jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text .jenu-howitworks-sub-text {
+.howitworks-banner .banner-content .jenu-howitworks-sub-text {
   display: block;
   font-size: 24px;
   line-height: 34px;
   text-shadow: 0 0 0;
 }
+.howitworks-banner .banner-content
 .jenu-howitworks-hero-wide-banner-inner {
   margin: 0 auto;
   width: 1000px;
 }
-.jenu-howitworks-hero-wide-banner--howitworks {
-  background: url("../images/howitworks-banner-desktop.jpg") no-repeat;
-  background-size: cover;
+.cms-banner.howitworks-banner {
+    height: 374px;
+}
+.howitworks-banner {
+    background: url('../images/howitworks-banner.jpg') no-repeat center top;
+    background-size: auto 100%;
+    height: 374px;
+}
+.jenu-howitworks-video-full {
+  padding: 40px 0 0;
 }
 .jenu-howitworks-video-full img {
   width: 100%;
 }
 .jenu-howitworks-text-content {
   border-bottom: 1px solid #0069a7;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  margin-top: 50px;
   overflow: hidden;
 }
 .jenu-howitworks-text-content.howitworks-no-border {
@@ -4471,16 +4686,18 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-text-copy {
   margin: 0 auto;
-  padding: 80px 0 0;
   text-align: center;
-  width: 65%;
 }
 .jenu-howitworks-text-copy p {
   color: #747474;
+    font-size: 14px;
 }
 .jenu-howitworks-text-copy-img img {
   height: auto;
   width: 100%;
+}
+.jenu-howitworks-text-copy-img img.howitworks-device-hand {
+    width: auto;
 }
 .jenu-howitworks-feature {
   margin: 0 0 20px 0;
@@ -4499,13 +4716,27 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-feature img {
   width: 100%;
 }
+.jenu-howitworks-bodyfeatures-container {
+  text-align: center;
+}
+.jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
+  text-align: center;
+}
+.jenu-text-lowercase {
+    text-transform: none;
+}
 .jenu-howitworks-body-features {
+  padding: 40px 0;
+  text-align: center;
+}
+.jenu-howitworks-body-features p {
   padding: 40px 0;
   text-align: center;
 }
 .jenu-howitworks-body-features h4 {
   color: #75aedf;
-  font-weight: 700;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
   margin: 0 0 5px 0;
   text-align: center;
   text-transform: uppercase;
@@ -4513,12 +4744,23 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
   color: #747474;
   text-align: center;
+    font-size: 14px;
 }
 .jenu-howitworks-body-features .jenu-howitworks-text-copy-img {
   margin: 0 0 20px 0;
 }
 .jenu-howitworks-body-features .howitworks-blue-plus {
   color: #75aedf;
+}
+.howitworks-bottomcopy {
+    font-size: 14px;
+    color:#757575;
+}
+
+.howitworks-bottomcopy .hiw-bottomlg {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 @media(max-width: 991px) {
@@ -5030,13 +5272,6 @@ h2.jenu-howitworks-header-h2 strong {
 /*********************************************************************************/
 /******************************* CMS Page Design Overrides **************************/
 
-.cms-page-view {
-    background: #11323c;
-}
-
-.cms-page-view .main-container {
-  background: url('../images/backgrounds/green_glow.png') repeat-y top center;
-}
 .cms-page-view .breadcrumbs {
   padding-top: 0;
   padding-bottom: 0;
@@ -5100,9 +5335,6 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .cms-box.using-jenu h1 {
   font-size: 42px;
-}
-.cms-page-view.cms-ultrasound-101 .main-container .main-content, .cms-page-view.cms-using-jenu .main-container .main-content, .cms-page-view.cms-how-jenu-works .main-container .main-content {
-  background: url('../images/backgrounds/ultrasound_content_bg.jpg') repeat-y top center;
 }
 .cms-page-view.cms-ultrasound-101 .cms-box, .cms-page-view.cms-ultrasound-101 .breadcrumbs .container, .cms-page-view.cms-using-jenu .cms-box, .cms-page-view.cms-using-jenu .breadcrumbs .container, .cms-page-view.cms-how-jenu-works .cms-box, .cms-page-view.cms-how-jenu-works .breadcrumbs .container {
   background: transparent;

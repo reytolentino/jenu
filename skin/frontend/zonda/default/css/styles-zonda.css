@@ -4534,6 +4534,10 @@ h2.jenu-howitworks-header-h2 strong {
   color: #75aedf;
 }
 
+.jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
+  text-align: center;
+}
+
 @media(max-width: 991px) {
     .cms-batra .batra-video iframe {
         width: 408px;

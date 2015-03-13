@@ -51,7 +51,7 @@
             <block type="core/text" name="latofont">
                 <action method="setText"><text><![CDATA[<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>]]></text></action>
             </block>
-            <action method="addCss"><stylesheet>css/bootstrap.min.css</stylesheet></action>
+            
             <action method="addItem"><type>skin_css</type><name>css/jquery/flexslider.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/jquery/jquery.selectbox.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/jquery/lightbox.css</name><params/></action>

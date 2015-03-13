@@ -4501,7 +4501,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     .batra-banner {
         background-size: auto auto;
         height: 300px;
-        background-position: top center;
+        background-position: right -380px top;
     }
 
     .batra-banner .banner-content {

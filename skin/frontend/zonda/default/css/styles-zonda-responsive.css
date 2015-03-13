@@ -1394,6 +1394,37 @@
     .product-view .line-separator2 {
         margin: 20px auto;
     }
+
+    .jenu-howitworks-feature div {
+      text-align: center;
+    }
+    .jenu-howitworks-feature p {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .jenu-howitworks-features .jenu-howitworks-text-copy-img img {
+      width: 80%;
+    }
+    .jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
+      text-align: center;
+    }
+    .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+      margin: 0 auto 10px;
+      width: 212px;
+    }
+    .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
+      margin-bottom: 20px;
+    }
+    .jenu-howitworks-absorption-img {
+      width: 100%;
+    }
+    .jenu-howitworks-feature img {
+      margin: 0 auto 20px;
+      width: 60px;
+    }
+    .jenu-howitworks-features .jenu-howitworks-text-copy-img {
+      text-align: center;
+    }
 }
 @media(max-width: 480px) {
   .login-container-big {
@@ -1810,10 +1841,6 @@
     display: block;
     margin: 0 auto 10px;
     width: 60px;
-  }
-  .jenu-howitworks-body-features .jenu-howitworks-text-copy-img {
-    margin: 0 auto 10px;
-    width: 80%;
   }
   .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
     margin-bottom: 20px;

@@ -4389,7 +4389,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 /** How It Works Styles 031215 **/
 
-h2.jenu-header-h2 {
+h2.jenu-howitworks-header-h2 {
   color: #0069a7;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 36px;
@@ -4397,41 +4397,41 @@ h2.jenu-header-h2 {
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-h2.jenu-header-h2 strong {
+h2.jenu-howitworks-header-h2 strong {
   font-weight: 400;
 }
-.jenu-text-lowercase {
+.jenu-howitworks-text-lowercase {
   text-transform: lowercase;
 }
 .cms-page-view {
   background: #fff;
 }
-.container-full {
+.howitworks-container-full {
   overflow: hidden;
   padding: 60px 0;
   width: 100%;
 }
-.container-bg-powderblue {
-  background: url("../images/bg-howtouse-features.jpg") repeat-y #e6f5ff;
+.howitworks-container-bg-powderblue {
+  background: url("../images/howitworks-bg-howtouse-features.jpg") repeat-y #e6f5ff;
   background-size: contain;
 }
-.container-bg-powderblue div.container {
+.howitworks-container-bg-powderblue div.container {
   background: transparent !important;
 }
-.jenu-how-it-works {
+.jenu-howitworks-how-it-works {
   padding-top: 80px;
   padding-bottom: 80px;
 }
-.jenu-hero-wide-banner {
+.jenu-howitworks-hero-wide-banner {
   height: 346px;
   padding: 100px 0;
   position: relative;
   width: 100%;
 }
-.jenu-hero-wide-banner .jenu-banner-text {
+.jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text {
   width: 510px;
 }
-.jenu-hero-wide-banner .jenu-banner-text h1 {
+.jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text h1 {
   color: #fff;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
@@ -4440,52 +4440,52 @@ h2.jenu-header-h2 strong {
   text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
 }
-.jenu-hero-wide-banner .jenu-banner-text .jenu-sub-text {
+.jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text .jenu-howitworks-sub-text {
   display: block;
   font-size: 24px;
   line-height: 34px;
   text-shadow: 0 0 0;
 }
-.jenu-hero-wide-banner-inner {
+.jenu-howitworks-hero-wide-banner-inner {
   margin: 0 auto;
   width: 1000px;
 }
-.jenu-hero-wide-banner--howitworks {
-  background: url("../images/banner-howitworks-desktop.jpg") no-repeat;
+.jenu-howitworks-hero-wide-banner--howitworks {
+  background: url("../images/howitworks-banner-desktop.jpg") no-repeat;
   background-size: cover;
 }
-.jenu-video-full img {
+.jenu-howitworks-video-full img {
   width: 100%;
 }
-.jenu-text-content {
+.jenu-howitworks-text-content {
   border-bottom: 1px solid #0069a7;
   margin-top: 100px;
   margin-bottom: 40px;
   overflow: hidden;
 }
-.jenu-text-content.no-border {
+.jenu-howitworks-text-content.howitworks-no-border {
   border-bottom: 0;
 }
-.jenu-text-content.center-text {
+.jenu-howitworks-text-content.howitworks-center-text {
   text-align: center;
 }
-.jenu-text-copy {
+.jenu-howitworks-text-copy {
   margin: 0 auto;
   padding: 80px 0 0;
   text-align: center;
   width: 65%;
 }
-.jenu-text-copy p {
+.jenu-howitworks-text-copy p {
   color: #747474;
 }
-.jenu-text-copy-img img {
+.jenu-howitworks-text-copy-img img {
   height: auto;
   width: 100%;
 }
-.jenu-feature {
+.jenu-howitworks-feature {
   margin: 0 0 20px 0;
 }
-.jenu-feature h3 {
+.jenu-howitworks-feature h3 {
   color: #0069a7;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 32px;
@@ -4493,31 +4493,31 @@ h2.jenu-header-h2 strong {
   margin-bottom: 0;
   text-transform: uppercase;
 }
-.jenu-feature p {
+.jenu-howitworks-feature p {
   color: #747474;
 }
-.jenu-feature img {
+.jenu-howitworks-feature img {
   width: 100%;
 }
-.jenu-body-features {
+.jenu-howitworks-body-features {
   padding: 40px 0;
   text-align: center;
 }
-.jenu-body-features h4 {
+.jenu-howitworks-body-features h4 {
   color: #75aedf;
   font-weight: 700;
   margin: 0 0 5px 0;
   text-align: center;
   text-transform: uppercase;
 }
-.jenu-body-features .jenu-text-copy-list {
+.jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
   color: #747474;
   text-align: center;
 }
-.jenu-body-features .jenu-text-copy-img {
+.jenu-howitworks-body-features .jenu-howitworks-text-copy-img {
   margin: 0 0 20px 0;
 }
-.jenu-body-features .blue-plus {
+.jenu-howitworks-body-features .howitworks-blue-plus {
   color: #75aedf;
 }
 

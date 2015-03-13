@@ -4194,6 +4194,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 /** new howtouse **/
 
+.cms-banner.howtouse-banner {
+    height: 374px;
+}
+
 .howtouse-banner {
     background: url('../images/howtouse-banner.jpg') no-repeat center top;
     background-size: auto 100%;
@@ -4658,8 +4662,7 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-text-content {
   border-bottom: 1px solid #0069a7;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  margin-top: 50px;
   overflow: hidden;
 }
 .jenu-howitworks-text-content.howitworks-no-border {
@@ -4670,12 +4673,12 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-text-copy {
   margin: 0 auto;
-  padding: 80px 0 0;
   text-align: center;
   width: 65%;
 }
 .jenu-howitworks-text-copy p {
   color: #747474;
+    font-size: 14px;
 }
 .jenu-howitworks-text-copy-img img {
   height: auto;
@@ -4704,6 +4707,9 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
   text-align: center;
 }
+.jenu-text-lowercase {
+    text-transform: none;
+}
 .jenu-howitworks-body-features {
   padding: 40px 0;
   text-align: center;
@@ -4714,7 +4720,8 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-body-features h4 {
   color: #75aedf;
-  font-weight: 700;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
   margin: 0 0 5px 0;
   text-align: center;
   text-transform: uppercase;
@@ -4722,12 +4729,23 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
   color: #747474;
   text-align: center;
+    font-size: 14px;
 }
 .jenu-howitworks-body-features .jenu-howitworks-text-copy-img {
   margin: 0 0 20px 0;
 }
 .jenu-howitworks-body-features .howitworks-blue-plus {
   color: #75aedf;
+}
+.howitworks-bottomcopy {
+    font-size: 14px;
+    color:#757575;
+}
+
+.howitworks-bottomcopy .hiw-bottomlg {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 @media(max-width: 991px) {
@@ -5239,13 +5257,6 @@ h2.jenu-howitworks-header-h2 strong {
 /*********************************************************************************/
 /******************************* CMS Page Design Overrides **************************/
 
-.cms-page-view {
-    background: #11323c;
-}
-
-.cms-page-view .main-container {
-  background: url('../images/backgrounds/green_glow.png') repeat-y top center;
-}
 .cms-page-view .breadcrumbs {
   padding-top: 0;
   padding-bottom: 0;
@@ -5309,9 +5320,6 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .cms-box.using-jenu h1 {
   font-size: 42px;
-}
-.cms-page-view.cms-ultrasound-101 .main-container .main-content, .cms-page-view.cms-using-jenu .main-container .main-content, .cms-page-view.cms-how-jenu-works .main-container .main-content {
-  background: url('../images/backgrounds/ultrasound_content_bg.jpg') repeat-y top center;
 }
 .cms-page-view.cms-ultrasound-101 .cms-box, .cms-page-view.cms-ultrasound-101 .breadcrumbs .container, .cms-page-view.cms-using-jenu .cms-box, .cms-page-view.cms-using-jenu .breadcrumbs .container, .cms-page-view.cms-how-jenu-works .cms-box, .cms-page-view.cms-how-jenu-works .breadcrumbs .container {
   background: transparent;

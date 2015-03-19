@@ -62,6 +62,9 @@ $cart_html = $this->getChildHtml('cart_sidebar');
                 <div class="right">
                     <?php echo $this->getChildHtml('topLinks') ?>
                 </div>
+                <div class="right">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free-top')->toHtml(); ?>
+                </div>
             </div>
             <div class="mobile-bg"></div>
             <div class="header-menu-back">

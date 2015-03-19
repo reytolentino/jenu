@@ -95,9 +95,14 @@ ul.ul {
 }
 
 .header-top .risk-free {
-    line-height: 26px;
+    margin: 13px 20px 0;
     text-transform: uppercase;
     padding: 0 16px;
+    font-size: 11px;
+}
+
+.header-top .risk-free .top-freeshipping {
+    color: #75aedf;
 }
 
 .header-top,.header-menu {
@@ -144,13 +149,13 @@ ul#nav li.order-now a:hover {
 }
 
 div.menu a, #nav li a, #blog_nav li a, #nav-links a {
-    font-family: "Univers_Condensed", Arial, Helvetica;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     padding: 0 12px;
 }
 
 #custommenu #nav .level1 a {
-    font-family: "Univers_Condensed", Arial, Helvetica;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: none;
     font-size: 13px;
     line-height: 140%;
@@ -170,7 +175,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .tp-caption.dark_big_text {
-    font-family: "Univers_Condensed", Arial, Helvetica;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 30px;
     line-height: 36px;
     text-transform: none;
@@ -180,7 +185,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .tp-caption.dark_more_small_text {
     position: absolute;
-    font-family: "Univers_Condensed", Arial, Helvetica;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 14px;
     font-weight: 300;
     color: #fff;
@@ -193,7 +198,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 .tp-caption.secondary_headline_text {
     position: absolute;
-    font-family: "Univers_Condensed", Arial, Helvetica;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 11px;
     line-height: 120%;
     font-weight: 300;
@@ -261,4 +266,17 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .product-info p {
     margin: 8px 0;
+}
+
+.header
+
+@media(max-width: 991px){
+    ul#nav li.order-now a {
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+    }
+    ul#nav li.order-now a img {
+        margin-left: 40px;
+    }
 }

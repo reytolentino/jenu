@@ -62,7 +62,7 @@
             <action method="addItem"><type>skin_css</type><name>css/styles-zonda.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/skin.css</name><params/></action>
             <!-- system config design -->
-            <action method="addCss"><stylesheet helper="zonda/config/getCssFile" /></action>
+            <action method="addItem"><type>skin_css</type><name>css/store_default.css</name><params/></action>
             <action method="addCss"><stylesheet helper="zonda/config/getCssResponsiveFile" /></action>
             <action method="addCss"><stylesheet helper="zonda/config/getCssSkinResponsiveFile" /></action>
 

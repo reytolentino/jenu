@@ -241,13 +241,6 @@ p.required {
   padding-right: 15px;
 }
 .header-container {
-  /*border-bottom: 1px solid #cacaca;*/
-  
-  box-shadow: 0 1px 1px #d5d5d5;
-  -moz-box-shadow: 0 1px 1px #d5d5d5;
-  -o-box-shadow: 0 1px 1px #d5d5d5;
-  -web-kit-box-shadow: 0 1px 1px #d5d5d5;
-  -ms-box-shadow: 0 1px 1px #d5d5d5;
   line-height: 1.4825;
   opacity: 1;
   position: relative;
@@ -648,14 +641,14 @@ button.button span.name {
 }
 #custommenu-mobile .btn-navbar .icon-bar {
   display: block;
-  width: 15px;
-  height: 3px;
+  width: 30px;
+  height: 4px;
 }
 #custommenu-mobile #menu-button {
   display: block;
   width: auto;
   margin-bottom: 0;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 #menu-button a, #menu-button a:link, #menu-button a:visited {
   margin-left: 0;
@@ -4043,17 +4036,18 @@ div.eternal-custom-menu-popup > div, #custommenu-mobile #menu-content, #nav ul, 
   position: absolute;
   right: 0;
   z-index: 1000;
-  font-family: "Univers_Condensed", Arial, Helvetica;
   text-align: right;
-  color: #fff;
+    color: #929292;
+    line-height: 56px;
 }
 .top-block .top-copy {
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
+    margin-right: 5px;
 }
 .top-block .and {
   display: inline-block;
-  margin: 11px 5px 0 5px;
+  margin: 0 5px 0 5px;
 }
 .top-block .risk-free {
   text-transform: uppercase;

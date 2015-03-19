@@ -44,6 +44,11 @@ $cart_html = $this->getChildHtml('cart_sidebar');
                 <?php echo $switcher_html ?>
             </div>
         </div>
+        <?php if ($this->getIsHomePage()):?>
+            <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
+        <?php else:?>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a>
+        <?php endif?>
         <div class="header-right">
             <div class="header-top">
                 <div class="right clearfix block-container">
@@ -57,31 +62,11 @@ $cart_html = $this->getChildHtml('cart_sidebar');
                 <div class="right">
                     <?php echo $this->getChildHtml('topLinks') ?>
                 </div>
-<<<<<<< HEAD
-                <div class="right risk-free-top">
-                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free-top')->toHtml(); ?>
-                </div>
-                <div class="also-available-mobile">
-                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top_right_header_block')->toHtml(); ?>
-                </div>
-=======
                 <div class="right">
                     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free-top')->toHtml(); ?>
                 </div>
->>>>>>> origin/rtole-header
             </div>
             <div class="mobile-bg"></div>
-        </div>
-    </div>
-    <div class="header-long">
-        <div class="container clearfix">
-            <div class="logo-desktop">
-                <?php if ($this->getIsHomePage()):?>
-                    <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
-                <?php else:?>
-                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a>
-                <?php endif?>
-            </div>
             <div class="header-menu-back">
                 <div class="header-menu-container clearfix">
                     <h1 class="sticky-logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="sticky-logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
@@ -94,13 +79,7 @@ $cart_html = $this->getChildHtml('cart_sidebar');
                     </div>
                 </div>
             </div>
-            <div class="logo-mobile">
-                <?php if ($this->getIsHomePage()):?>
-                    <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
-                <?php else:?>
-                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a>
-                <?php endif?>
-            </div>
+
         </div>
     </div>
 <?php else: ?>

@@ -72,6 +72,34 @@ ul.ul {
 
 /** header customization **/
 
+.header-top {
+    height: 38px;
+}
+
+.header-top .toplinks {
+    font-size: 11px;
+    color: #666;
+}
+
+#mini-cart .mini-cart-button, #mini-cart .dropdown-menu,
+#mini-cart .mini-cart-button .price {
+    font-size: 11px;
+}
+
+.header-top .toplinks a {
+    color: #666;
+}
+
+.header-top .toplinks a:hover {
+    color: #000;
+}
+
+.header-top .risk-free {
+    line-height: 26px;
+    text-transform: uppercase;
+    padding: 0 16px;
+}
+
 .header-top,.header-menu {
     border-bottom: none;
     border-top: none;

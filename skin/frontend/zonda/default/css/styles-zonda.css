@@ -4585,6 +4585,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-weight: 400;
 }
 
+.lato-bold {
+    font-weight: 600;
+}
+
 /** How It Works Styles 031215 **/
 
 .jenu-howitworks-container {

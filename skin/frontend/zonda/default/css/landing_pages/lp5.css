@@ -1,0 +1,1053 @@
+.lpbox {
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+    background: #fff;
+}
+
+.lpbox p {
+    font-size: 14px;
+    color: #0069a7;
+}
+
+.lpbox p.lpbullets {
+    margin-top: 20px;
+}
+
+.lpbanner {
+    width: 100%;
+    height: 675px;
+    background: #a9e4fc url('/media/landing_pages/lp5/bg-hero.jpg') no-repeat center top;
+    color: #03476e;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.cms-page-view .main-content .lp-wrapper .container {
+    background: transparent;
+}
+
+.lpbanner .banner-box {
+    margin-top:75px;
+}
+
+.lpbanner .banner-box h1 {
+    font-size: 30px;
+    font-weight: 300;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+}
+
+.lpbanner .banner-box h2 {
+    font-size: 24px;
+    font-weight: 300;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+    color: #fff;
+    display: inline-block;
+    float: left;
+}
+
+.headingbox {
+    clear: both;
+    overflow: hidden;
+    margin-top: 24px;
+}
+
+.lpbanner .ratings .amount a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.lpbanner .ratings {
+    float: left;
+    margin-top: 7px;
+    margin-left: 30px;
+    text-align: right;
+    width: 170px;
+    line-height: 15px;
+}
+
+.lpbanner .ratings .rating-box {
+    float: left;
+}
+
+.lpbanner .graybox {
+    background-color: rgba(6,6,6,0.10);
+    padding: 16px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.lpbanner .graybox .grayleft {
+    display: inline-block;
+    float: left;
+}
+
+.lpbanner h4 {
+    font-size: 18px;
+    font-family: Sans-Serif;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+}
+
+.lpbanner .graybox .grayleft .lto {
+    margin: 10px 0;
+}
+
+.lpbanner .graybox .seal-riskfree {
+    float: right;
+    margin: 10px 20px 0 0;
+}
+
+.lpbanner .warrantyinfo {
+    font-style: italic;
+}
+
+.lpsub {
+    background: #ecf1f5;
+}
+
+ul.lpsubnav, ul.lpsubnav li {
+    text-align: center;
+    list-style: none;
+}
+
+ul.lpsubnav li {
+    display: inline-block;
+}
+
+ul.lpsubnav li a {
+    display: block;
+    height: 78px;
+    line-height: 78px;
+    padding: 0 40px;
+    font-size: 16px;
+    color: #03476e;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+ul.lpsubnav li a:hover {
+    background: #fff;
+    font-weight: 600;
+}
+
+.lpbox .batra-qa-box,
+.lpbox .bavid-box {
+    padding: 50px 0;
+}
+
+.lpbox .qabox {
+    padding: 16px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.lpbox .qabox a.question {
+    text-transform: uppercase;
+    color:#75aedf;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+}
+
+.lpbox .qabox a.question:hover {
+    text-decoration: none;
+}
+
+.lpbox .qabox a.question:after {
+    position: absolute;
+    content: '+';
+    right: 0;
+    font-size: 25px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.lpbox .qabox a.question.opened:after {
+    content: '-';
+    right:3px;
+}
+
+.lpbox .qabox .answer {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 16px;
+    display: none;
+    font-size: 14px;
+}
+
+.lpbox .batra-quote2:before{
+    content:'';
+    position:absolute;
+    width: 89px;
+    height: 70px;
+    display: block;
+    background: url('../../images/quote-before.png') no-repeat top left;
+    top: 8px;
+    left: 40px;
+}
+
+.lpbox .batra-quote2:before {
+    left: 0;
+}
+
+.lpbox .batra-quote2:after {
+    content:'';
+    position:absolute;
+    width: 89px;
+    height: 70px;
+    display: block;
+    background: url('../../images/quote-after.png') no-repeat top left;
+    bottom: 24px;
+    right: 40px;
+}
+
+.lpbox .batra-quote2:after {
+    right: 0;
+}
+
+.lpbox .batra-quote2 {
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size: 20px;
+    color: #0069a7;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    padding: 42px 40px 52px 40px;
+    font-weight: 300;
+}
+
+.lpbox .batra-quote2 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.lpbox .batra-qa-left {
+    text-align: center;
+}
+
+.lpbox .batra-qa-wrap {
+    background: #f3f3f3;
+}
+
+.lpbox .batra-qa-right h3 {
+    font-size: 36px;
+    color: #0069a7;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    margin-bottom: 16px;
+}
+
+.lpbox a.bluebtn {
+    text-align: center;
+    color: #fff;
+    background: #016aa8;
+    text-transform: uppercase;
+    line-height: 60px;
+    height: 60px;
+    padding: 0 20px;
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.lpbox .bluebtn span {
+    display: inline-block;
+    padding-right: 10px;
+    background: url('/media/landing_pages/lp5/btn-arrow.png') no-repeat center right;
+}
+
+.lpbox a.bluebtn:hover {
+    background: #055889;
+}
+
+.lpbox .study-wrap {
+    background: #ddedfa;
+}
+
+.lpbox .study-wrap .study-box {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.lpbox .study-wrap h2 {
+    text-transform: uppercase;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+    font-weight: 300;
+    font-size: 36px;
+}
+
+.lpbox .study-wrap .study-box .studynote {
+    color: #747474;
+    margin-top: 40px;
+}
+
+.clinical-results-graph--inner {
+    height: 265px;
+    margin: 40px 0 0;
+    position: relative;
+}
+ul.clinical-results-graph--bars {
+    bottom: 30px;
+    height: auto;
+    position: absolute;
+    right: auto;
+    width: 100%;
+    z-index: 10;
+}
+.clinical-results-graph-bars--item {
+    margin-bottom: 1px;
+    margin-right: 0;
+    position: relative;
+    text-transform: uppercase;
+}
+.clinical-results-graph-bars--item.bar-1 {
+    background: #033958; /* Old browsers */
+    background: -moz-linear-gradient(left,  #033958 0%, #3c7db6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#033958), color-stop(100%,#3c7db6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #033958 0%,#3c7db6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #033958 0%,#3c7db6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #033958 0%,#3c7db6 100%); /* IE10+ */
+    background: linear-gradient(to right,  #033958 0%,#3c7db6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#033958', endColorstr='#3c7db6',GradientType=1 ); /* IE6-9 */
+    background: #033958; /* Old browsers */
+    background: -moz-linear-gradient(left,  #033958 0%, #3c7db6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#033958), color-stop(100%,#3c7db6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #033958 0%,#3c7db6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #033958 0%,#3c7db6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #033958 0%,#3c7db6 100%); /* IE10+ */
+    background: linear-gradient(to right,  #033958 0%,#3c7db6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#033958', endColorstr='#3c7db6',GradientType=1 ); /* IE6-9 */
+    height: 76px;
+    margin-left: 0;
+    width: 47%;
+}
+.clinical-results-graph-bars--item.bar-2 {
+    background: #006aa6; /* Old browsers */
+    background: -moz-linear-gradient(left,  #006aa6 0%, #a4d1f8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#006aa6), color-stop(100%,#a4d1f8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #006aa6 0%,#a4d1f8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #006aa6 0%,#a4d1f8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #006aa6 0%,#a4d1f8 100%); /* IE10+ */
+    background: linear-gradient(to right,  #006aa6 0%,#a4d1f8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006aa6', endColorstr='#a4d1f8',GradientType=1 ); /* IE6-9 */
+    height: 76px;
+    margin-left: 0;
+    width: 65%;
+}
+.clinical-results-graph-bars--item.bar-3 {
+    background: #75aedf; /* Old browsers */
+    background: -moz-linear-gradient(left,  #75aedf 0%, #cce6fc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#75aedf), color-stop(100%,#cce6fc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #75aedf 0%,#cce6fc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #75aedf 0%,#cce6fc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #75aedf 0%,#cce6fc 100%); /* IE10+ */
+    background: linear-gradient(to right,  #75aedf 0%,#cce6fc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75aedf', endColorstr='#cce6fc',GradientType=1 ); /* IE6-9 */
+    height: 76px;
+    margin-left: 0;
+    width: 74%;
+}
+.clinical-results-graph-bars--item > span {
+    bottom: auto;
+    color: #fff;
+    display: block;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    font-size: 24px;
+    padding-left: 20px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+ul.clinical-results-graph--perc {
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    padding-left: 20px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.clinical-results-graph-perc--item {
+    border-left: 2px solid #cce0f0;
+    border-bottom: 0;
+    color: #0069a7;
+    font-size: 18px;
+    font-weight: 300;
+    float: right;
+    height: 100%;
+    width: 9.09090909090909%;
+}
+.clinical-results-graph-perc--item span {
+    display: block;
+    bottom: 0;
+    float: left;
+    margin-left: 5px;
+    position: absolute;
+    width: 40px;
+}
+
+.howitworks-bottomcopy p {
+    color:#747474;
+}
+
+.theresult-wrap {
+    background: #c8e3f9 url('/media/landing_pages/lp5/bg-result.jpg') no-repeat center top;
+    height: 310px;
+}
+
+.theresult-box {
+    color: #0069a7;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 90px;
+}
+
+.theresult-box .desc {
+    font-size: 22px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.theresult-box .title1 {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 40px;
+}
+
+.theresult-box .title2 {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 70px;
+}
+
+.bavid-box .baslideswrap {
+    max-width: 432px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.bavid-box .baslides {
+    width: 100%;
+    margin: 0 auto 40px auto;
+}
+
+.bavid-box .baslides img {
+    width: 100%;
+}
+
+.bavid-box .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
+.bavid-box .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
+.bavid-box .baslideswrap .bx-prev:hover,
+.bavid-box .baslideswrap .bx-next:hover {
+    background-color: transparent;
+}
+
+.bavid-box .bx-controls-direction {
+    position: absolute;
+    top:40%;
+    width: 100%;
+}
+
+.bavid-box .baslideswrap1 .bx-controls-direction {
+    top: 26.7%;
+}
+
+.bavid-box {
+    text-align: center;
+}
+
+.bavid-box .batitle {
+    margin-bottom: 20px;
+    display: inline-block;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background: url('/media/landing_pages/lp3/bg-title.png') repeat-x center center;
+    padding: 0 30px;
+    color: #0069a7;
+    margin: 20px auto;
+    text-transform: uppercase;
+}
+
+.bavid-box .batitle span {
+    background: #fff;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+p.badisclaimer {
+    font-size: 12px;
+    color: #747474;
+    text-align: left;
+    display: block;
+    margin: 40px 0 0 20px;
+}
+
+.lpbox .row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.reviews-summary-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.reviews-summary-wrap .ratings {
+    width: auto;
+    display: inline-block;
+}
+
+.reviews-summary-wrap .rating-box {
+    float: right;
+    background: url("../../images/bkg_rating_lg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 37px;
+    line-height: 0;
+    margin: 0;
+    overflow: hidden;
+    text-indent: -9999em;
+    width: 200px;
+}
+
+.reviews-summary-wrap .rating-box .rating {
+    background: url("../../images/bkg_rating_lg.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
+    height: 37px;
+}
+
+.reviews-summary-wrap .btn-writereview {
+    display: inline-block;
+    border-left: 1px solid #a1a1a1;
+    margin-left: 15px;
+    padding-left: 18px;
+    vertical-align: top;
+}
+
+.reviews-summary-wrap .btn-writereview input {
+    margin: 0;
+}
+
+.reviews-summary-wrap .amount a {
+    float: left;
+    font-size: 30px;
+    color: #08232d;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    border-right: 1px solid #a1a1a1;
+    margin-right: 15px;
+    padding-right: 15px;
+}
+
+.reviews-summary-wrap .amountnum {
+    color: #178baf;
+    font-weight: bold;
+}
+
+.reviews-bottomwrap {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.reviews-bottomwrap .review-row .review-title {
+    float: none;
+}
+.reviews-bottomwrap .review-row .ratings {
+    float: none;
+    margin-top: 0;
+}
+
+.reviews-bottomwrap .ratings {
+    text-align: left;
+    margin: 0;
+}
+
+.reviews-bottomwrap .name_date {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-size: 16px;
+    color: #454a4c;
+    text-transform: uppercase;
+}
+
+.reviews-bottomwrap .by_name,
+.reviews-bottomwrap .on_date {
+    font-weight: bold;
+}
+
+.reviews-bottomwrap .comments-item {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-size: 16px;
+}
+
+.reviews-bottomwrap .pager {
+    background-color: transparent;
+    color: #888888;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .pages {
+    float: none;
+}
+
+.reviews-bottomwrap .pager .pages ol li a {
+    background-color: #e6e6e6 !important;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    color: #2b9fc3;
+    height: 39px;
+    line-height: 39px;
+    width: 39px;
+}
+
+.reviews-bottomwrap .pager .pages ol li a:hover {
+    background-color: #0d303b !important;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .pages ol li.current {
+    background-color: #0d303b !important;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    height: 39px;
+    line-height: 39px;
+    width: 39px;
+    color: #2b9fc3;
+}
+
+#readmore {
+    margin: 30px auto;
+    max-width: 200px;
+    display: block;
+}
+
+/** partial pay style updates **/
+#product_addtocart_form, .product-view,
+.product-essential {
+    display: inline-block;
+}
+
+.partialpayment-box-container .form-list li {
+    margin-bottom: 0;
+}
+
+.partialpayment-box-container ul.form-list .partialpayment label {
+    padding: 4px 0 4px 25px;
+    color: #0069a7;
+}
+
+.partial-terms-popup .partial-terms-popup-heading h3 {
+    font-size: 14px;
+    margin: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.add-to-cart button.button {
+    margin-top: 6px;
+}
+
+.cms-container ul.form-list .partialpayment .checkbox {
+    margin-top: 8px;
+}
+
+.product-view .product-shop {
+    width: 100%;
+    padding: 0;
+    float: none;
+    display: inline-block;
+}
+
+.form-list li.control .input-box {
+    float: left;
+}
+
+
+@media(max-width: 991px) {
+    .lpbanner .graybox .seal-riskfree {
+        width: 20%;
+        margin-top: -40px;
+    }
+    .product-view .product-shop {
+        margin-top: 0;
+    }
+    .lpbanner .banner-box h1 {
+        font-size: 24px;
+    }
+
+    .lpbanner .banner-box h2 {
+        font-size: 18px;
+    }
+    .headingbox {
+        margin-top: 40px;
+    }
+
+    .lpbanner .ratings .amount a {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .lpbanner .ratings {
+        margin-top: 2px;
+        margin-left: 30px;
+        line-height: 15px;
+    }
+    .lpbox p {
+        font-size: 13px;
+    }
+    ul.lpsubnav li a {
+        height: 58px;
+        line-height: 58px;
+        padding: 0 20px;
+        font-size: 14px;
+    }
+    .bavid-box .batitle {
+        display: inline-block;
+        font-size: 13px;
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+    .bavid-box .batitle span {
+        padding: 0 10px;
+    }
+    .bavid-box .baslideswrap .bx-prev {left: -10px;background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top left; width:36px; height:36px; text-indent: -9999px;}
+    .bavid-box .baslideswrap .bx-next {right: -10px;background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top right; width:36px; height:36px; text-indent: -9999px;}
+
+    .lpbox .batra-quote2 {
+        font-size: 16px;
+    }
+    .lpbox .batra-qa-right h3 {
+        font-size: 24px;
+    }
+    .lpbox .batra-videoquote {
+        padding: 30px 0;
+    }
+    .lpbox .batra-recommend-copy {
+        margin-top: 30px;
+    }
+    .lpbox .batra-recommend-copy p {
+        font-size: 13px;
+    }
+    .lpbox .batra-qa-left .batra-headshot {
+        width: 100%;
+    }
+    .lpbox .qabox a.question {
+        font-size: 14px;
+    }
+    .lpbox .qabox a.question:after {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .lpbox .study-wrap h2 {
+        font-size: 24px;
+    }
+    .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    ul.clinical-results-graph--bars {
+        bottom: 0;
+        height: 100%;
+        right: 0;
+        width: 83%;
+    }
+    .clinical-results-graph-bars--item {
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+    }
+    .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .clinical-results-graph-bars--item.bar-1 {
+        background: #628ba6;
+        height: 47%;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item.bar-2 {
+        background: #3c7da6;
+        height: 65%;
+        margin-left: 33%;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item.bar-3 {
+        background: #0f6ba6;
+        height: 74%;
+        margin-left: 66%;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        color: #fff;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        left: auto;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+        top: auto;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    ul.clinical-results-graph--perc {
+        padding-left: 0;
+    }
+    .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        border-left: 0;
+        color: #525252;
+        float: none;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+        width: 100%;
+    }
+    .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+    }
+    .jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
+        font-size: 24px;
+    }
+    .theresult-box {
+        margin-top: 90px;
+    }
+
+    .theresult-box .desc {
+        font-size: 16px;
+    }
+
+    .theresult-box .title1 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .theresult-box .title2 {
+        font-size: 44px;
+        line-height: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .lpbox .batra-qa-left .batra-headshot {
+        width: auto;
+    }
+    .lpbanner .graybox .seal-riskfree {
+        width: 20%;
+        margin-top: 0;
+        float: right;
+    }
+    .reviews-summary-wrap .rating-box {
+        float: none;
+    }
+    .reviews-summary-wrap .amount a {
+        display: block;
+        float: none;
+        padding: 0;
+        margin: 6px 0;
+        border: none;
+        font-size: 20px;
+    }
+    .reviews-summary-wrap .btn-writereview {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    .line-separator1 {
+        margin: 30px auto;
+        width: 40%;
+    }
+    .box-reviews {
+        width: 100%;
+    }
+    .reviews-bottomwrap .name_date {
+        font-size: 14px;
+    }
+    .line-separator2 {
+        margin: 20px auto;
+    }
+    .mobile-only {
+        display: block;
+    }
+    .mobile-only img {
+        width: 100%;
+    }
+    .lpbanner {
+        background-image: none;
+        background-color: #ebf8fe;
+    }
+    .lpbanner .banner-box {
+        margin-top: 20px;
+    }
+    .lpsub {
+        display: none;
+    }
+    .headingbox {
+        margin-top: 20px;
+    }
+    .lpbox .batra-qa-box,
+    .lpbox .bavid-box,
+    .lpbox .study-wrap .study-box {
+        padding: 20px 0;
+    }
+    .lpbanner .banner-box h2 {
+        color: #0069a7;
+        float: none;
+    }
+    .lpbanner .ratings .amount a {
+        color: #0069a7;
+    }
+    .lpbanner .ratings {
+        margin-left: 0;
+    }
+    .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    ul.clinical-results-graph--bars {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        width: 83%;
+        z-index: 10;
+    }
+    .clinical-results-graph-bars--item {
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .clinical-results-graph-bars--item.bar-1 {
+        background: #628ba6;
+        height: 47%;
+    }
+    .clinical-results-graph-bars--item.bar-2 {
+        background: #3c7da6;
+        height: 65%;
+        margin-left: 33%;
+    }
+    .clinical-results-graph-bars--item.bar-3 {
+        background: #0f6ba6;
+        height: 74%;
+        margin-left: 66%;
+    }
+    .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        color: #fff;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    ul.clinical-results-graph--perc {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        color: #525252;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+    }
+    .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+    }
+    .clinical-results-graph--note {
+        color: #525252;
+        margin: 0 0 80px;
+    }
+    .lpbox .batra-qa-right h3 {
+        font-size: 18px;
+    }
+    .lpbox .batra-qa-right {
+        margin-top: 36px;
+    }
+    .theresult-wrap {
+        background-image: none;
+        height: 200px;
+    }
+    .theresult-box {
+        margin-top: 30px;
+    }
+    .theresult-box .title2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .lpbanner {
+        height: auto;
+        padding-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lpbanner .graybox .seal-riskfree {
+        width: 20%;
+        margin-top: -50px;
+        float: right;
+    }
+}

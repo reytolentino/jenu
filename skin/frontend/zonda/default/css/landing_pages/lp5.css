@@ -108,6 +108,11 @@
     float: left;
 }
 
+.lpbox .partial-terms-popup-content p {
+    color: #747474;
+    font-size: 11px;
+}
+
 .lpbanner h4 {
     font-size: 18px;
     font-family: Sans-Serif;

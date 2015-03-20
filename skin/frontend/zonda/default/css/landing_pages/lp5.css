@@ -12,6 +12,10 @@
     margin-top: 20px;
 }
 
+.form-list label, .product-view .box-tags .form-add label {
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+}
+
 .lpbox h1, .lpbox h2, .lpbox h3, .lpbox h4, .lpbox h5 {
     color: #0069a7;
 }

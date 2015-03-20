@@ -12,6 +12,20 @@
     margin-top: 20px;
 }
 
+.lpbox h1, .lpbox h2, .lpbox h3, .lpbox h4, .lpbox h5 {
+    color: #0069a7;
+}
+
+.lpbanner .add-to-cart button.button {
+    background: #fff;
+    color: #0069a7;
+    font-family: 'Lato','Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+}
+
+.lpbanner .add-to-cart button.button:hover {
+    background: #f3f3f3;
+}
+
 .lpbanner {
     width: 100%;
     height: 675px;
@@ -35,7 +49,9 @@
     font-size: 30px;
     font-weight: 300;
     font-family: 'Lato', 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+    color: #0069a7;
 }
+
 
 .lpbanner .banner-box h2 {
     font-size: 24px;

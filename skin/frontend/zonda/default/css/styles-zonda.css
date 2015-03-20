@@ -4772,6 +4772,53 @@ h2.jenu-howitworks-header-h2 strong {
     font-style: italic;
 }
 
+.riskfree-left {
+    padding-right: 20px;
+}
+.riskfree-right {
+    border-left: 1px solid #b7b7b7;
+    padding-left: 40px;
+}
+.rishfree-header-h1 {
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    position: relative;
+    text-transform: uppercase;
+    width: 366px;
+}
+.rishfree-header-h3 {
+    color: #75aedf;
+    font-family: Helvetica, Arial, san-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.riskfree-barker {
+    position: absolute;
+    right: -100px;
+    top: 0;
+}
+.riskfree-copy {
+    margin-bottom: 20px;
+}
+.riskfree-freeshipping {
+    border: 1px dotted #747474;
+    border-left: 0;
+    border-right: 0;
+    color: #0f4b90;
+    font-family: "Lato", Helvetica, arial, san-serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.riskfree-freeshipping strong {
+    font-weight: 700;
+}
+
 @media(max-width: 991px) {
     .cms-batra .batra-video iframe {
         width: 408px;
@@ -5216,9 +5263,10 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .cms-index-index .main-container .main {
   margin-bottom: 0;
-  padding-bottom: 30px;
-  padding-top: 10px;
-  background-color: #0a2832;
+  /*padding-bottom: 30px;*/
+  /*padding-top: 10px;*/
+  /*background-color: #0a2832;*/
+  background: #fff;
 }
 .footer-above {
   display: block;
@@ -6675,6 +6723,7 @@ ul.clinical-results-graph--perc {
   font-size: 40px;
   font-weight: 300;
 }
+
 @media(max-width: 991px) {
   .clinical-results .studies-bottom-inner .absorption {
     background: none repeat scroll 0 0 #e1f4f9;

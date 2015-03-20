@@ -95,6 +95,7 @@ ul.ul {
 }
 
 .header-top .risk-free {
+<<<<<<< HEAD
     margin: 13px 20px 0;
     text-transform: uppercase;
     padding: 0 16px;
@@ -103,6 +104,11 @@ ul.ul {
 
 .header-top .risk-free .top-freeshipping {
     color: #75aedf;
+=======
+    line-height: 26px;
+    text-transform: uppercase;
+    padding: 0 16px;
+>>>>>>> origin/rtole-header
 }
 
 .header-top,.header-menu {

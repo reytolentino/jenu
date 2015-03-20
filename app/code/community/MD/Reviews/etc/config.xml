@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MD_Reviews>
+            <version>0.1.0</version>
+        </MD_Reviews>
+    </modules>
+    <global>
+        <blocks>
+            <md_reviews>
+                <class>MD_Reviews_Block</class>
+            </md_reviews>
+        </blocks>
+        <helpers>
+            <md_reviews>
+                <class>MD_Reviews_Helper</class>
+            </md_reviews>
+        </helpers>	
+    </global>
+</config>

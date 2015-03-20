@@ -3,6 +3,10 @@
     background: #fff;
 }
 
+ul#nav li.order-now {
+    display: none;
+}
+
 .lpbox p {
     font-size: 14px;
     color: #0069a7;
@@ -208,6 +212,11 @@ ul.lpsubnav li a:hover {
     margin-top: 16px;
     display: none;
     font-size: 14px;
+}
+
+.lpbox .qabox .answer ul li {
+    list-style: disc;
+    margin-left: 20px;
 }
 
 .lpbox .batra-quote2:before{
@@ -419,7 +428,7 @@ ul.clinical-results-graph--perc {
     display: block;
     bottom: 0;
     float: left;
-    margin-left: 5px;
+    margin-left: 3%;
     position: absolute;
     width: 40px;
 }
@@ -877,6 +886,7 @@ p.badisclaimer {
         margin-top: 10px;
         text-align: right;
         width: 40px;
+        margin-left: 5px;
     }
     .jenu-howitworks-bodyfeatures-container .jenu-howitworks-header-h2 {
         font-size: 24px;

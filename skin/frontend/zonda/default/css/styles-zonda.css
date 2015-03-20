@@ -4577,6 +4577,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     display: none;
 }
 
+.cms-batra .qabox .answer ul li {
+    list-style: disc;
+    margin-left: 20px;
+}
+
 .lato-light {
     font-weight: 300;
 }

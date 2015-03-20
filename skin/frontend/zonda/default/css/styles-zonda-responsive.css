@@ -614,7 +614,9 @@
         padding: 0;
     }
 }
-@media(max-width:767px) {
+/* End 991px */
+
+@media(max-width: 767px) {
   .col1, .col2, .col3, .col4, .col6, .col8, .col12, .col-copy, .col-social, .footer-above .col4 {
     float: none;
     width: 100%;
@@ -1459,6 +1461,8 @@
         text-shadow: 0 0 0;
     }
 }
+/* End 767px */
+
 @media(max-width: 480px) {
   .login-container-big {
     margin-top: 10px;
@@ -1873,9 +1877,19 @@
   .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
     margin-bottom: 20px;
   }
+  .rishfree-header-h1 {
+      font-size: 26px;
+      width: 160px;
+  }
+  .riskfree-freeshipping {
+      font-size: 29px;
+  }
 }
-@media(max-width:320px) {
+/* End 480px */
+
+@media(max-width: 320px) {
   .header-container .right .block {
     margin-bottom: 0;
   }
 }
+/* End 320px */

@@ -10,6 +10,7 @@
 
 .lpbox p.lpbullets {
     margin-top: 20px;
+    font-size: 13px;
 }
 
 .form-list label, .product-view .box-tags .form-add label {
@@ -24,6 +25,11 @@
     background: #fff;
     color: #0069a7;
     font-family: 'Lato','Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 2px solid #1d5b84;
+    line-height: 46px;
+    height: 46px;
 }
 
 .lpbanner .add-to-cart button.button:hover {
@@ -94,7 +100,6 @@
 .lpbanner .graybox {
     background-color: rgba(6,6,6,0.10);
     padding: 16px;
-    overflow: hidden;
     margin: 15px 0;
 }
 
@@ -121,6 +126,7 @@
 
 .lpbanner .warrantyinfo {
     font-style: italic;
+    padding-left: 20px;
 }
 
 .lpsub {
@@ -138,10 +144,10 @@ ul.lpsubnav li {
 
 ul.lpsubnav li a {
     display: block;
-    height: 78px;
-    line-height: 78px;
-    padding: 0 40px;
-    font-size: 16px;
+    height: 68px;
+    line-height: 68px;
+    padding: 0 35px;
+    font-size: 15px;
     color: #03476e;
     font-family: 'Lato', 'Helvetica Neue', 'Helvetica', Arial, Sans-Serif;
     font-weight: 400;
@@ -689,8 +695,15 @@ p.badisclaimer {
     float: left;
 }
 
+.cms-page-view .main-content .container {
+    overflow: visible;
+}
+
 
 @media(max-width: 991px) {
+    .lpbanner .warrantyinfo {
+        padding-left: 0;
+    }
     .lpbanner .graybox .seal-riskfree {
         width: 20%;
         margin-top: -40px;

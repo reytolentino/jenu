@@ -185,7 +185,7 @@ ul.lpsubnav li a:hover {
     width: 89px;
     height: 70px;
     display: block;
-    background: url('/skin/frontend/zonda/default/images/quote-before.png') no-repeat top left;
+    background: url('../../images/quote-before.png') no-repeat top left;
     top: 8px;
     left: 40px;
 }
@@ -200,7 +200,7 @@ ul.lpsubnav li a:hover {
     width: 89px;
     height: 70px;
     display: block;
-    background: url('/skin/frontend/zonda/default/images/quote-after.png') no-repeat top left;
+    background: url('../../images/quote-after.png') no-repeat top left;
     bottom: 24px;
     right: 40px;
 }
@@ -494,8 +494,190 @@ p.badisclaimer {
     margin-right: 0;
 }
 
-@media(max-width: 991px) {
+.reviews-summary-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
 
+.reviews-summary-wrap .ratings {
+    width: auto;
+    display: inline-block;
+}
+
+.reviews-summary-wrap .rating-box {
+    float: right;
+    background: url("../../images/bkg_rating_lg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 37px;
+    line-height: 0;
+    margin: 0;
+    overflow: hidden;
+    text-indent: -9999em;
+    width: 200px;
+}
+
+.reviews-summary-wrap .rating-box .rating {
+    background: url("../../images/bkg_rating_lg.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
+    height: 37px;
+}
+
+.reviews-summary-wrap .btn-writereview {
+    display: inline-block;
+    border-left: 1px solid #a1a1a1;
+    margin-left: 15px;
+    padding-left: 18px;
+    vertical-align: top;
+}
+
+.reviews-summary-wrap .btn-writereview input {
+    margin: 0;
+}
+
+.reviews-summary-wrap .amount a {
+    float: left;
+    font-size: 30px;
+    color: #08232d;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    border-right: 1px solid #a1a1a1;
+    margin-right: 15px;
+    padding-right: 15px;
+}
+
+.reviews-summary-wrap .amountnum {
+    color: #178baf;
+    font-weight: bold;
+}
+
+.reviews-bottomwrap {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.reviews-bottomwrap .review-row .review-title {
+    float: none;
+}
+.reviews-bottomwrap .review-row .ratings {
+    float: none;
+    margin-top: 0;
+}
+
+.reviews-bottomwrap .ratings {
+    text-align: left;
+    margin: 0;
+}
+
+.reviews-bottomwrap .name_date {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-size: 16px;
+    color: #454a4c;
+    text-transform: uppercase;
+}
+
+.reviews-bottomwrap .by_name,
+.reviews-bottomwrap .on_date {
+    font-weight: bold;
+}
+
+.reviews-bottomwrap .comments-item {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-size: 16px;
+}
+
+.reviews-bottomwrap .pager {
+    background-color: transparent;
+    color: #888888;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .pages {
+    float: none;
+}
+
+.reviews-bottomwrap .pager .pages ol li a {
+    background-color: #e6e6e6 !important;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    color: #2b9fc3;
+    height: 39px;
+    line-height: 39px;
+    width: 39px;
+}
+
+.reviews-bottomwrap .pager .pages ol li a:hover {
+    background-color: #0d303b !important;
+    color: #2b9fc3;
+}
+
+.reviews-bottomwrap .pager .pages ol li.current {
+    background-color: #0d303b !important;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    height: 39px;
+    line-height: 39px;
+    width: 39px;
+    color: #2b9fc3;
+}
+
+#readmore {
+    margin: 30px auto;
+    max-width: 200px;
+    display: block;
+}
+
+/** partial pay style updates **/
+#product_addtocart_form, .product-view,
+.product-essential {
+    display: inline-block;
+}
+
+.partialpayment-box-container .form-list li {
+    margin-bottom: 0;
+}
+
+.partialpayment-box-container ul.form-list .partialpayment label {
+    padding: 4px 0 4px 25px;
+    color: #0069a7;
+}
+
+.partial-terms-popup .partial-terms-popup-heading h3 {
+    font-size: 14px;
+    margin: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.add-to-cart button.button {
+    margin-top: 6px;
+}
+
+.cms-container ul.form-list .partialpayment .checkbox {
+    margin-top: 8px;
+}
+
+.product-view .product-shop {
+    width: 100%;
+    padding: 0;
+    float: none;
+    display: inline-block;
+}
+
+.form-list li.control .input-box {
+    float: left;
+}
+
+
+@media(max-width: 991px) {
+    .lpbanner .graybox .seal-riskfree {
+        width: 20%;
+        margin-top: -40px;
+    }
+    .product-view .product-shop {
+        margin-top: 0;
+    }
     .lpbanner .banner-box h1 {
         font-size: 24px;
     }
@@ -682,6 +864,44 @@ p.badisclaimer {
 }
 
 @media (max-width: 767px) {
+    .lpbox .batra-qa-left .batra-headshot {
+        width: auto;
+    }
+    .lpbanner .graybox .seal-riskfree {
+        width: 20%;
+        margin-top: 0;
+        float: right;
+    }
+    .reviews-summary-wrap .rating-box {
+        float: none;
+    }
+    .reviews-summary-wrap .amount a {
+        display: block;
+        float: none;
+        padding: 0;
+        margin: 6px 0;
+        border: none;
+        font-size: 20px;
+    }
+    .reviews-summary-wrap .btn-writereview {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    .line-separator1 {
+        margin: 30px auto;
+        width: 40%;
+    }
+    .box-reviews {
+        width: 100%;
+    }
+    .reviews-bottomwrap .name_date {
+        font-size: 14px;
+    }
+    .line-separator2 {
+        margin: 20px auto;
+    }
     .mobile-only {
         display: block;
     }
@@ -817,5 +1037,17 @@ p.badisclaimer {
     .theresult-box .title2 {
         font-size: 28px;
         line-height: 36px;
+    }
+    .lpbanner {
+        height: auto;
+        padding-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lpbanner .graybox .seal-riskfree {
+        width: 20%;
+        margin-top: -50px;
+        float: right;
     }
 }

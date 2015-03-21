@@ -95,6 +95,14 @@ ul.ul {
 }
 
 .header-top .risk-free {
+    margin: 13px 20px 0;
+    text-transform: uppercase;
+    padding: 0 16px;
+    font-size: 11px;
+}
+
+.header-top .risk-free .top-freeshipping {
+    color: #75aedf;
     line-height: 26px;
     text-transform: uppercase;
     padding: 0 16px;
@@ -261,4 +269,15 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .product-info p {
     margin: 8px 0;
+}
+
+@media(max-width: 991px){
+    ul#nav li.order-now a {
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+    }
+    ul#nav li.order-now a img {
+        margin-left: 40px;
+    }
 }

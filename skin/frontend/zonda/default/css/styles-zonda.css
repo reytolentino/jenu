@@ -4787,6 +4787,7 @@ h2.jenu-howitworks-header-h2 strong {
     position: relative;
     text-transform: uppercase;
     width: 366px;
+    float: left;
 }
 .rishfree-header-h3 {
     color: #75aedf;
@@ -4796,9 +4797,8 @@ h2.jenu-howitworks-header-h2 strong {
     font-weight: bold;
 }
 .riskfree-barker {
-    position: absolute;
-    right: -100px;
-    top: 0;
+    float: left;
+    width: 120px;
 }
 .riskfree-copy {
     margin-bottom: 20px;
@@ -4818,6 +4818,29 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .riskfree-freeshipping strong {
     font-weight: 700;
+}
+
+@media(max-width: 767px) {
+    .riskfree-right {
+        padding-left: 15px;
+        border-left: 0;
+    }
+    .rishfree-header-h1 {
+        padding-top: 0;
+        width: 50%;
+    }
+    .riskfree-barker {
+        width: 15%;
+    }
+}
+
+@media(max-width: 480px) {
+    .riskfree-barker {
+        width: 30%;
+    }
+    .rishfree-header-h1 {
+        width: 70%;
+    }
 }
 
 @media(max-width: 991px) {
@@ -4958,12 +4981,12 @@ h2.jenu-howitworks-header-h2 strong {
 .cms-faqs .cslinks li.faqs,
 .cms-faqs .cslinks li.faqs a,
 .cms-riskfree .cslinks li.riskfree,
-.cms-faqs .cslinks li.riskfree a {
+.cms-riskfree .cslinks li.riskfree a {
     color: #0069a7;
 }
 
 .cms-faqs .cslinks li.faqs a:hover,
-.cms-faqs .cslinks li.riskfree a {
+.cms-riskfree .cslinks li.riskfree a {
     text-decoration: none;
 }
 

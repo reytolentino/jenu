@@ -4185,6 +4185,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .cms-wrapper {
     color: #747474;
+    padding-bottom: 40px;
 }
 
 .cms-wrapper a {
@@ -4947,10 +4948,6 @@ h2.jenu-howitworks-header-h2 strong {
 
 /** new faqs **/
 
-.cms-faqs {
-    padding-bottom: 40px;
-}
-
 .cms-faqs h1 {
     font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
     font-weight: 300;
@@ -4959,25 +4956,28 @@ h2.jenu-howitworks-header-h2 strong {
 }
 
 .cms-faqs .cslinks li.faqs,
-.cms-faqs .cslinks li.faqs a {
+.cms-faqs .cslinks li.faqs a,
+.cms-riskfree .cslinks li.riskfree,
+.cms-faqs .cslinks li.riskfree a {
     color: #0069a7;
 }
 
-.cms-faqs .cslinks li.faqs a:hover {
+.cms-faqs .cslinks li.faqs a:hover,
+.cms-faqs .cslinks li.riskfree a {
     text-decoration: none;
 }
 
-.cms-faqs .faqs-left {
+.cslinks-left {
     padding-right: 20px;
 }
 
-.cms-faqs .faqs-left li {
+.cslinks-left li {
     font-size: 12px;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.cms-faqs .faqs-left li a {
+.cslinks-left li a {
     font-size: 12px;
     color: #747474;
 }

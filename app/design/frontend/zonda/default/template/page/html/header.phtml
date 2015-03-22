@@ -30,71 +30,21 @@
 <?php
 $zonda = $this->helper('zonda');
 $containerClass = $zonda->getContainerClass();
-$b = $zonda->getConfigGroup();
 $switcher_html = $this->getChildHtml('currency') . $this->getChildHtml('store_language');
 $cart_html = $this->getChildHtml('cart_sidebar');
 ?>
-<?php if ($b['header']['header_type'] == 'type1'):?>
-    <div class="container clearfix">
-        <div class="mobile-block-container clearfix">
-            <div class="block block-minicart">
-                <?php echo $cart_html; ?>
-            </div>
-            <div class="block-switcher clearfix">
-                <?php echo $switcher_html ?>
-            </div>
+<div class="container clearfix">
+    <div class="mobile-block-container clearfix">
+        <div class="block block-minicart  minicart-wrap">
+            <?php echo $cart_html; ?>
         </div>
-        <?php if ($this->getIsHomePage()):?>
-            <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
-        <?php else:?>
-            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a>
-        <?php endif?>
-        <div class="header-right">
-            <div class="header-top">
-                <div class="right clearfix block-container">
-                    <div class="block block-minicart">
-                        <?php echo $cart_html; ?>
-                    </div>
-                    <div class="block-switcher clearfix">
-                        <?php echo $switcher_html ?>
-                    </div>
-                </div>
-                <div class="right">
-                    <?php echo $this->getChildHtml('topLinks') ?>
-                </div>
-                <div class="right risk-free-top">
-                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free-top')->toHtml(); ?>
-                </div>
-                <div class="also-available-mobile">
-                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top_right_header_block')->toHtml(); ?>
-                </div>
-                <div class="right">
-                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free-top')->toHtml(); ?>
-                </div>
-            </div>
-            <div class="mobile-bg"></div>
-            <div class="header-menu-back">
-                <div class="header-menu-container clearfix">
-                    <h1 class="sticky-logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="sticky-logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
-                    <div class="header-menu clearfix">
-                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top_right_header_block')->toHtml(); ?>
-                        <div class="quick-access">
-                            <?php echo $this->getChildHtml('topSearch') ?>
-                        </div>
-                        <?php echo $this->getChildHtml('topMenu') ?>
-                    </div>
-                </div>
-            </div>
-
+        <div class="block-switcher clearfix">
+            <?php echo $switcher_html ?>
         </div>
     </div>
-<?php else: ?>
-    <div class="header-top">
-        <div class="container clearfix">
-            <div class="left">
-                <?php echo $this->getChildHtml('topLinks') ?>
-            </div>
-            <div class="right clearfix">
+    <div class="header-right">
+        <div class="header-top">
+            <div class="right clearfix block-container minicart-wrap">
                 <div class="block block-minicart">
                     <?php echo $cart_html; ?>
                 </div>
@@ -102,25 +52,42 @@ $cart_html = $this->getChildHtml('cart_sidebar');
                     <?php echo $switcher_html ?>
                 </div>
             </div>
+            <div class="right">
+                <?php echo $this->getChildHtml('topLinks') ?>
+            </div>
+            <div class="right risk-free-top">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free-top')->toHtml(); ?>
+            </div>
+            <div class="also-available also-available-mobile">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top_right_header_block')->toHtml(); ?>
+            </div>
         </div>
+
+        <div class="mobile-bg"></div>
+
     </div>
-    <div class="mobile-bg"></div>
-    <div class="header-menu-back">
-        <div class="header-menu-container clearfix">
-            <div class="header-menu header-menu-right clearfix">
-                <div class="container clearfix">
-                    <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $zonda->getLogoBg() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="pos-abs logo-bg-img"/><img src="<?php echo $zonda->getLogo() ?>" class="logo-img"/></a></h1>
-                    <div class="mobile-toplinks">
-                        <?php echo $this->getChildHtml('topLinks') ?>
+
+</div>
+<div class="row header-long">
+    <div class="container">
+        <?php if ($this->getIsHomePage()):?>
+            <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
+        <?php else:?>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a>
+        <?php endif?>
+        <div class="header-menu-back">
+            <div class="header-menu-container clearfix">
+                <h1 class="sticky-logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="sticky-logo"><img src="<?php echo $zonda->getLogo() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="logo-img"/></a></h1>
+                <div class="header-menu clearfix">
+                    <div class="also-available also-available-desktop">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top_right_header_block')->toHtml(); ?>
                     </div>
-                    <div class="header-right clearfix">
-                        <div class="quick-access">
-                            <?php echo $this->getChildHtml('topSearch') ?>
-                        </div>
-                        <?php echo $this->getChildHtml('topMenu') ?>
+                    <div class="quick-access">
+                        <?php echo $this->getChildHtml('topSearch') ?>
                     </div>
+                    <?php echo $this->getChildHtml('topMenu') ?>
                 </div>
             </div>
         </div>
     </div>
-<?php endif; ?>
+</div>

@@ -5939,7 +5939,7 @@ h2.jenu-howitworks-header-h2 strong {
   vertical-align: middle;
   position: absolute;
   z-index: 2;
-  text-transform: uppercase;
+  text-transform: uppercase; 
 }
 .cms-box.how-jenu-works .how-bottomcopy {
   font-size: 20px;

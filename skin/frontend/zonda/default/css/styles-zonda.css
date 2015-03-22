@@ -275,9 +275,17 @@ p.required {
   display: block;
   margin: 0;
   float: left;
-  width: 190px;
+  width: 150px;
   z-index: 100;
   text-align: left;
+}
+.header-container h1.logo {
+    line-height: 48px;
+    margin-top: 0;
+}
+.header-container h1 a.logo {
+    line-height: normal;
+    margin-top: 0;
 }
 .header-container .logo img, .header-container.fixed .sticky-logo img {
   vertical-align: middle;

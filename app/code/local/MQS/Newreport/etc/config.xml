@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   MQS
+ * @package    MQS_Newreport
+ * @author     Rakesh Kumar Jakhar(Magento Developer)
+ */
+ -->
+<config>
+    <modules>
+        <MQS_Newreport>
+            <version>0.1.0</version>
+        </MQS_Newreport>
+    </modules>
+    <admin>
+        <routers>
+            <newreport>
+                <use>admin</use>
+                <args>
+                    <module>MQS_Newreport</module>
+                    <frontName>newreport</frontName>
+                </args>
+            </newreport>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <report>
+                <children>
+                    <newreport translate="title" module="newreport">
+                        <title>Advance Report</title>
+                        <action>newreport/adminhtml_newreport</action>
+                    </newreport>
+                </children>
+            </report>
+        </menu>
+		<acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <report>
+                            <children>
+                                <newreport translate="title" module="newreport">
+                                    <title>Advance Report</title>
+                                    <action>newreport/adminhtml_newreport</action>
+                                </newreport>
+                            </children>
+                        </report>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <newreport>
+                    <file>newreport.xml</file>
+                </newreport>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <newreport>
+                <class>MQS_Newreport_Model</class>
+                <resourceModel>newreport</resourceModel>
+            </newreport>
+        </models>
+        <resources>
+            <newreport_setup>
+                <setup>
+                    <module>MQS_Newreport</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </newreport_setup>
+            <newreport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </newreport_write>
+            <newreport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </newreport_read>
+        </resources>
+        <blocks>
+            <newreport>
+                <class>MQS_Newreport_Block</class>
+            </newreport>
+        </blocks>
+        <helpers>
+            <newreport>
+                <class>MQS_Newreport_Helper</class>
+            </newreport>
+        </helpers>
+    </global>
+</config>

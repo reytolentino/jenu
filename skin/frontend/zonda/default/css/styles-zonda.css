@@ -740,16 +740,19 @@ button.button span.name {
   border: none;
   padding: 0;
 }
+.footer .links li {
+    line-height: normal;
+}
 .footer, .footer h3 {
   line-height: 2;
 }
 .footer h3, .footer .title {
   margin-bottom: 11px;
-  margin-top: 50px;
+  margin-top: 20px;
   text-transform: uppercase;
 }
 .footer .footer-main h3, .footer .footer-main .title {
-  margin-bottom: 7px;
+  margin-bottom: 0;
 }
 .footer p {
   text-align: left;
@@ -762,7 +765,13 @@ button.button span.name {
 .footer-main ul li {
   margin: 0;
   display: block;
-  background: url(../images/borders/borderx/border_line_x_1.png) repeat-x 50% 100%;
+}
+.footer-main ul li.phone {
+    color: #0069a7;
+    font-weight: bold;
+}
+.footer-main .privacy-terms {
+    margin-top: 10px;
 }
 .footer ul.slides li {
   background: none;
@@ -771,15 +780,18 @@ button.button span.name {
   line-height: 2;
 }
 .footer-top, .footer-main {
-  padding: 20px 0 50px;
+  padding: 20px 0 0;
+}
+.footer-main .container {
+    border-bottom: 1px solid #bdd3e6;
+    padding-bottom: 30px;
 }
 .footer-top > div {
   position: relative;
 }
 .footer-bottom {
-  padding: 23px 10px;
+  padding: 0 10px 23px 0;
   margin-top: 0;
-  background: url(../images/borders/borderx/border_line_x_2.png) repeat-x 50% 0;
 }
 .footer .copyright {
   padding-top: 15px;
@@ -3932,16 +3944,16 @@ ul.homepage-content-worksgreat-list ul {
 }
 .scrolltop {
   display: block;
-  width: 52px;
-  height: 53px;
-  background: url(../images/buttons/scroll_top.png) no-repeat 0 0;
+  width: 48px;
+  height: 48px;
+  background: url(../images/backtotop.png) no-repeat left top;
   text-indent: -999em;
 }
 .middle-topup .scrolltop {
-  background-position: 0 -106px;
+  /* background-position: 0 -106px;*/
 }
 .scrolltop:hover {
-  background-position: 0 -53px;
+  background-position: right top
 }
 .featured-products-container {
   padding: 12px 12px 0;
@@ -5501,15 +5513,15 @@ h2.jenu-howitworks-header-h2 strong {
     margin-bottom: 16px;
 }
 
-.cms-faqs .cslinks li.faqs,
-.cms-faqs .cslinks li.faqs a,
-.cms-riskfree .cslinks li.riskfree,
-.cms-riskfree .cslinks li.riskfree a {
+.cms-faqs .cslinks-left .cslinks li.faqs,
+.cms-faqs .cslinks-left .cslinks li.faqs a,
+.cms-riskfree .cslinks-left .cslinks li.riskfree,
+.cms-riskfree .cslinks-left .cslinks li.riskfree a {
     color: #0069a7;
 }
 
-.cms-faqs .cslinks li.faqs a:hover,
-.cms-riskfree .cslinks li.riskfree a {
+.cms-faqs .cslinks-left .cslinks li.faqs a:hover,
+.cms-riskfree .cslinks-left .cslinks li.riskfree a {
     text-decoration: none;
 }
 
@@ -5813,6 +5825,44 @@ h2.jenu-howitworks-header-h2 strong {
   /*padding-top: 10px;*/
   /*background-color: #0a2832;*/
   background: #fff;
+}
+.footer_column.footer-column-1 h3 {
+    display: none;
+}
+.footer_column.footer-column-1 .footer-left-logo {
+    margin-top: 40px;
+    display: none;
+}
+.footer_column.footer-column-1 .footer-left-lto {
+    margin-top: 20px;
+}
+.footer_column.footer-column-1 .footer-left-logo img {
+    width: 100%;
+}
+.footer_column.footer-column-1 .footer-left-lto img {
+    width: 100%;
+}
+.cms-index-index .footer_column.footer-column-1 .footer-left-lto {
+    display: none;
+}
+.cms-index-index .footer_column.footer-column-1 .footer-left-logo {
+    display: block;
+}
+.footer_column {
+    position: relative;
+}
+.footer_column:after {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 1px;
+    background-color: #bdd3e6;
+    top :0;
+    right: 20px;
+}
+.footer_column.footer-column-1:after,
+.footer_column.footer-column-4:after {
+    display: none;
 }
 .footer-above {
   display: block;

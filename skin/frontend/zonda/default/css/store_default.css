@@ -402,10 +402,17 @@ div.eternal-custom-menu-popup a.level2:hover,
 /*========== Footer ==========*/
 .footer {
     color: #747474;
-    background-color: #dcdbdb;
+    background: #d8ebfb; /* Old browsers */
+    background: -moz-linear-gradient(top,  #d8ebfb 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8ebfb), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #d8ebfb 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #d8ebfb 0%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #d8ebfb 0%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #d8ebfb 0%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8ebfb', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
     background-position: center center;
     background-repeat: repeat;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: normal;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -439,10 +446,10 @@ div.eternal-custom-menu-popup a.level2:hover,
 }
 .footer h3,
 .footer .title {
-    color: #0067aa;
-    font-size: 14px;
+    color: #000;
+    font-size: 12px;
     font-weight: normal;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .footer-top h3,
 .footer-top .title {

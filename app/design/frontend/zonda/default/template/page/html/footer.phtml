@@ -97,7 +97,7 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
         <div class="container">
             <div class="row clearfix">
                 <?php foreach ($cols_top as $col) : ?>
-                <div class="<?php echo $col_top_class ?> footer_column footer-column-<?php echo $i; $i++; ?>">
+                <div class="col-md-3 footer_column footer-column-<?php echo $i; $i++; ?>">
                     <?php if ($col['title']) : ?><h3 class="title"><?php echo $col['title'] ?></h3><?php endif; ?>
                     <?php echo $col['content'] ?>
                 </div>
@@ -171,7 +171,7 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
         <div class="container">
             <div class="row clearfix">
                 <?php foreach ($cols_main as $col) : ?>
-                    <div class="<?php echo $col_main_class ?> footer_column footer-column-<?php echo $i; $i++; ?>">
+                    <div class="col-sm-3 footer_column footer-column-<?php echo $i; $i++; ?>">
                         <?php if ($col['title']) : ?><h3 class="title"><?php echo $col['title'] ?></h3><?php endif; ?>
                         <?php echo $col['content'] ?>
                     </div>

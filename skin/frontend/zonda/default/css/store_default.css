@@ -513,9 +513,6 @@ div.eternal-custom-menu-popup a.level2:hover,
     font-size: 13px;
     font-weight: normal;
 }
-.breadcrumbs a {
-    color: #747474;
-}
 
 /*========== Product ==========*/
 .products-grid .item-inner,
@@ -549,7 +546,7 @@ div.eternal-custom-menu-popup a.level2:hover,
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .price {
-    color: #0069a7;
+    color: #000;
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .price-box .old-price .price {
@@ -620,7 +617,7 @@ div.eternal-custom-menu-popup a.level2:hover,
     background-color: #eaeae9;
 }
 .product-tabs-ul li.active {
-    background-color: #4d7190;
+    background-color: #8e8e8e;
 }
 .product-tabs-ul li a {
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;

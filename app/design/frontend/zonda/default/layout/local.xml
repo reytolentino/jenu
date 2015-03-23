@@ -62,7 +62,7 @@
             <action method="addItem"><type>skin_css</type><name>css/styles-zonda.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/skin.css</name><params/></action>
             <!-- system config design -->
-            <action method="addCss"><stylesheet helper="zonda/config/getCssFile" /></action>
+            <action method="addItem"><type>skin_css</type><name>css/store_default.css</name><params/></action>
             <action method="addCss"><stylesheet helper="zonda/config/getCssResponsiveFile" /></action>
             <action method="addCss"><stylesheet helper="zonda/config/getCssSkinResponsiveFile" /></action>
 
@@ -153,6 +153,11 @@
 	<cms_index_index>
 		<reference name="root">
             <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addItem"><type>js</type><name>eternal/jquery/jquery-2.1.3.min.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>css/owl.carousel.css</name><params/></action>
         </reference>
         <reference name="footer">
             <action method="unsetChild" ifconfig="zonda_setting/twitter/show_in_bottom"><name>social_twitter_tweets_footer</name></action>

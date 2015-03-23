@@ -519,6 +519,7 @@ p.bottom-retail {
 
 #bottomoffer {
     background: #19353f;
+    padding-bottom: 30px;
 }
 
 #bottomoffer h2 {
@@ -816,10 +817,12 @@ ul#nav li.order-now {
 
 .partialpayment-box-container ul.form-list .partialpayment label {
     padding: 4px 0 4px 25px;
+    font-family: "Univers_Condensed",Arial,Helvetica;
 }
 
 .add-to-cart button.button {
     margin-top: 6px;
+    background-color: #13323c;
 }
 
 .cms-container ul.form-list .partialpayment .checkbox {

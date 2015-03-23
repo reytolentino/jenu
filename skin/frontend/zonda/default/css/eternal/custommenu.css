@@ -42,7 +42,7 @@ div.menu {
     margin-right: 0;
 }
 div.menu a {
-    padding: 0 12px;
+    padding: 0 13px;
 }
 div.menu a span {
     display: block;
@@ -69,7 +69,7 @@ div.eternal-custom-menu-popup a {
 }
 div.eternal-custom-menu-popup a:hover,
 div.eternal-custom-menu-popup a:focus{
-    color: #66b1b8;
+    color: #75aedf;
 }
 div.level1 {
     margin-bottom: 5px;
@@ -189,6 +189,10 @@ div.eternal-custom-menu-popup a.level2,
 .menu-mobile a.level2 {
     text-transform: capitalize;
 }
+div.eternal-custom-menu-popup .eternal-custom-menu-submenu a.level1, .menu-mobile .eternal-custom-menu-submenu a.level1, .menu-mobile .eternal-custom-menu-submenu .parentMenu a {
+    color: #6b8893;
+    padding-left: 40px;
+}
 .block2 table.brand {
     float: left;
 }
@@ -206,9 +210,7 @@ div.eternal-custom-menu-popup a.level2,
 }
 html[xmlns] #menu-button, html[xmlns] .parentMenu,#nav>li, #blog_nav>li {
     display: block;    
-    line-height: 32px;
-    padding-top: 23px;
-    padding-bottom: 24px;
+    line-height: 56px;
 }
 #blog_nav li a span {
     display: block;
@@ -356,21 +358,11 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu,#nav>li, #blog_nav>li {
     display: block;
     width: 40px;
     height: 38px;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NThDRkUyNDFGMTQxMTFFMkJBQjk4QzEwRTMyOEQ3NjgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NThDRkUyNDBGMTQxMTFFMkJBQjk4QzEwRTMyOEQ3NjgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5kaWQ6NTkwRDEzQjM4QkVGRTIxMUJCMDY5OTNFOEEwRTU1NzEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTkwRDEzQjM4QkVGRTIxMUJCMDY5OTNFOEEwRTU1NzEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4mB5a+AAAABlBMVEVERkX///9KadJBAAAAAnRSTlP/AOW3MEoAAAAYSURBVHjaYmAEAQYGCEUOBzeg1GiAAAMAHxQAZVYfloEAAAAASUVORK5CYII=);
-    border-width: 0;
-    -webkit-box-shadow: none;
-       -moz-box-shadow: none;
-            box-shadow: none;
-    -webkit-border-radius: 0;
-       -moz-border-radius: 0;
-            border-radius: 0;
+    background: url('../../images/mobile-nav-arrow.png') no-repeat left;
     padding: 0;
 }
 #custommenu-mobile .button.open {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1QjBEMTNCMzhCRUZFMjExQkIwNjk5M0U4QTBFNTU3MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDkwREIxRUYxNDExMUUyOUQwQkFFNjlBRTYxQTE1MSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDkwREIxREYxNDExMUUyOUQwQkFFNjlBRTYxQTE1MSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1QjBEMTNCMzhCRUZFMjExQkIwNjk5M0U4QTBFNTU3MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1QjBEMTNCMzhCRUZFMjExQkIwNjk5M0U4QTBFNTU3MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pkzw6W4AAAAGUExURURGRf///0pp0kEAAAACdFJOU/8A5bcwSgAAABVJREFUeNpiYEQCDORwcANKjQYIMAAlLAB5tFCUeQAAAABJRU5ErkJggg==);
+    background: url('../../images/mobile-nav-arrow.png') no-repeat right;
 }
 
 #menu-content {
@@ -391,4 +383,101 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu,#nav>li, #blog_nav>li {
 div.eternal-custom-menu-popup a.level1,
 .menu-mobile a.level1{
     font-size: 13px;    
+}
+/* overrides */
+#nav div.submega-right, #nav div.submega-links {
+    position: static;
+    overflow: hidden;
+    width: auto;
+}
+
+#nav .submega {
+    width: auto;
+    min-width: 460px;
+    padding: 16px;
+    -webkit-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.75);
+}
+
+#nav .submega a {
+    text-transform: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+    line-height: normal;
+}
+
+#nav .submega-links {
+    display: inline-block;
+    float: left;
+    max-width: 170px;
+}
+
+#nav .submega-links a {
+    padding: 0;
+    margin-bottom: 16px;
+    display: block;
+    width: auto;
+    clear: both;
+}
+
+#nav .submega-links a span {
+    white-space: normal;
+}
+
+
+#nav .submega-right {
+    float: right;
+    border-left: 1px solid #b0b0b0;
+    padding-left: 16px;
+    max-width: 241px;
+}
+
+.submega-heading, .submega-desc, .submega-cta {
+    font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
+    clear: both;
+    display: block;
+    line-height: normal;
+}
+
+.submega-heading {
+    font-size: 18px;
+    color: #0069a7 !important;
+    margin-bottom: 4px;
+}
+
+.submega-desc {
+    color: #747474;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+#nav .submega-right a.submega-cta {
+    width: auto;
+    color: #0069a7;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 0;
+    margin-top: 4px;
+    text-decoration: underline;
+}
+
+#nav .submega-right.submega-right-shop {
+    padding: 0;
+    border: none;
+    margin: -14px;
+    width: 265px;
+    height: 263px;
+    background: url('/skin/frontend/zonda/default/images/header-thumb-wand.jpg') no-repeat top;
+}
+
+#nav .submega-right.submega-right-shop .submega-right-shop-inner {
+    width: 140px;
+    position: static;
+    margin: 16px 0 0 16px;
+    background: transparent;
+}
+
+@media(max-width: 991px){
+
 }

@@ -766,7 +766,8 @@ button.button span.name {
   margin: 0;
   display: block;
 }
-.footer-main ul li.phone {
+.footer-main ul li.phone,
+.footer-main ul li.phone a[href^=tel] {
     color: #0069a7;
     font-weight: bold;
 }

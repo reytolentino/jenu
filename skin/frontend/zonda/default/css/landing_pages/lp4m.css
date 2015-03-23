@@ -817,7 +817,7 @@ ul#nav li.order-now {
 
 .partialpayment-box-container ul.form-list .partialpayment label {
     padding: 4px 0 4px 25px;
-    font-family: "Univers_Condensed, Arial, Helvetica";
+    font-family: "Univers_Condensed",Arial,Helvetica;
 }
 
 .add-to-cart button.button {

@@ -4546,6 +4546,11 @@ div.eternal-custom-menu-popup > div, #custommenu-mobile #menu-content, #nav ul, 
 .footer-column-2 .title {
   visibility: visible;
 }
+.footer-column-3 .cslinks li.contacts,
+.footer-column-3 .cslinks li.privacy-policy,
+.footer-column-3 .cslinks li.terms-and-conditions {
+    display: none;
+}
 .quick-access {
   float: right;
   padding-top: 21px;

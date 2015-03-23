@@ -120,6 +120,9 @@ textarea,
 .header-container.fixed .header-menu-back {
     background-color: #ffffff;
 }
+.header-container .header-menu-back {
+    margin-left: 150px;
+}
 .header-container .logo{
     height: 42px;
     width: 150px;
@@ -374,7 +377,7 @@ div.eternal-custom-menu-popup a.level2:hover,
 .bx-has-controls-direction .bx-controls-direction a:hover,
 .bx-has-controls-direction .bx-controls-direction a:focus,
 .footer-tweets .twitter-nav-container a:hover{
-    background-color: #66b1b8;
+    background-color: #75aedf;
 }
 /*========== Home Slider ==========*/
 .cms-index-index .main-container .main-banner,
@@ -411,7 +414,7 @@ div.eternal-custom-menu-popup a.level2:hover,
     color: #777777;
 }
 .footer-tweets a {
-    color: #66b1b8;
+    color: #75aedf;
 }
 .footer-tweets a:hover {
     color: #126000;
@@ -793,8 +796,9 @@ div.eternal-custom-menu-popup a.level2:hover,
         height: 48px;
         position: relative;
     }
-    .header-menu-back {
+    .header-container .header-menu-back {
         display: inline-block;
+        margin-left: 0;
     }
     .logo-mobile {
         display: inline-block;

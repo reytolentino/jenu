@@ -227,6 +227,7 @@ jQuery(document).ready(function($){
     more_info_view();
     //product image fancybox
     product_img_view();
+    /*
     if ( ZONDA_HEADER_FIXED ) 
         header_fixed();    
     var top_timer;
@@ -242,6 +243,7 @@ jQuery(document).ready(function($){
         if ( ZONDA_HEADER_FIXED ) 
             header_fixed();
     });
+    */
     // select box change event
     $('.form-list select,.option select').change(function(e) {
         id = $(this).attr('id');

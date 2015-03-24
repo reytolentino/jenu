@@ -4841,6 +4841,378 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     margin: 0 auto;
 }
 
+/** Results Page Styles 032315 **/
+
+.jenu-results-container h1,
+.jenu-results-container h2,
+.jenu-results-container h3,
+.jenu-results-container h4,
+.jenu-results-container h5,
+.jenu-results-container h6 {
+    color: #0069a7;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.jenu-results-container h1 strong,
+.jenu-results-container h2 strong,
+.jenu-results-container h3 strong,
+.jenu-results-container h4 strong,
+.jenu-results-container h5 strong,
+.jenu-results-container h6 strong {
+    font-weight: 400;
+}
+
+.jenu-results-container h1 {
+    font-size: 48px;
+    line-height: 58px;
+}
+
+.jenu-results-container h2 {
+    font-size: 36px;
+}
+
+.jenu-results-container h3 {
+    font-size: 24px;
+}
+
+.results-section-hero {
+    background: url("../media/content/results-hero-banner-desktop.jpg") no-repeat center #47709a;
+    min-height: 346px;
+    width: 100%;
+}
+
+.results-section-hero .banner-content {
+    margin: 115px 0;
+}
+
+.results-section-hero .banner-content h1 {
+    color: #fff;
+    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.results-section-hero .banner-content h1 strong {
+    font-weight: 400;
+}
+
+.results-section {
+    padding: 40px 0;
+}
+
+div.jenu-results-container div.results-section div.container,
+div.jenu-results-container div.results-section-banner div.container {
+    background: transparent
+}
+
+.results-header-h2 {
+    margin: 0 auto 60px;
+    text-align: center;
+    width: 80%;
+}
+
+.results-synopsis {
+    position: relative;
+    text-align: center;
+}
+
+.results-synopsis .results-synopsis-copy {
+    color: #747474;
+    line-height: 24px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.results-synopsis:after {
+    background: #cce0f0;
+    content: "";
+    width: 2px;
+    height: 193px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.results-synopsis:last-child:after {
+    display: none;
+}
+
+.results-section-theresults {
+    background: url("../media/content/results-theresults-bg.jpg") repeat-y right top #dcf0ff;
+}
+
+.results-section-theresults .results-theresults-top {
+    background: url("../media/content/results-theresults-model.png") no-repeat left bottom;
+    border-bottom: 1px solid #75aee2;
+    padding: 20px 0 40px;
+    position: relative;
+}
+
+.results-section-theresults .results-theresults-header {
+    text-align: center;
+}
+
+.results-section-theresults .results-theresults-header-bordered {
+    border-bottom: 1px solid #0069a7;
+    padding-bottom: 20px;
+}
+
+.results-section-theresults .results-theresults-copy {
+    color: #747474;
+    line-height: 24px;
+    margin: 0;
+    width: 75%;
+}
+
+.results-section-theresults .results-theresults-copy strong {
+    color: #75aedf;
+}
+
+.results-section-theresults h3.results-theresults-header-number {
+    font-size: 64px;
+    line-height: 74px;
+}
+
+.results-section-theresults .results-theresults-bottom .results-theresults-header {
+    margin: 60px auto;
+    width: 80%;
+}
+
+.results-section-theresults .clinical-results-graph--inner {
+    height: 265px;
+    margin: 40px 0 0;
+    position: relative;
+}
+
+.results-section-theresults ul.clinical-results-graph--bars {
+    bottom: 30px;
+    height: auto;
+    position: absolute;
+    right: auto;
+    width: 100%;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.results-section-theresults .clinical-results-graph-bars--item {
+    margin-bottom: 5px;
+    margin-right: 0;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.results-section-theresults .clinical-results-graph-bars--item.bar-1 {
+    background: #033958;
+    /* Old browsers */
+    
+    background: -moz-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* FF3.6+ */
+    
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #033958), color-stop(100%, #3c7db6));
+    /* Chrome,Safari4+ */
+    
+    background: -webkit-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* Chrome10+,Safari5.1+ */
+    
+    background: -o-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* Opera 11.10+ */
+    
+    background: -ms-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* IE10+ */
+    
+    background: linear-gradient(to right, #033958 0%, #3c7db6 100%);
+    /* W3C */
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#033958', endColorstr='#3c7db6', GradientType=1);
+    /* IE6-9 */
+    
+    background: #033958;
+    /* Old browsers */
+    
+    background: -moz-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* FF3.6+ */
+    
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #033958), color-stop(100%, #3c7db6));
+    /* Chrome,Safari4+ */
+    
+    background: -webkit-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* Chrome10+,Safari5.1+ */
+    
+    background: -o-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* Opera 11.10+ */
+    
+    background: -ms-linear-gradient(left, #033958 0%, #3c7db6 100%);
+    /* IE10+ */
+    
+    background: linear-gradient(to right, #033958 0%, #3c7db6 100%);
+    /* W3C */
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#033958', endColorstr='#3c7db6', GradientType=1);
+    /* IE6-9 */
+    
+    height: 76px;
+    margin-left: 0;
+    width: 50%;
+}
+
+.results-section-theresults .clinical-results-graph-bars--item.bar-2 {
+    background: #006aa6;
+    /* Old browsers */
+    
+    background: -moz-linear-gradient(left, #006aa6 0%, #a4d1f8 100%);
+    /* FF3.6+ */
+    
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #006aa6), color-stop(100%, #a4d1f8));
+    /* Chrome,Safari4+ */
+    
+    background: -webkit-linear-gradient(left, #006aa6 0%, #a4d1f8 100%);
+    /* Chrome10+,Safari5.1+ */
+    
+    background: -o-linear-gradient(left, #006aa6 0%, #a4d1f8 100%);
+    /* Opera 11.10+ */
+    
+    background: -ms-linear-gradient(left, #006aa6 0%, #a4d1f8 100%);
+    /* IE10+ */
+    
+    background: linear-gradient(to right, #006aa6 0%, #a4d1f8 100%);
+    /* W3C */
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#006aa6', endColorstr='#a4d1f8', GradientType=1);
+    /* IE6-9 */
+    
+    height: 76px;
+    margin-left: 0;
+    width: 65%;
+}
+
+.results-section-theresults .clinical-results-graph-bars--item.bar-3 {
+    background: #75aedf;
+    /* Old browsers */
+    
+    background: -moz-linear-gradient(left, #75aedf 0%, #cce6fc 100%);
+    /* FF3.6+ */
+    
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #75aedf), color-stop(100%, #cce6fc));
+    /* Chrome,Safari4+ */
+    
+    background: -webkit-linear-gradient(left, #75aedf 0%, #cce6fc 100%);
+    /* Chrome10+,Safari5.1+ */
+    
+    background: -o-linear-gradient(left, #75aedf 0%, #cce6fc 100%);
+    /* Opera 11.10+ */
+    
+    background: -ms-linear-gradient(left, #75aedf 0%, #cce6fc 100%);
+    /* IE10+ */
+    
+    background: linear-gradient(to right, #75aedf 0%, #cce6fc 100%);
+    /* W3C */
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#75aedf', endColorstr='#cce6fc', GradientType=1);
+    /* IE6-9 */
+    
+    height: 76px;
+    margin-left: 0;
+    width: 78%;
+}
+
+.results-section-theresults .clinical-results-graph-bars--item > span {
+    bottom: auto;
+    color: #fff;
+    display: block;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    font-size: 24px;
+    padding-left: 20px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.results-section-theresults ul.clinical-results-graph--perc {
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.results-section-theresults .clinical-results-graph-perc--item {
+    border-left: 2px solid #cce0f0;
+    border-bottom: 0;
+    color: #0069a7;
+    font-size: 18px;
+    font-weight: 300;
+    float: right;
+    height: 100%;
+    width: 9.09090909090909%;
+}
+
+.results-section-theresults .clinical-results-graph-perc--item span {
+    display: block;
+    bottom: 0;
+    float: left;
+    margin-left: 3%;
+    position: absolute;
+    width: 40px;
+}
+
+.results-section-theresults .results-theresults-data-note {
+    color: #747474;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.results-section-banner {
+    background: url("../media/content/results-resultsbanner-bg.jpg") no-repeat center top #c8e3f9;
+    background-size: cover;
+    min-height: 310px;
+}
+
+.results-section-banner .results-banner-copy {
+    padding: 89px 0;
+}
+
+.results-section-banner .results-banner-bluetext {
+    color: #0069a7;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.results-section-banner .results-banner-bluetext strong {
+    font-weight: 400;
+}
+
+.results-section-banner .results-banner-bluetext-small {
+    display: block;
+    font-size: 36px;
+}
+
+.results-section-banner .results-banner-bluetext-large {
+    display: block;
+    font-size: 64px;
+}
+
+.results-section-banner .results-banner-greytext {
+    color: #747474;
+    font-size: 22px;
+}
+
+.results-section-banner .results-banner-bluetext-lowercase {
+    text-transform: none;
+}
+
 @media(max-width: 991px) {
     .howtouse-banner .banner-content h1 {
         font-size: 36px;
@@ -5344,6 +5716,8 @@ h2.jenu-howitworks-header-h2 strong {
 .riskfree-freeshipping strong {
     font-weight: 700;
 }
+
+
 
 @media(max-width: 767px) {
     .riskfree-right {

@@ -5941,6 +5941,10 @@ h2.jenu-howitworks-header-h2 strong {
     padding-left: 40px;
 }
 
+.cms-faqs .faqs-right {
+    margin-bottom: 40px;
+}
+
 .cms-faqs .faqbox {
     padding: 10px 0;
     border-bottom: 1px solid #e2e2e2;

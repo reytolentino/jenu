@@ -692,7 +692,7 @@
     }
     
     /** Results Page Styles 032315 **/
-    
+
     .jenu-results-container h1,
     .jenu-results-container h2,
     .jenu-results-container h3,
@@ -2250,7 +2250,7 @@
   /** Results Page Styles 032315 **/
 
   .results-section-hero {
-      background: url("../media/content/results-hero-banner-desktop.jpg") no-repeat 65% center #47719b;
+      background: url("/media/content/results-hero-banner-desktop.jpg") no-repeat 65% center #47719b;
   }
   .results-section-hero .banner-content {
       background: rgba(255, 255, 255, 0.8);
@@ -2364,7 +2364,7 @@
       margin: 0 0 80px;
   }
   .results-section-banner {
-      background: url("../media/content/results-resultsbanner-bg.jpg") no-repeat 30% bottom #c8e3f9;
+      background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 30% bottom #c8e3f9;
       background-size: cover;
       min-height: 0;
   }

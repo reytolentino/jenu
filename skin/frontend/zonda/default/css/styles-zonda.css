@@ -4878,13 +4878,14 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .results-section-hero {
-    background: url("../media/content/results-hero-banner-desktop.jpg") no-repeat center #47709a;
+    background: url("/media/content/results-hero-banner-desktop.jpg") no-repeat center #47709a;
     min-height: 346px;
     width: 100%;
 }
 
 .results-section-hero .banner-content {
     margin: 115px 0;
+    text-align: center;
 }
 
 .results-section-hero .banner-content h1 {
@@ -4939,11 +4940,11 @@ div.jenu-results-container div.results-section-banner div.container {
 }
 
 .results-section-theresults {
-    background: url("../media/content/results-theresults-bg.jpg") repeat-y right top #dcf0ff;
+    background: url("/media/content/results-theresults-bg.jpg") repeat-y right top #dcf0ff;
 }
 
 .results-section-theresults .results-theresults-top {
-    background: url("../media/content/results-theresults-model.png") no-repeat left bottom;
+    background: url("/media/content/results-theresults-model.png") no-repeat left bottom;
     border-bottom: 1px solid #75aee2;
     padding: 20px 0 40px;
     position: relative;
@@ -5173,7 +5174,7 @@ div.jenu-results-container div.results-section-banner div.container {
 }
 
 .results-section-banner {
-    background: url("../media/content/results-resultsbanner-bg.jpg") no-repeat center top #c8e3f9;
+    background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat center top #c8e3f9;
     background-size: cover;
     min-height: 310px;
 }

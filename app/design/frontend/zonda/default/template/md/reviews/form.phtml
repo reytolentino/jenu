@@ -33,7 +33,7 @@
 		    <?php echo $this->getBlockHtml('formkey'); ?>
 		    <?php echo $this->getChildHtml('form_fields_before') ?>
 
-		<div class="fieldset">
+    		<div class="fieldset">
     		    <h4><?php echo $this->__("You're reviewing:"); ?>
     			<span><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?></span>
     		    </h4>
@@ -162,4 +162,8 @@
     	</div>
         </div>
     </div>
+    <?php
+    $productId = $this->getProductId();
+    echo $this->getLayout()->createBlock('md_reviews/reviews', '', array('product_id' => $productId))->toHtml();
+    ?>
 <?php endif; ?>

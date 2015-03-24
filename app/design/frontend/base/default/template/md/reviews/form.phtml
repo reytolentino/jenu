@@ -26,14 +26,14 @@
     <div class="line-separator1"></div>
     <div class="reviews-bottomwrap">
         <div id="customer-reviews" class="box-collateral box-reviews">
-    	<div class="form-add">
+	    <div class="form-add" style="display:none">
     	    <h2><?php echo $this->__('Write Your Own Review') ?></h2>
 
     	    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
 		    <?php echo $this->getBlockHtml('formkey'); ?>
 		    <?php echo $this->getChildHtml('form_fields_before') ?>
 
-		<div class="fieldset">
+    		<div class="fieldset">
     		    <h4><?php echo $this->__("You're reviewing:"); ?>
     			<span><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?></span>
     		    </h4>
@@ -158,8 +158,34 @@
     			]
     			);
     		//]]>
+
+    		//<![CDATA[
+    		jQuery(document).ready(function ($) {
+    		    $('.review-toggle').click(function () {
+    			$dt = $('#product-tabs>dt.open');
+    			$parent = $dt.parent();
+    			$('.form-add').toggle();
+    			$parent.stop().css('height', 'auto');
+    			$cur = $dt.next();
+    			$cur.stop().css('bottom', 'auto');
+    			h = $parent.outerHeight();
+    			c = $cur.outerHeight() + 3;
+    			if (c > h) {
+    			    $parent.css({'height': c + 'px'});
+    			    $parent.find('> dt').last().css('border-bottom-width', '1px');
+    			} else {
+    			    $cur.css('bottom', '0');
+    			    $parent.find('> dt').last().css('border-bottom-width', '0');
+    			}
+    		    });
+    		});
+    		//]]>
     	    </script>
     	</div>
         </div>
     </div>
+    <?php
+    $productId = $this->getProductId();
+    echo $this->getLayout()->createBlock('md_reviews/reviews', '', array('product_id' => $productId))->toHtml();
+    ?>
 <?php endif; ?>

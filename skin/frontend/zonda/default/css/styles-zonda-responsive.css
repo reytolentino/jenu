@@ -832,7 +832,7 @@
         margin-left: 5px;
     }
     .results-section-banner {
-        background: url("../media/content/results-resultsbanner-bg.jpg") no-repeat 40% top #c8e3f9;
+        background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 40% top #c8e3f9;
         background-size: cover;
     }
 }
@@ -1831,6 +1831,17 @@
     .results-section-banner .results-banner-copy {
         text-align: center;
     }
+    .results-section-banner {
+        background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 30% bottom #c8e3f9;
+        background-size: cover;
+        min-height: 0;
+    }
+    .results-section-banner .results-banner-copy {
+        background: rgba(255, 255, 255, 0.7);
+        margin: 40px 0;
+        padding: 20px;
+        text-align: center;
+    }
 }
 @media(max-width: 480px) {
   .login-container-big {
@@ -2363,17 +2374,7 @@
       color: #525252;
       margin: 0 0 80px;
   }
-  .results-section-banner {
-      background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 30% bottom #c8e3f9;
-      background-size: cover;
-      min-height: 0;
-  }
-  .results-section-banner .results-banner-copy {
-      background: rgba(255, 255, 255, 0.7);
-      margin: 40px 0;
-      padding: 20px;
-      text-align: center;
-  }
+  
   .results-section-banner .results-banner-bluetext-small {
       font-size: 24px;
   }

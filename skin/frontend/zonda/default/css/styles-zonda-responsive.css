@@ -1843,6 +1843,31 @@
         padding: 20px;
         text-align: center;
     }
+    .block-subscribe {
+        overflow: hidden;
+    }
+    .block-subscribe-title {
+        background: url("../images/icon-envelope.png") no-repeat scroll 0 23px rgba(0, 0, 0, 0);
+        line-height: normal;
+        padding-bottom: 5px;
+        padding-left: 40px;
+        padding-top: 25px;
+        width: 100%;
+        float: none;
+    }
+    .block-subscribe-form {
+        display: block;
+        float: none;
+        margin: 10px auto;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+    }
+    .footer .social-links {
+        line-height: normal;
+        text-align: left;
+        margin-bottom: 20px;
+    }
 }
 @media(max-width: 480px) {
   .login-container-big {

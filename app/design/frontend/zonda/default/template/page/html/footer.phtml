@@ -15,6 +15,14 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
     endif;
 ?>
 <div class="footer">
+    <div class="footer-subscribe">
+        <div class="row">
+            <div class="container">
+                <?php echo $this->getChildHtml('newsletter') ?>
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_footer_social_links')->toHtml(); ?>
+            </div>
+        </div>
+    </div>
     <?php if ($b['footer']['show_tweets']) : ?>
         <?php $tt_html = $this->getChildHtml('social_twitter_tweets'); ?>
         <?php if ($tt_html): ?>
@@ -167,7 +175,7 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
         $col_main_class = $spanClass.(12/$col_main_count);
         $i = 1;
         ?>
-    <div class="footer-main">        
+    <div class="footer-main">
         <div class="container">
             <div class="row clearfix">
                 <?php foreach ($cols_main as $col) : ?>

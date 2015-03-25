@@ -1,191 +1,196 @@
 <?php if (!is_null($this->getProductId())): ?>
-    <div class="reviews-summary-wrap">
-	<?php if ($this->getReviewsCount()): ?>
-	    <div class="ratings">
-		<?php if ($this->getRatingSummary()): ?>
-	    	<div class="rating-box">
-	    	    <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
-	    	</div>
-	    	<span class="amount">
-	    	    <a id="goto-reviews" class="goto-reviews" href="<?php echo $this->getReviewsUrl() ?>">
-	    		<span class="amountnum">
-				<?php echo str_replace(' ', '', $this->getReviewsCount()); ?>
+
+    <div class="row customer-reviews product-view" id="customer-reviews">
+        <div class="container">
+    	<div class="reviews-summary-wrap">
+		<?php if ($this->getReviewsCount()): ?>
+		    <div class="ratings">
+			<?php if ($this->getRatingSummary()): ?>
+	    		<div class="rating-box">
+	    		    <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
+	    		</div>
+	    		<span class="amount">
+	    		    <a id="goto-reviews" class="goto-reviews" href="<?php echo $this->getReviewsUrl() ?>">
+	    			<span class="amountnum">
+					<?php echo str_replace(' ', '', $this->getReviewsCount()); ?>
+	    			</span>
+				    <?php echo $this->__(' Review(s)') ?>
+	    		    </a>
 	    		</span>
-			    <?php echo $this->__(' Review(s)') ?>
-	    	    </a>
-	    	</span>
-		<?php endif; ?>
-	    </div>
-	    <div class="btn-writereview">
-		<input type="button" class="button button-normal review-toggle" value="Write Your Review">
-	    </div> 
-	<?php elseif ($this->getDisplayIfEmpty()): ?>
-	    <p class="no-rating"><a href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Be the first to review this product') ?></a></p>
-	<?php endif; ?>
-    </div>
-    <div class="line-separator1"></div>
-    <div class="reviews-bottomwrap">
-        <div id="customer-reviews" class="box-collateral box-reviews">
-	    <div class="form-add" style="display:none">
-    	    <h2><?php echo $this->__('Write Your Own Review') ?></h2>
-
-    	    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
-		    <?php echo $this->getBlockHtml('formkey'); ?>
-		    <?php echo $this->getChildHtml('form_fields_before') ?>
-
-    		<div class="fieldset">
-    		    <h4><?php echo $this->__("You're reviewing:"); ?>
-    			<span><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?></span>
-    		    </h4>
-			<?php if ($this->getRatings() && $this->getRatings()->getSize()): ?>
-			    <h5><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h5>
-			    <span id="input-message-box"></span>
-			    <table class="data-table review-summary-table ratings" id="product-review-table">
-				<col width="1" />
-				<col />
-				<col />
-				<col />
-				<col />
-				<col />
-				<thead>
-				    <tr>
-					<th>&nbsp;</th>
-					<th>
-				<div class="rating-box">
-				    <span class="rating-number">1</span>
-				    <span class="rating nobr" style="width:20%;"><?php echo $this->__('1 star') ?></span>
-				</div>
-				</th>
-				<th>
-				<div class="rating-box">
-				    <span class="rating-number">2</span>
-				    <span class="rating nobr" style="width:40%;"><?php echo $this->__('2 star') ?></span>
-				</div>
-				</th>
-				<th>
-				<div class="rating-box">
-				    <span class="rating-number">3</span>
-				    <span class="rating nobr" style="width:60%;"><?php echo $this->__('3 star') ?></span>
-				</div>
-				</th>
-				<th>
-				<div class="rating-box">
-				    <span class="rating-number">4</span>
-				    <span class="rating nobr" style="width:80%;"><?php echo $this->__('4 star') ?></span>
-				</div>
-				</th>
-				<th>
-				<div class="rating-box">
-				    <span class="rating-number">5</span>
-				    <span class="rating nobr" style="width:100%;"><?php echo $this->__('5 star') ?></span>
-				</div>
-				</th>
-				</tr>
-				</thead>
-				<tbody>
-				    <?php foreach ($this->getRatings() as $_rating): ?>
-	    			    <tr>
-	    				<th><?php echo $this->escapeHtml($_rating->getRatingCode()) ?></th>
-					    <?php foreach ($_rating->getOptions() as $_option): ?>
-						<td class="value"><label for="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></label></td>
-					    <?php endforeach; ?>
-	    			    </tr>
-				    <?php endforeach; ?>
-				</tbody>
-			    </table>
-			    <input type="hidden" name="validate_rating" class="validate-rating" value="" />
-			    <script type="text/javascript">decorateTable('product-review-table')</script>
 			<?php endif; ?>
+		    </div>
+		    <div class="btn-writereview">
+			<input type="button" class="button button-normal review-toggle" value="Write Your Review">
+		    </div> 
+		<?php elseif ($this->getDisplayIfEmpty()): ?>
+		    <p class="no-rating"><a href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Be the first to review this product') ?></a></p>
+		<?php endif; ?>
+    	</div>
+    	<div class="line-separator1"></div>
+    	<div class="reviews-bottomwrap">
+    	    <div id="customer-reviews" class="box-collateral box-reviews">
+    		<div class="form-add" style="display:none">
+    		    <h2><?php echo $this->__('Write Your Own Review') ?></h2>
 
-    		    <ul class="form-list">
-    			<li>
-    			    <label for="review_field" class="required"><em>*</em><?php echo $this->__('Let us know your thoughts') ?></label>
-    			    <div class="input-box">
-    				<textarea name="detail" id="review_field" cols="5" rows="3" class="required-entry"></textarea>
-    			    </div>
-    			</li>
+    		    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
+			    <?php echo $this->getBlockHtml('formkey'); ?>
+			    <?php echo $this->getChildHtml('form_fields_before') ?>
 
-    			<li class="inline-label">
-    			    <label for="summary_field" class="required"><em>*</em><?php echo $this->__('Summary of Your Review') ?></label>
-    			    <div class="input-box">
-    				<input type="text" name="title" id="summary_field" class="input-text required-entry" value="" />
-    			    </div>
-    			</li>
+    			<div class="fieldset">
+    			    <h4><?php echo $this->__("You're reviewing:"); ?>
+    				<span><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?></span>
+    			    </h4>
+				<?php if ($this->getRatings() && $this->getRatings()->getSize()): ?>
+				    <h5><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h5>
+				    <span id="input-message-box"></span>
+				    <table class="data-table review-summary-table ratings" id="product-review-table">
+					<col width="1" />
+					<col />
+					<col />
+					<col />
+					<col />
+					<col />
+					<thead>
+					    <tr>
+						<th>&nbsp;</th>
+						<th>
+					<div class="rating-box">
+					    <span class="rating-number">1</span>
+					    <span class="rating nobr" style="width:20%;"><?php echo $this->__('1 star') ?></span>
+					</div>
+					</th>
+					<th>
+					<div class="rating-box">
+					    <span class="rating-number">2</span>
+					    <span class="rating nobr" style="width:40%;"><?php echo $this->__('2 star') ?></span>
+					</div>
+					</th>
+					<th>
+					<div class="rating-box">
+					    <span class="rating-number">3</span>
+					    <span class="rating nobr" style="width:60%;"><?php echo $this->__('3 star') ?></span>
+					</div>
+					</th>
+					<th>
+					<div class="rating-box">
+					    <span class="rating-number">4</span>
+					    <span class="rating nobr" style="width:80%;"><?php echo $this->__('4 star') ?></span>
+					</div>
+					</th>
+					<th>
+					<div class="rating-box">
+					    <span class="rating-number">5</span>
+					    <span class="rating nobr" style="width:100%;"><?php echo $this->__('5 star') ?></span>
+					</div>
+					</th>
+					</tr>
+					</thead>
+					<tbody>
+					    <?php foreach ($this->getRatings() as $_rating): ?>
+	    				    <tr>
+	    					<th><?php echo $this->escapeHtml($_rating->getRatingCode()) ?></th>
+						    <?php foreach ($_rating->getOptions() as $_option): ?>
+							<td class="value"><label for="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></label></td>
+						    <?php endforeach; ?>
+	    				    </tr>
+					    <?php endforeach; ?>
+					</tbody>
+				    </table>
+				    <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+				    <script type="text/javascript">decorateTable('product-review-table')</script>
+				<?php endif; ?>
 
-    			<li class="inline-label">
-    			    <label for="nickname_field" class="required"><em>*</em><?php echo $this->__("What's your nickname?") ?></label>
-    			    <div class="input-box">
-    				<input type="text" name="nickname" id="nickname_field" class="input-text required-entry" value="" />
-    			    </div>
-    			</li>
+    			    <ul class="form-list">
+    				<li>
+    				    <label for="review_field" class="required"><em>*</em><?php echo $this->__('Let us know your thoughts') ?></label>
+    				    <div class="input-box">
+    					<textarea name="detail" id="review_field" cols="5" rows="3" class="required-entry"></textarea>
+    				    </div>
+    				</li>
 
-    		    </ul>
-    		</div>
-    		<div class="buttons-set">
-    		    <button type="submit" title="<?php echo $this->__('Submit Review') ?>" class="button button-normal"><span><span><?php echo $this->__('Submit Review') ?></span></span></button>
-    		</div>
-    	    </form>
-    	    <script type="text/javascript">
-    		//<![CDATA[
-    		var dataForm = new VarienForm('review-form');
-    		Validation.addAllThese(
-    			[
-    			    ['validate-rating', '<?php echo $this->__('Please select one of each of the ratings above') ?>', function (v) {
-    				    var trs = $('product-review-table').select('tr');
-    				    var inputs;
-    				    var error = 1;
+    				<li class="inline-label">
+    				    <label for="summary_field" class="required"><em>*</em><?php echo $this->__('Summary of Your Review') ?></label>
+    				    <div class="input-box">
+    					<input type="text" name="title" id="summary_field" class="input-text required-entry" value="" />
+    				    </div>
+    				</li>
 
-    				    for (var j = 0; j < trs.length; j++) {
-    					var tr = trs[j];
-    					if (j > 0) {
-    					    inputs = tr.select('input');
+    				<li class="inline-label">
+    				    <label for="nickname_field" class="required"><em>*</em><?php echo $this->__("What's your nickname?") ?></label>
+    				    <div class="input-box">
+    					<input type="text" name="nickname" id="nickname_field" class="input-text required-entry" value="" />
+    				    </div>
+    				</li>
 
-    					    for (i in inputs) {
-    						if (inputs[i].checked == true) {
-    						    error = 0;
+    			    </ul>
+    			</div>
+    			<div class="buttons-set">
+    			    <button type="submit" title="<?php echo $this->__('Submit Review') ?>" class="button button-normal"><span><span><?php echo $this->__('Submit Review') ?></span></span></button>
+    			</div>
+    		    </form>
+    		    <script type="text/javascript">
+    			//<![CDATA[
+    			var dataForm = new VarienForm('review-form');
+    			Validation.addAllThese(
+    				[
+    				    ['validate-rating', '<?php echo $this->__('Please select one of each of the ratings above') ?>', function (v) {
+    					    var trs = $('product-review-table').select('tr');
+    					    var inputs;
+    					    var error = 1;
+
+    					    for (var j = 0; j < trs.length; j++) {
+    						var tr = trs[j];
+    						if (j > 0) {
+    						    inputs = tr.select('input');
+
+    						    for (i in inputs) {
+    							if (inputs[i].checked == true) {
+    							    error = 0;
+    							}
+    						    }
+
+    						    if (error == 1) {
+    							return false;
+    						    } else {
+    							error = 1;
+    						    }
     						}
     					    }
+    					    return true;
+    					}]
+    				]
+    				);
+    			//]]>
 
-    					    if (error == 1) {
-    						return false;
-    					    } else {
-    						error = 1;
-    					    }
-    					}
-    				    }
-    				    return true;
-    				}]
-    			]
-    			);
-    		//]]>
-
-    		//<![CDATA[
-    		jQuery(document).ready(function ($) {
-    		    $('.review-toggle').click(function () {
-    			$dt = $('#product-tabs>dt.open');
-    			$parent = $dt.parent();
-    			$('.form-add').toggle();
-    			$parent.stop().css('height', 'auto');
-    			$cur = $dt.next();
-    			$cur.stop().css('bottom', 'auto');
-    			h = $parent.outerHeight();
-    			c = $cur.outerHeight() + 3;
-    			if (c > h) {
-    			    $parent.css({'height': c + 'px'});
-    			    $parent.find('> dt').last().css('border-bottom-width', '1px');
-    			} else {
-    			    $cur.css('bottom', '0');
-    			    $parent.find('> dt').last().css('border-bottom-width', '0');
-    			}
-    		    });
-    		});
-    		//]]>
-    	    </script>
+    			//<![CDATA[
+    			jQuery(document).ready(function ($) {
+    			    $('.review-toggle').click(function () {
+    				$dt = $('#product-tabs>dt.open');
+    				$parent = $dt.parent();
+    				$('.form-add').toggle();
+    				$parent.stop().css('height', 'auto');
+    				$cur = $dt.next();
+    				$cur.stop().css('bottom', 'auto');
+    				h = $parent.outerHeight();
+    				c = $cur.outerHeight() + 3;
+    				if (c > h) {
+    				    $parent.css({'height': c + 'px'});
+    				    $parent.find('> dt').last().css('border-bottom-width', '1px');
+    				} else {
+    				    $cur.css('bottom', '0');
+    				    $parent.find('> dt').last().css('border-bottom-width', '0');
+    				}
+    			    });
+    			});
+    			//]]>
+    		    </script>
+    		</div>
+		    <?php
+		    $productId = $this->getProductId();
+		    echo $this->getLayout()->createBlock('md_reviews/reviews', '', array('product_id' => $productId))->toHtml();
+		    ?>
+    	    </div>	
     	</div>
-        </div>
+        </div>	
     </div>
-    <?php
-    $productId = $this->getProductId();
-    echo $this->getLayout()->createBlock('md_reviews/reviews', '', array('product_id' => $productId))->toHtml();
-    ?>
 <?php endif; ?>

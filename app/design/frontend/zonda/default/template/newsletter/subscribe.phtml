@@ -24,21 +24,16 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="block block-subscribe social-block">
-    <div class="social-block-title">
-        <span><?php echo $this->__('Newsletter') ?></span>
-    </div>
-    <div class="social-block-border">&nbsp;</div>
-    <div class="social-block-join-content">
-        <?php echo $this->__('Sign Up for Our Newsletter:') ?>
-        <div class="social-block-join-form">
+<div class="block block-subscribe col-md-7">
+        <div class="block-subscribe-title">
+            <?php echo $this->__('Sign Up for Newsletters, Special Offers, & More!') ?>
+        </div>
+        <div class="block-subscribe-form">
             <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
-                <p>
-                    <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email cms-block-join" />
-                </p>
-                <div class="actions">
-                    <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button cms-block-join"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+                <div class="left">
+                    <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign Up for Newsletters, Special Offers, & More!') ?>" class="input-text required-entry validate-email cms-block-join" placeholder="Enter Your Email" />
                 </div>
+                <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button cms-block-join"></button>
             </form>
         </div>
     <script type="text/javascript">
@@ -46,5 +41,4 @@
         var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
     //]]>
     </script>
-    </div>
 </div>

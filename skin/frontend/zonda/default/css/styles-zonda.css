@@ -5725,7 +5725,7 @@ h2.jenu-howitworks-header-h2 strong {
 
 @media(max-width: 767px) {
     .riskfree-right {
-        padding-left: 15px;
+        padding: 0;
         border-left: 0;
     }
     .rishfree-header-h1 {
@@ -5872,7 +5872,25 @@ h2.jenu-howitworks-header-h2 strong {
 
 /** end new batra **/
 
-/** new faqs **/
+/** new faqs, cs pages **/
+
+.cms-cs p {
+    margin: 12px 0;
+}
+
+.cms-cs h1 {
+    margin-bottom: 16px;
+    font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-weight: 300;
+}
+
+.cms-cs {
+    padding-bottom: 40px;
+}
+
+.cms-retailers .csright {
+    padding-bottom: 50px;
+}
 
 .cms-faqs h1 {
     font-family: 'Lato', sans-serif, Arial, Verdana, "Trebuchet MS";
@@ -5884,12 +5902,21 @@ h2.jenu-howitworks-header-h2 strong {
 .cms-faqs .cslinks-left .cslinks li.faqs,
 .cms-faqs .cslinks-left .cslinks li.faqs a,
 .cms-riskfree .cslinks-left .cslinks li.riskfree,
-.cms-riskfree .cslinks-left .cslinks li.riskfree a {
+.cms-riskfree .cslinks-left .cslinks li.riskfree a,
+.cms-retailers .cslinks-left .cslinks li.retailers a,
+.cms-customer-support .cslinks-left .cslinks li.customer-support a,
+.cms-ordering-and-shipping .cslinks-left .cslinks li.ordering-and-shipping a,
+.cms-privacy-policy .cslinks-left .cslinks li.privacy-policy a,
+.cms-terms-and-conditions .cslinks-left .cslinks li.terms-and-conditions a {
     color: #0069a7;
 }
 
 .cms-faqs .cslinks-left .cslinks li.faqs a:hover,
-.cms-riskfree .cslinks-left .cslinks li.riskfree a {
+.cms-riskfree .cslinks-left .cslinks li.riskfree a,
+.cms-customer-support .cslinks-left .cslinks li.customer-support a,
+.cms-ordering-and-shipping .cslinks-left .cslinks li.ordering-and-shipping a,
+.cms-privacy-policy .cslinks-left .cslinks li.privacy-policy a,
+.cms-terms-and-conditions .cslinks-left .cslinks li.terms-and-conditions a {
     text-decoration: none;
 }
 
@@ -5908,9 +5935,14 @@ h2.jenu-howitworks-header-h2 strong {
     color: #747474;
 }
 
-.cms-faqs .faqs-right {
+.cms-faqs .faqs-right,
+.cms-cs .csright {
     border-left: 1px solid #b7b7b7;
     padding-left: 40px;
+}
+
+.cms-faqs .faqs-right {
+    margin-bottom: 40px;
 }
 
 .cms-faqs .faqbox {
@@ -5955,9 +5987,11 @@ h2.jenu-howitworks-header-h2 strong {
 }
 
 @media(max-width: 767px) {
-    .cms-faqs .faqs-right {
+    .cms-faqs .faqs-right,
+    .cms-cs .csright
+    {
         border-left: none;
-        padding: 0 15px;
+        padding: 0;
     }
 }
 

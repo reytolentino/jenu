@@ -4,7 +4,7 @@
 
 #page-contents.container{
 	color: #272727;
-	font-family: "Univers_Condensed", Helvetica, Arial;
+	font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	padding-bottom: 50px;
 }
@@ -16,7 +16,7 @@
 
 #page-contents.container h4{
 	margin-bottom: 0px;
-	font-family: "Univers_Condensed", Helvetica, Arial;
+	font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 16px;
 	font-size: 16px;
 }
@@ -29,14 +29,14 @@ img.logo_image{
 #page-contents.container h6.logo_caption_source a.logo_caption_read_more{
 	color: #008ab0;
 	font-weight: normal;
-	font-family: "Univers_Condensed", Helvetica, Arial;
+	font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
 #page-contents.container h6.logo_caption_source{
 	font-weight:bold;
 	font-size: 16px;
-	font-family: "Univers_Condensed", Helvetica, Arial;
+	font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 

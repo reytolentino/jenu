@@ -105,11 +105,11 @@
         
         <!-- footer -->
         <reference name="footer">
+            <block type="newsletter/subscribe" name="footer.newsletter" as="newsletter" before="footer_store_language" template="newsletter/subscribe.phtml"/>
             <!-- Social blocks -->            
             <block type="zonda/social_twittertweets" name="social_twitter_tweets_footer" template="eternal/zonda/twitter_tweets_footer.phtml"/>
             <block type="zonda/social_facebookfans" name="social_facebook_fans" template="eternal/zonda/facebook_fans.phtml"/>
             <block type="core/template" name="google_map" template="eternal/zonda/google_map.phtml" />
-            
             <!-- custom social links -->
             <block type="cms/block" name="block_footer_social_links">
                 <action method="setBlockId"><block_id>block_footer_social_links</block_id></action>

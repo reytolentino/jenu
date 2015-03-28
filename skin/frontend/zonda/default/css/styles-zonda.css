@@ -740,6 +740,17 @@ button.button span.name {
   border: none;
   padding: 0;
 }
+
+.footer-subscribe {
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+}
+
+.footer-subscribe .container {
+    border-top: 2px solid #daebfb;
+}
+
 .footer .links li {
     line-height: normal;
 }
@@ -1023,6 +1034,61 @@ button.button span.name {
 .main {
   margin-bottom: 30px;
   margin-top: 0;
+}
+/* footer subscribe */
+.block-subscribe {
+    margin-bottom: 0;
+}
+.block-subscribe-form {
+    margin: 20px 0 0 20px;
+    float: left;
+}
+.block-subscribe-form input, .block-subscribe-form button {
+    display: inline-block;
+    margin: 0;
+    height: 29px;
+    float: left;
+}
+.block-subscribe-form input.input-text {
+    padding: 0 10px;
+    font-size: 11px;
+}
+.block-subscribe-title {
+    line-height: 66px;
+    background: url('../images/icon-envelope.png') no-repeat left center;
+    padding-left: 40px;
+    color: #0069a7;
+    float: left;
+}
+.block-subscribe-form .button {
+    height: 29px;
+    width: 31px;
+    background: url('../images/btn-subscribe.png') no-repeat;
+}
+.footer .social-links {
+    line-height: 66px;
+}
+.footer .social-links .social-title {
+    color: #0069a7;
+    margin-right: 5px;
+}
+.footer .social-links .icon {
+    width: 29px;
+    height: 30px;
+}
+.footer .social-links .icon-facebook {
+    background: url('../images/icon-facebook.png') no-repeat;
+}
+.footer .social-links .icon-twitter {
+    background: url('../images/icon-twitter.png') no-repeat;
+}
+.footer .social-links .icon-pinterest {
+    background: url('../images/icon-pinterest.png') no-repeat;
+}
+.footer .social-links [class^="icon-"], .footer .social-links [class*=" icon-"] {
+    margin: 0;
+    line-height: inherit;
+    vertical-align: middle;
 }
 /* Base Columns */
 

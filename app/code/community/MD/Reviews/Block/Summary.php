@@ -7,6 +7,7 @@ class MD_Reviews_Block_Summary extends Mage_Core_Block_Template {
 
     public function __construct() {
 	parent::__construct();
+	$this->setTemplate("md/reviews/summary.phtml");
     }
 
     protected function _prepareLayout() {
@@ -14,9 +15,6 @@ class MD_Reviews_Block_Summary extends Mage_Core_Block_Template {
 	$this->_productId = $this->getProductId();
 
 	$this->_product = Mage::getModel("catalog/product")->setStoreId(Mage::app()->getStore()->getId())->load($this->_productId);
-
-	echo $this->getLayout()->createBlock('review/helper')
-		->getSummaryHtml($this->_product, 'short', false);
     }
 
 }

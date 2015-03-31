@@ -48,7 +48,7 @@ $_product = $this->getProduct();
                                         </li>
                                         <li class="control partialpayment">
                                             <div class="input-box"><input class="checkbox" type="radio" name="custom_options[partialpayment]" value="1"/></div>
-                                            <label for="custom_options"><span id="withpartial"><strong><?php echo $helper->__('Pay with 3 Easy Installments + 2 FREE GIFTS ($50 value)') ?></strong></span><br><?php echo $helper->__('First Payment: $83.00') ?>
+                                            <label for="custom_options"><span id="withpartial"><strong><?php echo $helper->__('Pay with 3 Easy Installments + 2 FREE GIFTS ($50 value)') ?></strong></span><br><span class="firstpayment"><?php echo $helper->__('First Payment: $83.00') ?></span>
                                                 <?php
                                                 $terms = $helper->getTermsContents();
                                                 ?>

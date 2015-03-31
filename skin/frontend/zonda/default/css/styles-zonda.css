@@ -2983,6 +2983,7 @@ div.cart-empty {
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
+    font-size: 50px;
 }
 
 .cms-no-route h2, .cms-no-route h3 {

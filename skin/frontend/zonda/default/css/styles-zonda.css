@@ -2972,75 +2972,35 @@ div.cart-empty {
 }
 /*404 page*/
 
-.cms-no-route .main-container {
-  position: relative;
-  background: url('../images/backgrounds/404_bg.jpg') no-repeat center top;
-  min-height: 800px;
-  background-size: cover;
+.cms-no-route .banner-404 img {
+    display:block;
+    margin: 0 auto;
+    max-width: 828px;
+    width: 100%;
 }
-.cms-no-route .main {
-  margin: 0;
+
+.cms-no-route h1 {
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
 }
-.cms-no-route .main .container, .cms-no-route .col-main-left {
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
+
+.cms-no-route h2, .cms-no-route h3 {
+    color: #0c4a6f;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 10px;
 }
-.cms-no-route .number-container .container, .cms-no-route .text-container .container {
-  max-width: 1000px;
-  padding: 20px 0;
+
+.cms-no-route h3 {
+    font-size: 16px;
 }
-.cms-no-route .number-container {
-  background: url(../images/backgrounds/404_text_bg.png) repeat center center;
+
+.cms-no-route h3 .phonetxt {
+    color: #0069a7;
+    font-weight: 400;
 }
-.cms-no-route .number-container .container img {
-  width: 50%;
-}
-.cms-no-route .text-container .container h2, .cms-no-route .text-container .container .search-form {
-  width: 540px;
-  text-align: center;
-}
-.cms-no-route .text-container .container h2 {
-  margin-top: 125px;
-  font-size: 38px;
-}
-.cms-no-route .text-container .container .search-form .message-text {
-  font-size: 23px;
-  text-transform: uppercase;
-}
-.error-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: auto;
-  z-index: -1;
-}
-.error-img img {
-  width: 100%;
-}
-.cms-no-route .main-content .form-search {
-  margin-top: 25px;
-}
-.cms-no-route .main-content .form-search .input-text {
-  width: 320px;
-  line-height: 20px;
-  height: 50px;
-  font-size: 20px;
-  background: transparent;
-}
-.cms-no-route .main-content .form-search button.button {
-  height: 50px;
-  background-image: url(../images/buttons/404_search_button.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 70px;
-  background-color: #bfbfbf;
-}
-.cms-no-route .main-content .form-search button.button:hover {
-  background-color: #add4d9;
-}
+
 /*about us page*/
 
 .cms-heading-container {

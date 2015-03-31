@@ -1868,6 +1868,9 @@
         text-align: left;
         margin-bottom: 20px;
     }
+    .cms-no-route h1 {
+        font-size: 36px;
+    }
 }
 @media(max-width: 480px) {
   .login-container-big {

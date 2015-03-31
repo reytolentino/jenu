@@ -241,7 +241,7 @@ p.required {
 .header-container {
   line-height: 1.4825;
   opacity: 1;
-  position: relative;
+  position: fixed; /* Stick masthead to top */
   width: 100%;
   z-index: 100;
 }
@@ -250,6 +250,9 @@ p.required {
 }
 .cms-no-route.header-abs .header-container {
   position: relative;
+}
+.main-container {
+  padding-top: 94px; /* Adds space above main container for masthead */
 }
 .header-container > .container, .header-menu-right > .container {
   position: relative;

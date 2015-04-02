@@ -35,7 +35,7 @@ $_installments = $this->getInstallments();
             <td class="a-center total"><span class="nobr"><?php echo $_installment->getOrder()->formatPrice(max(0,$_installment->getDueAmount())) ?></span></td>
             <td class="a-center number"><span class="nobr"><?php echo $_installment->getPaidInstallments() ?></span></td>
             <td class="a-center number"><span class="nobr"><?php echo max(0,$_installment->getDueInstallments()) ?></span></td>
-            <td class="date"><span class="nobr"><?php echo $this->formatDate($_installment->getLastInstallmentDate()) ?></span></td>
+            <td class="date"><span class="nobr"><?php echo date('M d, Y', strtotime($_installment->getLastInstallmentDate())) ?></span></td>
             <td class="a-center view"><span class="nobr"><a href="<?php echo $this->getViewUrl($_installment) ?>"><?php echo $helper->__('View Summary') ?></a></span></td>
         </tr>
         <?php endforeach; ?>

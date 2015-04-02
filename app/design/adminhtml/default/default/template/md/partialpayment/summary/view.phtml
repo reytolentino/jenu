@@ -141,11 +141,11 @@
                     </td>
                     <td class="a-center"><?php echo $order->formatPrice($summary->getAmount()) ?></td>
                     <td class="a-center">
-                        <?php $date = ($summary->getDueDate()) ? Mage::helper('core')->formatDate($summary->getDueDate(), 'medium'): 'N / A'; ?>
+                        <?php $date = ($summary->getDueDate()) ? date('M d, Y', strtotime($summary->getDueDate())): 'N / A'; ?>
                         <?php echo $date ?>
                     </td>
                     <td class="a-center">
-                        <?php $date = ($summary->getPaidDate()) ? Mage::helper('core')->formatDate($summary->getPaidDate(), 'medium'): 'N / A'; ?>
+                        <?php $date = ($summary->getPaidDate()) ? date('M d, Y', strtotime($summary->getPaidDate())): 'N / A'; ?>
                         <?php echo $date ?>
                     </td>
                     <td class="a-left">

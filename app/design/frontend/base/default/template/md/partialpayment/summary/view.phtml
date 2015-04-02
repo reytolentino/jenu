@@ -39,8 +39,8 @@ $summaryStatusMap = array(
             <tbody>
             <?php foreach($_summary as $_pay): ?>
                 <?php $disabled = (in_array($_pay->getStatus(),array(MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS, MD_Partialpayment_Model_Summary::PAYMENT_PROCESS)) || ($_pay->getId() != $nextPaidSummary)) ? true: false; ?>
-                <?php $paidDate = ($_pay->getPaidDate()) ? $this->formatDate($_pay->getPaidDate(), 'medium'): 'N / A'; ?>
-                <?php $dueDate = ($_pay->getDueDate()) ? $this->formatDate($_pay->getDueDate(), 'medium'): 'N / A'; ?>
+                <?php $paidDate = ($_pay->getPaidDate()) ? date('M d, Y', strtotime($_pay->getPaidDate())): 'N / A'; ?>
+                <?php $dueDate = ($_pay->getDueDate()) ? date('M d, Y', strtotime($_pay->getDueDate())): 'N / A'; ?>
                 <tr style="<?php echo $summaryStatusMap[$_pay->getStatus()]['class'] ?>">
                     <td class="a-center">
                         <input <?php if(!$disabled): ?>class="validate-one-required-by-name"<?php endif; ?> type="radio" name="payment_summary" id="payment_summary_<?php echo $_pay->getId() ?>" value="<?php echo $_pay->getId() ?>" <?php if($disabled): ?>disabled="disabled"<?php endif; ?>/>

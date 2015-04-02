@@ -1656,6 +1656,7 @@
   .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
     margin: 0 auto 10px;
     width: 212px;
+    overflow: hidden;
   }
   .jenu-howitworks-minute {
     margin-top: 0;

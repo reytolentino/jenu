@@ -629,7 +629,7 @@
     }
 
   /** How It Works Styles 031215 **/
-
+  
   .jenu-howitworks-hero-wide-banner {
       background-position: 80% center;
     }
@@ -1656,6 +1656,7 @@
   .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
     margin: 0 auto 10px;
     width: 212px;
+    overflow: hidden;
   }
   .jenu-howitworks-minute {
     margin-top: 0;
@@ -1873,6 +1874,20 @@
     }
 }
 @media(max-width: 480px) {
+
+  .howitworks-banner .banner-content {
+    margin-top: 26%;
+  }
+  .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+    width: 100%;
+    padding: 5px 0;
+  }
+  .jenu-howitworks-text-copy-img img {
+    width: 100%;
+  }
+  .jenu-howitworks-features .jenu-howitworks-text-copy-img {
+    padding-top: 0;
+  }
   .login-container-big {
     margin-top: 10px;
   }

@@ -101,15 +101,13 @@ class MD_Partialpayment_Block_Adminhtml_Summary_Grid extends Mage_Adminhtml_Bloc
            'header'=>$this->_helper->__('Last Paid Installment'),
             'index'=>'last_installment_date',
 			'type'=>'date',
-			'gmtoffset' => true,
-                        'width'=> '50px'
+			'width'=> '50px'
         ));
         $this->addColumn('next_installment_date',array(
            'header'=>$this->_helper->__('Next Installment Date'),
             'index'=>'next_installment_date',
 			'type'=>'date',
-			'gmtoffset' => true,
-                        'width'=> '50px'
+            'width'=> '50px'
         ));
         return parent::_prepareColumns();
     }

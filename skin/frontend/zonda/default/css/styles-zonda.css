@@ -4807,6 +4807,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     position: relative;
 }
 
+.cms-howtouse .howtouse-stepsblock-img {
+  position: relative;
+}
+
 .cms-howtouse .howtouse-stepsblock-img:before {
     content:"";
     position: absolute;
@@ -5263,10 +5267,10 @@ div.jenu-results-container div.results-section-banner div.container {
     .cms-howtouse .howtouse-copy {
         margin-top: 0;
     }
-    .cms-howtouse .howtouse-stepsblock:before {
-        top: 167px;
+    .cms-howtouse .howtouse-stepsblock-img:before {
+        bottom: -1px;
     }
-    .cms-howtouse .howtouse-stepsblock .steps-copy {
+    .cms-howtouse .howtouse-stepsblock-text .steps-copy {
         padding: 0;
     }
 }
@@ -5285,22 +5289,22 @@ div.jenu-results-container div.results-section-banner div.container {
         width: 100%;
         height: 320px;
     }
-    .cms-howtouse .howtouse-stepsblock {
+    .cms-howtouse .howtouse-stepsblock-img {
         margin-bottom: 15px;
     }
-    .cms-howtouse .howtouse-stepsblock:before {
+    .cms-howtouse .howtouse-stepsblock-img:before {
         display: none;
     }
-    .cms-howtouse .howtouse-stepsblock .steps-img {
+    .cms-howtouse .howtouse-stepsblock-img .steps-img {
         border-bottom: 1px solid #75aedf;
     }
 
-    .cms-howtouse .howtouse-stepsblock .steps-img img {
+    .cms-howtouse .howtouse-stepsblock-img .steps-img img {
         width: auto;
         margin: 0 auto;
         display: block;
     }
-    .cms-howtouse .howtouse-stepsblock .steps-box {
+    .cms-howtouse .howtouse-stepsblock-img .steps-box {
         margin-bottom: 30px;
     }
     .cms-howtouse .howtouse-model {
@@ -5712,6 +5716,9 @@ h2.jenu-howitworks-header-h2 strong {
     font-size: 16px;
     font-weight: bold;
     font-style: italic;
+}
+.jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
+  overflow: hidden;
 }
 
 .riskfree-left {

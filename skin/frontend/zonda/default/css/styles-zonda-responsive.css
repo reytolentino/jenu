@@ -662,9 +662,6 @@
   .jenu-howitworks-text-copy {
     padding: 0;
   }
-  .jenu-howitworks-features .jenu-howitworks-text-copy-img {
-    padding-top: 100px;
-  }
   .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
     margin: 0 auto;
     width: 70%;
@@ -2418,7 +2415,14 @@
       height: 280px;
       min-height: auto;
   }
-
+  .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+    margin: 10px auto;
+    width: 100%;
+  }
+  .jenu-howitworks-text-copy-img img {
+    float: none;
+    width: 100%;
+  }
 }
 @media(max-width:320px) {
   .header-container .right .block {

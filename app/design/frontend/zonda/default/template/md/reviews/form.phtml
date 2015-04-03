@@ -10,12 +10,10 @@
 	    		    <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
 	    		</div>
 	    		<span class="amount">
-	    		    <a id="goto-reviews" class="goto-reviews" href="<?php echo $this->getReviewsUrl() ?>">
 	    			<span class="amountnum">
 					<?php echo str_replace(' ', '', $this->getReviewsCount()); ?>
 	    			</span>
-				    <?php echo $this->__(' Review(s)') ?>
-	    		    </a>
+                    <?php echo $this->__(' Review');if($this->getReviewsCount() > 1){echo $this->__('s');} ?>
 	    		</span>
 			<?php endif; ?>
 		    </div>

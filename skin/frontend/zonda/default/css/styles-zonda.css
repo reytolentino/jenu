@@ -1891,7 +1891,7 @@ a.highlight-link {
     margin: 0;
 }
 
-.product-view .reviews-summary-wrap .amount a {
+.product-view .reviews-summary-wrap .amount {
     float: left;
     font-size: 30px;
     color: #08232d;
@@ -1899,6 +1899,10 @@ a.highlight-link {
     border-right: 1px solid #a1a1a1;
     margin-right: 15px;
     padding-right: 15px;
+}
+
+.product-view .reviews-summary-wrap .amount a {
+    color: #08232d;
 }
 
 .product-view .reviews-summary-wrap .amountnum {

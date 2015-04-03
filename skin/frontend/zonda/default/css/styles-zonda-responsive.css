@@ -2418,7 +2418,13 @@
       height: 280px;
       min-height: auto;
   }
-
+  .howitworks-banner .banner-content {
+      margin-top: 28%;
+      width: 100%;
+  }
+  .batra-banner .banner-content {
+    margin-top: 40px;
+  }
 }
 @media(max-width:320px) {
   .header-container .right .block {

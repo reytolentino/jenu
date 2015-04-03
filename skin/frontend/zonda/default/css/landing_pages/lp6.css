@@ -1,6 +1,9 @@
 .jenu-landingpage {
     color: #272727;
 }
+ul#nav li.order-now {
+    display: none;
+}
 .cms-page-view.cms-ft00324z .main-content .container {
     background: transparent;
 }
@@ -894,16 +897,11 @@ ul.clinical-results-graph--perc {
 .jenu-press-vloggers-carousel .bx-controls-direction a:hover {
     background-color: transparent;
 }
-.jenu-press-vloggers-carousel .bx-prev {left: -15px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
-.jenu-press-vloggers-carousel .bx-next {right:-15px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
+.jenu-press-vloggers-carousel .bx-prev {top: 40%; position: absolute; left: -15px;float:left; display: block; z-index:90;cursor:pointer; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
+.jenu-press-vloggers-carousel .bx-next {top: 40%; position: absolute; right:-15px;float:right; display: block; z-index:90;cursor:pointer; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
 .jenu-press-vloggers-carousel .bx-prev:hover,
 .jenu-press-vloggers-carousel .bx-next:hover {
     background-color: transparent;
-}
-.jenu-press-vloggers-carousel .bx-controls-direction {
-    position: absolute;
-    top:40%;
-    width: 100%;
 }
 
 .jenu-press-vloggers-carousel .baslideswrap1 .bx-controls-direction {

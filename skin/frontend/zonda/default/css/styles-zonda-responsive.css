@@ -1742,6 +1742,7 @@
     }
     .results-section-theresults .results-theresults-copy {
         margin: 0 auto;
+        text-align: center;
     }
     .results-section-theresults .clinical-results--graph {
         font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1872,6 +1873,9 @@
     }
     .cms-faqs {
       padding: 0 15px;
+    }
+    .results-section-theresults h3.results-theresults-header-number {
+      text-align: center;
     }
 }
 @media(max-width: 480px) {

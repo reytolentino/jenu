@@ -5642,13 +5642,15 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-text-copy-img img {
   height: auto;
-  float: right;
 }
 .jenu-howitworks-text-copy-img img.howitworks-device-hand {
     width: auto;
 }
 .jenu-howitworks-feature {
   margin: 0 0 50px 0;
+}
+.jenu-howitworks-img-wandfeatures {
+  float: right;
 }
 .jenu-howitworks-feature h3 {
   color: #0069a7;
@@ -5696,6 +5698,7 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-body-features .jenu-howitworks-text-copy-img {
   margin: 0 0 20px 0;
+  overflow: hidden;
 }
 .jenu-howitworks-body-features .howitworks-blue-plus {
   color: #75aedf;

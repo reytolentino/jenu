@@ -1870,6 +1870,9 @@
     .cms-no-route h1 {
         font-size: 36px;
     }
+    .cms-faqs {
+      padding: 0 15px;
+    }
 }
 @media(max-width: 480px) {
   .login-container-big {

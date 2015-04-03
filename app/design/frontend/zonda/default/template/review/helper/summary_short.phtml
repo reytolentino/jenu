@@ -31,10 +31,12 @@ $c = $zonda->getConfigGroupDesign();
 <?php if ($this->getReviewsCount()): ?>
     <div class="ratings">
         <?php if ($this->getRatingSummary()):?>
-            <div class="rating-box">
-                <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
-            </div>
+            <a href="#customer-reviews" id="goto-reviews" class="goto-reviews">
+                <div class="rating-box">
+                    <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%"></div>
+                </div>
+            </a>
         <?php endif;?>
-        <span class="amount"><a href="#customer-reviews" id="goto-reviews" class="goto-reviews"><span class="amountnum"><?php echo $this->__('%d', $this->getReviewsCount()) ?></span><?php echo $this->__(' Review(s)') ?></a></span>
+        <span class="amount"><a href="#customer-reviews" id="goto-reviews" class="goto-reviews"><span class="amountnum"><?php echo $this->__('%d', $this->getReviewsCount()) ?></span><?php echo $this->__(' Review');if($this->getReviewsCount() > 1){echo $this->__('s');} ?></a></span>
     </div>
 <?php endif; ?>

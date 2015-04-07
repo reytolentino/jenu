@@ -9,7 +9,7 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
- * PHP Version 5
+ * PHP Version 5 
  * @category Amazon
  * @package  Marketplace Web Service Sellers
  * @version  2011-07-01

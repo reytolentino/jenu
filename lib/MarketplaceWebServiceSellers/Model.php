@@ -28,7 +28,7 @@ require_once ('Model/ListMarketplaces.php');
 require_once ('Model/Participation.php');
 require_once ('Model/Marketplace.php');
 require_once ('Model/ResponseHeaderMetadata.php');
-require_once ('Model/ResponseMetaData.php');
+require_once ('Model/ResponseMetadata.php');
 
 abstract class MarketplaceWebServiceSellers_Model
 {

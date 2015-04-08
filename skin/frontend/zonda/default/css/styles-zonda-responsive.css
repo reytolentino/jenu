@@ -832,6 +832,27 @@
         background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 40% top #c8e3f9;
         background-size: cover;
     }
+    div.jenu-howitworks-text-content div.jenu-howitworks-absorption-img img {
+      max-width: none;
+      width: 100%;
+    }
+    .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+      text-align: center;
+    }
+    .jenu-howitworks-text-content .row {
+      text-align: center;
+    }
+    .jenu-howitworks-text-content .jenu-howitworks-text-copy-img img {
+      display: inline-block;
+      float: none;
+      max-width: 212px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .howitworks-banner .banner-content {
+      margin-left: 5%;
+      margin-top: 12%;
+    }
     .batra-banner .banner-content {
       padding: 0;
     }
@@ -1639,9 +1660,6 @@
   .jenu-howitworks-features .jenu-howitworks-text-copy-img {
     text-align: center;
   }
-  .jenu-howitworks-features .jenu-howitworks-text-copy-img img {
-    width: 100%;
-  }
   .jenu-howitworks-bodyfeatures-container ul.jenu-howitworks-text-copy-list {
     margin-bottom: 20px;
   }
@@ -1693,6 +1711,13 @@
     .cms-index-index .footer_column.footer-column-1 .footer-left-logo img {
         width: 50%;
     }
+    .cms-howtouse .steps-img:before {
+      display: none;
+    }
+    .cms-howtouse .steps-img, .cms-howtouse .steps-copy {
+      margin: 20px auto 0;
+      width: 260px;
+    }
     .footer_column.footer-column-1 .footer-left-logo {
         margin-top: 0;
     }
@@ -1706,14 +1731,6 @@
         width: auto;
     }
     
-    .cms-howtouse .steps-img:before {
-        display: none;
-    }
-    .cms-howtouse .steps-img, .cms-howtouse .steps-copy {
-      margin: 20px auto 0;
-      width: 260px;
-    }
-
     /** Results Page Styles 032315 **/
 
     .jenu-results-container h1,
@@ -1887,7 +1904,6 @@
     }
 }
 @media(max-width: 480px) {
-  
   .homepage-content-worksgreat--image img {
     width: 100%;
   }
@@ -2439,9 +2455,6 @@
   }
   .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
     margin: 10px auto 0;
-  }
-  .jenu-howitworks-text-copy-img img {
-    float: none;
     width: 100%;
   }
   .howitworks-banner .banner-content {

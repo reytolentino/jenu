@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<layout>
+    <admin_customqueryreport_adminhtml_report>
+        <reference name="menu">
+            <action method="setActive">
+                <path>report/customqueryreport</path>
+            </action>
+        </reference>
+    </admin_customqueryreport_adminhtml_report>
+    <admin_customqueryreport_adminhtml_report_index>
+        <update handle="admin_customqueryreport_adminhtml_report" />
+        <reference name="content">
+            <block type="customqueryreport/adminhtml_report" name="report">
+                <block type="customqueryreport/adminhtml_report_grid" name="report.grid" as="grid">
+                    <action method="setColumnRenderers">
+                        <renderers>
+                            <action>customqueryreport/adminhtml_widget_grid_column_renderer_action</action>
+                        </renderers>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </admin_customqueryreport_adminhtml_report_index>
+    <admin_customqueryreport_adminhtml_report_edit>
+        <update handle="admin_customqueryreport_adminhtml_report" />
+        <reference name="content">
+            <block type="customqueryreport/adminhtml_report_edit" name="report_edit" />
+        </reference>
+    </admin_customqueryreport_adminhtml_report_edit>
+    <admin_customqueryreport_adminhtml_report_view>
+        <update handle="admin_customqueryreport_adminhtml_report" />
+        <reference name="content">
+            <block type="customqueryreport/adminhtml_report_view" name="report.view">
+                <block type="customqueryreport/adminhtml_report_view_grid" name="report.view.grid" as="grid" />
+            </block>
+        </reference>
+    </admin_customqueryreport_adminhtml_report_view>
+    <admin_customqueryreport_adminhtml_report_exportcsv>
+        <update handle="admin_customqueryreport_adminhtml_report_view"/>
+    </admin_customqueryreport_adminhtml_report_exportcsv>
+</layout>
+

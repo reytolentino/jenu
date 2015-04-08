@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Web2Market_CustomQueryReport>
+            <version>0.1.0</version>
+        </Web2Market_CustomQueryReport>
+    </modules>
+
+    <global>
+        <blocks>
+            <customqueryreport>
+                <class>Web2Market_CustomQueryReport_Block</class>
+            </customqueryreport>
+        </blocks>
+        <helpers>
+            <customqueryreport>
+                <class>Web2Market_CustomQueryReport_Helper</class>
+            </customqueryreport>
+        </helpers>
+        <models>
+            <customqueryreport>
+                <class>Web2Market_CustomQueryReport_Model</class>
+                <resourceModel>customqueryreport_mysql4</resourceModel>
+            </customqueryreport>
+            <customqueryreport_mysql4>
+                <class>Web2Market_CustomQueryReport_Model_Mysql4</class>
+                <entities>
+                    <report>
+                        <table>customqueryreport_report</table>
+                    </report>
+                </entities>
+            </customqueryreport_mysql4>
+        </models>
+
+        <resources>
+            <Web2Market_CustomQueryReport>
+                <setup>
+                    <module>Web2Market_CustomQueryReport</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </Web2Market_CustomQueryReport>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <admin_customqueryreport>
+                <use>admin</use>
+                <args>
+                    <module>Web2Market_CustomQueryReport</module>
+                    <frontName>admin_customqueryreport</frontName>
+                </args>
+            </admin_customqueryreport>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <customqueryreport>
+                    <file>customqueryreport.xml</file>
+                </customqueryreport>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

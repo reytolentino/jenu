@@ -1065,6 +1065,9 @@ button.button span.name {
     width: 31px;
     background: url('../images/btn-subscribe.png') no-repeat;
 }
+.footer-main {
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.2);
+}
 .footer .social-links {
     line-height: 66px;
 }
@@ -3375,7 +3378,7 @@ div.cart-empty {
 .homepage-heading {
     color: #0069a7;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 40px 0;
+    padding: 0;
     text-transform: uppercase;
 }
 
@@ -3439,7 +3442,7 @@ div.cart-empty {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 36px;
     font-weight: 300;
-    padding: 58px 0 0;
+    margin: 124px 0 0;
     text-align: center;
 }
 
@@ -3448,7 +3451,7 @@ div.cart-empty {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 36px;
     font-weight: 300;
-    padding: 176px 0;
+    margin: 176px 0 0;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 0 2px 2px rgba(0,0,0,0.5);
@@ -3551,7 +3554,7 @@ div.cart-empty {
 }
 
 .homepage-content-worksgreat--image img {
-    width: 100%;
+  max-width: 350px;
 }
 
 .homepage-content-worksgreat--copy {
@@ -3639,6 +3642,11 @@ ul.homepage-content-worksgreat-list ul {
     width: 100%;
 }
 
+.batra-banner .banner-content {
+  float: right;
+  margin: 110px 0 0 0;
+}
+
 @media(max-width: 991px) {
     .homepage-heading {
         padding: 10px 0;
@@ -3688,10 +3696,10 @@ ul.homepage-content-worksgreat-list ul {
     #slide-1 .homepage-hero-banner--copy {
         float: right;
         font-size: 24px;
-        width: 280px;
+        width: 420px;
     }
     #slide-2 .homepage-hero-banner--copy {
-        padding: 159px 0;
+        margin: 159px 0 0;
     }
     .homepage-content-worksgreat--image img {
         width: 50%;
@@ -3710,8 +3718,9 @@ ul.homepage-content-worksgreat-list ul {
         height: 300px;
     }
     #slide-1 .homepage-hero-banner--copy {
-        padding: 20px 0 0;
         font-size: 18px;
+        margin: 45px 0 0 0;
+        width: 310px;
     }
     .homepage-hero-banner-copy--quote {
         line-height: 28px;
@@ -3751,14 +3760,13 @@ ul.homepage-content-worksgreat-list ul {
     }
     #slide-2 .homepage-hero-banner--copy {
         font-size: 24px;
-        padding: 44px 0;
+        margin: 74px 0 0;
     }
 }
 
 @media(max-width: 480px) {
 
     .homepage-hero-banner--copy {
-        padding: 25px 0;
         width: 100%;
     }
     .homepage-content-worksgreat--copy {
@@ -3803,8 +3811,9 @@ ul.homepage-content-worksgreat-list ul {
     }
     #slide-1 .homepage-hero-banner--copy {
         background: rgba(255,255,255, 0.8);
-        margin-top: 20px;
+        margin-top: 28px;
         padding: 20px 0;
+        width: 100%;
     }
 }
 /*home-page*/
@@ -4802,36 +4811,42 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     padding: 50px 0;
 }
 
-.cms-howtouse .howtouse-stepsblock-text {
+.cms-howtouse .steps-copy {
     margin-bottom: 50px;
     position: relative;
 }
 
-.cms-howtouse .howtouse-stepsblock-img {
-  position: relative;
-}
-
-.cms-howtouse .howtouse-stepsblock-img:before {
+.cms-howtouse .steps-img:before {
     content:"";
     position: absolute;
     width: 100%;
     height: 1px;
     background: #75aedf;
     bottom: -1px;
+    right: -60%;
+}
+
+.cms-howtouse .steps-box:last-child .steps-img:before {
+  display: none;
 }
 
 .cms-howtouse .howtouse-stepsblock-img .steps-img img {
     width: 100%;
 }
 
-.cms-howtouse .howtouse-stepsblock-text .steps-copy {
+.cms-howtouse .steps-img {
+  border-bottom: 1px solid #75aedf;
+  position: relative;
+}
+
+.cms-howtouse .steps-copy {
     text-align: center;
     font-size: 14px;
     margin-top: 20px;
     padding: 0 10px;
 }
 
-.cms-howtouse .howtouse-stepsblock-text h5 {
+.cms-howtouse .steps-copy h5 {
     font-size: 16px;
     text-transform: uppercase;
     color: #75aedf;
@@ -5270,7 +5285,7 @@ div.jenu-results-container div.results-section-banner div.container {
     .cms-howtouse .howtouse-stepsblock-img:before {
         bottom: -1px;
     }
-    .cms-howtouse .howtouse-stepsblock-text .steps-copy {
+    .cms-howtouse .steps-copy {
         padding: 0;
     }
 }
@@ -5647,6 +5662,9 @@ h2.jenu-howitworks-header-h2 strong {
 .jenu-howitworks-feature {
   margin: 0 0 50px 0;
 }
+.jenu-howitworks-feature:last-child {
+  margin-bottom: 0;
+}
 .jenu-howitworks-img-wandfeatures {
   float: right;
 }
@@ -5662,7 +5680,7 @@ h2.jenu-howitworks-header-h2 strong {
   color: #747474;
 }
 .jenu-howitworks-feature img {
-  width: 100%;
+  max-width: 60px;
 }
 .jenu-howitworks-bodyfeatures-container {
   text-align: center;
@@ -5978,6 +5996,15 @@ h2.jenu-howitworks-header-h2 strong {
 
 .cms-faqs .faqs-right {
     margin-bottom: 40px;
+}
+
+.faqs-right {
+  border-left: 1px solid #b7b7b7;
+  padding-left: 40px;
+}
+
+.faqs-right p {
+  margin-bottom: 10px;
 }
 
 .cms-faqs .faqbox {

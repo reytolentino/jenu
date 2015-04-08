@@ -1703,6 +1703,14 @@
         width: auto;
     }
     
+    .cms-howtouse .steps-img:before {
+        display: none;
+    }
+    .cms-howtouse .steps-img, .cms-howtouse .steps-copy {
+      margin: 20px auto 0;
+      width: 260px;
+    }
+
     /** Results Page Styles 032315 **/
 
     .jenu-results-container h1,
@@ -1876,6 +1884,10 @@
     }
 }
 @media(max-width: 480px) {
+  
+  .homepage-content-worksgreat--image img {
+    width: 100%;
+  }
   .login-container-big {
     margin-top: 10px;
   }
@@ -2423,8 +2435,7 @@
       min-height: auto;
   }
   .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
-    margin: 10px auto;
-    width: 100%;
+    margin: 10px auto 0;
   }
   .jenu-howitworks-text-copy-img img {
     float: none;
@@ -2435,7 +2446,7 @@
       width: 100%;
   }
   .batra-banner .banner-content {
-    margin-top: 40px;
+    margin-top: 66px;
   }
 }
 @media(max-width:320px) {

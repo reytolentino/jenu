@@ -662,10 +662,10 @@
   .jenu-howitworks-text-copy {
     padding: 0;
   }
-  .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+  /*.jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
     margin: 0 auto;
     width: 70%;
-  }
+  }*/
   .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
     margin: 0 auto 10px;
     width: 100%;
@@ -832,9 +832,9 @@
         background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 40% top #c8e3f9;
         background-size: cover;
     }
-    div.jenu-howitworks-text-content div.jenu-howitworks-absorption-img img {
+    .jenu-howitworks-absorption-img img {
       max-width: none;
-      width: 100%;
+      width: 864px;
     }
     .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
       text-align: center;
@@ -842,22 +842,19 @@
     .jenu-howitworks-text-content .row {
       text-align: center;
     }
-    .jenu-howitworks-text-content .jenu-howitworks-text-copy-img img {
+    /*.jenu-howitworks-text-content .jenu-howitworks-text-copy-img img {
       display: inline-block;
       float: none;
       max-width: 212px;
       margin: 0 auto;
       width: 100%;
-    }
+    }*/
     .howitworks-banner .banner-content {
       margin-left: 5%;
       margin-top: 12%;
     }
     .batra-banner .banner-content {
       padding: 0 20px 0 0;
-    }
-    .jenu-howitworks-absorption-img img {
-      width: 100%;
     }
     .howitworks-banner .banner-content {
       margin-left: 5%;
@@ -1671,7 +1668,7 @@
     margin-top: 20px;
   }
   .jenu-howitworks-img-wandfeatures img {
-    width: 100%;
+    width: 456px;
   }
   .jenu-howitworks-feature div {
     text-align: center;
@@ -1686,9 +1683,7 @@
   .jenu-howitworks-bodyfeatures-container ul.jenu-howitworks-text-copy-list {
     margin-bottom: 20px;
   }
-  .jenu-howitworks-absorption-img {
-    width: 100%;
-  }
+  
   .jenu-howitworks-feature img {
     display: block;
     margin: 0 auto 10px;
@@ -1927,6 +1922,12 @@
     }
 }
 @media(max-width: 480px) {
+  .jenu-howitworks-img-wandfeatures img {
+    width: 100%;
+  }
+  .jenu-howitworks-minute .jenu-howitworks-text-copy-img {
+    margin-bottom: 0;
+  }
   .homepage-content-worksgreat--image img {
     width: 100%;
   }
@@ -2476,10 +2477,10 @@
       height: 280px;
       min-height: auto;
   }
-  .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+  /*.jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
     margin: 10px auto;
     width: 100%;
-  }
+  }*/
   .howitworks-banner .banner-content {
       margin-top: 28%;
       width: 100%;

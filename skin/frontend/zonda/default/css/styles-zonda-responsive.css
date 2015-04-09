@@ -977,6 +977,14 @@
   .header-container .search-active .quick-access .form-search .input-text {
     padding-left: 0;
   }
+  .jenu-paypal--purchase-meta-col > div {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  } 
+  .jenu-paypal--purchase-meta-col:last-child > div {
+    border-bottom: 0px;
+    padding-bottom: 0;
+  }
   #custommenu-mobile #menu-button a, #custommenu-mobile #menu-button a:link, #custommenu-mobile #menu-button a:visited {
       padding-top: 13px;
     line-height: 40px;

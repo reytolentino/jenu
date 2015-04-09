@@ -2486,7 +2486,8 @@
       width: 100%;
   }
   .batra-banner .banner-content {
-    margin-top: 66px;
+    margin-top: 30px;
+    padding: 0;
   }
 }
 @media(max-width:320px) {

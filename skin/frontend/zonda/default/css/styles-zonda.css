@@ -3647,6 +3647,27 @@ ul.homepage-content-worksgreat-list ul {
   margin: 110px 0 0 0;
 }
 
+.jenu-paypal--purchase-meta {
+  border-top: 1px solid #75aedf;
+  border-bottom: 1px solid #75aedf;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.jenu-paypal--purchase-meta h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.jenu-paypal--purchase-meta-col {
+  margin-bottom: 10px;
+}
+
+.info-set .legend {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
 @media(max-width: 991px) {
     .homepage-heading {
         padding: 10px 0;

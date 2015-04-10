@@ -984,6 +984,14 @@
   .jenu-paypal--purchase-meta-col:last-child > div {
     border-bottom: 0px;
     padding-bottom: 0;
+  } 
+  .data-table .product-image {
+    display: inline-block;
+    height: 100px;
+    margin: 0;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 78px;
   }
   #custommenu-mobile #menu-button a, #custommenu-mobile #menu-button a:link, #custommenu-mobile #menu-button a:visited {
       padding-top: 13px;
@@ -2496,6 +2504,9 @@
   .batra-banner .banner-content {
     margin-top: 30px;
     padding: 0;
+  }
+  .data-table .product-image {
+    margin-bottom: 5px;
   }
 }
 @media(max-width:320px) {

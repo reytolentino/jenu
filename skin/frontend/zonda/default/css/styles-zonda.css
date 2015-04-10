@@ -3666,13 +3666,35 @@ ul.homepage-content-worksgreat-list ul {
   margin-bottom: 10px;
 }
 
-.jenu-paypal--payment-method {
-  display: block;
-}
-
 .info-set .legend {
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+.data-table .product-image {
+  display: inline-block;
+  height: 63px;
+  margin-right: 10px;
+  vertical-align: top;
+  width: 47px;
+}
+
+.data-table .product-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.data-table .product-shop {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.data-table .product-shop .product-name {
+  font-size: 16px;
+}
+
+.data-table td {
+  text-align: left;
 }
 
 @media(max-width: 991px) {

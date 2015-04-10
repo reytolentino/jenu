@@ -1,0 +1,104 @@
+<?php
+/**
+ * Magedelight
+ * Copyright (C) 2014 Magedelight <info@magedelight.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @category MD
+ * @package MD_Partialpayment
+ * @copyright Copyright (c) 2014 Mage Delight (http://www.magedelight.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author Magedelight <info@magedelight.com>
+ */
+?>
+<?php
+$_product = $this->getProduct();
+?>
+
+<?php if($_product): ?>
+    <?php $option = $this->getPartialPaymentOption(); ?>
+    <form action="<?php echo $this->getSubmitUrl() ?>" method="post" id="product_addtocart_form">
+        <?php echo $this->getBlockHtml('formkey') ?>
+        <div class="product-view">
+            <div class="product-essential">
+                <div class="product-shop">
+                    <div class="add-to-box">
+                        <div class="add-to-cart">
+                            <?php if($option && $option->getId() && $option->isActive()): ?>
+                                <?php $helper = Mage::helper('md_partialpayment') ?>
+                                <div class="partialpayment-box-container">
+                                    <ul class="form-list">
+                                        <li class="control partialpayment">
+                                            <div class="input-box"><input class="checkbox" type="radio" name="custom_options[partialpayment]" value="1" checked/></div>
+                                            <label for="custom_options"><span id="withpartial"><span class="easypayments"><?php echo $helper->__('3 Easy Payments Of ') ?></span><span class="oldpaymentprice"><?php echo $helper->__('$83.00') ?></span></span>
+                                                <?php
+                                                $terms = $helper->getTermsContents();
+                                                ?>
+                                                <?php if(count($terms) > 0 && array_key_exists('link_title',$terms) && array_key_exists('content',$terms)): ?>
+                                                    <a class="link-tip" href="javascript:void(0);" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>"><?php echo $terms['link_title'] ?></a>
+                                                    <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
+                                                        <a href="javascript:void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
+                                                        <div class="partial-terms-popup-heading">
+                                                            <h3><?php echo $this->__('Terms And Conditions') ?></h3>
+                                                        </div>
+                                                        <div class="partial-terms-popup-content">
+                                                            <?php echo $terms['content'] ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <script type="text/javascript">
+
+                                                        jQuery( ".partial-terms-popup-close" ).click(function() {
+                                                            jQuery('.partial-terms-popup').hide();
+                                                        });
+
+                                                        jQuery('.link-tip').click(function(e){
+
+                                                            jQuery('.partial-terms-popup').toggle();
+
+                                                        });
+
+                                                        jQuery('body').click(function(e) {
+                                                            var target = jQuery(e.target);
+                                                            if(!target.is('.link-tip') && !target.is('.partial-terms-popup')) {
+                                                                if ( jQuery('.partial-terms-popup').is(':visible') ) jQuery('.partial-terms-popup').hide();
+                                                            }
+                                                        });
+                                                    </script>
+                                                <?php endif; ?>
+                                                <div class="nextline">
+                                                <span class="nowonly"><?php echo $helper->__('Now Only ') ?></span><span class="firstpayment"><?php echo $helper->__('$62.00') ?></span><span class="plusfreegifts"><?php echo $helper->__(' + 2 Free Gifts  ($50 Value)') ?></span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="control partialpayment">
+                                            <div class="input-box"><input class="checkbox" type="radio" name="custom_options[partialpayment]" value="-1"/></div>
+                                            <label for="custom_options"><span id="nopartial"><span class="buytoday"><?php echo $helper->__('Buy Today For ') ?></span><span id="nopartialprice" class="nopartialprice"><?php echo $helper->__('$186.75 ') ?></span><span class="plusfreegifts"><?php echo $helper->__('+ 2 Free Gifts  ($50 Value)') ?></span></label>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <input type="hidden" name="qty" value="1" />
+                            <button type="submit" title="<?php echo $this->__('Add to Cart') ?>" id="product-addtocart-button" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+<?php endif; ?>

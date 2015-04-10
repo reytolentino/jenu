@@ -1,0 +1,98 @@
+.lphero-box .ctabox p.special-copy {
+    font-size: 24px;
+}
+
+.partialpayment label {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.partialpayment label .nopartialprice {
+    font-weight: bold;
+}
+
+.partialpayment label #withpartial {
+    line-height: 18px;
+}
+
+.partialpayment label .oldpaymentprice {
+    position: relative;
+}
+
+.partialpayment label .oldpaymentprice:before {
+    content: ".";
+    position: absolute;
+    display: block;
+    width: 45px;
+    height: 14px;
+    background: url(../../images/redcross.png) no-repeat center center;
+    background-size: 100%;
+    left: 0;
+    margin-top: -22px;
+}
+
+.partialpayment label .nowonly,
+.partialpayment label .firstpayment {
+    font-size: 30px;
+}
+
+.partialpayment label .firstpayment {
+    font-weight: bold;
+}
+
+ul.form-list .partialpayment a.link-tip {
+    text-transform: none;
+}
+
+ul.form-list .partialpayment .nextline {
+    line-height: 30px;
+}
+
+.add-to-cart button.button {
+    margin-top: 12px;
+}
+
+.lphero-box .moneyback1 {
+    margin-top: -80px;
+}
+
+@media(max-width: 991px) {
+    .lphero-box .ctabox p.special-copy {
+        font-size: 18px;
+        margin: 8px 0;
+    }
+    .lphero-box .ctabox p {
+        margin: 8px 0;
+    }
+    .partialpayment label {
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+    .lphero-box .product-container {
+        margin-top: 0;
+    }
+    .partialpayment label .nowonly,
+    .partialpayment label .firstpayment {
+        font-size: 24px;
+    }
+    .lphero-box p.bottomcopy {
+        padding-top:0;
+    }
+    .partialpayment label .oldpaymentprice:before {
+        width: 36px;
+        height: 12px;
+        background: url(../../images/redcross.png) no-repeat center center;
+        background-size: 100%;
+        margin-top: -20px;
+    }
+}
+
+@media(max-width: 767px) {
+    .partialpayment label .nowonly,
+    .partialpayment label .firstpayment {
+        font-size: 20px;
+    }
+    .lphero-box .moneyback1 {
+        margin-top: -60px;
+    }
+}

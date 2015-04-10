@@ -42,7 +42,7 @@
         <div class="jenu-paypal--billing-info">
           <h2><?php echo $this->__('Billing Information') ?></h2>
           <strong><?php echo $this->__('Payment Method') ?></strong> | <?php if($this->getEditUrl()):?><a href="<?php echo $this->getEditUrl() ?>"><?php echo $this->__('Edit Payment Information') ?></a> <?php endif ?>
-          <span class="jenu-paypal--payment-method"><?php echo $this->escapeHtml($this->getPaymentMethodTitle()) ?></span>
+          <div class="jenu-paypal--payment-method"><?php echo $this->escapeHtml($this->getPaymentMethodTitle()) ?></div>
         </div>
 
       </div>

@@ -984,8 +984,8 @@
   .jenu-paypal--purchase-meta-col:last-child > div {
     border-bottom: 0px;
     padding-bottom: 0;
-  } 
-  .data-table .product-image {
+  }
+  .paypal-express-review .data-table .product-image {
     display: inline-block;
     height: 100px;
     margin: 0;
@@ -1935,6 +1935,21 @@
     }
     .results-section-theresults h3.results-theresults-header-number {
       text-align: center;
+    }
+    .paypal-express-review .data-table thead .th-product {
+        display: none;
+    }
+    .paypal-express-review .data-table .product-image {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .paypal-express-review .data-table .product-shop .product-name {
+        font-size: 14px;
+        text-align: center;
+    }
+    .paypal-express-review .data-table td {
+        padding: 6px;
     }
 }
 @media(max-width: 480px) {

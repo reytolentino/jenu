@@ -977,6 +977,22 @@
   .header-container .search-active .quick-access .form-search .input-text {
     padding-left: 0;
   }
+  .jenu-paypal--purchase-meta-col > div {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  } 
+  .jenu-paypal--purchase-meta-col:last-child > div {
+    border-bottom: 0px;
+    padding-bottom: 0;
+  }
+  .paypal-express-review .data-table .product-image {
+    display: inline-block;
+    height: 100px;
+    margin: 0;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 78px;
+  }
   #custommenu-mobile #menu-button a, #custommenu-mobile #menu-button a:link, #custommenu-mobile #menu-button a:visited {
       padding-top: 13px;
     line-height: 40px;
@@ -1920,6 +1936,21 @@
     .results-section-theresults h3.results-theresults-header-number {
       text-align: center;
     }
+    .paypal-express-review .data-table thead .th-product {
+        display: none;
+    }
+    .paypal-express-review .data-table .product-image {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .paypal-express-review .data-table .product-shop .product-name {
+        font-size: 14px;
+        text-align: center;
+    }
+    .paypal-express-review .data-table td {
+        padding: 6px;
+    }
 }
 @media(max-width: 480px) {
   .jenu-howitworks-img-wandfeatures img {
@@ -2488,6 +2519,9 @@
   .batra-banner .banner-content {
     margin-top: 30px;
     padding: 0;
+  }
+  .data-table .product-image {
+    margin-bottom: 5px;
   }
 }
 @media(max-width:320px) {

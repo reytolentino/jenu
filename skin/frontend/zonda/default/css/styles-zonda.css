@@ -79,6 +79,9 @@ small {
 p {
   line-height: 1.6;
 }
+.jenu-askerisk-red {
+  color: #AB3737;
+}
 .left {
   float: left;
 }
@@ -3661,6 +3664,10 @@ ul.homepage-content-worksgreat-list ul {
 
 .jenu-paypal--purchase-meta-col {
   margin-bottom: 10px;
+}
+
+.jenu-paypal--payment-method {
+  display: block;
 }
 
 .info-set .legend {

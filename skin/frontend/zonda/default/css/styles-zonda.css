@@ -79,6 +79,9 @@ small {
 p {
   line-height: 1.6;
 }
+.jenu-askerisk-red {
+  color: #AB3737;
+}
 .left {
   float: left;
 }
@@ -3645,6 +3648,61 @@ ul.homepage-content-worksgreat-list ul {
 .batra-banner .banner-content {
   float: right;
   margin: 110px 0 0 0;
+}
+
+.jenu-paypal--purchase-meta {
+  border-top: 1px solid #75aedf;
+  border-bottom: 1px solid #75aedf;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.jenu-paypal--purchase-meta h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.jenu-paypal--purchase-meta-col {
+  margin-bottom: 10px;
+}
+
+.paypal-express-review .page-title h1 {
+    display: block;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.paypal-express-review .info-set .legend {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.paypal-express-review .data-table .product-image {
+  display: inline-block;
+  height: 63px;
+  margin-right: 10px;
+  vertical-align: top;
+  width: 47px;
+}
+
+.paypal-express-review .data-table .product-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.paypal-express-review .data-table .product-shop {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.paypal-express-review .data-table .product-shop .product-name {
+  font-size: 16px;
+}
+
+.paypal-express-review .data-table td {
+  text-align: left;
 }
 
 @media(max-width: 991px) {

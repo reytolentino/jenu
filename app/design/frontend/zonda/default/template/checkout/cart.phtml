@@ -33,13 +33,39 @@ $zonda = $this->helper('zonda');
          </div>
      <?php endif; ?>
      <?php if(!$this->hasError()): ?>
-         <ul class="checkout-types">
+         <div class="checkout-types">
              <?php foreach ($this->getMethods('methods') as $method): ?>
                  <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-                     <li><?php echo $methodHtml; ?></li>
+                     <div class="payment-method"><?php echo $methodHtml; ?></div>
                  <?php endif; ?>
              <?php endforeach; ?>
-         </ul>
+             <?php $othermethodsArray = $this->getMethods('other_methods'); ?>
+             <?php if (!empty($othermethodsArray)): ?>
+                 <div class="other-methods-wrapper">
+                 <a href="#" class="more-options-btn" id="more-options-btn">More Payment Options</a>
+                 <div class="other-methods" id="other-methods">
+             <?php endif; ?>
+             <?php foreach ($this->getMethods('other_methods') as $method): ?>
+                 <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                     <div><?php echo $methodHtml; ?></div>
+                 <?php endif; ?>
+             <?php endforeach; ?>
+             <?php if (!empty($othermethodsArray)): ?>
+                 </div>
+                 </div>
+             <?php endif; ?>
+         </div>
+         <script type="text/javascript">
+             //<![CDATA[
+             jQuery(function() {
+                 jQuery( "#more-options-btn" ).click(function(e) {
+                     e.preventDefault();
+                     jQuery(this).toggleClass('active');
+                     jQuery( "#other-methods" ).toggle();
+                 });
+             });
+             //]]>
+         </script>
      <?php endif; ?>
  </div>
 <div class="cart">
@@ -142,7 +168,7 @@ $zonda = $this->helper('zonda');
             </div>
         </div>
         <div class="btn-container clearfix">
-            <div class="checkout-box clearfix">
+            <div class="checkout-box checkout-box-bottom clearfix">
                 <?php if($this->getContinueShoppingUrl()): ?>
                     <?php if (Mage::getStoreConfig('quickview/viewsetting/enableview') && !Mage::getStoreConfig('ajaxcart/addtocart/enablecategory')) {
                         $continuShppingUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
@@ -163,6 +189,21 @@ $zonda = $this->helper('zonda');
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
+                    <?php $othermethodsArray = $this->getMethods('other_methods'); ?>
+                    <?php if (!empty($othermethodsArray)): ?>
+                        <div class="other-methods-bottom-wrapper">
+                        <div class="other-methods-bottom" id="other-methods-bottom">
+                            <span class="or-bottom-method"><?php echo $this->__('or') ?></span>
+                    <?php endif; ?>
+                    <?php foreach ($this->getMethods('other_bottom_methods') as $method): ?>
+                        <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                            <div><?php echo $methodHtml; ?></div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <?php if (!empty($othermethodsArray)): ?>
+                        </div>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>

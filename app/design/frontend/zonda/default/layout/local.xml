@@ -471,6 +471,33 @@
             </block>
             <block type="core/template" name="support" as="support" template="page/html/support.phtml"/>
         </reference>
+
+        <reference name="checkout.cart.methods">
+            <action method="unsetChild"><name>checkout.cart.methods.paypal_express.bottom</name></action>
+        </reference>
+        <reference name="checkout.cart">
+            <block type="amazon_payments/button" name="AmazonPayButtonMethod" template="amazon_payments/button.phtml"/>
+            <block type="amazon_payments/button" name="AmazonPayButtonTop" template="amazon_payments/button.phtml"/>
+            <action method="unsetChild"><name>AmazonPayButtonMethod</name></action>
+            <block type="core/text_list" name="checkout.cart.other_methods" as="other_methods" translate="label">
+                <label>Payment Methods Before Checkout Button</label>
+                <action method="append" ifconfig="payment/amazon_payments/enabled">
+                    <block>AmazonPayButtonMethod</block>
+                </action>
+                <block type="paypal/express_shortcut" name="checkout.cart.methods.paypal_express.bottom" template="paypal/express/shortcut.phtml">
+                    <action method="setIsQuoteAllowed"><value>1</value></action>
+                </block>
+            </block>
+            <block type="core/text_list" name="checkout.cart.other_bottom_methods" as="other_bottom_methods" translate="label">
+                <label>Payment Methods Before Checkout Button</label>
+                <action method="append" ifconfig="payment/amazon_payments/enabled">
+                    <block>AmazonPayButtonTop</block>
+                </action>
+                <block type="paypal/express_shortcut" name="checkout.cart.methods.paypal_express.bottom" template="paypal/express/shortcut.phtml">
+                    <action method="setIsQuoteAllowed"><value>1</value></action>
+                </block>
+            </block>
+        </reference>
     </checkout_cart_index>
     <checkout_onepage_index>
         <reference name="breadcrumbs">

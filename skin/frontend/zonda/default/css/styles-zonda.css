@@ -422,6 +422,7 @@ p.required {
 }
 #mini-cart>.dropdown-menu>.block-content {
   text-align: left;
+    height: auto;
 }
 .block-minicart .button {
   line-height: 30px;
@@ -2746,6 +2747,7 @@ td.for-desktop {
   height: 40px;
   display: inline-block;
   line-height: 40px;
+    float: left;
 }
 .checkout-cart-index .or {
   color: #95a3a7;
@@ -2797,6 +2799,93 @@ td.for-desktop {
 }
 .checkout-cart-index .breadcrumbs.title-show {
   padding-bottom: 0;
+}
+.checkout-cart-index div.checkout-types {
+    display: inline-block;
+    float: left;
+}
+.checkout-cart-index .more-options-btn {
+  background: #e0e5e9 url('../images/more-options-arrow.png') no-repeat top right;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 15px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #585a5b;
+    padding-right: 30px;
+}
+.checkout-cart-index .payment-method,
+.checkout-cart-index .other-methods-wrapper {
+    float: left;
+}
+.checkout-cart-index .other-methods-wrapper {
+    margin-left: 5px;
+}
+.checkout-cart-index #other-methods {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    padding: 0;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(130,130,130,1);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(130,130,130,1);
+    box-shadow: 0px 2px 3px 0px rgba(130,130,130,1);
+    z-index: 9;
+}
+.checkout-cart-index #other-methods .paypal-logo,
+.checkout-cart-index #other-methods #AmazonPayButtonMethod {
+    padding: 8px 0;
+    border-top: 1px solid #e4e4e4;
+}
+.checkout-cart-index #other-methods #AmazonPayButtonMethod {
+    border-top: none;
+}
+.checkout-cart-index .more-options-btn.active {
+    background-position: bottom right;
+}
+.checkout-cart-index .other-methods-wrapper {
+    position: relative;
+}
+.checkout-cart-index .other-methods-bottom-wrapper {
+    clear: both;
+}
+.checkout-cart-index .other-methods-bottom {
+    border: 1px solid #ebebeb;
+    padding: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+.checkout-cart-index .other-methods-bottom div,
+.checkout-cart-index .other-methods-bottom .paypal-logo,
+.checkout-cart-index .other-methods-bottom #AmazonPayButtonMethod {
+    display: inline-block;
+}
+.checkout-cart-index .checkout-box-bottom {
+    text-align: center;
+}
+.checkout-cart-index .checkout-box-bottom .contbox {
+    float: none;
+}
+.checkout-cart-index .checkout-box-bottom ul.checkout-types {
+    float: none;
+    vertical-align: top;
+    display: inline-block;
+}
+.checkout-cart-index .checkout-box-bottom .or-bottom-method {
+    text-align: center;
+    color: #95a3a7;
+    display: block;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    width: 24px;
+    height: auto;
+    background: #fff;
+    clear: both;
+    margin: -29px auto 10px auto;
+}
+.checkout-onepage-index #AmazonPayButtonBefore {
+    margin-top: 10px;
 }
 .order-review .product-image img {
   width: 50px;
@@ -2883,7 +2972,7 @@ td.for-desktop {
   padding: 20px;
 }
 .shipping-container, .total-container, .account-login .registered-users, .account-login .new-users {
-  width: 472px;
+  width: 462px;
 }
 .shipping-form .sbHolder {
   height: 40px;

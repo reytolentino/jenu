@@ -320,6 +320,9 @@ p.required {
 .login-container-big {
   display: none;
 }
+.amazon-login-button-wrapper {
+    text-align: center;
+}
 .header-top, .mobile-block-container {
   font-size: 12px;
   height: 40px;

@@ -83,7 +83,7 @@ class Mage_Checkout_Model_Observer
             $item->isDeleted(true);
             if ($item->getHasChildren()) foreach ($item->getChildren() as $child) $child->isDeleted(true);
         }
-        $quote->collectTotals()->save();
+        //$quote->collectTotals()->save();
     } //_removeAllItems
 
     public function salesQuoteSaveAfter($observer)

@@ -6426,6 +6426,53 @@ h2.jenu-howitworks-header-h2 strong {
     margin-top: 25px;
   }
 }
+
+/** Customer Reviews Page **/
+
+/* CSS Document */
+
+.cms-customer-reviews .cms-wrapper .thumb {
+    text-align: center;
+}
+
+.cms-customer-reviews .cms-wrapper .thumb img {
+    width: 100%;
+    max-width: 220px;
+}
+
+.cms-customer-reviews .cms-wrapper .border-bottom{
+    border-bottom: 1px solid #f2f2f2;
+    margin: 18px 0px;
+}
+
+.cms-customer-reviews .cms-wrapper .around-wrapper {
+    margin: 24px 0;
+    overflow: hidden;
+}
+
+.cms-customer-reviews .cms-wrapper .title-around {
+    padding: 0;
+    margin-bottom: 18px;
+}
+
+.cms-customer-reviews .cms-wrapper .around-copy p.logo_caption {
+    margin: 8px 0;
+    font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.cms-customer-reviews .cms-wrapper .around-copy .logo_caption_read_more {
+    font-size: 18px;
+}
+
+@media(max-width:767px) {
+
+}
+
+/** End Customer Reviews Page **/
+
 /*********************************************************************************/
 /******************************* Home Page Bottom Section ************************/
 

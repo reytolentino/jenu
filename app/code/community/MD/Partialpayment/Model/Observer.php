@@ -813,6 +813,29 @@ class MD_Partialpayment_Model_Observer
         
         return $this;
     }
+
+    public function appendFullCartPaymentBlock(Varien_Event_Observer $observer) 
+    {
+        /*$controller = Mage::app()->getRequest()->getControllerName();
+        $router = Mage::app()->getRequest()->getRouteName();
+        $action = Mage::app()->getRequest()->getActionName();*/
+        $block = $observer->getEvent()->getBlock();
+        
+        if ($block instanceof Mage_Paypal_Block_Express_Shortcut || $block instanceof Amazon_Payments_Block_Button
+            || $block instanceof Mage_Paypal_Block_Bml_Banners) {
+            $quote = Mage::getSingleton("checkout/session")->getQuote();
+            $hasPartial = false;
+            if ($quote) {
+                $hasPartial = Mage::helper("md_partialpayment")->isQuotePartialPayment($quote);
+            }
+
+            if ($hasPartial) {
+                $transportObject = $observer->getEvent()->getTransport();
+                $transportObject->setHtml("");
+            }
+        }
+        return $this;
+    }
     
 }
 

@@ -6580,7 +6580,16 @@ h2.jenu-howitworks-header-h2 strong {
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .authorize-seal {
-    margin-top: 20px;
+    margin-top: 10px;
+    float: left;
+}
+.doctor_trusted {
+    margin: 10px 0 0 10px;
+    float: left;
+}
+.doctor_trusted img {
+    width: 100px;
+    height: auto;
 }
 /*********************************************************************************/
 /******************************* CMS Page Design Overrides **************************/

@@ -43,6 +43,13 @@
     line-height: 20px;
     margin: 18px auto;
   }
+    .authorize-seal div.AuthorizeNetSeal,
+    .authorize-seal div.AuthorizeNetSeal img {
+        width: 70px !important;
+    }
+    .doctor_trusted img {
+        width: 80px;
+    }
   .container {
     max-width: 100%;
       width: 100%;

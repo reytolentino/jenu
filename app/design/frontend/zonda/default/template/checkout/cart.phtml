@@ -39,8 +39,10 @@ $zonda = $this->helper('zonda');
                      <div class="payment-method"><?php echo $methodHtml; ?></div>
                  <?php endif; ?>
              <?php endforeach; ?>
-             <?php $othermethodsArray = $this->getMethods('other_methods'); ?>
-             <?php if (!empty($othermethodsArray)): ?>
+             <?php foreach ($this->getMethods('other_methods') as $method): ?>
+                 <?php if ($this->getMethodHtml($method) == ""){ $othermethods = false; } else {$othermethods = true;} ?>
+             <?php endforeach; ?>
+             <?php if ($othermethods == true): ?>
                  <div class="other-methods-wrapper">
                  <a href="#" class="more-options-btn" id="more-options-btn">More Payment Options</a>
                  <div class="other-methods" id="other-methods">
@@ -50,7 +52,7 @@ $zonda = $this->helper('zonda');
                      <div><?php echo $methodHtml; ?></div>
                  <?php endif; ?>
              <?php endforeach; ?>
-             <?php if (!empty($othermethodsArray)): ?>
+             <?php if ($othermethods == true): ?>
                  </div>
                  </div>
              <?php endif; ?>
@@ -189,8 +191,7 @@ $zonda = $this->helper('zonda');
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
-                    <?php $othermethodsArray = $this->getMethods('other_methods'); ?>
-                    <?php if (!empty($othermethodsArray)): ?>
+                    <?php if ($othermethods == true): ?>
                         <div class="other-methods-bottom-wrapper">
                         <div class="other-methods-bottom" id="other-methods-bottom">
                             <span class="or-bottom-method"><?php echo $this->__('or') ?></span>
@@ -200,7 +201,7 @@ $zonda = $this->helper('zonda');
                             <div><?php echo $methodHtml; ?></div>
                         <?php endif; ?>
                     <?php endforeach; ?>
-                    <?php if (!empty($othermethodsArray)): ?>
+                    <?php if ($othermethods == true): ?>
                         </div>
                         </div>
                     <?php endif; ?>

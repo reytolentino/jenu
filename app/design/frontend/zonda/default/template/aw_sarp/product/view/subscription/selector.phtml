@@ -39,7 +39,7 @@
     <?php if (($types = $subscription->getSubscriptionTypes()) && (sizeof($types) > 1)): ?>
 		<?php foreach ($types as $item): ?>
 		<li>
-			<input name="aw_sarp_subscription_type" class="radio" type="radio" value="<?php echo $item['value']?>" <?php echo ($item['value'] == -1 ? "checked" : ""); ?> >
+			<input name="aw_sarp_subscription_type" class="radio" type="radio" value="<?php echo $item['value']?>" <?php echo ($item['value'] == 4 ? "checked" : ""); ?> >
 				<span><?php echo $item['label']?></span>
 			</input>
 			<?php if($item['label'] != Mage::helper('sarp')->__('One-time Purchase')): ?>

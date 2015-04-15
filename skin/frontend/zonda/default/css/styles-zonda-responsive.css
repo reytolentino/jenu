@@ -46,6 +46,7 @@
     .authorize-seal div.AuthorizeNetSeal,
     .authorize-seal div.AuthorizeNetSeal img {
         width: 70px !important;
+        height: auto !important;
     }
     .doctor_trusted img {
         width: 80px;

@@ -6427,6 +6427,19 @@ h2.jenu-howitworks-header-h2 strong {
   }
 }
 
+/** Customer Reviews Page **/
+
+/* CSS Document */
+
+.cms-customer-reviews .cms-wrapper .thumb {
+    text-align: center;
+}
+
+.cms-customer-reviews .cms-wrapper .thumb img {
+    width: 100%;
+    max-width: 220px;
+}
+
 .cms-customer-reviews .cms-wrapper .border-bottom{
     border-bottom: 1px solid #f2f2f2;
     margin: 18px 0px;

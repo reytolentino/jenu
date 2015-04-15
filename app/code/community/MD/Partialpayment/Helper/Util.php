@@ -77,11 +77,11 @@ class MD_Partialpayment_Helper_Util extends Mage_Core_Helper_Abstract
     	$activation = Mage::getStoreConfig("md_partialpayment/license/activation_key");
         if($_SERVER["SERVER_NAME"] != "localhost" && $_SERVER['SERVER_ADDR'] != "127.0.0.1"){
         	if($serial == ''){
-        		$messages[] = Mage::helper("md_partialpayment")->__("Serial key not found.Please enter valid serial key for 'Partial Payment' extension.");
+        		/* $messages[] = Mage::helper("md_partialpayment")->__("Serial key not found.Please enter valid serial key for 'Partial Payment' extension."); */
         	}
 
         	if($activation == ''){
-        		$messages[] = Mage::helper("md_partialpayment")->__("Activation key not found.Please enter valid activation key for 'Partial Payment' extension.");
+        		/* $messages[] = Mage::helper("md_partialpayment")->__("Activation key not found.Please enter valid activation key for 'Partial Payment' extension."); */
         	}
 
                $isValidActivation = $this->validateActivationKey($activation,$serial);
@@ -105,7 +105,7 @@ class MD_Partialpayment_Helper_Util extends Mage_Core_Helper_Abstract
                 $origPart = str_replace($devPart.".",'',$domain);
                 $hash2 = $serial.''.$origPart;
                 if(md5($hash2) != $activation){
-                    $message[] = "Activation key invalid of 'Partial Payment' extension for this url.";
+                    /* $message[] = "Activation key invalid of 'Partial Payment' extension for this url."; */
                 }
         }
 

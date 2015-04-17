@@ -23,13 +23,16 @@
  * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
  * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
  */
-?><?php if (!Mage::getSingleton('customer/session')->isLoggedIn() || !Mage::helper('awraf/config')->isInviteAllowed()): return; endif?>
-<?php
+?><?php if (!Mage::getSingleton('customer/session')->isLoggedIn() || !Mage::helper('awraf/config')->isInviteAllowed()): ?>
+    <a class="button btn-login" id="btn-login" href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>"><span><?php echo $this->__('Login to Refer a Friend') ?></span></a>
+<?php else: ?>
+    <?php
     $buttonId = uniqid( rand(0, 1000) );
-?>
-<p class="raf-right"><button class="button btn-cart" id="referafriend-button<?php echo $buttonId;?>" type="button"><span><span><?php echo $this->__('Invite a friend') ?></span></span></button></p>
-<script type="text/javascript">
-    document.observe('dom:loaded', function () {
-        new Referafriend($('referafriend-button<?php echo $buttonId;?>'), '<?php echo $this->helper('awraf')->getReferafriendUrl() ?>');
-    });
-</script>
+    ?>
+    <button class="button btn-cart" id="referafriend-button<?php echo $buttonId;?>" type="button"><span><span><?php echo $this->__('Refer a Friend') ?></span></span></button>
+    <script type="text/javascript">
+        document.observe('dom:loaded', function () {
+            new Referafriend($('referafriend-button<?php echo $buttonId;?>'), '<?php echo $this->helper('awraf')->getReferafriendUrl() ?>');
+        });
+    </script>
+<?php endif;?>

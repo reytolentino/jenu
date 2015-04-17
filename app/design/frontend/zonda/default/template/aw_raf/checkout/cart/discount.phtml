@@ -27,8 +27,7 @@
 <form id="awraf-discount-coupon-form" class="awraf-discount-coupon-form" action="<?php echo $this->getUrl('awraf/cart/createCoupon') ?>" method="post">
     <div class="discount"> 
         <h2><?php echo $this->__('Apply Discount For Referred Friends') ?></h2>
-        <div class="discount-form"> 
-            <label for="coupon_code"><?php echo $this->__('Available balance is %s', $this->getAvailableAmount()) ?></label>
+        <div class="discount-form">
             <input type="hidden" name="remove" id="awraf-remove-discount" value="0" /> 
             <div class="input-box"> 
                 <input class="input-text" id="awraf-amount" name="awraf-amount" value="<?php echo $this->getNumericAmount(); ?>" />
@@ -40,6 +39,7 @@
                 <button type="button" title="<?php echo $this->__('Apply') ?>" class="button" onclick="awrafDiscountForm.submit(false)" value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>
                 <?php if ($this->cancelAllowed()): ?><button type="button" title="<?php echo $this->__('Cancel') ?>" class="button" onclick="awrafDiscountForm.submit(true)" value="<?php echo $this->__('Cancel') ?>"><span><span><?php echo $this->__('Cancel') ?></span></span></button><?php endif; ?>
             </div>
+            <label for="coupon_code"><?php echo $this->__('Available balance is %s', $this->getAvailableAmount()) ?></label>
         </div>
     </div>
 </form>

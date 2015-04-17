@@ -50,3 +50,34 @@
     margin: 28px 0;
     padding: 22px 25px 12px 33px;
 }
+
+.awraf-discount-coupon-form {
+    width: 100%;
+    margin-top: 20px;
+    float: left;
+}
+
+.awraf-discount-coupon-form .discount h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.awraf-discount-coupon-form .discount-form .buttons-set {
+    display:inline-block;
+    margin-top: 0;
+
+}
+
+.awraf-discount-coupon-form .discount-form .buttons-set .button {
+    background-color: #95a3a7;
+    margin-left: 10px;
+}
+
+@media(max-width: 480px) {
+    .awraf-discount-coupon-form .discount-form .buttons-set {
+        margin-top: 10px;
+    }
+    .awraf-discount-coupon-form .discount-form .buttons-set .button {
+        margin-left: 0;
+    }
+}

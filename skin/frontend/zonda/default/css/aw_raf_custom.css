@@ -73,6 +73,10 @@
     margin-left: 10px;
 }
 
+.awraf-discount-coupon-form .discount-form label {
+    display: block;
+}
+
 @media(max-width: 480px) {
     .awraf-discount-coupon-form .discount-form .buttons-set {
         margin-top: 10px;

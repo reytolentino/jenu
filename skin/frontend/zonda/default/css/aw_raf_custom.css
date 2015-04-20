@@ -14,3 +14,74 @@
     display: inline-block;
     width: 100%;
 }
+
+#raf-invite .button-set {
+    border-top: 1px solid #e4e4e4;
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-top: 8px;
+    text-align: right;
+}
+
+#raf-invite .button-set button {
+    margin-right: 5px;
+}
+
+.aw-raf-statistics .fieldset .btn-cart {
+    float: none;
+}
+
+.aw-raf-statistics .fieldset h2.legend {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border: 1px solid #747474;
+    color: #747474;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin: -33px 0 0 -10px;
+    padding: 0 8px;
+    position: relative;
+}
+
+.aw-raf-statistics .fieldset {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border: 1px solid #bbafa0;
+    margin: 28px 0;
+    padding: 22px 25px 12px 33px;
+}
+
+.awraf-discount-coupon-form {
+    width: 100%;
+    margin-top: 20px;
+    float: left;
+}
+
+.awraf-discount-coupon-form .discount h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.awraf-discount-coupon-form .discount-form .buttons-set {
+    display:inline-block;
+    margin-top: 0;
+
+}
+
+.awraf-discount-coupon-form .discount-form .buttons-set .button {
+    background-color: #95a3a7;
+    margin-left: 10px;
+}
+
+.awraf-discount-coupon-form .discount-form label {
+    display: block;
+}
+
+@media(max-width: 480px) {
+    .awraf-discount-coupon-form .discount-form .buttons-set {
+        margin-top: 10px;
+    }
+    .awraf-discount-coupon-form .discount-form .buttons-set .button {
+        margin-left: 0;
+    }
+}

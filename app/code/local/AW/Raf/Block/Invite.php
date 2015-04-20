@@ -57,7 +57,7 @@ class AW_Raf_Block_Invite extends Mage_Core_Block_Template
         if ($this->getData('subject')) {
             return $this->getData('subject');
         }
-        return $this->__('Referral for %s', Mage::app()->getStore()->getName());
+        return $this->__('Have you heard of JeNu?');
     }
 
     public function getMessage()
@@ -65,6 +65,6 @@ class AW_Raf_Block_Invite extends Mage_Core_Block_Template
         if ($this->getData('message')) {
             return $this->getData('message');
         }
-        return $this->__('Hi, I thought it might interest you.');
+        return $this->__('Enter a custom message for your friends.');
     }
 }

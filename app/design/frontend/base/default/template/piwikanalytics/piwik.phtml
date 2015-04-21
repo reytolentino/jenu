@@ -42,6 +42,7 @@
 				var u="<?php echo $installPath ?>";
 			    _paq.push(['setSiteId', <?php echo $siteId ?>]);
                 _paq.push(['setTrackerUrl', u+'piwik.php']);
+                _paq.push(['setConversionAttributionFirstReferrer', true]);
                 <?php echo $this->_getEcommerceCartUpdate()?>
                 <?php echo $this->_getOrdersTrackingCode()?>
                 <?php echo $this->_getProductPageview()?>

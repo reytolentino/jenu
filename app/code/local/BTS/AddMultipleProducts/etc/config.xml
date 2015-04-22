@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <BTS_AddMultipleProducts>
+            <version>1.0</version>
+        </BTS_AddMultipleProducts>
+    </modules>
+    <frontend>
+        <routers>
+            <addmultipleproducts>
+                <use>standard</use>
+                <args>
+                    <module>BTS_AddMultipleProducts</module>
+                    <frontName>multiadd</frontName>
+                </args>
+            </addmultipleproducts>
+        </routers>
+    </frontend>
+</config>
+

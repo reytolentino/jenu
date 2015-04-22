@@ -2422,12 +2422,6 @@ caption, th, td, .data-table th, .data-table td {
 .crosssell-products .cart-container .price-box {
   float: left;
 }
-.crosssell-products .btn-cart {
-  position: absolute;
-  padding: 0 8px;
-  right: 0;
-  bottom: 0;
-}
 .crosssell-products .flex-control-nav {
   position: relative;
   bottom: 0;

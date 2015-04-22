@@ -19,7 +19,7 @@ class BTS_AddMultipleProducts_AddController extends Mage_Core_Controller_Front_A
                 continue;
             }
             $pModel = Mage::getModel('catalog/product')->load($product_id);
-            if ($pModel->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE) {
+            if ($pModel->getTypeId() == 'subscription_simple' || $pModel->getTypeId() == 'simple') {
                 try {
                     $cart->addProduct($pModel, array('qty' => '1'));
                 } catch (Exception $e) {

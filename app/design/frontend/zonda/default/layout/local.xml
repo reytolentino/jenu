@@ -390,8 +390,6 @@
                 <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
                 <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>How To Use</title><block>catalog/product_view_attributes</block><template>catalog/product/view/how_to_use.phtml</template></action>
                 <!-- add reviews -->
-                <!-- cross sell products -->
-                <action method="addTab" translate="title" module="catalog"><alias>crosssell</alias><title>Cross Sells</title><block>catalog/product_view</block><template>catalog/product/view/crosssell.phtml</template></action>
 
                 <!-- add tags -->
                 <!--<action method="addTab" translate="title" module="tag"><alias>product.tags</alias><title>Product Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>-->

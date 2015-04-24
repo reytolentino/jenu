@@ -6,34 +6,40 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 </head>
 <body>
+{{var non_inline_styles}}
+<!-- Begin wrapper table -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table">
+    <tr>
+        <td valign="top" class="container-td" align="center">
+            <table cellpadding="0" cellspacing="0" border="0" align="center" class="container-table">
+                <tr>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" border="0" class="logo-container">
+                            <tr>
+                                <td class="logo">
+                                    <a href="{{store url=""}}">
+                                    <img
+                                    {{if logo_width}}
+                                    width="{{var logo_width}}"
+                                    {{else}}
+                                    width="165"
+                                    {{/if}}
 
-<center>
-    <table width="550" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e7eaed;">
-        <tbody>
-        <tr>
-            <td width="11" bgcolor="#ecf1f5">&nbsp;</td>
-            <td width="127" bgcolor="#ecf1f5">&nbsp;</td>
-            <td width="115" bgcolor="#ecf1f5">&nbsp;</td>
-            <td width="3" bgcolor="#ecf1f5">&nbsp;</td>
-            <td width="277" bgcolor="#ecf1f5">&nbsp;</td>
-            <td width="15" bgcolor="#ecf1f5">&nbsp;</td>
-        </tr>
-        <tr>
-            <td bgcolor="#ecf1f5">&nbsp;</td>
-            <td bgcolor="#ecf1f5"><img src="https://www.jenu.com/media/email/logo.png" alt="JeNu" width="127" height="29"></td>
-            <td colspan="3" bgcolor="#ecf1f5" valign="middle" align="right">
-                <a href="#" style="font-family:Helvetica,Arial,Verdana;font-size:12px;color:#000;font-weight:bold;text-decoration:none;text-transform:uppercase;display:inline-block;padding: 0 6px;">How JeNu Works</a>
-                <a href="#" style="font-family:Helvetica,Arial,Verdana;font-size:12px;color:#000;font-weight:bold;text-decoration:none;text-transform:uppercase;display:inline-block;padding: 0 6px;">About</a>
-                <a href="#" style="font-family:Helvetica,Arial,Verdana;font-size:12px;color:#000;font-weight:bold;text-decoration:none;text-transform:uppercase;display:inline-block;padding: 0 6px;">Results</a>
-                <a href="#" style="font-family:Helvetica,Arial,Verdana;font-size:12px;color:#000;font-weight:bold;text-decoration:none;text-transform:uppercase;display:inline-block;padding: 0 6px;">Shop</a>
-            </td>
-            <td bgcolor="#ecf1f5">&nbsp;</td>
-        </tr>
-        <tr>
-            <td bgcolor="#ecf1f5">&nbsp;</td>
-            <td colspan="4" bgcolor="#ecf1f5" valign="middle">
-                <div style="width:100%;height:1px;background:#d6dade;"></div>
-            </td>
-            <td bgcolor="#ecf1f5">&nbsp;</td>
-        </tr>
-                    <!-- Begin Content -->
+                                    {{if logo_height}}
+                                    height="{{var logo_height}}"
+                                    {{else}}
+                                    height="48"
+                                    {{/if}}
+
+                                    src="{{var logo_url}}"
+                                    alt="{{var logo_alt}}"
+                                    border="0"/>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" class="top-content">
+                        <!-- Begin Content -->

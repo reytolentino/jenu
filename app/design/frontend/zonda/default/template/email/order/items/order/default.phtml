@@ -35,9 +35,8 @@ $product = Mage::getModel('catalog/product')
     <td align="left" valign="top" style="padding:3px 9px;">
         <img src="<?php echo Mage::helper('catalog/image')->init($product, 'image')->resize(95); ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
     </td>
-    <td align="left" valign="top" style="padding:3px 9px;">
-        <img src="<?php echo Mage::helper('catalog/image')->init($product, 'image')->resize(95); ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
-        <strong style="font-size:11px;"><?php echo $this->escapeHtml($_item->getName()) ?></strong>
+    <td align="left" valign="top" style="padding:3px 9px;font-size:13px;" colspan="2">
+        <strong style="font-size:13px;text-transform:uppercase;"><?php echo $this->escapeHtml($_item->getName()) ?></strong>
         <?php if ($this->getItemOptions()): ?>
         <dl style="margin:0; padding:0;">
             <?php foreach ($this->getItemOptions() as $option): ?>
@@ -55,7 +54,7 @@ $product = Mage::getModel('catalog/product')
         <?php echo $this->escapeHtml($_item->getDescription()) ?>
         <p><?php echo $_item->getQtyOrdered()*1 ?></p>
     </td>
-    <td align="right" valign="top" style="padding:3px 9px;">
+    <td align="right" valign="top" style="padding:3px 9px;font-size:13px;">
         <?php if ($this->helper('tax')->displaySalesPriceExclTax($_order->getStore()) || $this->helper('tax')->displaySalesBothPrices($_order->getStore())): ?>
             <?php if ($this->helper('tax')->displaySalesBothPrices($_order->getStore())): ?>
                 <span class="label"><?php echo Mage::helper('tax')->__('Excl. Tax'); ?>:</span>

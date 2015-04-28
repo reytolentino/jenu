@@ -36,7 +36,7 @@ $product = Mage::getModel('catalog/product')
         <img src="<?php echo Mage::helper('catalog/image')->init($product, 'image')->resize(95); ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
     </td>
     <td align="left" valign="top" style="padding:3px 0;font-size:13px;" colspan="2">
-        <strong style="font-size:13px;text-transform:uppercase;line-height:normal;"><?php echo $this->escapeHtml($_item->getName()) ?></strong>
+        <strong style="font-size:13px;text-transform:uppercase;line-height:18px;"><?php echo $this->escapeHtml($_item->getName()) ?></strong>
         <?php if ($this->getItemOptions()): ?>
         <dl style="margin:0; padding:0;">
             <?php foreach ($this->getItemOptions() as $option): ?>

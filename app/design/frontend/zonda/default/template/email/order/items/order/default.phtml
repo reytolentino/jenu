@@ -32,7 +32,10 @@ $product = Mage::getModel('catalog/product')
     ->load($_item->getProductId());
 ?>
 <tr>
-    <td align="left" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;">
+    <td align="left" valign="top" style="padding:3px 9px;">
+        <img src="<?php echo Mage::helper('catalog/image')->init($product, 'image')->resize(95); ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
+    </td>
+    <td align="left" valign="top" style="padding:3px 9px;">
         <img src="<?php echo Mage::helper('catalog/image')->init($product, 'image')->resize(95); ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
         <strong style="font-size:11px;"><?php echo $this->escapeHtml($_item->getName()) ?></strong>
         <?php if ($this->getItemOptions()): ?>
@@ -50,10 +53,9 @@ $product = Mage::getModel('catalog/product')
             <?php echo $addInfoBlock->setItem($_item)->toHtml(); ?>
         <?php endif; ?>
         <?php echo $this->escapeHtml($_item->getDescription()) ?>
+        <p><?php echo $_item->getQtyOrdered()*1 ?></p>
     </td>
-    <td align="left" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;"><?php echo $this->escapeHtml($this->getSku($_item)) ?></td>
-    <td align="center" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;"><?php echo $_item->getQtyOrdered()*1 ?></td>
-    <td align="right" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;">
+    <td align="right" valign="top" style="padding:3px 9px;">
         <?php if ($this->helper('tax')->displaySalesPriceExclTax($_order->getStore()) || $this->helper('tax')->displaySalesBothPrices($_order->getStore())): ?>
             <?php if ($this->helper('tax')->displaySalesBothPrices($_order->getStore())): ?>
                 <span class="label"><?php echo Mage::helper('tax')->__('Excl. Tax'); ?>:</span>
@@ -132,7 +134,7 @@ $product = Mage::getModel('catalog/product')
 </tr>
 <?php if ($_item->getGiftMessageId() && $_giftMessage = $this->helper('giftmessage/message')->getGiftMessage($_item->getGiftMessageId())): ?>
 <tr>
-    <td colspan="4" style=" border-bottom:2px solid #CCCCCC; padding:3px 9px;">
+    <td colspan="3" style=" border-bottom:2px solid #CCCCCC; padding:3px 9px;">
         <strong style="color:#444444; font-size:11px;"><?php echo $this->__('Gift Message') ?></strong>
         <?php echo $this->__('From:'); ?> <?php echo $this->escapeHtml($_giftMessage->getSender()) ?><br />
         <?php echo $this->__('To:'); ?> <?php echo $this->escapeHtml($_giftMessage->getRecipient()) ?><br />

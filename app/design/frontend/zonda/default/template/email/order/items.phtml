@@ -26,11 +26,11 @@
 ?>
 <?php $_order = $this->getOrder() ?>
 <?php if ($_order): ?>
-<table cellspacing="0" cellpadding="0" border="0" width="550">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
 
     <?php $i=0; foreach ($_order->getAllItems() as $_item): ?>
     <?php if($_item->getParentItem()) continue; else $i++; ?>
-    <tbody style="border-bottom:1px dotted #88c5dd;padding: 6px 0;">
+    <tbody>
         <?php echo $this->getItemHtml($_item) ?>
     </tbody>
     <?php endforeach; ?>

@@ -476,11 +476,12 @@
 
         <reference name="checkout.cart.methods">
             <action method="unsetChild"><name>checkout.cart.methods.paypal_express.bottom</name></action>
+            <action method="unsetChild"><name>AmazonPayButtonMethod</name></action>
+            <action method="unsetChild"><name>AmazonPayButtonTop</name></action>
         </reference>
         <reference name="checkout.cart">
-            <block type="amazon_payments/button" name="AmazonPayButtonMethod" template="amazon_payments/button.phtml"/>
-            <block type="amazon_payments/button" name="AmazonPayButtonTop" template="amazon_payments/button.phtml"/>
             <action method="unsetChild"><name>AmazonPayButtonMethod</name></action>
+            <action method="unsetChild"><name>AmazonPayButtonTop</name></action>
             <block type="core/text_list" name="checkout.cart.other_methods" as="other_methods" translate="label">
                 <label>Payment Methods Before Checkout Button</label>
                 <action method="append" ifconfig="payment/amazon_payments/enabled">

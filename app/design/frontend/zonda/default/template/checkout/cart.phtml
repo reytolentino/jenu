@@ -40,7 +40,9 @@ $zonda = $this->helper('zonda');
                  <?php endif; ?>
              <?php endforeach; ?>
              <?php foreach ($this->getMethods('other_methods') as $method): ?>
-                 <?php if ($this->getMethodHtml($method) == ""){ $othermethods = false; } else {$othermethods = true;} ?>
+                 <?php if ($othermethodHtml = $this->getMethodHtml($method)): ?>
+                     <?php $othermethods = ($othermethodHtml == "" ? false : true); ?>
+                 <?php endif; ?>
              <?php endforeach; ?>
              <?php if ($othermethods == true): ?>
                  <div class="other-methods-wrapper">

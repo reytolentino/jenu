@@ -1145,8 +1145,40 @@
     display: inline-block !important;
   }
   #shopping-cart-table .product-image img {
-    width: 100%;
+    width: auto;
   }
+    .checkout-cart-index .box-cross-sell {
+      margin-top: 24px;
+  }
+  .crosssell-products.products-grid {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+  }
+    .crosssell-products.products-grid .product-image {
+        text-align: center;
+    }
+    .crosssell-products.products-grid .product-image img {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .crosssell-products.products-grid .product-image .hover-image {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .crosssell-products.products-grid .price-review {
+        text-align: center;
+    }
+    .crosssell-products.products-grid .price-review .actions {
+        display: inline-block;
+    }
+    .order-review .product-image img {
+        width: auto;
+    }
   .cart .data-table .btn-continue {
     float: none;
   }

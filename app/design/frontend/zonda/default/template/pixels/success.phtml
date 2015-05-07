@@ -82,4 +82,5 @@ $billingAddress = $order->getBillingAddress();
 <script type="text/javascript">
     var _AvantMetrics = _AvantMetrics || [];
     _AvantMetrics.push(['order',{ order_id:'<?php echo $orderId; ?>', amount:'<?php echo $affiliateTotal; ?>', state:'<?php echo $billingAddress->getRegion(); ?>', country:'<?php echo $billingAddress->getCountry(); ?>' }]);
+    _AvantMetrics.push(['item',{ order_id:'<?php echo $orderId; ?>', parent_sku:'not applicable', variant_sku:'not applicable', price:'not applicable', qty:'not applicable' }]);
 </script>

@@ -7,6 +7,8 @@ $total = $order->getGrandTotal();
 $subtotal = $order->getSubtotal();
 $discount = $order->getDiscountAmount();
 $affiliateTotal = ($subtotal + $discount);
+$billingAddress = $order->getBillingAddress();
+
 ?>
 <!-- Facebook Conversion Code for Conversion Page -->
 <script>
@@ -76,3 +78,8 @@ $affiliateTotal = ($subtotal + $discount);
 <!--end outbrain pixel-->
 <!-- affiliate -->
 <img src="https://shareasale.com/sale.cfm?tracking=<?php echo $orderId; ?>&amount=<?php echo $affiliateTotal; ?>&transtype=sale&merchantID=58899" width="1" height="1">
+<!-- AvantLink Affiliate -->
+<script type="text/javascript">
+    var _AvantMetrics = _AvantMetrics || [];
+    _AvantMetrics.push(['order',{ order_id:'<?php echo $orderId; ?>', amount:'<?php echo $affiliateTotal; ?>', state:'<?php echo $billingAddress->getRegion(); ?>', country:'<?php echo $billingAddress->getCountry(); ?>' }]);
+</script>

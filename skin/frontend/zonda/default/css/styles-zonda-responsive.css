@@ -1144,7 +1144,7 @@
   .button-up.for-mobile {
     display: inline-block !important;
   }
-  #shopping-cart-table .product-image img {
+    #shopping-cart-table .product-image img, #shopping-cart-table .pr-img-td img {
     width: auto;
   }
     .checkout-cart-index .box-cross-sell {

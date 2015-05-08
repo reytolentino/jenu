@@ -2688,6 +2688,11 @@ td.for-desktop {
   list-style: none;
   padding: 0;
 }
+.checkout-cart-index ul#nav li.order-now,
+.checkout-onepage-index ul#nav li.order-now,
+.checkout-onepage-success ul#nav li.order-now {
+    display: none;
+}
 .checkout-cart-index .show-your-carts {
   margin-top: 10px;
   float: left;

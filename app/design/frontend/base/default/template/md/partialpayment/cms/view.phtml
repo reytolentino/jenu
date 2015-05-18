@@ -65,17 +65,12 @@ $_product = $this->getProduct();
                                                     </div>
 
                                                     <script type="text/javascript">
-
                                                         jQuery( ".partial-terms-popup-close" ).click(function() {
                                                             jQuery('.partial-terms-popup').hide();
                                                         });
-
                                                         jQuery('.link-tip').click(function(e){
-
-                                                            jQuery('.partial-terms-popup').toggle();
-
+                                                            jQuery(this).next().toggle();
                                                         });
-
                                                         jQuery('body').click(function(e) {
                                                             var target = jQuery(e.target);
                                                             if(!target.is('.link-tip') && !target.is('.partial-terms-popup')) {

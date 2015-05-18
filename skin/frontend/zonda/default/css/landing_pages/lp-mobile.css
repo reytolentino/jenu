@@ -15,7 +15,7 @@
     }
 
     #lpmobile .pager .pages ol {
-        padding-left: none;
+        padding-left: 0;
     }
 
     #lpmobile .reviews-bottomwrap .pager .pages ol li a {

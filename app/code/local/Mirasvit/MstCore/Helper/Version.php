@@ -33,7 +33,7 @@ class Mirasvit_MstCore_Helper_Version extends Mage_Core_Helper_Abstract
                         $package = strtolower(Mage::getEdition());
                     }
                     if ($package == 'enterprise') {
-                        self::$_edition = 'ee';
+                        self::$_edition = 'ce';
                     } else {
                         self::$_edition = 'pe';
                     }

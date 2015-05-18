@@ -72,7 +72,7 @@
 
     .buybar-lto {
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
-        font-size: 11px;
+        font-size: 12px;
         text-transform: uppercase;
         color: #fff;
         height: 42px;
@@ -94,7 +94,7 @@
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-weight: 600;
         padding: 0 16px 0 6px;
-        margin-top: 7px;
+        margin-top: 8px;
     }
 
     .buybar-button.opened {

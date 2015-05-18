@@ -9,6 +9,19 @@
         padding-left: 0;
     }
 
+    #lpmobile .pager .pages {
+        margin: 0;
+        height: auto;
+    }
+
+    #lpmobile .pager .pages ol {
+        padding-left: none;
+    }
+
+    #lpmobile .reviews-bottomwrap .pager .pages ol li a {
+        margin-bottom: 3px;
+    }
+
     .product-view .reviews-summary-wrap .amount {
         border-right: medium none;
         color: #08232d;

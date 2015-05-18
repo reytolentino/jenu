@@ -1,3 +1,7 @@
+#lpmobile {
+    display: none;
+}
+
 .container.cms-box {
     max-width: 100%;
     -webkit-text-size-adjust: none;
@@ -1166,7 +1170,13 @@ ul.form-list .partialpayment a.link-tip {
 }
 
 @media(max-width:767px) {
-
+    .lpbox {
+        display: none;
+    }
+    #lpmobile {
+        display: block;
+    }
+    /**
     .lpbox .data-con {
         height: 300px;
     }
@@ -1416,4 +1426,5 @@ ul.form-list .partialpayment a.link-tip {
     #proofjenu .percent {
         text-align: left;
     }
+    **/
 }

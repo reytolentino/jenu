@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     406
+ * @build     407
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -35,6 +35,10 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
             }
         }
 
+        if (Mage::helper('mstcore')->isModuleInstalled('AW_Marketsuite')) {
+            $attributes['mss_rule'] = Mage::helper('email')->__('Customer: AheadWorks MSS rule');
+        }
+
         // asort($attributes);
         $this->setAttributeOption($attributes);
 
@@ -51,6 +55,7 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
             break;
 
             case 'is_subscriber':
+            case 'mss_rule':
                 $type = 'select';
             break;
         }
@@ -68,6 +73,7 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
             break;
 
             case 'is_subscriber':
+            case 'mss_rule':
                 $type = 'select';
             break;
         }
@@ -91,6 +97,16 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
                 array('value' => 1, 'label' => Mage::helper('email')->__('Yes')),
             );
         }
+
+        if ($this->getAttribute() === 'mss_rule' && Mage::helper('mstcore')->isModuleInstalled('AW_Marketsuite')) {
+            $ruleCollection = Mage::getModel('marketsuite/filter')->getActiveRuleCollection();
+            foreach ($ruleCollection as $rule) {
+                $selectOptions[] = array(
+                    'value' => $rule->getId(),
+                    'label' => $rule->getName(),
+                );
+            }
+        }
         
         $this->setData('value_select_options', $selectOptions);
 
@@ -110,6 +126,7 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
         if ($object->getData('customer_id')) {
             $customer = Mage::getModel('customer/customer')->load($object->getData('customer_id'));
             $subscriber = Mage::getModel('newsletter/subscriber')->loadByEmail($customer->getEmail());
+            $mssRule = 0;
 
             $reviews = Mage::getModel('review/review')->getCollection()
                 ->addFieldToFilter('customer_id', $customer->getId());
@@ -125,13 +142,21 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
 
             $numberOfOrders = Mage::getModel('sales/order')->getCollection()
                 ->addFieldToFilter('customer_id', $customer->getId())
-                ->count();  
+                ->count();
+
+            if (Mage::helper('mstcore')->isModuleInstalled('AW_Marketsuite')) {
+                $mssApi = Mage::getModel('marketsuite/api');
+                if ($mssApi->checkRule($customer, (int) $this->getValue())) {
+                    $mssRule = $this->getValue();
+                }
+            }
 
             $object->addData($customer->getData())
                 ->setData('is_subscriber', $subscriber->getId() ? 1 : 0)
                 ->setData('reviews_count', $reviewsCount)
                 ->setData('lifetime_sales', $lifetimeSales)
-                ->setData('number_of_orders', $numberOfOrders);
+                ->setData('number_of_orders', $numberOfOrders)
+                ->setData('mss_rule', $mssRule);
 
         } else {
             $email = $object->getData('customer_email');
@@ -141,7 +166,8 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
                 ->setData('is_subscriber', $subscriber->getId() ? 1 : 0)
                 ->setData('reviews_count', 0)
                 ->setData('lifetime_sales', 0)
-                ->setData('number_of_orders', 0);
+                ->setData('number_of_orders', 0)
+                ->setData('mss_rule', 0);
         }
 
         $value = $object->getData($attrCode);

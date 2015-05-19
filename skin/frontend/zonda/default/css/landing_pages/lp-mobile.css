@@ -96,7 +96,7 @@
         line-height: 26px;
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-weight: 600;
-        padding: 0 16px 0 7px;
+        padding: 0 16px 0 8px;
         margin-top: 8px;
     }
 
@@ -209,7 +209,7 @@
     }
 
     .product-highlights .slide1 .slide1-copy {
-        margin-top: 20px;
+        margin-top: 10px;
         text-align: center;
         width: 160px;
     }
@@ -237,6 +237,7 @@
         font-size: 16px;
         margin-top: 12px;
         line-height: 24px;
+        font-weight: 300;
     }
 
     .product-highlights .voguemention2 {
@@ -247,10 +248,6 @@
     .product-highlights .voguelogo {
         vertical-align: middle;
         display: inline;
-    }
-
-    .product-highlights .wandgel-wrap {
-        margin-bottom: -40px;
     }
 
     .product-highlights .slide2 h1 {
@@ -316,7 +313,7 @@
     }
 
     .product-cta h2 {
-        font-size: 16px;
+        font-size: 18px;
         text-align: center;
         display: block;
         padding-bottom: 6px;

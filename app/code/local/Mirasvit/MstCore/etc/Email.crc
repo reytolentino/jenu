@@ -125,7 +125,7 @@ dfa46ccc0d1b2616ef3742fc684be1c2  app/code/local/Mirasvit/Email/Model/Rule/Condi
 e90c1b066deb2d64a155cc4845471bdf  app/code/local/Mirasvit/Email/Model/Rule/Condition/Wishlist.php
 5e965d9a0f96d1c3a208b7a5a8f8bd9f  app/code/local/Mirasvit/Email/Model/Rule/Condition/Product/Subselect.php
 dde2136bf2992a2d7adcf10baddc7dd2  app/code/local/Mirasvit/Email/Model/Rule/Condition/Product/Combine.php
-83c57ca24c394fe8c402082ae29b4c0f  app/code/local/Mirasvit/Email/Model/Rule/Condition/Customer.php
+b12a4137be57d60916f46dc70f84aa29  app/code/local/Mirasvit/Email/Model/Rule/Condition/Customer.php
 889e50e7fb9f9b54d336782dc2f7a185  app/code/local/Mirasvit/Email/Model/Resource/Unsubscription/Collection.php
 d2a85a8170dba934a14da3dd18eb191d  app/code/local/Mirasvit/Email/Model/Resource/Queue.php
 0e25dabc2791268ce8b74e9ba24ab624  app/code/local/Mirasvit/Email/Model/Resource/Event/Collection.php

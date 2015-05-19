@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     406
+ * @build     407
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 

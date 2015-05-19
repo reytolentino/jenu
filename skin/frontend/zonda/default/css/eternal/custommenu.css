@@ -356,13 +356,13 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu,#nav>li, #blog_nav>li {
     right: 1%;
     top: 0px;
     display: block;
-    width: 40px;
+    width: 100%;
     height: 38px;
-    background: url('../../images/mobile-nav-arrow.png') no-repeat left;
+    background: url('../../images/mobile-nav-arrow.png') no-repeat right top;
     padding: 0;
 }
 #custommenu-mobile .button.open {
-    background: url('../../images/mobile-nav-arrow.png') no-repeat right;
+    background: url('../../images/mobile-nav-arrow.png') no-repeat right bottom;
 }
 
 #menu-content {

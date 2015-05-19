@@ -39,6 +39,10 @@
         line-height: 16px;
     }
 
+    #lpmobile #product_addtocart_form {
+        display: block;
+    }
+
     ul.form-list .partialpayment .checkbox {
         z-index: 1;
     }
@@ -53,12 +57,11 @@
     #lpmobile h2 {
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
         color: #008bb4;
-        font-weight: 300;
     }
 
     #buybar {
         background-color:rgba(10, 40, 59, 0.8);
-        height: 42px;
+        height: 45px;
         z-index: 9;
     }
 
@@ -75,8 +78,8 @@
         font-size: 12px;
         text-transform: uppercase;
         color: #fff;
-        height: 42px;
-        line-height: 42px;
+        height: 45px;
+        line-height: 45px;
     }
 
     .buybar-button-wrap {
@@ -88,12 +91,12 @@
         background: #fff url('/media/landing_pages/lp4/mobile/buybar-arrow.png') no-repeat top right 5px;
         color: #0069a7;
         text-transform: uppercase;
-        font-size: 12px;
-        height: 25px;
-        line-height: 25px;
+        font-size: 13px;
+        height: 26px;
+        line-height: 26px;
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-weight: 600;
-        padding: 0 16px 0 6px;
+        padding: 0 16px 0 7px;
         margin-top: 8px;
     }
 
@@ -232,7 +235,6 @@
     .product-highlights .voguemention {
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
         font-size: 16px;
-        font-weight: 300;
         margin-top: 12px;
         line-height: 24px;
     }
@@ -259,7 +261,6 @@
         line-height: 24px;
         display: block;
         padding: 0 30px;
-        font-weight: 300;
     }
 
     .product-highlights .slide2 .slidecontent,
@@ -280,7 +281,6 @@
         line-height: 22px;
         display: block;
         padding: 0 40px;
-        font-weight: 300;
         margin-bottom: 30px;
     }
 
@@ -316,17 +316,22 @@
     }
 
     .product-cta h2 {
-        font-size: 20px;
+        font-size: 16px;
         text-align: center;
         display: block;
         padding-bottom: 6px;
         border-bottom: 1px solid #ebebeb;
         margin-bottom: 16px;
+        text-transform: uppercase;
     }
 
     .product-cta p {
         line-height: normal;
         margin-bottom: 12px;
+    }
+
+    .product-cta p.ltocopy {
+        font-size: 14px;
     }
 
     .product-cta .bottombar {
@@ -342,7 +347,6 @@
         display: block;
         font-size: 12px;
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
-        font-weight: 300;
         display: inline-block;
     }
 
@@ -402,7 +406,6 @@
         font-size: 22px;
         text-align: center;
         display: block;
-        text-transform: uppercase;
         margin-bottom: 20px;
     }
 
@@ -522,10 +525,6 @@
         text-transform: uppercase;
         font-weight: 500;
         text-align: center;
-    }
-
-    .proofjenu h4 {
-        font-weight: 300;
     }
 
     .whyjenu-slide .slide1 .slidecontent {

@@ -1979,7 +1979,8 @@ a.highlight-link {
     width: 39px;
 }
 
-.reviews-bottomwrap .pager .pages ol li a.i-next {
+.reviews-bottomwrap .pager .pages ol li a.i-next,
+.reviews-bottomwrap .pager .pages ol li a.i-prev {
     background-color: #ccc;
 }
 

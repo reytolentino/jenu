@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_XtCore (1.0.0)
+ * Product:       Xtento_XtCore (1.1.7)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-09-13T12:14:30+02:00
+ * Last Modified: 2015-01-02T21:51:12+01:00
  * File:          app/code/local/Xtento/XtCore/Helper/Utils.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_XtCore_Helper_Utils extends Mage_Core_Helper_Abstract
@@ -26,6 +26,11 @@ class Xtento_XtCore_Helper_Utils extends Mage_Core_Helper_Abstract
         '1.12.0.0' => '1.7.0.0',
         '1.12.0.1' => '1.7.0.0',
         '1.12.0.2' => '1.7.0.0',
+        '1.13.0.0' => '1.8.0.0',
+        '1.13.0.2' => '1.8.0.0',
+        '1.13.1.0' => '1.8.1.0',
+        '1.14.0.0' => '1.9.0.0',
+        '1.14.0.1' => '1.9.0.1'
     );
 
     protected $_versionCorrelationPE_CE = array(
@@ -73,6 +78,7 @@ class Xtento_XtCore_Helper_Utils extends Mage_Core_Helper_Abstract
         if (!$this->_modules) {
             $this->_modules = array_keys((array)Mage::getConfig()->getNode('modules')->children());
         }
+        // Possible improvement: Check if "active" is "true" as otherwise disabled modules will return true as well
         if (in_array($extensionIdentifier, $this->_modules)) {
             return true;
         } else {
@@ -81,7 +87,7 @@ class Xtento_XtCore_Helper_Utils extends Mage_Core_Helper_Abstract
     }
 
     /*
-     * Is the module running inside professional or enterprise edition?
+     * Is the module running in a Magento Professional or Enterprise Edition installation?
      */
     public function getIsPEorEE()
     {
@@ -102,11 +108,77 @@ class Xtento_XtCore_Helper_Utils extends Mage_Core_Helper_Abstract
         }
     }
 
-    public function isCronRunning() {
+    public function isCronRunning()
+    {
         return Mage::getModel('xtcore/observer_cron')->checkCronjob();
     }
 
-    public function getLastCronExecution() {
+    public function getLastCronExecution()
+    {
         return Mage::getModel('xtcore/observer_cron')->getLastExecution();
+    }
+
+    /**
+     * @param $newMemoryLimit
+     *
+     * Increase memory limit to $newMemoryLimit, but only if current value is lower
+     */
+    public function increaseMemoryLimit($newMemoryLimit)
+    {
+        $currentLimit = ini_get('memory_limit');
+        if ($currentLimit == -1) {
+            // No limit, no need to increase
+            return true;
+        }
+        $currentLimitInBytes = $this->_convertToByte($currentLimit);
+        $newMemoryLimitInBytes = $this->_convertToByte($newMemoryLimit);
+        if ($currentLimitInBytes < $newMemoryLimitInBytes) {
+            @ini_set('memory_limit', $newMemoryLimit);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected function _convertToByte($value)
+    {
+        if (stripos($value, 'G') !== false) {
+            return (int)$value * pow(1024, 3);
+        } elseif (stripos($value, 'M') !== false) {
+            return (int)$value * 1024 * 1024;
+        } elseif (stripos($value, 'K') !== false) {
+            return (int)$value * 1024;
+        }
+        return (int)$value;
+    }
+
+    /**
+     * @return null|Zend_Mail_Transport_Smtp
+     *
+     * Support for custom email transports
+     */
+    public function getEmailTransport()
+    {
+        $transport = null;
+        if (Mage::helper('xtcore/utils')->isExtensionInstalled('Aschroder_SMTPPro') && Mage::helper('smtppro')->isEnabled()) {
+            // SMTPPro extension
+            $transport = Mage::helper('smtppro')->getTransport();
+        } else if (Mage::helper('xtcore/utils')->isExtensionInstalled('AW_Customsmtp') && Mage::getStoreConfig('customsmtp/general/mode') != AW_Customsmtp_Model_Source_Mode::OFF) {
+            // AW_Customsmtp extension
+            $config = array(
+                'port' => Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_PORT), //optional - default 25
+                'auth' => Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_AUTH),
+                'username' => Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_LOGIN),
+                'password' => Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_PASSWORD)
+            );
+
+            $needSSL = Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_SSL);
+            if (!empty($needSSL)) {
+                $config['ssl'] = Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_SSL);
+            }
+
+            $transport = new Zend_Mail_Transport_Smtp(Mage::getStoreConfig(AW_Customsmtp_Helper_Config::XML_PATH_SMTP_HOST), $config);
+        }
+        return $transport;
     }
 }

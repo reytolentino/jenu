@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-04-02T14:21:45+02:00
+ * Last Modified: 2014-07-08T11:25:55+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Shared/Customer.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Shared_Customer extends Xtento_OrderExport_Model_Export_Data_Abstract
@@ -33,7 +33,11 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Customer extends Xtento_OrderE
         $returnArray = array();
         // Fetch fields to export
         if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
-            $customer = Mage::getModel('customer/customer')->load($collectionItem->getObject()->getId());
+            if (Mage::registry('export_log') && Mage::registry('export_log')->getExportType() == Xtento_OrderExport_Model_Export::EXPORT_TYPE_EVENT) {
+                $customer = $collectionItem->getObject();
+            } else {
+                $customer = Mage::getModel('customer/customer')->load($collectionItem->getObject()->getId());
+            }
             $this->_writeArray = & $returnArray; // Write on main level
             // Is subscribed to newsletter
             if ($this->fieldLoadingRequired('is_subscribed')) {
@@ -143,10 +147,6 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Customer extends Xtento_OrderE
 
         $this->_addEECustomAttributes($customer);
 
-        // Timestamps of creation/update
-        /*if ($this->fieldLoadingRequired('created_at_timestamp')) $this->writeValue('created_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($customer->getCreatedAt()));
-        if ($this->fieldLoadingRequired('updated_at_timestamp')) $this->writeValue('updated_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($customer->getUpdatedAt()));*/
-
         // Customer addresses
         $addressCollection = $customer->getAddressesCollection();
         if (!empty($addressCollection) && $this->fieldLoadingRequired('addresses')) {
@@ -160,7 +160,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Customer extends Xtento_OrderE
                 foreach ($customerAddress->getData() as $key => $value) {
                     $this->writeValue($key, $value);
                 }
-                 // Region Code
+                // Region Code
                 if ($customerAddress->getRegionId() !== NULL && $this->fieldLoadingRequired('region_code')) {
                     $this->writeValue('region_code', $customerAddress->getRegionModel()->getCode());
                 }

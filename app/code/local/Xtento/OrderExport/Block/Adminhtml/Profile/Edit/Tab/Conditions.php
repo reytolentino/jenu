@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-03-27T21:50:51+01:00
+ * Last Modified: 2015-02-20T21:35:25+01:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Profile/Edit/Tab/Conditions.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xtento_OrderExport_Block_Adminhtml_Widget_Tab
@@ -20,6 +20,7 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
 
     protected function _prepareForm()
     {
+        $entity = Mage::registry('order_export_profile')->getEntity();
         $model = Mage::registry('order_export_profile');
 
         $form = new Varien_Data_Form();
@@ -27,10 +28,10 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
         $fieldset = $form->addFieldset('object_filters', array('legend' => Mage::helper('xtento_orderexport')->__('%s Filters', ucwords($model->getEntity())), 'class' => 'fieldset-wide'));
 
         $fieldset->addField('export_filter_new_only', 'select', array(
-            'label' => Mage::helper('xtento_orderexport')->__('Export only new %ss', Mage::registry('order_export_profile')->getEntity()),
+            'label' => Mage::helper('xtento_orderexport')->__('Export only new %ss', $entity),
             'name' => 'export_filter_new_only',
             'values' => Mage::getModel('adminhtml/system_config_source_yesno')->toOptionArray(),
-            'note' => Mage::helper('xtento_orderexport')->__('Regardless whether you\'re using manual, cronjob or the event-based export, if set to yes, this setting will make sure every %s gets exported only ONCE by this profile. This means, even if another export event gets called, if the %s has been already exported by this profile, it won\'t be exported again. You can "reset" exported objects in the "Profile Export History" tab.<br/>Example usage: Set up a cronjob export which exports all "Processing" orders and set this to "Yes" - every "Processing" order will be exported only ONCE.', Mage::registry('order_export_profile')->getEntity(), Mage::registry('order_export_profile')->getEntity())
+            'note' => Mage::helper('xtento_orderexport')->__('Regardless whether you\'re using manual, cronjob or the event-based export, if set to yes, this setting will make sure every %s gets exported only ONCE by this profile. This means, even if another export event gets called, if the %s has been already exported by this profile, it won\'t be exported again. You can "reset" exported objects in the "Profile Export History" tab.<br/>Example usage: Set up a cronjob export which exports all "Processing" orders and set this to "Yes" - every "Processing" order will be exported only ONCE.', $entity, $entity)
         ));
 
         $fieldset->addField('store_ids', 'multiselect', array(
@@ -45,7 +46,7 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
             'name' => 'export_filter_datefrom',
             'format' => Varien_Date::DATE_INTERNAL_FORMAT,
             'image' => $this->getSkinUrl('images/grid-cal.gif'),
-            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss created after date X (including day X).', Mage::registry('order_export_profile')->getEntity())
+            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss created after date X (including day X).', $entity)
         ));
 
         $fieldset->addField('export_filter_dateto', 'date', array(
@@ -53,7 +54,7 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
             'name' => 'export_filter_dateto',
             'format' => Varien_Date::DATE_INTERNAL_FORMAT,
             'image' => $this->getSkinUrl('images/grid-cal.gif'),
-            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss created before date X (including day X).', Mage::registry('order_export_profile')->getEntity())
+            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss created before date X (including day X).', $entity)
         ));
 
         $fieldset->addField('export_filter_last_x_days', 'text', array(
@@ -61,7 +62,7 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
             'name' => 'export_filter_last_x_days',
             'maxlength' => 5,
             'style' => 'width: 50px !important;" min="0',
-            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss created during the last X days (including day X). Only enter numbers here, nothing else. Leave empty if no "created during the last X days" filter should be applied.', Mage::registry('order_export_profile')->getEntity())
+            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss created during the last X days (including day X). Only enter numbers here, nothing else. Leave empty if no "created during the last X days" filter should be applied.', $entity)
         ))->setType('number');
 
         $fieldset->addField('export_filter_older_x_minutes', 'text', array(
@@ -69,20 +70,20 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
             'name' => 'export_filter_older_x_minutes',
             'maxlength' => 10,
             'style' => 'width: 75px !important;" min="1',
-            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss which have been created at least X minutes ago. Only enter numbers here, nothing else. Leave empty if no filter should be applied.', Mage::registry('order_export_profile')->getEntity())
+            'note' => Mage::helper('xtento_orderexport')->__('Export only %ss which have been created at least X minutes ago. Only enter numbers here, nothing else. Leave empty if no filter should be applied.', $entity)
         ))->setType('number');
 
-        if (Mage::registry('order_export_profile')->getEntity() !== Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT && Mage::registry('order_export_profile')->getEntity() !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && Mage::registry('order_export_profile')->getEntity() !== Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
+        if ($entity !== Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT && $entity !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && $entity !== Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER && $entity !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
             // Not available for shipments
             $fieldset->addField('export_filter_status', 'multiselect', array(
-                'label' => Mage::helper('xtento_orderexport')->__('%s Status', ucfirst(Mage::registry('order_export_profile')->getEntity())),
+                'label' => Mage::helper('xtento_orderexport')->__('%s Status', ucfirst($entity)),
                 'name' => 'export_filter_status',
-                'values' => array_merge_recursive(array(array('value' => '', 'label' => Mage::helper('xtento_orderexport')->__('--- All statuses ---'))), Mage::getSingleton('xtento_orderexport/system_config_source_export_status')->toOptionArray(Mage::registry('order_export_profile')->getEntity())),
-                'note' => Mage::helper('xtento_orderexport')->__('Export only %ss with status X. Hold down CTRL to select multiple.', Mage::registry('order_export_profile')->getEntity())
+                'values' => array_merge_recursive(array(array('value' => '', 'label' => Mage::helper('xtento_orderexport')->__('--- All statuses ---'))), Mage::getSingleton('xtento_orderexport/system_config_source_export_status')->toOptionArray($entity)),
+                'note' => Mage::helper('xtento_orderexport')->__('Export only %ss with status X. Hold down CTRL to select multiple.', $entity)
             ));
         }
 
-        if (Mage::registry('order_export_profile')->getEntity() !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && Mage::registry('order_export_profile')->getEntity() !== Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
+        if ($entity !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && $entity !== Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER && $entity !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA && $entity !== Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
             $fieldset = $form->addFieldset('item_filters', array('legend' => Mage::helper('xtento_orderexport')->__('Item Filters'), 'class' => 'fieldset-wide'));
 
             $fieldset->addField('export_filter_product_type', 'multiselect', array(
@@ -94,13 +95,13 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
         }
 
         if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.1', '>')) {
-            if (Mage::registry('order_export_profile')->getEntity() !== Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
+            if ($entity !== Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER && $entity !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA && $entity !== Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
                 $renderer = Mage::getBlockSingleton('adminhtml/widget_form_renderer_fieldset')
                     ->setTemplate('promo/fieldset.phtml')
                     ->setNewChildUrl($this->getUrl('*/orderexport_profile/newConditionHtml/form/rule_conditions_fieldset', array('profile_id' => Mage::registry('order_export_profile')->getId())));
 
                 $fieldset = $form->addFieldset('rule_conditions_fieldset', array(
-                    'legend' => Mage::helper('xtento_orderexport')->__('Additional filters: Export %s only if the following conditions are met', Mage::registry('order_export_profile')->getEntity()),
+                    'legend' => Mage::helper('xtento_orderexport')->__('Additional filters: Export %s only if the following conditions are met', $entity),
                 ))->setRenderer($renderer);
 
                 $fieldset->addField('conditions', 'text', array(
@@ -111,15 +112,20 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Conditions extends Xte
             }
         }
 
-        if (Mage::registry('order_export_profile')->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_ORDER) {
+        if ($entity == Xtento_OrderExport_Model_Export::ENTITY_ORDER) {
             $fieldset = $form->addFieldset('actions', array('legend' => Mage::helper('xtento_orderexport')->__('Actions'), 'class' => 'fieldset-wide',));
 
             // Only available for orders
             $fieldset->addField('export_action_change_status', 'select', array(
-                'label' => Mage::helper('xtento_orderexport')->__('Change %s status after export', Mage::registry('order_export_profile')->getEntity()),
+                'label' => Mage::helper('xtento_orderexport')->__('Change %s status after export', $entity),
                 'name' => 'export_action_change_status',
                 'values' => Mage::getSingleton('xtento_orderexport/system_config_source_order_status')->toOptionArray(),
-                'note' => Mage::helper('xtento_orderexport')->__('Change %s status to X after exporting.', Mage::registry('order_export_profile')->getEntity())
+                'note' => Mage::helper('xtento_orderexport')->__('Change %s status to X after exporting.', $entity)
+            ));
+            $fieldset->addField('export_action_add_comment', 'text', array(
+                'label' => Mage::helper('xtento_orderexport')->__('Add comment to status history'),
+                'name' => 'export_action_add_comment',
+                'note' => Mage::helper('xtento_orderexport')->__('Comment is added to the order status history after the order has been exported. Attention: This only works if the order status you\'re changing to is assigned to an order "state" at System > Order Statuses.')
             ));
             $fieldset->addField('export_action_invoice_order', 'select', array(
                 'label' => Mage::helper('xtento_orderexport')->__('Invoice order after exporting'),

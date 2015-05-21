@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-02-24T21:54:08+01:00
+ * Last Modified: 2014-05-22T18:24:40+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Destination/Edit.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Destination_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
@@ -43,7 +43,11 @@ class Xtento_OrderExport_Block_Adminhtml_Destination_Edit extends Mage_Adminhtml
                         tabsIdValue = tabsIdValue.substr(tabsBlockPrefix.length)
                     }
                 }
-                editForm.submit($('edit_form').action+'continue/edit/active_tab/'+tabsIdValue);
+                if (!$('edit_form').action.match(/\/key\//)) {
+                    editForm.submit($('edit_form').action+'continue/edit/active_tab/'+tabsIdValue);
+                } else {
+                    editForm.submit($('edit_form').action.replace(/\/key\//, '/continue/edit/active_tab/'+tabsIdValue+'/key/')); // key must be last parameter
+                }
             }
 EOT;
         if (Mage::registry('destination') && Mage::registry('destination')->getId()) {

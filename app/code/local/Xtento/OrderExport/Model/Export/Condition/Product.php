@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-21T17:55:55+01:00
+ * Last Modified: 2014-07-02T20:04:49+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Condition/Product.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Condition_Product extends Mage_CatalogRule_Model_Rule_Condition_Product
@@ -47,7 +47,8 @@ class Xtento_OrderExport_Model_Export_Condition_Product extends Mage_CatalogRule
 
     public function validate(Varien_Object $object)
     {
-        $product = Mage::getModel('catalog/product')->load($object->getProductId());
+        $product = Mage::getModel('catalog/product')->setStoreId($object->getStoreId())->load($object->getProductId());
+        $this->_entityAttributeValues[$product->getId()][$product->getStoreId()] = $product->getData($this->getAttribute()); // Required since 1.8.0.0 // Old: $this->getValue() //
         #var_dump($this->getAttribute(), $product->getData($this->getAttribute()), parent::validateAttribute($product));
 
         return parent::validate($product);

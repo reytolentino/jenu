@@ -314,49 +314,47 @@
             jQuery.unblockUI();
             return false;
         });
+        if ($('start_download').checked != true) {
+            return false;
+        }
         jQuery.fileDownload(jQuery(this).attr('action'), {
             successCallback:function (url) {
-                window.setTimeout(function () {
-                    jQuery.unblockUI({
-                        onUnblock:function () {
-                            Mage.Cookies.clear('fileDownload');
-                            $('messages').hide();
-                            $('success-msg').show();
-                            if (Mage.Cookies.get('lastMessage') != '') {
-                                $('success-msg-text').innerHTML = Mage.Cookies.get('lastMessage').replace(/\+/g, ' ');
-                                Mage.Cookies.clear('lastMessage');
-                            } else {
-                                $('success-msg-text').innerHTML = '<?php echo $this->__('Export completed successfully.')?>';
-                            }
-                            if (Mage.Cookies.get('lastErrorMessage') != '') {
-                                $('warning-msg-text').innerHTML = Mage.Cookies.get('lastErrorMessage').replace(/\+/g, ' ');
-                                $('warning-msg').show();
-                                Mage.Cookies.clear('lastErrorMessage');
-                            } else {
-                                $('warning-msg').hide();
-                            }
-                        }
-                    });
-                }, 100);
-                Event.stop(event);
+                xtHandleFileDownloadResponse();
             },
             failCallback:function (html, url) {
-                //window.setTimeout(function(){
-                //$('warning-msg-text').innerHTML = html;
-                //jQuery.unblockUI();
-                //$('warning-msg').show();
-                //if (html != '') {
-                //    $('warning-msg-text').innerHTML = html;
-                //    Mage.Cookies.clear('lastMessage');
-                //} else {
-                //    $('warning-msg-text').innerHTML = '<?php echo $this->__('Export returned no response. Please check export execution log.')?>';
-                //}
-                //}, 250);
+                xtHandleFileDownloadResponse();
             },
-            httpMethod:'POST',
-            data:$(this).serialize()
+            httpMethod: 'POST',
+            data: $(this).serialize()
         });
+        Event.stop(event);
+        return false;
     });
+    function xtHandleFileDownloadResponse() {
+        window.setTimeout(function () {
+            jQuery.unblockUI({
+                onUnblock:function () {
+                    Mage.Cookies.clear('fileDownload');
+                    $('messages').hide();
+                    $('success-msg').show();
+                    if (Mage.Cookies.get('lastMessage') != '' && Mage.Cookies.get('lastMessage') != null) {
+                        $('success-msg-text').innerHTML = Mage.Cookies.get('lastMessage').replace(/\+/g, ' ');
+                        Mage.Cookies.clear('lastMessage');
+                    } else {
+                        //$('success-msg-text').innerHTML = '<?php echo $this->__('Export completed successfully.')?>';
+                        $('success-msg').hide();
+                    }
+                    if (Mage.Cookies.get('lastErrorMessage') != '' && Mage.Cookies.get('lastErrorMessage') != null) {
+                        $('warning-msg-text').innerHTML = Mage.Cookies.get('lastErrorMessage').replace(/\+/g, ' ');
+                        $('warning-msg').show();
+                        Mage.Cookies.clear('lastErrorMessage');
+                    } else {
+                        $('warning-msg').hide();
+                    }
+                }
+            });
+        }, 100);
+    }
 </script>
 <div id="export_dialog" style="display:none; cursor: default">
     <h2><?php echo Mage::helper('xtento_orderexport')->__('Exporting... Please wait...')?></h2>

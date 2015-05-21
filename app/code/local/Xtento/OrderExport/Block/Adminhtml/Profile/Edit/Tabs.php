@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-10-25T14:29:30+02:00
+ * Last Modified: 2014-06-15T14:14:13+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Profile/Edit/Tabs.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
@@ -20,7 +20,7 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tabs extends Mage_Adminhtm
         if (!Mage::registry('order_export_profile')) {
             $this->setTitle(Mage::helper('xtento_orderexport')->__('Export Profile'));
         } else {
-            $this->setTitle(Mage::helper('xtento_orderexport')->__('%s Export Profile', ucfirst(Mage::registry('order_export_profile')->getEntity())));
+            $this->setTitle(Mage::helper('xtento_orderexport')->__('%s Export Profile', Mage::helper('xtento_orderexport/entity')->getEntityName(Mage::registry('order_export_profile')->getEntity())));
         }
     }
 

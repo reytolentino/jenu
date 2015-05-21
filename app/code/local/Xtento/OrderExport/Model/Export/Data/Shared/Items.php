@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-03-29T17:46:42+01:00
+ * Last Modified: 2015-05-18T14:52:57+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Shared/Items.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExport_Model_Export_Data_Abstract
@@ -25,7 +25,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             'category' => 'Shared',
             'description' => 'Export ordered/invoiced/shipped/refunded items of entity.',
             'enabled' => true,
-            'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO, Xtento_OrderExport_Model_Export::ENTITY_QUOTE),
+            'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO, Xtento_OrderExport_Model_Export::ENTITY_QUOTE, Xtento_OrderExport_Model_Export::ENTITY_AWRMA, Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA),
         );
     }
 
@@ -44,6 +44,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
 
         // Export item information
         $taxRates = array();
+        $taxBaseAmounts = array();
         $itemCount = 0;
         $totalQty = 0;
         foreach ($items as $item) {
@@ -52,7 +53,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             if ($this->getProfile() && $item->getProductType() && in_array($item->getProductType(), explode(",", $this->getProfile()->getExportFilterProductType()))) {
                 continue; // Product type should be not exported
             }
-            if ($this->getProfile() && !$item->getProductType() && $this->getProfile()->getExportFilterProductType() !== '' && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_ORDER && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE) {
+            if ($this->getProfile() && !$item->getProductType() && $this->getProfile()->getExportFilterProductType() !== '' && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_ORDER && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
                 // We are not exporting orders, but need to check the product type - thus, need to load the order item.
                 $orderItem = Mage::getModel('sales/order_item')->load($item->getOrderItemId());
                 if ($orderItem->getProductType() && in_array($orderItem->getProductType(), explode(",", $this->getProfile()->getExportFilterProductType()))) {
@@ -63,7 +64,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             $this->_writeArray = & $returnArray['items'][];
             $this->_origWriteArray = & $this->_writeArray;
             $itemCount++;
-            if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_ORDER) {
+            if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_ORDER || $entityType == Xtento_OrderExport_Model_Export::ENTITY_AWRMA || $entityType == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
                 $itemQty = $item->getQtyOrdered();
             } else {
                 $itemQty = $item->getQty();
@@ -111,7 +112,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
 
             // Add fields of order item for invoice exports
             $taxItem = false;
-            if ($entityType !== Xtento_OrderExport_Model_Export::ENTITY_ORDER && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && ($this->fieldLoadingRequired('order_item') || $this->fieldLoadingRequired('tax_rates'))) {
+            if ($entityType !== Xtento_OrderExport_Model_Export::ENTITY_ORDER && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA && ($this->fieldLoadingRequired('order_item') || $this->fieldLoadingRequired('tax_rates'))) {
                 $this->_writeArray['order_item'] = array();
                 $this->_writeArray =& $this->_writeArray['order_item'];
                 if ($item->getOrderItemId()) {
@@ -171,7 +172,19 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                     }
                 }
             }
-            if ($productOptions && isset($productOptions['info_buyRequest']) && is_array($productOptions['info_buyRequest'])) {
+
+            if ($this->fieldLoadingRequired('product_options_data') && $productOptions && is_array($productOptions)) {
+                $this->_writeArray['product_options_data'] = array();
+                $this->_writeArray = & $this->_origWriteArray['product_options_data'];
+                foreach ($productOptions as $productOptionKey => $productOptionValue) {
+                    if (!is_array($productOptionKey) && !is_object($productOptionKey) && !is_object($productOptionValue)) {
+                        $this->writeValue($productOptionKey, $productOptionValue);
+                    }
+                }
+                $this->_writeArray = & $this->_origWriteArray;
+            }
+
+            /*if ($this->fieldLoadingRequired('info_buyrequest') && $productOptions && isset($productOptions['info_buyRequest']) && is_array($productOptions['info_buyRequest'])) {
                 $this->_writeArray['info_buyrequest'] = array();
                 $this->_writeArray = & $this->_origWriteArray['info_buyrequest'];
                 foreach ($productOptions['info_buyRequest'] as $productOptionKey => $productOptionValue) {
@@ -180,7 +193,34 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                     }
                 }
                 $this->_writeArray = & $this->_origWriteArray;
+            }*/
+            if ($this->fieldLoadingRequired('additional_options') && $productOptions && isset($productOptions['additional_options']) && is_array($productOptions['additional_options'])) {
+                $this->_writeArray['additional_options'] = array();
+                foreach ($productOptions['additional_options'] as $additionalOption) {
+                    $this->_writeArray = & $this->_writeArray['additional_options'][];
+                    foreach ($additionalOption as $productOptionKey => $productOptionValue) {
+                        if (!is_array($productOptionKey) && !is_object($productOptionKey) && !is_array($productOptionValue) && !is_object($productOptionValue)) {
+                            $this->writeValue($productOptionKey, $productOptionValue);
+                        }
+                    }
+                }
+                $this->_writeArray = & $this->_origWriteArray;
             }
+            /*
+            if ($this->fieldLoadingRequired('swatch_data')) {
+                // "Swatch Data" export
+                if (isset($productOptions['info_buyRequest']['swatchData']) && is_array($productOptions['info_buyRequest']['swatchData'])) {
+                    $this->_writeArray['swatch_data'] = array();
+                    foreach ($productOptions['info_buyRequest']['swatchData'] as $swatchId => $swatchData) {
+                        $this->_writeArray = & $this->_origWriteArray['swatch_data'][];
+                        foreach ($swatchData as $key => $value) {
+                            $this->writeValue($key, $value);
+                        }
+                    }
+                    $this->_writeArray = & $this->_origWriteArray;
+                }
+                // End "Swatch Data"
+            }*/
 
             if ($item->getProductType() == Mage_Downloadable_Model_Product_Type::TYPE_DOWNLOADABLE && $this->fieldLoadingRequired('downloadable_links')) {
                 $productOptions = $item->getProductOptions();
@@ -202,12 +242,14 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             }
 
             // Save tax information for order
-            if ($taxItem && $item->getTaxAmount() > 0 && $taxItem->getTaxPercent() > 0) {
+            if ($taxItem && $item->getBaseTaxAmount() > 0 && $taxItem->getTaxPercent() > 0) {
                 $taxPercent = str_replace('.', '_', sprintf('%.4f', $taxItem->getTaxPercent()));
                 if (!isset($taxRates[$taxPercent])) {
-                    $taxRates[$taxPercent] = $item->getTaxAmount();
+                    $taxRates[$taxPercent] = $item->getBaseTaxAmount();
+                    $taxBaseAmounts[$taxPercent] = $item->getBaseRowTotalInclTax() - $item->getBaseDiscountAmount();
                 } else {
-                    $taxRates[$taxPercent] += $item->getTaxAmount();
+                    $taxRates[$taxPercent] += $item->getBaseTaxAmount();
+                    $taxBaseAmounts[$taxPercent] += $item->getBaseRowTotalInclTax() - $item->getBaseDiscountAmount();
                 }
             }
 
@@ -221,7 +263,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                 }
                 // Export parent product options
                 if ($this->fieldLoadingRequired('custom_options') && $options = $parentItem->getProductOptions()) {
-                    $this->_writeCustomOptions($options, $this->_writeArray);
+                    $this->_writeCustomOptions($options, $this->_writeArray, $object, $parentItem->getProductId());
                 }
                 $this->_writeArray =& $tempOrigArray;
                 if ($this->fieldLoadingRequired('product_attributes')) {
@@ -229,7 +271,6 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                 }
             }
             $this->_writeArray = & $this->_origWriteArray;
-            // @todo: add "child field" (of this data type) so product attribute export can be disabled to speed up the export
             // Export product attributes
             if ($this->fieldLoadingRequired('product_attributes')) {
                 $this->_writeProductAttributes($object, $item);
@@ -239,9 +280,21 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             // Export product options
             if ($this->fieldLoadingRequired('custom_options') && $options = $item->getProductOptions()) {
                 // Export custom options
-                $this->_writeCustomOptions($options, $this->_origWriteArray);
+                $this->_writeCustomOptions($options, $this->_origWriteArray, $object, $item->getProductId());
                 // Export $options["attributes_info"].. maybe?
             }
+
+            // Sample code to get ugiftcert gift certificate information:
+            /*
+             $giftCerts = Mage::getModel('ugiftcert/cert')->getCollection()->addItemFilter($item->getId());
+             if (count($giftCerts)) {
+                foreach ($giftCerts as $giftCert) {
+                    if (isset($giftCert['cert_number'])) {
+                        ...
+                    }
+                }
+             }
+             */
         }
 
         // Sample code to add specific things/amounts as line items:
@@ -281,8 +334,10 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             $taxPercent = str_replace('.', '_', sprintf('%.4f', $taxPercent));
             if (!isset($taxRates[$taxPercent])) {
                 $taxRates[$taxPercent] = $shippingTaxAmount;
+                $taxBaseAmounts[$taxPercent] = $shippingAmount + $shippingTaxAmount;
             } else {
                 $taxRates[$taxPercent] += $shippingTaxAmount;
+                $taxBaseAmounts[$taxPercent] += $shippingAmount + $shippingTaxAmount;
             }
         }
         // Cash on Delivery
@@ -305,8 +360,10 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             $taxPercent = str_replace('.', '_', sprintf('%.4f', $taxPercent));
             if (!isset($taxRates[$taxPercent])) {
                 $taxRates[$taxPercent] = $codFeeTax;
+                $taxBaseAmounts[$taxPercent] = $codFee + $codFeeTax;
             } else {
                 $taxRates[$taxPercent] += $codFeeTax;
+                $taxBaseAmounts[$taxPercent] += $codFee + $codFeeTax;
             }
         }
 
@@ -323,10 +380,37 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
         // Export tax information
         $this->_writeArray['tax_rates'] = array();
         if ($this->fieldLoadingRequired('tax_rates')) {
+            $grandTotalInclTax = $object->getGrandTotal();
             foreach ($taxRates as $taxRate => $taxAmount) {
+                if ($taxRate == '0_0000') continue;
+                $taxBaseAmount = $taxBaseAmounts[$taxRate];
+                $taxRate = str_replace('_', '.', $taxRate);
                 $this->_writeArray = & $returnArray['tax_rates'][];
-                $this->writeValue('rate', str_replace('_', '.', $taxRate));
+                $this->writeValue('rate', $taxRate);
                 $this->writeValue('amount', $taxAmount);
+                $this->writeValue('base', $taxBaseAmount);
+                $grandTotalInclTax -= $taxBaseAmount;
+            }
+            if (isset($taxRates['0_0000'])) {
+                $this->_writeArray = & $returnArray['tax_rates'][];
+                $this->writeValue('rate', '0.0000');
+                $this->writeValue('amount', '0.0000');
+                $this->writeValue('base', $grandTotalInclTax);
+            }
+        }
+        $this->_writeArray['order_tax_rates'] = array();
+        if ($this->fieldLoadingRequired('order_tax_rates')) {
+            $taxRateCollection = Mage::getModel('tax/sales_order_tax')->getCollection()->loadByOrder($collectionItem->getOrder());
+            if ($taxRateCollection->count()) {
+                foreach ($taxRateCollection as $taxRate) {
+                    $this->_writeArray = & $returnArray['order_tax_rates'][];
+                    foreach ($taxRate->getData() as $key => $value) {
+                        if ($key == 'percent') $key = 'rate';
+                        $this->writeValue($key, $value);
+                    }
+                    // Write "base_tax_base" - the base the tax_amount was calculated on
+                    $this->writeValue('base_tax_base', ($taxRate->getBaseAmount() / ($taxRate->getPercent() / 100)) + $taxRate->getBaseAmount());
+                }
             }
         }
 
@@ -346,28 +430,71 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
         return $returnArray;
     }
 
-    private function _writeCustomOptions($options, &$writeArray)
+    private function _writeCustomOptions($options, &$writeArray, $object, $productId = null)
     {
         if (isset($options['options'])) {
             $this->_writeArray['custom_options'] = array();
             foreach ($options['options'] as $customOption) {
-                $optionValues = explode(",", $customOption['option_value']);
                 $optionCount = 0;
-                foreach ($optionValues as $optionValue) {
-                    $values = Mage::getModel('catalog/product_option_value')->load($optionValue);
-                    if ($values->getOptionId() && $values->getSku()) {
-                        $optionCount++;
-                        $this->_writeArray = & $writeArray['custom_options'][];
-                        $this->writeValue('name', $customOption['label']);
-                        $this->writeValue('value', $customOption['value']);
-                        $this->writeValue('sku', $values->getSku());
+                if (isset($customOption['option_value'])) {
+                    $optionValues = explode(",", $customOption['option_value']);
+                    if (isset($customOption['option_type'])
+                        && $customOption['option_type'] !== 'field'
+                        && $customOption['option_type'] !== 'area'
+                    ) {
+                        foreach ($optionValues as $optionValue) {
+                            //$values = Mage::getModel('catalog/product_option_value')->load($optionValue);
+                            $values = Mage::getModel('catalog/product_option_value')
+                                ->getCollection()
+                                ->addPriceToResult($object->getStoreId())
+                                ->getValuesByOption($optionValue, $object->getStoreId());
+                            if ($values->count()) {
+                                $value = $values->getFirstItem();
+                                if ($value->getOptionId() && $value->getSku()) {
+                                    $optionCount++;
+                                    $this->_writeArray = & $writeArray['custom_options'][];
+                                    $this->writeValue('name', $customOption['label']);
+                                    $this->writeValue('value', $customOption['value']);
+                                    $this->writeValue('sku', $value->getSku());
+                                    $this->writeValue('price', $value->getPrice(true));
+
+                                    if (isset($customOption['option_id'])) {
+                                        $this->writeValue('option_id', $customOption['option_id']);
+                                        $buyRequestQtyKey = 'options_' . $customOption['option_id'] . '_qty';
+                                        if (!is_object($options['info_buyRequest']) && is_array($options['info_buyRequest']) && array_key_exists($buyRequestQtyKey, $options['info_buyRequest'])) {
+                                            $this->writeValue('qty', $options['info_buyRequest'][$buyRequestQtyKey]);
+                                        } else {
+                                            $this->writeValue('qty', 1);
+                                        }
+                                    } else {
+                                        $this->writeValue('qty', 1);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 if ($optionCount === 0) {
+                    if (!isset($customOption['sku'])) {
+                        $customOption['sku'] = '';
+                    }
+                    if ($productId != NULL && empty($customOption['sku'])) {
+                        $productDetail = Mage::getModel('catalog/product')->load($productId);
+                        $options = $productDetail->getProductOptionsCollection();
+                        foreach ($options as $option) {
+                            if ($option->getOptionId() == $customOption['option_id']) {
+                                $customOption['sku'] = $option->getSku();
+                            }
+                        }
+                    }
+
                     $this->_writeArray = & $writeArray['custom_options'][];
                     $this->writeValue('name', $customOption['label']);
                     $this->writeValue('value', $customOption['value']);
-                    $this->writeValue('sku', '');
+                    $this->writeValue('sku', $customOption['sku']);
+                    if (isset($customOption['option_id'])) {
+                        $this->writeValue('option_id', $customOption['option_id']);
+                    }
                 }
                 if (isset($customOption['option_value'])) {
                     $unserializedOptionValues = @unserialize($customOption['option_value']);
@@ -414,7 +541,16 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                         continue;
                     }
                     $this->writeValue($attributeCode, $value);
-                    $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()][$productAttribute->getAttributeCode()] = $value;
+                    $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()][$attributeCode] = $value;
+                    // Get store value
+                    if ($this->fieldLoadingRequired($attributeCode . '_store')) {
+                        if ($productAttribute instanceof Mage_Catalog_Model_Resource_Eav_Attribute) {
+                            $productAttribute->setStoreId($product->getStoreId());
+                        }
+                        $value = $productAttribute->getFrontend()->getValue($product);
+                        $this->writeValue($attributeCode . '_store', $value);
+                        $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()][$attributeCode . '_store'] = $value;
+                    }
                 }
                 if ($this->fieldLoadingRequired('category_ids')) {
                     $categoryIds = "|" . implode("|", $product->getCategoryIds()) . "|";
@@ -434,6 +570,16 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                         $this->writeValue('category_names', $categoryNames);
                         $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()]['category_names'] = $categoryNames;
                     }
+                }
+                if ($this->fieldLoadingRequired('product_url')) {
+                    $productUrl = $product->getProductUrl(false);
+                    /*if (preg_match("/&/", $productUrl)) {
+                        $productUrl = preg_replace("/___store=(.*?)&/", "&", $productUrl);
+                    } else {
+                        $productUrl = preg_replace("/\?___store=(.*)/", "", $productUrl);
+                    }*/
+                    $this->writeValue('product_url', $productUrl);
+                    $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()]['product_url'] = $productUrl;
                 }
             }
         }

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-07-05T11:45:55+02:00
+ * Last Modified: 2014-08-08T11:58:30+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Destination/Sftp.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Destination_Sftp extends Xtento_OrderExport_Model_Destination_Abstract
@@ -22,7 +22,7 @@ class Xtento_OrderExport_Model_Destination_Sftp extends Xtento_OrderExport_Model
 
     public function initConnection()
     {
-        set_include_path(get_include_path() . PATH_SEPARATOR . Mage::getBaseDir('lib') . DS . 'phpseclib');
+        set_include_path(Mage::getBaseDir('lib') . DS . 'phpseclib' . PATH_SEPARATOR . get_include_path());
         if (!@class_exists('Math_BigInteger')) require_once('phpseclib/Math/BigInteger.php');
         if (!@class_exists('Net_SFTP')) require_once('phpseclib/Net/SFTP.php');
         if (!@class_exists('Crypt_RSA')) require_once('phpseclib/Crypt/RSA.php');
@@ -101,7 +101,7 @@ KEY;
             }
             if (!@$this->_connection->put($filename, $data)) {
                 $logEntry->setResult(Xtento_OrderExport_Model_Log::RESULT_WARNING);
-                $message = sprintf("Could not save file %s in directory %s on SFTP server %s.", $filename, $this->getDestination()->getPath(), $this->getDestination()->getHostname());
+                $message = sprintf("Could not save file %s in directory %s on SFTP server %s. Please make sure the directory is writable. Also please make sure that there is no firewall blocking the outgoing connection to the SFTP server. If this error keeps occurring, please get in touch with your server hoster / server administrator AND with the server hoster / server administrator of the remote SFTP server, so they can adjust the firewall.", $filename, $this->getDestination()->getPath(), $this->getDestination()->getHostname());
                 $logEntry->addResultMessage(Mage::helper('xtento_orderexport')->__('Destination "%s" (ID: %s): %s', $this->getDestination()->getName(), $this->getDestination()->getId(), $message));
                 if (!$this->getDestination()->getBackupDestination()) {
                     $this->getDestination()->setLastResultMessage(Mage::helper('xtento_orderexport')->__($message));

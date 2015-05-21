@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-02-11T16:35:00+01:00
+ * Last Modified: 2014-12-12T18:59:35+01:00
  * File:          app/code/local/Xtento/OrderExport/Model/Destination/Ftp.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Destination_Ftp extends Xtento_OrderExport_Model_Destination_Abstract
@@ -101,7 +101,7 @@ class Xtento_OrderExport_Model_Destination_Ftp extends Xtento_OrderExport_Model_
             rewind($tempHandle);
             if (!@ftp_fput($this->_connection, $filename, $tempHandle, FTP_BINARY)) {
                 $logEntry->setResult(Xtento_OrderExport_Model_Log::RESULT_WARNING);
-                $message = sprintf("Could not save file %s in directory %s on FTP server %s.", $filename, $this->getDestination()->getPath(), $this->getDestination()->getHostname());
+                $message = sprintf("Could not save file %s in directory %s on FTP server %s. You can try enabling passive mode in the configuration. Please make sure the directory is writable. Also please make sure that there is no firewall blocking the outgoing connection to the FTP server. If this error keeps occurring, please get in touch with your server hoster / server administrator AND with the server hoster / server administrator of the remote FTP server, so they can adjust the firewall.", $filename, $this->getDestination()->getPath(), $this->getDestination()->getHostname());
                 $logEntry->addResultMessage(Mage::helper('xtento_orderexport')->__('Destination "%s" (ID: %s): %s', $this->getDestination()->getName(), $this->getDestination()->getId(), $message));
                 if (!$this->getDestination()->getBackupDestination()) {
                     $this->getDestination()->setLastResultMessage(Mage::helper('xtento_orderexport')->__($message));
@@ -110,6 +110,7 @@ class Xtento_OrderExport_Model_Destination_Ftp extends Xtento_OrderExport_Model_
                 $savedFiles[] = $this->getDestination()->getPath() . $originalFilename;
             }
         }
+        @ftp_close($this->_connection);
         return $savedFiles;
     }
 }

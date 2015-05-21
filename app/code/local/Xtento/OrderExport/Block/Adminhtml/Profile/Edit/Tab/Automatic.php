@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-09-08T16:10:39+02:00
+ * Last Modified: 2014-05-27T16:07:08+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Profile/Edit/Tab/Automatic.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Automatic extends Xtento_OrderExport_Block_Adminhtml_Widget_Tab
@@ -73,6 +73,8 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Automatic extends Xten
             'after_element_html' => $this->_getCronValidatorJs()
         ));
 
+        $form->setValues($model->getData());
+
         $exportEvents = Mage::getModel('xtento_orderexport/system_config_source_export_events')->toOptionArray(Mage::registry('order_export_profile')->getEntity());
         if (count($exportEvents) > 0) {
             $fieldset = $form->addFieldset('event_fieldset', array(
@@ -83,8 +85,6 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_Automatic extends Xten
             $fieldset->addField('event_note', 'note', array(
                 'text' => Mage::helper('xtento_orderexport')->__('If you want to initiate the export directly after a certain event has been dispatched in Magento, select the appropriate events here. One export per event will be created.')
             ));
-
-            $form->setValues($model->getData());
 
             $fixedArray = $model->getEventObservers();
             if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.0', '<')) {

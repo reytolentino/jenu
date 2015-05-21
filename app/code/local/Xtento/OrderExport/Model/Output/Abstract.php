@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-12-31T13:28:03+01:00
+ * Last Modified: 2015-05-06T22:26:44+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Output/Abstract.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 abstract class Xtento_OrderExport_Model_Output_Abstract extends Mage_Core_Model_Abstract implements Xtento_OrderExport_Model_Output_Interface
@@ -40,9 +40,11 @@ abstract class Xtento_OrderExport_Model_Output_Abstract extends Mage_Core_Model_
             '/%h%/' => Mage::getSingleton('core/date')->date('H'),
             '/%i%/' => Mage::getSingleton('core/date')->date('i'),
             '/%s%/' => Mage::getSingleton('core/date')->date('s'),
+            '/%timestamp%/' => Mage::getSingleton('core/date')->timestamp(time()),
             '/%lastentityid%/' => $this->getVariableValue('last_entity_id', $exportArray, $filename, '%lastentityid%'),
             '/%orderid%/' => $this->getVariableValue('last_entity_id', $exportArray, $filename, '%orderid%'), // Legacy
             '/%lastincrementid%/' => $this->getVariableValue('last_increment_id', $exportArray, $filename, '%lastincrementid%'),
+            '/%firstincrementid%/' => $this->getVariableValue('first_increment_id', $exportArray, $filename, '%firstincrementid%'),
             '/%lastorderincrementid%/' => $this->getVariableValue('last_order_increment_id', $exportArray, $filename, '%lastorderincrementid%'),
             '/%realorderid%/' => $this->getVariableValue('last_increment_id', $exportArray, $filename, '%realorderid%'), // Legacy
             '/%ordercount%/' => $this->getVariableValue('collection_count', $exportArray, $filename, '%ordercount%'), // Legacy
@@ -53,6 +55,14 @@ abstract class Xtento_OrderExport_Model_Output_Abstract extends Mage_Core_Model_
             '/%uuid%/' => uniqid(),
             '/%exportid%/' => $this->getVariableValue('export_id', $exportArray, $filename, '%exportid%'),
         );
+
+        // Ability to add custom variables to the filename using an event
+        $transportObject = new Varien_Object();
+        $transportObject->setCustomVariables(array());
+        Mage::dispatchEvent('xtento_orderexport_replace_filename_variables_before', array('transport' => $transportObject));
+        $replaceableVariables = array_merge($replaceableVariables, $transportObject->getCustomVariables());
+
+        // Remember last exported ID
         Mage::unregister('last_exported_increment_id');
         Mage::register('last_exported_increment_id', $this->getVariableValue('last_increment_id', $exportArray, false, false));
         $filename = preg_replace(array_keys($replaceableVariables), array_values($replaceableVariables), $filename);
@@ -91,6 +101,14 @@ abstract class Xtento_OrderExport_Model_Output_Abstract extends Mage_Core_Model_
             $lastItem = array_pop($arrayToWorkWith);
             if (isset($lastItem['entity_id'])) {
                 return $lastItem['entity_id'];
+            }
+        }
+        if ($variable == 'first_increment_id') {
+            $lastItem = array_shift($arrayToWorkWith);
+            if (isset($lastItem['increment_id'])) {
+                return $lastItem['increment_id'];
+            } else {
+                return 'increment_not_set_' . $lastItem['entity_id'];
             }
         }
         if ($variable == 'last_increment_id') {
@@ -180,6 +198,7 @@ abstract class Xtento_OrderExport_Model_Output_Abstract extends Mage_Core_Model_
                 $exportLogCollection->getSelect()->where('DATE(created_at) = DATE(NOW())');
             }
             $exportLogCollection->addFieldToFilter('profile_id', $profileId);
+            $exportLogCollection->getSelect()->where('records_exported > 0');
             return $exportLogCollection->count();
         }
         // GUID
@@ -216,14 +235,31 @@ abstract class Xtento_OrderExport_Model_Output_Abstract extends Mage_Core_Model_
         Mage::throwException($message);
     }
 
-    protected function _changeEncoding($input, $encoding)
+    protected function _changeEncoding($input, $encoding, $charsetLocale = '')
     {
+        if (!empty($charsetLocale)) {
+            // Set locale based on XSL Template "locale" attribute
+            $oldLocale = setlocale(LC_CTYPE, "0"); // Get current locale
+            @setlocale(LC_CTYPE, $charsetLocale);
+        }
         $output = $input;
         if (!empty($encoding) && @function_exists('iconv')) {
             $output = @iconv("UTF-8", $encoding, $input);
-            if (!$output) {
-                // Error
+            if (!$output && !empty($input)) {
+                // Conversion failed, try as UTF-8 re-encoded
+                $output = @iconv("UTF-8", $encoding, utf8_encode(utf8_decode($input)));
+                if (!$output && !empty($input)) {
+                    if (!empty($charsetLocale)) {
+                        // Reset locale
+                        setlocale(LC_CTYPE, $oldLocale);
+                    }
+                    $this->_throwXmlException(Mage::helper('xtento_orderexport')->__("While trying to convert your export data into the requested encoding '%s', the PHP iconv() function failed. You either forgot to add //IGNORE to the encoding, or you are affected by this bug: https://bugs.php.net/bug.php?id=48147", $encoding));
+                }
             }
+        }
+        if (!empty($charsetLocale)) {
+            // Reset locale
+            setlocale(LC_CTYPE, $oldLocale);
         }
         return $output;
     }

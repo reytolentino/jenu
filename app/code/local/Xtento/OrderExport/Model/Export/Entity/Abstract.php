@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-26T19:56:49+01:00
+ * Last Modified: 2014-10-27T23:30:46+01:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Entity/Abstract.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 abstract class Xtento_OrderExport_Model_Export_Entity_Abstract extends Mage_Core_Model_Abstract
@@ -27,6 +27,14 @@ abstract class Xtento_OrderExport_Model_Export_Entity_Abstract extends Mage_Core
             if ($this->getProfile()->getExportFields() !== '') {
                 $exportFields = explode(",", $this->getProfile()->getExportFields());
             }
+        }
+        // Get validation profile
+        /* Alternative approach if conditions check fails, we've seen this happening in a 1.5.0.1 installation, the profile conditions were simply empty and the profile needed to be loaded again: */
+        $validationProfile = $this->getProfile();
+        $exportConditions = $validationProfile->getData('conditions_serialized');
+        if (strlen($exportConditions) > 90) {
+            // Force load profile for rule validation, as it fails on some stores if the profile is not re-loaded
+            $validationProfile = Mage::getModel('xtento_orderexport/profile')->load($this->getProfile()->getId());
         }
         // Reset export classes
         Mage::getSingleton('xtento_orderexport/export_data')->resetExportClasses();
@@ -52,7 +60,15 @@ abstract class Xtento_OrderExport_Model_Export_Entity_Abstract extends Mage_Core
                 }
                 $currPage++;
                 foreach ($collection as $collectionItem) {
-                    if ($this->getExportType() == Xtento_OrderExport_Model_Export::EXPORT_TYPE_TEST || $this->getProfile()->validate($collectionItem)) {
+                    $collectionItemValidated = true;
+
+                    Mage::dispatchEvent('xtento_orderexport_custom_validation', array(
+                        'validationProfile'             => $validationProfile,
+                        'collectionItem'                => $collectionItem,
+                        'collectionItemValidated'       => &$collectionItemValidated,
+                    ));
+
+                    if ($this->getExportType() == Xtento_OrderExport_Model_Export::EXPORT_TYPE_TEST || ($collectionItemValidated && $validationProfile->validate($collectionItem))) {
                         $returnData = $this->_exportData(new Xtento_OrderExport_Model_Export_Entity_Collection_Item($collectionItem, $this->_entityType, $currItemNo, $collectionCount), $exportFields);
                         if (!empty($returnData)) {
                             $this->_returnArray[] = $returnData;
@@ -93,16 +109,16 @@ abstract class Xtento_OrderExport_Model_Export_Entity_Abstract extends Mage_Core
                     $collectionItemValidated = false;
                 }
             }
-            /*
-             * Alternative approach if conditions check fails, we've seen this happening in a 1.5.0.1 installation, the profile conditions were simply empty and the profile needed to be loaded again:
-             * $validateProfile = Mage::getModel('xtento_orderexport/profile')->load($this->getProfile()->getId());
-                ...$validateProfile->validate($forcedCollectionItem)
-             */
             #Zend_Debug::dump($forcedCollectionItem->getData());
             #var_dump($collectionItemValidated);
             #die();
+            Mage::dispatchEvent('xtento_orderexport_custom_validation', array(
+                'validationProfile'             => $validationProfile,
+                'collectionItem'                => $forcedCollectionItem,
+                'collectionItemValidated'       => &$collectionItemValidated,
+            ));
             // If all filters pass, then export the item
-            if ($this->getExportType() == Xtento_OrderExport_Model_Export::EXPORT_TYPE_TEST || ($collectionItemValidated && $this->getProfile()->validate($forcedCollectionItem))) {
+            if ($this->getExportType() == Xtento_OrderExport_Model_Export::EXPORT_TYPE_TEST || ($collectionItemValidated && $validationProfile->validate($forcedCollectionItem))) {
                 $returnData = $this->_exportData(new Xtento_OrderExport_Model_Export_Entity_Collection_Item($forcedCollectionItem, $this->_entityType, 1, 1), $exportFields);
                 if (!empty($returnData)) {
                     $this->_returnArray[] = $returnData;

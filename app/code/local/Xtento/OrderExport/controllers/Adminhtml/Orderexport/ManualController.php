@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-03-05T14:15:26+01:00
+ * Last Modified: 2015-03-27T13:12:51+01:00
  * File:          app/code/local/Xtento/OrderExport/controllers/Adminhtml/Orderexport/ManualController.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_OrderExport_Controller_Abstract
@@ -22,6 +22,16 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
             return $this->_redirectReferer();
         }
         $exportIds = $this->getRequest()->getPost($exportType . '_ids', false);
+        if (!$exportIds && $this->getRequest()->getPost('full_stock_orders_order_ids', false) !== false) { // BoostMyShop ERP Grid
+            $exportIds = array();
+            $orderPreparationIds = $this->getRequest()->getPost('full_stock_orders_order_ids', false);
+            $orderPreparationCollection = Mage::getModel('Orderpreparation/ordertopreparepending')
+                ->getCollection()
+                ->addFieldToFilter('opp_num', array('in' => $orderPreparationIds));
+            foreach ($orderPreparationCollection as $orderPreparationItem) {
+                $exportIds[] = $orderPreparationItem->getopp_order_id();
+            }
+        }
         if (!$exportIds) {
             // Alternate way, which would match full_stock_orders_order_ids for example
             $safeExportType = preg_replace("/[^A-Za-z0-9]/", "", $exportType);
@@ -80,7 +90,11 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
         $filters = array();
         if ($this->getRequest()->getPost('store_id') !== NULL) {
             $storeIds = array();
-            foreach ($this->getRequest()->getPost('store_id') as $storeId) {
+            $postStoreIds = $this->getRequest()->getPost('store_id');
+            if (isset($postStoreIds[0]) && strstr($postStoreIds[0], ',')) {
+                $postStoreIds = explode(",", $postStoreIds[0]); // Comma multi select fix for file download JS
+            }
+            foreach ($postStoreIds as $storeId) {
                 if ($storeId != '0' && $storeId != '') {
                     array_push($storeIds, $storeId);
                 }
@@ -99,7 +113,11 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
         }
         if ($this->getRequest()->getPost('status') !== NULL) {
             $statuses = array();
-            foreach ($this->getRequest()->getPost('status') as $status) {
+            $postStatuses = $this->getRequest()->getPost('status');
+            if (isset($postStatuses[0]) && strstr($postStatuses[0], ',')) {
+                $postStatuses = explode(",", $postStatuses[0]); // Comma multi select fix for file download JS
+            }
+            foreach ($postStatuses as $status) {
                 if ($status !== '') {
                     array_push($statuses, $status);
                 }
@@ -107,6 +125,8 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
             if (!empty($statuses)) {
                 if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_ORDER) {
                     $filters[] = array($tablePrefix . 'status' => array('in' => $statuses));
+                } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+                    $filters[] = array($tablePrefix . 'rma_status' => array('in' => $statuses));
                 } else {
                     $filters[] = array($tablePrefix . 'state' => array('in' => $statuses));
                 }
@@ -120,6 +140,12 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
             } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
                 $collection->addAttributeToSelect('entity_id')
                     ->addAttributeToFilter('entity_id', $this->getRequest()->getPost('increment_from'));
+            } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+                $collection->addFieldToSelect('id')
+                    ->addFieldToFilter('id', $this->getRequest()->getPost('increment_from'));
+            } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+                $collection->addFieldToSelect('rma_id')
+                    ->addFieldToFilter('rma_id', $this->getRequest()->getPost('increment_from'));
             } else {
                 $collection->addAttributeToSelect('entity_id')
                     ->addAttributeToFilter('increment_id', $this->getRequest()->getPost('increment_from'));
@@ -128,12 +154,12 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
             if ($object && $object->getId()) {
                 if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
                     $filters[] = array('entity_id' => array('from' => $object->getId()));
+                } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+                    $filters[] = array('id' => array('from' => $object->getId()));
+                } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+                    $filters[] = array('rma_id' => array('from' => $object->getId()));
                 } else {
-                    if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.1', '<=')) {
-                        $filters[] = array('entity_id' => array('from' => $object->getId()));
-                    } else {
-                        $filters[] = array($tablePrefix . 'entity_id' => array('from' => $object->getId()));
-                    }
+                    $filters[] = array($tablePrefix . 'entity_id' => array('from' => $object->getId()));
                 }
             } else {
                 if ($this->getRequest()->getPost('increment_from') != 1) {
@@ -150,6 +176,12 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
             } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
                 $collection->addAttributeToSelect('entity_id')
                     ->addAttributeToFilter('entity_id', $this->getRequest()->getPost('increment_to'));
+            } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+                $collection->addFieldToSelect('id')
+                    ->addFieldToSelect('id', $this->getRequest()->getPost('increment_to'));
+            } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+                $collection->addFieldToSelect('rma_id')
+                    ->addFieldToSelect('rma_id', $this->getRequest()->getPost('increment_to'));
             } else {
                 $collection->addAttributeToSelect('entity_id')
                     ->addAttributeToFilter('increment_id', $this->getRequest()->getPost('increment_to'));
@@ -158,6 +190,10 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
             if ($object && $object->getId()) {
                 if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
                     $filters[] = array('entity_id' => array('to' => $object->getId()));
+                } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+                    $filters[] = array('id' => array('to' => $object->getId()));
+                } else if ($profile->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+                    $filters[] = array('rma_id' => array('to' => $object->getId()));
                 } else {
                     $filters[] = array($tablePrefix . 'entity_id' => array('to' => $object->getId()));
                 }
@@ -170,13 +206,14 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
         }
         $dateRangeFilter = array();
         if ($this->getRequest()->getPost('daterange_from') != '') {
-            $dateRangeFilter['date'] = true;
-            $dateRangeFilter['from'] = Mage::helper('xtento_orderexport/date')->convertDate($this->getRequest()->getPost('daterange_from'));
+            $dateRangeFilter['datetime'] = true;
+            $dateRangeFilter['from'] = Mage::helper('xtento_orderexport/date')->convertDate($this->getRequest()->getPost('daterange_from'))->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
         }
         if ($this->getRequest()->getPost('daterange_to') != '') {
-            $dateRangeFilter['date'] = true;
+            $dateRangeFilter['datetime'] = true;
             $dateRangeFilter['to'] = Mage::helper('xtento_orderexport/date')->convertDate($this->getRequest()->getPost('daterange_to') /*, false, true*/);
             $dateRangeFilter['to']->add('1', Zend_Date::DAY);
+            $dateRangeFilter['to'] = $dateRangeFilter['to']->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
         }
         if ($this->getRequest()->getPost('last_x_days') != '') {
             $profileFilterCreatedLastXDays = $this->getRequest()->getPost('last_x_days');
@@ -192,8 +229,8 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
                     $dateToday->setSecond(00);
                     $dateToday->setMinute(00);
                     $dateToday->setLocale(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE));
-                    $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE));
-                    $dateRangeFilter['date'] = true;
+                    $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::DEFAULT_TIMEZONE));
+                    $dateRangeFilter['datetime'] = true;
                     $dateRangeFilter['from'] = $dateToday->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
                 }
             }
@@ -205,8 +242,8 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
                 $dateToday = Zend_Date::now();
                 $dateToday->sub($profileFilterOlderThanXMinutes, Zend_Date::MINUTE);
                 $dateToday->setLocale(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE));
-                $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE));
-                $dateRangeFilter['date'] = true;
+                $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::DEFAULT_TIMEZONE));
+                $dateRangeFilter['datetime'] = true;
                 $dateRangeFilter['to'] = $dateToday->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
             }
         }
@@ -249,7 +286,12 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ManualController extends Xtento_O
                 return $this->_redirect('*/orderexport_manual/index', array('profile_id' => $profile->getId()));
             }
         } catch (Exception $e) {
-            Mage::getSingleton('adminhtml/session')->addWarning(Mage::helper('xtento_orderexport')->__('%s', nl2br($e->getMessage())));
+            if ($this->getRequest()->getPost('start_download', false)) {
+                Mage::getModel('core/cookie')->set('lastErrorMessage', Mage::helper('xtento_orderexport')->__(nl2br($e->getMessage())), null, '/', '', null, false);
+                Mage::getModel('core/cookie')->set('lastMessage', false, null, '/', '', null, false);
+            } else {
+                Mage::getSingleton('adminhtml/session')->addWarning(Mage::helper('xtento_orderexport')->__('%s', nl2br($e->getMessage())));
+            }
             return $this->_redirect('*/orderexport_manual/index', array('profile_id' => $profile->getId()));
         }
     }

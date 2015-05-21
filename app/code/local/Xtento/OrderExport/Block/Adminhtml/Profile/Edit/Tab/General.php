@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-09-08T16:10:39+02:00
+ * Last Modified: 2014-09-03T21:58:12+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Profile/Edit/Tab/General.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_General extends Xtento_OrderExport_Block_Adminhtml_Widget_Tab
@@ -92,6 +92,13 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_General extends Xtento
                 'name' => 'export_one_file_per_object',
                 'values' => Mage::getModel('adminhtml/system_config_source_yesno')->toOptionArray(),
                 'note' => Mage::helper('xtento_orderexport')->__('If set to yes, each %s exported would be saved in a separate file. This means, for every %s you export, one file will be created, with just the one %s in there. If set to no, one file will be created with all the exported %ss in there.', Mage::registry('order_export_profile')->getEntity(), Mage::registry('order_export_profile')->getEntity(), Mage::registry('order_export_profile')->getEntity(), Mage::registry('order_export_profile')->getEntity())
+            ));
+
+            $fieldset->addField('export_empty_files', 'select', array(
+                'label' => Mage::helper('xtento_orderexport')->__('Export empty files'),
+                'name' => 'export_empty_files',
+                'values' => Mage::getModel('adminhtml/system_config_source_yesno')->toOptionArray(),
+                'note' => Mage::helper('xtento_orderexport')->__('If set to yes, every export will create a file. Even if 0 %ss have been exported, an empty export file will be created.', Mage::registry('order_export_profile')->getEntity(), Mage::registry('order_export_profile')->getEntity())
             ));
         }
 

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-10-17T16:57:21+02:00
+ * Last Modified: 2014-07-14T20:56:51+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Profile/Edit/Tab/History.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_History extends Xtento_OrderExport_Block_Adminhtml_History_Grid
@@ -21,6 +21,10 @@ class Xtento_OrderExport_Block_Adminhtml_Profile_Edit_Tab_History extends Xtento
         $collection = Mage::getResourceModel('xtento_orderexport/history_collection');
         if ($this->_getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_QUOTE) {
             $collection->getSelect()->joinLeft(array('object' => $collection->getTable('sales/' . $this->_getProfile()->getEntity())), 'main_table.entity_id = object.entity_id', array('object.entity_id'));
+        } else if ($this->_getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+            $collection->getSelect()->joinLeft(array('object' => $collection->getTable('awrma/entity')), 'main_table.entity_id = object.id', array('object.id'));
+        } else if ($this->_getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+            $collection->getSelect()->joinLeft(array('object' => $collection->getTable('ProductReturn/rma')), 'main_table.entity_id = object.rma_id', array('object.rma_id'));
         } else if ($this->_getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
             $collection->getSelect()->joinLeft(array('object' => $collection->getTable('customer/entity')), 'main_table.entity_id = object.entity_id', array('object.entity_id'));
         } else {

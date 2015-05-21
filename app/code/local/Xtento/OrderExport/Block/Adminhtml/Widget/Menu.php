@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-02-10T13:09:46+01:00
+ * Last Modified: 2014-05-13T14:03:26+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Widget/Menu.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Widget_Menu extends Mage_Core_Block_Abstract
@@ -98,7 +98,7 @@ EOT;
             }
         }
         $this->_menuBar .= '<a id="page-help-link" href="http://support.xtento.com/wiki/Magento_Extensions:Magento_Order_Export_Module" target="_blank" style="color: #EA7601; text-decoration: underline; line-height: 16px;">' . Mage::helper('xtento_orderexport')->__('Help') . '</a>';
-        $this->_menuBar .= '<div style="float:right;"><a href="http://www.xtento.com/" target="_blank" style="text-decoration:none;font-weight:bold;color:#57585B;"><img src="//www.xtento.com/media/images/extension_logo.png?host=' . $_SERVER['SERVER_NAME'] . '" alt="XTENTO" height="20" style="vertical-align:middle;"/> XTENTO Magento Extensions</a></div></div>';
+        $this->_menuBar .= '<div style="float:right;"><a href="http://www.xtento.com/" target="_blank" style="text-decoration:none;font-weight:bold;color:#57585B;"><img src="//www.xtento.com/media/images/extension_logo.png" alt="XTENTO" height="20" style="vertical-align:middle;"/> XTENTO Magento Extensions</a></div></div>';
 
         return $this->_menuBar;
     }

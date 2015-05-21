@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-03-05T14:12:58+01:00
+ * Last Modified: 2014-11-18T11:57:43+01:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Manual.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Manual extends Mage_Adminhtml_Block_Template
@@ -27,7 +27,7 @@ class Xtento_OrderExport_Block_Adminhtml_Manual extends Mage_Adminhtml_Block_Tem
             $profilesByGroup[$profile['entity']][] = $profile;
         }
         foreach ($profilesByGroup as $entity => $profiles) {
-            $html .= '<optgroup label="' . Mage::helper('xtento_orderexport')->__(ucfirst($entity) . ' Export') . '">';
+            $html .= '<optgroup label="' . Mage::helper('xtento_orderexport')->__('%s Export', Mage::helper('xtento_orderexport/entity')->getEntityName($entity)) . '">';
             foreach ($profiles as $profile) {
                 $html .= '<option value="' . $profile['value'] . '" entity="' . $entity . '">' . $profile['label'] . ' (' . Mage::helper('xtento_orderexport')->__('ID: %d', $profile['value']) . ')</option>';
             }
@@ -172,7 +172,7 @@ class Xtento_OrderExport_Block_Adminhtml_Manual extends Mage_Adminhtml_Block_Tem
 
     private function _escapeStringJs($string)
     {
-        return str_replace("'", "\\'", $string);
+        return str_replace(array("'", "\n", "\r"), array("\\'", " ", " "), $string);
     }
 
     protected function _toHtml()

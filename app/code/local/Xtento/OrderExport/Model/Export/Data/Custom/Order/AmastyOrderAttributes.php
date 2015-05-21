@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-20T14:26:28+01:00
+ * Last Modified: 2014-06-20T20:33:28+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Custom/Order/AmastyOrderAttributes.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Custom_Order_AmastyOrderAttributes extends Xtento_OrderExport_Model_Export_Data_Abstract
@@ -86,7 +86,6 @@ class Xtento_OrderExport_Model_Export_Data_Custom_Order_AmastyOrderAttributes ex
         // Done
         return $returnArray;
     }
-
 
     private function _getStoreValues($attribute)
     {

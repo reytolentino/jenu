@@ -221,4 +221,163 @@ Xtento_OrderExport
 ===== 1.4.1 =====
  + Added ability to export country_name when doing "Customer" exports
  + Added ability to cancel orders after exporting - can be enabled in "Filters / Actions" tab.
+ + Added ability to export Enterprise Edition gift_cards serialized array on order level as giftcards/giftcard
  * Fixed item level gift message export when doing non-order exports
+
+===== 1.4.2 =====
+ + Added Zend_Date GMT Offset fix that can be enabled at System > Configuration > XTENTO > General Configuration > Fixes
+ + Added ability to export "swatch_data" stored in info_buyRequest added by a swatches extension
+ * Fixed custom option SKU export for "textarea" and "field" custom options
+ * Fixed "Additional filters" not validating the conditions set up for direct-event exports in certain stores/setups
+ * Fixed/improved date related export filters: "Only last X days", "Older than X minutes" now check date in UTC properly
+
+===== 1.4.3 =====
+ + Improved order_status_history export: More fields can be exported now (is_customer_notified, ...)
+ + Added ability to export fields of the "TI Delivery By Date" extension
+ * Fixed a potential bug when using "Export only if a product attribute with value X" filter is used with Magento >1.8
+ * Improved profile/destination saving, moved key to be the last parameter, could otherwise lead to POST being empty in some hosting environments
+ ! Added compatibility for Magento CE 1.9.0.0 / EE 1.14.0.0
+
+===== 1.4.4 =====
+ + Added ability to export unserialized data stored in product_options automatically, node is product_options_data
+ + Added ability to export aheadWorks RMA entity - export your RMAs!
+ * Fixed EE giftcard export
+ * Fixed a bug that could lead to cronjob settings not being changeable in the Automatic Export tab for export entities without any event exports
+
+===== 1.4.5 =====
+ * Fix: product_options_data contained sample data, this has been fixed
+
+===== 1.4.6 =====
+ + Added ability to export custom option price on custom_options/custom_option level
+ * Fixed a bug in Xtento_OrderExport_Helper_Xsl::mb_vsprintf that could lead to wrong values being output
+ * Fixed "Conditions Combination" filter in the Stores and Filters tab not showing the right filters/conditions
+ * The extension tries to increase the PHP memory_limit automatically if it's below a certain threshold
+
+===== 1.4.7 =====
+ + Added ability to export "Pakje Gemak" address of TIG_PostNL extension
+ + Added "status" and "state" as possible fields to filter by when using the "Export order only if..." filter
+ + Added warning for "cronjob export" + "export each order separately" and no unique variable in filename
+ + Added ability to disable timestamp timezone adjustment
+ * Fixed "Entity" filter in "Export History" (ambigious column)
+ * Improved customer export on event, data is directly pulled from event object now
+
+===== 1.4.8 =====
+ + Added an event that is dispatched in the Xtento_OrderExport_Model_Output_Abstract class to add the ability to add custom variables to the filename
+ * Improved "Pakje Gemak" (TIG_PostNL) export; added further tables to the export
+ * Fixed "Additional filters" not validating the conditions for product attribute conditions properly
+ * Fixed variables for email destinations: %content% could contain characters that affect preg_replace; using str_replace instead now
+ * Improved support for third party SMTP extensions, whenever the extension sends an email these should be used now
+
+===== 1.4.9 =====
+ + Added "product_url" field on item/product_attribute level
+ * Fixed manual/cron customer exports / added missing fields
+
+===== 1.5.0 =====
+ + Added ability to export BoostMyShop RMA entity - export your RMAs!
+
+===== 1.5.1 =====
+ * Various bugfixes and code optimization in license code
+
+===== 1.5.2 =====
+ * Fixed a bug that could lead to the profile being reset to the state when the export was stated. This could be problematic if changes had been made in the meantime.
+ * Improved Net_SFTP class loading for SFTP exports, required in certain server environments
+
+===== 1.5.3 =====
+ + Added filename variable %firstincrementid% which contains the first increment_id in the collection exported
+ * Fixed an important bug that could lead to a database query being committed (order status) where it shouldn't have been committed yet
+ * Improved warning message for "your filename is not unique" when editing an export profile to cover the lastorderincrementid variable as well
+
+===== 1.5.4 =====
+ * Fixed Itabs_DebitPayment compatibility
+
+===== 1.5.5 =====
+ + Added ability to export empty files if 0 orders/invoices/... have been exported
+ + Added ability to use HTML in email destinations / "E-Mail Text"
+ * Fixed manual export executing twice in some browsers
+
+===== 1.5.6 =====
+ + Added ability to export qty ordered of custom option
+ + Added ability to export amount that was charged with 0% tax
+
+===== 1.5.7 =====
+ + Added ability to export store value (in addition to the admin value) of product_attributes
+ * Fixed tax base calculation in tax_rates/tax_rate
+
+===== 1.5.8 =====
+ + Added ability to export "customweb_isr_record" data
+ + Added event xtento_orderexport_custom_validation for custom collectionItem validation/logic. Contribution by Peter Esser.
+
+===== 1.5.9 =====
+ + Added ability to export Collect+ data (Site information, address, etc.)
+
+===== 1.6.0 =====
+ + Added ability to export aheadWorks point spending data
+ * Fixed an issue that could lead to 0 objects being exported if multiple stores/statuses are selected when exporting from the "Manual Export" screen
+
+===== 1.6.1 =====
+ + Added ability to control what should happen to quotes in fields using the "quotes" attribute on the <file> node. Possible values: remove, double
+ * Handling of admin input for FTP sources/destinations improved, hostname/port/timeout are now validated
+
+===== 1.6.2 =====
+ + Added ability to export store pickup information added by the "Magestore Store Pickup" extension
+ * Fixed a bug that could lead to the gift cards rendering wrong in the export. Thanks Klaas-Tido @ REFUSiON.
+
+===== 1.6.3 =====
+ ! Added compatibility for Magento CE 1.9.1.0 / EE 1.14.1.0
+
+===== 1.6.4 =====
+ * FTP connection is closed after files have been saved, for "FTP" destinations.
+
+===== 1.6.5 =====
+ + Added ability to export custom order attributes created by the aheadWorks "Order Attributes" extension
+
+===== 1.6.6 =====
+ * If an empty file is produced by a XSL Template, and "Export empty files" is set to "No", no file will be created now.
+
+===== 1.6.7 =====
+ * XSL Template field was able to store only 64 KB of data. This has been increased to 16 MB now.
+
+===== 1.6.8 =====
+ + Added ability to add order status history comment after exporting, for orders. Flush cache storage after updating to use this.
+ * Fixed code that updates the order status, drop down still showed the old status eventually.
+
+===== 1.6.9 =====
+ + Added ability to export "BelVG Checkout Fields" custom order data
+ + Added index for created_at/profile_id fields in log table to speed up queries
+
+===== 1.7.0 =====
+ * Removed htmlspecialchars from XMLWriter to avoid double-encoding of fields.
+
+===== 1.7.1 =====
+ + Added ability to enter multiple email addresses for the "Debug Email" option in the System > XTENTO section. Separate multiple recipients using commas.
+ * Fixed order status changes not being applied for order statuses that are not assigned to an order state.
+
+===== 1.7.2 =====
+ + Added check for broken custom options when exporting items; if no option_value is set the custom option won't be exported.
+
+===== 1.7.3 =====
+ * Improved/restored compatibility with Aoe_Scheduler version 1.0.0 for cron functionality
+
+===== 1.7.4 =====
+ + Added ability to export invoice_updated_at_timestamp, shipment_updated_at_timestamp, creditmemo_updated_at_timestamp.
+ + Added %timestamp% variable to list of possible variables in the filename.
+
+===== 1.7.5 =====
+ + Added ability to export "additional_options" from "product_options" on item level.
+ + Added currencyConvert function to Xtento_OrderExport_Helper_Xsl
+ * Fixed export from "BoostMyShop ERP" Order Preparation grid.
+
+===== 1.7.6 =====
+ * Fixed custom option SKU export for custom options with just one/no option.
+ * Increased HHVM compatibility
+ * Improved/restored compatibility with older Aoe_Scheduler versions for cron functionality
+
+===== 1.7.7 =====
+ * Improved iconv() conversion if "encoding" attribute is specified in XSL Template, should fix warnings that data couldn't be converted
+ + Added locale attribute to XSL file node to specify locale for iconv()/transliterations: http://support.xtento.com/wiki/Magento_Extensions:Magento_Order_Export_Module#Variables_in_the_.3Cfile.3E_node
+
+===== 1.7.8 =====
+ * Fixed incompatibility with MageWorx_CustomOptions module that could lead to warning "Fatal error: Cannot use object of type ... as array" when exporting
+
+===== 1.7.9 =====
+ * Added workaround for a bug in HHVM that led to the filename being empty (or just _bkp), caused by the current() function returning false always.

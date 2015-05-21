@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-02-04T15:42:38+01:00
+ * Last Modified: 2014-05-15T11:44:36+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Order/History.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Order_History extends Xtento_OrderExport_Model_Export_Data_Abstract
@@ -37,11 +37,12 @@ class Xtento_OrderExport_Model_Export_Data_Order_History extends Xtento_OrderExp
         if ($order) {
             foreach ($order->getAllStatusHistory() as $history) {
                 $this->_writeArray = & $returnArray['order_status_history'][];
-                $this->writeValue('comment', $history->getComment());
-                $this->writeValue('created_at', $history->getCreatedAt());
-                $this->writeValue('created_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($history->getCreatedAt()));
-                $this->writeValue('status', $history->getStatus());
-                $this->writeValue('status_label', $history->getStatusLabel());
+                foreach ($history->getData() as $key => $value) {
+                    $this->writeValue($key, $value);
+                    if ($key == 'created_at_timestamp') {
+                        $this->writeValue('created_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($value));
+                    }
+                }
             }
         }
         $this->_writeArray = & $returnArray;

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
  * Last Modified: 2013-11-09T15:50:09+01:00
  * File:          app/code/local/Xtento/OrderExport/Controller/Abstract.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Controller_Abstract extends Mage_Adminhtml_Controller_Action

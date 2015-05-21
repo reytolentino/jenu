@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_XtCore (1.0.0)
+ * Product:       Xtento_XtCore (1.1.7)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2012-02-13T20:46:31+01:00
+ * Last Modified: 2014-09-22T11:55:02+02:00
  * File:          app/code/local/Xtento/XtCore/Helper/Payment.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_XtCore_Helper_Payment extends Mage_Payment_Helper_Data
@@ -46,18 +46,24 @@ class Xtento_XtCore_Helper_Payment extends Mage_Payment_Helper_Data
      * @param bool $withGroups
      * @return array
      */
-    public function getPaymentMethodList($sorted = true, $asLabelValue = false, $withGroups = false, $store = null)
+    public function getPaymentMethodList($sorted = true, $asLabelValue = false, $withGroups = false, $store = null, $onlyActive = false)
     {
         $methods = array();
         $groups = array();
         $groupRelations = array();
 
         foreach ($this->getPaymentMethods($store) as $code => $data) {
+            if ($onlyActive && !Mage::getStoreConfigFlag('payment/' . $code . '/active', $store)) {
+                continue;
+            }
             if ((isset($data['title']))) {
                 $methods[$code] = $data['title'];
             } else {
-                if ($this->getMethodInstance($code)) {
-                    $methods[$code] = $this->getMethodInstance($code)->getConfigData('title', $store);
+                try {
+                    if ($this->getMethodInstance($code)) {
+                        $methods[$code] = $this->getMethodInstance($code)->getConfigData('title', $store);
+                    }
+                } catch (Exception $e) {
                 }
             }
             if ($asLabelValue && $withGroups && isset($data['group'])) {

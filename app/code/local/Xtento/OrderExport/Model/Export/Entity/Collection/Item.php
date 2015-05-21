@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-01-08T21:27:21+01:00
+ * Last Modified: 2014-07-14T21:18:25+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Entity/Collection/Item.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Entity_Collection_Item extends Varien_Object
@@ -36,9 +36,39 @@ class Xtento_OrderExport_Model_Export_Entity_Collection_Item extends Varien_Obje
         if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_QUOTE) {
             $this->setOrder($collectionItem);
         }
+        if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+            // Load order associated to RMA
+            $order = Mage::getModel('sales/order')->loadByIncrementId($collectionItem->getOrderId());
+            $this->setOrder($order);
+            // Add RMA items into "virtual" allItems array
+            $orderItemArray = array();
+            $orderItems = unserialize($collectionItem->getOrderItems());
+            foreach ($orderItems as $orderItemId => $qty) {
+                $orderItem = Mage::getModel('sales/order_item')->load($orderItemId);
+                $orderItem->setData('aw_rma_qty', $qty);
+                $orderItemArray[] = $orderItem;
+            }
+            $collectionItem->setAllItems($orderItemArray);
+        }
+        if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+            // Load order associated to RMA
+            $order = Mage::getModel('sales/order')->loadByIncrementId($collectionItem->getRmaOrderId());
+            $this->setOrder($order);
+            $orderItems = Mage::getModel('ProductReturn/RmaProducts')->getCollection()->addFieldToFilter('rp_rma_id', array(
+                'eq' => $collectionItem->getRmaId()
+            ));
+            $orderItemArray = array();
+            foreach ($orderItems as $item) {
+                $orderItem = Mage::getModel('sales/order_item')->load($item->getRpOrderitemId());
+                $orderItem->setData('boost_rma_qty', $item->getRpQty());
+                $orderItemArray[] = $orderItem;
+            }
+            $collectionItem->setAllItems($orderItemArray);
+        }
     }
 
-    public function getObject() {
+    public function getObject()
+    {
         return $this->_collectionItem;
     }
 }

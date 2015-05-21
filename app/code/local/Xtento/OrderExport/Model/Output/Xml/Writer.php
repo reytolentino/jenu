@@ -84,7 +84,7 @@ if (@class_exists('XMLWriter')) {
         {
             $strippedValue = preg_replace('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u', '', $string);
             if ($this->_escapeSpecialChars) {
-                $strippedValue = htmlspecialchars($strippedValue);
+                #$strippedValue = htmlspecialchars($strippedValue);
             }
             return $strippedValue;
         }

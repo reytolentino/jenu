@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-10-17T16:57:21+02:00
+ * Last Modified: 2014-06-19T13:58:48+02:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/History/Grid.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_History_Grid extends Mage_Adminhtml_Block_Widget_Grid
@@ -84,6 +84,7 @@ class Xtento_OrderExport_Block_Adminhtml_History_Grid extends Mage_Adminhtml_Blo
             array(
                 'header' => Mage::helper('xtento_orderexport')->__('Entity'),
                 'index' => 'entity',
+                'filter_index' => 'main_table.entity',
                 'type' => 'options',
                 'options' => Mage::getSingleton('xtento_orderexport/system_config_source_export_entity')->toOptionArray()
             )

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-10-09T13:03:12+02:00
+ * Last Modified: 2014-05-05T22:09:03+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Observer/Abstract.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 abstract class Xtento_OrderExport_Model_Observer_Abstract extends Mage_Core_Model_Abstract
@@ -62,18 +62,19 @@ abstract class Xtento_OrderExport_Model_Observer_Abstract extends Mage_Core_Mode
         $dateRangeFilter = array();
         $profileFilterDatefrom = $profile->getExportFilterDatefrom();
         if (!empty($profileFilterDatefrom)) {
-            $dateRangeFilter['date'] = true;
+            $dateRangeFilter['datetime'] = true;
             #$dateRangeFilter['from'] = sprintf('%s 00:00:00', $profileFilterDatefrom);
-            $dateRangeFilter['from'] = Mage::helper('xtento_orderexport/date')->convertDate($profileFilterDatefrom);
+            $dateRangeFilter['from'] = Mage::helper('xtento_orderexport/date')->convertDate($profileFilterDatefrom)->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
             #$dateRangeFilter['to']->add(1, Zend_Date::HOUR);
         }
         $profileFilterDateto = $profile->getExportFilterDateto();
         if (!empty($profileFilterDateto)) {
-            $dateRangeFilter['date'] = true;
+            $dateRangeFilter['datetime'] = true;
             #$dateRangeFilter['to'] = sprintf('%s 23:59:59', $profileFilterDateto);
             #$dateRangeFilter['to'] = Mage::helper('xtento_orderexport/date')->convertDate($profileFilterDateto, false, true);
             $dateRangeFilter['to'] = Mage::helper('xtento_orderexport/date')->convertDate($profileFilterDateto /*, false, true*/);
             $dateRangeFilter['to']->add('1', Zend_Date::DAY);
+            $dateRangeFilter['to'] = $dateRangeFilter['to']->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
         }
         $profileFilterCreatedLastXDays = $profile->getData('export_filter_last_x_days');
         if (!empty($profileFilterCreatedLastXDays) || $profileFilterCreatedLastXDays == '0') {
@@ -89,8 +90,8 @@ abstract class Xtento_OrderExport_Model_Observer_Abstract extends Mage_Core_Mode
                 $dateToday->setSecond(00);
                 $dateToday->setMinute(00);
                 $dateToday->setLocale(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE));
-                $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE));
-                $dateRangeFilter['date'] = true;
+                $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::DEFAULT_TIMEZONE)); // Dates are stored in UTC
+                $dateRangeFilter['datetime'] = true;
                 $dateRangeFilter['from'] = $dateToday->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
             }
         }
@@ -101,8 +102,8 @@ abstract class Xtento_OrderExport_Model_Observer_Abstract extends Mage_Core_Mode
                 $dateToday = Zend_Date::now();
                 $dateToday->sub($profileFilterOlderThanXMinutes, Zend_Date::MINUTE);
                 $dateToday->setLocale(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE));
-                $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE));
-                $dateRangeFilter['date'] = true;
+                $dateToday->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::DEFAULT_TIMEZONE)); // Dates are stored in UTC
+                $dateRangeFilter['datetime'] = true;
                 $dateRangeFilter['to'] = $dateToday->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
             }
         }

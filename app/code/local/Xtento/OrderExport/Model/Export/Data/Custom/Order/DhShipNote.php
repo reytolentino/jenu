@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-01-24T20:49:43+01:00
+ * Last Modified: 2014-07-17T12:56:05+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Custom/Order/DhShipNote.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Custom_Order_DhShipNote extends Xtento_OrderExport_Model_Export_Data_Abstract
@@ -38,7 +38,7 @@ class Xtento_OrderExport_Model_Export_Data_Custom_Order_DhShipNote extends Xtent
         try {
             $this->_writeArray = & $returnArray['dh_shipnote']; // Write on "dh_shipnote" level
             $note = Mage::getModel('shipnote/note')->loadByOrder($order);
-            if ($note->getId()) {
+            if ($note && $note->getId()) {
                 foreach ($note->getData() as $key => $value) {
                     $this->writeValue($key, $value);
                 }

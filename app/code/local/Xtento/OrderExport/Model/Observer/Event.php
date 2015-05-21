@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-08-29T17:56:51+02:00
+ * Last Modified: 2014-06-17T22:58:07+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Observer/Event.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Observer_Event extends Xtento_OrderExport_Model_Observer_Abstract
@@ -110,17 +110,20 @@ class Xtento_OrderExport_Model_Observer_Event extends Xtento_OrderExport_Model_O
             $events[Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER][self::EVENT_CUSTOMER_AFTER_REGISTRATION] = array(
                 'event' => 'customer_register_success',
                 'label' => Mage::helper('xtento_orderexport')->__('After customer signs up'),
-                'method' => 'getCustomer()'
+                'method' => 'getCustomer()',
+                'force_collection_item' => true
             );
             $events[Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER][self::EVENT_CUSTOMER_SAVE_AFTER] = array(
                 'event' => 'customer_save_after',
                 'label' => Mage::helper('xtento_orderexport')->__('After customer account gets modified'),
-                'method' => 'getCustomer()'
+                'method' => 'getCustomer()',
+                'force_collection_item' => true
             );
             $events[Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER][self::EVENT_CUSTOMER_ADDRESS_SAVE_AFTER] = array(
                 'event' => 'customer_address_save_after',
                 'label' => Mage::helper('xtento_orderexport')->__('After customer address gets modified'),
-                'method' => 'getCustomerAddress()->getCustomer()'
+                'method' => 'getCustomerAddress()->getCustomer()',
+                'force_collection_item' => true
             );
         }
         // Third party events

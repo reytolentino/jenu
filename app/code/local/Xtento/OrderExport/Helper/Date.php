@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-12-10T16:14:31+01:00
+ * Last Modified: 2014-06-27T15:42:15+02:00
  * File:          app/code/local/Xtento/OrderExport/Helper/Date.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Helper_Date extends Mage_Core_Helper_Abstract
@@ -71,6 +71,11 @@ class Xtento_OrderExport_Helper_Date extends Mage_Core_Helper_Abstract
     public function convertDateToStoreTimestamp($date, $store = null)
     {
         try {
+            if (Mage::getStoreConfigFlag('xtcore/compatibility_fixes/disable_timestamp_timezone_adjustment')) {
+                $dateObj = new Zend_Date();
+                $dateObj->set($date, Varien_Date::DATETIME_INTERNAL_FORMAT);
+                return (int)$dateObj->get(null, Zend_Date::TIMESTAMP);
+            }
             $dateObj = new Zend_Date();
             $dateObj->setTimezone(Mage_Core_Model_Locale::DEFAULT_TIMEZONE);
             $dateObj->set($date, Varien_Date::DATETIME_INTERNAL_FORMAT);
@@ -78,8 +83,12 @@ class Xtento_OrderExport_Helper_Date extends Mage_Core_Helper_Abstract
             $dateObj->setTimezone(Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE, $store));
             $gmtOffset = $dateObj->getGmtOffset();
             if ($gmtOffset >= 0) {
-                // Note: Some Zend_Date versions always return a positive $gmtOffset. Thus, replace + with - below if you're affected by this.
-                return (int)$dateObj->get(null, Zend_Date::TIMESTAMP) + $gmtOffset;
+                if (Mage::getStoreConfigFlag('xtcore/compatibility_fixes/zend_date_gmt_offset')) {
+                    // Note: Some Zend_Date versions always return a positive $gmtOffset. Thus, we replace + with - below if affected by this.
+                    return (int)$dateObj->get(null, Zend_Date::TIMESTAMP) - $gmtOffset;
+                } else {
+                    return (int)$dateObj->get(null, Zend_Date::TIMESTAMP) + $gmtOffset;
+                }
             } else {
                 return (int)$dateObj->get(null, Zend_Date::TIMESTAMP) - $gmtOffset;
             }

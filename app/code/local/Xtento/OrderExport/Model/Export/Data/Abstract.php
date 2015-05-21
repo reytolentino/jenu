@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-04-23T22:02:22+02:00
+ * Last Modified: 2014-06-17T22:59:07+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Abstract.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 abstract class Xtento_OrderExport_Model_Export_Data_Abstract extends Mage_Core_Model_Abstract implements Xtento_OrderExport_Model_Export_Data_Interface

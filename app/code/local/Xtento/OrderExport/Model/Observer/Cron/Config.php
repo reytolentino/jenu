@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-10-01T15:26:06+02:00
+ * Last Modified: 2015-04-26T17:00:54+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Observer/Cron/Config.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Observer_Cron_Config extends Mage_Core_Model_Abstract
@@ -29,7 +29,7 @@ class Xtento_OrderExport_Model_Observer_Cron_Config extends Mage_Core_Model_Abst
      */
     public function addCronjobsToConfigAoeScheduler($observer)
     {
-        if (Mage::app()->getRequest() && in_array(Mage::app()->getRequest()->getControllerName(), array('scheduler', 'cron', 'timeline'))) {
+        if (Mage::app()->getRequest() && in_array(Mage::app()->getRequest()->getControllerName(), array('scheduler', 'job', 'timeline', 'cron'))) {
             $this->injectCronjobsIntoConfig();
         }
     }

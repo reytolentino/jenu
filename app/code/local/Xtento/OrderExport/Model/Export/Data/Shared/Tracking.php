@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
  * Last Modified: 2013-07-04T12:07:58+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Shared/Tracking.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Shared_Tracking extends Xtento_OrderExport_Model_Export_Data_Abstract

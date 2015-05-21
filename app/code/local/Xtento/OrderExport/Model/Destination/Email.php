@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-05-10T15:04:22+02:00
+ * Last Modified: 2014-09-03T20:57:02+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Destination/Email.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Destination_Email extends Xtento_OrderExport_Model_Destination_Abstract
@@ -41,7 +41,10 @@ class Xtento_OrderExport_Model_Destination_Email extends Xtento_OrderExport_Mode
         @ini_set('SMTP', Mage::getStoreConfig('system/smtp/host'));
         @ini_set('smtp_port', Mage::getStoreConfig('system/smtp/port'));
 
-        $mail = new Zend_Mail('utf-8');
+        $charset = "utf-8";
+        #$charset = "iso-8859-1";
+
+        $mail = new Zend_Mail($charset);
 
         $setReturnPath = Mage::getStoreConfig('system/smtp/set_return_path');
         switch ($setReturnPath) {
@@ -63,7 +66,11 @@ class Xtento_OrderExport_Model_Destination_Email extends Xtento_OrderExport_Mode
 
         $mail->setFrom($this->getDestination()->getEmailSender(), $this->getDestination()->getEmailSender());
         foreach (explode(",", $this->getDestination()->getEmailRecipient()) as $email) {
-            $mail->addTo($email, '=?utf-8?B?' . base64_encode($email) . '?=');
+            if ($charset === "utf-8") {
+                $mail->addTo($email, '=?utf-8?B?' . base64_encode($email) . '?=');
+            } else {
+                $mail->addTo($email, $email);
+            }
         }
 
         foreach ($fileArray as $filename => $data) {
@@ -75,16 +82,16 @@ class Xtento_OrderExport_Model_Destination_Email extends Xtento_OrderExport_Mode
         }
 
         #$mail->setSubject($this->_replaceVariables($this->getDestination()->getEmailSubject(), $firstFileContent));
-        $mail->setSubject('=?utf-8?B?' . base64_encode($this->_replaceVariables($this->getDestination()->getEmailSubject(), implode("\n\n", $fileArray))) . '?=');
-        $mail->setBodyText($this->_replaceVariables($this->getDestination()->getEmailBody(), implode("\n\n", $fileArray)));
+        if ($charset === "utf-8") {
+            $mail->setSubject('=?utf-8?B?' . base64_encode($this->_replaceVariables($this->getDestination()->getEmailSubject(), implode("\n\n", $fileArray))) . '?=');
+        } else {
+            $mail->setSubject($this->_replaceVariables($this->getDestination()->getEmailSubject(), implode("\n\n", $fileArray)));
+        }
+        $mail->setBodyText(strip_tags($this->_replaceVariables($this->getDestination()->getEmailBody(), implode("\n\n", $fileArray))));
+        $mail->setBodyHtml($this->_replaceVariables($this->getDestination()->getEmailBody(), implode("\n\n", $fileArray)));
 
         try {
-            if (Mage::helper('xtcore/utils')->isExtensionInstalled('Aschroder_SMTPPro') && Mage::helper('smtppro')->isEnabled()) {
-                // SMTPPro extension
-                $mail->send(Mage::helper('smtppro')->getTransport());
-            } else {
-                $mail->send();
-            }
+            $mail->send(Mage::helper('xtcore/utils')->getEmailTransport());
         } catch (Exception $e) {
             $this->getTestResult()->setSuccess(false)->setMessage(Mage::helper('xtento_orderexport')->__('Error while sending email: %s', $e->getMessage()));
             return false;
@@ -96,19 +103,19 @@ class Xtento_OrderExport_Model_Destination_Email extends Xtento_OrderExport_Mode
     private function _replaceVariables($string, $content)
     {
         $replaceableVariables = array(
-            '/%d%/' => Mage::getSingleton('core/date')->date('d'),
-            '/%m%/' => Mage::getSingleton('core/date')->date('m'),
-            '/%y%/' => Mage::getSingleton('core/date')->date('y'),
-            '/%Y%/' => Mage::getSingleton('core/date')->date('Y'),
-            '/%h%/' => Mage::getSingleton('core/date')->date('H'),
-            '/%i%/' => Mage::getSingleton('core/date')->date('i'),
-            '/%s%/' => Mage::getSingleton('core/date')->date('s'),
-            '/%exportid%/' => (Mage::registry('export_log')) ? Mage::registry('export_log')->getId() : 0,
-            '/%lastexportedincrementid%/' => (Mage::registry('last_exported_increment_id')) ? Mage::registry('last_exported_increment_id') : 0,
-            '/%recordcount%/' => (Mage::registry('export_log')) ? Mage::registry('export_log')->getRecordsExported() : 0,
-            '/%content%/' => $content,
+            '%d%' => Mage::getSingleton('core/date')->date('d'),
+            '%m%' => Mage::getSingleton('core/date')->date('m'),
+            '%y%' => Mage::getSingleton('core/date')->date('y'),
+            '%Y%' => Mage::getSingleton('core/date')->date('Y'),
+            '%h%' => Mage::getSingleton('core/date')->date('H'),
+            '%i%' => Mage::getSingleton('core/date')->date('i'),
+            '%s%' => Mage::getSingleton('core/date')->date('s'),
+            '%exportid%' => (Mage::registry('export_log')) ? Mage::registry('export_log')->getId() : 0,
+            '%lastexportedincrementid%' => (Mage::registry('last_exported_increment_id')) ? Mage::registry('last_exported_increment_id') : 0,
+            '%recordcount%' => (Mage::registry('export_log')) ? Mage::registry('export_log')->getRecordsExported() : 0,
+            '%content%' => $content,
         );
-        $string = preg_replace(array_keys($replaceableVariables), array_values($replaceableVariables), $string);
+        $string = str_replace(array_keys($replaceableVariables), array_values($replaceableVariables), $string);
         return $string;
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2012-12-21T17:26:49+01:00
+ * Last Modified: 2014-07-26T17:56:57+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/System/Config/Source/Order/Status.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_System_Config_Source_Order_Status
@@ -46,6 +46,17 @@ class Xtento_OrderExport_Model_System_Config_Source_Order_Status
 
     static function isEnabled()
     {
-        return eval(call_user_func('ba' . 'se64_' . 'dec' . 'ode', "JGV4dElkID0gJ1h0ZW50b19PcmRlckV4cG9ydDkxNzM3MCc7DQokc1BhdGggPSAnb3JkZXJleHBvcnQvZ2VuZXJhbC8nOw0KJHNOYW1lID0gTWFnZTo6Z2V0TW9kZWwoJ3h0ZW50b19vcmRlcmV4cG9ydC9zeXN0ZW1fY29uZmlnX2JhY2tlbmRfZXhwb3J0X3NlcnZlcicpLT5nZXRGaXJzdE5hbWUoKTsNCiRzTmFtZTIgPSBNYWdlOjpnZXRNb2RlbCgneHRlbnRvX29yZGVyZXhwb3J0L3N5c3RlbV9jb25maWdfYmFja2VuZF9leHBvcnRfc2VydmVyJyktPmdldFNlY29uZE5hbWUoKTsNCiRzID0gdHJpbShNYWdlOjpnZXRNb2RlbCgnY29yZS9jb25maWdfZGF0YScpLT5sb2FkKCRzUGF0aCAuICdzZXJpYWwnLCAncGF0aCcpLT5nZXRWYWx1ZSgpKTsNCmlmICgoJHMgIT09IHNoYTEoc2hhMSgkZXh0SWQgLiAnXycgLiAkc05hbWUpKSkgJiYgJHMgIT09IHNoYTEoc2hhMSgkZXh0SWQgLiAnXycgLiAkc05hbWUyKSkpIHsNCk1hZ2U6OmdldENvbmZpZygpLT5zYXZlQ29uZmlnKCRzUGF0aCAuICdlbmFibGVkJywgMCk7DQpNYWdlOjpnZXRDb25maWcoKS0+Y2xlYW5DYWNoZSgpOw0KcmV0dXJuIGZhbHNlOw0KfSBlbHNlIHsNCnJldHVybiB0cnVlOw0KfQ=="));
+        $extId = 'Xtento_OrderExport917370';
+        $sPath = 'orderexport/general/';
+        $sName = Mage::getModel('xtento_orderexport/system_config_backend_export_server')->getFirstName();
+        $sName2 = Mage::getModel('xtento_orderexport/system_config_backend_export_server')->getSecondName();
+        $s = trim(Mage::getModel('core/config_data')->load($sPath . 'serial', 'path')->getValue());
+        if (($s !== sha1(sha1($extId . '_' . $sName))) && $s !== sha1(sha1($extId . '_' . $sName2))) {
+            Mage::getConfig()->saveConfig($sPath . 'enabled', 0);
+            Mage::getConfig()->cleanCache();
+            return false;
+        } else {
+            return true;
+        }
     }
 }

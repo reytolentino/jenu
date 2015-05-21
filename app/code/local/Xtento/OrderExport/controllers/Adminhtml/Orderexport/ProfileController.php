@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-08T15:08:11+01:00
+ * Last Modified: 2014-11-04T11:26:34+01:00
  * File:          app/code/local/Xtento/OrderExport/controllers/Adminhtml/Orderexport/ProfileController.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Adminhtml_OrderExport_ProfileController extends Xtento_OrderExport_Controller_Abstract
@@ -68,6 +68,11 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ProfileController extends Xtento_
         Mage::unregister('order_export_profile');
         Mage::register('order_export_profile', $model);
 
+        // Add check for "cronjob export" + "export each order separately" and no unique variable in filename
+        if ($model->getCronjobEnabled() && $model->getExportOneFilePerObject() && $model->getXslTemplate() != '' && !preg_match("/%lastincrementid%/", $model->getXslTemplate()) && !preg_match("/%lastentityid%/", $model->getXslTemplate()) && !preg_match("/%lastorderincrementid%/", $model->getXslTemplate()) && !preg_match("/%realorderid%/", $model->getXslTemplate())) {
+            Mage::getSingleton('adminhtml/session')->addWarning(Mage::helper('xtento_orderexport')->__('Warning: You have enabled "Export each %s separately" and "Cronjob Export". However, no unique variable was added to the "filename" of your output file in the "Output Format" tab. Because of this, when the cronjob exports, multiple files with the same name will be created, and thus just one file gets saved, which is wrong. Please make sure to add a unique variable to the "filename" in the "Output Format" tab, so multiple files with unique filenames will be generated. A valid unique variable is %%lastincrementid%% for example which is the last increment id.', Mage::registry('order_export_profile')->getEntity()));
+        }
+
         $this->_initAction()
             ->_addBreadcrumb($id ? Mage::helper('xtento_orderexport')->__('Edit Profile') : Mage::helper('xtento_orderexport')->__('New Profile'), $id ? Mage::helper('xtento_orderexport')->__('Edit Profile') : Mage::helper('xtento_orderexport')->__('New Profile'))
             ->_addContent($this->getLayout()->createBlock('xtento_orderexport/adminhtml_profile_edit')->setData('action', $this->getUrl('*/*/save')))
@@ -91,6 +96,7 @@ class Xtento_OrderExport_Adminhtml_OrderExport_ProfileController extends Xtento_
                 $postData['conditions'] = $postData['rule']['conditions'];
                 unset($postData['rule']);
             }
+            #var_dump($postData); die();
             $model->setData($postData);
             if ($model->getId()) {
                 $profile = Mage::getModel('xtento_orderexport/profile')->load($model->getId());

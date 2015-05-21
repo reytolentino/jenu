@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
  * Last Modified: 2013-02-18T17:30:50+01:00
  * File:          app/code/local/Xtento/OrderExport/controllers/Adminhtml/Orderexport/ToolsController.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Adminhtml_Orderexport_ToolsController extends Xtento_OrderExport_Controller_Abstract

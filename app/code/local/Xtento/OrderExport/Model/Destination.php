@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-02-18T17:24:12+01:00
+ * Last Modified: 2014-11-10T23:42:06+01:00
  * File:          app/code/local/Xtento/OrderExport/Model/Destination.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Destination extends Mage_Core_Model_Abstract
@@ -109,9 +109,31 @@ class Xtento_OrderExport_Model_Destination extends Mage_Core_Model_Abstract
                 array($this->_getResource()->getIdFieldName() => $realId),
                 array("`{$this->_getResource()->getIdFieldName()}` = {$this->getId()}")
             );
-            $write->commit();
+            #$write->commit();
         }
 
         return $this;
+    }
+
+    /*
+     * Fix bad user input for specific configuration values when requested by the module
+     */
+    public function getHostname() {
+        $hostname = $this->getData('hostname');
+        $hostname = str_replace(array('ftp://', 'http://'), '', $hostname);
+        $hostname = trim($hostname);
+        return $hostname;
+    }
+
+    public function getPort() {
+        $port = $this->getData('port');
+        $port = preg_replace('/[^0-9]/', '', $port);
+        return $port;
+    }
+
+    public function getTimeout() {
+        $timeout = $this->getData('timeout');
+        $timeout = preg_replace('/[^0-9]/', '', $timeout);
+        return $timeout;
     }
 }

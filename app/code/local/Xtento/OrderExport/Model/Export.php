@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-03-27T21:57:04+01:00
+ * Last Modified: 2015-04-20T11:18:32+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
@@ -24,6 +24,8 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
     const ENTITY_SHIPMENT = 'shipment';
     const ENTITY_CREDITMEMO = 'creditmemo';
     const ENTITY_QUOTE = 'quote'; // Experimental
+    const ENTITY_AWRMA = 'awrma'; // aheadWorks RMA
+    const ENTITY_BOOSTRMA = 'boostrma'; // BoostMyShop Product Return / RMA
 
     // Export types
     const EXPORT_TYPE_TEST = 0; // Test Export
@@ -52,6 +54,12 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
             $values[Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER] = Mage::helper('xtento_orderexport')->__('Customers');
             if ($this->_getExperimentalFeatureSupport()) {
                 $values[Xtento_OrderExport_Model_Export::ENTITY_QUOTE] = Mage::helper('xtento_orderexport')->__('Quotes');
+            }
+            if (Mage::helper('xtcore/utils')->isExtensionInstalled('AW_Rma')) {
+                $values[Xtento_OrderExport_Model_Export::ENTITY_AWRMA] = Mage::helper('xtento_orderexport')->__('aheadWorks RMA');
+            }
+            if (Mage::helper('xtcore/utils')->isExtensionInstalled('MDN_ProductReturn')) {
+                $values[Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA] = Mage::helper('xtento_orderexport')->__('BoostMyShop RMA');
             }
         }
         return $values;
@@ -144,12 +152,13 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
     private function _runExport($filters, $forcedCollectionItem = false)
     {
         try {
-            set_time_limit(0);
+            @set_time_limit(0);
+            Mage::helper('xtcore/utils')->increaseMemoryLimit('1024M');
             if (!$this->getProfile()) {
                 Mage::throwException(Mage::helper('xtento_orderexport')->__('No profile to export specified.'));
             }
             $returnArray = $this->_exportObjects($filters, $forcedCollectionItem);
-            if (empty($returnArray)) {
+            if (empty($returnArray) && !$this->getProfile()->getExportEmptyFiles()) {
                 Mage::throwException(Mage::helper('xtento_orderexport')->__('0 %ss have been exported.', $this->getProfile()->getEntity()));
             }
             $this->setReturnArrayWithObjects($returnArray);
@@ -175,6 +184,15 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                 // Create just one file for all exported objects
                 $generatedFiles = Mage::getModel('xtento_orderexport/output_' . $type, array('profile' => $this->getProfile()))->convertData($this->getReturnArrayWithObjects());
             }
+            // Check for empty files
+            if (!$this->getProfile()->getExportEmptyFiles()) {
+                foreach ($generatedFiles as $filename => $data) {
+                    if (strlen($data) === 0) {
+                        unset($generatedFiles[$filename]);
+                    }
+                }
+            }
+            // Set generated files
             $this->setGeneratedFiles($generatedFiles);
             if (is_array($this->getReturnArrayWithObjects()) && $this->getLogEntry()) {
                 $this->getLogEntry()->setRecordsExported(count($this->getReturnArrayWithObjects()));
@@ -213,6 +231,9 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
         if ($this->getExportFilterNewOnly() && ($this->getExportType() == self::EXPORT_TYPE_MANUAL /* || $this->getExportType() == self::EXPORT_TYPE_GRID*/)) {
             $this->_addExportOnlyNewFilter($collection);
         }
+        #var_dump($filters);
+        #echo $collection->getSelect();
+        #echo $collection->count(); die();
         $export->setProfile($this->getProfile());
         return $export->runExport($forcedCollectionItem);
     }
@@ -220,10 +241,16 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
     private function _addExportOnlyNewFilter($collection)
     {
         $joinTable = ($this->getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) ? 'e' : 'main_table';
+        $checkField = 'entity_id';
+        if ($this->getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+            $checkField = 'id';
+        } else if ($this->getProfile()->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+            $checkField = 'rma_id';
+        }
         // Filter and hide objects that have been exported previously
         $collection->getSelect()->joinLeft(
             array('export_history' => $collection->getTable('xtento_orderexport/history')),
-            $joinTable . '.entity_id = export_history.entity_id and ' . $collection->getConnection()->quoteInto('export_history.entity = ?', $this->getProfile()->getEntity()) . ' and ' . $collection->getConnection()->quoteInto('export_history.profile_id = ?', $this->getProfile()->getId()),
+            $joinTable . '.' . $checkField . ' = export_history.entity_id and ' . $collection->getConnection()->quoteInto('export_history.entity = ?', $this->getProfile()->getEntity()) . ' and ' . $collection->getConnection()->quoteInto('export_history.profile_id = ?', $this->getProfile()->getId()),
             array()
         );
         $collection->getSelect()->where('export_history.entity_id IS NULL');
@@ -282,6 +309,7 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
     private function _afterExport()
     {
         if ($this->getLogEntry()->getResult() !== Xtento_OrderExport_Model_Log::RESULT_FAILED) {
+            Mage::register('do_not_process_event_exports', true, true);
             $this->_invoiceShipOrder();
             $this->_adjustOrderStatus();
             $this->_cancelOrder();
@@ -289,6 +317,7 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
             if ($this->getProfile()->getExportFilterNewOnly() || $this->getExportFilterNewOnly()) {
                 $this->_createExportHistoryEntries();
             }
+            Mage::unregister('do_not_process_event_exports');
         }
         $this->_saveLog();
         Mage::unregister('order_export_profile');
@@ -313,6 +342,7 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
 
     private function _adjustOrderStatus()
     {
+        $statusUpdated = false;
         if ($this->getProfile()->getEntity() == self::ENTITY_ORDER) {
             if (($this->getProfile()->getExportActionChangeStatus() !== '' || $this->getForceChangeStatus() !== NULL) && ($this->getExportType() == self::EXPORT_TYPE_MANUAL || $this->getExportType() == self::EXPORT_TYPE_GRID)) {
                 if ($this->getForceChangeStatus() !== 'no_change') {
@@ -321,11 +351,16 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                     } else {
                         $this->_changeOrderStatus($this->getProfile()->getExportActionChangeStatus());
                     }
+                    $statusUpdated = true;
                 }
             }
             if ($this->getProfile()->getExportActionChangeStatus() !== '' && ($this->getExportType() == self::EXPORT_TYPE_EVENT || $this->getExportType() == self::EXPORT_TYPE_CRONJOB)) {
                 $this->_changeOrderStatus($this->getProfile()->getExportActionChangeStatus());
+                $statusUpdated = true;
             }
+        }
+        if (!$statusUpdated && $this->getProfile()->getExportActionAddComment() != '') {
+            $this->_addStatusHistoryComment();
         }
     }
 
@@ -336,7 +371,7 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
             if (empty($returnArray)) {
                 return;
             }
-            if (!$this->getProfile()->getExportActionInvoiceOrder() && !$this->getProfile()->getExportActionShipOrder()) {
+            if (!$this->getProfile()->getExportActionInvoiceOrder() && !$this->getProfile()->getExportActionShipOrder() && !$this->getProfile()->getExportActionInvoiceNotify() && !$this->getProfile()->getExportActionShipNotify()) {
                 return;
             }
             $doNotifyInvoice = $this->getProfile()->getExportActionInvoiceNotify();
@@ -347,7 +382,6 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                     if (!$order->getId()) {
                         continue;
                     }
-                    Mage::register('do_not_process_event_exports', true, true);
                     // Invoice order
                     if ($this->getProfile()->getExportActionInvoiceOrder() && $order->canInvoice()) {
                         /** @var $invoice Mage_Sales_Model_Order_Invoice */
@@ -421,9 +455,7 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                             }
                         }
                     }*/
-                    Mage::unregister('do_not_process_event_exports');
                 } catch (Exception $e) {
-                    Mage::unregister('do_not_process_event_exports');
                     Mage::log('Exception catched while invoicing/shipping order id ' . $object['entity_id'] . ': ' . $e->getMessage(), null, 'xtento_orderexport_error.log', true);
                     continue;
                 }
@@ -445,13 +477,14 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                 $order = Mage::getModel('sales/order')->load($object['entity_id']);
                 if ($order->getId()) {
                     if ($order->getStatus() !== $newStatus) {
-                        $this->_setOrderState($order, $newStatus);
-                        $order->setStatus($newStatus);
-                        if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.0', '>=')) {
-                            $order->addStatusHistoryComment('', $order->getStatus())->setIsCustomerNotified(0);
-                        } else {
-                            // 1.3 compatibility
-                            $order->addStatusToHistory($order->getStatus());
+                        $commentAdded = $this->_setOrderState($order, $newStatus);
+                        if (!$commentAdded && $this->getProfile()->getExportActionAddComment() != '') {
+                            if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.0', '>=')) {
+                                $order->addStatusHistoryComment($this->getProfile()->getExportActionAddComment(), false)->setIsCustomerNotified(0);
+                            } else {
+                                // 1.3 compatibility
+                                $order->addStatusToHistory(false, $this->getProfile()->getExportActionAddComment());
+                            }
                         }
                         // Compatibility fix for Amasty_OrderStatus
                         $statusModel = Mage::registry('amorderstatus_history_status');
@@ -464,6 +497,34 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                 }
             } catch (Exception $e) {
                 Mage::log('Exception catched while changing order status for order id ' . $object['entity_id'] . ': ' . $e->getMessage(), null, 'xtento_orderexport_error.log', true);
+                continue;
+            }
+        }
+    }
+
+    /*
+     * This function is only called if no "Change order status" value was selected
+     */
+    private function _addStatusHistoryComment()
+    {
+        $returnArray = $this->getReturnArrayWithObjects();
+        if (empty($returnArray)) {
+            return;
+        }
+        foreach ($returnArray as $object) {
+            try {
+                $order = Mage::getModel('sales/order')->load($object['entity_id']);
+                if ($order->getId()) {
+                    if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.0', '>=')) {
+                        $order->addStatusHistoryComment($this->getProfile()->getExportActionAddComment(), false)->setIsCustomerNotified(0);
+                    } else {
+                        // 1.3 compatibility
+                        $order->addStatusToHistory(false, $this->getProfile()->getExportActionAddComment());
+                    }
+                    $order->save();
+                }
+            } catch (Exception $e) {
+                Mage::log('Exception catched while adding order status history comment for order id ' . $object['entity_id'] . ': ' . $e->getMessage(), null, 'xtento_orderexport_error.log', true);
                 continue;
             }
         }
@@ -498,7 +559,7 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
     private function _setOrderState($order, $newOrderStatus)
     {
         if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.5.0.0', '>=')) {
-            if (!isset($this->_orderStates)) {
+            if (!isset($this->_orderStates) || empty($this->_orderStates)) {
                 $this->_orderStates = Mage::getModel('sales/order_config')->getStates();
             }
             foreach ($this->_orderStates as $state => $label) {
@@ -507,17 +568,50 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
                 }
                 foreach ($this->_stateStatuses[$state] as $status) {
                     if ($status == $newOrderStatus) {
-                        $order->setData('state', $state);
-                        return;
+                        // Get order status history commment to add
+                        $orderStatusHistoryComment = '';
+                        if ($this->getProfile()->getExportActionAddComment() != '') {
+                            $orderStatusHistoryComment = $this->getProfile()->getExportActionAddComment();
+                        }
+                        // Change state/status
+                        if (!$order->isStateProtected($state)) {
+                            $order->setState($state, $newOrderStatus, $orderStatusHistoryComment, false);
+                        } else {
+                            $order->setData('state', $state);
+                            $order->setStatus($newOrderStatus);
+                            if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.0', '>=')) {
+                                $order->addStatusHistoryComment($orderStatusHistoryComment, false)->setIsCustomerNotified(0);
+                            } else {
+                                // 1.3 compatibility
+                                $order->addStatusToHistory(false, $orderStatusHistoryComment);
+                            }
+                        }
+                        return true; // Status changed
                     }
                 }
             }
+            // Order state not found - status maybe not assigned to a state
+            $order->setStatus($newOrderStatus);
+        } else { // Pre 1.5
+            // Get order status history commment to add
+            $orderStatusHistoryComment = '';
+            if ($this->getProfile()->getExportActionAddComment() != '') {
+                $orderStatusHistoryComment = $this->getProfile()->getExportActionAddComment();
+            }
+            $order->setStatus($newOrderStatus);
+            if (Mage::helper('xtcore/utils')->mageVersionCompare(Mage::getVersion(), '1.4.0.0', '>=')) {
+                $order->addStatusHistoryComment($orderStatusHistoryComment, false)->setIsCustomerNotified(0);
+            } else {
+                // 1.3 compatibility
+                $order->addStatusToHistory(false, $orderStatusHistoryComment);
+            }
         }
+        return false;
     }
 
     private function _saveLog()
     {
-        $this->getProfile()->setLastExecution(now())->save();
+        $this->_saveLastExecutionNow();
         if (is_array($this->getFiles())) {
             $this->getLogEntry()->setFiles(implode("|", $this->getFiles()));
         }
@@ -526,6 +620,16 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
         $this->getLogEntry()->save();
         $this->_errorEmailNotification();
         #Mage::unregister('export_log');
+    }
+
+    private function _saveLastExecutionNow()
+    {
+        $write = Mage::getSingleton('core/resource')->getConnection('core_write');
+        $write->update(
+            $this->getProfile()->_getResource()->getMainTable(),
+            array('last_execution' => now()),
+            array("`{$this->getProfile()->_getResource()->getIdFieldName()}` = {$this->getProfile()->getId()}")
+        );
     }
 
     private function _errorEmailNotification()
@@ -537,15 +641,13 @@ class Xtento_OrderExport_Model_Export extends Mage_Core_Model_Abstract
             try {
                 $mail = new Zend_Mail();
                 $mail->setFrom('store@' . @$_SERVER['SERVER_NAME'], @$_SERVER['SERVER_NAME']);
-                $mail->addTo(Mage::helper('xtento_orderexport')->getDebugEmail(), Mage::helper('xtento_orderexport')->getDebugEmail());
+                foreach (explode(",", Mage::helper('xtento_orderexport')->getDebugEmail()) as $emailAddress) {
+                    $emailAddress = trim($emailAddress);
+                    $mail->addTo($emailAddress, $emailAddress);
+                }
                 $mail->setSubject('Magento Order Export Module @ ' . @$_SERVER['SERVER_NAME']);
                 $mail->setBodyText('Warning/Error/Message(s): ' . $this->getLogEntry()->getResultMessages());
-                if (Mage::helper('xtcore/utils')->isExtensionInstalled('Aschroder_SMTPPro') && Mage::helper('smtppro')->isEnabled()) {
-                    // SMTPPro extension
-                    $mail->send(Mage::helper('smtppro')->getTransport());
-                } else {
-                    $mail->send();
-                }
+                $mail->send(Mage::helper('xtcore/utils')->getEmailTransport());
             } catch (Exception $e) {
                 $this->getLogEntry()->addResultMessage('Exception: ' . $e->getMessage());
                 $this->getLogEntry()->setResult(Xtento_OrderExport_Model_Log::RESULT_WARNING);

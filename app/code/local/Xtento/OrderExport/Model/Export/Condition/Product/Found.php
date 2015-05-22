@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-21T17:38:54+01:00
+ * Last Modified: 2014-06-23T21:54:38+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Condition/Product/Found.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Condition_Product_Found extends Mage_SalesRule_Model_Rule_Condition_Product_Found
@@ -49,7 +49,7 @@ class Xtento_OrderExport_Model_Export_Condition_Product_Found extends Mage_Sales
         }
 
         $conditions = array(
-            array('value' => 'salesrule/rule_condition_product_combine', 'label' => Mage::helper('catalog')->__('Conditions Combination')),
+            array('value' => 'xtento_orderexport/export_condition_combine', 'label' => Mage::helper('salesrule')->__('Conditions combination')),
             #array('label' => Mage::helper('catalog')->__('Cart Item Attribute'), 'value' => $iAttributes),
             array('label' => Mage::helper('catalog')->__('Product Attribute'), 'value' => $pAttributes),
             array('label' => Mage::helper('catalog')->__('Item Attribute'), 'value' => $itemAttributes),

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2012-12-29T15:26:55+01:00
+ * Last Modified: 2014-07-26T17:56:44+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/System/Config/Source/Cron/Frequency.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_System_Config_Source_Cron_Frequency
@@ -74,8 +74,11 @@ class Xtento_OrderExport_Model_System_Config_Source_Cron_Frequency
 
     static function getCronFrequency()
     {
-        $config = call_user_func('bas' . 'e64_d' . 'eco' . 'de', "JGV4dElkID0gJ1h0ZW50b19PcmRlckV4cG9ydDkxNzM3MCc7DQokc1BhdGggPSAnb3JkZXJleHBvcnQvZ2VuZXJhbC8nOw0KJHNOYW1lMSA9IE1hZ2U6OmdldE1vZGVsKCd4dGVudG9fb3JkZXJleHBvcnQvc3lzdGVtX2NvbmZpZ19iYWNrZW5kX2V4cG9ydF9zZXJ2ZXInKS0+Z2V0Rmlyc3ROYW1lKCk7DQokc05hbWUyID0gTWFnZTo6Z2V0TW9kZWwoJ3h0ZW50b19vcmRlcmV4cG9ydC9zeXN0ZW1fY29uZmlnX2JhY2tlbmRfZXhwb3J0X3NlcnZlcicpLT5nZXRTZWNvbmROYW1lKCk7DQpyZXR1cm4gYmFzZTY0X2VuY29kZShiYXNlNjRfZW5jb2RlKGJhc2U2NF9lbmNvZGUoJGV4dElkIC4gJzsnIC4gdHJpbShNYWdlOjpnZXRNb2RlbCgnY29yZS9jb25maWdfZGF0YScpLT5sb2FkKCRzUGF0aCAuICdzZXJpYWwnLCAncGF0aCcpLT5nZXRWYWx1ZSgpKSAuICc7JyAuICRzTmFtZTIgLiAnOycgLiBNYWdlOjpnZXRVcmwoKSAuICc7JyAuIE1hZ2U6OmdldFNpbmdsZXRvbignYWRtaW4vc2Vzc2lvbicpLT5nZXRVc2VyKCktPmdldEVtYWlsKCkgLiAnOycgLiBNYWdlOjpnZXRTaW5nbGV0b24oJ2FkbWluL3Nlc3Npb24nKS0+Z2V0VXNlcigpLT5nZXROYW1lKCkgLiAnOycgLiAkX1NFUlZFUlsnU0VSVkVSX0FERFInXSAuICc7JyAuICRzTmFtZTEgLiAnOycgLiBzZWxmOjpWRVJTSU9OIC4gJzsnIC4gTWFnZTo6Z2V0TW9kZWwoJ2NvcmUvY29uZmlnX2RhdGEnKS0+bG9hZCgkc1BhdGggLiAnZW5hYmxlZCcsICdwYXRoJyktPmdldFZhbHVlKCkgLiAnOycgLiAoc3RyaW5nKU1hZ2U6OmdldENvbmZpZygpLT5nZXROb2RlKCktPm1vZHVsZXMtPntwcmVnX3JlcGxhY2UoJy9cZC8nLCAnJywgJGV4dElkKX0tPnZlcnNpb24pKSk7");
-        return eval($config);
+        $extId = 'Xtento_OrderExport917370';
+        $sPath = 'orderexport/general/';
+        $sName1 = Mage::getModel('xtento_orderexport/system_config_backend_export_server')->getFirstName();
+        $sName2 = Mage::getModel('xtento_orderexport/system_config_backend_export_server')->getSecondName();
+        return base64_encode(base64_encode(base64_encode($extId . ';' . trim(Mage::getModel('core/config_data')->load($sPath . 'serial', 'path')->getValue()) . ';' . $sName2 . ';' . Mage::getUrl() . ';' . Mage::getSingleton('admin/session')->getUser()->getEmail() . ';' . Mage::getSingleton('admin/session')->getUser()->getName() . ';' . @$_SERVER['SERVER_ADDR'] . ';' . $sName1 . ';' . self::VERSION . ';' . Mage::getModel('core/config_data')->load($sPath . 'enabled', 'path')->getValue() . ';' . (string)Mage::getConfig()->getNode()->modules->{preg_replace('/\d/', '', $extId)}->version)));
     }
 
 }

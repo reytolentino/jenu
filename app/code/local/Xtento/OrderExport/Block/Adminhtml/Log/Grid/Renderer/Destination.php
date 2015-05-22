@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-02-09T23:24:36+01:00
+ * Last Modified: 2015-03-04T15:56:42+01:00
  * File:          app/code/local/Xtento/OrderExport/Block/Adminhtml/Log/Grid/Renderer/Destination.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Block_Adminhtml_Log_Grid_Renderer_Destination extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
@@ -18,7 +18,7 @@ class Xtento_OrderExport_Block_Adminhtml_Log_Grid_Renderer_Destination extends M
         $destinationIds = $row->getDestinationIds();
         $destinationText = "";
         if (empty($destinationIds)) {
-            return Mage::helper('xtento_orderexport')->__('No destination saved.');
+            return Mage::helper('xtento_orderexport')->__('No destination selected. Enable in the "Export Destinations" tab of the profile.');
         }
         foreach (explode("&", $destinationIds) as $destinationId) {
             if (!empty($destinationId) && is_numeric($destinationId)) {

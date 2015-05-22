@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-01-11T17:41:15+01:00
+ * Last Modified: 2014-07-22T23:14:35+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Observer/Massaction.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Observer_Massaction extends Mage_Core_Model_Abstract
@@ -27,14 +27,13 @@ class Xtento_OrderExport_Model_Observer_Massaction extends Mage_Core_Model_Abstr
 
     private function _addMassActions($block, $type)
     {
-        // @todo: Add option in configuration: Show each export option separately or with profile select dropdown (as it is now)
         if (($block instanceof Mage_Adminhtml_Block_Widget_Grid_Massaction || $block instanceof Enterprise_SalesArchive_Block_Adminhtml_Sales_Order_Grid_Massaction) && $this->_initBlocks() && in_array($block->getRequest()->getControllerName(), $this->getControllerNames($type))) {
             if (Mage::registry('moduleString') !== 'false') {
                 return;
             }
             $isSecure = Mage::app()->getStore()->isCurrentlySecure() ? true : false;
             $block->addItem('xtento_' . $type . '_export', array(
-                'label' => Mage::helper('xtento_orderexport')->__('Export ' . ucfirst($type) . 's'),
+                'label' => Mage::helper('xtento_orderexport')->__('Export %ss', Mage::helper('xtento_orderexport/entity')->getEntityName($type)),
                 'url' => Mage::app()->getStore()->getUrl('adminhtml/orderexport_manual/gridPost', array('_secure' => $isSecure, 'type' => $type)),
                 'additional' => array(
                     'profile_id' => array(
@@ -52,7 +51,7 @@ class Xtento_OrderExport_Model_Observer_Massaction extends Mage_Core_Model_Abstr
     /*
      * Get controller names where the module is supposed to modify the block
      */
-    private function getControllerNames($type = false)
+    protected function getControllerNames($type = false)
     {
         $controllerNames = array();
         if (!$type || $type == Xtento_OrderExport_Model_Export::ENTITY_ORDER) {

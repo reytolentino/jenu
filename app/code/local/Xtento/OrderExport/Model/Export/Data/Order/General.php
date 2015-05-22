@@ -1,16 +1,18 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-11T17:21:58+01:00
+ * Last Modified: 2015-03-19T17:22:29+01:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Order/General.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Order_General extends Xtento_OrderExport_Model_Export_Data_Abstract
 {
+    private $_origWriteArray;
+
     public function getConfiguration()
     {
         return array(
@@ -18,7 +20,7 @@ class Xtento_OrderExport_Model_Export_Data_Order_General extends Xtento_OrderExp
             'category' => 'Order',
             'description' => 'Export extended order information from the sales_flat_order table.',
             'enabled' => true,
-            'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO),
+            'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO, Xtento_OrderExport_Model_Export::ENTITY_AWRMA, Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA),
         );
     }
 
@@ -37,6 +39,7 @@ class Xtento_OrderExport_Model_Export_Data_Order_General extends Xtento_OrderExp
             if ($this->fieldLoadingRequired('updated_at_timestamp')) $this->writeValue('updated_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($order->getUpdatedAt()));
             $this->writeValue('entity_id', $order->getEntityId());
         }
+        $this->_origWriteArray = & $this->_writeArray;
 
         // Nicer store name
         $this->writeValue('store_name_orig', $order->getStoreName());
@@ -61,28 +64,31 @@ class Xtento_OrderExport_Model_Export_Data_Order_General extends Xtento_OrderExp
         }*/
 
         // Last invoice, shipment, credit memo ID
-        if ($order->getInvoiceCollection() && $order->hasInvoices() && ($this->fieldLoadingRequired('invoice_increment_id') || $this->fieldLoadingRequired('invoice_created_at_timestamp'))) {
+        if ($order->getInvoiceCollection() && $order->hasInvoices() && ($this->fieldLoadingRequired('invoice_increment_id') || $this->fieldLoadingRequired('invoice_created_at_timestamp') || $this->fieldLoadingRequired('invoice_updated_at_timestamp'))) {
             $invoiceCollection = $order->getInvoiceCollection();
             if (!empty($invoiceCollection)) {
                 $lastInvoice = $invoiceCollection->getLastItem();
                 $this->writeValue('invoice_increment_id', $lastInvoice->getIncrementId());
                 $this->writeValue('invoice_created_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($lastInvoice->getCreatedAt()));
+                $this->writeValue('invoice_updated_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($lastInvoice->getUpdatedAt()));
             }
         }
-        if ($order->getShipmentsCollection() && $order->hasShipments() && ($this->fieldLoadingRequired('shipment_increment_id') || $this->fieldLoadingRequired('shipment_created_at_timestamp'))) {
+        if ($order->getShipmentsCollection() && $order->hasShipments() && ($this->fieldLoadingRequired('shipment_increment_id') || $this->fieldLoadingRequired('shipment_created_at_timestamp') || $this->fieldLoadingRequired('shipment_updated_at_timestamp'))) {
             $shipmentCollection = $order->getShipmentsCollection();
             if (!empty($shipmentCollection)) {
                 $lastShipment = $shipmentCollection->getLastItem();
                 $this->writeValue('shipment_increment_id', $lastShipment->getIncrementId());
                 $this->writeValue('shipment_created_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($lastShipment->getCreatedAt()));
+                $this->writeValue('shipment_updated_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($lastShipment->getUpdatedAt()));
             }
         }
-        if ($order->getCreditmemosCollection() && $order->hasCreditmemos() && ($this->fieldLoadingRequired('creditmemo_increment_id') || $this->fieldLoadingRequired('creditmemo_created_at_timestamp'))) {
+        if ($order->getCreditmemosCollection() && $order->hasCreditmemos() && ($this->fieldLoadingRequired('creditmemo_increment_id') || $this->fieldLoadingRequired('creditmemo_created_at_timestamp') || $this->fieldLoadingRequired('creditmemo_updated_at_timestamp'))) {
             $creditmemoCollection = $order->getCreditmemosCollection();
             if (!empty($creditmemoCollection)) {
                 $lastCreditmemo = $creditmemoCollection->getLastItem();
                 $this->writeValue('creditmemo_increment_id', $lastCreditmemo->getIncrementId());
                 $this->writeValue('creditmemo_created_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($lastCreditmemo->getCreatedAt()));
+                $this->writeValue('creditmemo_updated_at_timestamp', Mage::helper('xtento_orderexport/date')->convertDateToStoreTimestamp($lastCreditmemo->getUpdatedAt()));
             }
         }
 
@@ -112,7 +118,28 @@ class Xtento_OrderExport_Model_Export_Data_Order_General extends Xtento_OrderExp
                     }
                     $this->writeValue('image_url', $wrapping->getImageUrl());
                 }
+                $this->_writeArray = & $this->_origWriteArray;
             }
+        }
+
+        // Serialized gift_cards column on sales/order level
+        if ($this->fieldLoadingRequired('giftcards')) {
+            $this->_writeArray['giftcards'] = array();
+            $giftCardsArray = & $this->_writeArray['giftcards'];
+            if ($order->getData('gift_cards')) {
+                #$giftCardSerialized = 'a:1:{i:0;a:5:{s:1:"i";s:1:"1";s:1:"c";s:12:"01S003ZRDKQD";s:1:"a";d:10.99;s:2:"ba";d:10.99;s:10:"authorized";d:10.99;}}';
+                $giftCardSerialized = $order->getData('gift_cards');
+                $giftCards = @unserialize($giftCardSerialized);
+                if (!empty($giftCards) && is_array($giftCards)) {
+                    foreach ($giftCards as $giftCard) {
+                        $this->_writeArray = & $giftCardsArray[];
+                        foreach ($giftCard as $key => $value) {
+                            $this->writeValue($key, $value);
+                        }
+                    }
+                }
+            }
+            $this->_writeArray = & $this->_origWriteArray;
         }
 
         // Done

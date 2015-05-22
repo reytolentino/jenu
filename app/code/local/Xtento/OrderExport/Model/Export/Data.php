@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-03-12T22:37:19+01:00
+ * Last Modified: 2015-05-20T13:18:42+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data extends Mage_Core_Model_Abstract
@@ -62,7 +62,7 @@ class Xtento_OrderExport_Model_Export_Data extends Mage_Core_Model_Abstract
         }
         $exportData = array();
         foreach ($this->_registeredExportData as $dataIdentifier => $dataConfig) {
-            $className = current($dataConfig->class);
+            $className = @current($dataConfig->class);
             if (!$className) {
                 $className = (string)$dataConfig->class;
             }
@@ -110,7 +110,7 @@ class Xtento_OrderExport_Model_Export_Data extends Mage_Core_Model_Abstract
             $this->_getRegisteredExportData();
         }
         foreach ($this->_registeredExportData as $dataIdentifier => $dataConfig) {
-            $className = current($dataConfig->class);
+            $className = @current($dataConfig->class);
             Mage::unregister('_singleton/' . $className);
         }
     }

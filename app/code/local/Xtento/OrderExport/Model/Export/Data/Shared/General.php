@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-08T20:03:31+01:00
+ * Last Modified: 2014-07-14T21:16:21+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Shared/General.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Shared_General extends Xtento_OrderExport_Model_Export_Data_Abstract
@@ -16,9 +16,9 @@ class Xtento_OrderExport_Model_Export_Data_Shared_General extends Xtento_OrderEx
         return array(
             'name' => 'Entity fields',
             'category' => 'Shared',
-            'description' => 'Export fields from the respective sales_flat_*entity* table.',
+            'description' => 'Export fields from the respective *entity* table.',
             'enabled' => true,
-            'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO, Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER, Xtento_OrderExport_Model_Export::ENTITY_QUOTE),
+            'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO, Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER, Xtento_OrderExport_Model_Export::ENTITY_QUOTE, Xtento_OrderExport_Model_Export::ENTITY_AWRMA, Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA),
         );
     }
 
@@ -54,8 +54,6 @@ class Xtento_OrderExport_Model_Export_Data_Shared_General extends Xtento_OrderEx
             // Just the entity_id at least for orders
             $this->writeValue('entity_id', $object->getId());
         }
-
-        // @todo: Export shipping, tax, etc as line item
 
         // Done
         return $returnArray;

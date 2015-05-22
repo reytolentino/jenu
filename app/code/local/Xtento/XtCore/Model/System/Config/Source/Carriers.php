@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_XtCore (1.0.0)
+ * Product:       Xtento_XtCore (1.1.7)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
  * Last Modified: 2012-07-17T23:15:30+02:00
  * File:          app/code/local/Xtento/XtCore/Model/System/Config/Source/Carriers.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_XtCore_Model_System_Config_Source_Carriers

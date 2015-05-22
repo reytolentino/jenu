@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
  * Last Modified: 2013-10-18T19:22:18+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Custom/Order/KamtechGiftwrapper.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Data_Custom_Order_KamtechGiftwrapper extends Xtento_OrderExport_Model_Export_Data_Abstract

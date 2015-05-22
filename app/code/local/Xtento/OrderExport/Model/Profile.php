@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-11-20T19:33:13+01:00
+ * Last Modified: 2014-07-14T21:08:18+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Profile.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Profile extends Mage_Rule_Model_Rule
@@ -66,6 +66,10 @@ class Xtento_OrderExport_Model_Profile extends Mage_Rule_Model_Rule
         $historyCollection->getSelect()->limit(1);
         if ($this->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_QUOTE) {
             $historyCollection->getSelect()->joinLeft(array('object' => $historyCollection->getTable('sales/' . $this->getEntity())), 'main_table.entity_id = object.entity_id', array('object.entity_id'));
+        } else if ($this->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_AWRMA) {
+            $historyCollection->getSelect()->joinLeft(array('object' => $historyCollection->getTable('awrma/entity')), 'main_table.entity_id = object.id', array('object.id'));
+        } else if ($this->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+            $historyCollection->getSelect()->joinLeft(array('object' => $historyCollection->getTable('ProductReturn/rma')), 'main_table.entity_id = object.rma_id', array('object.rma_id'));
         } else if ($this->getEntity() == Xtento_OrderExport_Model_Export::ENTITY_CUSTOMER) {
             $historyCollection->getSelect()->joinLeft(array('object' => $historyCollection->getTable('customer/entity')), 'main_table.entity_id = object.entity_id', array('object.entity_id'));
         } else {

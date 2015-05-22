@@ -47,7 +47,17 @@
         <items>
             <class>xtento_orderexport/export_data_shared_items</class>
         </items>
+        <!-- Third party entities -->
+        <awrma_general>
+            <class>xtento_orderexport/export_data_awrma_general</class>
+        </awrma_general>
+        <boostrma_general>
+            <class>xtento_orderexport/export_data_boostrma_general</class>
+        </boostrma_general>
         <!-- Third party -->
+        <aw_orderattributes>
+            <class>xtento_orderexport/export_data_custom_order_aWOrderattributes</class>
+        </aw_orderattributes>
         <aw_points>
             <class>xtento_orderexport/export_data_custom_order_aWPoints</class>
         </aw_points>
@@ -66,6 +76,15 @@
         <amasty_ordermemos>
             <class>xtento_orderexport/export_data_custom_order_amastyOrderMemos</class>
         </amasty_ordermemos>
+        <belvg_checkoutfields>
+            <class>xtento_orderexport/export_data_custom_order_belvgCheckoutFields</class>
+        </belvg_checkoutfields>
+        <collect_plus>
+            <class>xtento_orderexport/export_data_custom_order_collectPlus</class>
+        </collect_plus>
+        <customweb_isrrecord>
+            <class>xtento_orderexport/export_data_custom_order_customwebIsrRecord</class>
+        </customweb_isrrecord>
         <dh_shipnote>
             <class>xtento_orderexport/export_data_custom_order_dhShipNote</class>
         </dh_shipnote>
@@ -84,6 +103,9 @@
         <mageworld_onestepcheckoutpro>
             <class>xtento_orderexport/export_data_custom_order_mageworldOSCPro</class>
         </mageworld_onestepcheckoutpro>
+        <magestore_storepickup>
+            <class>xtento_orderexport/export_data_custom_order_magestoreStorePickup</class>
+        </magestore_storepickup>
         <ebizmarts_sagepay>
             <class>xtento_orderexport/export_data_custom_order_ebizmartsSagepay</class>
         </ebizmarts_sagepay>
@@ -93,15 +115,21 @@
         <kamtech_giftwrapper>
             <class>xtento_orderexport/export_data_custom_order_kamtechGiftwrapper</class>
         </kamtech_giftwrapper>
+        <ti_deliverybydate>
+            <class>xtento_orderexport/export_data_custom_order_tiDeliverybydate</class>
+        </ti_deliverybydate>
+        <tig_postnl>
+            <class>xtento_orderexport/export_data_custom_order_tIGPostNL</class>
+        </tig_postnl>
     </data>
 </config>
 <!--
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-02-15T16:38:00+01:00
+ * Last Modified: 2015-02-07T14:22:19+01:00
  * File:          app/code/local/Xtento/OrderExport/etc/xtento/export_data.xml
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 -->

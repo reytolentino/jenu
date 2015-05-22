@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-01-15T15:30:28+01:00
+ * Last Modified: 2015-04-03T22:00:11+02:00
  * File:          app/code/local/Xtento/OrderExport/Helper/Xsl.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Helper_Xsl extends Mage_Core_Helper_Abstract
@@ -67,7 +67,7 @@ class Xtento_OrderExport_Helper_Xsl extends Mage_Core_Helper_Abstract
                 if ($precision !== '') {
                     $precision = intval(substr($precision, 1));
                     if ($precision > 0 && mb_strlen($arg, $encoding) > $precision)
-                        $arg = mb_substr($precision, 0, $precision, $encoding);
+                        $arg = mb_substr($arg, 0, $precision, $encoding);
                 }
 
                 // define padding
@@ -95,5 +95,18 @@ class Xtento_OrderExport_Helper_Xsl extends Mage_Core_Helper_Abstract
         // Convert new format back from UTF-8 to the original encoding
         $newformat = mb_convert_encoding($newformat, $encoding, 'UTF-8');
         return vsprintf($newformat, $newargv);
+    }
+
+    /**
+     * @param $value
+     * @param $fromCurrency
+     * @param null $toCurrency
+     * @return mixed
+     *
+     * If this function returns a blank page/errors out, the currency rate doesn't exist in Magento probably.
+     */
+    static function currencyConvert($value, $fromCurrency, $toCurrency = null)
+    {
+        return Mage::helper('directory')->currencyConvert($value, $fromCurrency, $toCurrency);
     }
 }

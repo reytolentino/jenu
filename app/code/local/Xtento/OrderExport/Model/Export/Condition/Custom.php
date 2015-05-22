@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-09-08T16:10:39+02:00
+ * Last Modified: 2014-12-07T22:35:53+01:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Condition/Custom.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Condition_Custom extends Mage_Core_Model_Abstract
@@ -19,8 +19,8 @@ class Xtento_OrderExport_Model_Export_Condition_Custom extends Mage_Core_Model_A
     {
         // Omitted attributes
         $this->_omitAttributes = array(
-            'status' => 'Status',
-            'state' => 'State',
+            #'status' => 'Status',
+            #'state' => 'State',
         );
         // Custom ready to use attributes
         $attributes = array(

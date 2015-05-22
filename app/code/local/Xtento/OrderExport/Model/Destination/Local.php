@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-05-22T13:58:51+02:00
+ * Last Modified: 2014-07-19T13:37:15+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Destination/Local.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Destination_Local extends Xtento_OrderExport_Model_Destination_Abstract
@@ -89,7 +89,7 @@ class Xtento_OrderExport_Model_Destination_Local extends Xtento_OrderExport_Mode
             }
             if (!@file_put_contents($exportDirectory . $filename, $data) && !empty($data)) {
                 $logEntry->setResult(Xtento_OrderExport_Model_Log::RESULT_WARNING);
-                $message = "Could not save file $filename in directory $exportDirectory";
+                $message = "Could not save file $filename in directory $exportDirectory. Please make sure the directory is writable.";
                 $logEntry->addResultMessage(Mage::helper('xtento_orderexport')->__('Destination "%s" (ID: %s): %s', $this->getDestination()->getName(), $this->getDestination()->getId(), $message));
                 if (!$this->getDestination()->getBackupDestination()) {
                     $this->getDestination()->setLastResultMessage(Mage::helper('xtento_orderexport')->__($message));

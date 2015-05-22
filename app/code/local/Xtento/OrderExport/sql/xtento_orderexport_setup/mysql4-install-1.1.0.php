@@ -7,7 +7,7 @@ $installer->startSetup();
 $installer->run("
 
 CREATE TABLE IF NOT EXISTS `" . $this->getTable('xtento_orderexport_destination') . "` (
-  `destination_id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `destination_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `type` varchar(50) NOT NULL,
   `hostname` varchar(255) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `" . $this->getTable('xtento_orderexport_destination'
   `timeout` int(5) NOT NULL DEFAULT '15',
   `path` varchar(255) NOT NULL,
   `ftp_type` enum('','ftp','ftps') NOT NULL,
-  `ftp_pasv` int(1) NOT NULL,
+  `ftp_pasv` int(1) NOT NULL DEFAULT '1',
   `email_sender` varchar(255) NOT NULL COMMENT 'E-Mail Destination',
   `email_recipient` varchar(255) NOT NULL COMMENT 'E-Mail Destination',
   `email_subject` varchar(255) NOT NULL COMMENT 'E-Mail Destination',

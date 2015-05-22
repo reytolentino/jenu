@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-02-10T16:58:29+01:00
+ * Last Modified: 2014-07-14T21:18:55+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/System/Config/Source/Export/Status.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_System_Config_Source_Export_Status
@@ -25,6 +25,11 @@ class Xtento_OrderExport_Model_System_Config_Source_Export_Status
             }
         } else if ($entity == Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT) {
 
+        } else if ($entity == Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA) {
+            $statusArray = Mage::getModel('ProductReturn/rma')->getStatuses();
+            foreach ($statusArray as $state => $label) {
+                $statuses[] = array('value' => $state, 'label' => $label);
+            }
         } else if ($entity == Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO) {
             foreach (Mage::getModel('sales/order_creditmemo')->getStates() as $state => $label) {
                 $statuses[] = array('value' => $state, 'label' => $label);

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_XtCore (1.0.0)
+ * Product:       Xtento_XtCore (1.1.7)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
  * Last Modified: 2013-10-30T18:37:16+01:00
  * File:          app/code/local/Xtento/XtCore/Model/Mysql4/Config.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_XtCore_Model_Mysql4_Config extends Mage_Core_Model_Mysql4_Abstract

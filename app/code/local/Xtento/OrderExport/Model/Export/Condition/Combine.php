@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.4.1)
+ * Product:       Xtento_OrderExport (1.7.9)
  * ID:            %!uniqueid!%
  * Packaged:      %!packaged!%
- * Last Modified: 2013-09-08T16:10:39+02:00
+ * Last Modified: 2014-12-07T22:35:48+01:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Condition/Combine.php
- * Copyright:     Copyright (c) 2014 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
 class Xtento_OrderExport_Model_Export_Condition_Combine extends Mage_Rule_Model_Condition_Combine
@@ -41,7 +41,7 @@ class Xtento_OrderExport_Model_Export_Condition_Combine extends Mage_Rule_Model_
         $conditions = array_merge_recursive($conditions, array(
             array('value' => 'xtento_orderexport/export_condition_product_found', 'label' => Mage::helper('salesrule')->__('Product / Item attribute combination')),
             array('value' => 'xtento_orderexport/export_condition_product_subselect', 'label' => Mage::helper('salesrule')->__('Products subselection')),
-            array('value' => 'salesrule/rule_condition_combine', 'label' => Mage::helper('salesrule')->__('Conditions combination')),
+            array('value' => 'xtento_orderexport/export_condition_combine', 'label' => Mage::helper('salesrule')->__('Conditions combination')),
             array('label' => Mage::helper('xtento_orderexport')->__('%s Attributes', ucfirst(Mage::registry('order_export_profile')->getEntity())), 'value' => $attributes),
             array('label' => Mage::helper('xtento_orderexport')->__('Misc. %s Attributes', ucfirst(Mage::registry('order_export_profile')->getEntity())), 'value' => $otherAttributes),
         ));

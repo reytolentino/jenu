@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Author:     Lennart Kramer
+    Company:    Affiliate4You
+    Version:    0.1.1
+    Date:       14 August 2013
+-->
+<config>
+    <tabs>
+        <affiliate4you>
+            <label>Affiliate4You</label>
+            <sort_order>200</sort_order>
+        </affiliate4you>
+    </tabs>
+    <sections>
+        <a4yfeed module="a4ypixelandfeed">
+            <label>Affiliate4You Product Feed</label>
+            <tab>affiliate4you</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <comment><![CDATA[ When enabled you can access the feed at: http://yourdomain.com/a4ypixelandfeed ]]></comment>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <urlparam>
+                            <label>Optional URL parameters</label>
+                            <comment><![CDATA[ Extra parameters to add to product URLs. For example: utm_source=ay&utm_medium=feed&utm_campaign=mycampaign ]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </urlparam>
+                        <imgsmall_width>
+                            <label>Width for small image</label>
+                            <comment><![CDATA[ in pixels ]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </imgsmall_width>
+                        <imgsmall_height>
+                            <label>Height for small image</label>
+                            <comment><![CDATA[ in pixels ]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </imgsmall_height>
+                        <imgmedium_width>
+                            <label>Width for medium image</label>
+                            <comment><![CDATA[ in pixels (max 500px)]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </imgmedium_width>
+                        <imgmedium_height>
+                            <label>Height for medium image</label>
+                            <comment><![CDATA[ in pixels (max 500px)]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </imgmedium_height>                                                                       
+                        <shippingtime>
+                            <label>Usual shipping time for products</label>
+                            <comment><![CDATA[ Can contain letters "1 day" is allowed]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shippingtime>
+                        <shippingcost>
+                            <label>Usual shipping cost for products</label>
+                            <comment><![CDATA[ The format "2.25" is preferred ]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shippingcost>
+                    </fields>
+                </general>
+		   </groups>
+           </a4yfeed>
+        <a4ypixel module="a4ypixelandfeed">
+            <label>Affilate4You Tracking Pixel</label>
+            <tab>affiliate4you</tab>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                        <campaign_id>
+                            <label>Campaign ID</label>
+                            <comment><![CDATA[ The correct campaign id will be given to you by Affiliate4You ]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </campaign_id>
+                    </fields>
+                </general>
+            </groups>
+        </a4ypixel>
+    </sections>
+</config>

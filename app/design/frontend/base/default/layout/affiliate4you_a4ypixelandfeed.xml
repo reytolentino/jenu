@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <checkout_onepage_success>
+        <reference name="before_body_end">
+            <block type="affiliate4you_a4ypixelandfeed/conversion"
+                   name="affiliate4you_a4ypixelandfeed_conversion"
+                   template="affiliate4you_a4ypixelandfeed/conversion.phtml">
+            </block>
+        </reference>
+    </checkout_onepage_success>
+</layout>

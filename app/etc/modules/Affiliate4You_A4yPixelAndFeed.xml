@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Affiliate4You_A4yPixelAndFeed>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Affiliate4You_A4yPixelAndFeed>
+    </modules>
+</config>

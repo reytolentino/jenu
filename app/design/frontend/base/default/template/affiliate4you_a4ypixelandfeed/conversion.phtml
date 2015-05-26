@@ -1,0 +1,44 @@
+<?php
+if($this->getIsActive())
+{
+	$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+	$order_info = Mage::getModel('sales/order')->loadByIncrementId($orderId);
+	$billing_address = $order_info->getBillingAddress();
+
+	foreach ($order_info->getAllItems() as $order_item)
+	{
+		break;
+	}
+
+// Get the Magento Information
+	$campaign = $this->getCampaignId();
+	$order_number = urlencode($orderId);
+	$order_amount = urlencode(number_format($order_info->getSubtotal(), 2, '.', ''));
+	$order_description = urlencode(substr($order_item->getName(), 0, 50));
+	$customer_info = urlencode($billing_address['postcode'].' '.$billing_address['country_id']);
+
+// Get the Tracking ID
+	$tracking_id = '';
+	if ( ! empty($_SESSION["A4Ytrid"]))
+	{
+		$tracking_id = $_SESSION["A4Ytrid"];
+	}
+	elseif ( ! empty($_COOKIE["A4Ytrid"][$campaign]))
+	{
+		$tracking_id = $_COOKIE["A4Ytrid"][$campaign];
+	}
+
+	$_a4yprotocol = ((strtolower(substr($_SERVER['SERVER_PROTOCOL'],0,5))=='https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')) ? 'https://' : 'http://');
+
+	$trackingUrl = $_a4yprotocol . "leads.affiliate4you.nl/"
+		. "?campagne=" . $campaign
+		. "&ordernummer=" . $order_number
+		. "&orderbedrag=" . $order_amount
+		. "&a4ytrid=" . $tracking_id
+		. "&klantnaam=" . $customer_info
+		. "&omschr=" . $order_description;
+
+	echo "\n<img src=\"" . $trackingUrl . "\" alt=\"\" style=\"border: none\" border=\"0\" width=\"1\" height=\"1\" />\n";
+}
+?>
+

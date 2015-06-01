@@ -1,0 +1,412 @@
+#buybar, #buybar-menu {
+    display: none;
+}
+
+.jenu-howitworks-container .product-view .product-shop {
+    margin-top: 0;
+}
+
+.jenu-howitworks-lto .ratings {
+    text-align: left;
+    width: auto;
+    text-transform: uppercase;
+    color: #000;
+    margin-top: 5px;
+}
+
+.jenu-howitworks-lto .ratings .rating-box {
+    margin-top: 2px;
+    float: left;
+}
+
+.jenu-howitworks-lto .ratings .amount {
+    margin-left: 5px;
+}
+
+.jenu-howitworks-lto .ratings .amount a {
+    color: #000;
+    height: 19px;
+    line-height: 19px;
+    display: inline-block;
+}
+
+.jenu-howitworks-lto h2 {
+    color: #076aae;
+    font-size: 28px;
+    font-family: "Lato", Helvetica, Arial;
+    font-weight: 300;
+}
+
+.jenu-howitworks-lto {
+    padding-top: 40px;
+    font-size: 13px;
+    color: #000;
+}
+
+.jenu-howitworks-lto p {
+    margin: 10px 0;
+}
+
+.jenu-howitworks-lto .retail {
+    color: #747474;
+}
+
+.jenu-howitworks-lto .riskfree-seal {
+    bottom: 75px;
+    float: right;
+    position: absolute;
+    right: 0;
+}
+
+.jenu-howitworks-lto .add-to-cart button.button {
+    margin-top: 10px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.jenu-howitworks-lto .warranty-ship {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    float: right;
+    margin-top: -35px;
+}
+
+.jenu-howitworks-lto .warranty-ship span.ship {
+    display: block;
+    border-top: 1px solid #d4d4d4;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.sectionbox.bottomoffer {
+    padding-bottom: 0;
+    background: #c3e8f6;
+}
+
+.cms-page-view .main-content .container {
+    background: transparent;
+}
+
+.sectionbox.bottomoffer .bottomwand {
+    float: left;
+    display: inline-block;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box {
+    width: 534px;
+    float: right;
+    margin-top: 20px;
+    color:#000;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .freegifts {
+    display:inline-block;
+    float: right;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .freeship {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    color: #747474;
+}
+
+.sectionbox.bottomoffer h2.section-title {
+    font-size: 36px;
+    color: #0069a7;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+
+
+.sectionbox.bottomoffer .bottom-offer-box .main-heading {
+    font-size: 30px;
+    line-height: 36px;
+    font-family: "Lato", Helvetica, Arial;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #0069a7;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .moneyback1 {
+    float: left;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.sectionbox.bottomoffer .heading-box {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.sectionbox.bottomoffer .heading-box h2 {
+    font-size: 24px;
+    display: inline-block;
+    text-transform: none;
+    font-weight: 300;
+    float: left;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .amount {
+    margin-left: 5px;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .amount a {
+    text-transform: uppercase;
+    padding-top: 2px;
+    font-size: 12px;
+    color: #000;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings {
+    float: right;
+    margin-top: 8px;
+    text-align: right;
+    width: auto;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .rating-box {
+    float: left;
+}
+
+.sectionbox.bottomoffer a.btn-cart {
+    margin-top: 30px;
+}
+
+.bottom-lto-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.todays {
+    font-size: 18px;
+}
+
+@media (max-width: 991px) {
+    .jenu-howitworks-lto .riskfree-seal {
+        bottom: 130px;
+    }
+    .jenu-howitworks-lto .warranty-ship {
+        float: none;
+        margin-top: 16px;
+        text-align: left;
+    }
+    .jenu-howitworks-lto h2 {
+        font-size: 20px;
+    }
+    .vidimg {
+        width: 100%;
+        max-width: 554px;
+        height: auto;
+    }
+    .jenu-howitworks-video-full {
+        text-align: center;
+    }
+    .bottomwand-wrap {
+        text-align: center;
+    }
+    .sectionbox.bottomoffer {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .main-heading {
+        font-size: 18px;
+        line-height: normal;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        margin-top: 0;
+        width: 48%;
+    }
+    .sectionbox.bottomoffer .heading-box .ratings {
+        float: left;
+        display: block;
+    }
+    .sectionbox.bottomoffer .heading-box h2 {
+        font-size: 18px;
+        display: block;
+        float: none;
+        margin-bottom: 3px;
+    }
+    .lphero-box .ctabox .heading-box .ratings,
+    .sectionbox.bottomoffer .heading-box .ratings {
+        margin-top: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+        float: none;
+        font-size: 14px;
+        line-height: 24px;
+        width: 100%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        float: none;
+        margin: 10px 0 0 30px;
+        width: 50%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freeship {
+        font-size: 11px;
+    }
+    .sectionbox.bot-disclaimer {
+        padding-top: 0;
+    }
+    .bottom-lto-title {
+        font-size: 16px;
+    }
+    .todays {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .jenu-howitworks-text-copy-img {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .jenu-howitworks-text-copy-img img {
+        width: 100%;
+        max-width: 456px;
+    }
+    #buybar {
+        display: block;
+    }
+    #buybar {
+        background-color:rgba(10, 40, 59, 0.8);
+        height: 45px;
+        z-index: 9;
+    }
+
+    #buywrap.fixed {
+        left: 0;
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        width: 100%;
+    }
+
+    .buybar-lto {
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #fff;
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .buybar-button-wrap {
+        text-align: right;
+    }
+
+    .buybar-button {
+        display: inline-block;
+        background: #fff url('/media/landing_pages/lp4/mobile/buybar-arrow.png') no-repeat top right 5px;
+        color: #0069a7;
+        text-transform: uppercase;
+        font-size: 13px;
+        height: 26px;
+        line-height: 26px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        padding: 0 16px 0 8px;
+        margin-top: 9px;
+    }
+
+    .buybar-button.opened {
+        background: #fff url('/media/landing_pages/lp4/mobile/buybar-arrow.png') no-repeat bottom right 5px;
+    }
+
+    .buybar-button .buybar-old-price {
+        text-decoration: line-through;
+        color: #777777;
+        font-weight: 400;
+    }
+
+    #buybar-menu {
+        background: rgba(243,243,243, 0.9);
+        padding: 10px 14px;
+        border-top: 2px solid #d5d5d5;
+        border-bottom: 2px solid #d5d5d5;
+        font-size: 13px;
+        color: #272727;
+        overflow: hidden;
+        display: none;
+        width: 100%;
+    }
+
+    p.retail-price, p.retail {
+        font-size: 12px;
+    }
+
+    #buybar-menu-close {
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #272727;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        float: right;
+    }
+
+    p.buybar-menu-lto {
+        line-height: 14px;
+        margin: 6px 0;
+    }
+    .jenu-howitworks-lto {
+        padding-top:20px;
+    }
+    .jenu-howitworks-lto h2 {
+        font-size: 22px;
+    }
+    .sectionbox.bottomoffer .bottomwand {
+        width: 100%;
+        max-width: 370px;
+        height: auto;
+        float: none;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        float: none;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .lpbox .sectionbox {
+        padding: 16px 0;
+        font-size: 11px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .main-heading {
+        font-size: 18px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        display: block;
+        float: left;
+        margin: 20px 0 0;
+        width: auto;
+        clear: both;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freeship {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freeship .copy-separator {
+        display: none;
+    }
+
+    .sectionbox.bottomoffer .bottom-offer-box .freeship .copy-warranty {
+        display: block;
+        border-bottom: 1px solid #d4d4d4;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+    .todays {
+        font-size: 14px;
+    }
+}

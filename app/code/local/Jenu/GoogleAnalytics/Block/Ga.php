@@ -35,6 +35,7 @@ class Jenu_GoogleAnalytics_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
         ga('linker:autoLink', ['skin.faboverfifty.com', 'beautybytheages.com']);
         ga('require', 'displayfeatures');
         ga('set', 'dimension1', customUserId);
+        ga('set', '&uid', customUserId);
         ga('send', 'pageview');
         ";
     }

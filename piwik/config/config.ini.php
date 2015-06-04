@@ -9,6 +9,7 @@ tables_prefix = "piwik_"
 charset = "utf8"
 
 [General]
+cors_domains[] = *
 salt = "9f8c4d6547820356d0756377d36b210a"
 trusted_hosts[] = "jenu.site:8888"
 

@@ -45,6 +45,7 @@
             <action method="addJs"><script>eternal/jquery/scrolltopcontrol.js</script></action>
             <action method="addJs"><script>eternal/jquery/lightbox-2.6.min.js</script></action>
             <action method="addJs"><script>eternal/jquery/jquery.nicescroll.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery.cookie.js</name><params/></action>
             <!-- custom script -->
             <action method="addJs"><script>eternal/zonda.js</script></action>
         <!-- add stylesheet -->

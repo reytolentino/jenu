@@ -70,3 +70,5 @@ PluginsInstalled[] = "BulkTracking"
 PluginsInstalled[] = "Resolution"
 PluginsInstalled[] = "DevicePlugins"
 
+[Tracker]
+use_third_party_id_cookie = 1

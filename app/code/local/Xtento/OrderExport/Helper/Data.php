@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.7.9)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
+ * Product:       Xtento_OrderExport (1.8.2)
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:45:41+00:00
  * Last Modified: 2014-09-03T21:07:15+02:00
  * File:          app/code/local/Xtento/OrderExport/Helper/Data.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
@@ -12,7 +12,7 @@
 class Xtento_OrderExport_Helper_Data extends Mage_Core_Helper_Abstract
 {
     static $_isModuleProperlyInstalled = null;
-    const EDITION = '%!version!%';
+    const EDITION = 'EE';
 
     public function getDebugEnabled()
     {

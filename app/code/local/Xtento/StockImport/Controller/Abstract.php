@@ -2,8 +2,8 @@
 
 /**
  * Product:       Xtento_StockImport (2.2.8)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:41:54+00:00
  * Last Modified: 2013-11-09T15:49:18+01:00
  * File:          app/code/local/Xtento/StockImport/Controller/Abstract.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
@@ -114,7 +114,7 @@ class Xtento_StockImport_Controller_Abstract extends Mage_Adminhtml_Controller_A
         }
         if ($this->getRequest()->getActionName() !== 'redirect') {
             // Check if this module was made for the edition (CE/PE/EE) it's being run in
-            if (Xtento_StockImport_Helper_Data::EDITION !== '%!version!%' && Xtento_StockImport_Helper_Data::EDITION !== '') {
+            if (Xtento_StockImport_Helper_Data::EDITION !== 'EE' && Xtento_StockImport_Helper_Data::EDITION !== '') {
                 if (Mage::helper('xtcore/utils')->getIsPEorEE() && Mage::helper('xtento_stockimport')->getModuleEnabled()) {
                     if (Xtento_StockImport_Helper_Data::EDITION !== 'EE') {
                         $this->addError(Mage::helper('xtento_stockimport')->__('Attention: The installed extension version is not compatible with the Enterprise Edition of Magento. The compatibility of the currently installed extension version has only been confirmed with the Community Edition of Magento. Please go to <a href="https://www.xtento.com" target="_blank">www.xtento.com</a> to purchase or download the Enterprise Edition of this extension in our store if you\'ve already purchased it.'));

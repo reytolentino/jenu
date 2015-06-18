@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.7.9)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
+ * Product:       Xtento_OrderExport (1.8.2)
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:45:41+00:00
  * Last Modified: 2015-04-26T17:00:54+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Observer/Cron/Config.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.

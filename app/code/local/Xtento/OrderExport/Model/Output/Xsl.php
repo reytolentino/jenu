@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.7.9)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
- * Last Modified: 2015-05-20T13:30:38+02:00
+ * Product:       Xtento_OrderExport (1.8.2)
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:45:41+00:00
+ * Last Modified: 2015-06-16T16:20:58+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Output/Xsl.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -136,7 +136,7 @@ class Xtento_OrderExport_Model_Output_Xsl extends Xtento_OrderExport_Model_Outpu
                 }
                 $outputArray[$filename] = $output;
             }
-            if (($fileType == 'invoice_pdf' || $fileType == 'packingslip_pdf') && Mage::registry('is_test_orderexport') !== true) {
+            if (($fileType == 'invoice_pdf' || $fileType == 'packingslip_pdf' || preg_match('/fooman\_/', $fileType)) && Mage::registry('is_test_orderexport') !== true) {
                 $orderIds = array();
                 foreach ($exportArray as $exportObject) {
                     if (isset($exportObject['order']) && isset($exportObject['order']['entity_id'])) {
@@ -270,6 +270,9 @@ class Xtento_OrderExport_Model_Output_Xsl extends Xtento_OrderExport_Model_Outpu
 
     private function _getPdfsForOrderIds($orderIds, $fileType)
     {
+        if (preg_match("/fooman\_/", $fileType)) { // Valid types: fooman_invoice, fooman_order, fooman_shipment, fooman_creditmemo
+            return Mage::getModel('pdfcustomiser/' . str_replace('fooman_', '', $fileType))->renderPdf(null, $orderIds, null, true, null, null)->Output('', 'S');
+        }
         $pdfType = 'invoice';
         if ($fileType == 'packingslip_pdf') {
             $pdfType = 'shipment';

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.7.9)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
+ * Product:       Xtento_OrderExport (1.8.2)
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:45:41+00:00
  * Last Modified: 2013-11-09T15:50:09+01:00
  * File:          app/code/local/Xtento/OrderExport/Controller/Abstract.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
@@ -119,7 +119,7 @@ class Xtento_OrderExport_Controller_Abstract extends Mage_Adminhtml_Controller_A
 
             }
             // Check if this module was made for the edition (CE/PE/EE) it's being run in
-            if (Xtento_OrderExport_Helper_Data::EDITION !== '%!version!%' && Xtento_OrderExport_Helper_Data::EDITION !== '') {
+            if (Xtento_OrderExport_Helper_Data::EDITION !== 'EE' && Xtento_OrderExport_Helper_Data::EDITION !== '') {
                 if (Mage::helper('xtcore/utils')->getIsPEorEE() && Mage::helper('xtento_orderexport')->getModuleEnabled()) {
                     if (Xtento_OrderExport_Helper_Data::EDITION !== 'EE') {
                         $this->addError(Mage::helper('xtento_orderexport')->__('Attention: The installed extension version is not compatible with the Enterprise Edition of Magento. The compatibility of the currently installed extension version has only been confirmed with the Community Edition of Magento. Please go to <a href="https://www.xtento.com" target="_blank">www.xtento.com</a> to purchase or download the Enterprise Edition of this extension in our store if you\'ve already purchased it.'));

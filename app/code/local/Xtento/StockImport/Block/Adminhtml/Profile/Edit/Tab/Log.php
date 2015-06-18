@@ -2,8 +2,8 @@
 
 /**
  * Product:       Xtento_StockImport (2.2.8)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:41:54+00:00
  * Last Modified: 2013-07-02T18:28:41+02:00
  * File:          app/code/local/Xtento/StockImport/Block/Adminhtml/Profile/Edit/Tab/Log.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.

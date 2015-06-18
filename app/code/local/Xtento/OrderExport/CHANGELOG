@@ -381,3 +381,13 @@ Xtento_OrderExport
 
 ===== 1.7.9 =====
  * Added workaround for a bug in HHVM that led to the filename being empty (or just _bkp), caused by the current() function returning false always.
+
+===== 1.8.0 =====
+ + Added ability to export object/products_total_cost (cost attribute * qty of all items) and item/product_attributes/product_total_cost (cost attribute * qty on item level)
+
+===== 1.8.1 =====
+ + Added ability to export fooman PDF documents. Example: <file filename="invoice_%realorderid%.pdf" type="fooman_invoice"></file>  Valid types: fooman_invoice, fooman_order, fooman_shipment, fooman_creditmemo
+
+===== 1.8.2. =====
+ + Added ability to export creditmemo_comments
+ + Added ability to export custom_options for non-order (invoice, shipment, etc.) exports

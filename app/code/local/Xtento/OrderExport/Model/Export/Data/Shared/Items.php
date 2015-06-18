@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.7.9)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
- * Last Modified: 2015-05-18T14:52:57+02:00
+ * Product:       Xtento_OrderExport (1.8.2)
+ * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
+ * Packaged:      2015-06-18T20:45:41+00:00
+ * Last Modified: 2015-06-16T13:49:27+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Shared/Items.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -12,6 +12,7 @@
 class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExport_Model_Export_Data_Abstract
 {
     private $_origWriteArray;
+    protected $_totalCost = 0;
 
     public function getConfiguration()
     {
@@ -38,7 +39,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
         $object = $collectionItem->getObject();
         #$order = $collectionItem->getOrder();
         $items = $object->getAllItems();
-        if (empty($items) || (!$this->fieldLoadingRequired('items') && !$this->fieldLoadingRequired('tax_rates') && !$this->fieldLoadingRequired('packages/'))) {
+        if (empty($items) || (!$this->fieldLoadingRequired('items') && !$this->fieldLoadingRequired('tax_rates') && !$this->fieldLoadingRequired('packages/') && !$this->fieldLoadingRequired('_total_cost'))) {
             return $returnArray;
         }
 
@@ -47,6 +48,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
         $taxBaseAmounts = array();
         $itemCount = 0;
         $totalQty = 0;
+        $this->_totalCost = 0;
         foreach ($items as $item) {
             $orderItem = false;
             // Check if this product type should be exported
@@ -112,7 +114,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
 
             // Add fields of order item for invoice exports
             $taxItem = false;
-            if ($entityType !== Xtento_OrderExport_Model_Export::ENTITY_ORDER && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA && ($this->fieldLoadingRequired('order_item') || $this->fieldLoadingRequired('tax_rates'))) {
+            if ($entityType !== Xtento_OrderExport_Model_Export::ENTITY_ORDER && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_QUOTE && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_AWRMA && $entityType !== Xtento_OrderExport_Model_Export::ENTITY_BOOSTRMA && ($this->fieldLoadingRequired('order_item') || $this->fieldLoadingRequired('tax_rates') || $this->fieldLoadingRequired('custom_options'))) {
                 $this->_writeArray['order_item'] = array();
                 $this->_writeArray =& $this->_writeArray['order_item'];
                 if ($item->getOrderItemId()) {
@@ -127,6 +129,12 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                     }
                 }
                 $this->_writeArray = & $this->_origWriteArray;
+                $tempOrigArray = & $this->_writeArray;
+                if ($this->fieldLoadingRequired('custom_options') && $options = $orderItem->getProductOptions()) {
+                    // Export custom options
+                    $this->_writeCustomOptions($options, $this->_origWriteArray, $object, $orderItem->getProductId());
+                }
+                $this->_writeArray =& $tempOrigArray;
             } else {
                 $taxItem = $item;
             }
@@ -254,7 +262,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             }
 
             // Add fields of parent item
-            if ($this->fieldLoadingRequired('parent_item') && $parentItem) {
+            if (($this->fieldLoadingRequired('parent_item') || $this->fieldLoadingRequired('products_total_cost') || $this->fieldLoadingRequired('product_total_cost')) && $parentItem) {
                 $this->_writeArray['parent_item'] = array();
                 $this->_writeArray =& $this->_writeArray['parent_item'];
                 $tempOrigArray = & $this->_writeArray;
@@ -266,13 +274,13 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                     $this->_writeCustomOptions($options, $this->_writeArray, $object, $parentItem->getProductId());
                 }
                 $this->_writeArray =& $tempOrigArray;
-                if ($this->fieldLoadingRequired('product_attributes')) {
+                if ($this->fieldLoadingRequired('product_attributes') || $this->fieldLoadingRequired('products_total_cost') || $this->fieldLoadingRequired('product_total_cost')) {
                     $this->_writeProductAttributes($object, $parentItem);
                 }
             }
             $this->_writeArray = & $this->_origWriteArray;
             // Export product attributes
-            if ($this->fieldLoadingRequired('product_attributes')) {
+            if ($this->fieldLoadingRequired('product_attributes') || $this->fieldLoadingRequired('products_total_cost') || $this->fieldLoadingRequired('product_total_cost')) {
                 $this->_writeProductAttributes($object, $item);
             }
 
@@ -312,6 +320,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
 
         $this->_writeArray = & $returnArray;
         $this->writeValue('export_total_qty_ordered', $totalQty);
+        $this->writeValue('products_total_cost', $this->_totalCost);
 
         // Add tax amounts of other fees to $taxRates
         // Shipping
@@ -322,12 +331,12 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             $shippingTaxAmount = $object->getData('base_shipping_tax_amount');
         }
         if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_INVOICE) {
-            $shippingAmount = $object->getOrder()->getData('base_shipping_invoiced');
-            $shippingTaxAmount = $object->getOrder()->getData('base_shipping_tax_amount');
+            $shippingAmount = $object->getData('base_shipping_amount');
+            $shippingTaxAmount = $object->getData('base_shipping_tax_amount');
         }
         if ($entityType == Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO) {
-            $shippingAmount = $object->getOrder()->getData('base_shipping_refunded');
-            $shippingTaxAmount = $object->getOrder()->getData('base_shipping_tax_refunded');
+            $shippingAmount = $object->getData('base_shipping_amount');
+            $shippingTaxAmount = $object->getData('base_shipping_tax_amount');
         }
         if ($shippingAmount > 0 && $shippingTaxAmount > 0) {
             $taxPercent = round($shippingTaxAmount / $shippingAmount * 100);
@@ -515,7 +524,15 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
         if (isset($this->_cache['product_attributes'][$object->getStoreId()]) && isset($this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()])) {
             // "cached"
             foreach ($this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()] as $attributeCode => $value) {
+                if ($attributeCode == 'product_total_cost') continue;
                 $this->writeValue($attributeCode, $value);
+            }
+            if ($this->fieldLoadingRequired('_total_cost')) {
+                $product = Mage::getModel('catalog/product')->setStoreId($object->getStoreId())->load($item->getProductId());
+                if ($product->getId()) {
+                    $this->_totalCost += ($product->getCost() * $item->getQtyOrdered());
+                    $this->writeValue('product_total_cost', $product->getCost() * $item->getQtyOrdered());
+                }
             }
         } else {
             $product = Mage::getModel('catalog/product')->setStoreId($object->getStoreId())->load($item->getProductId());
@@ -581,6 +598,8 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                     $this->writeValue('product_url', $productUrl);
                     $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()]['product_url'] = $productUrl;
                 }
+                $this->_totalCost += ($product->getCost() * $item->getQtyOrdered());
+                $this->writeValue('product_total_cost', $product->getCost() * $item->getQtyOrdered());
             }
         }
     }

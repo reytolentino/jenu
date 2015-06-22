@@ -74,6 +74,33 @@
 
     </checkout_onepage_index>
 
+    <onepagecheckout_index_index translate="label">
+
+        <reference name="head">
+            <block type="core/template" name="amazon_payments.script" template="amazon_payments/script.phtml" />
+        </reference>
+
+        <reference name="content">
+            <block type="amazon_payments/button" name="amazonpaymentsbutton" template="amazon_payments/onepage/button.phtml"/>
+        </reference>
+
+        <reference name="checkout.onepage.login">
+            <action method="setTemplate" ifconfig="payment/amazon_payments/enabled">
+                <template helper="amazon_payments/data/switchOnepageLoginTemplateIf">
+                    <template_amazon>amazon_payments/onepage/login.phtml</template_amazon>
+                    <template_default>checkout/onepage/login.phtml</template_default>
+                </template>
+            </action>
+
+            <block type="core/text_list" name="col1_before" />
+            <block type="core/text_list" name="col2_before" />
+
+            <reference name="col1_before">
+                <block type="amazon_payments/button" name="AmazonPayButtonBefore" template="amazon_payments/onepage/button.phtml"/>
+            </reference>
+        </reference>
+
+    </onepagecheckout_index_index>
 
     <!--
     Onepage layout when user clicks "Pay with Amazon"

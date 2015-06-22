@@ -2897,6 +2897,23 @@ td.for-desktop {
 .checkout-onepage-index #AmazonPayButtonBefore {
     margin-top: 10px;
 }
+.onepagecheckout-index-index p.fill, .onepagecheckout_loginarea {
+    margin-bottom: 10px;
+}
+.onepagecheckout-index-index #amazonpaymentsbutton {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    vertical-align:top;
+}
+.onepagecheckout-index-index .amazon-or {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+}
+.onepagecheckout-index-index .order-products-table tfoot tr.last td .price {
+    color: #737373;
+}
 .order-review .product-image img {
   width: 50px;
 }

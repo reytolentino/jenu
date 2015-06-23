@@ -23,14 +23,15 @@ class GoMage_Checkout_Model_Url_Rewrite extends Mage_Core_Model_Url_Rewrite {
 				$request = Mage::app()->getFrontController()->getRequest();
 			}
 			$requestPath = trim($request->getPathInfo(), '/');
-			
+			/*
 			if ($requestPath == 'checkout/onepage' || $requestPath == 'checkout/onepage/index') {
 				if ($h->isAvailableWebsite() && $h->isCompatibleDevice()) {					
 					$request->setAlias(self::REWRITE_REQUEST_PATH_ALIAS, $this->getRequestPath());
 					$request->setPathInfo('gomage_checkout/onepage');
 					return true;					
 				}
-			}		
+			}
+			*/
 		}
 		
 		parent::rewrite($request, $response);

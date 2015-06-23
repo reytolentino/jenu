@@ -37,8 +37,6 @@
             <action method="addCss" ifconfig="rewards/general/layoutsactive"><stylesheet>css/rewards/slider.css</stylesheet></action>
             <action method="addJs" ifconfig="rewards/general/layoutsactive"><script>tbt/scriptaculous/SmoothSlider.js</script></action>
             <action method="addJs" ifconfig="rewards/general/layoutsactive"><script>tbt/rewards/points/RedemptionSlider.js</script></action>
-            <block type="core/template" name="amazon_payments.script" template="amazon_payments/script.phtml" />
-            
                    
         </reference>
         
@@ -48,7 +46,6 @@
                 
         <reference name="content" >
         	<action method="unsetChildren" />
-            <block type="amazon_payments/button" name="amazonpaymentsbutton" template="amazon_payments/onepage/button.phtml"/>
         	<block type="gomage_checkout/onepage" name="checkout.onepage" template="gomage/checkout/onepage.phtml">
         		<block type="page/html_wrapper" name="checkout.onepage.login.before" as="login_before" translate="label">
                     <label>Login/Registration Before</label>

@@ -15,8 +15,23 @@
 <layout version="0.1.0">
 	
 	<gomage_checkout_onepage_index>
+
+        <reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <params helper="eternal_all/getHomeUrl" />
+            </action>
+            <action method="addCrumb">
+                <crumbName>Checkout</crumbName>
+                <crumbInfo><label>Checkout</label><title>Checkout</title></crumbInfo>
+            </action>
+            <block type="zonda/pagetitle" name="page.title">
+                <action method="setPageTitle" translate="title"><title>Checkout</title></action>
+            </block>
+        </reference>
+
 		<label>Checkout</label>
-		
+
 		<remove name="right"/>
 		
         <reference name="root">

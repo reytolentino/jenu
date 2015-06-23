@@ -96,7 +96,8 @@
 	//]]>
 </script>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-
+<?php echo $this->getChildHtml('checkout.onepage.login.extra')?>
+<?php echo $this->getChildHtml('login_before')?>
 <?php if((!$this->isCustomerLoggedIn() && $this->getCheckoutMode() != 2) || Mage::getStoreConfig('gomage_checkout/address_fields/payments_buttons')): ?>
 <div class="glc-login-and-paypal<?php if (Mage::helper('gomage_checkout')->isLefttoRightWrite()): ?> glc-rtl<?php endif; ?>">
 

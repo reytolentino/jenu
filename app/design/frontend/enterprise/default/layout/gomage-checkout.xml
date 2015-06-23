@@ -45,7 +45,7 @@
 		</reference> 
                 
         <reference name="content" >
-        	<action method="unsetChildren" />
+        	
         	<block type="gomage_checkout/onepage" name="checkout.onepage" template="gomage/checkout/onepage.phtml">
         		<block type="page/html_wrapper" name="checkout.onepage.login.before" as="login_before" translate="label">
                     <label>Login/Registration Before</label>

@@ -2896,6 +2896,7 @@ td.for-desktop {
 }
 .checkout-onepage-index #AmazonPayButtonBefore {
     margin-top: 10px;
+    margin-bottom: 6px;
 }
 .onepagecheckout-index-index p.fill, .onepagecheckout_loginarea {
     margin-bottom: 10px;

@@ -586,12 +586,6 @@
   .glc #co-directpost-form label[for*="expiration"] ~ .input-box .v-fix + .v-fix{
     margin: 0;
     }
-.glc .sp-methods select.month,
-.glc .sp-methods select.year,
-.glc #co-directpost-form select.year,
-.glc #co-directpost-form select.month{
-	width: 100% !important;
-  }
 
 /* Customer comment */
 .glc .customer-comment label{
@@ -1721,4 +1715,17 @@
 .sbHolder {
     margin-left: 0;
     width: 146px;
+}
+
+#payment_form_authorizenetcim {
+    margin-left: 0;
+    padding-bottom: 20px;
+}
+
+.sp-methods select.month {
+    width: auto;
+}
+
+.discount .awraf-discount {
+    display: none;
 }

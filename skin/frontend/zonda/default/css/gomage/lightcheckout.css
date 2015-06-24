@@ -1168,6 +1168,7 @@
   }
 .discount-bottom .lightcheckout-discount-form{
 	border-bottom:1px solid #eaeaea;
+    overflow: hidden;
   }
 .glc .check-gc-status-wrap{
   padding-top:5px;
@@ -1672,9 +1673,6 @@
     .glc button.button {
         padding: 0 !important;
     }
-    .glc .discount-form button.button {
-        margin-top: 10px;
-    }
 }
 /* Responsive END
 -------------------------------------------------- */
@@ -1726,6 +1724,6 @@
     width: auto;
 }
 
-.discount .awraf-discount {
+.discount.awraf-discount {
     display: none;
 }

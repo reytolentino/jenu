@@ -25,7 +25,7 @@
  */
 ?><?php if ($this->discountAllowed()): ?>
 <form id="awraf-discount-coupon-form" class="awraf-discount-coupon-form" action="<?php echo $this->getUrl('awraf/cart/createCoupon') ?>" method="post">
-    <div class="discount"> 
+    <div class="discount awraf-discount">
         <h2><?php echo $this->__('Apply Discount For Referred Friends') ?></h2>
         <div class="discount-form">
             <input type="hidden" name="remove" id="awraf-remove-discount" value="0" /> 

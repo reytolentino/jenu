@@ -609,7 +609,6 @@ input.input-text {
   background-position: -12px 0;
 }
 #mini-cart .dropdown-menu {
-  white-space: nowrap;
   margin-top: 7px;
   right: -9px;
   padding: 10px;
@@ -2897,6 +2896,9 @@ td.for-desktop {
 .checkout-onepage-index #AmazonPayButtonBefore {
     margin-top: 10px;
     margin-bottom: 6px;
+}
+.checkout-onepage-index p {
+    margin: 6px 0;
 }
 .onepagecheckout-index-index p.fill, .onepagecheckout_loginarea {
     margin-bottom: 10px;

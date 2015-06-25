@@ -49,7 +49,7 @@ class GoMage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         $helper = Mage::helper('gomage_checkout');
 
         if (( bool )$helper->getConfigData('general/enabled') == false) {
-            return $this->_redirect('checkout/onepage');
+            return $this->_redirect('gomage_checkout/onepage');
         }
         $quote = $this->getOnepage()->getQuote();
 
@@ -939,7 +939,7 @@ class GoMage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         $result = array('error' => false, 'success' => true, 'message' => array());
 
         if (( bool )$helper->getConfigData('general/enabled') == false) {
-            $result['redirect'] = Mage::getUrl('checkout/onepage');
+            $result['redirect'] = Mage::getUrl('gomage_checkout/onepage');
         }
 
         if (!$this->getOnepage()->getQuote()->getItemsQty()) {
@@ -1144,20 +1144,20 @@ class GoMage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
 
                 $this->getOnepage()->getQuote()->save();
                 $this->getSession()->addError($e->getMessage());
-                $result['redirect'] = Mage::getUrl('checkout/onepage');
+                $result['redirect'] = Mage::getUrl('gomage_checkout/onepage');
 
             } catch (Exception $e) {
                 Mage::logException($e);
                 Mage::helper('checkout')->sendPaymentFailedEmail($this->getOnepage()->getQuote(), $e->getMessage());
                 $this->getOnepage()->getQuote()->save();
                 $this->getSession()->addError($this->__('There was an error processing your order. Please contact us or try again later.'));
-                $result['redirect'] = Mage::getUrl('checkout/onepage');
+                $result['redirect'] = Mage::getUrl('gomage_checkout/onepage');
 
             }
 
         } else {
             if (!isset($result['redirect'])) {
-                $result['redirect'] = Mage::getUrl('checkout/onepage');
+                $result['redirect'] = Mage::getUrl('gomage_checkout/onepage');
             }
         }
 

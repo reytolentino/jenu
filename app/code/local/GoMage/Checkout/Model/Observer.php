@@ -99,7 +99,7 @@ class GoMage_Checkout_Model_Observer
         if ($h->getConfigData('general/disable_cart') && $h->getConfigData('general/enabled') && $h->isAvailableWebsite()) {
             $quote = Mage::getSingleton('gomage_checkout/type_onestep')->getQuote();
             if ($quote->hasItems()) {
-                $event->getEvent()->getControllerAction()->getResponse()->setRedirect(Mage::getUrl('checkout/onepage'));
+                $event->getEvent()->getControllerAction()->getResponse()->setRedirect(Mage::getUrl('gomage_checkout/onepage'));
             }
         }
     }

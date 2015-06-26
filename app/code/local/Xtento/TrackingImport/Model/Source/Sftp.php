@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_TrackingImport (2.0.4)
- * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:34:30+00:00
- * Last Modified: 2014-08-08T11:59:02+02:00
+ * Product:       Xtento_TrackingImport (2.0.5)
+ * ID:            %!uniqueid!%
+ * Packaged:      %!packaged!%
+ * Last Modified: 2015-06-18T14:00:52+02:00
  * File:          app/code/local/Xtento/TrackingImport/Model/Source/Sftp.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -63,7 +63,7 @@ KEY;
         }*/
 
         if (!@$this->_connection->login($this->getSource()->getUsername(), Mage::helper('core')->decrypt($this->getSource()->getPassword()))) {
-            #if (!@$this->_connection->login($this->getData('username'), $pk)) { // If using pubkey authentication
+        #if (!@$this->_connection->login($this->getSource()->getUsername(), $pk)) { // If using pubkey authentication
             $this->getTestResult()->setSuccess(false)->setMessage(Mage::helper('xtento_trackingimport')->__('Connection to SFTP server failed (make sure no firewall is blocking the connection). This error could also be caused by a wrong login for the SFTP server.'));
             return false;
         }

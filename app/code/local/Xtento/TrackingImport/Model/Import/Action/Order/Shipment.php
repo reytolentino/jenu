@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_TrackingImport (2.0.4)
- * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:34:30+00:00
- * Last Modified: 2015-06-06T13:31:30+02:00
+ * Product:       Xtento_TrackingImport (2.0.5)
+ * ID:            %!uniqueid!%
+ * Packaged:      %!packaged!%
+ * Last Modified: 2015-06-26T15:44:47+02:00
  * File:          app/code/local/Xtento/TrackingImport/Model/Import/Action/Order/Shipment.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -88,8 +88,19 @@ class Xtento_TrackingImport_Model_Import_Action_Order_Shipment extends Xtento_Tr
                                 $qtyToProcess = $itemsToProcess[$orderItemSku]['qty'];
                                 $maxQty = $orderItem->getQtyToShip();
                                 if ($qtyToProcess > $maxQty) {
-                                    $qty = round($maxQty);
-                                    $itemsToProcess[$orderItemSku]['qty'] -= $maxQty;
+                                    if ($orderItem->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE && $orderItem->getParentItem() && $orderItem->getParentItem()->getQtyToShip() > 0) {
+                                        // Has a parent item that must be shipped instead
+                                        $maxQty = $orderItem->getParentItem()->getQtyToShip();
+                                        if ($qtyToProcess > $maxQty) {
+                                            $qty = round($maxQty);
+                                            $itemsToProcess[$orderItemSku]['qty'] -= $maxQty;
+                                        } else {
+                                            $qty = round($qtyToProcess);
+                                        }
+                                    } else {
+                                        $qty = round($maxQty);
+                                        $itemsToProcess[$orderItemSku]['qty'] -= $maxQty;
+                                    }
                                 } else {
                                     $qty = round($qtyToProcess);
                                 }
@@ -99,6 +110,8 @@ class Xtento_TrackingImport_Model_Import_Action_Order_Shipment extends Xtento_Tr
                             }
                         }
                     }
+                    #var_dump($qtys);
+                    #die();
                     if (!empty($qtys)) {
                         $shipment = $order->prepareShipment($qtys);
                         // Ship whole order if no items could be found in $qtys

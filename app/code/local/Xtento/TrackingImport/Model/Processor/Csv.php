@@ -1,14 +1,5 @@
 <?php
 
-/**
- * Product:       Xtento_TrackingImport (2.0.5)
- * ID:            %!uniqueid!%
- * Packaged:      %!packaged!%
- * Last Modified: 2015-05-27T19:45:41+02:00
- * File:          app/code/local/Xtento/TrackingImport/Model/Processor/Csv.php
- * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
- */
-
 class Xtento_TrackingImport_Model_Processor_Csv extends Xtento_TrackingImport_Model_Processor_Abstract
 {
     protected $config = array();
@@ -132,7 +123,7 @@ class Xtento_TrackingImport_Model_Processor_Csv extends Xtento_TrackingImport_Mo
                             }
                         }
                     }
-                    array_push($updatesToProcess[$rowIdentifier], $rowArray);
+                    $updatesToProcess[$rowIdentifier] = $rowArray;
                 }
             } else {
                 // Traditional CSV format

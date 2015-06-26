@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_TrackingImport (2.0.4)
- * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:34:30+00:00
- * Last Modified: 2015-06-06T13:31:30+02:00
+ * Product:       Xtento_TrackingImport (2.0.5)
+ * ID:            %!uniqueid!%
+ * Packaged:      %!packaged!%
+ * Last Modified: 2015-06-26T15:46:30+02:00
  * File:          app/code/local/Xtento/TrackingImport/Model/Import/Action/Order/Invoice.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -65,8 +65,19 @@ class Xtento_TrackingImport_Model_Import_Action_Order_Invoice extends Xtento_Tra
                                 $qtyToProcess = $itemsToProcess[$orderItemSku]['qty'];
                                 $maxQty = $orderItem->getQtyToInvoice();
                                 if ($qtyToProcess > $maxQty) {
-                                    $qty = round($maxQty);
-                                    $itemsToProcess[$orderItemSku]['qty'] -= $maxQty;
+                                    if ($orderItem->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE && $orderItem->getParentItem() && $orderItem->getParentItem()->getQtyToInvoice() > 0) {
+                                        // Has a parent item that must be invoiced instead
+                                        $maxQty = $orderItem->getParentItem()->getQtyToInvoice();
+                                        if ($qtyToProcess > $maxQty) {
+                                            $qty = round($maxQty);
+                                            $itemsToProcess[$orderItemSku]['qty'] -= $maxQty;
+                                        } else {
+                                            $qty = round($qtyToProcess);
+                                        }
+                                    } else {
+                                        $qty = round($maxQty);
+                                        $itemsToProcess[$orderItemSku]['qty'] -= $maxQty;
+                                    }
                                 } else {
                                     $qty = round($qtyToProcess);
                                 }

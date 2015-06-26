@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Product:       Xtento_TrackingImport (2.0.4)
- * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:34:30+00:00
+ * Product:       Xtento_TrackingImport (2.0.5)
+ * ID:            %!uniqueid!%
+ * Packaged:      %!packaged!%
  * Last Modified: 2014-07-21T23:57:12+02:00
  * File:          app/code/local/Xtento/TrackingImport/controllers/Adminhtml/Trackingimport/ProfileController.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.

@@ -115,3 +115,6 @@ Xtento_TrackingImport
 ===== 2.0.4 =====
  * Fixed partial invoice/shipment support for uppercase/mixed-case SKUs
  * Removed preg_quote from regex handler in "Additional Configuration" tab of fields/actions that would lead to regexs fail
+
+===== 2.0.5 =====
+ * Fixed partial invoicing/shipping for simple/configurable products when only the simple product was specified in the import file but not the configurable product

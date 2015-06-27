@@ -36,7 +36,7 @@ $spanClass = $zonda->getSpanClass();
                                 <div class="field">
                                     <label for="shipping:company"><i class="icon-company"></i><?php echo $this->__('Company') ?></label>
                                     <div class="input-box">
-                                        <input type="text" id="shipping:company" name="shipping[company]" value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?>" onchange="shipping.setSameAsBilling(false);" />
+                                        <input type="text" maxlength="35" id="shipping:company" name="shipping[company]" value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?>" onchange="shipping.setSameAsBilling(false);" />
                                     </div>
                                 </div>
                             </li>
@@ -63,7 +63,7 @@ $spanClass = $zonda->getSpanClass();
                             <li class="wide">
                                 <label for="shipping:street1" class="required"><i class="icon-address"></i><?php echo $this->__('Address') ?><?php echo $this->helper('customer/address')->getStreetLines() > 1 ? ' 1' : '' ?><em>*</em></label>
                                 <div class="input-box">
-                                    <input type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" class="input-text <?php echo $_streetValidationClass ?>" onchange="shipping.setSameAsBilling(false);" />
+                                    <input type="text" maxlength="35" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" class="input-text <?php echo $_streetValidationClass ?>" onchange="shipping.setSameAsBilling(false);" />
                                 </div>
                             </li>
                         <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
@@ -71,7 +71,7 @@ $spanClass = $zonda->getSpanClass();
                             <li class="wide">
                                 <label for="billing:street<?php echo $_i ?>"><i class="icon-address"></i><?php echo $this->__('Address') ?> <?php echo $_i ?></label>
                                 <div class="input-box">
-                                    <input type="text" title="<?php echo $this->__('Street Address %s', $_i) ?>" name="shipping[street][]" id="shipping:street<?php echo $_i ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" class="input-text <?php echo $_streetValidationClass ?>" onchange="shipping.setSameAsBilling(false);" />
+                                    <input type="text" maxlength="35" title="<?php echo $this->__('Street Address %s', $_i) ?>" name="shipping[street][]" id="shipping:street<?php echo $_i ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" class="input-text <?php echo $_streetValidationClass ?>" onchange="shipping.setSameAsBilling(false);" />
                                 </div>
                             </li>
                         <?php endfor; ?>
@@ -87,7 +87,7 @@ $spanClass = $zonda->getSpanClass();
                                 <div class="field">
                                     <label for="shipping:city" class="required"><i class="icon-city"></i><?php echo $this->__('City') ?><em>*</em></label>
                                     <div class="input-box">
-                                        <input type="text" title="<?php echo $this->__('City') ?>" name="shipping[city]" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="shipping:city" onchange="shipping.setSameAsBilling(false);" />
+                                        <input type="text" maxlength="28" title="<?php echo $this->__('City') ?>" name="shipping[city]" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="shipping:city" onchange="shipping.setSameAsBilling(false);" />
                                     </div>
                                 </div>
                                 <div class="field">

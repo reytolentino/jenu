@@ -43,7 +43,7 @@ if (!$this->getQuote()->isVirtual() && Mage::helper('onepagecheckout')->isShippi
 					</label>
 					
 					<div class="input-box">
-						<input type="text" id="shipping:company" name="shipping[company]" value="<?php echo $this->htmlEscape($this->getShipAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text<?php if( $cr === 'required' ){ echo ' required-entry ';} ?>" onchange="shipping.setSameAsBilling(false);" />
+						<input type="text" maxlength="35" id="shipping:company" name="shipping[company]" value="<?php echo $this->htmlEscape($this->getShipAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text<?php if( $cr === 'required' ){ echo ' required-entry ';} ?>" onchange="shipping.setSameAsBilling(false);" />
 					</div>
 				</div>
 			<?php endif;
@@ -57,7 +57,7 @@ if (!$this->getQuote()->isVirtual() && Mage::helper('onepagecheckout')->isShippi
 					</label>
 					
 					<div class="input-box">
-						<input type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:streeinput-text" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet(1)) ?>" class="input-text<?php if($ar === 'required'){echo ' required-entry';}?>" onchange="shipping.setSameAsBilling(false);" />
+						<input type="text" maxlength="35" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:streeinput-text" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet(1)) ?>" class="input-text<?php if($ar === 'required'){echo ' required-entry';}?>" onchange="shipping.setSameAsBilling(false);" />
 				        </div>
 				</div>
 				<?php 
@@ -66,7 +66,7 @@ if (!$this->getQuote()->isVirtual() && Mage::helper('onepagecheckout')->isShippi
 				?>
 				<div class="full">
 					<div class="input-box">
-						<input type="text" name="shipping[street][]" id="shipping:street<?php echo $i?>" title="<?php echo $this->__('Street Address %s', $i) ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet($i)) ?>" class="input-text" onchange="shipping.setSameAsBilling(false);" />
+						<input type="text" maxlength="35" name="shipping[street][]" id="shipping:street<?php echo $i?>" title="<?php echo $this->__('Street Address %s', $i) ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet($i)) ?>" class="input-text" onchange="shipping.setSameAsBilling(false);" />
 					</div>
 				</div>
 				<?php 
@@ -85,7 +85,7 @@ if (!$this->getQuote()->isVirtual() && Mage::helper('onepagecheckout')->isShippi
 					</label>
 
 					<div class="input-box">
-						<input type="text" name="shipping[city]" id="shipping:city" title="<?php echo $this->__('City') ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getCity()) ?>" class="input-text<?php if ($city_r === 'required'){ echo ' required-entry ';}?>" onchange="shipping.setSameAsBilling(false);" />
+						<input type="text" maxlength="28" name="shipping[city]" id="shipping:city" title="<?php echo $this->__('City') ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getCity()) ?>" class="input-text<?php if ($city_r === 'required'){ echo ' required-entry ';}?>" onchange="shipping.setSameAsBilling(false);" />
 					</div>
 				</div>
 			<?php endif; ?>

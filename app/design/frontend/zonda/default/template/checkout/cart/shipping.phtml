@@ -27,7 +27,7 @@
             <?php if($this->getCityActive()): ?>
                 <li>
                     <div class="input-box">
-                        <input class="input-text<?php if ($this->isCityRequired()):?> required-entry<?php endif;?>" id="city" type="text" name="estimate_city" value="<?php echo $this->escapeHtml($this->getEstimateCity()) ?>" placeholder="<?php echo $this->__('City') ?>" />
+                        <input class="input-text<?php if ($this->isCityRequired()):?> required-entry<?php endif;?>" maxlength="28" id="city" type="text" name="estimate_city" value="<?php echo $this->escapeHtml($this->getEstimateCity()) ?>" placeholder="<?php echo $this->__('City') ?>" />
                     </div>
                 </li>
             <?php endif; ?>

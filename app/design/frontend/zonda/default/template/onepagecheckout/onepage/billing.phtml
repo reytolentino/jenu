@@ -27,7 +27,7 @@ $has_addr	= $this->customerHasAddresses();
 				<div class="short">
 						<label for="billing:email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
 					<div class="input-box">
-						<input type="text" name="billing[email]" value="<?php echo $this->htmlEscape($this->getBillAddress()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text validate-email required-entry" />
+						<input type="text" name="billing[email]" value="<?php echo $this->htmlEscape($this->getBillAddress()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text validate-email required-entry" maxlength="50"/>
 					</div>
 			
 				</div> 
@@ -38,7 +38,7 @@ $has_addr	= $this->customerHasAddresses();
 				<div class="short">
 					<label for="billing:company" <?php if ( $cr  === 'required' ){ echo 'class="required"'; }?> ><?php if ($cr  === 'required'){echo "<em>*</em>";}?> <?php echo $this->__('Company') ?> </label>
 					<div class="input-box">
-						<input type="text" id="billing:company" name="billing[company]" value="<?php echo $this->htmlEscape($this->getBillAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text<?php if($cr === 'required'){ echo ' required-entry';} ?>" />
+						<input type="text" maxlength="35" id="billing:company" name="billing[company]" value="<?php echo $this->htmlEscape($this->getBillAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text<?php if($cr === 'required'){ echo ' required-entry';} ?>" />
 					</div>
 				    
 			<?php endif; 
@@ -49,7 +49,7 @@ $has_addr	= $this->customerHasAddresses();
 				    <div class="full">
 					    <label for="billing:street1"<?php if($ar === 'required'){echo ' class="required" ';}?> ><?php if($ar === 'required'){echo '<em>*</em>';}?> <?php echo $this->__('Address') ?> </label>
 					<div class="input-box">
-						<input type="text" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]" id="billing:street1" value="<?php echo $this->htmlEscape($this->getBillAddress()->getStreet(1)) ?>" class="input-text<?php if($ar === 'required'){echo ' required-entry';}?>" />
+						<input type="text" maxlength="35" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]" id="billing:street1" value="<?php echo $this->htmlEscape($this->getBillAddress()->getStreet(1)) ?>" class="input-text<?php if($ar === 'required'){echo ' required-entry';}?>" />
 					</div>
 				</div>
 				<?php 
@@ -58,7 +58,7 @@ $has_addr	= $this->customerHasAddresses();
 				?>
 				    <div class="full">
 					<div class="input-box">
-						<input type="text" name="billing[street][]" id="billing:street<?php echo $i?>" title="<?php echo $this->__('Street Address %s', $i) ?>" value="<?php echo $this->htmlEscape($this->getBillAddress()->getStreet($i)) ?>" class="input-text" />
+						<input type="text" maxlength="35" name="billing[street][]" id="billing:street<?php echo $i?>" title="<?php echo $this->__('Street Address %s', $i) ?>" value="<?php echo $this->htmlEscape($this->getBillAddress()->getStreet($i)) ?>" class="input-text" />
 					</div>
 				</div>
 				<?php 
@@ -77,7 +77,7 @@ $has_addr	= $this->customerHasAddresses();
 					</label>
 					    
 					<div class="input-box">
-						<input type="text" title="<?php echo $this->__('City') ?>" name="billing[city]" value="<?php echo $this->htmlEscape($this->getBillAddress()->getCity()) ?>" class="input-text<?php if ($city_r === 'required'){ echo ' required-entry ';}?>" id="billing:city" />
+						<input type="text" maxlength="28" title="<?php echo $this->__('City') ?>" name="billing[city]" value="<?php echo $this->htmlEscape($this->getBillAddress()->getCity()) ?>" class="input-text<?php if ($city_r === 'required'){ echo ' required-entry ';}?>" id="billing:city" />
 					</div>
 				</div>
 			<?php endif; ?>

@@ -42,23 +42,20 @@
 				var u="<?php echo $installPath ?>";
 			    _paq.push(['setSiteId', <?php echo $siteId ?>]);
                 _paq.push(['setTrackerUrl', u+'piwik.php']);
-                _paq.push(['setConversionAttributionFirstReferrer', true]);
                 <?php echo $this->_getEcommerceCartUpdate()?>
                 <?php echo $this->_getOrdersTrackingCode()?>
                 <?php echo $this->_getProductPageview()?>
                 <?php echo $this->_getCategoryPageview()?>
-
                 <?php if (isset($noRes)): ?>
                 _paq.push(['setCustomUrl', '' + document.URL + '&search_count=<?php echo $noRes ?>']);
                 <?php endif ?>
-
                 <?php
                 //404 tracking
                 $action = Mage::app()->getRequest()->getActionName();
                 if($action == 'noRoute'){?>
                 _paq.push(['setDocumentTitle', '404/URL = '+String(document.location.pathname+document.location.search).replace(/\//g,"%2f") + '/From = ' + String(document.referrer).replace(/\//g,"%2f")]);
                 <?php }?>
-
+                _paq.push(['setConversionAttributionFirstReferrer', true]);
                 _paq.push(['trackPageView']);
                 _paq.push(['enableLinkTracking']);
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';

@@ -3518,7 +3518,7 @@ div.cart-empty {
     color: #0069a7;
 }
 
-.homepage-heading h1 {
+.homepage-heading h2.hpheading {
     font-size: 48px;
     font-weight: 300;
     line-height: 56px;
@@ -3831,7 +3831,7 @@ ul.homepage-content-worksgreat-list ul {
     .homepage-heading {
         padding: 10px 0;
     }
-    .homepage-heading h1 {
+    .homepage-heading h2.hpheading {
         font-size: 36px;
         font-weight: 300;
         line-height: 44px;
@@ -3908,7 +3908,7 @@ ul.homepage-content-worksgreat-list ul {
     .homepage-content-threeup .homepage-heading {
         padding-top:40px;
     }
-    .homepage-heading h1 {
+    .homepage-heading h2.hpheading {
         font-size: 24px;
         font-weight: 300;
         line-height: 28px;

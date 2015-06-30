@@ -2231,7 +2231,7 @@ if (typeof Piwik !== 'object') {
                 configCountPreRendered,
 
                 // Do we attribute the conversion to the first referrer or the most recent referrer?
-                configConversionAttributionFirstReferrer,
+                configConversionAttributionFirstReferrer = true,
 
                 // Life of the visitor cookie (in milliseconds)
                 configVisitorCookieTimeout = 33955200000, // 13 months (365 days + 28days)

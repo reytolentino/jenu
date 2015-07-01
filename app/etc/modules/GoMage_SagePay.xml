@@ -15,7 +15,7 @@
 <config>
     <modules>
         <GoMage_SagePay>
-            <active>false</active>
+            <active>true</active>
             <codePool>local</codePool>
         </GoMage_SagePay>
 	</modules>

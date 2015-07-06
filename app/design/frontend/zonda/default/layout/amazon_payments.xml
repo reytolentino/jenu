@@ -73,7 +73,7 @@
         </reference>
 
     </checkout_onepage_index>
-
+<!--
     <gomage_checkout_onepage_index>
 
         <reference name="head">
@@ -85,7 +85,7 @@
         </reference>
 
     </gomage_checkout_onepage_index>
-    
+    -->
     <!--
     Onepage layout when user clicks "Pay with Amazon"
     Added dynamically by Amazon_Payments_Model_Observer_Onepage

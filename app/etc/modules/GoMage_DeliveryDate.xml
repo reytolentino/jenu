@@ -15,7 +15,7 @@
 <config>
     <modules>
         <GoMage_DeliveryDate>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </GoMage_DeliveryDate>
 	</modules>

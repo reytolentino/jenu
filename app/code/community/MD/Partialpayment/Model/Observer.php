@@ -175,11 +175,13 @@ class MD_Partialpayment_Model_Observer
         $subtotalInclTax = $order->getSubtotalInclTax();
         $baseSubtotal = $order->getBaseSubtotal();
         $baseSubtotalInclTax = $order->getBaseSubtotalInclTax();
+        $hasPartial = false;
         
         foreach($order->getAllVisibleItems() as $item){
             if($item->getPartialpaymentOptionSelected() == 1){
                 $amount = $item->getPartialpaymentPaidAmount();/* - $item->getTaxAmount();*/
                 $baseAmount = $item->getPartialpaymentPaidAmount();/* - $item->getBaseTaxAmount();*/
+                $hasPartial = true;
                 
                 $subtotal -= $item->getRowTotal();
                 $subtotalInclTax -= $item->getRowTotal();
@@ -198,18 +200,20 @@ class MD_Partialpayment_Model_Observer
                 }                
             }
         }
-        $order->setSubtotal($subtotal);
-        $order->getQuote()->setSubtotal($subtotal);
-        $order->setBaseSubtotal($baseSubtotal);
-        $order->getQuote()->setBaseSubtotal($baseSubtotal);
-        $order->setSubtotalInclTax($subtotalInclTax);
-        $order->getQuote()->setSubtotalInclTax($subtotalInclTax);
-        $order->setBaseSubtotalInclTax($baseSubtotalInclTax);
-        $order->getQuote()->setBaseSubtotalInclTax($baseSubtotalInclTax);
-        $order->setGrandTotal($grandTotal);
-        $order->getQuote()->setGrandTotal($grandTotal);
-        $order->setBaseGrandTotal($baseGrandTotal);
-        $order->getQuote()->setBaseGrandTotal($baseGrandTotal);
+        if($hasPartial){
+            $order->setSubtotal($subtotal);
+            $order->getQuote()->setSubtotal($subtotal);
+            $order->setBaseSubtotal($baseSubtotal);
+            $order->getQuote()->setBaseSubtotal($baseSubtotal);
+            $order->setSubtotalInclTax($subtotalInclTax);
+            $order->getQuote()->setSubtotalInclTax($subtotalInclTax);
+            $order->setBaseSubtotalInclTax($baseSubtotalInclTax);
+            $order->getQuote()->setBaseSubtotalInclTax($baseSubtotalInclTax);
+            $order->setGrandTotal($grandTotal);
+            $order->getQuote()->setGrandTotal($grandTotal);
+            $order->setBaseGrandTotal($baseGrandTotal);
+            $order->getQuote()->setBaseGrandTotal($baseGrandTotal);
+        }
         return $this;
     }
     
@@ -224,6 +228,7 @@ class MD_Partialpayment_Model_Observer
         $subtotalInclTax = $order->getSubtotalInclTax();
         $baseSubtotal = $order->getBaseSubtotal();
         $baseSubtotalInclTax = $order->getBaseSubtotalInclTax();
+        $hasPartial = false;
         
         $totalDue = $order->getTotalDue();
         $baseTotalDue = $order->getBaseTotalDue();
@@ -231,6 +236,7 @@ class MD_Partialpayment_Model_Observer
             if($item->getPartialpaymentOptionSelected() == 1){
                 $amount = $item->getPartialpaymentPaidAmount();/* - $item->getTaxAmount();*/
                 $baseAmount = $item->getPartialpaymentPaidAmount();/* - $item->getBaseTaxAmount();*/
+                $hasPartial = true;
                 
                 $subtotal -= $amount;
                 $subtotalInclTax -= $amount;
@@ -255,20 +261,22 @@ class MD_Partialpayment_Model_Observer
             }
         }
         
-        $order->setSubtotal($subtotal);
-        $order->getQuote()->setSubtotal($subtotal);
-        $order->setBaseSubtotal($baseSubtotal);
-        $order->getQuote()->setBaseSubtotal($baseSubtotal);
-        $order->setSubtotalInclTax($subtotalInclTax);
-        $order->getQuote()->setSubtotalInclTax($subtotalInclTax);
-        $order->setBaseSubtotalInclTax($baseSubtotalInclTax);
-        $order->getQuote()->setBaseSubtotalInclTax($baseSubtotalInclTax);
-        $order->setGrandTotal($grandTotal);
-        $order->getQuote()->setGrandTotal($grandTotal);
-        $order->setBaseGrandTotal($baseGrandTotal);
-        $order->getQuote()->setBaseGrandTotal($baseGrandTotal);
-        $order->setTotalDue($totalDue - $order->getShippingAmount());
-        $order->setBaseTotalDue($baseTotalDue - $order->getBaseShippingAmount());
+        if($hasPartial){
+            $order->setSubtotal($subtotal);
+            $order->getQuote()->setSubtotal($subtotal);
+            $order->setBaseSubtotal($baseSubtotal);
+            $order->getQuote()->setBaseSubtotal($baseSubtotal);
+            $order->setSubtotalInclTax($subtotalInclTax);
+            $order->getQuote()->setSubtotalInclTax($subtotalInclTax);
+            $order->setBaseSubtotalInclTax($baseSubtotalInclTax);
+            $order->getQuote()->setBaseSubtotalInclTax($baseSubtotalInclTax);
+            $order->setGrandTotal($grandTotal);
+            $order->getQuote()->setGrandTotal($grandTotal);
+            $order->setBaseGrandTotal($baseGrandTotal);
+            $order->getQuote()->setBaseGrandTotal($baseGrandTotal);
+            $order->setTotalDue($totalDue - $order->getShippingAmount());
+            $order->setBaseTotalDue($baseTotalDue - $order->getBaseShippingAmount());
+        }
         }
         return $this;
     }

@@ -6,6 +6,11 @@
     text-decoration: line-through;
 }
 
+.nicescroll-rails {
+    background: url("../../images/backgrounds/nicescroll_bg.png") repeat-y scroll center center rgba(0, 0, 0, 0);
+}
+
+
 .jenu-landingpage .bottomcopy {
     font-size: 12px;
 }

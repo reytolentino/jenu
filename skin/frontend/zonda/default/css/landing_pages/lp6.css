@@ -253,7 +253,9 @@ ul.form-list .partialpayment .input-box {
 
 .lphero-box .ctabox p {
     font-size: 14px;
-    margin: 10px 0 0; }
+    margin: 10px 0 0;
+    font-weight: 300;
+}
 
 .lphero-box .ctabox .heading-box {
     border-bottom: 1px solid #ccc;
@@ -429,7 +431,9 @@ ul.form-list .partialpayment .input-box {
     width: 100%;
     background: #daebf0;
     overflow: hidden;
-    height: 51px; }
+    height: 51px;
+    font-weight: 400;
+}
 
 .greatforuse .check {
     background: url("/media/landing_pages/lp6/check.png") no-repeat left center;
@@ -1431,9 +1435,10 @@ ul.clinical-results-graph--perc {
         display: inline-block;
         margin-top: 2px;
     }
-    .lphero-box .ctabox p {d
+    .lphero-box .ctabox p {
         font-size: 13px;
         margin: 16px 0;
+
     }
     .bavid-box .batitle {
         display: inline-block;

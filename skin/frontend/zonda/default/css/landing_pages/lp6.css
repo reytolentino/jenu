@@ -1,6 +1,28 @@
 .jenu-landingpage {
     color: #272727;
 }
+
+.strike {
+    text-decoration: line-through;
+}
+
+.jenu-landingpage .bottomcopy {
+    font-size: 12px;
+}
+
+.jenu-landingpage .data-con {
+    height:740px;
+}
+
+.jenu-landingpage .review-row .review-title {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.jenu-landingpage .review-row .ratings {
+    margin-top: 0;
+}
+
 ul#nav li.order-now {
     display: none;
 }
@@ -9,9 +31,6 @@ ul#nav li.order-now {
 }
 .customer-reviews-wrap {
     background: #f7f7f7;
-}
-#whyjenu {
-    background: #fff;
 }
 
 .product-view .reviews-summary-wrap .btn-writereview {
@@ -39,15 +58,17 @@ ul#nav li.order-now {
     font-size: 48px;
     line-height: 58px; }
 .jenu-landingpage h2 {
-    font-size: 36px; }
+    font-size: 36px;
+    text-transform: none;
+}
 .jenu-landingpage h3 {
     border-bottom: 1px solid #ccc;
     color: #525252;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    text-transform: none; }
+    text-transform: uppercase; }
 .jenu-landingpage h3 strong {
     font-weight: 700; }
 .jenu-landingpage h3.jenu-lp-dark-header {
@@ -164,7 +185,7 @@ ul.form-list .partialpayment label {
     width: auto;
     max-width: none;
     min-width: inherit;
-    padding: 6px 0 6px 25px;
+    padding: 2px 0 0 25px;
     margin-bottom: 0;
     margin-right: 0; }
 
@@ -188,7 +209,7 @@ ul.form-list .partialpayment .input-box {
 .lphero {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     min-height: 500px;
-    background: #f2f2f2 url("/media/landing_pages/lp6/bg-model.jpg") no-repeat top left;
+    background: #d8f0f9 url("/media/landing_pages/lp4/bg-model.jpg") no-repeat top left;
      }
 
 .lphero-box .ctabox p.bottomcopy {
@@ -207,7 +228,9 @@ ul.form-list .partialpayment .input-box {
     text-transform: uppercase;
     line-height: 28px;
     margin: 35px 0 17px 0;
-    text-align: center; }
+    text-align: center;
+    color: #000;
+}
 
 .lphero-box .product-container {
     float: left;
@@ -230,14 +253,18 @@ ul.form-list .partialpayment .input-box {
 .lphero-box .ctabox .heading-box {
     border-bottom: 1px solid #ccc;
     padding-bottom: 8px;
-    overflow: hidden; }
+    overflow: hidden;
+
+}
 
 .lphero-box .ctabox .heading-box h2 {
     font-size: 23px;
     color: #008ab4;
     display: inline-block;
     float: left;
-    margin: 0; }
+    margin: 0;
+    text-transform: none;
+}
 
 .lphero-box .ctabox .heading-box .ratings .amount a {
     color: #272727;
@@ -264,7 +291,6 @@ ul.form-list .partialpayment .input-box {
 
 .add-to-cart button.button {
     margin-top: 6px;
-    background-color: #13323c;
     border: 0;
     color: #fff;
     height: 35px;
@@ -275,71 +301,121 @@ ul.form-list .partialpayment .input-box {
     font-size: 13px;
     text-transform: uppercase;
     padding-top: 15px; }
-.bavid-box .baslideswrap {
+
+.results-matter {
+    width: 494px;
+    float: left;
+    text-align: center;
+}
+
+.results-matter .baslideswrap {
     max-width: 432px;
     margin: 0 auto;
     width: 100%;
 }
 
-.bavid-box .baslides {
+.results-matter .baslides {
     width: 100%;
     margin: 0 auto 40px auto;
 }
 
-.bavid-box .baslides img {
+.results-matter .baslides img {
     width: 100%;
 }
 
-.bavid-box .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
-.bavid-box .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
-.bavid-box .baslideswrap .bx-prev:hover,
-.bavid-box .baslideswrap .bx-next:hover {
+.results-matter .baslideswrap .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top left; width:46px; height:46px; text-indent: -9999px;}
+.results-matter .baslideswrap .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp4/arrow.png) no-repeat top right; width:46px; height:46px; text-indent: -9999px;}
+.results-matter .baslideswrap .bx-prev:hover,
+.results-matter .baslideswrap .bx-next:hover {
     background-color: transparent;
 }
 
-.bavid-box .bx-controls-direction {
+.results-matter .bx-controls-direction {
     position: absolute;
     top:40%;
     width: 100%;
 }
 
-.bavid-box .baslideswrap1 .bx-controls-direction {
-    top: 26.7%;
+.results-matter .bx-wrapper:first-child .bx-controls-direction {
+    top:25%;
 }
 
-.bavid-box {
-    text-align: center;
-    padding: 30px 0 50px 0;
-}
-
-.bavid-box .batitle {
-    margin-bottom: 20px;
-    display: inline-block;
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    background: url('/media/landing_pages/lp3/bg-title.png') repeat-x center center;
-    padding: 0 30px;
-    color: #0069a7;
-    margin: 20px auto;
-    text-transform: uppercase;
-}
-
-.bavid-box .batitle span {
-    background: #fff;
-    display: inline-block;
-    padding: 0 20px;
-}
-
-p.badisclaimer {
-    font-size: 12px;
-    color: #747474;
+.results-matter .results-disclaimer {
+    margin-top: 30px;
     text-align: left;
-    display: block;
-    margin: 40px 0 0 20px;
 }
-p.badisclaimer1 {
+
+.reviewsbox {
+    width: 465px;
+    float: right;
+}
+
+.reviewsbox dl {
+    color: #272727;
+}
+
+.reviewsbox .review-title {
+    font-size: 16px;
+    line-height: normal;
+    font-weight: bold;
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
+    display: inline-block;
+    width: 70%;
+}
+
+.reviewsbox .review-row .ratings {
     margin-top: 0;
 }
+
+.reviewsbox .name_date {
+    font-size: 11px;
+}
+
+.reviewsbox .on_date,
+.reviewsbox .by_name {
+    font-family: Arial , "Helvetica Neue", Helvetica, sans-serif;
+    color: #272727;
+}
+
+.jenu-landingpage .sectionbox.realpeople {
+    padding: 20px 0 50px;
+}
+
+.realcta {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin: 30px 0;
+    padding-top: 30px;
+}
+
+.realcta-batra {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.jenu-landingpage .sectionbox {
+    padding: 50px 0;
+}
+
+.jenu-landingpage .sectionbox .realcta h3 {
+    color:#008ab4;
+    font-size: 20px;
+    font-family:'apexsanslightst', arial, verdana;
+    text-transform: none;
+    border-bottom: 0;
+    margin-bottom: 16px;
+}
+
+.jenu-landingpage .realcta a.btn-cart {
+    float: left;
+    margin-top: 35px;
+}
+
+.realcta .moneyback1 {
+    float: right;
+}
+
 .jenu-landingpage .greatforuse h3 {
     border-bottom: none;
 }
@@ -574,6 +650,77 @@ ul.clinical-results-graph--perc {
     position: absolute;
     bottom: -20px; }
 
+#howjenu .withjenu {
+    width: 499px;
+    float: right;
+    margin: 20px 0;
+}
+
+#howjenu .withoutjenu {
+    width: 449px;
+    float: left;
+    margin: 20px 0;
+}
+
+#howjenu .withjenu p,
+#howjenu .withoutjenu p {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: 'Univers_Condensed', Arial, Helvetica;
+    margin-bottom: 24px;
+}
+
+#howjenu .withjenu .withimg {
+    position: relative;
+}
+
+#howjenu .withjenu .withimg img {
+    position: absolute;
+}
+
+#howjenu .withjenu .withimg .roundtip {
+    background: none repeat scroll 0 0 #19353f;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    display: inline-block;
+    font-family: "Univers_Condensed",Arial,Helvetica;
+    font-size: 11px;
+    height: 110px;
+    padding-top: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 40px;
+    vertical-align: middle;
+    width: 110px;
+    z-index: 2;
+    color: #fff;
+}
+
+#howjenu .circleswrap {
+    text-align: center;
+    margin-top: 24px;
+}
+
+#howjenu .circleswrap .circles {
+    display: inline-block;
+    background: none repeat scroll 0 0 #19353f;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    font-family: "Univers_Condensed",Arial,Helvetica;
+    font-size: 15px;
+    height: 110px;
+    padding-top: 35px;
+    right: 0;
+    text-align: center;
+    top: 40px;
+    vertical-align: middle;
+    width: 110px;
+    z-index: 2;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 20px;
+}
 .jenu-lp-proof .jenu-lp-proof-img {
     border-bottom: 1px solid #b9e2ff;
     margin-bottom: 20px;
@@ -836,6 +983,10 @@ ul.clinical-results-graph--perc {
     padding: 5px 0; }
 .jenu-whyjenu .lp-press-logo .lp-press-logo-text-small {
     font-size: 10px; }
+.jenu-landingpage .webreviews {
+    margin-bottom: 40px;
+    text-align: center;
+}
 .jenu-whyjenu .jenu-press-bloggers .inthepress .mention .by {
     line-height: 16px;
     text-transform: uppercase;
@@ -1055,8 +1206,182 @@ ul.clinical-results-graph--perc {
 .jenu-reviews .reviews-bottomwrap .pager .amount,
 .jenu-reviews .reviews-bottomwrap .pager .limiter {
     display: none; }
+#bottomoffer {
+    background: #19353f;
+}
+
+#bottomoffer h2 {
+    color: #fff;
+    margin-bottom: 0;
+}
+.sectionbox.bottomoffer {
+    padding-bottom: 0;
+}
+
+.sectionbox.bottomoffer .bottomwand {
+    float: left;
+    display: inline-block;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box {
+    width: 534px;
+    float: right;
+    margin-top: 20px;
+    color:#fff;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .freegifts {
+    display:inline-block;
+    float: right;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .freeship {
+    font-size: 13px;
+    text-transform: uppercase;
+    color:#fff;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+    margin-top: 20px;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box a.btn-cart {
+    border: 1px solid #fff;
+    margin-top: 24px;
+    background: #000;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .main-heading {
+    font-size: 24px;
+    font-family: "Univers_Condensed", Arial, Helvetica;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.sectionbox.bottomoffer .bottom-offer-box .moneyback1 {
+    float: right;
+}
+
+.sectionbox.bottomoffer .heading-box {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.sectionbox.bottomoffer .heading-box h2 {
+    font-size: 24px;
+    font-family: 'apexsanslightst', Arial, Verdana;
+    display: inline-block;
+    float: left;
+    color:#fff;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .amount a {
+    color: #fff;
+    text-transform: uppercase;
+    padding-top: 2px;
+    font-size: 12px;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings {
+    float: right;
+    margin-top: 4px;
+    text-align: right;
+    width: 165px;
+}
+
+.sectionbox.bottomoffer .heading-box .ratings .rating-box {
+    float: left;
+}
+
+.sectionbox.bottomoffer a.btn-cart {
+    color: #fff;
+    background: #13323c;
+    margin-top: 15px;
+}
+
+.sectionbox.bottomoffer a.btn-cart:hover {
+    background:#0d252e;
+}
 
 @media(max-width: 991px) {
+    .jenu-landingpage .data-con {
+        height:500px;
+    }
+    .results-matter {
+        float: none;
+        margin: 0 auto 30px auto;
+    }
+    .reviewsbox {
+        float: none;
+        margin: 0 auto;
+        height: 400px;
+        width: 90%;
+    }
+    .jenu-landingpage .reviewsbox {
+        width: 100%;
+        margin-top: 28px;
+    }
+
+    .sectionbox.bottomoffer .bottom-offer-box {
+        color: #fff;
+    }
+    .sectionbox.bottomoffer {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .main-heading {
+        font-size: 18px;
+    }
+    .sectionbox.bottomoffer .bottomwand {
+        width: 48%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        margin-top: 0;
+        width: 48%;
+        color: #fff;
+    }
+    .sectionbox.bottomoffer .heading-box .ratings {
+        float: left;
+    }
+    .sectionbox.bottomoffer .heading-box h2 {
+        color: #fff;
+        font-size: 18px;
+    }
+    .lphero-box .ctabox .heading-box .ratings,
+    .sectionbox.bottomoffer .heading-box .ratings {
+        margin-top: 0;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto {
+        color: #fff;
+        float: none;
+        font-size: 14px;
+        line-height: 24px;
+        width: 100%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box p.bottomlto strong {
+        display: block;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        float: none;
+        margin: 10px 0 0 30px;
+        width: 50%;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freeship {
+        font-size: 11px;
+    }
+    .sectionbox.bot-disclaimer {
+        padding-top: 0;
+    }
+    .sectionbox.bottomoffer .heading-box .ratings .amount a {
+        color: #fff;
+    }
     .partial-terms-popup .partial-terms-popup-heading h3 {
         font-size: 14px;
         margin: 0;
@@ -1101,7 +1426,7 @@ ul.clinical-results-graph--perc {
         display: inline-block;
         margin-top: 2px;
     }
-    .lphero-box .ctabox p {
+    .lphero-box .ctabox p {d
         font-size: 13px;
         margin: 16px 0;
     }
@@ -1116,8 +1441,8 @@ ul.clinical-results-graph--perc {
     }
     .bavid-box .baslideswrap .bx-prev {left: -10px;background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top left; width:36px; height:36px; text-indent: -9999px;}
     .bavid-box .baslideswrap .bx-next {right: -10px;background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top right; width:36px; height:36px; text-indent: -9999px;}
-    .jenu-press-vloggers-carousel .bx-prev {left: -10px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top left; width:36px; height:36px; text-indent: -9999px;}
-    .jenu-press-vloggers-carousel .bx-next {right:-10px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top right; width:36px; height:36px; text-indent: -9999px;}
+    .jenu-press-vloggers-carousel .bx-prev {top:-180px;left: -10px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top left; width:36px; height:36px; text-indent: -9999px;}
+    .jenu-press-vloggers-carousel .bx-next {top:-180px;right:-10px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top right; width:36px; height:36px; text-indent: -9999px;}
     .greatforuse {
         height: auto;
     }
@@ -1126,6 +1451,30 @@ ul.clinical-results-graph--perc {
     }
     .clinical-vid-col iframe {
         height: 240px;
+    }
+    #howjenu .withoutjenu {
+        float: left;
+        margin: 20px auto;
+        width: 48%;
+    }
+    #howjenu .withoutjenu img,
+    #howjenu .withjenu img{
+        width: 100%;
+        height: auto;
+    }
+    #howjenu .withjenu {
+        float: right;
+        width: 48%;
+        margin: 20px auto;
+    }
+    #howjenu .withjenu p, #howjenu .withoutjenu p {
+        font-size: 14px;
+    }
+    #howjenu .circleswrap .circles {
+        font-size: 13px;
+        height: 90px;
+        padding-top: 28px;
+        width: 90px;
     }
     .jenu-lp-proof .jenu-lp-proof-note {
         text-align: left;
@@ -1256,7 +1605,29 @@ ul.clinical-results-graph--perc {
     }
 }
 @media(max-width: 767px) {
-
+    .jenu-landingpage .data-con {
+        height: 300px;
+    }
+    .reviewsbox .review-title {
+        width: 65%;
+        font-size: 14px;
+    }
+    .jenu-landingpage .whyjenu .reviewsbox {
+        margin-top: 20px;
+    }
+    .results-matter {
+        margin-top: 20px;
+        width: 100%;
+    }
+    .results-matter .bx-controls-direction {
+        top: 32%;
+    }
+    .results-matter .batitle {
+        margin-top: 20px;
+    }
+    .results-matter .bx-caption {
+        font-size: 14px;
+    }
     .lphero {
         min-height: auto;
         overflow: hidden;
@@ -1303,6 +1674,33 @@ ul.clinical-results-graph--perc {
     }
     p.badisclaimer {
         text-align: center;
+    }
+    #howjenu .withoutjenu {
+        float: none;
+        margin: 20px auto;
+        width: 100%;
+    }
+    #howjenu .withjenu {
+        float: none;
+        margin: 20px auto;
+        width: 100%;
+        position: relative;
+    }
+    #howjenu .withjenu .withimg .roundtip {
+        font-size: 10px;
+        height: 90px;
+        padding-top: 20px;
+        top: 90px;
+        width: 90px;
+    }
+    #howjenu .withjenu .withimg {
+        position: static;
+    }
+    #howjenu .withjenu .withimg img {
+        position: static;
+    }
+    #howjenu .circleswrap {
+        margin-top: 12px;
     }
     #proofjenu ul.clinicallist {
         border-right: 0;
@@ -1447,8 +1845,8 @@ ul.clinical-results-graph--perc {
     .jenu-press-vloggers-carousel iframe {
         height: 200px;
     }
-    .jenu-press-vloggers-carousel .bx-prev {left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top left; width:36px; height:36px; text-indent: -9999px;}
-    .jenu-press-vloggers-carousel .bx-next {right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top right; width:36px; height:36px; text-indent: -9999px;}
+    .jenu-press-vloggers-carousel .bx-prev {top:-120px;left: -20px;float:left; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top left; width:36px; height:36px; text-indent: -9999px;}
+    .jenu-press-vloggers-carousel .bx-next {top:-120px;right:-20px;float:right; display: block; z-index:90;cursor:pointer; position:relative; background:url(/media/landing_pages/lp5/arrow-tablet.png) no-repeat top right; width:36px; height:36px; text-indent: -9999px;}
     .jenu-whyjenu .elle-featured {
         background-color: #ebebeb;
         background-position: right top;
@@ -1460,6 +1858,36 @@ ul.clinical-results-graph--perc {
         font-size: 12px;
         margin: 0;
         padding: 30px 146px 10px 20px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box {
+        color: #fff;
+        float: none;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .lpbox .sectionbox {
+        padding: 16px 0;
+        font-size: 11px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .main-heading {
+        font-size: 15px;
+    }
+    .sectionbox.bottomoffer .bottom-offer-box .freegifts {
+        display: block;
+        float: left;
+        margin: 20px 0 0;
+        width: auto;
+        clear: both;
+    }
+    .jenu-landingpage .sectionbox .realcta h3 {
+        margin-bottom: 20px;
+    }
+    .jenu-landingpage .realcta a.btn-cart {
+        margin-top: 10px;
+    }
+    .jenu-landingpage .realcta .moneyback1 {
+        margin-left: 20px;
+        margin-top: -30px;
     }
  }
 

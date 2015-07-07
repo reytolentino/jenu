@@ -1,10 +1,16 @@
 <?php
 /**
- * @copyright   Copyright (c) 2009-11 Amasty
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @package Amasty_Promo
  */
 class Amasty_Promo_Model_Observer
 {
     protected $_isHandled = array();
+    protected $_toAdd = array();
+
+    protected $_itemsWithDiscount = array();
+
     /**
      * Process sales rule form creation
      * @param   Varien_Event_Observer $observer
@@ -28,19 +34,33 @@ class Amasty_Promo_Model_Observer
                 'value' => 'ampromo_product',
                 'label' => Mage::helper('ampromo')->__('Auto add the same product'),
                 
-            );   
+            );
+            $vals[] = array(
+                'value' => 'ampromo_spent',
+                'label' => Mage::helper('ampromo')->__('Auto add promo items for every $X spent'),
+
+            );
             
-            $vals = $vals;
             $actionsSelect->setValues($vals);
             $actionsSelect->setOnchange('ampromo_hide()');
             
             $fldSet = $observer->getForm()->getElement('action_fieldset');
+            $fldSet->addField('ampromo_type', 'select', array(
+                    'name'     => 'ampromo_type',
+                    'label' => Mage::helper('ampromo')->__('Type'),
+                    'values' => array(
+                        0 => Mage::helper('ampromo')->__('All SKUs below'),
+                        1 => Mage::helper('ampromo')->__('One of the SKUs below')
+                    ),
+                ),
+                'discount_amount'
+            );
             $fldSet->addField('promo_sku', 'text', array(
                 'name'     => 'promo_sku',
                 'label' => Mage::helper('ampromo')->__('Promo Items'),
                 'note'  => Mage::helper('ampromo')->__('Comma separated list of the SKUs'),
                 ),
-                'discount_amount'
+                'ampromo_type'
             );            
         }
         
@@ -54,69 +74,59 @@ class Amasty_Promo_Model_Observer
     public function handleValidation($observer) 
     {
         $rule = $observer->getEvent()->getRule();
-        
+
+        $address = $observer->getEvent()->getAddress();
+
         if ($rule->getSimpleAction() == 'ampromo_product') {
             try {
-            
                 $item = $observer->getEvent()->getItem();
-                if ($rule->getDiscountQty()){
-                    $maxDiscountQty   = max(1, $rule->getDiscountQty());                    
-                }else {
-                    $maxDiscountQty = 100000;
+
+                if ($this->_skip($item, $address)) {
+                    return false;
                 }
-                
+
                 $discountStep     = max(1, $rule->getDiscountStep());
-                $discountAmount   = max(1, $rule->getDiscountAmount());
-                
-                $qty = min(floor($item->getQty() * $discountAmount / $discountStep), $maxDiscountQty);
-                // if simple option has a sku we need take parent SKU
-                $product = $item->getProduct()->toArray();
-                $sku = $product['sku'];
-                if ($product['type_id'] == 'configurable') {
-                    $sku =  $item->getProduct()->getSku();   
+                $maxDiscountQty = 100000;
+                if ($rule->getDiscountQty()){
+                    $maxDiscountQty   = intVal(max(1, $rule->getDiscountQty()));                    
                 }
-                
-                // we support only simple, configurable, virtual
-                if ($product['type_id']=='bundle' || $product['type_id'] =='downloadable') {  
+				
+                $discountAmount   = max(1, $rule->getDiscountAmount());
+                $qty = min(floor($item->getQty() / $discountStep) * $discountAmount, $maxDiscountQty);
+
+                if ($item->getParentItemId())
+                    return false;
+
+                // we support only simple, configurable, virtual, bundle
+                if ($item['product_type'] =='downloadable') {
                     return false;       
                 } 
 
-                
-                $product =  $this->_loadProduct($sku, $qty);
-                if (!$product){
+                if ($qty < 1){
                     return false;    
                 }
-                
-                $customOptions = array();
-                foreach ($item->getOptions() as $optionItem) {
-                    if ((substr($optionItem->getCode(), 0, 6) == 'option') && ($optionItem->getCode() != 'option_ids')) {
-                        $customOptions[substr($optionItem->getCode(), 7)] = $optionItem->getValue();  
-                    }  
-                }
-                
-                $request = new Varien_Object(array(
-                    'qty'           => $qty,
-                    'options'       => $customOptions
-                ));
 
-                $quote = $observer->getEvent()->getQuote();
-                if ($this->_addProductToQuote($quote, $product, $request, $rule)){
-                    $msg = $rule->getStoreLabel(Mage::app()->getStore());
-                    if ($msg){
-                        $this->_showMessage($msg, false);
-                    }
-                }
-                
+                Mage::getSingleton('ampromo/registry')->addPromoItem(
+                    $item->getProduct()->getData('sku'),
+                    $qty,
+                    $rule->getId()
+                );
             }
             catch (Exception $e){
-                $this->_showMessage(Mage::helper('ampromo')->__(
-                    'We apologise, but there is an error while adding free items to the cart: %s', $e->getMessage()
+                $hlp = Mage::helper('ampromo');
+                $hlp->showMessage($hlp->__(
+                    'We apologize, but there is an error while adding free items to the cart: %s',
+                    $e->getMessage()
                 ));            
                 return false;
             }   
         }
         
-        if (!in_array($rule->getSimpleAction(), array('ampromo_items','ampromo_cart'))){
+        if (!in_array($rule->getSimpleAction(), array(
+            'ampromo_items',
+            'ampromo_cart',
+            'ampromo_spent'
+        ))){
             return $this;
         }
        
@@ -133,116 +143,292 @@ class Amasty_Promo_Model_Observer
         
         $quote = $observer->getEvent()->getQuote();
         
-        $qty = $this->_getFreeItemsQty($rule, $quote);
-
+        $qty = $this->_getFreeItemsQty($rule, $quote, $address);
         if (!$qty){
             //@todo  - add new field for label table
             // and show message like "Add 2 more products to get free items"
             return $this;         
         }
-        
-        $session = Mage::getSingleton('checkout/session');
-        if ($session->getAmpromoId() != $quote->getId()){
-            $session->setAmpromoDeletedItems(null);
-            $session->setAmpromoMessages(null);
-            $session->setAmpromoId($quote->getId());
-        }
-            
-		$promoSku = explode(',', $promoSku);
-		foreach ($promoSku as $sku){
-		    $sku = trim($sku);
-		    if (!$sku){
-		        continue;
-		    }
-            $product = $this->_loadProduct($sku, $qty);
-            if (!$product){
-                continue;
-            }
-            if ($this->_addProductToQuote($quote, $product, $qty, $rule)){
-            	$message = $rule->getStoreLabel(Mage::app()->getStore());
-            	if ($message){
-            		$this->_showMessage($message, false);	
-            	}
-            }
-		}
 
-        return $this;
-    }
-    
-    public function initFreeItems($observer) 
-    { 
-        $this->_isHandled = array();
-        
-        $quote = $observer->getQuote();
-        if (!$quote) 
-            return $this;
-            
-        foreach ($quote->getItemsCollection() as $item) {
-            if (!$item){
-                continue;
-            }
-                
-            if (!$item->getOptionByCode('ampromo_rule')){
-                continue;
-            }
-
-            Mage::unregister('ampromo_del');
-            Mage::register('ampromo_del', $item->getId());
-            
-            $item->isDeleted(true);
-            $item->setData('qty_to_add', '0.0000');
-            $quote->removeItem($item->getId());
+        if ($rule->getAmpromoType() == 1)
+        {
+            Mage::getSingleton('ampromo/registry')->addPromoItem(
+                preg_split('/\s*,\s*/', $promoSku, -1, PREG_SPLIT_NO_EMPTY),
+                $qty,
+                $rule->getId()
+            );
         }
-        return $this;
-    }
-    
-    public function removeFreeItems($observer) 
-    {
-        $item = $observer->getEvent()->getQuoteItem();
-        if ($item->getId() != Mage::registry('ampromo_del')){
-            $allowDelete = Mage::getStoreConfig('ampromo/general/allow_delete');    
-            if ($allowDelete){
-                $arr = Mage::getSingleton('checkout/session')->getAmpromoDeletedItems();
-                if (!is_array($arr)){
-                    $arr = array();
+        else
+        {
+            $promoSku = explode(',', $promoSku);
+            foreach ($promoSku as $sku){
+                $sku = trim($sku);
+                if (!$sku){
+                    continue;
                 }
-                $arr[$item->getSku()] = true;
-                Mage::getSingleton('checkout/session')->setAmpromoDeletedItems($arr);
-                Mage::getSingleton('checkout/session')->setAmpromoId($item->getQuote()->getId());
+
+                Mage::getSingleton('ampromo/registry')->addPromoItem($sku, $qty, $rule->getId());
             }
         }
-    } 
-    
-    public function updateFreeItems($observer) 
-    { 
-        $info = $observer->getInfo();
-        $quote = $observer->getCart()->getQuote();
-        foreach (array_keys($info) as $itemId) {
-            $item = $quote->getItemById($itemId);
-            if (!$item) 
-                continue;
-                
-            if (!$item->getOptionByCode('ampromo_rule')) 
-                continue;
-                
-            if (empty($info[$itemId]))
-                continue;
-                
-            $info[$itemId]['remove'] = true;
-        }
-        
+
         return $this;
-    }  
+    }
+
+    /**
+     * determines if we should skip the items with special price or other (in futeure) conditions
+     *
+     * @param Mage_Sales_Model_Quote_Item $item
+     * @param Amasty_Promo_Model_Sales_Quote_Address $address
+     *
+     * @return bool
+     */
+    protected function _skip($item, $address)
+    {
+        if (!Mage::getStoreConfig('ampromo/general/skip_special_price')) {
+            return false;
+        }
+
+        if ($item->getProductType() == 'bundle') {
+            return false;
+        }
+
+        if (is_null($this->_itemsWithDiscount) || count($this->_itemsWithDiscount)==0 ) {
+            $productIds = array();
+            $this->_itemsWithDiscount = array();
+
+            foreach ($this->_getAllItems($address) as $addressItem) {
+                $productIds[] = $addressItem->getProductId();
+            }
+
+            if (!$productIds) {
+                return false;
+            }
+
+            $productsCollection = Mage::getModel('catalog/product')->getCollection()
+                ->addPriceData()
+                ->addAttributeToFilter('entity_id', array('in' => $productIds))
+                ->addAttributeToFilter('price', array('gt' => new Zend_Db_Expr('final_price')));
+
+            foreach ($productsCollection as $product) {
+                $this->_itemsWithDiscount[] = $product->getId();
+            }
+        }
+
+        if (Mage::getStoreConfig('ampromo/general/skip_special_price_configurable')) {
+            if ($item->getProductType() == "configurable") {
+                foreach ($item->getChildren() as $child) {
+                    if (in_array($child->getProductId(), $this->_itemsWithDiscount)) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        if (!in_array($item->getProductId(), $this->_itemsWithDiscount)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected function _getAllItems($address)
+    {
+        $items = $address->getAllNonNominalItems();
+        if (!$items) { // CE 1.3 version
+            $items = $address->getAllVisibleItems();
+        }
+        if (!$items) { // cart has virtual products
+            $cart = Mage::getSingleton('checkout/cart');
+            $items = $cart->getItems();
+        }
+        return $items;
+    }
+
+    public function onCollectTotalsBefore($observer)
+    {
+        Mage::getSingleton('ampromo/registry')->reset();
+    }
+
+    /**
+     * Revert 'deleted' status and auto add all simple products without required options
+     * @param $observer
+     * @return $this
+     */
+    public function onAddressCollectTotalsAfter($observer)
+    {
+        $quote = $observer->getQuoteAddress()->getQuote();
+
+        $items = $quote->getAllItems();
+
+        foreach ($items as $item)
+        {
+            if ($item->getIsFree())
+            {
+                $item->isDeleted(false);
+                $this->resetWeee($item);
+            }
+        }
+
+        if (Mage::getStoreConfigFlag('ampromo/general/auto_add'))
+        {
+            $toAdd  = Mage::getSingleton('ampromo/registry')->getPromoItems();
+            unset($toAdd['_groups']);
+
+            foreach ($items as $item)
+            {
+                $sku = $item->getProduct()->getData('sku');
+
+                if (!isset($toAdd[$sku]))
+                    continue;
+
+                if ($item->getIsFree())
+                    $toAdd[$sku]['qty'] -= $item->getQty();
+
+                //unset($toAdd[$sku]); // to allow to decrease qty
+            }
+
+            $deleted = Mage::getSingleton('ampromo/registry')->getDeletedItems();
+
+            $this->_toAdd = array();
+
+            foreach ($toAdd as $sku => $item)
+            {
+                if ($item['qty'] > 0 && $item['auto_add'] && !isset($deleted[$sku]))
+                {
+                    $product = Mage::getModel('catalog/product')->loadByAttribute('sku', $sku);
+
+                    if (isset($this->_toAdd[$product->getId()])) {
+                        $this->_toAdd[$product->getId()]['qty'] += $item['qty'];
+                    }
+                    else {
+                        $this->_toAdd[$product->getId()] = array(
+                            'product' => $product,
+                            'qty'     => $item['qty']
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    public function resetWeee(&$item)
+    {
+        Mage::helper('weee')->setApplied($item, array());
+
+        $item->setBaseWeeeTaxDisposition(0);
+        $item->setWeeeTaxDisposition(0);
+
+        $item->setBaseWeeeTaxRowDisposition(0);
+        $item->setWeeeTaxRowDisposition(0);
+
+        $item->setBaseWeeeTaxAppliedAmount(0);
+        $item->setBaseWeeeTaxAppliedRowAmount(0);
+
+        $item->setWeeeTaxAppliedAmount(0);
+        $item->setWeeeTaxAppliedRowAmount(0);
+    }
+
+    /**
+     * Mark item as deleted to prevent it's auto-addition
+     * @param $observer
+     */
+    public function onQuoteRemoveItem($observer)
+    {
+        $action = Mage::app()->getRequest()->getActionName();
+        if (!in_array($action, array('delete', 'ajaxDelete')))
+            return;
+
+        $id = (int) Mage::app()->getRequest()->getParam('id');
+
+        $item = $observer->getEvent()->getQuoteItem();
+
+        if (($item->getId() == $id) && $item->getIsFree() && !$item->getParentId())
+            Mage::getSingleton('ampromo/registry')->deleteProduct($item->getProduct()->getData('sku'));
+    }
+
+    public function decrementUsageAfterPlace($observer)
+    {
+        $order = $observer->getEvent()->getOrder();
+
+        if (!$order) {
+            return $this;
+        }
+
+        // lookup rule ids
+        $ruleIds = explode(',', $order->getAppliedRuleIds());
+        $ruleIds = array_unique($ruleIds);
+
+        $ruleCustomer = null;
+        $customerId = $order->getCustomerId();
+
+        // use each rule (and apply to customer, if applicable)
+        if (($order->getDiscountAmount() == 0) && (count($ruleIds) >= 1)) {
+            foreach ($ruleIds as $ruleId) {
+                if (!$ruleId) {
+                    continue;
+                }
+                $rule = Mage::getModel('salesrule/rule');
+                $rule->load($ruleId);
+                if ($rule->getId()) {
+                    $rule->setTimesUsed($rule->getTimesUsed() + 1);
+                    $rule->save();
+
+                    if ($customerId) {
+                        $ruleCustomer = Mage::getModel('salesrule/rule_customer');
+                        $ruleCustomer->loadByCustomerRule($customerId, $ruleId);
+
+                        if ($ruleCustomer->getId()) {
+                            $ruleCustomer->setTimesUsed($ruleCustomer->getTimesUsed() + 1);
+                        }
+                        else {
+                            $ruleCustomer
+                            ->setCustomerId($customerId)
+                            ->setRuleId($ruleId)
+                            ->setTimesUsed(1);
+                        }
+                        $ruleCustomer->save();
+                    }
+                }
+            }
+            $coupon = Mage::getModel('salesrule/coupon');
+            /** @var Mage_SalesRule_Model_Coupon */
+            $coupon->load($order->getCouponCode(), 'code');
+            if ($coupon->getId()) {
+                $coupon->setTimesUsed($coupon->getTimesUsed() + 1);
+                $coupon->save();
+                if ($customerId) {
+                    $couponUsage = Mage::getResourceModel('salesrule/coupon_usage');
+                    $couponUsage->updateCustomerCouponTimesUsed($customerId, $coupon->getId());
+                }
+            }
+        }        
+    }
     
-    // find qty 
+    // find qty
     // (for the whole cart it is $rule->getDiscountQty()
     // for items it is (qty * (number of matched non-free items) / step)
-    protected function _getFreeItemsQty($rule, $quote)
+    protected function _getFreeItemsQty($rule, $quote, $address)
     {  
         $amount = max(1, $rule->getDiscountAmount());
         $qty    = 0;
         if ('ampromo_cart' == $rule->getSimpleAction()){
             $qty = $amount;
+        }
+        else if ('ampromo_spent' == $rule->getSimpleAction()) {
+            $step = $rule->getDiscountStep();
+
+            if (!$step)
+                return 0;
+
+            $totals = $quote->getTotals();
+            $qty = floor($totals['subtotal']->getValue() / $step) * $amount;
+
+            $max = $rule->getDiscountQty();
+            if ($max){
+                $qty = min($max, $qty);
+            }
+
+            return $qty;
         }
         else {
             $step = max(1, $rule->getDiscountStep());
@@ -250,14 +436,24 @@ class Amasty_Promo_Model_Observer
                 if (!$item) 
                     continue;
                     
-                if ($item->getOptionByCode('ampromo_rule')) 
+                if ($item->getIsFree())
                     continue;
+
+                if ($this->_skip($item, $address)) {
+                    continue;
+                }
                     
                 if (!$rule->getActions()->validate($item)) {
                     continue;
                 }
-                
-               $qty = $qty + $item->getQty();
+                if ($item->getParentItemId()) {
+                    continue;
+                }
+                if ($item->getProduct()->getParentProductId()) {
+                    continue;
+                }
+
+                $qty = $qty + $item->getQty();
             } 
             
             $qty = floor($qty / $step) * $amount; 
@@ -268,119 +464,160 @@ class Amasty_Promo_Model_Observer
         }
         return $qty;        
     }  
-    
-    protected function _loadProduct($sku, $qty)
+
+    /**
+     * Don't apply any discounts to free items
+     * @param $observer
+     */
+    public function onProductAddAfter($observer)
     {
-        // don't add already removed items
-        $arr = Mage::getSingleton('checkout/session')->getAmpromoDeletedItems();
-        if (!is_array($arr)){
-            $arr = array();
+        $items = $observer->getItems();
+
+        $this->_setItemPrefix($items);
+
+        foreach ($items as $item)
+        {
+            if ($item->getIsFree())
+                $item->setNoDiscount(true);
         }
-        if (isset($arr[$sku])){
-        	if (Mage::app()->getRequest()->getControllerName() == 'cart'){
-        		$message  = Mage::helper('ampromo')->__(
-                	'Your cart has deleted free items. <a href="%s">Restore them</a>?', Mage::getUrl('ampromo/cart/restore')
-            	);
-            	$this->_showMessage($message, false, true);
-        	}    	
-            return false;
-        }
-       
-	    $product = Mage::getModel('catalog/product')->reset();
-	    $product->load($product->getIdBySku($sku)); // we have to load each product individually
-	    
-	    if (!$product->getId()){
-            $this->_showMessage(Mage::helper('ampromo')->__(
-                'We apologise, but there is no promo item with the SKU `%s` in the catalog', $sku
-            ));	
-	        return false;
-	    }
-	    if (Mage_Catalog_Model_Product_Status::STATUS_ENABLED != $product->getStatus()){
-            $this->_showMessage(Mage::helper('ampromo')->__(
-                'We apologise, but promo item with the SKU `%s` is not available', $sku
-            ));		        
-	        return false;
-	    }
-        $hasQty  = $product->getStockItem()->checkQty($qty);
-        $inStock = $product->getStockItem()->getIsInStock();
-        if (!$inStock || !$hasQty){
-            $this->_showMessage(Mage::helper('ampromo')->__(
-                'We apologise, but there are no %d item(s) with the SKU `%s` in the stock', $qty, $sku
-            ));
-            return false;
-        }
-        return $product;        
-    }    
-    
-    protected function _addProductToQuote($quote, $product, $qty, $rule)
-    {
-        try {
-            
-            if ('multishipping' === Mage::app()->getRequest()->getControllerName()){
-                return false;
-            }
-            
-            $product->addCustomOption('ampromo_rule', $rule->getId());
-            
-            $item  = $quote->getItemByProduct($product);
-            if ($item) {  
-                return false;       
-            }
-            
-            // we need this line in case the initial quote was virtual
-            if (!$product->isVirtual()){
-                $quote->getBillingAddress()->setTotalAmount('subtotal', 0);
-            }
-            
-            $item = $quote->addProduct($product, $qty);
-            // required custom options or configurable product
-            if (!is_object($item)){ 
-                throw new Exception($item);   
-            }
-            
-            $item->setCustomPrice(0); 
-            $item->setOriginalCustomPrice(0); 
-            
-            $prefix = Mage::getStoreConfig('ampromo/general/prefix');
-            if ($prefix){
-                $item->setName($prefix . ' ' .$item->getName());
-            }
-            
-            $customMessage = Mage::getStoreConfig('ampromo/general/message');
-            if ($customMessage){
-                $item->setMessage($customMessage);
-            }            
-        }
-        catch (Exception $e){
-            $this->_showMessage(Mage::helper('ampromo')->__(
-                'We apologise, but there is an error while adding free items to the cart: %s', $e->getMessage()
-            ));            
-            return false;   
-            
-        }
-        return true;        
     }
-       
-    protected function _showMessage($message, $isError = true, $showEachTime=false) 
-    { 
-        // show on cart page only
-        $all = Mage::getSingleton('checkout/session')->getMessages(false)->toString();
-        if (false !== strpos($all, $message))
+
+    /**
+     * Remove all not allowed items
+     * @param $observer
+     */
+    public function onCollectTotalsAfter($observer)
+    {
+        if (!Mage::getSingleton('checkout/session')->hasQuote())
             return;
-            
-        if ($isError && isset($_GET['debug'])){
-            Mage::getSingleton('checkout/session')->addError($message);
+
+        Mage::helper('ampromo')->updateNotificationCookie();
+
+        $allowedItems = Mage::getSingleton('ampromo/registry')->getPromoItems();
+        $cart = Mage::getSingleton('checkout/cart');
+
+        $customMessage = Mage::getStoreConfig('ampromo/general/message');
+
+        foreach ($this->_toAdd as $item) {
+            Mage::helper('ampromo')->addProduct(
+                $item['product'],
+                false, false, false, false, array(),
+                $item['qty']
+            );
         }
-        else {
-            $arr = Mage::getSingleton('checkout/session')->getAmpromoMessages();
-            if (!is_array($arr)){
-                $arr = array();
-            }
-            if (!in_array($message, $arr) || $showEachTime){
-                Mage::getSingleton('checkout/session')->addNotice($message);
-                $arr[] = $message;
-                Mage::getSingleton('checkout/session')->setAmpromoMessages($arr);
+
+        $this->_toAdd = array();
+
+        foreach ($observer->getQuote()->getAllItems() as $item)
+        {
+            if ($item->getIsFree())
+            {
+                if ($item->getParentItemId())
+                    continue;
+
+                $sku = $item->getProduct()->getData('sku');
+
+                if (isset($allowedItems['_groups'][$item->getRuleId()])) // Add one of
+                {
+                    if ($allowedItems['_groups'][$item->getRuleId()]['qty'] <= 0)
+                    {
+                        $cart->removeItem($item->getId());
+                    }
+                    else if ($item->getQty() > $allowedItems['_groups'][$item->getRuleId()]['qty'])
+                    {
+                        $item->setQty($allowedItems['_groups'][$item->getRuleId()]['qty']);
+                    }
+                    if ($customMessage)
+                        $item->setMessage($customMessage);
+
+                    $allowedItems['_groups'][$item->getRuleId()]['qty'] -= $item->getQty();
+                }
+                else if (isset($allowedItems[$sku])) // Add all of
+                {
+                    if ($allowedItems[$sku]['qty'] <= 0)
+                    {
+                        $cart->removeItem($item->getId());
+                    }
+                    else if ($item->getQty() > $allowedItems[$sku]['qty'])
+                    {
+                        $item->setQty($allowedItems[$sku]['qty']);
+                    }
+                    if ($customMessage)
+                        $item->setMessage($customMessage);
+
+                    $allowedItems[$sku]['qty'] -= $item->getQty();
+                }
+                else
+                    $cart->removeItem($item->getId());
             }
         }
-    } 
+
+        $this->updateQuoteTotalQty($observer->getQuote());
+    }
+
+    public function updateQuoteTotalQty(Mage_Sales_Model_Quote $quote)
+    {
+        $quote->setItemsCount(0);
+        $quote->setItemsQty(0);
+        $quote->setVirtualItemsQty(0);
+
+        foreach ($quote->getAllVisibleItems() as $item) {
+            if ($item->getParentItem()) {
+                continue;
+            }
+
+            $children = $item->getChildren();
+            if ($children && $item->isShipSeparately()) {
+                foreach ($children as $child) {
+                    if ($child->getProduct()->getIsVirtual()) {
+                        $quote->setVirtualItemsQty($quote->getVirtualItemsQty() + $child->getQty()*$item->getQty());
+                    }
+                }
+            }
+
+            if ($item->getProduct()->getIsVirtual()) {
+                $quote->setVirtualItemsQty($quote->getVirtualItemsQty() + $item->getQty());
+            }
+            $quote->setItemsCount($quote->getItemsCount()+1);
+            $quote->setItemsQty((float) $quote->getItemsQty()+$item->getQty());
+        }
+    }
+
+    public function onOrderPlaceBefore($observer)
+    {
+        $order = $observer->getOrder();
+
+        $this->_setItemPrefix($order->getAllItems());
+    }
+
+    protected function _setItemPrefix($items)
+    {
+        if ($prefix = Mage::getStoreConfig('ampromo/general/prefix'))
+        {
+            foreach ($items as $item)
+            {
+                $buyRequest = $item->getBuyRequest();
+
+                if (isset($buyRequest['options']['ampromo_rule_id']))
+                {
+                    $item->setName($prefix . ' ' . $item->getName());
+                }
+            }
+        }
+    }
+
+    public function onCartItemUpdateBefore($observer)
+    {
+        $request = Mage::app()->getRequest();
+
+        $id = (int)$request->getParam('id');
+        $item = Mage::getSingleton('checkout/cart')->getQuote()->getItemById($id);
+
+        if ($item->getId() && $item->getIsFree())
+        {
+            $options = $request->getParam('options');
+            $options['ampromo_rule_id'] = $item->getRuleId();
+            $request->setParam('options', $options);
+        }
+    }
 }

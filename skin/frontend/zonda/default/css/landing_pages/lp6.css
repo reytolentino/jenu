@@ -235,6 +235,11 @@ ul.form-list .partialpayment .input-box {
     margin: 35px 0 17px 0;
     text-align: center;
     color: #000;
+    font-weight: 400;
+}
+
+.lphero-box h1 strong {
+    font-weight: 700;
 }
 
 .lphero-box .product-container {
@@ -1417,10 +1422,6 @@ ul.clinical-results-graph--perc {
         margin: 24px 0;
         text-align: center;
         padding-bottom: 20px;
-        font-weight: 400;
-    }
-    .jenu-landingpage .lphero-box h1 strong {
-        font-weight: 700;
     }
     .lphero-box .ctabox {
         float: left;

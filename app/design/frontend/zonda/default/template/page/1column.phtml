@@ -86,10 +86,6 @@ $b = $zonda->getConfigGroup();
             
         ?>
 
-		<?php if((Mage::app()->getFrontController()->getRequest()->getModuleName() == 'cms') && (Mage::getSingleton('cms/page')->getIdentifier() == 'jenu-biosciences')):
-             echo $this->getLayout()->createBlock('cms/block')->setBlockId('biosciences-banner')->toHtml();
-        endif; ?>
-
         <?php $breadcrumbs_html = $this->getChildHtml('breadcrumbs') ?>
         <?php echo $breadcrumbs_html ?>
         <?php

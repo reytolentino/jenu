@@ -6354,6 +6354,44 @@ h2.jenu-howitworks-header-h2 strong {
 }
 /********************************* Bio Sciences Page, Order & Shipping, FAQ, Retailers, Customer-service, Customer-reviews  *****************************/
 
+.jenu-biosciences-container .cms-box.jenu-biosciences {
+    margin-top: 20px;
+}
+
+.jenubiosciences-banner .banner-content {
+    width: 510px;
+    margin-top: 12%;
+    margin-left: 5%;
+}
+.jenubiosciences-banner .banner-content h1 {
+    color: #0069a7;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    text-shadow: none;
+}
+.jenubiosciences-banner .banner-content h1 span.jbsub1 {
+    font-size: 36px;
+    font-weight: 300;
+}
+.jenubiosciences-banner .banner-content h1 span.jbsub2 {
+    font-size: 48px;
+    font-weight: 400;
+    display: block;
+}
+.jenubiosciences-banner .banner-content
+.jenu-howitworks-hero-wide-banner-inner {
+    margin: 0 auto;
+    width: 1000px;
+}
+.cms-banner.howitworks-banner {
+    height: 374px;
+}
+.jenubiosciences-banner {
+    background: url('../images/jenu-biosciences-banner.jpg') no-repeat center top;
+    background-size: auto 100%;
+    height: 374px;
+}
+
 .cms-jenu-biosciences .left-tabs, .cms-ordering-and-shipping .left-tabs, .cms-riskfree .left-tabs, .cms-faqs .left-tabs, .cms-retailers .left-tabs, .cms-customer-support .left-tabs, .cms-customer-reviews .left-tabs, .cms-box .left-tabs {
   width: 22.4%;
 }

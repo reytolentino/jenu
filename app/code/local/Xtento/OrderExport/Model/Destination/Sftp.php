@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.8.2)
+ * Product:       Xtento_OrderExport (1.8.4)
  * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:45:41+00:00
- * Last Modified: 2014-08-08T11:58:30+02:00
+ * Packaged:      2015-07-09T17:02:46+00:00
+ * Last Modified: 2015-06-18T13:59:53+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Destination/Sftp.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -62,7 +62,7 @@ KEY;
         }*/
 
         if (!@$this->_connection->login($this->getDestination()->getUsername(), Mage::helper('core')->decrypt($this->getDestination()->getPassword()))) {
-            #if (!@$this->_connection->login($this->getData('username'), $pk)) { // If using pubkey authentication
+            #if (!@$this->_connection->login($this->getDestination()->getUsername(), $pk)) { // If using pubkey authentication
             $this->getTestResult()->setSuccess(false)->setMessage(Mage::helper('xtento_orderexport')->__('Connection to SFTP server failed (make sure no firewall is blocking the connection). This error could also be caused by a wrong login for the SFTP server.'));
             return false;
         }

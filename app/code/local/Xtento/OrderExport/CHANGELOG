@@ -388,6 +388,15 @@ Xtento_OrderExport
 ===== 1.8.1 =====
  + Added ability to export fooman PDF documents. Example: <file filename="invoice_%realorderid%.pdf" type="fooman_invoice"></file>  Valid types: fooman_invoice, fooman_order, fooman_shipment, fooman_creditmemo
 
-===== 1.8.2. =====
+===== 1.8.2 =====
  + Added ability to export creditmemo_comments
  + Added ability to export custom_options for non-order (invoice, shipment, etc.) exports
+
+===== 1.8.3 =====
+ + Added ability to store more than 255 characters in the "statuses to export" filter of profiles, if more statuses need to be selected.
+ + Added ability to export DibsPW payment information, field/node is "dibspw"
+ * Fixed "Fatal error: Cannot use object of type Mage_Catalog_Model_Resource_Product_Option_Collection as array" error
+ * Fixed store view/admin product attribute values exports, values were from the store view always for the 2nd-on attribute for a product
+
+===== 1.8.4 =====
+ * Fixed a bug caused by Magento patch SUPEE-6285 that lead to "Access Denied" screens for admins that don't have full access.

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.8.2)
+ * Product:       Xtento_OrderExport (1.8.4)
  * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:45:41+00:00
- * Last Modified: 2015-06-16T13:49:27+02:00
+ * Packaged:      2015-07-09T17:02:46+00:00
+ * Last Modified: 2015-06-29T23:10:48+02:00
  * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Shared/Items.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -275,13 +275,13 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                 }
                 $this->_writeArray =& $tempOrigArray;
                 if ($this->fieldLoadingRequired('product_attributes') || $this->fieldLoadingRequired('products_total_cost') || $this->fieldLoadingRequired('product_total_cost')) {
-                    $this->_writeProductAttributes($object, $parentItem);
+                    $this->_writeProductAttributes($object, $parentItem, true);
                 }
             }
             $this->_writeArray = & $this->_origWriteArray;
             // Export product attributes
             if ($this->fieldLoadingRequired('product_attributes') || $this->fieldLoadingRequired('products_total_cost') || $this->fieldLoadingRequired('product_total_cost')) {
-                $this->_writeProductAttributes($object, $item);
+                $this->_writeProductAttributes($object, $item, false);
             }
 
             $this->_writeArray = & $this->_origWriteArray;
@@ -470,7 +470,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                                     if (isset($customOption['option_id'])) {
                                         $this->writeValue('option_id', $customOption['option_id']);
                                         $buyRequestQtyKey = 'options_' . $customOption['option_id'] . '_qty';
-                                        if (!is_object($options['info_buyRequest']) && is_array($options['info_buyRequest']) && array_key_exists($buyRequestQtyKey, $options['info_buyRequest'])) {
+                                        if (!is_object($options) && is_array($options['info_buyRequest']) && array_key_exists($buyRequestQtyKey, $options['info_buyRequest'])) {
                                             $this->writeValue('qty', $options['info_buyRequest'][$buyRequestQtyKey]);
                                         } else {
                                             $this->writeValue('qty', 1);
@@ -517,7 +517,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
         }
     }
 
-    private function _writeProductAttributes($object, $item)
+    private function _writeProductAttributes($object, $item, $isParentItem = false)
     {
         $this->_writeArray['product_attributes'] = array();
         $this->_writeArray = & $this->_writeArray['product_attributes'];
@@ -527,7 +527,7 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                 if ($attributeCode == 'product_total_cost') continue;
                 $this->writeValue($attributeCode, $value);
             }
-            if ($this->fieldLoadingRequired('_total_cost')) {
+            if ($this->fieldLoadingRequired('_total_cost') && !$isParentItem) {
                 $product = Mage::getModel('catalog/product')->setStoreId($object->getStoreId())->load($item->getProductId());
                 if ($product->getId()) {
                     $this->_totalCost += ($product->getCost() * $item->getQtyOrdered());
@@ -538,6 +538,9 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
             $product = Mage::getModel('catalog/product')->setStoreId($object->getStoreId())->load($item->getProductId());
             if ($product->getId()) {
                 foreach ($product->getAttributes(null, true) as $productAttribute) {
+                    if ($productAttribute instanceof Mage_Catalog_Model_Resource_Eav_Attribute) {
+                        $productAttribute->setStoreId(0); // Admin store
+                    }
                     $attributeCode = $productAttribute->getAttributeCode();
                     // Handle attribute set name
                     if ($this->fieldLoadingRequired('attribute_set_name') && $productAttribute->getAttributeCode() == 'attribute_set_id') {
@@ -598,7 +601,9 @@ class Xtento_OrderExport_Model_Export_Data_Shared_Items extends Xtento_OrderExpo
                     $this->writeValue('product_url', $productUrl);
                     $this->_cache['product_attributes'][$object->getStoreId()][$item->getProductId()]['product_url'] = $productUrl;
                 }
-                $this->_totalCost += ($product->getCost() * $item->getQtyOrdered());
+                if (!$isParentItem) {
+                    $this->_totalCost += ($product->getCost() * $item->getQtyOrdered());
+                }
                 $this->writeValue('product_total_cost', $product->getCost() * $item->getQtyOrdered());
             }
         }

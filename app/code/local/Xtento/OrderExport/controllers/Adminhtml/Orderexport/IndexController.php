@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Product:       Xtento_OrderExport (1.8.2)
+ * Product:       Xtento_OrderExport (1.8.4)
  * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
- * Packaged:      2015-06-18T20:45:41+00:00
- * Last Modified: 2013-11-23T16:12:34+01:00
+ * Packaged:      2015-07-09T17:02:46+00:00
+ * Last Modified: 2015-07-08T14:35:49+02:00
  * File:          app/code/local/Xtento/OrderExport/controllers/Adminhtml/Orderexport/IndexController.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
@@ -30,5 +30,10 @@ class Xtento_OrderExport_Adminhtml_OrderExport_IndexController extends Xtento_Or
         Mage::getSingleton('adminhtml/session')->addWarning(Mage::helper('xtento_orderexport')->__('The extension is currently disabled. Please go to System > XTENTO Extensions > Sales Export Configuration to enable it. After that access the module at Sales > Sales Export again.'));
         $this->loadLayout();
         $this->renderLayout();
+    }
+
+    protected function _isAllowed()
+    {
+        return true;
     }
 }

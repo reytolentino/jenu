@@ -4,23 +4,23 @@
  * Product:       Xtento_OrderExport (1.8.4)
  * ID:            /rRDmPy6ZEZj9ocZGuuFjhblVHpQKfaGmtArmCqlOFM=
  * Packaged:      2015-07-09T17:02:46+00:00
- * Last Modified: 2013-10-18T19:22:18+02:00
- * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Custom/Order/KamtechGiftwrapper.php
+ * Last Modified: 2015-06-29T14:45:26+02:00
+ * File:          app/code/local/Xtento/OrderExport/Model/Export/Data/Custom/Order/Dibspw.php
  * Copyright:     Copyright (c) 2015 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
  */
 
-class Xtento_OrderExport_Model_Export_Data_Custom_Order_KamtechGiftwrapper extends Xtento_OrderExport_Model_Export_Data_Abstract
+class Xtento_OrderExport_Model_Export_Data_Custom_Order_Dibspw extends Xtento_OrderExport_Model_Export_Data_Abstract
 {
     public function getConfiguration()
     {
         return array(
-            'name' => 'Kamtech Giftwrapper message export',
-            'category' => 'Order',
-            'description' => 'Export gift wrap message of Kamtech Giftwrapper extension',
+            'name' => 'DibsPW Payment Method Export',
+            'category' => 'Payment',
+            'description' => 'Export payment information of the DibsPW gateway',
             'enabled' => true,
             'apply_to' => array(Xtento_OrderExport_Model_Export::ENTITY_ORDER, Xtento_OrderExport_Model_Export::ENTITY_INVOICE, Xtento_OrderExport_Model_Export::ENTITY_SHIPMENT, Xtento_OrderExport_Model_Export::ENTITY_CREDITMEMO),
             'third_party' => true,
-            'depends_module' => 'Kamtech_Giftwrapper',
+            'depends_module' => 'Dibspw_Dibspw',
         );
     }
 
@@ -29,21 +29,22 @@ class Xtento_OrderExport_Model_Export_Data_Custom_Order_KamtechGiftwrapper exten
         // Set return array
         $returnArray = array();
 
-        if (!$this->fieldLoadingRequired('kamtech_giftwrapper')) {
+        if (!$this->fieldLoadingRequired('dibspw')) {
             return $returnArray;
         }
-        $order = $collectionItem->getOrder();
-        $this->_writeArray = & $returnArray['kamtech_giftwrapper'];
+        $payment = $collectionItem->getOrder()->getPayment();
+        $this->_writeArray = & $returnArray['payment']['dibspw'];
 
         // Fetch fields to export
         $readAdapter = Mage::getSingleton('core/resource')->getConnection('core_read');
-        $dataRow = $readAdapter->fetchRow("SELECT message from ".Mage::getSingleton('core/resource')->getTableName('sales_order_giftwrap_message')." WHERE order_id = " . $readAdapter->quote($order->getIncrementId()));
+        $dataRow = $readAdapter->fetchRow("SELECT * FROM " . Mage::getSingleton('core/resource')->getTableName('dibs_pw_results') . " WHERE orderid = " . $readAdapter->quote($payment->getOrder()->getRealOrderId()));
 
         if (is_array($dataRow)) {
             foreach ($dataRow as $key => $value) {
                 $this->writeValue($key, $value);
             }
         }
+
         return $returnArray;
     }
 }

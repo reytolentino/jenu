@@ -1965,13 +1965,13 @@
     }
     .block-subscribe {
         overflow: hidden;
+        padding: 20px 0 0;
     }
     .block-subscribe-title {
-        background: url("../images/icon-envelope.png") no-repeat scroll 0 23px rgba(0, 0, 0, 0);
+        background: url("../images/icon-envelope.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
         line-height: normal;
-        padding-bottom: 5px;
         padding-left: 40px;
-        padding-top: 25px;
+        padding-top: 2px;
         width: 100%;
         float: none;
     }
@@ -1987,6 +1987,7 @@
         line-height: normal;
         text-align: left;
         margin-bottom: 20px;
+        padding-left: 0;
     }
     .cms-no-route h1 {
         font-size: 36px;

@@ -1044,9 +1044,9 @@ button.button span.name {
 /* footer subscribe */
 .block-subscribe {
     margin-bottom: 0;
+    padding: 20px 0;
 }
 .block-subscribe-form {
-    margin: 20px 0 0 20px;
     float: left;
 }
 .block-subscribe-form input, .block-subscribe-form button {
@@ -1060,11 +1060,11 @@ button.button span.name {
     font-size: 11px;
 }
 .block-subscribe-title {
-    line-height: 66px;
     background: url('../images/icon-envelope.png') no-repeat left center;
     padding-left: 40px;
     color: #0069a7;
     float: left;
+    margin-right: 10px;
 }
 .block-subscribe-form .button {
     height: 29px;
@@ -1087,6 +1087,9 @@ button.button span.name {
 }
 .footer .social-links .icon-facebook {
     background: url('../images/icon-facebook.png') no-repeat;
+}
+.footer .social-links .icon-instagram {
+    background: url('../images/icon-instagram.png') no-repeat;
 }
 .footer .social-links .icon-twitter {
     background: url('../images/icon-twitter.png') no-repeat;

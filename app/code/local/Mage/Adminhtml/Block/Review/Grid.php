@@ -127,6 +127,17 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
             'escape'        => true,
         ));
 
+        $this->addColumn('products', array(
+            'header'        => Mage::helper('review')->__('Products Used With JeNu'),
+            'align'         => 'left',
+            'width'         => '100px',
+            'filter_index'  => 'rdt.products',
+            'index'         => 'products',
+            'type'          => 'text',
+            'truncate'      => 100,
+            'escape'        => true,
+        ));
+
         $this->addColumn('nickname', array(
             'header'        => Mage::helper('review')->__('Nickname'),
             'align'         => 'left',

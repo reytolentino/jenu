@@ -101,7 +101,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
         $this->getSelect()
             ->join(array('detail' => $this->_reviewDetailTable),
                 'main_table.review_id = detail.review_id',
-                array('detail_id', 'title', 'detail', 'email', 'nickname', 'customer_id'));
+                array('detail_id', 'title', 'detail', 'email', 'products', 'nickname', 'customer_id'));
         return $this;
     }
 

@@ -81,6 +81,14 @@ class Mage_Adminhtml_Block_Review_Add_Form extends Mage_Adminhtml_Block_Widget_F
             'required'  => true,
         ));
 
+        $fieldset->addField('products', 'text', array(
+            'name'      => 'products',
+            'title'     => Mage::helper('review')->__('Other Products Used With JeNu'),
+            'label'     => Mage::helper('review')->__('Other Products Used With JeNu'),
+            'maxlength' => '255',
+            'required'  => false,
+        ));
+
         $fieldset->addField('nickname', 'text', array(
             'name'      => 'nickname',
             'title'     => Mage::helper('review')->__('Nickname'),

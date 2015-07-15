@@ -1665,6 +1665,17 @@
   .sarp-terms-popup {
     width: 90%;
   }
+  .product-view .product-name, .product-view .product-name h1, .review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
+    font-size: 20px;
+  }
+    .product-view .reviews-summary-wrap .amount {
+        float: none;
+        display: block;
+        padding-right: 0;
+        margin-right: 0;
+        border-right: 0;
+        margin-bottom: 20px;
+    }
   .product-view .product-shop .price-review .price-box {
       float: none;
       padding-top: 0;

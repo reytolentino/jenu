@@ -2056,6 +2056,30 @@
     .jenubiosciences-banner .banner-content h1 span.jbsub2 {
         font-size: 30px;
     }
+    .signupbox {
+        width: 95%;
+        height: auto;
+        background-image: none;
+    }
+    .fancy-signup .fancybox-skin {
+        padding: 0 !important;
+    }
+    .signupbox .signup-content {
+        text-align: center;
+        padding: 20px;
+    }
+    .signupbox h2 {
+        font-size: 24px;
+    }
+    .signupbox p {
+        font-size: 14px;
+        line-height: normal;
+    }
+    .signupbox input.email {
+        width: 70%;
+        color: #747474;
+        padding: 0 10px;
+    }
 }
 @media(max-width: 480px) {
   .jenu-howitworks-img-wandfeatures img {

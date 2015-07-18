@@ -10,26 +10,6 @@ $affiliateTotal = ($subtotal + $discount);
 $billingAddress = $order->getBillingAddress();
 
 ?>
-<!-- Facebook Conversion Code for Conversion Page -->
-<script>
-    (function () {
-        var _fbq = window._fbq || (window._fbq = []);
-        if (!_fbq.loaded) {
-            var fbds = document.createElement('script');
-            fbds.async = true;
-            fbds.src = '//connect.facebook.net/en_US/fbds.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(fbds, s);
-            _fbq.loaded = true;
-        }
-    })();
-    window._fbq = window._fbq || [];
-    window._fbq.push(['track', '6020661552851', {'value': '<?php echo $amount; ?>', 'currency': 'USD'}]);
-</script>
-<noscript>
-    <img height="1" width="1" alt="" style="display:none"
-         src="https://www.facebook.com/tr?ev=6020661552851&amp;cd[value]=0.01&amp;cd[currency]=USD&amp;noscript=1"/>
-</noscript>
 <!-- Rev Content Conversion -->
 <img src='https://trending.revcontent.com/ads/tracker.php?t=MzkxODs2OTU4'/>
 <!--Google Adwords Pixel -->

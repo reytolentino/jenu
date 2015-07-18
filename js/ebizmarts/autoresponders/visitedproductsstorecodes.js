@@ -5,15 +5,15 @@
  *
  */
 (function () {
-    function getUrl(){
+    function getUrl() {
         var path = window.location.toString();
         var myUrl = path.split('/')
         var max = 4;
         var pos = myUrl.indexOf('index.php');
-        if(pos != -1){
+        if (pos != -1) {
             max = 5;
         }
-        return myUrl.slice(0,max).join('/') + '/ebizautoresponder/autoresponder/';
+        return myUrl.slice(0, max).join('/') + '/ebizautoresponder/autoresponder/';
     }
 
     function markVisited(productID) {
@@ -25,7 +25,7 @@
     }
 
     var cb = function () {
-        var $product = $$('input[name^=product]').first(),
+        var $product = $$('#product_addtocart_form input[name^=product]').first(),
             productID = '';
         if ($product) {
             productID = $product.value;

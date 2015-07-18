@@ -1,0 +1,36 @@
+<?php
+//Get Order Number & Order Total
+$order = Mage::getModel('sales/order')->loadByIncrementId(Mage::getSingleton('checkout/session')->getLastRealOrderId());
+$orderId = $order->getIncrementId();
+$amount = number_format($order->getGrandTotal(),2);
+$total = $order->getGrandTotal();
+$subtotal = $order->getSubtotal();
+$discount = $order->getDiscountAmount();
+$affiliateTotal = ($subtotal + $discount);
+$billingAddress = $order->getBillingAddress();
+
+?>
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1391558251146849');
+    fbq('track', 'PageView');
+    <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
+    fbq('track', 'AddToCart');
+    <?php endif; ?>
+    <?php if(Mage::getURL('checkout/onepage') == Mage::helper('core/url')->getCurrentUrl()): ?>
+    fbq('track', 'InitiateCheckout');
+    <?php endif; ?>
+    <?php if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurrentUrl()): ?>
+    fbq('track', 'Purchase', {value: '<?php echo $amount; ?>', currency: 'USD', orderID: '<?php echo $orderId; ?>'});
+    <?php endif; ?>
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=1391558251146849&ev=PageView&noscript=1"
+        /></noscript>
+<!-- End Facebook Pixel Code -->

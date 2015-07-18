@@ -505,6 +505,10 @@ p.required {
     text-transform: uppercase;
 }
 
+.header-top .risk-free .risk-free-phone {
+    color: #000;
+}
+
 .header-top,.header-menu {
     border-bottom: none;
     border-top: none;
@@ -8436,3 +8440,77 @@ ul.clinical-results-graph--perc {
   }
 }
 /*********************************************************************************/
+
+/** sign up popup box **/
+
+.signupbox {
+    width: 593px;
+    height: 343px;
+    background: url('../images/bg-signup.jpg') no-repeat;
+}
+.fancy-signup .fancybox-skin {
+    padding: 0 !important;
+}
+.signupbox .signup-content {
+    text-align: center;
+    padding: 56px 20px 0 170px;
+}
+.signupbox h2 {
+    color: #0069a7;
+    font-size: 44px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.signupbox h2 strong {
+    font-weight: 400;
+}
+.signupbox p {
+    font-family: "Helvetica Neue", Helvetica,  Arial, sans-serif;;
+    font-size: 18px;
+    color: #747474;
+    line-height: 24px;
+}
+.signupbox p .exl {
+    color: #75aedf;
+    font-weight: bold;
+}
+.signupbox p.disclaimer {
+    font-size: 11px;
+    line-height: normal;
+}
+.signupbox form {
+    margin: 16px 0;
+    display: block;
+}
+.signupbox input {
+    display: inline-block;
+}
+.signupbox input.email {
+    border: 1px solid #999999;
+    height: 30px;
+    line-height: 30px;
+    width: 50%;
+    color: #747474;
+    padding: 0 10px;
+}
+.signupbox input.button {
+    width: 30px;
+    height: 30px;
+    background: url('../images/signup-btn.png') no-repeat;
+    text-indent: 99999px;
+    overflow: hidden;
+}
+#mc_embed_signup input.mce_inline_error {
+    border-color: red;
+}
+#mc_embed_signup div.mce_inline_error {
+    background-color: transparent;
+    color: red;
+    font-weight: normal;
+    font-size: 12px;
+}
+#mce-success-response, #mce-error-response {
+    margin: 5px 0;
+    line-height:normal;
+    color: #000;
+}

@@ -75,6 +75,8 @@
             <!-- Respond JS -->
             <action method="addItem"><type>js</type><name>eternal/respond.min.js</name><params/><if>lt IE 9</if></action>
 
+            <block type="core/template" name="headPixels" template="pixels/head.phtml"/>
+
         </reference>
         <!-- header -->
         <reference name="header">

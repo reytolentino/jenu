@@ -8485,7 +8485,7 @@ ul.clinical-results-graph--perc {
 .signupbox input {
     display: inline-block;
 }
-.signupbox input.email {
+.signupbox input.input-text {
     border: 1px solid #999999;
     height: 30px;
     line-height: 30px;
@@ -8499,6 +8499,13 @@ ul.clinical-results-graph--perc {
     background: url('../images/signup-btn.png') no-repeat;
     text-indent: 99999px;
     overflow: hidden;
+}
+.signupbox #error-news-msg-pop,
+.signupbox #loading-msg-pop {
+    margin: 8px 0;
+}
+.signupbox .validation-advice {
+    font-size: 11px;
 }
 #mc_embed_signup input.mce_inline_error {
     border-color: red;

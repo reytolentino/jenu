@@ -1,14 +1,15 @@
 <?php
+if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurrentUrl()) {
 //Get Order Number & Order Total
-$order = Mage::getModel('sales/order')->loadByIncrementId(Mage::getSingleton('checkout/session')->getLastRealOrderId());
-$orderId = $order->getIncrementId();
-$amount = number_format($order->getGrandTotal(),2);
-$total = $order->getGrandTotal();
-$subtotal = $order->getSubtotal();
-$discount = $order->getDiscountAmount();
-$affiliateTotal = ($subtotal + $discount);
-$billingAddress = $order->getBillingAddress();
-
+    $order = Mage::getModel('sales/order')->loadByIncrementId(Mage::getSingleton('checkout/session')->getLastRealOrderId());
+    $orderId = $order->getIncrementId();
+    $amount = number_format($order->getGrandTotal(), 2);
+    $total = $order->getGrandTotal();
+    $subtotal = $order->getSubtotal();
+    $discount = $order->getDiscountAmount();
+    $affiliateTotal = ($subtotal + $discount);
+    $billingAddress = $order->getBillingAddress();
+}
 ?>
 <!-- Facebook Pixel Code -->
 <script>

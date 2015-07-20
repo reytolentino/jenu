@@ -42,7 +42,7 @@ class AjaxNewsletter_Ajaxnewsletter_IndexController extends Mage_Core_Controller
                     return;
                 }
                 else {
-                   echo "Thank you for your subscription.&&1";
+                   echo "You are now subscribed.&&1";
                    return;
                 }
             }

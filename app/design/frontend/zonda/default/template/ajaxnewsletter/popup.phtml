@@ -26,7 +26,7 @@
 ?>
 
 
-<a class="signuppop" href="#signupwrap" style="display:block;">Inline</a>
+<a class="signuppop" href="#signupwrap" style="display:none;">Inline</a>
 
 <div id="signupwrap" style="display:none;">
 
@@ -39,13 +39,20 @@
             <div id="popup_signup">
                 <form action="javascript:void(0)<?php //echo $this->getUrl('ajaxnewsletter/index/new');?>" method="post" id="newsletter-validate-detail-popup" onsubmit="myfuncpop();">
                         <input type="text" name="email" id="pop-newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email cms-block-join" placeholder="Enter Your Email" /><input type="submit" value="Subscribe" name="subscribe" class="button">
-                    <div class="loading-msg-pop" id="loading-msg-pop" style="display:none;">Processing...</div>
-                    <div class="error-news-msg-pop" id="error-news-msg-pop" style="display:none;">Please insert a valid email address.</div>
+                    <div class="loading-msg-pop" id="loading-msg-pop" style="display:none;"></div>
+                    <div class="error-news-msg-pop" id="error-news-msg-pop" style="display:none;"><?php echo $this->__('Please insert a valid email address.') ?></div>
                 </form>
             </div>
             <!--End _signup-->
+
+            <p class="disclaimer"><?php echo $this->__('*Offer valid for first time registrants only. Offer cannot be combined with any other promotion or promotion code.') ?></p>
+        </div>
+    </div>
+    <div class="signupbox signupbox-ty" style="display: none;">
+        <div class="signup-content">
+            <h2>Thank you!</h2>
             <div class="output-pop" id="output-pop"></div>
-            <p class="disclaimer">*Offer valid for first time registrants only. Offer cannot be combined with any other promotion or promotion code.</p>
+            <a href="/products" class="pop-continue"><?php echo $this->__('Continue Shopping') ?></a>
         </div>
     </div>
 </div>
@@ -99,15 +106,17 @@
                 onSuccess: function (transport) {
                     Element.hide('error-news-msg-pop');
                     Element.hide('loading-msg-pop');
+                    jQuery('.signupbox').hide();
+                    jQuery('.signupbox-ty').fadeIn();
                     var da = transport.responseText;
                     var dat = da.split("&&");
                     $('output-pop').innerHTML = dat[0];
                     if (dat[1] == 1) {
                         Element.show('output-pop');
-                        $('output-pop').setAttribute("class", "success-msg");
+                        $('output-pop').setAttribute("class", "success-msg-pop");
                     } else {
                         Element.show('output-pop');
-                        $('output-pop').setAttribute("class", "error-msg");
+                        $('output-pop').setAttribute("class", "error-msg-pop");
                     }
                 }
             });

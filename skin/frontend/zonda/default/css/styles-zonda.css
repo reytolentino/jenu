@@ -8448,6 +8448,9 @@ ul.clinical-results-graph--perc {
     height: 343px;
     background: url('../images/bg-signup.jpg') no-repeat;
 }
+.signupbox.signupbox-ty {
+    background: url('../images/bg-signup-ty.jpg') no-repeat;
+}
 .fancy-signup .fancybox-skin {
     padding: 0 !important;
 }
@@ -8455,10 +8458,35 @@ ul.clinical-results-graph--perc {
     text-align: center;
     padding: 56px 20px 0 170px;
 }
+.signupbox-ty .signup-content {
+    text-align: center;
+    padding: 114px 243px 0 20px;
+}
 .signupbox h2 {
     color: #0069a7;
     font-size: 44px;
     font-weight: 300;
+    text-transform: uppercase;
+}
+.signupbox-ty h2 {
+    font-size: 44px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+.signupbox-ty #output-pop {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+.signupbox-ty a.pop-continue {
+    background: #033958 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    margin: 10px auto;
+    padding: 12px 20px;
+    text-align: center;
     text-transform: uppercase;
 }
 .signupbox h2 strong {
@@ -8504,6 +8532,13 @@ ul.clinical-results-graph--perc {
 .signupbox #loading-msg-pop {
     margin: 8px 0;
 }
+.signupbox #loading-msg-pop {
+    height: 32px;
+    width: 32px;
+    margin: 10px auto 0 auto;
+    background: url('../images/ajax-loader.gif') no-repeat;
+}
+
 .signupbox .validation-advice {
     font-size: 11px;
 }

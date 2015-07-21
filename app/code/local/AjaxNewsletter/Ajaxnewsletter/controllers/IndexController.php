@@ -40,6 +40,9 @@ class AjaxNewsletter_Ajaxnewsletter_IndexController extends Mage_Core_Controller
                 if ($status == Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE) {
                    echo "Confirmation request has been sent.&&1";
                     return;
+                } else if ($status == Mage_Newsletter_Model_Subscriber::STATUS_UNCONFIRMED) {
+                    echo "Confirmation request has been sent.&&1";
+                    return;
                 }
                 else {
                    echo "You are now subscribed.&&1";

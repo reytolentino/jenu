@@ -1069,6 +1069,7 @@ button.button span.name {
     color: #0069a7;
     float: left;
     margin-right: 10px;
+    margin-top: 2px;
 }
 .block-subscribe-form .button {
     height: 29px;

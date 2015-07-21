@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -61,37 +61,47 @@ class Mirasvit_EmailDesign_Block_Template extends Mage_Core_Block_Abstract
 
         ob_start();
         
-        $validate = $this->_validateTpl($tplPath);
-
-        if ($validate === true) {
-            include $tplPath;
-        } else {
-            echo '<div style="border: 1px solid #f00; background: #fff4f4; padding: 10px;">'.htmlspecialchars($validate).'</div>';
-        }
+        include $tplPath;
 
         $html = ob_get_clean();
 
         unlink($tplPath);
 
+        $html = $this->_applyDefaultFilter($html);
+
         return $html;
     }
 
-    /**
-     * method temporary disabled (always return TRUE)
-     */
-    public function _validateTpl($tplPath)
+    public function _applyDefaultFilter($html)
     {
-        return true;
+        $storeId = intval($this->getStoreId());
 
-        $output = array();
-        exec("php -l $tplPath", $output);
+        $appEmulation = Mage::getSingleton('core/app_emulation');
+        $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($storeId, 'frontend');
         
-        $output = implode(' ', $output);
+        $processor = Mage::getModel('core/email_template_filter');
+        $processor->setStoreId($storeId);
 
-        if (strpos($output, 'on line') !== false) {
-            return $output;
+        if (!method_exists($processor, 'setTemplateProcessor')) {
+            return $html;
         }
 
-        return true;
+        $template = Mage::getModel('core/email_template');
+
+        $processor
+            ->setTemplateProcessor(array($template, 'getTemplateByConfigPath'))
+            ->setIncludeProcessor(array($template, 'getInclude'))
+            ->setVariables(array());
+
+        $html = $processor->filter($html);
+
+        $template->setInlineCssFile($processor->getInlineCssFile())
+            ->setTemplateType(2);
+
+        $html = $template->getPreparedTemplateText($html);
+
+        $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
+
+        return $html;
     }
 }

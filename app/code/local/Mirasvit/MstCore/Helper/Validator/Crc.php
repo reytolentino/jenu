@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -110,6 +110,9 @@ class Mirasvit_MstCore_Helper_Validator_Crc extends Mirasvit_MstCore_Helper_Vali
                 continue;
             }
             if (strpos($file, 'Helper/Code.php')) {
+                continue;
+            }
+            if (strpos($file, '.csv')) {
                 continue;
             }
             if (count($filters)) {

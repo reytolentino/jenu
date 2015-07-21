@@ -5,6 +5,6 @@ class Mirasvit_EmailReport_Helper_Code extends Mirasvit_MstCore_Helper_Code
     protected $s = "TES";
     protected $l = "10354";
     protected $v = "1.0.2";
-    protected $b = "407";
+    protected $b = "435";
     protected $d = "jenu.com";
 }

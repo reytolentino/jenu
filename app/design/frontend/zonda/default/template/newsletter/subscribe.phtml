@@ -24,7 +24,7 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-
+<!--
 <div class="block block-subscribe col-sm-7">
         <div class="block-subscribe-title">
             <?php echo $this->__('Sign Up for Newsletters, Special Offers, & More!') ?>
@@ -43,4 +43,5 @@
     //]]>
     </script>
 </div>
-
+-->
+<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('ajaxnewsletter/index.phtml')->toHtml(); ?>

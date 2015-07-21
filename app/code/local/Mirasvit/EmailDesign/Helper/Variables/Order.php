@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -30,5 +30,28 @@ class Mirasvit_EmailDesign_Helper_Variables_Order
         $parent->setData('order', $order);
 
         return $order;
+    }
+
+    public function getFirstOrderedProduct($parent, $args)
+    {
+        $product = false;
+
+        if ($order = $this->getOrder($parent, $args)) {
+            foreach ($order->getAllVisibleItems() as $item) {
+                $product = $item->getProduct();
+                break;
+            }
+        }
+
+        return $product;
+    }
+    
+    public function getFirstOrderedProductName($parent, $args)
+    {
+        if ($product = $this->getFirstOrderedProduct($parent, $args)) {
+            return $product->getName();
+        }
+
+        return false;
     }
 }

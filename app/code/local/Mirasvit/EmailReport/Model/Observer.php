@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -23,12 +23,14 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
             $queueKey = Mage::app()->getRequest()->getParam('emqc');
 
             $queue = Mage::getModel('email/queue')->loadByUniqKeyMd5($queueKey);
+            $sessionId  = Mage::getSingleton('core/session')->getSessionId();
+            $triggerId  = $queue->getTrigger()->getId();
 
-            if ($queue && $queue->getId()) {
+            if ($queue && $queue->getId() && !$this->isReported('click', $queue->getId(), $triggerId, $sessionId)) {
                 Mage::getModel('emailreport/click')
                     ->setQueueId($queue->getId())
-                    ->setTriggerId($queue->getTrigger()->getId())
-                    ->setSessionId(Mage::getSingleton('core/session')->getSessionId())
+                    ->setTriggerId($triggerId)
+                    ->setSessionId($sessionId)
                     ->save();
 
                 Mage::helper('emailreport')->setQueueId($queue->getId());
@@ -43,12 +45,14 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
             && Mage::helper('emailreport')->getQueueId()) {
 
             $queue = Mage::getModel('email/queue')->load(Mage::helper('emailreport')->getQueueId());
+            $sessionId  = Mage::getSingleton('core/session')->getSessionId();
+            $triggerId  = $queue->getTrigger()->getId();
 
-            if ($queue && $queue->getId()) {
+            if ($queue && $queue->getId() && !$this->isReported('review', $queue->getId(), $triggerId, $sessionId)) {
                 Mage::getModel('emailreport/review')
                     ->setQueueId($queue->getId())
-                    ->setTriggerId($queue->getTrigger()->getId())
-                    ->setSessionId(Mage::getSingleton('core/session')->getSessionId())
+                    ->setTriggerId($triggerId)
+                    ->setSessionId($sessionId)
                     ->setReviewId($observer->getObject()->getReviewId())
                     ->save();
             }
@@ -60,14 +64,16 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
         if ($observer->getOrder()
             && Mage::helper('emailreport')->getQueueId()) {
 
-            $order = $observer->getOrder();
-            $queue = Mage::getModel('email/queue')->load(Mage::helper('emailreport')->getQueueId());
+            $order      = $observer->getOrder();
+            $queue      = Mage::getModel('email/queue')->load(Mage::helper('emailreport')->getQueueId());
+            $sessionId  = Mage::getSingleton('core/session')->getSessionId();
+            $triggerId  = $queue->getTrigger()->getId();
 
-            if ($queue && $queue->getId()) {
+            if ($queue && $queue->getId() && !$this->isReported('order', $queue->getId(), $triggerId, $sessionId)) {
                 Mage::getModel('emailreport/order')
                     ->setQueueId($queue->getId())
-                    ->setTriggerId($queue->getTrigger()->getId())
-                    ->setSessionId(Mage::getSingleton('core/session')->getSessionId())
+                    ->setTriggerId($triggerId)
+                    ->setSessionId($sessionId)
                     ->setRevenue($order->getBaseGrandTotal())
                     ->setCoupon($order->getCouponCode())
                     ->save();
@@ -81,5 +87,15 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
         $queue = $observer->getQueue();
 
         Mage::helper('emailreport')->prepareQueueContent($queue);
+    }
+
+    public function isReported($reportType, $queueId, $triggerId, $sessionId)
+    {
+        $reports = Mage::getModel('emailreport/' . $reportType)->getCollection()
+            ->addFieldToFilter('queue_id', $queueId)
+            ->addFieldToFilter('trigger_id', $triggerId)
+            ->addFieldToFilter('session_id', $sessionId);
+
+        return (bool) $reports->count();
     }
 }

@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -37,6 +37,8 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
 
     public function newAction()
     {
+        $this->_validate();
+
         $model = $this->getModel();
         $this->_initAction();
         $this->_title($this->__('New Template'));
@@ -49,6 +51,8 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
 
     public function editAction()
     {
+        $this->_validate();
+
         $model = $this->getModel();
 
         if ($model->getId()) {
@@ -165,4 +169,18 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
 
         return $model;
     }
+
+    protected function _validate()
+    {
+        $path = Mage::getSingleton('emaildesign/config')->getDesignPath();
+
+        if (!is_writable($path)) {
+            Mage::getSingleton('adminhtml/session')->addError("Path '$path' is not writable.<br>Please set correct permissions on folder '$path'");
+        }
+    }
+
+	protected function _isAllowed()
+	{
+		return Mage::getSingleton('admin/session')->isAllowed('email/email_desing_template/emaildesing_template');
+	}
 }

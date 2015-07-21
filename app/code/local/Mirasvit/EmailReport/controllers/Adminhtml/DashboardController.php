@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -77,4 +77,9 @@ class Mirasvit_EmailReport_Adminhtml_DashboardController extends Mage_Adminhtml_
         
         $this->_redirect('*/*/index');
     }
+
+	protected function _isAllowed()
+	{
+		return Mage::getSingleton('admin/session')->isAllowed('email/emailreport');
+	}
 }

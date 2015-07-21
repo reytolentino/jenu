@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -121,54 +121,60 @@ class Mirasvit_Email_Model_Rule_Condition_Customer extends Mirasvit_Email_Model_
 
     public function validate(Varien_Object $object)
     {
-        $attrCode = $this->getAttribute();
+        $attrCode       = $this->getAttribute();
+        $data           = array();
+        $reviewsCount   = 0;
+        $lifetimeSales  = 0;
+        $numberOfOrders = 0;
+        $mssRule        = 0;
 
-        if ($object->getData('customer_id')) {
-            $customer = Mage::getModel('customer/customer')->load($object->getData('customer_id'));
-            $subscriber = Mage::getModel('newsletter/subscriber')->loadByEmail($customer->getEmail());
-            $mssRule = 0;
+        $orders     = Mage::getModel('sales/order')->getCollection();
+        $totals     = Mage::getResourceModel('sales/sale_collection');
+        $subscriber = Mage::getModel('newsletter/subscriber');
+        $customer   = Mage::getModel('customer/customer');
+        if ($customerId = $object->getData('customer_id')) {
+            $customer->load($customerId);
+        } else {
+            $customer->setWebsiteId(Mage::app()->getStore($object->getStoreId())->getWebsiteId());
+            $customer->loadByEmail($object->getData('customer_email'));
+        }
 
-            $reviews = Mage::getModel('review/review')->getCollection()
-                ->addFieldToFilter('customer_id', $customer->getId());
-            $reviewsCount = $reviews->count();
-
-
-            $customerTotals = Mage::getResourceModel('sales/sale_collection')
-                ->setCustomerFilter($customer)
+        if ($customer->getId()) {
+            $data = $customer->getData();
+            $subscriber->loadByEmail($customer->getEmail());
+            $reviewsCount = Mage::getModel('review/review')->getCollection()
+                ->addFieldToFilter('customer_id', $customer->getId())
+                ->count();
+            $customerTotals = $totals->setCustomerFilter($customer)
                 ->setOrderStateFilter(Mage_Sales_Model_Order::STATE_CANCELED, true)
                 ->load()
                 ->getTotals();
             $lifetimeSales = floatval($customerTotals['lifetime']);
-
-            $numberOfOrders = Mage::getModel('sales/order')->getCollection()
-                ->addFieldToFilter('customer_id', $customer->getId())
-                ->count();
-
+            $numberOfOrders = $orders->addFieldToFilter('customer_id', $customer->getId())->count();
             if (Mage::helper('mstcore')->isModuleInstalled('AW_Marketsuite')) {
                 $mssApi = Mage::getModel('marketsuite/api');
                 if ($mssApi->checkRule($customer, (int) $this->getValue())) {
                     $mssRule = $this->getValue();
                 }
             }
-
-            $object->addData($customer->getData())
-                ->setData('is_subscriber', $subscriber->getId() ? 1 : 0)
-                ->setData('reviews_count', $reviewsCount)
-                ->setData('lifetime_sales', $lifetimeSales)
-                ->setData('number_of_orders', $numberOfOrders)
-                ->setData('mss_rule', $mssRule);
-
         } else {
             $email = $object->getData('customer_email');
-            $subscriber = Mage::getModel('newsletter/subscriber')->loadByEmail($email);
-            
-            $object->setData('group_id', 1)
-                ->setData('is_subscriber', $subscriber->getId() ? 1 : 0)
-                ->setData('reviews_count', 0)
-                ->setData('lifetime_sales', 0)
-                ->setData('number_of_orders', 0)
-                ->setData('mss_rule', 0);
+            $subscriber->loadByEmail($email);
+            $data = array('group_id' => 1);
+            $customerTotals = $totals->addFieldToFilter('customer_email', $email)
+                ->setOrderStateFilter(Mage_Sales_Model_Order::STATE_CANCELED, true)
+                ->load()
+                ->getTotals();
+            $lifetimeSales = isset($customerTotals['lifetime']) ? floatval($customerTotals['lifetime']) : 0;
+            $numberOfOrders = $orders->addFieldToFilter('customer_email', $email)->count();
         }
+
+        $object->addData($data)
+            ->setData('is_subscriber', $subscriber->getId() ? 1 : 0)
+            ->setData('reviews_count', $reviewsCount)
+            ->setData('lifetime_sales', $lifetimeSales)
+            ->setData('number_of_orders', $numberOfOrders)
+            ->setData('mss_rule', $mssRule);
 
         $value = $object->getData($attrCode);
 

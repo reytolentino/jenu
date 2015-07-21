@@ -44,7 +44,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     fbq('track', 'InitiateCheckout');
     <?php endif; ?>
     <?php if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurrentUrl()): ?>
-    fbq('track', 'Purchase', {value: '<?php echo $amount; ?>', currency: 'USD', orderID: '<?php echo $orderId; ?>'});
+    fbq('track', 'Purchase', {value: '<?php echo $amount; ?>', currency: 'USD', order_id: '<?php echo $orderId; ?>'});
     <?php endif; ?>
 </script>
 <noscript><img height="1" width="1" style="display:none"

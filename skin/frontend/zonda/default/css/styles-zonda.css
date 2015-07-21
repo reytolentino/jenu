@@ -8451,6 +8451,7 @@ ul.clinical-results-graph--perc {
 }
 .signupbox.signupbox-ty {
     background: url('../images/bg-signup-ty.jpg') no-repeat;
+    background-size:cover;
 }
 .fancy-signup .fancybox-skin {
     padding: 0 !important;

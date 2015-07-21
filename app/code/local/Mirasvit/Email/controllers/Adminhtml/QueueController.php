@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -159,4 +159,9 @@ class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller
 
         return implode('<br>', $html);
     }
+
+	protected function _isAllowed()
+	{
+		return Mage::getSingleton('admin/session')->isAllowed('email/email_queue');
+	}
 }

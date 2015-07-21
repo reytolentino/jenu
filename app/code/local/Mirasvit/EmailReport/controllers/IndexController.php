@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -21,13 +21,16 @@ class Mirasvit_EmailReport_IndexController extends Mage_Core_Controller_Front_Ac
     {
         $queueKey = $this->getRequest()->getParam('emqo');
 
-        $queue = Mage::getModel('email/queue')->loadByUniqKeyMd5($queueKey);
+        $queue      = Mage::getModel('email/queue')->loadByUniqKeyMd5($queueKey);
+        $sessionId  = Mage::getSingleton('core/session')->getSessionId();
+        $triggerId  = $queue->getTrigger()->getId();
+        $observer   = Mage::getModel('emailreport/observer');
 
-        if ($queue && $queue->getId()) {
+        if ($queue && $queue->getId() && !$observer->isReported('open', $queue->getId(), $triggerId, $sessionId)) {
             Mage::getModel('emailreport/open')
                 ->setQueueId($queue->getId())
-                ->setTriggerId($queue->getTrigger()->getId())
-                ->setSessionId(Mage::getSingleton('core/session')->getSessionId())
+                ->setTriggerId($triggerId)
+                ->setSessionId($sessionId)
                 ->save();
 
             Mage::helper('emailreport')->setQueueId($queue->getId());

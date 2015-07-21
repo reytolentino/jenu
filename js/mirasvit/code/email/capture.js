@@ -38,9 +38,7 @@ if (typeof Prototype !== "undefined") {
         }
     };
 
-    Event.observe(document, 'dom:loaded', function(){
-        DataCapture.attachEvents();
-    });
+    DataCapture.attachEvents();
 } else if (typeof jQuery !== 'undefined') {
     var DataCapture = {
         attachEvents: function ()

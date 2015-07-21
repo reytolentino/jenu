@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -25,12 +25,14 @@ class Mirasvit_Email_Helper_Frontend
 
             $customer = Mage::getModel('customer/customer')
                 ->load($args['customer_id']);
-            $session = Mage::getSingleton('customer/session');
-            if ($session->isLoggedIn() && $customer->getId() != $session->getCustomerId()) {
-                $session->logout();
-                $session->setCustomerAsLoggedIn($customer);
-            } elseif (!$session->isLoggedIn()) {
-                $session->setCustomerAsLoggedIn($customer);
+            if ($customer->getId()) {
+                $session = Mage::getSingleton('customer/session');
+                if ($session->isLoggedIn() && $customer->getId() != $session->getCustomerId()) {
+                    $session->logout();
+                    $session->setCustomerAsLoggedIn($customer);
+                } elseif (!$session->isLoggedIn()) {
+                    $session->setCustomerAsLoggedIn($customer);
+                }
             }
         }
 

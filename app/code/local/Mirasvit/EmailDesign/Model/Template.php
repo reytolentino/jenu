@@ -10,7 +10,7 @@
  * @category  Mirasvit
  * @package   Follow Up Email
  * @version   1.0.2
- * @build     407
+ * @build     435
  * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
  */
 
@@ -71,6 +71,21 @@ class Mirasvit_EmailDesign_Model_Template extends Mage_Core_Model_Abstract
         $this->setAreasContent($areas);
 
         return $this;
+    }
+
+    public function getPreviewSubject()
+    {
+        $variables = Mage::helper('email/event')->getRandomEventArgs();
+        $variables['preview'] = true;
+
+        $appEmulation = Mage::getSingleton('core/app_emulation');
+        $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($variables['store_id']);
+
+        $result = $this->getProcessedTemplateSubject($variables);
+
+        $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
+
+        return $result;
     }
 
     public function getPreviewContent()

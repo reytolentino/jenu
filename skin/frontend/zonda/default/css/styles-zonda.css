@@ -8538,6 +8538,25 @@ ul.clinical-results-graph--perc {
     margin: 10px auto 0 auto;
     background: url('../images/ajax-loader.gif') no-repeat;
 }
+.block-subscribe-form #loading-msg {
+    height: 32px;
+    width: 32px;
+    margin: 0 0 0 5px;
+    background: url('../images/ajax-loader.gif') no-repeat;
+    float: left;
+}
+
+.block-subscribe #output {
+    display: block;
+    color:#000;
+    background-color: #f7f7f7;
+    padding: 5px;
+    text-align: center;
+    clear: both;
+    margin: 6px 0;
+    float: left;
+    width: 100%;
+}
 
 .signupbox .validation-advice {
     font-size: 11px;

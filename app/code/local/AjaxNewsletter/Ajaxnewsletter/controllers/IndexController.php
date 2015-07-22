@@ -38,10 +38,10 @@ class AjaxNewsletter_Ajaxnewsletter_IndexController extends Mage_Core_Controller
 
                 $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
                 if ($status == Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE) {
-                   echo "A Confirmation request has been sent.Please click the link in the email we just sent you to complete the subscription process.&&1";
+                   echo "A confirmation request has been sent. Please click the link in the email we just sent you to complete the subscription process.&&1";
                     return;
                 } else if ($status == Mage_Newsletter_Model_Subscriber::STATUS_UNCONFIRMED) {
-                    echo "A Confirmation request has been sent.Please click the link in the email we just sent you to complete the subscription process.&&1";
+                    echo "A confirmation request has been sent. Please click the link in the email we just sent you to complete the subscription process.&&1";
                     return;
                 }
                 else {

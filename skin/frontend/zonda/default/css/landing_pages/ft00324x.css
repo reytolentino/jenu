@@ -31,9 +31,15 @@
 ul#nav li.order-now {
     display: none;
 }
+
 .cms-page-view.cms-ft00324z .main-content .container {
     background: transparent;
 }
+
+.cms-page-view .main-content .jenu-landingpage .container  {
+    background-color:transparent;
+}
+
 .customer-reviews-wrap {
     background: #f7f7f7;
 }

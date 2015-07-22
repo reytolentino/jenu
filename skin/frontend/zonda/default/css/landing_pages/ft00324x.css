@@ -911,15 +911,20 @@ ul.clinical-results-graph--perc {
     margin: 0 0 25px 0;
     font-size: 16px;
     line-height: 26px; }
+.jenu-whyjenu .batraquotewrap {
+    margin-bottom: 50px;
+}
 .jenu-whyjenu .batra-quote {
-    font-size: 15px;
-    line-height: 25px;
-    width: 300px;
+    font-size: 16px;
+    line-height: 30px;
+    width: 400px;
     float: right;
     display: block;
     position: relative;
     padding-top: 10px;
-    font-style: italic; }
+    font-style: italic;
+    margin-top: 40px;
+}
 .jenu-whyjenu .batra-quote:before {
     content: '“';
     font-size: 100px;
@@ -930,10 +935,10 @@ ul.clinical-results-graph--perc {
     top: -10px;
     line-height: 100px; }
 .jenu-whyjenu .by {
-    font-size: 13px;
+    font-size: 14px;
     text-align: right;
     margin: 20px 0;
-    line-height: normal;
+    line-height: 22px;
     display: block; }
 .jenu-whyjenu strong {
     font-weight: 700; }
@@ -1499,12 +1504,7 @@ ul.clinical-results-graph--perc {
         height: 270px;
     }
     .jenu-whyjenu .batra-quote {
-        font-size: 13px;
-        line-height: 18px;
-        width: 200px;
-    }
-    .jenu-whyjenu .by {
-        font-size: 12px;
+        width: 300px;
     }
     .jenu-whyjenu .elle-featured {
         background: url("/media/landing_pages/lp6/lp-bg-elle.png") no-repeat scroll right top rgba(0, 0, 0, 0);
@@ -1830,22 +1830,16 @@ ul.clinical-results-graph--perc {
         display: inline-block;
     }
     .jenu-whyjenu .batra-quote {
-        width: 150px;
-        font-size: 12px;
+        width: 90%;
+        font-size: 14px;
         float: left;
         margin-left: 40px;
-    }
-    .jenu-whyjenu .by {
-        font-size: 11px;
     }
     .lp-batravid {
         width: 300px;
         height: 200px;
         display: block;
         margin: 0 auto;
-    }
-    .batraquotewrap {
-        text-align: center;
     }
     .batraquotewrap p.most-people {
         text-align: left;

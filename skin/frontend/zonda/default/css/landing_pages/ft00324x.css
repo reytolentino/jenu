@@ -1648,6 +1648,10 @@ ul.clinical-results-graph--perc {
         width: 100%;
         margin-top: 0;
     }
+    .jenu-landingpage .lphero-box h1 {
+        margin: 24px 0 10px 0;
+        padding-bottom: 0;
+    }
     .lphero-box .ctabox .heading-box h2 {
         float: none;
         clear: both;
@@ -1830,7 +1834,7 @@ ul.clinical-results-graph--perc {
         display: inline-block;
     }
     .jenu-whyjenu .batra-quote {
-        width: 90%;
+        width: 80%;
         font-size: 14px;
         float: left;
         margin-left: 40px;

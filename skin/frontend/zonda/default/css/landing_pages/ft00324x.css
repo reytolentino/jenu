@@ -1,3 +1,7 @@
+#lpmobile {
+    display: none;
+}
+
 .jenu-landingpage {
     color: #272727;
 }
@@ -30,10 +34,6 @@
 
 ul#nav li.order-now {
     display: none;
-}
-
-.cms-page-view.cms-ft00324z .main-content .container {
-    background: transparent;
 }
 
 .cms-page-view .main-content .jenu-landingpage .container  {
@@ -1622,6 +1622,13 @@ ul.clinical-results-graph--perc {
     }
 }
 @media(max-width: 767px) {
+    .jenu-landingpage {
+        display: none;
+    }
+    #lpmobile {
+        display: block;
+    }
+    /**
     .jenu-landingpage .data-con {
         height: 300px;
     }
@@ -1904,5 +1911,6 @@ ul.clinical-results-graph--perc {
         margin-left: 20px;
         margin-top: -30px;
     }
+    **/
  }
 

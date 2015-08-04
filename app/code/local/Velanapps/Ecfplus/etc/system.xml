@@ -11,17 +11,17 @@
             <label>EasyContactFormPlus</label>
             <tab>myconf_ecfplus</tab>
             <sort_order>100</sort_order>
-            <show_in_default></show_in_default>
-            <show_in_website></show_in_website>
-            <show_in_store></show_in_store>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
             <groups>
 				<!-- Easy Contact Form Plus Setting-->
                  <ecfplus_setting translate="label comment">
                     <label>EasyContact Form Plus Setting</label>
                     <sort_order>100</sort_order>
-                    <show_in_default></show_in_default>
-                    <show_in_website></show_in_website>
-                    <show_in_store></show_in_store>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
                     <fields>
 						<ecfplus_popup_active translate="label comment">
                             <label>EasyContactFormPlus Popup</label>

@@ -6390,6 +6390,13 @@ h2.jenu-howitworks-header-h2 strong {
     width: 100%;
 }
 
+.cms-pro #thankyou_message_1 {
+    width: 100%;
+    font-size: 18px;
+    color: #0069a7;
+    margin: 30px 0;
+}
+
 /*** end pro page ***/
 
 /********************************* Bio Sciences Page, Order & Shipping, FAQ, Retailers, Customer-service, Customer-reviews  *****************************/

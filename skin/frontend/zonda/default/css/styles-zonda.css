@@ -6363,6 +6363,42 @@ h2.jenu-howitworks-header-h2 strong {
     margin-right: 0;
   }
 }
+
+/**** For Professionals Page ***/
+
+.cms-pro p {
+    color: #262626;
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+.cms-pro h1 {
+    padding-bottom: 16px;
+}
+.cms-pro h2.legend {
+    display: none;
+}
+.cms-pro #mainform_1 {
+    width: 100%;
+    padding-bottom: 40px;
+}
+.cms-pro .img-pro {
+    width: 100%;
+    height: auto;
+}
+.cms-pro .form-list .field {
+    width: 100%;
+}
+
+.cms-pro #thankyou_message_1 {
+    width: 100%;
+    font-size: 18px;
+    color: #0069a7;
+    margin: 30px 0;
+}
+
+/*** end pro page ***/
+
 /********************************* Bio Sciences Page, Order & Shipping, FAQ, Retailers, Customer-service, Customer-reviews  *****************************/
 
 .jenu-biosciences-container .cms-box.jenu-biosciences {

@@ -6366,6 +6366,10 @@ h2.jenu-howitworks-header-h2 strong {
 
 /**** For Professionals Page ***/
 
+.cms-pro {
+    padding-bottom: 40px;
+}
+
 .cms-pro p {
     color: #262626;
     font-size: 13px;
@@ -6380,7 +6384,6 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .cms-pro #mainform_1 {
     width: 100%;
-    padding-bottom: 40px;
 }
 .cms-pro .img-pro {
     width: 100%;

@@ -44,8 +44,10 @@ class Velanapps_Ecfplus_Block_Formlist extends Mage_Core_Block_Template implemen
 				if($val['required'] == true)
 				{
 					$labelVal = " class = 'required' ><em>*</em ";
-					$required = " class = 'required-entry input-text  ".$adminValid." '";		
-				}
+					$required = " class = 'required-entry input-text  ".$adminValid." '";
+				} else {
+                    $required = " class = 'input-text  ".$adminValid." '";
+                }
 				echo " <label for=$name $labelVal >".$this->__($val['name'])."</label>";
 				echo "<div class='input-box'><input type='text' name='$name' $required maxlength='$maxlen' /></div>";	
 				echo "</div></li>";
@@ -63,7 +65,9 @@ class Velanapps_Ecfplus_Block_Formlist extends Mage_Core_Block_Template implemen
 				{
 					$labelVal = " class = 'required' ><em>*</em ";
 					$required = " class = 'required-entry input-text ".$adminValid." '";	
-				}
+				} else {
+                    $required = " class = 'input-text ".$adminValid." '";
+                }
 				echo "<label for=$name $labelVal >".$this->__($val['name'])."</label>";
 				echo "<div class='input-box'><textarea name='$name' cols='5' rows='3 id='msg' $required  maxlength=$maxlen ></textarea></div>";
 				echo "</li>";

@@ -3574,6 +3574,10 @@ div.cart-empty {
     background: url("../images/homepage-hero-banner-2-desktop.jpg") no-repeat center bottom #b9e2ff;
 }
 
+#slide-3 {
+    background: url("../images/homepage-hero-forbes.jpg") no-repeat center top #bebdb2;
+}
+
 #slide-1 .homepage-hero-banner--copy {
     color: #0069a7;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3599,6 +3603,36 @@ div.cart-empty {
     display: block;
 }
 
+#slide-3 .homepage-hero-banner--copy {
+    color: #0069a7;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 100px 0 0 20px;
+    font-style: italic;
+}
+
+#slide-3 .homepage-hero-banner--copy .homepage-hero-caps {
+    text-transform: uppercase;
+    font-weight: 400;
+    display: block;
+    margin-left: 12px;
+}
+
+#slide-3 .homepage-hero-banner--copy .bylogo {
+    display: block;
+    margin: 12px 0 12px 12px;
+}
+
+#slide-3 .homepage-hero-banner--copy p {
+    display: block;
+}
+
+#slide-3 .homepage-button-cta {
+    font-style: normal;
+    margin-left: 12px;
+}
+
 .homepage-hero-banner--copy p {
     display: inline-block;
     line-height: 1.2;
@@ -3616,6 +3650,10 @@ div.cart-empty {
     display: inline-block !important;
     vertical-align: text-bottom;
     width: auto !important;
+}
+
+#slide-3 .homepage-hero-banner-copy--image {
+    width: 150px !important;
 }
 
 .owl-dots {
@@ -3882,6 +3920,10 @@ ul.homepage-content-worksgreat-list ul {
         background-size: auto 100%;
     }
 
+    #slide-3 {
+        background-size: auto 140%;
+    }
+
     #slide-2 {
         background: url("../images/homepage-hero-banner-2-desktop.jpg") no-repeat center bottom #b9e2ff;
     }
@@ -3889,9 +3931,14 @@ ul.homepage-content-worksgreat-list ul {
         float: right;
         font-size: 24px;
         width: 420px;
+        margin: 80px 0 0;
     }
     #slide-2 .homepage-hero-banner--copy {
         margin: 159px 0 0;
+    }
+    #slide-3 .homepage-hero-banner--copy {
+        font-size: 24px;
+        width: 420px;
     }
     .homepage-content-worksgreat--image img {
         width: 50%;
@@ -3913,6 +3960,20 @@ ul.homepage-content-worksgreat-list ul {
         font-size: 18px;
         margin: 45px 0 0 0;
         width: 310px;
+    }
+    #slide-3 .homepage-hero-banner--copy {
+        font-size: 22px;
+        margin: 45px 0 0 0;
+        width: 310px;
+    }
+    #slide-3 .homepage-hero-banner-copy--image {
+        width: 130px !important;
+    }
+    #slide-3 .homepage-button-cta {
+        margin-top: 10px;
+    }
+    #slide-3 {
+        background-size: auto 120%;
     }
     .homepage-hero-banner-copy--quote {
         line-height: 28px;
@@ -4001,11 +4062,16 @@ ul.homepage-content-worksgreat-list ul {
     #slide-2 {
         background: url("../images/homepage-hero-banner-2-desktop.jpg") no-repeat center bottom #b9e2ff;
     }
-    #slide-1 .homepage-hero-banner--copy {
+    #slide-1 .homepage-hero-banner--copy,
+    #slide-3 .homepage-hero-banner--copy {
         background: rgba(255,255,255, 0.8);
         margin-top: 28px;
-        padding: 20px 0;
+        padding: 20px;
         width: 100%;
+        text-align: center;
+    }
+    #slide-3 .homepage-hero-banner--copy {
+        font-size: 18px;
     }
 }
 /*home-page*/
@@ -6399,6 +6465,12 @@ h2.jenu-howitworks-header-h2 strong {
     font-size: 18px;
     color: #0069a7;
     margin: 30px 0;
+}
+
+.cms-pro #feedback_1 {
+    margin: 20px 0;
+    float: left;
+    clear: both;
 }
 
 /*** end pro page ***/

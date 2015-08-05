@@ -285,6 +285,7 @@ p.required {
 .header-container h1.logo {
     line-height: 48px;
     margin-top: 0;
+    position: absolute;
 }
 .header-container h1 a.logo {
     line-height: normal;

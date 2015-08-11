@@ -89,6 +89,15 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER ,1); // RETURN THE CONTENTS OF THE CAL
 $str = curl_exec($curl); 
 if (curl_error($curl)) {
   $str .= " - " . curl_error($curl);
+    $to = 'rey@jenu.com';
+    $headers = 'From: info@jenu.com' . "\r\n";
+    $subject = "Moulton Error Report";
+
+    $message = "Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
+        "Moulton API encountered the following errors: " . PHP_EOL . PHP_EOL .
+        implode(PHP_EOL . PHP_EOL, curl_error($curl));
+
+    mail($to, $subject, $message, $headers);
 }
 curl_close($curl); 
 

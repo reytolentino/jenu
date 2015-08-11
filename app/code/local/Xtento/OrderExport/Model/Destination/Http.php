@@ -41,17 +41,21 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER ,1); // RETURN THE CONTENTS OF THE CAL
 $str = curl_exec($curl); 
 if (curl_error($curl)) {
   $str .= " - " . curl_error($curl);
+}
+curl_close($curl);
+$logstr = new SimpleXMLElement($str);
+$errornode = $logstr->ErrorMsg;
+if($errornode !== 'Success'){
     $to = 'rey@jenu.com';
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";
 
     $message = "Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
         "Moulton API encountered the following errors: " . PHP_EOL . PHP_EOL .
-        implode(PHP_EOL . PHP_EOL, curl_error($curl));
+        implode(PHP_EOL . PHP_EOL, $errornode);
 
     mail($to, $subject, $message, $headers);
 }
-curl_close($curl); 
 
 $logEntry = Mage::registry('export_log');
 $logEntry->addResultMessage(Mage::helper('xtento_orderexport')->__('Destination "%s" (ID: %s): %s', $this->getDestination()->getName(), $this->getDestination()->getId(), 'Moulton API returned: '.$str));
@@ -89,17 +93,22 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER ,1); // RETURN THE CONTENTS OF THE CAL
 $str = curl_exec($curl); 
 if (curl_error($curl)) {
   $str .= " - " . curl_error($curl);
+}
+curl_close($curl);
+
+$logstr = new SimpleXMLElement($str);
+$errornode = $logstr->ErrorMsg;
+if($errornode !== 'Success'){
     $to = 'rey@jenu.com';
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";
 
     $message = "Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
         "Moulton API encountered the following errors: " . PHP_EOL . PHP_EOL .
-        implode(PHP_EOL . PHP_EOL, curl_error($curl));
+        implode(PHP_EOL . PHP_EOL, $errornode);
 
     mail($to, $subject, $message, $headers);
 }
-curl_close($curl); 
 
 $logEntry = Mage::registry('export_log');
 $logEntry->addResultMessage(Mage::helper('xtento_orderexport')->__('Destination "%s" (ID: %s): %s', $this->getDestination()->getName(), $this->getDestination()->getId(), 'Moulton API returned: '.$str));

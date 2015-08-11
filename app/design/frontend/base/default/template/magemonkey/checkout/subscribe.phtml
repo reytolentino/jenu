@@ -116,7 +116,7 @@ $force = $this->getForce();
     <?php echo $this->getBlockHtml('formkey'); ?>
     <div class="monkey-multisubscribe">
         <ul class="monkey-general-list">
-            <li class="listdata"><?php echo $generalList['name']; ?>
+            <li class="listdata">
                 <input<?php if ($auto): ?> checked="checked"<?php endif; ?> type="checkbox"
                                                                             onchange="addSubscribeToPost(this);"
                                                                             name="list[<?php echo $generalList['id'] ?>][subscribed]"
@@ -124,6 +124,7 @@ $force = $this->getForce();
                                                                             value="<?php echo $generalList['id']; ?>"
                                                                             title="<?php echo $generalList['name']; ?>"
                                                                             class="monkey-list-subscriber"/>
+                <?php echo $this->__('&nbsp;Subscribe to Newsletter'); ?>
                 <?php if (is_array($generalList['interest_groupings']) && $this->getCanModify() == 1): ?>
                     <div id="interest_groupings_<?php echo $generalList['id']; ?>" class="interest-groupings">
                         <?php foreach ($generalList['interest_groupings'] as $group): ?>

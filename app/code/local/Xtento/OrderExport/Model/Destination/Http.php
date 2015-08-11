@@ -45,7 +45,8 @@ if (curl_error($curl)) {
 curl_close($curl);
 $logstr = new SimpleXMLElement($str);
 $errornode = $logstr->ErrorMsg;
-if($errornode !== 'Success'){
+if($errornode == 'Success') {
+} else {
     $to = 'rey@jenu.com';
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";
@@ -98,7 +99,8 @@ curl_close($curl);
 
 $logstr = new SimpleXMLElement($str);
 $errornode = $logstr->ErrorMsg;
-if($errornode !== 'Success'){
+if($errornode == 'Success') {
+} else {
     $to = 'rey@jenu.com';
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";

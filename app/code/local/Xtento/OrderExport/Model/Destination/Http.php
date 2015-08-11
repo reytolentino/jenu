@@ -50,7 +50,7 @@ if($errornode !== 'Success'){
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";
 
-    $message = "Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
+    $message = $errornode ."Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
         "Moulton API encountered the following errors: " . PHP_EOL . PHP_EOL .
         implode(PHP_EOL . PHP_EOL, $logstr);
 
@@ -103,7 +103,7 @@ if($errornode !== 'Success'){
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";
 
-    $message = "Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
+    $message = $errornode . "Date: " . date('Y-m-d G:i:s, e') . PHP_EOL . PHP_EOL .
         "Moulton API encountered the following errors: " . PHP_EOL . PHP_EOL .
         implode(PHP_EOL . PHP_EOL, $logstr);
 

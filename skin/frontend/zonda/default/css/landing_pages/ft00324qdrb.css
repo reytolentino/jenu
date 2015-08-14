@@ -1,0 +1,27 @@
+.answer.howjenuworks p {
+    margin-bottom: 8px;
+}
+
+.hjw-step {
+    font-size: 14px;
+    font-weight: bold;
+    color: #75aedf;
+    display: block;
+    text-transform: uppercase;
+}
+
+.row.vidwrap {
+    margin-top: 16px;
+}
+
+.vidwrap img {
+    border: 1px solid #cccccc;
+}
+
+.vidwrap span {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+}

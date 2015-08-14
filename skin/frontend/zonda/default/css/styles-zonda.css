@@ -3846,6 +3846,7 @@ ul.homepage-content-worksgreat-list ul {
     font-weight: normal;
     line-height: 30px;
     text-transform: uppercase;
+    margin-top: 30px;
 }
 
 .paypal-express-review .info-set .legend {
@@ -4823,6 +4824,12 @@ ul.homepage-content-worksgreat-list ul {
   text-transform: uppercase;
   font-weight: bold;
 }
+/** fix to hide old shipping method **/
+.sp-methods dt:first-child,
+.sp-methods dd:first-of-type {
+    display: none;
+}
+/** end fix to hide old shipping method **/
 .col-sidebar .block.opc-block-progress .block-content {
   padding: 10px;
 }

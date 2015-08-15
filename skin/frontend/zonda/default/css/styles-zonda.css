@@ -4825,8 +4825,8 @@ ul.homepage-content-worksgreat-list ul {
   font-weight: bold;
 }
 /** fix to hide old shipping method **/
-.sp-methods dt:first-child,
-.sp-methods dd:first-of-type {
+#checkout-shipping-method-load .sp-methods dt:first-child,
+#checkout-shipping-method-load .sp-methods dd:first-of-type {
     display: none;
 }
 .jenu-paypal--shipping-method #shipping_method optgroup:first-of-type {

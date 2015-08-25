@@ -44,7 +44,7 @@
     }
 
     ul.form-list .partialpayment .checkbox {
-        z-index: 1;
+        z-index: 9;
     }
 
     #partial-terms-popup {

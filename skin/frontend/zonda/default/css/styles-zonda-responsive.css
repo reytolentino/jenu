@@ -2083,6 +2083,9 @@
         color: #747474;
         padding: 0 10px;
     }
+    .data-table .border {
+        height: auto;
+    }
 }
 @media(max-width: 480px) {
   .jenu-howitworks-img-wandfeatures img {

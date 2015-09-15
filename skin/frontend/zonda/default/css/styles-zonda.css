@@ -2189,7 +2189,9 @@ a.highlight-link {
 .pager .pages ol li a, .pager .pages ol li.current {
   width: 25px;
   height: 25px;
+    line-height: 25px;
   padding: 0;
+  vertical-align: middle;
 }
 .pager .pages ol li.current {
   color: #444444;

@@ -1125,7 +1125,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 .order-date { margin:10px 0; }
 
-.order-info-box {}
+.order-info-box { margin-bottom: 20px;}
 
 .order-items { width:100%; overflow-x:auto; }
 

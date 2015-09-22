@@ -62,14 +62,13 @@ window.bioEp = {
 			this.cookieManager.erase("bioep_shown");
 			return false;
 		}
-		
+
 		// If cookie is set to true
 		if(this.cookieManager.get("bioep_shown") == "true")
 			return true;
-			
+
 		// Otherwise, create the cookie and return false
 		this.cookieManager.create("bioep_shown", "true", this.cookieExp);
-		
 		return false;
 	},
 	
@@ -129,19 +128,34 @@ window.bioEp = {
 	
 	// Show the popup
 	showPopup: function() {
-		if(this.shown) return;
-		
-		this.bgEl.style.display = "block";
-		this.popupEl.style.display = "block";
-		
-		// Handle scaling
-		this.scalePopup();
-		
-		// Save body overflow value and hide scrollbars
-		this.overflowDefault = document.body.style.overflow;
-		document.body.style.overflow = "hidden";
-		
-		this.shown = true;
+
+        if(this.cookieExp <= 0) {
+            this.cookieManager.erase("bioep_shown");
+            return false;
+        }
+
+        // If cookie is set to true
+        if(this.cookieManager.get("bioep_shown") == "true") {
+            return true;
+        } else {
+            if(this.shown) return;
+
+            this.bgEl.style.display = "block";
+            this.popupEl.style.display = "block";
+
+            // Handle scaling
+            this.scalePopup();
+
+            // Save body overflow value and hide scrollbars
+            this.overflowDefault = document.body.style.overflow;
+            document.body.style.overflow = "hidden";
+
+            this.shown = true;
+            // Otherwise, create the cookie and return false
+            this.cookieManager.create("bioep_shown", "true", this.cookieExp);
+            return true;
+        }
+
 	},
 	
 	// Hide the popup
@@ -249,9 +263,6 @@ window.bioEp = {
 			// Handle options
 			if(typeof opts !== 'undefined')
 				bioEp.setOptions(opts);
-
-			// Handle the cookie
-			if(bioEp.checkCookie()) return;
 			
 			// Add the CSS
 			bioEp.addCSS();

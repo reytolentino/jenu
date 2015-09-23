@@ -49,7 +49,7 @@
                 <div class="clearfix"></div>
                 <div class="smallcap">
                     <?php
-                    if ($_product->getSku() == "N002") {
+                    if ($_product->getSku() == "N002" || $_product->getSku() == "N007") {
                         echo $this->__('(Ships every 60 days)');
                         } else {
                         echo $this->__('(Ships every 30 days)');

@@ -98,7 +98,7 @@ span.pipe{
 		margin-bottom: 20px;
 	}
 
-	.container .row .col-sm-3{
+    #page-contents.container .row .col-sm-3{
 		text-align: center;
 	}
 

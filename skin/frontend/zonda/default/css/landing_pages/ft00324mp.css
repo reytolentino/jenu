@@ -445,6 +445,11 @@ ul.form-list .partialpayment .input-box {
 
 .mpplan .mpplan-includes {
     font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.mpplan ul.form-list {
+    display: none;
 }
 
 .mpplan .mpplan-desc .mpplan-today {

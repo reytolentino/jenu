@@ -565,8 +565,14 @@
       margin-top: 30px;
   }
   .reviews-bottomwrap .review-row .ratings {
-      margin: 0 auto;
+      margin: 0 auto 5px auto;
   }
+    .reviews-bottomwrap .review-row .review-title {
+        font-size: 18px;
+    }
+    .reviews-bottomwrap .name_date {
+        font-size: 13px;
+    }
   .product-view .riskfree {
       right: 10px;
   }
@@ -1738,9 +1744,6 @@
   }
   .product-view .box-reviews {
       width: 100%;
-  }
-  .reviews-bottomwrap .name_date {
-      font-size: 14px;
   }
   .product-view .line-separator2 {
       margin: 20px auto;

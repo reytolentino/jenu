@@ -18,7 +18,7 @@ class MD_Partialpayment_Model_Quote_Address_Total_Installment_Due extends Mage_S
             }
             if (!$quoteItem->getParentItem()) {
                 if($quoteItem->getPartialpaymentOptionSelected() == 1){
-                    $totalDueAmount += $quoteItem->getPartialpaymentDueAmount();
+                    $totalDueAmount += $quoteItem->getPartialpaymentDueAmount() * $quoteItem->getQty();
                     $isPartialExists = true;
                 }
             }

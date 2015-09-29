@@ -19,8 +19,8 @@ class MD_Partialpayment_Model_Quote_Address_Total_Installment_Paid extends Mage_
             if (!$quoteItem->getParentItem()) {
                 if($quoteItem->getPartialpaymentOptionSelected() == 1){
                     $isPartialExists = true;
-                    $totalPaidAmount += $quoteItem->getPartialpaymentPaidAmount();
-                    $baseTotalPaidAmount += $quoteItem->getPartialpaymentPaidAmount();
+                    $totalPaidAmount += $quoteItem->getPartialpaymentPaidAmount() * $quoteItem->getQty();
+                    $baseTotalPaidAmount += $quoteItem->getPartialpaymentPaidAmount() * $quoteItem->getQty();
                 }else{
                     $totalPaidAmount += $quoteItem->getRowTotal();
                     $baseTotalPaidAmount += $quoteItem->getBaseRowTotal();

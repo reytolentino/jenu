@@ -45,7 +45,7 @@ class MD_Partialpayment_Helper_Data extends Mage_Core_Helper_Abstract
             $payment = $item->getOrder()->getPayment();
             $count = $item->getPartialpaymentInstallmentCount();
             $data[0] = array(
-                'amount'=> $item->getPartialpaymentPaidAmount(),
+                'amount'=> $item->getPartialpaymentPaidAmount() * $item->getQtyOrdered(),
                 'paid_date'=> $current,
                 'status'=>($payment->getMethodInstance()->isGateway()) ? MD_Partialpayment_Model_Summary::PAYMENT_SUCCESS : MD_Partialpayment_Model_Summary::PAYMENT_PROCESS,
                 'transaction_id'=> $payment->getLastTransId(),
@@ -55,7 +55,7 @@ class MD_Partialpayment_Helper_Data extends Mage_Core_Helper_Abstract
             for($c=1;$c<$count;$c++)
             {
                 $data[$c] = array(
-                    'amount'=> $item->getPartialpaymentAmountDueAfterDate(),
+                    'amount'=> $item->getPartialpaymentAmountDueAfterDate() * $item->getQtyOrdered(),
                     'due_date'=> $current,
                 );
                 $current = date('Y-m-d',strtotime($current.$frequencyMap[$frequency]));

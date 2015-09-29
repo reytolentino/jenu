@@ -136,7 +136,7 @@ class MD_Partialpayment_Model_Observer
             );
    
             if(isset($buyRequest['custom_options']['partialpayment']) && $buyRequest['custom_options']['partialpayment'] == 1 && $product->getId() == $buyRequest['product']){
-                $qty = $buyRequest['qty'];
+                $qty = 1;
 
                 $partialPaymentOptions = Mage::getModel('md_partialpayment/options')->getStoreOptions($product);
                 if($partialPaymentOptions){

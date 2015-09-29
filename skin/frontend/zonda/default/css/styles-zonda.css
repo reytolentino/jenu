@@ -1942,10 +1942,13 @@ a.highlight-link {
 
 .reviews-bottomwrap .review-row .review-title {
     float: none;
+    font-size: 22px;
+    line-height: 16px;
 }
 .reviews-bottomwrap .review-row .ratings {
     float: none;
     margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .reviews-bottomwrap .ratings {
@@ -1955,14 +1958,14 @@ a.highlight-link {
 
 .reviews-bottomwrap .name_date {
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    color: #454a4c;
-    text-transform: uppercase;
+    font-size: 14px;
+    color: #777;
 }
 
 .reviews-bottomwrap .by_name,
 .reviews-bottomwrap .on_date {
     font-weight: bold;
+    color: #777;
 }
 
 .reviews-bottomwrap .comments-item {

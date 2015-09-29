@@ -79,7 +79,7 @@ if (count($reviews) > 0) {
                         </div>
                     </div>
                     <p class="name_date">
-                        <?php echo $this->__('By <span class="by_name">%s</span>', $this->htmlEscape($_review->getNickname())) ?><?php echo $this->__(' on <span class="on_date">%s</span>', $this->formatDate($_review->getCreatedAt()), 'long') ?>
+                        <?php echo $this->__('by <span class="by_name">%s</span>', $this->htmlEscape($_review->getNickname())) ?><?php echo $this->__(' on <span class="on_date">%s</span>', $this->formatDate($_review->getCreatedAt()), 'long') ?>
                     </p>
                     <?php echo nl2br($this->htmlEscape($_review->getDetail())) ?>
                 </dd>

@@ -399,7 +399,7 @@ ul.form-list .partialpayment .input-box {
 
 .mptop h1 {
     font-weight: 300;
-    font-size: 32px;
+    font-size: 30px;
     text-transform: none;
     margin: 24px 0;
     text-align: center;
@@ -422,6 +422,10 @@ ul.form-list .partialpayment .input-box {
 
 .mpplan-right {
     padding-left: 40px;
+}
+
+.mpplan .retail {
+    color: #999;
 }
 
 .mpplan a.mpplan-terms {

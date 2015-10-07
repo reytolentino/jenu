@@ -399,9 +399,9 @@ ul.form-list .partialpayment .input-box {
 
 .mptop h1 {
     font-weight: 300;
-    font-size: 30px;
+    font-size: 32px;
     text-transform: none;
-    margin: 18px 0;
+    margin: 24px 0;
     text-align: center;
 }
 
@@ -411,7 +411,7 @@ ul.form-list .partialpayment .input-box {
 }
 
 .mpplan {
-    background: url('/media/landing_pages/ft00324mp/bg-mp.png') repeat-y center;
+    background: #f7f7f7;
     padding-top: 20px;
 
 }
@@ -436,15 +436,15 @@ ul.form-list .partialpayment .input-box {
 }
 
 .mpplan .mpplan-desc {
-    font-size: 14px;
+    font-size: 16px;
     color: #000;
-    line-height: 20px;
-    margin: 18px 0;
+    line-height: 22px;
+    margin: 14px 0 18px;
     display: block;
 }
 
 .mpplan .mpplan-includes {
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 12px;
 }
 
@@ -1857,6 +1857,9 @@ ul.clinical-results-graph--perc {
 
     .mptop h1 {
         margin: 0 0 18px;
+    }
+    .product-view .product-shop {
+        margin-top: 0;
     }
 
 }

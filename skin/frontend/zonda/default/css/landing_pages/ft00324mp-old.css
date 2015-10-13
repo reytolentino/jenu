@@ -1563,6 +1563,9 @@ ul.clinical-results-graph--perc {
 }
 
 @media(max-width: 991px) {
+    .lphero-box .multipaywrap {
+        max-width: 380px;
+    }
     .jenu-landingpage .data-con {
         height:500px;
     }
@@ -1861,6 +1864,7 @@ ul.clinical-results-graph--perc {
 
     .mptop h1 {
         margin: 0 0 18px;
+        font-size: 24px;
     }
     .product-view .product-shop {
         margin-top: 0;

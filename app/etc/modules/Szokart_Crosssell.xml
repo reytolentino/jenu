@@ -3,7 +3,7 @@
   <modules>
     <Szokart_Crosssell>
       <active>true</active>
-      <codePool>community</codePool>
+      <codePool>local</codePool>
       <version>0.1.0</version>
     </Szokart_Crosssell>
   </modules>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+  <crosssell_adminhtml_crosssellbackend_index>
+	<reference name="content">
+	  <block type="crosssell/adminhtml_crosssellbackend" name="crosssellbackend" />
+	</reference>
+  </crosssell_adminhtml_crosssellbackend_index>
+  
+    <crosssell_adminhtml_produkty_index>
+	<reference name="content">
+	  <block type="crosssell/adminhtml_produkty" name="produkty" />
+	</reference>
+  </crosssell_adminhtml_produkty_index>
+  
+</layout>
+
+

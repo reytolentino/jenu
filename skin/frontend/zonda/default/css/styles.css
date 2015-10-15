@@ -904,12 +904,6 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .cart-collaterals { padding:25px 0 0; }
 .cart .cart-collaterals .col2-set { float:left; width:700px; }
 
-.cart .crosssell {}
-.cart .crosssell h2 { font-size:13px; font-weight:bold; }
-.cart .crosssell .product-image { float:left; width:75px; height:75px; border:1px solid #ddd; }
-.cart .crosssell .product-details { margin-left:90px; }
-.cart .crosssell li.item { margin:12px 0; }
-
 /* Discount Codes & Estimate Shipping and Tax Boxes */
 .cart .discount,
 .cart .shipping {}

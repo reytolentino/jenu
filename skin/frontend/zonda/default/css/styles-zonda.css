@@ -1573,6 +1573,10 @@ a.sarp-link-tip {
 .old-price, .special-price {
   float: left;
 }
+.crosssell .old-price, .crosssell .special-price {
+    float: none;
+    display: inline-block;
+}
 .cart-price .old-price, .cart-price .special-price {
   float: none;
   clear: both;
@@ -1583,8 +1587,14 @@ a.sarp-link-tip {
 .cart-price .old-price {
   margin-right: 0;
 }
-.cart .data-table tbody .special-price .price {
+.cart .data-table tbody .special-price .price,
+.crosssell .special-price .price,
+.crosssell .special-price-discount {
   color: #c03e3e;
+}
+.crosssell .special-price-discount {
+    clear: both;
+    font-size: 14px;
 }
 .old-price .price-label, .special-price .price-label {
   display: none;

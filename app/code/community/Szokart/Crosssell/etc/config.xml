@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Szokart_Crosssell>
+      <version>0.3.0</version>
+    </Szokart_Crosssell>
+  </modules>
+  <frontend>
+        <routers> 
+            <crosssell>
+                <use>standard</use>
+                <args>
+                    <module>Szokart_Crosssell</module>
+                    <frontName>Crosssell</frontName>
+                </args>
+            </crosssell>
+        </routers>
+        <layout>
+            <updates>
+                <crosssell>
+                    <file>crosssell.xml</file>
+                </crosssell>
+            </updates>
+        </layout>
+    </frontend>
+  <global>
+    <helpers>
+      <crosssell>
+        <class>Szokart_Crosssell_Helper</class>
+      </crosssell>
+    </helpers>
+	<blocks>
+	  <crosssell>
+		<class>Szokart_Crosssell_Block</class>
+	  </crosssell>
+	</blocks>
+	<models>
+	  <crosssell>
+		<class>Szokart_Crosssell_Model</class>
+		<resourceModel>crosssell_mysql4</resourceModel>
+	  </crosssell>
+	  <crosssell_mysql4>
+                <class>Szokart_Crosssell_Model_Mysql4</class>
+                <entities>
+                    <crosssell>
+                        <table>crosssell</table>
+                    </crosssell>
+					 <crosssellx>
+                        <table>crosssellx</table>
+                    </crosssellx>
+                </entities>
+      </crosssell_mysql4>
+	  <szokart_crosssell>
+                <class>Szokart_Crosssell_Model</class>
+      </szokart_crosssell>
+			
+	</models>
+	<resources>
+	  <crosssell_setup>
+		<setup>
+		  <module>Szokart_Crosssell</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </crosssell_setup>
+	  <crosssell_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </crosssell_write>
+	  <crosssell_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </crosssell_read>
+	  <salesattribute1410110821_setup>
+		<setup>
+		  <module>Szokart_Crosssell</module>
+		  <class>Mage_Sales_Model_Mysql4_Setup</class>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </salesattribute1410110821_setup>
+	  <salesattribute1410110821_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </salesattribute1410110821_write>
+	  <salesattribute1410110821_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </salesattribute1410110821_read>
+	</resources>
+    <events>
+	<checkout_type_onepage_save_order_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_type_onepage_save_order_after_crosssell_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>crosssell/newordertotalobserver</class> <!-- observers class alias -->
+            <method>saveCrosssellTotal</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_type_onepage_save_order_after_crosssell_handler>
+	    </observers>
+      </checkout_type_onepage_save_order_after>		
+	<checkout_type_multishipping_create_orders_single> <!-- identifier of the event we want to catch -->
+        <observers>		
+          <checkout_type_multishipping_create_orders_single_crosssell_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>crosssell/newordertotalobserver</class> <!-- observers class alias -->
+            <method>saveCrosssellTotalForMultishipping</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_type_multishipping_create_orders_single_crosssell_handler>		
+        </observers>
+      </checkout_type_multishipping_create_orders_single>
+    </events>
+	  <!--
+	 <sales>
+		<quote>
+			<totals>
+	            <crosssell_total>
+					<class>crosssell/quote_address_total_crosssell</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</crosssell_total>
+			</totals>
+		</quote>
+            <order_invoice>
+                <totals>
+	            <crosssell_total>
+					<class>crosssell/order_invoice_total_crosssell</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</crosssell_total>
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>
+	            <crosssell_total>
+					<class>crosssell/order_creditmemo_total_crosssell</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</crosssell_total>
+                </totals>
+            </order_creditmemo>
+	</sales>
+	-->
+  </global>
+  <admin>
+	<routers>
+	  <crosssell>
+	    <use>admin</use>
+		<args>
+		  <module>Szokart_Crosssell</module>
+		  <frontName>admin_crosssell</frontName>
+		</args>
+	  </crosssell>
+	  
+	   <adminhtml>
+                <args>
+                    <modules>
+                        <Szokart_Crosssell before="Mage_Adminhtml">Szokart_Crosssell_Adminhtml</Szokart_Crosssell>
+                    </modules>
+                </args>
+      </adminhtml>
+	  
+	</routers>
+  </admin>
+  <adminhtml>
+      <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <szokart_crosssell>
+                        <type>singleton</type>
+                        <class>crosssell/observer</class>
+                        <method>addMassactionToProductGrid</method>
+                    </szokart_crosssell>
+                </observers>
+            </adminhtml_block_html_before>
+		</events>        
+	<menu>
+	  <crosssell module="crosssell">
+		<title>Rules Crosssell</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <crosssellbackend module="crosssell">
+			<title>Rules Crosssell</title>
+			<sort_order>0</sort_order>
+			<action>admin_crosssell/adminhtml_crosssellbackend</action>
+		  </crosssellbackend>
+		</children>
+	  </crosssell>
+	</menu>
+	<layout>
+	  <updates>
+		<crosssell>
+		  <file>crosssell.xml</file>
+		</crosssell>
+	  </updates>
+	</layout>
+	<translate>
+            <modules>
+                <crosssell>
+                    <files>
+                        <default>Szokart_Crosssell.csv</default>
+                    </files>
+                </crosssell>
+            </modules>
+        </translate>
+  </adminhtml>    
+</config> 

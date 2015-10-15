@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+
+  <checkout_cart_index>
+    <reference name="checkout.cart">
+              <block type="crosssell/crosssell" name="crosssell" as="cspromo" template="crosssell/crosssell.phtml" />  
+     </reference>
+   </checkout_cart_index>
+	  
+	  
+</layout>

@@ -480,6 +480,7 @@
         <reference name="checkout.cart">
             <action method="unsetChild"><name>AmazonPayButtonMethod</name></action>
             <action method="unsetChild"><name>AmazonPayButtonTop</name></action>
+            <block type="crosssell/crosssell" name="crosssell" as="cspromo" template="crosssell/crosssell.phtml" />
             <block type="core/text_list" name="checkout.cart.other_methods" as="other_methods" translate="label">
                 <label>Payment Methods Before Checkout Button</label>
                 <action method="append" ifconfig="payment/amazon_payments/enabled">

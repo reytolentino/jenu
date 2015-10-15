@@ -472,6 +472,10 @@
             <block type="core/template" name="support" as="support" template="page/html/support.phtml"/>
         </reference>
 
+        <reference name="content">
+            <block type="checkout/cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml"/>
+        </reference>
+
         <reference name="checkout.cart.methods">
             <action method="unsetChild"><name>checkout.cart.methods.paypal_express.bottom</name></action>
             <action method="unsetChild"><name>AmazonPayButtonMethod</name></action>

@@ -116,6 +116,7 @@
         </observers>
       </checkout_type_multishipping_create_orders_single>
     </events>
+	  <!--
 	 <sales>
 		<quote>
 			<totals>
@@ -145,6 +146,7 @@
                 </totals>
             </order_creditmemo>
 	</sales>
+	-->
   </global>
   <admin>
 	<routers>

@@ -5834,6 +5834,10 @@ div.jenu-results-container div.results-section-banner div.container {
     background: #fff;
 }
 
+.jenu-gel-container .jenu-gel {
+    margin-top: 10px;
+}
+
 .gel-banner {
     box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.2);
 }

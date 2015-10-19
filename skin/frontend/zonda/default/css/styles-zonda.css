@@ -5911,8 +5911,29 @@ h2.jenu-gel-header-h2 strong {
     width: auto;
     max-width: 260px;
 }
+.jenu-text-copy--desc .gel-benefits {
+    background: url('../images/gel-bg-benefits.png') repeat-x center;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+.jenu-text-copy--desc .gel-benefits span {
+    text-transform: uppercase;
+    color: #0069a7;
+    font-size: 24px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #fff;
+    display: inline-block;
+    text-align: center;
+    padding: 0 20px;
+}
 .jenu-text-copy--desc .gel-spheres {
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
 }
 .gel-container-bottom-full {
     height: 121px;

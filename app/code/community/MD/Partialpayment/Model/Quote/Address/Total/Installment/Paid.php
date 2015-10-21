@@ -22,8 +22,8 @@ class MD_Partialpayment_Model_Quote_Address_Total_Installment_Paid extends Mage_
                     $totalPaidAmount += $quoteItem->getPartialpaymentPaidAmount() * $quoteItem->getQty();
                     $baseTotalPaidAmount += $quoteItem->getPartialpaymentPaidAmount() * $quoteItem->getQty();
                 }else{
-                    $totalPaidAmount += $quoteItem->getRowTotal();
-                    $baseTotalPaidAmount += $quoteItem->getBaseRowTotal();
+                    $totalPaidAmount += ($quoteItem->getRowTotal() - $quoteItem->getDiscountAmount());
+                    $baseTotalPaidAmount += ($quoteItem->getBaseRowTotal() - $quoteItem->getBaseDiscountAmount());
                 }
             }
         }

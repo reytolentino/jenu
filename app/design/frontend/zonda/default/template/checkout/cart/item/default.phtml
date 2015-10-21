@@ -99,7 +99,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                             </p>
                         <?php
                             $discountAmt = $_item->getDiscountAmount();
-                            $discountedAmount = $_item->getCalculationPrice() - $_item->getDiscountAmount();
+                            $discountedAmount = ($_item->getCalculationPrice() - ($_item->getDiscountAmount()/$_item->getQty()));
                             ?>
                         <?php if ($discountAmt > 0): ?>
                                 <p class="special-price"><?php echo $this->helper('checkout')->formatPrice($discountedAmount) ?></p>
@@ -111,7 +111,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                         <?php else: ?>
                             <?php
                             $discountAmt = $_item->getDiscountAmount();
-                            $discountedAmount = $_item->getCalculationPrice() - $_item->getDiscountAmount();
+                            $discountedAmount = ($_item->getCalculationPrice() - ($_item->getDiscountAmount()/$_item->getQty()));
                             ?>
                             <?php if ($discountAmt > 0): ?>
                                 <p class="old-price"><?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?></p>

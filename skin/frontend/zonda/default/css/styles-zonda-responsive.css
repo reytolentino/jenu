@@ -204,6 +204,9 @@
     float: none;
     width: 100%;
   }
+  .checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
+    min-height: auto;
+  }
   .cart .checkout-types {
     float: none;
     text-align: left;

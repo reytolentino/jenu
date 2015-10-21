@@ -88,42 +88,67 @@ if ($b['product']['aspect_ratio'])
                 <h2 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h2>
                 
 <div class="price-box clearfix">
-<p class="old-price">
-<?php 
+
+<?php
 $_store = $_item->getStore();
 $_convertedFinalPrice = $_store->roundPrice($_store->convertPrice($_item->getFinalPrice()));
 
 if(Mage::getStoreConfig('tax/display/type') == 1){
-$cena =	$_finalPrice = $_taxHelper->getPrice($_item, $_convertedFinalPrice);
+    $cena =	$_finalPrice = $_taxHelper->getPrice($_item, $_convertedFinalPrice);
 }else{
-$cena = $_taxHelper->getPrice($_item, $_convertedFinalPrice, true);
+    $cena = $_taxHelper->getPrice($_item, $_convertedFinalPrice, true);
 }
+$convertedcena = Mage::helper('core')->currency($cena);
+$value = NULL;
+$value = ((100-$lager[$_item->getId()])/100) ;
+$value = $value * $cena;
+$value = round($value, 2);
+$convertedvalue = Mage::helper('core')->currency($value);
+?>
 
+<?php if ($cena > $value) : ?>
 
-//$cena = $_item->getFinalPrice();
-//$cena = $_item->getPriceModel()->getFinalPrice(1, $_item);
-echo Mage::helper('core')->currency($cena); 
-
-?> 
-</p>
-<p class="special-price">
-<?php
- $value = NULL;
- $value = ((100-$lager[$_item->getId()])/100) ; 
- $value = $value * $cena;
- $value = round($value, 2);
- echo Mage::helper('core')->currency($value); 
- ?>
-</p>
-
-<p class="special-price-discount">
+    <p class="old-price">
     <?php
-    $disc = NULL;
-    $disc = 1 - ($value / $cena);
-    $disc = $disc * 100;
-    echo $disc.'% Savings';
+    $_store = $_item->getStore();
+    $_convertedFinalPrice = $_store->roundPrice($_store->convertPrice($_item->getFinalPrice()));
+
+    if(Mage::getStoreConfig('tax/display/type') == 1){
+    $cena =	$_finalPrice = $_taxHelper->getPrice($_item, $_convertedFinalPrice);
+    }else{
+    $cena = $_taxHelper->getPrice($_item, $_convertedFinalPrice, true);
+    }
+
+
+    //$cena = $_item->getFinalPrice();
+    //$cena = $_item->getPriceModel()->getFinalPrice(1, $_item);
+    echo $convertedcena;
+
     ?>
-</p>
+    </p>
+    <p class="special-price">
+    <?php
+     echo $convertedvalue;
+     ?>
+    </p>
+
+    <p class="special-price-discount">
+        <?php
+        $disc = NULL;
+        $disc = 1 - ($value / $cena);
+        $disc = $disc * 100;
+        echo $disc.'% Savings';
+        ?>
+    </p>
+<?php else : ?>
+
+    <p class="price">
+        <?php
+        echo $convertedcena;
+        ?>
+    </p>
+
+<?php endif; ?>
 </div>
                 <div class="actions clearfix">
      <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button> 

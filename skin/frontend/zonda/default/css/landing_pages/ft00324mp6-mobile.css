@@ -1,0 +1,846 @@
+@media(max-width:767px) {
+
+    #lpmobile {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #272727;
+    }
+
+    #lpmobile #customer-reviews dd {
+        padding-left: 0;
+    }
+
+    #lpmobile .pager .pages {
+        margin: 0;
+        height: auto;
+    }
+
+    #lpmobile .pager .pages ol {
+        padding-left: 0;
+    }
+
+    #lpmobile .reviews-bottomwrap .pager .pages ol li a {
+        margin-bottom: 3px;
+    }
+
+    .product-view .reviews-summary-wrap .amount {
+        border-right: medium none;
+        color: #08232d;
+        display: block;
+        float: none;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 24px;
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .partialpayment-box-container ul.form-list .partialpayment label {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    #lpmobile #product_addtocart_form {
+        display: block;
+    }
+
+    ul.form-list .partialpayment .checkbox {
+        z-index: 9;
+    }
+
+    #partial-terms-popup {
+        width: 100%;
+    }
+    .partial-terms-popup {
+        left: 0;
+    }
+
+    #lpmobile h2 {
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #008bb4;
+    }
+
+    #buybar {
+        background-color:rgba(10, 40, 59, 0.8);
+        height: 45px;
+        z-index: 9;
+    }
+
+    #buywrap.fixed {
+        left: 0;
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        width: 100%;
+    }
+
+    .buybar-lto {
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #fff;
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .buybar-button-wrap {
+        text-align: right;
+    }
+
+    .buybar-button {
+        display: inline-block;
+        background: #fff url('/media/landing_pages/lp4/mobile/buybar-arrow.png') no-repeat top right 5px;
+        color: #0069a7;
+        text-transform: uppercase;
+        font-size: 13px;
+        height: 26px;
+        line-height: 26px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        padding: 0 16px 0 8px;
+        margin-top: 9px;
+    }
+
+    .buybar-button.opened {
+        background: #fff url('/media/landing_pages/lp4/mobile/buybar-arrow.png') no-repeat bottom right 5px;
+    }
+
+    .buybar-button .buybar-old-price {
+        text-decoration: line-through;
+        color: #777777;
+        font-weight: 400;
+    }
+
+    #buybar-menu {
+        background: rgba(243,243,243, 0.9);
+        padding: 10px 14px;
+        border-top: 2px solid #d5d5d5;
+        border-bottom: 2px solid #d5d5d5;
+        font-size: 13px;
+        color: #272727;
+        overflow: hidden;
+        display: none;
+        width: 100%;
+    }
+
+    p.retail-price, p.retail {
+        font-size: 12px;
+    }
+
+    #buybar-menu-close {
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #272727;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        float: right;
+    }
+
+    p.buybar-menu-lto {
+        line-height: 14px;
+        margin: 6px 0;
+    }
+
+    .add-to-cart button.button {
+        background-color: #0069a7;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .product-cta .add-to-cart button.button {
+        margin-top: 20px;
+    }
+
+    .line-through {
+        text-decoration: line-through;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .product-highlights .slide1 h1 {
+        font-size: 13px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #272727;
+        text-align: center;
+        line-height: 16px;
+    }
+
+    .product-highlights .slide1 h1 .title {
+        color: #0069a7;
+    }
+
+    .product-highlights .slide1 h1 .better {
+        line-height: 20px;
+    }
+
+    .product-highlights .slide1 h1 .better,
+    .product-highlights .slide1 h1 .and {
+        font-size: 18px;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .product-highlights .slide1 h1 .and {
+        font-weight: 300;
+    }
+
+    .sectionwrap {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .slidecontent {
+        margin: 12px 0 0;
+        padding: 0 12px;
+    }
+
+    .product-highlights .slide1 {
+        text-align: center;
+    }
+
+    .product-highlights .slide1 .slidebox {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .product-highlights .slide1 .wandgel {
+        margin-right: 10px;
+    }
+
+    .product-highlights .slide1 .slide1-copy {
+        margin-top: 10px;
+        text-align: center;
+        width: 160px;
+    }
+
+    .product-highlights .ratings {
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+
+    .product-highlights .ratings .amount {
+        clear: both;
+        display: block;
+    }
+
+    .product-highlights .ratings .amount a {
+        font-size: 18px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #000;
+        text-transform: uppercase;
+    }
+
+    .product-highlights .voguemention {
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        margin-top: 12px;
+        line-height: 24px;
+        font-weight: 300;
+    }
+
+    .product-highlights .voguemention2 {
+        font-size: 20px;
+        font-style: italic;
+    }
+
+    .product-highlights .voguelogo {
+        vertical-align: middle;
+        display: inline;
+    }
+
+    .product-highlights .slide2 h1 {
+        font-size: 18px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #272727;
+        text-align: center;
+        line-height: 24px;
+        display: block;
+        padding: 0 30px;
+    }
+
+    .product-highlights .slide2 .slidecontent,
+    .product-highlights .slide3 .slidecontent {
+        text-align: center;
+    }
+
+    .product-highlights .slide2 .slidecontent img,
+    .product-highlights .slide3 .slidecontent img {
+        display: inline-block;
+    }
+
+    .product-highlights .slide3 h1 {
+        font-size: 18px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #272727;
+        text-align: center;
+        line-height: 22px;
+        display: block;
+        padding: 0 40px;
+        margin-bottom: 30px;
+    }
+
+    .product-highlights .slide3 h1 .new {
+        display: inline-block;
+        font-size: 42px;
+        line-height: 42px;
+        font-style: italic;
+        text-transform: uppercase;
+        vertical-align: middle;
+    }
+
+    .product-highlights .slide3 h1 .mcg {
+        font-size: 17px;
+        display: inline-block;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+
+    #lpmobile .graybg {
+        background-color: #f7f7f7;
+    }
+
+    #lpmobile .bluebg {
+        background-color: #daebf0;
+    }
+
+    .cms-page-view .main-content .product-cta {
+        overflow: visible;
+    }
+
+    .product-cta h2 {
+        font-size: 18px;
+        text-align: center;
+        display: block;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #ebebeb;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+    .product-cta p {
+        line-height: normal;
+        margin-bottom: 12px;
+    }
+
+    .product-cta p.ltocopy {
+        font-size: 16px;
+    }
+
+    .product-cta .bottombar {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 20px 0 0;
+    }
+
+    .product-cta .bottombar span {
+        display: block;
+        font-size: 12px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        display: inline-block;
+    }
+
+    .product-cta .bottombar .warranty {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 3px;
+        margin-bottom: 3px;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
+    .product-cta .bottombar .freeshipping {
+        display: block;
+    }
+
+    .mobile-riskfree {
+        float: right;
+    }
+
+    .lpsubnav {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    ul.subnav, ul.subnav li  {
+        list-style: none;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.subnav li a {
+        background: #0089b0;
+        color: #fff;
+        font-size: 13px;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        height: 38px;
+        line-height: 38px;
+    }
+
+    ul.subnav li {
+        border-top: 1px solid #5ba3b8;
+    }
+
+    ul.subnav li:first-child {
+        border-top: none;
+    }
+
+    .greatforuse {
+        padding-bottom: 0;
+        border-bottom: 1px solid #4caee8;
+    }
+
+    .greatforuse h2 {
+        font-size: 22px;
+        text-align: center;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .greatforuse .slidecontent {
+        text-align: center;
+    }
+
+    .greatforuse .img-greatforuse,
+    .greatforuse .greatforuse-list {
+        display: inline-block;
+    }
+
+    .greatforuse-list ul {
+        margin-top: 40px;
+        margin-left: -10px;
+    }
+
+    .greatforuse-list ul li {
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+        text-align: left;
+    }
+
+    .greatforuse-list ul li:before {
+        content:"+";
+        color: #0069a7;
+        margin-right: 5px;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: -1px;
+    }
+
+    .greatforuse .img-greatforuse {
+        margin-left: -120px;
+        display: inline-block;
+    }
+
+    .beforeafters h2,
+    .whyjenu h2,
+    .howjenu h2,
+    .proofjenu h2 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .beforeafters .topheading {
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        margin-top: 70px;
+    }
+
+    .beforeafters .topheading:first-child {
+        margin-top: 0;
+    }
+
+    .beforeafters .topheading span {
+        display: inline-block;
+    }
+
+    .beforeafters .topheading span:before {
+        display: inline-block;
+        content: "—";
+        margin-right: 8px;
+    }
+
+    .beforeafters .topheading span:after {
+        display: inline-block;
+        content: "—";
+        margin-left: 8px;
+    }
+
+    .beforeafters .baslides img {
+        width: 100%;
+        max-width: 432px;
+        display: inline-block;
+    }
+
+    .beforeafters .baslides {
+        text-align: center;
+    }
+
+    .beforeafters .baslides:first-child {
+        margin-bottom: 30px;
+    }
+
+    .beforeafters .slick-prev:before,
+    .beforeafters .slick-next:before {
+        color: #fff;
+    }
+
+    .beforeafters p.ba-disclaimer {
+        font-size: 11px;
+        padding-top: 10px;
+        display: block;
+        line-height: 14px;
+    }
+
+    .beforeafters p.ba-disclaimer:first-of-type {
+        padding-top: 50px;
+    }
+
+    .whyjenu h4,
+    .howjenu h4,
+    .proofjenu h4 {
+        font-size: 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #ebebeb;
+        margin-bottom: 10px;
+        color: #000;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .whyjenu-slide .slide1 .slidecontent {
+        text-align: center;
+    }
+
+    .whyjenu-slide .slide1 .slidecontent .drbatra-thumb,
+    .whyjenu-slide .slide1 .slidecontent .slide-copy {
+        display: inline-block;
+    }
+
+    .whyjenu-slide .slide1 .slidecontent .slide-copy {
+        font-size: 18px;
+        text-align: left;
+        line-height: 22px;
+        margin: 8px 0 0 8px;
+    }
+
+    .whyjenu-slide .slide1 .slidecontent .batraquote {
+        font-size: 12px;
+        font-style: italic;
+        text-align: left;
+        line-height: 16px;
+        display: block;
+        margin: 6px 14px;
+    }
+
+    .whyjenu-slide .slide1 .slidecontent .batraquote .batracredentials {
+        font-size: 11px;
+        line-height: 14px;
+        text-align: right;
+        display: block;
+        font-style: normal;
+        margin-top: 5px;
+    }
+
+    .whyjenu-slide .slide2 .slidecontent,
+    .whyjenu-slide .slide3 .slidecontent,
+    .whyjenu-slide .slide4 .slidecontent {
+        text-align: center;
+    }
+
+    .whyjenu-slide .slide2 .slidecontent .whyjenu-wand {
+        margin-top: 16px;
+        display: inline-block;
+    }
+
+    .whyjenu-slide .slide2 .slidecontent p {
+        line-height: 16px;
+        display: block;
+        padding: 0 10px;
+        text-align: left;
+    }
+
+    .whyjenu-slide .slide3 .slidecontent .whyjenu-magazines {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    .whyjenu-slide .slide3 .slidecontent .asseenin {
+        font-size: 13px;
+        display: inline-block;
+    }
+
+    .whyjenu-slide .slide3 .slidecontent .asseenin .whyjenu-voguelogo {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .whyjenu-slide .slide3 .slidecontent .whyjenu-voguemention {
+        font-size: 11px;
+        line-height: 14px;
+        margin-top:8px;
+    }
+
+    .whyjenu-slide .slide4 .slidecontent .whyjenu-elle,
+    .whyjenu-slide .slide4 .slidecontent .elle-copy {
+        display: inline-block;
+    }
+
+    .whyjenu-slide .slide4 .slidecontent .elle-copy {
+        width: 156px;
+        text-align: left;
+        font-style: italic;
+        line-height: 16px;
+    }
+
+    .whyjenu-slide .slide4 .slidecontent .byelle,
+    .whyjenu-slide .slide4 .slidecontent .byline,
+    .whyjenu-slide .slide5 .slidecontent .byline {
+        display: block;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .whyjenu-slide .slide4 .slidecontent .pressquote,
+    .whyjenu-slide .slide5 .slidecontent .pressquote {
+        text-align: left;
+        margin-top: 20px;
+        font-family: georgia, times, serif;
+        font-style: italic;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 0 10px 0 24px;
+        position: relative;
+    }
+
+    .whyjenu-slide .slide5 .slidecontent .pressquote:first-child {
+        margin-top: 0;
+    }
+
+    .whyjenu-slide .slide4 .slidecontent .pressquote:before,
+    .whyjenu-slide .slide5 .slidecontent .pressquote:before {
+        font-family: 'FontAwesome';
+        content: "\f10d";
+        font-size: 16px;
+        color: #93dae9;
+        position: absolute;
+        left: 0;
+
+    }
+
+    .whyjenu-slide .slide4 .slidecontent .pressquote .byline,
+    .whyjenu-slide .slide5 .slidecontent .pressquote .byline {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: normal;
+        margin-top: 6px;
+    }
+
+    .howjenu .slidecontent {
+        text-align: center;
+        line-height: 16px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .howjenu .slidecontent p {
+        line-height: 16px;
+    }
+
+    .howjenu .slidecontent .img-howjenu {
+        display: inline-block;
+        font-size: 11px;
+        line-height: 14px;
+        vertical-align: top;
+    }
+
+    .howjenu .slidecontent .versus {
+        display: inline-block;
+        font-size: 18px;
+        margin-top: 120px;
+        position: absolute;
+    }
+
+    .howjenu .slidecontent .img-howjenu.img1 {
+        width: 119px;
+        margin-top: 2px;
+    }
+
+    .howjenu .slidecontent .img-howjenu.img2 {
+        width: 155px;
+    }
+
+    .howjenu .slidecontent .img-howjenu span {
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .proofjenu .slidecontent {
+        text-align: center;
+    }
+
+    .proofjenu .slidecontent .img-proofjenu {
+        display: inline-block;
+    }
+
+    .proofjenu .slidecontent p.oneweek {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .proofjenu .slidecontent ul.oneweek-list {
+        text-align: left;
+        list-style-type: disc;
+        margin-bottom: 30px;
+    }
+
+    .proofjenu .slidecontent ul.oneweek-list li {
+        margin-left: 16px;
+        line-height: 16px;
+        margin-bottom: 14px;
+    }
+
+    .proofjenu .proof-disclaimer {
+        font-size: 11px;
+        margin-top: 14px;
+        line-height: 14px;
+        text-align: left;
+    }
+
+    #lpmobile .multipaywrap-mobile {
+        margin: 18px 0;
+        height: 27px;
+        line-height: 27px;
+        color: #000;
+        font-size: 13px;
+        display: inline-block;
+        float: left;
+        clear: both;
+    }
+
+    #lpmobile .multipaywrap-mobile a {
+        text-decoration: underline;
+        color: #000;
+        font-weight: bold;
+    }
+
+    #lpmobile .multipaywrap-mobile img {
+        margin-right: 8px;
+    }
+    #lpmobile .todayprice {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    #lpmobile .product-cta .ltocopy {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .mpwrap a#mpclose-mobile {
+        height: 30px;
+        padding-right: 40px;
+        line-height: 30px;
+        background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #c2c2c2;
+        font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+        display: inline-block;
+        position: static;
+        margin: 13px;
+        float: right;
+    }
+
+    .mpwrap a#mpclose-mobile:hover {
+        background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right bottom;
+        color: #2f2f2f;
+    }
+
+    .mptop h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .mpwrap-toplinks {
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .mpwrap-toplinks a {
+        font-size: 11px;
+    }
+
+    .mptop .mpwand {
+        width: 100%;
+        height: auto;
+    }
+
+    .mpplan {
+        background: none;
+        padding: 0;
+    }
+
+    .mpplan .col-sm-6 {
+        padding: 0;
+    }
+
+    .cms-page-view .mpplan.mpplan-left .container {
+        background: #f7f7f7;
+    }
+
+    .cms-page-view .mpplan.mpplan-right .container {
+        background: #e3e3e3;
+    }
+
+    .mpplan .mpplan-left {
+        padding-right: 0;
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    .mpplan .mpplan-right {
+        padding-left: 0;
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    .mpplan h3 {
+        font-size: 18px;
+    }
+    .mpplan .mpplan-desc {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .mpplan .mpplan-mb {
+        margin-right: 0;
+    }
+    .mpplan .mpplan-includes {
+        font-size: 12px;
+    }
+    .mpwrap p.plussales {
+        font-size: 10px;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    .mpplan a.mpplan-terms {
+        font-size:10px;
+    }
+    .partial-terms-popup {
+        width: 100%;
+    }
+}

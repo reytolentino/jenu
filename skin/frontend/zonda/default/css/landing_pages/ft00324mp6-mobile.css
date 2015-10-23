@@ -60,7 +60,7 @@
     }
 
     #buybar {
-        background-color:rgba(10, 40, 59, 0.8);
+        background-color:rgba(0, 0, 0, 0.8);
         height: 45px;
         z-index: 9;
     }
@@ -734,18 +734,26 @@
         clear: both;
     }
 
-    #lpmobile .multipaywrap-mobile a {
+    #lpmobile .multipaywrap-mobile span.multipay-mobile {
+        background: url('/media/landing_pages/ft00324mp/icon-multipay.png') no-repeat left center;
+        padding-left: 41px;
+        line-height: normal;
+        display: block;
+    }
+
+    #lpmobile .multipaywrap-mobile span.multipay-mobile a {
         text-decoration: underline;
         color: #000;
         font-weight: bold;
     }
 
-    #lpmobile .multipaywrap-mobile img {
-        margin-right: 8px;
-    }
     #lpmobile .todayprice {
         font-size: 15px;
         font-weight: bold;
+    }
+    #lpmobile .todayprice span {
+        font-size: 13px;
+        font-weight: normal;
     }
     #lpmobile .product-cta .ltocopy {
         font-weight: bold;
@@ -783,6 +791,8 @@
 
     .mpwrap-toplinks a {
         font-size: 11px;
+        color: #000;
+        text-decoration: underline;
     }
 
     .mptop .mpwand {

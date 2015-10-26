@@ -1203,16 +1203,42 @@
   .shipping-form {
     padding: 10px;
   }
+  #checkout-step-review.step {
+    padding: 10px;
+  }
+  .order-review .data-table th {
+    font-size: 11px;
+  }
+  .order-review .product-image img {
+    width: 50px;
+  }
   .cart-table col, .order-review .data-table col, .my-account .data-table col, .my-wishlist .data-table col {
     display: none;
   }
+  /**
   .cart-table thead tr, .order-review .data-table thead tr, .my-account .data-table thead tr, .my-wishlist .data-table thead tr {
     display: none;
   }
   .cart-table thead tr.mobile-row, .order-review .data-table thead tr.mobile-row, .my-account .data-table thead tr.mobile-row, .my-wishlist .data-table thead tr.mobile-row {
     display: block;
   }
+  **/
+  .cart-table thead tr, .my-account .data-table thead tr, .my-wishlist .data-table thead tr {
+    display: none;
+  }
+  .cart-table thead tr.mobile-row, .my-account .data-table thead tr.mobile-row, .my-wishlist .data-table thead tr.mobile-row {
+    display: block;
+  }
+  /**
   .cart-table tr, .cart-table td, .cart-table th, .order-review .data-table tr, .order-review .data-table td, .order-review .data-table th, .my-account .data-table tr, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table tr, .my-wishlist .data-table td, .my-wishlist .data-table th {
+    border-left: none !important;
+    border-right: none !important;
+    display: block;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+  **/
+  .cart-table tr, .cart-table td, .cart-table th, .my-account .data-table tr, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table tr, .my-wishlist .data-table td, .my-wishlist .data-table th {
     border-left: none !important;
     border-right: none !important;
     display: block;
@@ -1225,7 +1251,12 @@
   .cart-table tbody td:first-child, .cart-table tbody th:first-child, .order-review .data-table tbody td:first-child, .order-review .data-table tbody th:first-child, .my-account .data-table tbody td:first-child, .my-account .data-table tbody th:first-child, .my-wishlist .data-table tbody td:first-child, .my-wishlist .data-table tbody th:first-child {
     padding-top: 20px !important;
   }
+  /**
   .cart-table tbody td:last-child, .cart-table tbody th:last-child, .order-review .data-table tbody td:last-child, .order-review .data-table tbody th:last-child, .my-account .data-table tbody td:last-child, .my-account .data-table tbody th:last-child, .my-wishlist .data-table tbody td:last-child, .my-wishlist .data-table tbody th:last-child {
+    padding-bottom: 20px !important;
+  }
+  **/
+  .cart-table tbody td:last-child, .cart-table tbody th:last-child, .my-account .data-table tbody td:last-child, .my-account .data-table tbody th:last-child, .my-wishlist .data-table tbody td:last-child, .my-wishlist .data-table tbody th:last-child {
     padding-bottom: 20px !important;
   }
   .cart-table thead tr.mobile-row th, .order-review .data-table thead tr.mobile-row th, .my-account .data-table thead tr.mobile-row th, .my-wishlist .data-table thead tr.mobile-row th {
@@ -2088,6 +2119,9 @@
     }
     .data-table .border {
         height: auto;
+    }
+    #checkout-step-login .col2-set .col-1 {
+      margin-bottom: 16px;
     }
 }
 @media(max-width: 480px) {

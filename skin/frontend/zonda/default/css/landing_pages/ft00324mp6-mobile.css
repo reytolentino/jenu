@@ -163,11 +163,12 @@
         font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
         color: #272727;
         text-align: center;
-        line-height: 16px;
+        line-height: 18px;
     }
 
     .product-highlights .slide1 h1 .title {
         color: #0069a7;
+        font-size: 20px;
     }
 
     .product-highlights .slide1 h1 .better {

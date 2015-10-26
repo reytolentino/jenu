@@ -762,8 +762,8 @@
         font-size: 15px;
     }
     .mpwrap {
-        position: fixed;
         z-index: 9;
+        position: relative;
     }
     .mpwrap a#mpclose-mobile {
         height: 30px;

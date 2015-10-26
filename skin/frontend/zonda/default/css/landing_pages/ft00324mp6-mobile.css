@@ -739,6 +739,7 @@
         padding-left: 41px;
         line-height: normal;
         display: block;
+        height: 27px;
     }
 
     #lpmobile .multipaywrap-mobile span.multipay-mobile a {
@@ -781,12 +782,12 @@
 
     .mptop h1 {
         font-size: 20px;
-        margin: 0;
     }
 
     .mpwrap-toplinks {
         text-align: center;
         margin-bottom: 8px;
+        display: none;
     }
 
     .mpwrap-toplinks a {
@@ -852,5 +853,18 @@
     }
     .partial-terms-popup {
         width: 100%;
+    }
+    .mpplan-option {
+        display: block;
+        font-size: 14px;
+        text-transform: uppercase;
+        height: 38px;
+        line-height: 38px;
+        text-decoration: none;
+        color: #000;
+        background: url("../../images/mobile-nav-arrow.png") no-repeat scroll right top;
+    }
+    .mpplan-optionActive {
+        background: url("../../images/mobile-nav-arrow.png") no-repeat scroll right bottom
     }
 }

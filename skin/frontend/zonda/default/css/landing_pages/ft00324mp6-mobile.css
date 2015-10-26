@@ -863,8 +863,13 @@
         text-decoration: none;
         color: #000;
         background: url("../../images/mobile-nav-arrow.png") no-repeat scroll right top;
+        font-weight:bold;
     }
     .mpplan-optionActive {
         background: url("../../images/mobile-nav-arrow.png") no-repeat scroll right bottom
+    }
+    .mpplan-retail {
+        font-size: 11px;
+        color: #666;
     }
 }

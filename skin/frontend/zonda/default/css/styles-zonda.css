@@ -2966,6 +2966,9 @@ td.for-desktop {
 #shopping-cart-table .pr-img-td img {
   width: 50px;
 }
+#shopping-cart-totals-table tfoot tr:nth-child(2) {
+    background: #d5d5d5;
+}
 .cart-table .product-name {
   margin-bottom: 10px;
 }

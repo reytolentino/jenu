@@ -5051,6 +5051,57 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     outline: none;
 }
 
+/** refurbished faqs **/
+
+.refurbished-faqs-container {
+    margin: 12px 0;
+}
+
+.refurbished-faqs-container h1 {
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.refurbished-faqs-container p {
+    line-height: 1.6;
+}
+
+.refurbished-faqs-container h5 {
+    margin: 16px 0 8px 0;
+}
+
+.refurbished-faqs-container .refurb-img img {
+    width: 100%;
+}
+
+.refurbished-faqs-container .refurb-cta-product-name {
+    color: #000;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.refurbished-faqs-container .refurb-cta {
+    margin-top: 34px;
+}
+
+.refurbished-faqs-container .refurb-row {
+    margin: 18px 0;
+    padding: 18px 0;
+    background: #f7f7f7;
+}
+
+.refurbished-faqs-container .refurb-cta .button {
+    background-color: #fff;
+    border: 1px solid #0069a7;
+    padding: 0 24px;
+    margin-top: 12px;
+}
+
+.refurbished-faqs-container .refurb-cta .button:hover {
+    background: #0069a7;
+}
+
 /** new howtouse **/
 
 .cms-banner.howtouse-banner {
@@ -6523,12 +6574,14 @@ h2.jenu-howitworks-header-h2 strong {
 }
 
 .cms-faqs .faqs-right,
-.cms-cs .csright {
+.cms-cs .csright,
+.refurbished-content {
     border-left: 1px solid #b7b7b7;
     padding-left: 40px;
 }
 
-.cms-faqs .faqs-right {
+.cms-faqs .faqs-right,
+.refurbished-content {
     margin-bottom: 40px;
 }
 

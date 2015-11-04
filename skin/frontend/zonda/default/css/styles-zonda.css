@@ -5082,7 +5082,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .refurbished-faqs-container .refurb-cta {
-    margin-top: 34px;
+    margin-top: 24px;
 }
 
 .refurbished-faqs-container .refurb-row {
@@ -6638,10 +6638,18 @@ h2.jenu-howitworks-header-h2 strong {
 
 @media(max-width: 767px) {
     .cms-faqs .faqs-right,
-    .cms-cs .csright
+    .cms-cs .csright,
+    .refurbished-content
     {
         border-left: none;
         padding: 0;
+    }
+    .refurbished-faqs-container .refurb-img img {
+        width: auto;
+    }
+    .refurbished-faqs-container .refurb-img,
+    .refurbished-faqs-container .refurb-cta {
+        text-align: center;
     }
 }
 

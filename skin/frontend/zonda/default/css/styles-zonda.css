@@ -6539,6 +6539,8 @@ h2.jenu-howitworks-header-h2 strong {
 
 .cms-faqs .cslinks-left .cslinks li.faqs,
 .cms-faqs .cslinks-left .cslinks li.faqs a,
+.cms-faqs .cslinks-left .cslinks li.refurbished-faqs,
+.cms-faqs .cslinks-left .cslinks li.refurbished-faqs a,
 .cms-riskfree .cslinks-left .cslinks li.riskfree,
 .cms-riskfree .cslinks-left .cslinks li.riskfree a,
 .cms-retailers .cslinks-left .cslinks li.retailers a,
@@ -6550,6 +6552,7 @@ h2.jenu-howitworks-header-h2 strong {
 }
 
 .cms-faqs .cslinks-left .cslinks li.faqs a:hover,
+.cms-faqs .cslinks-left .cslinks li.refurbished-faqs a:hover,
 .cms-riskfree .cslinks-left .cslinks li.riskfree a,
 .cms-customer-support .cslinks-left .cslinks li.customer-support a,
 .cms-ordering-and-shipping .cslinks-left .cslinks li.ordering-and-shipping a,

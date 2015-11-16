@@ -376,6 +376,9 @@
   .cms-box.before-afters .before-afters-inner .slick-next{
     right: -10px;
   }
+  .cms-box.before-afters .before-afters-inner p {
+    line-height: normal;
+  }
   .cms-page-view .drbanner-img {
     margin: 0 auto;
     display: block;

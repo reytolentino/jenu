@@ -370,6 +370,23 @@
   .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
     top: 35%;
   }
+  .cms-box.before-afters .before-afters-inner .slick-prev {
+    left: -10px;
+    margin-top: -40px;
+  }
+  .cms-box.before-afters .before-afters-inner .slick-next{
+    right: -10px;
+    margin-top: -40px;
+  }
+  .cms-box.before-afters .before-afters-inner .ba-set2 .slick-prev {
+    margin-top: -20px;
+  }
+  .cms-box.before-afters .before-afters-inner .ba-set2 .slick-next{
+    margin-top: -20px;
+  }
+  .cms-box.before-afters .before-afters-inner p {
+    line-height: normal;
+  }
   .cms-page-view .drbanner-img {
     margin: 0 auto;
     display: block;

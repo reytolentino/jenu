@@ -566,6 +566,7 @@
   .product-view .gallerywrap .bagallery {
       width: 100%;
   }
+
   .product-view .gallerywrap .videogallery .vid {
       width: 48%;
       display: inline-block;
@@ -2140,6 +2141,12 @@
     #checkout-step-login .col2-set .col-1 {
       margin-bottom: 16px;
     }
+   .product-view .gallerywrap .videogallery .vid h4, .product-view .gallerywrap .bagallery h4 {
+     font-size: 14px;
+   }
+  .product-view .gallerywrap .videogallery .slick-prev, .product-view .gallerywrap .videogallery .slick-next {
+    margin-top: -20px;
+  }
 }
 @media(max-width: 480px) {
   .jenu-howitworks-img-wandfeatures img {

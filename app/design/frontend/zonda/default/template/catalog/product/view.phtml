@@ -370,20 +370,21 @@ calling JeNu Customer Service at 866-565-JENU.
                     <div class="videogallery">
                         <h3><?php echo $this->__('Video Gallery') ?></h3>
                         <div class="clearfix"></div>
-                        <div class="vid">
-                            <h4><?php echo $this->__('How to Use Video') ?></h4>
-                            <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a>
-                        </div>
-                        <div class="vid">
-                            <h4><?php echo $this->__('How it Works Video') ?></h4>
-                            <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/5W25baTE42I?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howjenuworks.jpg'); ?>"/></a>
-                        </div>
+                        <ul class="vidslides vidgallery">
+                            <li class="vid"><h4><?php echo $this->__('Why The Gel Matters') ?></h4>
+                                <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/pt72Fa87xQM?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-whythegelmatters.jpg'); ?>"/></a></li>
+                            <li class="vid"><h4><?php echo $this->__('How to Use Video') ?></h4>
+                                <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a></li>
+                            <li class="vid"><h4><?php echo $this->__('How it Works Video') ?></h4>
+                                <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/5W25baTE42I?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howjenuworks.jpg'); ?>"/></a></li>
+
+                        </ul>
                     </div>
                     <div class="bagallery">
                         <h3><?php echo $this->__('Before & After Gallery') ?></h3>
                         <h4><?php echo $this->__('Clinical Study Photos') ?></h4>
                         <div class="baslideswrap">
-                            <ul class="baslides ba-set2">
+                            <ul class="baslides ba-set-prod">
                                 <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'landing_pages/lp3/ba-clinical1.jpg'; ?>" alt="Before And After" /></li>
                                 <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'landing_pages/lp3/ba-clinical2.jpg'; ?>" alt="Before And After" /></li>
                             </ul>
@@ -391,10 +392,12 @@ calling JeNu Customer Service at 866-565-JENU.
                         <script type="text/javascript">
                             //<![CDATA[
                             jQuery(document).ready(function(){
-                                jQuery('.ba-set2').bxSlider({
-                                    mode: 'horizontal',
-                                    captions: true,
-                                    pager: false
+                                jQuery('.ba-set-prod').slick({
+                                    adaptiveHeight: true
+                                });
+                                jQuery('.vidgallery').slick({
+                                    adaptiveHeight: true,
+                                    slidesToShow: 2
                                 });
                                 jQuery(".vidlink").fancybox({
                                     maxWidth	: 640,

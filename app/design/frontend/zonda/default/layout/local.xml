@@ -359,6 +359,10 @@
         </reference>
         <reference name="head">
             <action method="addCss"><stylesheet>css/eternal/tabs.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/font-awesome.min.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/slick.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/slick-theme.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
         </reference>
         <!-- insert related products into product view and remove them from the right sidebar -->
         <reference name="right">

@@ -378,6 +378,12 @@
     right: -10px;
     margin-top: -40px;
   }
+  .cms-box.before-afters .before-afters-inner .ba-set2 .slick-prev {
+    margin-top: -20px;
+  }
+  .cms-box.before-afters .before-afters-inner .ba-set2 .slick-next{
+    margin-top: -20px;
+  }
   .cms-box.before-afters .before-afters-inner p {
     line-height: normal;
   }

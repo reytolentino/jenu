@@ -370,6 +370,12 @@
   .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
     top: 35%;
   }
+  .cms-box.before-afters .before-afters-inner .slick-prev {
+    left: -10px;
+  }
+  .cms-box.before-afters .before-afters-inner .slick-next{
+    right: -10px;
+  }
   .cms-page-view .drbanner-img {
     margin: 0 auto;
     display: block;

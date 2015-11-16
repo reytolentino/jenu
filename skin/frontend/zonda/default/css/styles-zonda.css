@@ -5353,6 +5353,7 @@ div.jenu-results-container div.results-section-banner div.container {
     border-bottom: 1px solid #75aee2;
     padding: 20px 0 40px;
     position: relative;
+    min-height: 460px;
 }
 
 .results-section-theresults .results-theresults-header {

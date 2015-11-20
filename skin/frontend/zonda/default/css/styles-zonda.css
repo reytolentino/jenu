@@ -1577,6 +1577,9 @@ a.sarp-link-tip {
     float: none;
     display: inline-block;
 }
+.special-price .price {
+    color: #c03e3e;
+}
 .cart-price .old-price, .cart-price .special-price {
   float: none;
   clear: both;

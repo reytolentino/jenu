@@ -1,0 +1,40 @@
+@media(max-width:767px) {
+    .product-highlights .slide1 .wandgel {
+        width: 100%;
+        max-width: 485px;
+    }
+    .product-highlights .slide1 h1 {
+        font-size: 13px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #272727;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    .product-highlights .slide1 h1 .title {
+        color: #0069a7;
+        font-size: 20px;
+    }
+    .product-cta h2 {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    .product-cta .ratings {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .product-cta .ratings .amount {
+        height: 15px;
+        display: inline-block;
+        line-height: 15px;
+        vertical-align: top;
+        color: #000;
+        font-size: 13px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        text-transform: uppercase;
+    }
+    .product-cta .ratings .amount a {
+        color: #000;
+    }
+}

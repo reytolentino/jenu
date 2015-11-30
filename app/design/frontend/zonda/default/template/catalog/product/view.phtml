@@ -224,12 +224,12 @@ calling JeNu Customer Service at 866-565-JENU.
                 <?php if($_product->getId() == 7 || $_product->getId() == 33): ?>
                     <?php
                         $obj = Mage::getModel('catalog/product');
-                        $_extraproduct = $obj->load(9); // Enter your Product Id in $product_id
+                        $_extraproduct = $obj->load(30); // Enter your Product Id in $product_id
                     ?>
                     <div class="alsobought">
                         <h3><?php echo $this->__('Customers Also Bought') ?></h3>
                         <div class="prod-image">
-                            <img src="<?php echo $_extraproduct->getImageUrl();?>"/>
+                            <a href="<?php echo $_extraproduct->getProductUrl();?>"><img src="<?php echo $_extraproduct->getImageUrl();?>"/></a>
                         </div>
                         <div class="prod-info-right">
                             <div class="prodname">

@@ -206,6 +206,8 @@ i.fa {
 
 .droz-hero {
     padding-top: 35px;
+    background: url('/media/landing_pages/droz/bg-model.jpg') no-repeat top left;
+    background-size: auto 600px;
 }
 
 .droz-hero .droz-hero-png {
@@ -800,7 +802,187 @@ i.fa {
     text-decoration: line-through;
 }
 
+/** slick **/
+
+/* Slider */
+
+/* Arrows */
+.droz-wrap .slick-prev,
+.droz-wrap .slick-next
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+
+    margin-top: -10px;
+    padding: 18px 7px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid #cccccc;
+}
+.droz-wrap .slick-prev:hover,
+.droz-wrap .slick-prev:focus,
+.droz-wrap .slick-next:hover,
+.droz-wrap .slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.droz-wrap .slick-prev:before,
+.droz-wrap .slick-next:before
+{
+    font-family: 'FontAwesome';
+    font-size: 40px;
+    line-height: 1;
+
+    opacity: .75;
+    color: #000;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.droz-wrap .slick-prev
+{
+    left: 0;
+}
+[dir='rtl'] .slick-prev
+{
+    right: 0;
+    left: auto;
+}
+.droz-wrap .slick-prev:before
+{
+    content: '\f104';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '\f105';
+}
+
+.droz-wrap .slick-next
+{
+    right: 0;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: 0;
+}
+.droz-wrap .slick-next:before
+{
+    content: '\f105';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '\f104';
+}
+
+/* Dots */
+.droz-wrap .slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.droz-wrap .slick-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.droz-wrap .slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.droz-wrap .slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.droz-wrap .slick-dots li button:hover,
+.droz-wrap .slick-dots li button:focus
+{
+    outline: none;
+}
+.droz-wrap .slick-dots li button:hover:before,
+.droz-wrap .slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.droz-wrap .slick-dots li button:before
+{
+    font-family: 'FontAwesome';
+    font-size: 10px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '\f111';
+    text-align: center;
+
+    color: #ddd;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.droz-wrap .slick-dots li.slick-active button:before
+{
+    color: black;
+    content: '\f111';
+}
+
+
 @media(max-width: 991px) {
+    .droz-hero {
+        background-image: none;
+    }
     .droz-subnav .subnav-name {
         display: none;
     }
@@ -1022,7 +1204,7 @@ i.fa {
 }
 
 @media(max-width: 767px) {
-    .droz-wrap {
+    .droz-wrap, #droz-subnav {
         display: none;
     }
     #lpmobile {

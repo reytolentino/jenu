@@ -768,8 +768,8 @@ i.fa {
     top: 40%;
 }
 
-.droz-wra .droz-press .slick-prev:before,
-.droz-wra .droz-press .slick-next:before
+.droz-wrap .droz-press .slick-prev:before,
+.droz-wrap .droz-press .slick-next:before
 {
     font-size: 30px;
     padding-left: 12px;

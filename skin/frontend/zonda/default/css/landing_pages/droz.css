@@ -768,11 +768,11 @@ i.fa {
     top: 40%;
 }
 
-.droz-press .slick-prev:before,
-.droz-press .slick-next:before
+.droz-wra .droz-press .slick-prev:before,
+.droz-wra .droz-press .slick-next:before
 {
     font-size: 30px;
-    margin-left: 10px;
+    padding-left: 12px;
 }
 
 .droz-press .ytitem-wrap {

@@ -757,8 +757,8 @@ i.fa {
 }
 
 /* Arrows */
-.droz-press .slick-prev,
-.droz-press .slick-next
+.droz-wrap .droz-press .slick-prev,
+.droz-wrap .droz-press .slick-next
 {
     padding: 0;
     border-radius: 50%;

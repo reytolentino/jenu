@@ -495,9 +495,10 @@ i.fa {
 .clinical-perception .clinical-independent {
     font-size: 15px;
     font-style: italic;
-    border-top: 1px solid #ddd;
-    margin-top: 20px;
-    padding-top: 18px;
+    border-bottom: 1px solid #ddd;
+    margin-top: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
     line-height: normal;
 }
 

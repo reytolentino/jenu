@@ -769,17 +769,10 @@ i.fa {
 }
 
 .droz-press .slick-prev:before,
-.droz-press .slick-next:after
+.droz-press .slick-next:before
 {
     font-size: 30px;
-}
-
-.droz-press .slick-prev:before {
-    margin-left: 0;
-}
-
-.droz-press .slick-next:after {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .droz-press .ytitem-wrap {
@@ -827,7 +820,7 @@ i.fa {
 
 
     margin-top: -10px;
-    padding: 0;
+    padding: 18px 7px;
 
     cursor: pointer;
 
@@ -836,6 +829,17 @@ i.fa {
     outline: none;
     background-color: rgba(255,255,255,0.5);
     border: 1px solid #cccccc;
+}
+.drozwrap .droz-press .slick-prev,
+.drozwrap .droz-press .slick-next {
+    padding: 0;
+}
+.drozwrap .droz-press .slick-prev:before {
+    margin-left: 0;
+}
+
+.drozwrap .droz-press .slick-next:after {
+    margin-left: 5px;
 }
 .droz-wrap .slick-prev:hover,
 .droz-wrap .slick-prev:focus,
@@ -851,7 +855,7 @@ i.fa {
 .droz-wrap .slick-next:before
 {
     font-family: 'FontAwesome';
-    font-size: 30px;
+    font-size: 40px;
     line-height: 1;
 
     opacity: .75;

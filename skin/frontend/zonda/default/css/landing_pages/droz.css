@@ -769,10 +769,17 @@ i.fa {
 }
 
 .droz-press .slick-prev:before,
-.droz-press .slick-next:before
+.droz-press .slick-next:after
 {
     font-size: 30px;
-    margin-left: 10px;
+}
+
+.droz-press .slick-prev:before {
+    margin-left: 0;
+}
+
+.droz-press .slick-next:after {
+    margin-left: 5px;
 }
 
 .droz-press .ytitem-wrap {

@@ -834,11 +834,11 @@ i.fa {
 .droz-wrap .droz-press .slick-next {
     padding: 0;
 }
-.drozwrap .droz-press .slick-prev:before {
+.droz-wrap .droz-press .slick-prev:before {
     margin-left: 0;
 }
 
-.drozwrap .droz-press .slick-next:after {
+.droz-wrap .droz-press .slick-next:after {
     margin-left: 5px;
 }
 .droz-wrap .slick-prev:hover,

@@ -775,6 +775,18 @@ i.fa {
     padding-left: 12px;
 }
 
+.droz-press ul.press-slick {
+    margin-bottom: 40px;
+}
+
+.droz-press .press-item.more {
+    padding-top: 0;
+}
+
+.droz-press .press-item a.more-press {
+    font-size: 16px;color:#000;text-transform: uppercase;text-decoration:underline;
+}
+
 .droz-press .ytitem-wrap {
     padding: 0 40px 40px 40px;
     overflow: hidden;

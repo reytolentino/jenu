@@ -1238,7 +1238,10 @@ i.fa {
     #lpmobile {
         display: block;
     }
-    .droz-wrap .product-view .reviews-summary-wrap .btn-writereview {
+    .product-view .reviews-summary-wrap .btn-writereview {
         display: none;
+    }
+    .product-view .line-separator1 {
+        margin: 0 auto;
     }
 }

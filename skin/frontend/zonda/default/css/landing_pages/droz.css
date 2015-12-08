@@ -2,6 +2,10 @@
     display: none;
 }
 
+.droz-wrap .product-view .reviews-summary-wrap .btn-writereview {
+    display: none;
+}
+
 .droz-wrap .container,
 #droz-subnav .container {
     background-color: transparent !important;
@@ -1233,5 +1237,8 @@ i.fa {
     }
     #lpmobile {
         display: block;
+    }
+    .droz-wrap .product-view .reviews-summary-wrap .btn-writereview {
+        display: none;
     }
 }

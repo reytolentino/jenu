@@ -148,6 +148,7 @@ i.fa {
     top: 0;
     z-index: 99;
     width: 100%;
+    transform: translate3d(0px,0px,0px);
 }
 
 .droz-subnav {
@@ -1703,5 +1704,8 @@ i.fa {
     }
     #buywrap-phantom.fixed2 {
         display: block;
+    }
+    #buywrap.fixed {
+        transform: translate3d(0px,0px,0px);
     }
 }

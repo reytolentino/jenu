@@ -157,6 +157,8 @@ i.fa {
     background-color: rgba(0, 0, 0, .6);
     line-height: 40px;
     color: #fff;
+    -webkit-transform: translate3d(0px,0px,0px); /* Safari */
+    transform: translate3d(0px,0px,0px);
 }
 
 .droz-subnav .subnav-name {
@@ -1702,6 +1704,10 @@ i.fa {
     }
     #buywrap-phantom {
         display: none;
+    }
+    #buywrap {
+        -webkit-transform: translate3d(0px,0px,0px); /* Safari */
+        transform: translate3d(0px,0px,0px);
     }
     #buywrap-phantom.fixed2 {
         display: block;

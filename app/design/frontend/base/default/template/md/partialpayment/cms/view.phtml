@@ -53,7 +53,7 @@ $_product = $this->getProduct();
                                                 $terms = $helper->getTermsContents();
                                                 ?>
                                                 <?php if(count($terms) > 0 && array_key_exists('link_title',$terms) && array_key_exists('content',$terms)): ?>
-                                                    <a class="link-tip" href="javascript:void(0);" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>"><?php echo $terms['link_title'] ?></a>
+                                                    <a class="link-tip" href="#" id="partial-terms-link-popup" title="<?php echo $terms['link_title'] ?>"><?php echo $terms['link_title'] ?></a>
                                                     <div id="partial-terms-popup" class="partial-terms-popup" style="display:none;">
                                                         <a href="javascript:void(0);" class="partial-terms-popup-close" id="partial-terms-popup-close">&times;</a>
                                                         <div class="partial-terms-popup-heading">
@@ -68,9 +68,12 @@ $_product = $this->getProduct();
                                                         jQuery( ".partial-terms-popup-close" ).click(function() {
                                                             jQuery('.partial-terms-popup').hide();
                                                         });
-                                                        jQuery('.link-tip').click(function(e){
-                                                            jQuery(this).next().toggle();
+
+                                                        jQuery('.link-tip').off().on('click', function(e) {
+                                                            e.preventDefault();
+                                                            jQuery(this).next('.partial-terms-popup').toggle();
                                                         });
+
                                                         jQuery('body').click(function(e) {
                                                             var target = jQuery(e.target);
                                                             if(!target.is('.link-tip') && !target.is('.partial-terms-popup')) {

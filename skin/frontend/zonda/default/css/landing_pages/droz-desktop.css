@@ -1,0 +1,1265 @@
+.cms-page-view .main-content .droz-wrap .mpplan .container {
+    overflow: visible;
+}
+
+#lpmobile,
+.droz-hero-mobile,
+.mobile-product-cta,
+.mobile-lpsubnav
+{
+    display: none;
+}
+
+.droz-wrap .product-view .reviews-summary-wrap .btn-writereview {
+    display: none;
+}
+
+.cms-page-view .main-content .container {
+    background-color: transparent;
+}
+
+i.fa {
+    font-style: normal;
+}
+
+.mpwrap {
+    background:#fff;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    display: none;
+    clear: both;
+}
+
+.mptop {
+    background: url('/media/landing_pages/ft00324mp/bg-mptop.png') repeat-x top;
+}
+
+.mptop h1 {
+    font-weight: 300;
+    font-size: 30px;
+    text-transform: none;
+    margin: 24px 0;
+    text-align: center;
+}
+
+.mptop .mpwand {
+    display: block;
+    margin: 0 auto;
+}
+
+.mpplan {
+    background: #f7f7f7;
+    padding-top: 20px;
+
+}
+
+.mpplan-left {
+    padding-right: 40px;
+}
+
+.mpplan-right {
+    padding-left: 40px;
+}
+
+.mpplan .retail {
+    color: #999;
+}
+
+.mpplan a.mpplan-terms {
+    font-size:12px;
+}
+
+.mpplan .mpplan-mb {
+    width: 110px;
+    height: auto;
+    float: right;
+    margin: 14px 10% 0;
+}
+
+.mpplan .mpplan-desc {
+    font-size: 16px;
+    color: #000;
+    line-height: 22px;
+    margin: 14px 0 18px;
+    display: block;
+}
+
+.mpplan .mpplan-includes {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.mpplan ul.form-list {
+    display: none;
+}
+
+.mpplan .mpplan-desc .mpplan-today {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.mpwrap .mptop-container {
+    position: relative;
+}
+
+.mpwrap a#mpclose {
+    height: 30px;
+    padding-right: 40px;
+    line-height: 30px;
+    background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #c2c2c2;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.mpwrap a#mpclose:hover {
+    background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right bottom;
+    color: #2f2f2f;
+}
+
+.mpplan h3 {
+    color:#000;
+    font-size: 24px;
+    border-bottom: none;
+    font-weight: 500;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.mpplan .button {
+    margin-top: 16px;
+}
+
+.mpbottom {
+    background: url('/media/landing_pages/ft00324mp/bg-mpbottom.png') no-repeat bottom;
+    height: 30px;
+}
+
+.droz-wrap {
+    color: #444;
+    font-weight: 300;
+}
+
+#droz-subnav.fixed {
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    -webkit-transform: translate3d(0px,0px,0px); /* Safari */
+    transform: translate3d(0px,0px,0px);
+}
+
+.droz-subnav {
+    height: 40px;
+    background-color: rgba(0, 0, 0, .6);
+    line-height: 40px;
+    color: #fff;
+    -webkit-transform: translate3d(0px,0px,0px); /* Safari */
+    transform: translate3d(0px,0px,0px);
+}
+
+.droz-subnav .subnav-name {
+    font-size: 15px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+}
+
+.droz-subnav ul.subnav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.droz-subnav ul.subnav-menu li {
+    display: inline-block;
+    text-transform: uppercase;
+    height: 40px;
+    line-height: 40px;
+}
+
+.droz-subnav ul.subnav-menu li a {
+    color: #fff;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 5px 8px;
+    font-size: 10px;
+    margin: 0 2px;
+}
+
+.droz-subnav ul.subnav-menu li a.subnav-buynow {
+    background-color: #000;
+    padding: 5px 10px;
+}
+
+.droz-subnav ul.subnav-menu li a:hover {
+    text-decoration: none;
+    background-color:#000;
+}
+
+.droz-subnav ul.subnav-menu li a.subnav-buynow:hover {
+    background-color:#fff;
+    color:#000;
+}
+
+#animateplay {
+    color:#0065ac;
+    font-size: 60px;
+    position: absolute;
+    left: 180px;
+    top: 42px;
+    opacity: 0;
+    display: none;
+}
+
+.droz-hero {
+    padding-top: 35px;
+    background: url('/media/landing_pages/droz/bg-model.jpg') no-repeat top left;
+    background-size: auto 600px;
+}
+
+.droz-hero .droz-hero-png {
+    max-width: 407px;
+    width: 100%;
+}
+
+.droz-hero-right h1 {
+    font-size: 34px;
+    color: #000;
+    font-weight: 300;
+    margin-top: 20px;
+    padding-right: 40px;
+}
+
+.droz-hero-right h1 .hlight {
+    font-weight: 700;
+    font-style: italic;
+}
+
+.droz-hero-right .ratings {
+    width: 100%;
+    text-align: left;
+    margin: 16px 0;
+}
+
+.droz-hero-right .ratings .amount a {
+    color: #000;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.droz-hero-right .ratings .amount {
+    height: 15px;
+    line-height: 15px;
+    vertical-align: top;
+}
+
+.droz-hero-right .droz-hero-list {
+    font-size: 14px;
+    color: #666;
+    position: relative;
+}
+
+.droz-hero-right .droz-hero-list li {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.droz-hero-right .droz-hero-list li:before {
+    font-family: "FontAwesome";
+    content: '\f054';
+    position: absolute;
+    left: 0;
+}
+
+.droz-hero-right .buynow-heading {
+    font-family: "Avenir Next Condensed Demi Bold", Helvetica, Arial;
+    font-size: 24px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    height: 24px;
+    line-height: 26px;
+    background: url('/media/landing_pages/droz/bg-buynow-heading.png') repeat-x center;
+    background-size: 100% 24px;
+    margin: 20px 0;
+}
+
+.droz-hero-right .buynow-heading span {
+    display: inline-block;
+    padding: 0 14px;
+    background-color: #fff;
+}
+
+.droz-hero-right .droz-price {
+    color: #000;
+    font-size: 16px;
+}
+
+.droz-hero-right .droz-oldprice {
+    color: #666666;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.droz-hero-right .riskfree-seal {
+    max-width: 112px;
+    width: 100%;
+}
+
+.droz-hero-right .ctawrap {
+    margin: 16px 0;
+}
+
+.droz-hero-right .cta-or {
+    color: #000;
+    font-size: 13px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 12px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.droz-hero-right .multipaywrap {
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+    font-size: 13px;
+    width: 220px;
+    line-height: normal;
+    background: url('/media/landing_pages/droz/icon-multipay.png') no-repeat left center;
+    background-size: 27px 22px;
+    padding-left: 32px;
+    display: inline-block;
+    margin-top: 3px;
+    font-weight: 400;
+}
+
+.droz-hero-right .multipaywrap a {
+    text-decoration: underline;
+    color: #000;
+    font-weight: bold;
+}
+
+.droz-hero-right .bottomcopy {
+    font-size: 13px;
+    color: #666;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.droz-hero-right .bottomcopy .fa-circle {
+    font-size: 8px;
+    color: #ccc;
+    display: inline-block;
+    margin: 0 16px;
+    vertical-align: middle;
+}
+
+.droz-wrap .graysection {
+    background-color: #efefef;
+}
+
+.droz-wrap .droz-section {
+    padding: 40px 15px;
+}
+
+.droz-wrap .droz-section h2 {
+    font-size: 32px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    color: #000;
+    padding-top: 40px;
+    margin-top: -40px;
+}
+
+.droz-section h2 {
+    text-align: center;
+}
+
+.droz-asseenon h4 {
+    font-size: 18px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    color: #444;
+    text-align: center;
+    font-style: italic;
+}
+
+.droz-vidwrap {
+    margin: 40px auto;
+    text-align: center;
+}
+.droz-asseenon .vid-droz {
+    max-width: 454px;
+    width: 100%;
+}
+
+.droz-vidwrap .droz-vidcopy {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.droz-results h2 {
+    margin-bottom: 40px;
+}
+
+.droz-results {
+    text-align: center;
+}
+
+.droz-results .topheading {
+    font-size: 15px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.droz-results .ba-slick-set1 li img,
+.droz-results .ba-slick-set2 li img{
+    width: 453px;
+}
+
+.droz-results .ba-slick-set1,
+.droz-results .ba-slick-set2 {
+    width: 453px;
+}
+
+/* Arrows */
+.droz-results .ba-slick-set1 .slick-prev,
+.droz-results .ba-slick-set1 .slick-next
+{
+    top: 25%;
+}
+
+.droz-results .ba-slick-set2 .slick-prev,
+.droz-results .ba-slick-set2 .slick-next
+{
+    top: 41%;
+}
+
+.droz-results .slick-prev {
+    padding: 18px 8px 18px 3px;
+}
+
+.droz-results .slick-next {
+    padding: 18px 3px 18px 8px;
+}
+
+.droz-ba-clinical-wrap .ba-clinical-disclaimer {
+    margin-top: 80px;
+    text-align: left;
+}
+
+.droz-results .ba-clinical-disclaimer p {
+    font-size: 12px;
+    color: #999;
+}
+
+.droz-results .clinical-perception {
+    margin-top: 50px;
+}
+
+.droz-results .clinical-perception h5 {
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    background: #444;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+}
+
+.clinical-perception .clinical-list {
+    margin-top: 30px;
+}
+
+.clinical-perception .clinical-list .clinical-list-left {
+    font-size: 56px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+    color: #000;
+}
+
+.clinical-perception .clinical-list .clinical-list-right {
+    font-size: 15px;
+    line-height: normal;
+    margin-top: 6px;
+}
+
+.clinical-perception .clinical-independent {
+    font-size: 15px;
+    font-style: italic;
+    border-bottom: 1px solid #ddd;
+    margin-top: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    line-height: normal;
+}
+
+.clinical-75 {
+    margin: 20px 0;
+}
+
+.clinical-75-left {
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color:#000;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: right;
+    height: 50px;
+}
+
+.clinical-75-right {
+    font-size: 50px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    color:#000;
+    line-height: 50px;
+    padding-left: 0;
+}
+
+.clinical-perception .bottom,
+.clinical-perception .bottom2,
+.user-perception .bottom2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 0;
+    display: block;
+    font-style: italic;
+    clear: both;
+}
+
+.clinical-perception .bottom2,
+.user-perception .bottom2 {
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+    text-transform: none;
+}
+
+.user-perception .bottom2 {
+    margin-top: 10px;
+}
+
+.user-perception .img-user-logos {
+    max-width: 400px;
+    width: 100%;
+}
+
+.user-perception .user-logos {
+    text-align: center;
+    margin: 40px 0 35px 0;
+}
+
+.user-perception .user-graph {
+}
+
+.user-perception .user-graph p {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.user-perception .img-user-graph {
+    max-width: 480px;
+    width: 100%;
+}
+
+.droz-about h2, .droz-batra h2 {
+    margin-bottom: 40px;
+}
+
+.droz-about h3 {
+    font-size: 18px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.droz-about .how-jenu-works p {
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 300;
+}
+
+.droz-about .how-jenu-works-videos,
+.droz-about .using-vid {
+    text-align: center;
+}
+
+.droz-about .how-jenu-works-videos img,
+.droz-about .using-vid img {
+    max-width: 230px;
+    width: 100%;
+}
+
+.droz-about .how-jenu-works-videos,
+.droz-about .vid-using,
+.droz-about .vid-gel {
+    margin-top: 30px;
+}
+
+.droz-about .how-jenu-works-videos p,
+.droz-about .using-vid p {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    line-height: normal;
+    margin-top: 4px;
+}
+
+.droz-about .using-jenu .using-steps p {
+    font-size: 13px;
+}
+
+.droz-about h3.great-for-title {
+    text-align: left;
+    margin-bottom: 14px;
+    display: block;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #d1d4d7;
+}
+
+.droz-about .great-for p {
+    font-size: 14px;
+}
+
+.droz-about .great-for p .fa {
+    padding-right: 5px;
+}
+
+.droz-batra.droz-section {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0;
+}
+
+.droz-batra .img-batra {
+    max-width: 284px;
+    width: 100%;
+}
+
+.droz-batra p {
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.droz-batra p.batraquote {
+    font-style: italic;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+.droz-batra p.batraquote:before {
+    content:'\f10d';
+    font-family: 'FontAwesome';
+    color: #444;
+    font-size: 40px;
+    position: absolute;
+    left: -20px;
+    top: 10px;
+}
+
+.droz-batra .batra-intro p.batraqa {
+    margin-top: 30px;
+}
+
+.droz-batra .batra-intro p.batraqa a {
+    text-decoration: underline;
+    color: #000;
+}
+
+.droz-batra p.batrainfo {
+    font-size: 13px;
+    text-align: right;
+    margin: 20px 0;
+    font-style: italic;
+    line-height: 18px;
+}
+
+.droz-batra a.batra-watchvideo {
+    font-size: 18px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    vertical-align: top;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.droz-batra a.batra-watchvideo .fa {
+    font-size: 45px;
+    margin: 0 5px;
+    vertical-align: top;
+}
+
+.droz-batra .batra-watch-wrap {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.droz-batra .batra-watch-wrap-mobile {
+    display: none;
+}
+
+.droz-press .img-press {
+    max-width: 146px;
+    width: 100%;
+}
+
+.droz-press .img-press.img-byrdie,
+.droz-press .img-press.img-hb {
+    margin-top: 12px;
+}
+
+.droz-press .presscopy {
+    font-family: "Georgia", Helvetica, Arial;
+    font-size: 18px;
+    font-style: italic;
+    line-height: normal;
+}
+
+.droz-press .presscopy .by {
+    font-size: 14px;
+    font-style: normal;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color:#000;
+    margin-top: 8px;
+}
+
+.droz-press .press-item {
+    margin-top: 30px;
+    padding-top: 29px;
+    clear: both;
+    overflow: hidden;
+    padding-right: 50px;
+}
+
+.droz-press .press-item:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.droz-press h2 {
+    margin-bottom: 60px;
+}
+
+/* Arrows */
+.droz-wrap .droz-press .slick-prev,
+.droz-wrap .droz-press .slick-next
+{
+    padding: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 5px;
+    top: 40%;
+}
+
+.droz-wrap .droz-press .slick-prev:before,
+.droz-wrap .droz-press .slick-next:before
+{
+    font-size: 30px;
+    padding-left: 12px;
+}
+
+.droz-press ul.press-slick {
+    margin-bottom: 40px;
+}
+
+.droz-press .press-item.more {
+    padding-top: 0;
+}
+
+.droz-press .press-item a.more-press {
+    font-size: 16px;color:#000;text-transform: uppercase;text-decoration:underline;
+}
+
+.droz-press .ytitem-wrap {
+    padding: 0 40px 40px 40px;
+    overflow: hidden;
+}
+
+.droz-press .ytcopy {
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+}
+
+.droz-press .ytcopy img {
+    max-width:146px;
+    width: 100%;
+    display: block;
+    margin: 6px auto 0 auto;
+}
+
+.droz-press .ytthumb img {
+    max-width: 230px;
+    width: 100%;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+/** slick **/
+
+/* Slider */
+
+/* Arrows */
+.droz-wrap .slick-prev,
+.droz-wrap .slick-next
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+
+    margin-top: -10px;
+    padding: 18px 7px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid #cccccc;
+}
+.droz-wrap .droz-press .slick-prev,
+.droz-wrap .droz-press .slick-next {
+    padding: 0;
+}
+.droz-wrap .droz-press .slick-prev:before {
+    margin-left: 0;
+}
+
+.droz-wrap .droz-press .slick-next:after {
+    margin-left: 5px;
+}
+.droz-wrap .slick-prev:hover,
+.droz-wrap .slick-prev:focus,
+.droz-wrap .slick-next:hover,
+.droz-wrap .slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.droz-wrap .slick-prev:before,
+.droz-wrap .slick-next:before
+{
+    font-family: 'FontAwesome';
+    font-size: 30px;
+    line-height: 1;
+
+    opacity: .75;
+    color: #000;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.droz-wrap .slick-prev
+{
+    left: 0;
+}
+[dir='rtl'] .slick-prev
+{
+    right: 0;
+    left: auto;
+}
+.droz-wrap .slick-prev:before
+{
+    content: '\f104';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '\f105';
+}
+
+.droz-wrap .slick-next
+{
+    right: 0;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: 0;
+}
+.droz-wrap .slick-next:before
+{
+    content: '\f105';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '\f104';
+}
+
+/* Dots */
+.droz-wrap .slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.droz-wrap .slick-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.droz-wrap .slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.droz-wrap .slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.droz-wrap .slick-dots li button:hover,
+.droz-wrap .slick-dots li button:focus
+{
+    outline: none;
+}
+.droz-wrap .slick-dots li button:hover:before,
+.droz-wrap .slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.droz-wrap .slick-dots li button:before
+{
+    font-family: 'FontAwesome';
+    font-size: 10px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '\f111';
+    text-align: center;
+
+    color: #ddd;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.droz-wrap .slick-dots li.slick-active button:before
+{
+    color: black;
+    content: '\f111';
+}
+
+
+@media(max-width: 991px) {
+    .droz-hero {
+        background-image: none;
+    }
+    .droz-subnav .subnav-name {
+        display: none;
+    }
+    .droz-hero-right h1 {
+        font-size: 24px;
+        margin-top: 10px;
+        padding-right: 0;
+    }
+    .droz-subnav .subnav-menu {
+        width: 100%;
+    }
+    .droz-hero-right .droz-hero-list {
+        font-size: 13px;
+    }
+
+    .droz-hero-right .droz-hero-list li {
+        margin-bottom: 6px;
+    }
+    .droz-hero-right .ratings {
+        margin: 13px 0;
+    }
+    .droz-hero-right .ratings .amount a {
+        font-size: 13px;
+    }
+    .droz-hero-right .ratings .amount {
+        height: 14px;
+        line-height: 14px;
+        vertical-align: top;
+    }
+    .droz-hero-right .buynow-heading {
+        font-size: 20px;
+        height: 20px;
+        line-height: 22px;
+        background-size: 100% 18px;
+        margin: 16px 0;
+    }
+
+    .droz-hero-right .buynow-heading span {
+        padding: 0 10px;
+    }
+
+    .droz-hero-right .droz-price {
+        font-size: 14px;
+    }
+
+    .droz-hero-right .droz-oldprice {
+        margin-right: 5px;
+    }
+
+    .droz-hero-right .riskfree-seal {
+        max-width: 100px;
+        width: 100%;
+    }
+    .droz-hero-right .cta-or {
+        display: none;
+    }
+    .droz-hero-right .multipaywrap {
+        font-size: 12px;
+        width: 170px;
+        background-image: none;
+        padding-left: 0;
+        margin-left: 10px;
+    }
+    .mpwrap a#mpclose {
+        display: inline-block;
+        position: static;
+        float: right;
+        margin: 16px 16px 0;
+    }
+
+    .mptop h1 {
+        margin: 18px 0 18px;
+        clear: both;
+    }
+    .droz-wrap .droz-section h2 {
+        font-size: 24px;
+    }
+    .droz-results .ba-slick-set1 li img,
+    .droz-results .ba-slick-set2 li img{
+        width: 350px;
+    }
+
+    .droz-results .ba-slick-set1,
+    .droz-results .ba-slick-set2 {
+        width: 350px;
+    }
+
+    .droz-results .clinical-perception h5 {
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .clinical-perception .clinical-list {
+        margin-top: 20px;
+    }
+
+    .clinical-perception .clinical-list .clinical-list-left {
+        font-size: 46px;
+        font-weight: 300;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .clinical-perception .clinical-list .clinical-list-right {
+        font-size: 13px;
+        margin-top: 0;
+    }
+
+    .clinical-perception .clinical-independent {
+        font-size: 13px;
+        margin-top: 16px;
+        padding-top: 14px;
+    }
+
+    .clinical-75 {
+        margin: 16px 0;
+    }
+
+    .clinical-75-left {
+        font-size: 15px;
+        height: 40px;
+    }
+
+    .clinical-75-right {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .clinical-perception .bottom,
+    .clinical-perception .bottom2,
+    .user-perception .bottom2 {
+        font-size: 13px;
+        padding: 5px 0;
+    }
+
+    .clinical-perception .bottom2,
+    .user-perception .bottom2 {
+        font-size: 11px;
+    }
+
+    .user-perception .bottom2 {
+        margin-top: 6px;
+    }
+
+    .user-perception .img-user-logos {
+        max-width: 300px;
+    }
+
+    .user-perception .user-logos {
+        margin: 30px 0 25px 0;
+    }
+
+    .user-perception .user-graph {
+    }
+
+    .user-perception .user-graph p {
+        font-size: 13px;
+        margin-bottom: 3px;
+        font-weight: 400;
+    }
+
+    .user-perception .img-user-graph {
+        max-width: 360px;
+    }
+    .droz-about .great-for p {
+        font-size: 12px;
+    }
+
+    .droz-about .great-for p .fa {
+        padding-right: 0;
+    }
+    .droz-about .how-jenu-works p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .droz-about .using-jenu .using-steps p {
+        line-height: normal;
+    }
+
+    .droz-batra p {
+        font-size: 13px;
+        line-height: normal;
+    }
+
+    .droz-batra p.batraquote {
+        padding-left: 8px;
+        margin-top: 10px;
+    }
+
+    .droz-batra p.batraquote:before {
+        content:'\f10d';
+        font-family: 'FontAwesome';
+        color: #444;
+        font-size: 30px;
+        position: absolute;
+        left: -20px;
+        top: 10px;
+    }
+
+    .droz-batra .batra-intro p.batraqa {
+        margin-top: 20px;
+    }
+
+    .droz-batra p.batrainfo {
+        font-size: 12px;
+        margin: 16px 0;
+        line-height: 16px;
+    }
+    .droz-batra .batra-watch-wrap {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .droz-vidwrap .droz-vidcopy {
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 0;
+    }
+}
+
+@media(max-width: 767px) {
+    #droz-subnav,
+    .droz-hero,
+    .droz-asseenon,
+    .droz-results,
+    .droz-about,
+    .droz-batra,
+    .droz-press,
+    .droz-reviews
+    {
+        display: none;
+    }
+    #lpmobile {
+        display: block;
+    }
+}

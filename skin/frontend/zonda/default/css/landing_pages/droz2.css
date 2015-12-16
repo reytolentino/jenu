@@ -1282,11 +1282,11 @@ i.fa {
         background-image: none;
         color: #fff;
         font-size: 11px;
-        height: 24px;
-        line-height: 24px;
+        height: 30px;
+        line-height: 30px;
         font-weight: 600;
-        padding: 0 8px;
-        margin-top: 8px;
+        padding: 0 10px;
+        margin-top: 5px;
         letter-spacing: 0.5px;
     }
 
@@ -1302,8 +1302,10 @@ i.fa {
         content: "\f0da";
         font-family: 'FontAwesome';
         color: #fff;
-        margin-left: 5px;
+        margin-left: 3px;
         font-weight: 400;
+        display: inline-block;
+        width: 5px;
     }
 
     .buywrap-mobile #buybar-menu p.buybar-menu-lto {
@@ -1314,9 +1316,11 @@ i.fa {
         content: "\f0d7";
         font-family: 'FontAwesome';
         color: #fff;
-        margin-left: 5px;
+        margin-left: 3px;
         font-weight: 400;
         background-image: none;
+        display: inline-block;
+        width: 5px;
     }
 
     .buywrap-mobile .partialpayment-box-container ul.form-list .partialpayment label {

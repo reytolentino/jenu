@@ -1,3 +1,7 @@
+ul#nav li.order-now {
+    display: none;
+}
+
 .cms-page-view .main-content .droz-wrap .mpplan .container {
     overflow: visible;
 }

@@ -282,6 +282,14 @@ i.fa {
     background-image: url("/media/landing_pages/droz/bkg-rating-gold.png");
 }
 
+.droz-gold .product-view .reviews-summary-wrap .rating-box .rating {
+    background-image: url("/media/landing_pages/droz/bkg-rating-lg-gold.png");
+}
+
+.droz-gold .product-view .reviews-summary-wrap .amountnum {
+    color:#a48b57;
+}
+
 .droz-hero-right h1 .hlight {
     font-weight: 700;
     font-style: italic;

@@ -168,6 +168,11 @@ i.fa {
     transform: translate3d(0px,0px,0px);
 }
 
+.droz-gold .droz-subnav {
+    background-color: rgba(205,192,161,0.6) !important;
+    color: #000;
+}
+
 .droz-subnav .subnav-name {
     font-size: 15px;
     font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
@@ -198,6 +203,16 @@ i.fa {
     margin: 0 2px;
 }
 
+.droz-gold .droz-subnav ul.subnav-menu li a {
+    color:#000;
+}
+
+.droz-gold .droz-subnav .subplus {
+    color:#a78e5b;
+    font-weight:700;
+    font-style: italic;
+}
+
 .droz-subnav ul.subnav-menu li a.subnav-buynow {
     background-color: #000;
     padding: 5px 10px;
@@ -206,6 +221,14 @@ i.fa {
 .droz-subnav ul.subnav-menu li a:hover {
     text-decoration: none;
     background-color:#000;
+}
+
+.droz-gold .droz-subnav ul.subnav-menu li a:hover {
+    background-color:#fff;
+}
+
+.droz-gold .droz-subnav ul.subnav-menu li a.subnav-buynow {
+    color:#fff;
 }
 
 .droz-subnav ul.subnav-menu li a.subnav-buynow:hover {
@@ -240,6 +263,23 @@ i.fa {
     font-weight: 300;
     margin-top: 20px;
     padding-right: 40px;
+}
+
+.droz-gold .btn-cart {
+    background: #000;
+}
+
+.droz-gold .droz-hero-right h1 {
+    font-size: 30px;
+}
+
+.droz-gold .subplus-title {
+    color:#a48b57;
+    font-weight: 400;
+}
+
+.droz-gold .rating-box .rating {
+    background-image: url("/media/landing_pages/droz/bkg-rating-gold.png");
 }
 
 .droz-hero-right h1 .hlight {

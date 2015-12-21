@@ -806,7 +806,7 @@ class MD_Partialpayment_Model_Observer
                             $transaction->addObject($order);
                             try{
                                 $transaction->save();
-                                $summary->sendStatusPaymentEmail(true,true);
+                                $summary->sendStatusPaymentEmail(true,false);
                             }catch(Exception $e){
                                 Mage::getSingleton('core/session')->addError($e->getMessage());
                             }

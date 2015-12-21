@@ -106,7 +106,7 @@ class MD_Partialpayment_Model_Payment_Authorizenet extends MD_Partialpayment_Mod
         $transaction->addObject($order);
         try{
             $transaction->save();
-            $summary->sendStatusPaymentEmail(true,true);
+            $summary->sendStatusPaymentEmail(true,false);
         }catch(Exception $e){
             Mage::getSingleton('core/session')->addError($e->getMessage());
         }

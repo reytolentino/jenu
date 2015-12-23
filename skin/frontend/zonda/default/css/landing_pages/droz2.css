@@ -257,6 +257,18 @@ i.fa {
     background-size: auto 600px;
 }
 
+.droz-gold .droz-wrap .droz-hero-img.slick-slider {
+    margin-bottom: 0;
+}
+
+.droz-gold .droz-wrap .droz-hero-img .slick-dots {
+    bottom: 10px;
+}
+
+.droz-gold .droz-wrap .droz-hero-img .slick-prev, .droz-wrap .droz-hero-img .slick-next {
+    margin-top: -40px;
+}
+
 .droz-hero .droz-hero-png {
     max-width: 407px;
     width: 100%;
@@ -291,7 +303,14 @@ i.fa {
 }
 
 .droz-gold .droz-hero-right h1 {
-    font-size: 28px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    font-size: 22px;
+    font-weight: 300;
+    color: #000;
 }
 
 .droz-gold .subplus-title {
@@ -316,6 +335,11 @@ i.fa {
 }
 
 .droz-hero-right h1 .hlight {
+    font-weight: 700;
+    font-style: italic;
+}
+
+.droz-gold .droz-hero-right h2 .hlight {
     font-weight: 700;
     font-style: italic;
 }
@@ -352,6 +376,13 @@ i.fa {
 .droz-hero-right .droz-hero-list li:before {
     font-family: "FontAwesome";
     content: '\f054';
+    position: absolute;
+    left: 0;
+}
+
+.droz-gold .droz-hero-right .droz-hero-list li:before {
+    font-family: "FontAwesome";
+    content: '\f067';
     position: absolute;
     left: 0;
 }
@@ -1441,6 +1472,11 @@ i.fa {
         padding: 0 20px;
     }
 
+    .droz-gold .droz-hero-mobile .product-highlights .slide3 h1,
+    .droz-gold .product-highlights .slide2 h1 {
+        padding: 0;
+    }
+
     .droz-hero-mobile .product-highlights .ratings .amount {
         clear: none;
         display: inline-block;
@@ -1453,6 +1489,15 @@ i.fa {
 
     .droz-wrap .droz-hero-mobile .product-highlights h1 {
         font-weight: 300;
+    }
+
+    .droz-gold .droz-wrap .droz-hero-mobile .product-highlights h1 .titletop {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .droz-gold .droz-wrap .droz-hero-mobile .product-highlights h1 .hlight {
+        color:#a48b57;
     }
 
     .droz-hero-mobile .product-highlights .ratings .amount a {
@@ -1489,8 +1534,11 @@ i.fa {
         font-size: 15px;
     }
     .droz-gold .mobile-product-cta.product-cta h2 {
-        font-size: 14px;
+        font-size: 13px;
         color: #a48b57;
+    }
+    .droz-gold .mobile-product-cta.product-cta h2 .new {
+        color: #000;
     }
     .mobile-product-cta .todayprice span {
         font-size: 13px;

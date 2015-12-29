@@ -190,7 +190,7 @@ div.eternal-custom-menu-popup a.level2,
     text-transform: capitalize;
 }
 div.eternal-custom-menu-popup .eternal-custom-menu-submenu a.level1, .menu-mobile .eternal-custom-menu-submenu a.level1, .menu-mobile .eternal-custom-menu-submenu .parentMenu a {
-    color: #6b8893;
+    color: #c0a879;
     padding-left: 40px;
 }
 .block2 table.brand {
@@ -442,7 +442,7 @@ div.eternal-custom-menu-popup a.level1,
 
 .submega-heading {
     font-size: 18px;
-    color: #0069a7 !important;
+    color: #333 !important;
     margin-bottom: 4px;
 }
 
@@ -454,7 +454,7 @@ div.eternal-custom-menu-popup a.level1,
 
 #nav .submega-right a.submega-cta {
     width: auto;
-    color: #0069a7;
+    color: #a98236;
     text-transform: uppercase;
     font-size: 11px;
     padding: 0;

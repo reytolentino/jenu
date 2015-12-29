@@ -61,10 +61,11 @@
 
             <!-- base style -->
             <action method="addCss"><stylesheet>css/eternal/jquery-ui-1.9.2.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/font-awesome.min.css</stylesheet></action>
+            <action method="addItem"><type>skin_css</type><name>css/store_default.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/styles-zonda.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/skin.css</name><params/></action>
             <!-- system config design -->
-            <action method="addItem"><type>skin_css</type><name>css/store_default.css</name><params/></action>
             <action method="addCss"><stylesheet helper="zonda/config/getCssResponsiveFile" /></action>
             <action method="addCss"><stylesheet helper="zonda/config/getCssSkinResponsiveFile" /></action>
 
@@ -359,7 +360,6 @@
         </reference>
         <reference name="head">
             <action method="addCss"><stylesheet>css/eternal/tabs.css</stylesheet></action>
-            <action method="addCss"><stylesheet>css/font-awesome.min.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/slick.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/slick-theme.css</stylesheet></action>
             <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>

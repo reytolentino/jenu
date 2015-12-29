@@ -1825,8 +1825,8 @@ a.highlight-link {
   overflow-y: auto !important;
 }
 .product-view .gallerywrap {
-    border-top: 1px solid #7bb1df;
-    border-bottom: 1px solid #7bb1df;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
     margin: 30px 0;
     padding: 30px 0;
     width: 100%;
@@ -2070,7 +2070,7 @@ a.highlight-link {
 .product-view .line-separator1 {
     display: block;
     width: 30%;
-    background-color: #bad7ee;
+    background-color: #d5d5d5;
     height: 1px;
     margin: 40px auto;
 }
@@ -2078,7 +2078,7 @@ a.highlight-link {
 .product-view .line-separator2 {
     display: block;
     width: 20%;
-    background-color: #bad7ee;
+    background-color: #d5d5d5;
     height: 1px;
     margin: 30px auto;
 }

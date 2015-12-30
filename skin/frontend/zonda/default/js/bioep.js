@@ -105,7 +105,7 @@ window.bioEp = {
 	addPopup: function() {
 		// Add the background div
 		this.bgEl = document.createElement("div");
-        this.customClose = document.getElementById("customClose");
+        /** this.customClose = document.getElementById("customClose"); **/
 		this.bgEl.id = "bio_ep_bg";
 		document.body.appendChild(this.bgEl);
 		
@@ -230,9 +230,11 @@ window.bioEp = {
             bioEp.hidePopup();
         });
 
+		/**
         this.customClose.addEventListener("click", function() {
             bioEp.hidePopup();
         });
+		 **/
 		
 		// Handle window resizing
 		window.addEventListener("resize", function() {

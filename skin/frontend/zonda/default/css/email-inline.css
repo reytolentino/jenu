@@ -34,7 +34,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  color: #000;
+  color: #333;
   background-color: #fff;
 }
 
@@ -69,7 +69,7 @@ table td {
 }
 
 a {
-  color: #0069a7;
+  color: #a98236;
 }
 
 .cell-content.product-info,
@@ -130,7 +130,7 @@ td.logo img {
 td.email-heading {
   padding: 0 1%;
   background: #f6f6f6;
-  border-right: 1px dashed #c3ced4;
+  border-right: 1px dashed #d5d5d5;
   text-align: center;
   width: 58%;
 }
@@ -228,7 +228,7 @@ td.order-details p {
 .product-info a.product-name {
   font-weight: 700;
   text-transform: uppercase;
-  color: #0069a7;
+  color: #a98236;
   text-decoration: none;
   vertical-align: middle;
   float: left;
@@ -261,7 +261,7 @@ td.order-details p {
 }
 
 .grand-total {
-  border-top: 1px solid #c3ced4;
+  border-top: 1px solid #d5d5d5;
   padding-top: 5px;
   font-weight: 700;
   font-size: 15px;
@@ -375,7 +375,7 @@ td.order-details p {
 }
 
 .highlighted-text {
-  border: 1px solid #c3ced4;
+  border: 1px solid #d5d5d5;
   padding: 13px 18px;
   background: #f1f1f1;
 }
@@ -418,7 +418,7 @@ td.order-details p {
 }
 
 .action-button td {
-  background-color: #3696c2;
+  background-color: #a98236;
   color: #FFF;
   width: 100%;
   height: 40px;
@@ -545,7 +545,7 @@ table.social-button td {
 }
 
 table.button td {
-  background: #3696c2;
+  background: #a98236;
 }
 
 table.social-button td {
@@ -580,7 +580,7 @@ table.social-button td a {
 }
 
 .panel a {
-  color: #3696c2;
+  color: #a98236;
   text-decoration: none;
 }
 
@@ -653,7 +653,7 @@ h2.products {
 
 .product-name {
   margin: 0 0 5px 0;
-  color: #000;
+  color: #333;
   font-style: normal;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
@@ -683,11 +683,11 @@ p.sku {
 }
 
 .price-notice {
-  color: #000;
+  color: #333;
 }
 
 .price-box .price {
-  color: #000;
+  color: #333;
   font-size: 16px;
 }
 
@@ -704,12 +704,12 @@ p.sku {
 
 .price-box .minimal-price-link {
   padding-left: 1em;
-  color: #0069a7;
+  color: #a98236;
   display: block;
   /* We want this to show on its own line, otherwise the layout looks funky */
 }
 .price-box .minimal-price-link .label {
-  color: #000;
+  color: #333;
 }
 
 /* -------------------------------------------- *
@@ -734,11 +734,11 @@ p.sku {
 }
 
 .price-box .special-price {
-  color: #000;
+  color: #333;
   padding-left: 1em;
 }
 .price-box .special-price .price-label {
-  color: #000;
+  color: #333;
 }
 
 /* -------------------------------------------- *

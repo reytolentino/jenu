@@ -810,25 +810,21 @@
         box-shadow: inset 0 0 0 0 #fff;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
-        background: #628ba6;
         height: 50%;
         width: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
-        background: #3c7da6;
         height: 65%;
         margin-left: 33%;
         width: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
-        background: #0f6ba6;
         height: 78%;
         margin-left: 66%;
         width: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item > span {
         bottom: 0;
-        color: #fff;
         display: block;
         font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
@@ -1957,22 +1953,18 @@
         box-shadow: inset 0 0 0 0 #fff;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
-        background: #628ba6;
         height: 50%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
-        background: #3c7da6;
         height: 65%;
         margin-left: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
-        background: #0f6ba6;
         height: 78%;
         margin-left: 66%;
     }
     .results-section-theresults .clinical-results-graph-bars--item > span {
         bottom: 0;
-        color: #fff;
         display: block;
         font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
@@ -2599,7 +2591,6 @@
       text-align: center;
   }
   .results-section-hero .banner-content h1 {
-      color: #0069a7;
       margin: 0;
       text-shadow: 0 0 0;
   }
@@ -2648,22 +2639,18 @@
       box-shadow: inset 0 0 0 0 #fff;
   }
   .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
-      background: #628ba6;
       height: 50%;
   }
   .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
-      background: #3c7da6;
       height: 65%;
       margin-left: 33%;
   }
   .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
-      background: #0f6ba6;
       height: 78%;
       margin-left: 66%;
   }
   .results-section-theresults .clinical-results-graph-bars--item > span {
       bottom: 0;
-      color: #fff;
       display: block;
       font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 300;

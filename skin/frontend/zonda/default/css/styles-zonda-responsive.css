@@ -256,15 +256,6 @@
       height: 38px;
       line-height: 38px;
   }
-  .header-top .risk-free-top a {
-      color: #fff;
-  }
-  .header-top .risk-free .top-freeshipping {
-    color: #016990;
-  }
-  .header-container {
-    background-color: #abbac9;
-  }
   .header-top .risk-free-top .risk-free {
     height: 38px;
     line-height: 38px;
@@ -291,6 +282,9 @@
     font-size: 13px !important;
     top: 290px !important;
     left: 200px !important;
+  }
+  .header-container h1.logo {
+    margin-top: 0;
   }
   /*********************************** CMS Pages **************************************/
   
@@ -599,7 +593,6 @@
   }
   .also-available {
       right: 16px;
-      color: #fff;
       height: 38px;
       line-height: 38px;
       overflow: hidden;
@@ -610,9 +603,6 @@
   .also-available img.mobile-aaa-logo {
     display: inline-block;
     margin-top: -9px;
-  }
-  .also-available img.desktop-aaa-logo {
-    display: none;
   }
 
   .header-container .minicart-wrap {
@@ -633,11 +623,23 @@
         height: 48px;
     }
     .icon-minicart {
-        background: url("../images/icon-cart.png") no-repeat center center;
+        /* background: url("../images/icon-cart-white.png") no-repeat center center; */
+      background-image: none;
         display: inline-block;
         height: 48px;
         margin: 0;
         width: 48px;
+    }
+    .icon-minicart:before {
+      content: "\f07a";
+      position: absolute;
+      color: #ccc;
+      font-family: "FontAwesome";
+      font-size: 28px;
+      top: 15px;
+      left: 5px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .block-minicart .cart-items {
         display: none;
@@ -808,25 +810,21 @@
         box-shadow: inset 0 0 0 0 #fff;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
-        background: #628ba6;
         height: 50%;
         width: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
-        background: #3c7da6;
         height: 65%;
         margin-left: 33%;
         width: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
-        background: #0f6ba6;
         height: 78%;
         margin-left: 66%;
         width: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item > span {
         bottom: 0;
-        color: #fff;
         display: block;
         font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
@@ -867,7 +865,7 @@
         margin-left: 5px;
     }
     .results-section-banner {
-        background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 40% top #c8e3f9;
+        background: url("../images/results-bottom-banner-bg.jpg") no-repeat 40% top #c8e3f9;
         background-size: cover;
     }
     .jenu-howitworks-absorption-img img {
@@ -901,12 +899,6 @@
     .jenu-howitworks-body-features .jenu-howitworks-text-copy-img img {
       max-width: 212px;
       width: 100%;
-    }
-    .jenubiosciences-banner .banner-content h1 span.jbsub1 {
-        font-size: 30px;
-    }
-    .jenubiosciences-banner .banner-content h1 span.jbsub2 {
-        font-size: 36px;
     }
 }
 @media(max-width:767px) {
@@ -1067,6 +1059,9 @@
   }
   .main-content {
     padding: 0;
+  }
+  .header-container .logo img {
+    height: 38px;
   }
   /*category*/
   
@@ -1798,7 +1793,6 @@
       margin: 20px auto;
   }
  .jenu-howitworks-features .jenu-howitworks-text-copy-img img {
-    text-align: center;
   }
   .jenu-howitworks-absorption-img img {
      width: 100%;
@@ -1811,11 +1805,9 @@
     width: 456px;
   }
   .jenu-howitworks-feature div {
-    text-align: center;
   }
   .jenu-howitworks-feature p {
     width: 80%;
-    margin: 0 auto;
   }
   .jenu-howitworks-features .jenu-howitworks-text-copy-img {
     text-align: center;
@@ -1828,6 +1820,9 @@
     display: block;
     margin: 0 auto 10px;
     width: 60px;
+  }
+  .jenu-howitworks-text-copy-img img.wand-features {
+    margin-top: 16px;
   }
   .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
     margin: 0 auto 10px;
@@ -1842,11 +1837,10 @@
     }
     .howitworks-banner .banner-content h1 {
         font-size: 22px;
-        line-height: 36px;
     }
     .howitworks-banner .banner-content .jenu-howitworks-sub-text {
         display: block;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 24px;
         text-shadow: 0 0 0;
     }
@@ -1867,7 +1861,8 @@
         margin-top: 0;
     }
     .cms-index-index .footer_column.footer-column-1 .footer-left-logo img {
-        width: 50%;
+      width: 40%;
+      max-width: 150px;
     }
     .cms-howtouse .steps-img:before {
       display: none;
@@ -1958,22 +1953,18 @@
         box-shadow: inset 0 0 0 0 #fff;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
-        background: #628ba6;
         height: 50%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
-        background: #3c7da6;
         height: 65%;
         margin-left: 33%;
     }
     .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
-        background: #0f6ba6;
         height: 78%;
         margin-left: 66%;
     }
     .results-section-theresults .clinical-results-graph-bars--item > span {
         bottom: 0;
-        color: #fff;
         display: block;
         font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
@@ -2016,7 +2007,7 @@
         text-align: center;
     }
     .results-section-banner {
-        background: url("/media/content/results-resultsbanner-bg.jpg") no-repeat 30% bottom #c8e3f9;
+        background: url("../images/results-bottom-banner-bg.jpg") no-repeat 30% bottom #c8e3f9;
         background-size: cover;
         min-height: 0;
     }
@@ -2031,9 +2022,7 @@
         padding: 20px 0 0;
     }
     .block-subscribe-title {
-        background: url("../images/icon-envelope.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
         line-height: normal;
-        padding-left: 40px;
         padding-top: 2px;
         width: 100%;
         float: none;
@@ -2051,6 +2040,11 @@
         text-align: left;
         margin-bottom: 20px;
         padding-left: 0;
+    }
+    .footer .social-links .icon:before {
+      font-family: "FontAwesome";
+      position: absolute;
+      top: 5px;
     }
     .cms-no-route h1 {
         font-size: 36px;
@@ -2098,15 +2092,6 @@
     }
     .jenubiosciences-banner {
         height: 280px;
-    }
-    .jenubiosciences-banner .banner-content {
-        margin-top: 25%;
-    }
-    .jenubiosciences-banner .banner-content h1 span.jbsub1 {
-        font-size: 24px;
-    }
-    .jenubiosciences-banner .banner-content h1 span.jbsub2 {
-        font-size: 30px;
     }
     .signupbox {
         width: 95%;
@@ -2159,6 +2144,15 @@
     display: inline-block;
     margin-bottom: 3px;
     vertical-align: top;
+  }
+  .homepage-heading h2.hpheading {
+    font-size: 20px;
+  }
+  .homepage-content-threeup--content {
+    padding: 0;
+  }
+  .homepage-content-threeup--content a {
+    font-size: 13px;
   }
 }
 @media(max-width: 480px) {
@@ -2578,7 +2572,6 @@
     width: 100%;
   }
   .jenu-howitworks-feature h3, .jenu-howitworks-feature p {
-    text-align: center;
     width: 100%;
   }
   .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
@@ -2588,7 +2581,8 @@
   /** Results Page Styles 032315 **/
 
   .results-section-hero {
-      background: url("/media/content/results-hero-banner-desktop.jpg") no-repeat 65% center #47719b;
+      background: url("../images/results-banner.jpg") no-repeat center #dfd0b3;
+    background-size: auto 100%;
   }
   .results-section-hero .banner-content {
       background: rgba(255, 255, 255, 0.8);
@@ -2597,7 +2591,6 @@
       text-align: center;
   }
   .results-section-hero .banner-content h1 {
-      color: #0069a7;
       margin: 0;
       text-shadow: 0 0 0;
   }
@@ -2646,22 +2639,18 @@
       box-shadow: inset 0 0 0 0 #fff;
   }
   .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
-      background: #628ba6;
       height: 50%;
   }
   .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
-      background: #3c7da6;
       height: 65%;
       margin-left: 33%;
   }
   .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
-      background: #0f6ba6;
       height: 78%;
       margin-left: 66%;
   }
   .results-section-theresults .clinical-results-graph-bars--item > span {
       bottom: 0;
-      color: #fff;
       display: block;
       font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 300;

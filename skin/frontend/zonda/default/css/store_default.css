@@ -16,13 +16,13 @@ h6,
 .page-title h1,
 .page-title h2 {
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #0069a7;
+    color: #333;
 }
 a {
-    color: #75aedf;
+    color: #a98236;
 }
 a:hover {
-    color: #0069a7;
+    color: #8b651b;
 }
 .button,
 .sbToggle,
@@ -30,7 +30,7 @@ a:hover {
 .pager .pages ol li.current,
 .button-normal {
     display: inline-block;
-    background-color: #0067aa;
+    background-color: #a98236;
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #ffffff;
     font-size: 13px;
@@ -51,14 +51,14 @@ a:hover {
 .btn-remove2:hover,
 .btn-remove:hover
 {
-    background-color: #004c7e;
+    background-color: #926e28;
     color: #ffffff;
 }
 .button.link-wishlist:hover,
 .button.link-wishlist:focus,
 .button.link-compare:hover,
 .button.link-compare:focus {
-    background-color: #0067aa;
+    background-color: #926e28;
 }
 .pager .pages ol li a:hover,
 .pager .pages ol li a:focus {
@@ -69,9 +69,9 @@ select,
 textarea,
 .sbSelector,
 .sbOptions {
-    background: #f2f2f0;
-    border: solid 1px #ebebea;
-    color: #848484;
+    background: #f7f7f7;
+    border: solid 1px #b5b5b5;
+    color: #898b8e;
 }
 /* Grouped fields */
 .form-list label,
@@ -89,7 +89,7 @@ textarea,
 
 /*========== Header ==========*/
 .header-container {
-    background-color: #ffffff;
+    background-color: #000;
     background-position: center center;
     background-repeat: repeat;
 }
@@ -103,7 +103,7 @@ textarea,
 .block.block-minicart .block-subtitle,
 .header-top .block-minicart .mini-cart-button.button,
 #nav li a{
-    color: #000000;
+    color: #fff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .header-container .block-language a .item-value,
@@ -124,11 +124,14 @@ textarea,
     margin-left: 150px;
 }
 .header-container .logo{
-    height: 42px;
+    height: 100%
     width: 150px;
     text-align: center !important;
-    margin-top: 1px;
     line-height: 48px;
+}
+
+.header-container .logo img {
+    height: 42px;
 }
 .header-container.fixed .header-menu-container {
     max-width: 1030px;
@@ -153,7 +156,7 @@ textarea,
     height: 38px;
 }
 .header-long {
-    background: #ecf1f5;
+    background: #333;
 }
 #custommenu-mobile #menu-button{
     margin: 0;
@@ -175,7 +178,7 @@ textarea,
     color: #ffffff;
 }
 .toplinks li{
-    color: #000000;
+    color: #9b9b9b;
 }
 /*========== Currency, Language Selector, Store Switcher ==========*/
 .dropdown-menu > li > a:hover,
@@ -284,7 +287,7 @@ div.menu.active a,
 #blog_nav>li.active>a,
 #blog_nav>li.over>a
 {
-    color: #0069a7;
+    color: #a98236;
     background-color: #ffffff;
     background-image: none;
 }
@@ -336,7 +339,7 @@ div.eternal-custom-menu-popup a.level1,
 #nav ul li.level1 a,
 #blog_nav ul li.level1 a{
     font-size: 13px;
-    color: #0068a3;
+    color: #a98236;
 }
 div.eternal-custom-menu-popup a.level2,
 .menu-mobile a.level2,
@@ -352,14 +355,14 @@ div.eternal-custom-menu-popup a.level5,
 #nav ul li.level5 a,
 #blog_nav ul li.level2 a{
     font-size: 13px;
-    color: #000000;
+    color: #333;
 }
 .menu-mobile.level0 > .parentMenu > a:hover,
 div.eternal-custom-menu-popup a.level1:hover,
 .menu-mobile a.level1:hover,
 div.eternal-custom-menu-popup a.level2:hover,
 .menu-mobile a.level2:hover{
-    color: #0067aa;
+    color: #a98236;
 }
 #menu-button .btn-navbar .icon-bar {
     background-color: #a1abb3;
@@ -401,16 +404,7 @@ div.eternal-custom-menu-popup a.level2:hover,
 /*========== Footer ==========*/
 .footer {
     color: #747474;
-    background: #d8ebfb; /* Old browsers */
-    background: -moz-linear-gradient(top,  #d8ebfb 0%, #ffffff 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8ebfb), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #d8ebfb 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #d8ebfb 0%,#ffffff 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #d8ebfb 0%,#ffffff 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #d8ebfb 0%,#ffffff 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8ebfb', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-    background-position: center center;
-    background-repeat: repeat;
+    background: #f6f7f8; /* Old browsers */
     font-size: 12px;
     font-weight: normal;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

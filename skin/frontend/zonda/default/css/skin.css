@@ -11,6 +11,8 @@
 .footer .social-links a {
     display: inline-block;
     margin: 2px;
+    vertical-align: middle;
+    height: 30px;
 }
 .fn.org,
 .adr,

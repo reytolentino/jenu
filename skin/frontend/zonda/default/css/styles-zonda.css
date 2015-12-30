@@ -3066,7 +3066,7 @@ td.for-desktop {
   background-color: #95a3a7;
 }
 .discount-form .btn-box .button:hover {
-  background-color: #75aedf;
+  background-color: #333;
 }
 .cart-set .data-table {
   margin: 0;
@@ -3354,7 +3354,7 @@ div.cart-empty {
   margin: 25px 0;
 }
 .cms-container .block-we .colored {
-  color: #75aedf;
+  color: #333;
 }
 .cms-container .block-we .who-we-bottom {
   clear: left;
@@ -3919,8 +3919,8 @@ ul.homepage-content-worksgreat-list ul {
 }
 
 .jenu-paypal--purchase-meta {
-  border-top: 1px solid #75aedf;
-  border-bottom: 1px solid #75aedf;
+  border-top: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
   margin: 20px 0;
   padding: 10px 0;
 }
@@ -4388,7 +4388,7 @@ ul.homepage-content-worksgreat-list ul {
   padding: 5px 0;
 }
 .featured-products-container .product-item .price-box .price {
-  color: #75aedf;
+  color: #333;
 }
 .featured-products-container .product-item .price-box .price-from {
   float: left;
@@ -4675,8 +4675,8 @@ ul.homepage-content-worksgreat-list ul {
   padding: 20px 20px 20px 75px !important;
 }
 .success-msg {
-  border-color: #75aedf;
-  background-color: #75aedf;
+  border-color: #333;
+  background-color: #333;
   background-image: url(../images/i_msg-success.png);
   color: #fff;
 }
@@ -5053,7 +5053,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
   padding: 10px 15px;
 }
 .block .akordeon ul li a:hover, .akordeon-heading a:hover, .filter-item .filter-item-body ol li a:hover, .filter-item .filter-item-body ul li a:hover, .col-sidebar .block-content ul li a:hover {
-  color: #75aedf !important;
+  color: #333 !important;
 }
 .akordeon-border-bottom li:hover {
   background: #fff;
@@ -5243,7 +5243,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     position: absolute;
     width: 100%;
     height: 1px;
-    background: #75aedf;
+    background: #d5d5d5;
     bottom: -1px;
     right: -60%;
 }
@@ -5258,7 +5258,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-howtouse .steps-img {
-  border-bottom: 1px solid #75aedf;
+  border-bottom: 1px solid #d5d5d5;
   position: relative;
 }
 
@@ -5640,7 +5640,7 @@ div.jenu-results-container div.results-section-banner div.container {
         display: none;
     }
     .cms-howtouse .howtouse-stepsblock-img .steps-img {
-        border-bottom: 1px solid #75aedf;
+        border-bottom: 1px solid #d5d5d5;
     }
 
     .cms-howtouse .howtouse-stepsblock-img .steps-img img {
@@ -6873,7 +6873,7 @@ h2.jenu-howitworks-header-h2 strong {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .cms-jenu-biosciences .left-tabs ul li:hover a, .cms-ordering-and-shipping .left-tabs ul li:hover a, .cms-riskfree .left-tabs ul li:hover a, .cms-faqs .left-tabs ul li:hover a, .cms-retailers .left-tabs ul li:hover a, .cms-customer-support .left-tabs ul li:hover a, .cms-customer-reviews .left-tabs ul li:hover a, .cms-box .left-tabs ul li:hover a {
-  color: #75aedf;
+  color: #333;
   background-color: #FFFFFF;
 }
 .cms-jenu-biosciences .left-tabs ul li.active:hover a, .cms-ordering-and-shipping .left-tabs ul li.active:hover a, .cms-riskfree .left-tabs ul li.active:hover a, .cms-faqs .left-tabs ul li.active:hover a, .cms-retailers .left-tabs ul li.active:hover a, .cms-customer-reviews .left-tabs ul li.active:hover a {
@@ -8977,7 +8977,7 @@ ul.clinical-results-graph--perc {
     line-height: 24px;
 }
 .signupbox p .exl {
-    color: #75aedf;
+    color: #333;
     font-weight: bold;
 }
 .signupbox p.disclaimer {

@@ -4671,8 +4671,8 @@ ul.homepage-content-worksgreat-list ul {
   padding: 20px 20px 20px 75px !important;
 }
 .success-msg {
-  border-color: #333;
-  background-color: #333;
+  border-color: #777;
+  background-color: #777;
   background-image: url(../images/i_msg-success.png);
   color: #fff;
 }

@@ -50,6 +50,21 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
             <p class="item-msg <?php echo $message['type'] ?>"><?php echo $this->escapeHtml($message['text']) ?></p>
         <?php endforeach; ?>
     <?php endif; ?>
+
+    <?php /* Start item added to cart custom content */ ?>
+
+    <?php
+
+    $productid = $_item->getProductId();
+
+    if($productid == "29" || $productid == "30"){
+        echo '<p class="item-msg red">Due to high demand, the Microsphere Gel is temporarily on back order. Your entire order won\'t ship until the week of January 17. We apologize for this inconvenience.</p>';
+    }
+
+    ?>
+
+    <?php /*End item added to cart custom content */ ?>
+
     <?php $addInfoBlock = $this->getProductAdditionalInformationBlock(); ?>
     <?php if ($addInfoBlock): ?>
         <?php echo $addInfoBlock->setItem($_item)->toHtml() ?>

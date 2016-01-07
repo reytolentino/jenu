@@ -617,8 +617,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
                     if ($this->getBackorders() == Mage_CatalogInventory_Model_Stock::BACKORDERS_YES_NOTIFY) {
                         if (!$this->getIsChildItem()) {
                             $result->setMessage(
-                                //Mage::helper('cataloginventory')->__('This product is not available in the requested quantity. %s of the items will be backordered.', ($backorderQty * 1))
-                                Mage::helper('cataloginventory')->__('Due to high demand, the Microsphere Gel is temporarily on back order. Your entire order won\'t ship until the week of January 17. We apologize for this inconvenience.', ($backorderQty * 1))
+                                Mage::helper('cataloginventory')->__('This product is not available in the requested quantity. %s of the items will be backordered.', ($backorderQty * 1))
                             );
                         } else {
                             $result->setMessage(

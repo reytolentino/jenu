@@ -89,7 +89,8 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
 	    'header'   => Mage::helper('sales')->__('G.T. (Purchased)'),
 	    'index'    => 'grand_total',
 	    'type'     => 'currency',
-	    'currency' => 'order_currency_code'
+	    'currency' => 'order_currency_code',
+	    'renderer' => 'MD_Partialpayment_Block_Adminhtml_Sales_Order_Renderer_Grandtotal',
 	));
 
 	$this->addColumn('subtotal', array(

@@ -48,6 +48,7 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
     protected function _prepareCollection() {
 	$collection = Mage::getResourceModel($this->_getCollectionClass());
 	$this->setCollection($collection);
+	$collection->getSelect()->join('sales_flat_order', 'main_table.entity_id = sales_flat_order.entity_id',array('subtotal'));
 	return parent::_prepareCollection();
     }
 
@@ -59,16 +60,6 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
 	    'type' => 'text',
 	    'index' => 'increment_id',
 	));
-
-	if (!Mage::app()->isSingleStoreMode()) {
-	    $this->addColumn('store_id', array(
-		'header' => Mage::helper('sales')->__('Purchased From (Store)'),
-		'index' => 'store_id',
-		'type' => 'store',
-		'store_view' => true,
-		'display_deleted' => true,
-	    ));
-	}
 
 	$this->addColumn('created_at', array(
 	    'header' => Mage::helper('sales')->__('Purchased On'),
@@ -100,6 +91,14 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
 	    'type'     => 'currency',
 	    'currency' => 'order_currency_code',
 	    'renderer' => 'MD_Partialpayment_Block_Adminhtml_Sales_Order_Renderer_Grandtotal',
+	));
+
+	$this->addColumn('subtotal', array(
+			'header'    => Mage::helper('sales')->__('Subtotal'),
+			'index'     => 'subtotal',
+			'type'      => 'currency',
+			'align'     => 'right',
+			'currency'  => 'order_currency_code'
 	));
 
 	$this->addColumn('status', array(

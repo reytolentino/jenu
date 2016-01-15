@@ -193,11 +193,7 @@
 		    <cart_totals>MD_Partialpayment_Block_Cart_Totals</cart_totals>
 		</rewrite>
 	    </checkout>
-	    <adminhtml>
-		<rewrite>
-		    <sales_order_grid>MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
-		</rewrite>
-	    </adminhtml>
+	    
 	</blocks>
 	<helpers>
 	    <md_partialpayment>

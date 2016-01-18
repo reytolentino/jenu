@@ -61,16 +61,6 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
 				'index' => 'increment_id',
 		));
 
-		if (!Mage::app()->isSingleStoreMode()) {
-			$this->addColumn('store_id', array(
-					'header'    => Mage::helper('sales')->__('Purchased From (Store)'),
-					'index'     => 'store_id',
-					'type'      => 'store',
-					'store_view'=> true,
-					'display_deleted' => true,
-			));
-		}
-
 		$this->addColumn('created_at', array(
 				'header' => Mage::helper('sales')->__('Purchased On'),
 				'index' => 'created_at',

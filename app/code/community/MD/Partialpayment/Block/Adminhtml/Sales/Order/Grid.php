@@ -92,10 +92,11 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
 	));
 
 	$this->addColumn('base_grand_total', array(
-	    'header' => Mage::helper('sales')->__('G.T. (Base)'),
+	    'header' => Mage::helper('sales')->__('G.T. (Excl Tax)'),
 	    'index' => 'base_grand_total',
 	    'type' => 'currency',
 	    'currency' => 'base_currency_code',
+		'renderer' => 'MD_Partialpayment_Block_Adminhtml_Sales_Order_Renderer_GrandtotalExclTax',
 	));
 
 	$this->addColumn('grand_total', array(
@@ -104,14 +105,6 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
 	    'type'     => 'currency',
 	    'currency' => 'order_currency_code',
 	    'renderer' => 'MD_Partialpayment_Block_Adminhtml_Sales_Order_Renderer_Grandtotal',
-	));
-
-	$this->addColumn('subtotal', array(
-			'header'    => Mage::helper('sales')->__('Subtotal'),
-			'index'     => 'subtotal',
-			'type'      => 'currency',
-			'align'     => 'right',
-			'currency'  => 'order_currency_code',
 	));
 
 	$this->addColumn('status', array(

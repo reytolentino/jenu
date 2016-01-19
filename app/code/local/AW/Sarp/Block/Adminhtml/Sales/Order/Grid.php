@@ -25,18 +25,18 @@
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author Magedelight <info@magedelight.com>
  */
-class MD_Partialpayment_Block_Adminhtml_Sales_Order_Renderer_GrandtotalExclTax extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract {
-	public function render(Varien_Object $row) {
-		$grandTotal = $row->getData('base_grand_total');
-		$taxAmount = $row->getData('tax_amount');
-		$grandTotalExclTax = $grandTotal - $taxAmount;
-		$shippingAmount = $row->getData('shipping_amount');
+class AW_Sarp_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid {
 
-		if ($shippingAmount > 0) {
-			$grandTotalExclTaxShipping = $grandTotalExclTax - $shippingAmount;
-			return Mage::helper('core')->currency($grandTotalExclTaxShipping, true, false);
-		} else {
-			return Mage::helper('core')->currency($grandTotalExclTax, true, false);
-		}
+    protected function _prepareColumns()
+	{
+		$this->addColumn('product_options', array(
+			'header' => Mage::helper('sales')->__('AR'),
+			'index' => 'entity_id',
+			'type' => 'text',
+			'width' => '50px',
+			'filter' => false,
+			'sortable' => false,
+			'renderer' => 'AW_Sarp_Block_Adminhtml_Sales_Order_Renderer_Subscription'
+		));
 	}
 }

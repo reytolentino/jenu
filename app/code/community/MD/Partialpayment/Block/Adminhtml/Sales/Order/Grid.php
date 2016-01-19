@@ -25,7 +25,7 @@
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author Magedelight <info@magedelight.com>
  */
-class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid {
+class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends AW_Sarp_Block_Adminhtml_Sales_Order_Grid {
 
     public function __construct() {
 	parent::__construct();

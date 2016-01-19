@@ -25,18 +25,43 @@
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author Magedelight <info@magedelight.com>
  */
-class MD_Partialpayment_Block_Adminhtml_Sales_Order_Renderer_GrandtotalExclTax extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract {
-	public function render(Varien_Object $row) {
-		$grandTotal = $row->getData('base_grand_total');
-		$taxAmount = $row->getData('tax_amount');
-		$grandTotalExclTax = $grandTotal - $taxAmount;
-		$shippingAmount = $row->getData('shipping_amount');
 
-		if ($shippingAmount > 0) {
-			$grandTotalExclTaxShipping = $grandTotalExclTax - $shippingAmount;
-			return Mage::helper('core')->currency($grandTotalExclTaxShipping, true, false);
-		} else {
-			return Mage::helper('core')->currency($grandTotalExclTax, true, false);
+/**
+ * Adminhtml operations orders grid renderer
+ *
+ * @category   Inchoo
+ * @package    Inchoo_DateOrder
+ */
+class AW_Sarp_Block_Adminhtml_Sales_Order_Renderer_Subscription extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
+{
+	public function render(Varien_Object $row) {
+		{
+			$order_id=$row->getData('increment_id');
+			$order = Mage::getModel('sales/order')->loadByIncrementID($order_id);
+			$items = $order->getAllItems();
+			$result = array();
+			foreach ($items as $itemId => $item)
+			{
+				if($item->getProductOptions())
+				{
+					$options = $item->getProductOptions();
+					if (isset($options['info_buyRequest'])) {
+						$periodTypeId = @$options['info_buyRequest']['aw_sarp_subscription_type'];
+						$periodStartDate = @$options['info_buyRequest']['aw_sarp_subscription_start'];
+						$subscriptionName = Mage::getModel('sarp/period')->load($periodTypeId)->getName();
+						if($subscriptionName){
+							$result = "Y";
+						} else {
+							$result = "N";
+						}
+					}
+				}
+			}
+			return $result;
 		}
 	}
 }
+
+
+
+

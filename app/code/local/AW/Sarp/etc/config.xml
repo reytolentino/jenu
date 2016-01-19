@@ -223,6 +223,7 @@
                     <customer_group_edit_form>AW_Sarp_Block_Adminhtml_Customer_Group_Edit_Form</customer_group_edit_form>
                     <catalog_product_edit_tab_super_group>AW_Sarp_Block_Adminhtml_Catalog_Product_Edit_Tab_Super_Group</catalog_product_edit_tab_super_group>
                     <catalog_product_edit_tabs>AW_Sarp_Block_Adminhtml_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+                    <sales_order_grid>AW_Sarp_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
                 </rewrite>
             </adminhtml>
             <enterprise_customerBalance>

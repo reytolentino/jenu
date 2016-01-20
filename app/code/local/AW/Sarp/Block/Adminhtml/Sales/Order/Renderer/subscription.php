@@ -52,7 +52,8 @@ class AW_Sarp_Block_Adminhtml_Sales_Order_Renderer_Subscription extends Mage_Adm
 						$periodStartDate = @$options['info_buyRequest']['aw_sarp_subscription_start'];
 						$periodStartDateFormat = date('Y-m-d', strtotime($periodStartDate));
 						$subscriptionName = Mage::getModel('sarp/period')->load($periodTypeId)->getName();
-						if($subscriptionName && strtotime($periodStartDateFormat) !== strtotime($orderDateFormat)){
+						$orderDateOne = date('Y-m-d', strtotime($orderDate . ' +1 day'));
+						if($subscriptionName && (strtotime($periodStartDateFormat) !== strtotime($orderDateOne) && strtotime($periodStartDateFormat) !== strtotime($orderDateFormat))){
 							$result = "Y";
 						} else {
 							$result = "N";

@@ -47,7 +47,8 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends AW_Sarp_Block_A
 
     protected function _prepareCollection() {
 	$collection = Mage::getResourceModel($this->_getCollectionClass());
-
+	$collection->getSelect()->joinLeft('sales_flat_order', 'main_table.entity_id = sales_flat_order.entity_id','tax_amount');
+	$collection->addFilterToMap('created_at','main_table.created_at');
 	$this->setCollection($collection);
 	return parent::_prepareCollection();
     }

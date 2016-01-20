@@ -39,17 +39,20 @@ class AW_Sarp_Block_Adminhtml_Sales_Order_Renderer_Subscription extends Mage_Adm
 			$order_id=$row->getData('increment_id');
 			$order = Mage::getModel('sales/order')->loadByIncrementID($order_id);
 			$items = $order->getAllItems();
-			$result = array();
+			$orderDate = $order->getCreatedAtStoreDate();
+			$orderDateFormat = date('Y-m-d', strtotime($orderDate));
 			foreach ($items as $itemId => $item)
 			{
 				if($item->getProductOptions())
 				{
 					$options = $item->getProductOptions();
 					if (isset($options['info_buyRequest'])) {
+
 						$periodTypeId = @$options['info_buyRequest']['aw_sarp_subscription_type'];
 						$periodStartDate = @$options['info_buyRequest']['aw_sarp_subscription_start'];
+						$periodStartDateFormat = date('Y-m-d', strtotime($periodStartDate));
 						$subscriptionName = Mage::getModel('sarp/period')->load($periodTypeId)->getName();
-						if($subscriptionName){
+						if($subscriptionName && strtotime($periodStartDateFormat) !== strtotime($orderDateFormat)){
 							$result = "Y";
 						} else {
 							$result = "N";

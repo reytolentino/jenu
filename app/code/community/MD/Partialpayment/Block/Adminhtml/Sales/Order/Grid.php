@@ -42,15 +42,12 @@ class MD_Partialpayment_Block_Adminhtml_Sales_Order_Grid extends AW_Sarp_Block_A
      * @return string
      */
     protected function _getCollectionClass() {
-	return 'sales/order_collection';
+	return 'sales/order_grid_collection';
     }
 
     protected function _prepareCollection() {
 	$collection = Mage::getResourceModel($this->_getCollectionClass());
-	$collection->getSelect()->joinLeft(array('s1' => 'sales_flat_order_address'),'main_table.shipping_address_id = s1.entity_id',array('region','firstname','lastname'));
-	$collection->getSelect()->joinLeft(array('s2'=>'sales_flat_order_address'),'main_table.billing_address_id = s2.entity_id',array('firstname','lastname'));
-	$collection->getSelect()->columns(new Zend_Db_Expr("CONCAT(s2.firstname, ' ',s2.lastname) AS billing_name"));
-	$collection->getSelect()->columns(new Zend_Db_Expr("CONCAT(s1.firstname, ' ',s1.lastname) AS shipping_name"));
+
 	$this->setCollection($collection);
 	return parent::_prepareCollection();
     }

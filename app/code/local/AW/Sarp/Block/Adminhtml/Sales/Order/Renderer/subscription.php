@@ -39,8 +39,6 @@ class AW_Sarp_Block_Adminhtml_Sales_Order_Renderer_Subscription extends Mage_Adm
 			$order_id=$row->getData('increment_id');
 			$order = Mage::getModel('sales/order')->loadByIncrementID($order_id);
 			$items = $order->getAllItems();
-			$orderDate = $order->getCreatedAtStoreDate();
-			$orderDateFormat = date('Y-m-d', strtotime($orderDate));
 			foreach ($items as $itemId => $item)
 			{
 				if($item->getProductOptions())
@@ -50,10 +48,8 @@ class AW_Sarp_Block_Adminhtml_Sales_Order_Renderer_Subscription extends Mage_Adm
 
 						$periodTypeId = @$options['info_buyRequest']['aw_sarp_subscription_type'];
 						$periodStartDate = @$options['info_buyRequest']['aw_sarp_subscription_start'];
-						$periodStartDateFormat = date('Y-m-d', strtotime($periodStartDate));
 						$subscriptionName = Mage::getModel('sarp/period')->load($periodTypeId)->getName();
-						$orderDateOne = date('Y-m-d', strtotime($orderDate . ' +1 day'));
-						if($subscriptionName && (strtotime($periodStartDateFormat) !== strtotime($orderDateOne) && strtotime($periodStartDateFormat) !== strtotime($orderDateFormat))){
+						if($subscriptionName){
 							$result = "Y";
 						} else {
 							$result = "N";

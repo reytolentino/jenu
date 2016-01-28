@@ -462,6 +462,11 @@ div.eternal-custom-menu-popup a.level1,
     text-decoration: underline;
 }
 
+#nav .submega-right a.submega-cta img {
+    width: 224px;
+    height: auto;
+}
+
 #nav .submega-right.submega-right-shop {
     padding: 0;
     border: none;

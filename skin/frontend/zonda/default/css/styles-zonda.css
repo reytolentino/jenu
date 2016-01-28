@@ -7122,6 +7122,11 @@ h2.jenu-howitworks-header-h2 strong {
 .authorize-seal {
     margin-top: 10px;
     float: left;
+    margin-right: 12px;
+}
+.bizrate-seal {
+    margin-top: 30px;
+    float: left;
 }
 .doctor_trusted {
     margin: 14px 0 0 10px;

@@ -1167,12 +1167,14 @@ button.button span.name {
 }
 .col-sidebar .block-content ul li {
   line-height: 36px;
-  height: 36px;
-  padding-left: 25px;
+  height: auto;
+  padding: 0 0 14px 25px;
 }
 .col-sidebar .block-account .block-content ul li a, .block .akordeon ul li a {
   background: url(../images/li_bg.png) no-repeat 0 center;
   padding-left: 12px;
+  display: block;
+  line-height: normal;
 }
 .col-sidebar .block-content .category-products ul li, .col-sidebar .block-bestseller .block-content ul li, .col-sidebar .block-content .flexslider ul li {
   height: auto;

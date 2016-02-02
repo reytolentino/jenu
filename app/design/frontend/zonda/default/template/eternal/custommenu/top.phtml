@@ -80,6 +80,19 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
                 echo Mage::helper('blog')->getMobileMenuLink();
             }?>
             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_mobile_menu')->toHtml();?>
+            <?php
+            $loggedIn = $this->helper("customer")->isLoggedIn();
+            if($loggedIn == 1){
+                echo "
+                <div class=\"menu-mobile level0\" id=\"menu-mobile-7\">
+	                <div class=\"parentMenu\">
+                        <a href=\"".Mage::getBaseUrl()."customer/account/logout/\" />LOGOUT</a>
+                    </div>
+                </div>
+                ";
+            }else{
+                /* echo "<a href=\"".Mage::getBaseUrl()."customer/account/\" />LOGIN</a>"; */
+            }?>
             <div class="clearBoth"></div>
         </div>
     </div>

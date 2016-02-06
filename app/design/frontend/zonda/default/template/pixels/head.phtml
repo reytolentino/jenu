@@ -20,6 +20,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
         document,'script','//connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1391558251146849');
+    fbq('init', '547174985449849');
     fbq('track', 'PageView');
     <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
     fbq('track', 'AddToCart');

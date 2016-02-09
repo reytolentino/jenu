@@ -528,7 +528,33 @@ class AW_Sarp_Model_Observer extends Varien_Object
             }
         }
     }
-  
-    
+
+    public function appendFullCartPaymentBlock(Varien_Event_Observer $observer)
+    {
+        /*$controller = Mage::app()->getRequest()->getControllerName();
+        $router = Mage::app()->getRequest()->getRouteName();
+        $action = Mage::app()->getRequest()->getActionName();*/
+        $block = $observer->getEvent()->getBlock();
+
+        if ($block instanceof Mage_Paypal_Block_Express_Shortcut || $block instanceof Amazon_Payments_Block_Button
+            || $block instanceof Mage_Paypal_Block_Bml_Banners) {
+            $quote = Mage::getSingleton("checkout/session")->getQuote();
+            $haveSarpItems = false;
+            foreach ($quote->getAllItems() as $item)
+            {
+                $sarpSubscriptionType = $item->getProduct()->getCustomOption('aw_sarp_subscription_type');
+                if (Mage::helper('sarp')->isSubscriptionType($item) && !is_null($sarpSubscriptionType)) {
+                    $haveSarpItems = true;
+                    break;
+                }
+            }
+
+            if ($haveSarpItems) {
+                $transportObject = $observer->getEvent()->getTransport();
+                $transportObject->setHtml("");
+            }
+        }
+        return $this;
+    }
     
 }

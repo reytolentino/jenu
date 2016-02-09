@@ -320,6 +320,7 @@
             </email>
         </template>
         <events>
+
             <sales_quote_save_before>
                 <observers>
                     <sarp_place_order2_observer>
@@ -451,7 +452,14 @@
                     </sarp_downloadable_observer>
                 </observers>
             </sales_order_save_after>
-
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <append_full_cart_payment>
+                        <class>sarp/observer</class>
+                        <method>appendFullCartPaymentBlock</method>
+                    </append_full_cart_payment>
+                </observers>
+            </core_block_abstract_to_html_after>
         </events>
     </global>
     <frontend>

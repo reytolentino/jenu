@@ -151,7 +151,7 @@
 //            var sum_height = 0;
 //            c = 0;
 //            $('#product-tabs dt').each(function(){
-//               sum_height += $(this).height(); 
+//               sum_height += $(this).height();
 //            });
 //            $open = $('#product-tabs > dt.open');
 //            $cur = $open.next();
@@ -164,17 +164,17 @@
 //                $parent.find('> dt').last().css('border-bottom-width', '0');
 //            }
 //        }
-        $('.review-toggle').click(function(){
-            //if ($('.form-add').css('display') == 'none'){                
+        jQuery('.review-toggle').click(function(){
+            //if ($('.form-add').css('display') == 'none'){
 //                $('.form-add').show();
 //                resize_height();
 //            }else {
 //                $('.form-add').hide();
 //                resize_height();
 //            }
-            $dt = $('#product-tabs>dt.open');
+            $dt = jQuery('#product-tabs>dt.open');
             $parent = $dt.parent();
-            $('.form-add').toggle();
+            jQuery('.form-add').toggle();
             $parent.stop().css('height', 'auto');
             $cur = $dt.next();
             $cur.stop().css('bottom','auto');
@@ -187,7 +187,6 @@
                 $cur.css('bottom', '0');
                 $parent.find('> dt').last().css('border-bottom-width', '0');
             }
-        });       
-    });
+        });
  //]]>
 </script>

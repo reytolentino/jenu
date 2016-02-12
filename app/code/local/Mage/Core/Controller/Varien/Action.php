@@ -759,7 +759,6 @@ abstract class Mage_Core_Controller_Varien_Action
      */
     protected function _redirectReferer($defaultUrl=null)
     {
-
         $refererUrl = $this->_getRefererUrl();
         if (empty($refererUrl)) {
             $refererUrl = empty($defaultUrl) ? Mage::getBaseUrl() : $defaultUrl;

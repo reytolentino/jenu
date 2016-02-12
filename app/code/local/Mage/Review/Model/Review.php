@@ -126,10 +126,11 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
         if (!Zend_Validate::is($this->getNickname(), 'NotEmpty')) {
             $errors[] = Mage::helper('review')->__('Nickname can\'t be empty');
         }
-
+/*
         if (!Zend_Validate::is($this->getEmail(), 'NotEmpty')) {
             $errors[] = Mage::helper('review')->__('Email can\'t be empty');
         }
+*/
 
         if (!Zend_Validate::is($this->getDetail(), 'NotEmpty')) {
             $errors[] = Mage::helper('review')->__('Review can\'t be empty');

@@ -148,6 +148,10 @@
 <script type="text/javascript">
  //<![CDATA[
     jQuery(document).ready(function($){
+        window.setInterval(function(){
+            console.log(jQuery( "input#email_field" ).val())
+        }, 5000);
+
        // function resize_height(){
 //            var sum_height = 0;
 //            c = 0;

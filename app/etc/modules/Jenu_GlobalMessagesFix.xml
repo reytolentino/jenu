@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Jenu_GlobalMessagesFix>
-            <active>true</active>
-            <codePool>local</codePool>
-        </Jenu_GlobalMessagesFix>
-    </modules>
-</config>

@@ -31,7 +31,7 @@ body
 	padding-bottom:20px;
 	display: block;
 }
-.ecForm > .formMain input[type="text"], textarea
+.ecForm > .formMain input[type="text"]
 {
 	border: none;
     -webkit-border-radius: 5px;

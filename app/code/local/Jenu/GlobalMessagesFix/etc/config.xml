@@ -1,0 +1,16 @@
+<config>
+    <modules>
+        <Jenu_GlobalMessagesFix>
+            <version>0.1.1</version>
+        </Jenu_GlobalMessagesFix>
+    </modules>
+    <global>
+        <blocks>
+            <jenu_globalmessagesfix>
+                <rewrite>
+                    <globalmessages>Jenu_GlobalMessagesFix_Product_CompareController</globalmessages>
+                </rewrite>
+            </jenu_globalmessagesfix>
+        </blocks>
+    </global>
+</config>

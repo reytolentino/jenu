@@ -153,6 +153,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
             'title'     => $object->getTitle(),
             'detail'    => $object->getDetail(),
             'nickname'  => $object->getNickname(),
+            'email'     => $object->getEmail(),
         );
         $select = $adapter->select()
             ->from($this->_reviewDetailTable, 'detail_id')

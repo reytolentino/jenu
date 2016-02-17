@@ -28,7 +28,7 @@ class Affirm_Affirm_Block_Payment_Form extends Mage_Payment_Block_Form
 
         $html .= "Just enter your basic information and get approved instantly.";
         $html .= "<br>";
-        $html .= "You will complete your payment on the Affirm website";
+        $html .= "You will complete your payment on the Affirm website.";
         $html .= "</div>";
 
         $html .= "</li>";

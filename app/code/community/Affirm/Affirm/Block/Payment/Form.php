@@ -19,12 +19,12 @@ class Affirm_Affirm_Block_Payment_Form extends Mage_Payment_Block_Form
         $html .= "<li class=\"form-alt\">";
 
         // heading
-        $html .= "<div style=\"color:#034082; font-size:16px; \">";
+        $html .= "<div class=\"affirm-how \">";
         $html .= "How does Affirm work?";
         $html .= "</div>";
 
         // sub
-        $html .= "<div style=\"color:#6f6f6f; font-size:14px; \">";
+        $html .= "<div class=\"affirm-answer \">";
 
         $html .= "Just enter your basic information and get approved instantly.";
         $html .= "<br>";

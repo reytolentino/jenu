@@ -42,8 +42,13 @@ i.fa {
     font-weight: 300;
     font-size: 30px;
     text-transform: none;
-    margin: 24px 0;
+    margin: 24px 0 5px 0;
     text-align: center;
+}
+
+.mptop h5 {
+    text-align: center;
+    margin-bottom: 24px;
 }
 
 .droz-gold .mptop h1 {
@@ -53,14 +58,12 @@ i.fa {
 .mptop .mpwand {
     display: block;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
 }
 
 .mpplan {
     background: #f7f7f7;
-    padding-top: 20px;
-
 }
 
 .mpplan-right {
@@ -1143,30 +1146,44 @@ i.fa {
 .mpplan-how .affirm-easy {
     margin-bottom: 20px;
     margin-top: 20px;
+}
 
+.mpplan-how .affirm-easy p {
+    text-align: left;
 }
 
 .mpplan-how p {
     line-height: 18px;
+    text-align: left;
 }
 
 .mpplan-how img {
     width: 100%;
     display: block;
-    margin: 0 0 10px 20px;
+    margin: 0 0 10px 0;
 }
 
 .mpplan-how h4 {
     font-weight: 400;
     font-size: 16px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .mpplan-how img.affirm-logo {
     max-width: 100px;
     margin-top: 10px;
     margin-bottom: 16px;
+}
+
+.affirm-logo-bottom {
+    width: 60px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.affirm-select {
+    margin: 15px 0 8px 0;
 }
 
 .mpplan-how img.affirm-box, .mpplan-how img.affirm-calendar {
@@ -1252,8 +1269,11 @@ i.fa {
     }
 
     .mptop h1 {
-        margin: 18px 0 18px;
+        margin: 18px 0 0;
         clear: both;
+    }
+    .mptop h5 {
+        margin-bottom: 18px;
     }
     .droz-wrap .droz-section h2 {
         font-size: 24px;
@@ -1912,6 +1932,9 @@ i.fa {
     }
     .droz-gold .mptop h1 {
         font-size: 20px;
+    }
+    .droz-gold .mptop h5 {
+        font-size: 12px;
     }
     .mpplan-how .row div {
         margin-bottom: 20px;

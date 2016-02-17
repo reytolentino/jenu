@@ -2968,6 +2968,13 @@ td.for-desktop {
 .checkout-onepage-index p {
     margin: 6px 0;
 }
+.checkout-onepage-index .affirm-how,
+.checkout-onepage-index .affirm-answer {
+    font-size: 12px;
+}
+.checkout-onepage-index .affirm-how {
+    font-weight: bold;
+}
 .onepagecheckout-index-index p.fill, .onepagecheckout_loginarea {
     margin-bottom: 10px;
 }

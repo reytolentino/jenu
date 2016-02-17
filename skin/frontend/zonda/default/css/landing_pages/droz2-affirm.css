@@ -51,8 +51,10 @@ i.fa {
 }
 
 .mptop .mpwand {
-    display: none;
+    display: block;
     margin: 0 auto;
+    max-width: 400px;
+    height: auto;
 }
 
 .mpplan {
@@ -1128,14 +1130,20 @@ i.fa {
     content: '\f111';
 }
 
+.mpplan-howwrap {
+    background:#eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .mpplan-how .container {
     width: 100%;
 }
 
 .mpplan-how .affirm-easy {
-    background:#f7f7f7;
     margin-bottom: 20px;
     margin-top: 20px;
+
 }
 
 .mpplan-how p {
@@ -1145,7 +1153,7 @@ i.fa {
 .mpplan-how img {
     width: 100%;
     display: block;
-    margin-bottom:10px;
+    margin: 0 0 10px 20px;
 }
 
 .mpplan-how h4 {

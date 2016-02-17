@@ -92,7 +92,7 @@ class Smartwave_OnepageCheckout_IndexController extends Mage_Checkout_Controller
     {    	
         if (!Mage::helper('onepagecheckout')->isOnepageCheckoutEnabled())
         {
-            Mage::getSingleton('checkout/session')->addError($this->__('The one page checkout is disabled.'));
+            /* Mage::getSingleton('checkout/session')->addError($this->__('The one page checkout is disabled.')); */
             $this->_redirect('checkout/cart');
             return;
         }

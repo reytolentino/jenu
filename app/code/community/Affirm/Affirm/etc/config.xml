@@ -52,7 +52,15 @@
                 </args>
             </affirm>
         </routers>
+        <layout>
+            <updates>
+                <affirm_affirm>
+                    <file>affirm_affirm.xml</file>
+                </affirm_affirm>
+            </updates>
+        </layout>
     </frontend>
+
     <default>
         <payment>
             <affirm>

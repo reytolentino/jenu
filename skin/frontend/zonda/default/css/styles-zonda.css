@@ -2934,6 +2934,57 @@ td.for-desktop {
 .checkout-cart-index .other-methods-bottom .paypal-logo,
 .checkout-cart-index .other-methods-bottom #AmazonPayButtonMethod {
     display: inline-block;
+    vertical-align: top;
+}
+.checkout-cart-index .logo-affirm {
+    width: 43px;
+    height: auto;
+    float: left;
+    margin: 2px 5px 0 0;
+}
+.checkout-cart-index .btn-affirm-wrapper {
+    border-top:1px solid #e4e4e4;
+    padding: 8px 0;
+    font-size: 10px;
+    text-align: center;
+}
+.checkout-cart-index .other-methods-bottom .btn-affirm-wrapper {
+    border: none;
+    padding: 0;
+}
+.checkout-cart-index .btn-affirm-wrapper .affirm-orders {
+    margin-top: 5px;
+}
+.checkout-cart-index .btn-affirm-wrapper .affirm-select {
+    font-style: italic;
+    line-height: 12px;
+}
+
+.checkout-cart-index .btn-affirm-wrapper .affirm-select strong {
+    color: #000;
+}
+
+.checkout-cart-index .other-methods-bottom .affirm-select {
+    display: none;
+}
+
+.checkout-cart-index .btn-affirm {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1f1f1+0,b5c0b9+100 */
+    background: #f1f1f1; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f1f1f1 0%, #b5c0b9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #f1f1f1 0%,#b5c0b9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #f1f1f1 0%,#b5c0b9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#b5c0b9',GradientType=0 ); /* IE6-9 */
+    color: #333;
+    font-size: 16px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    line-height: 16px;
+    padding: 8px 16px;
+    display: inline-block;
 }
 .checkout-cart-index .checkout-box-bottom {
     text-align: center;
@@ -4935,6 +4986,9 @@ ul.homepage-content-worksgreat-list ul {
     display: none;
 }
 /** end fix to hide old shipping method **/
+#checkout-payment-method-load .sp-methods dt {
+    margin: 8px 0;
+}
 .col-sidebar .block.opc-block-progress .block-content {
   padding: 10px;
 }

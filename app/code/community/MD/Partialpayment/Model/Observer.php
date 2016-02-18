@@ -830,7 +830,7 @@ class MD_Partialpayment_Model_Observer
         $block = $observer->getEvent()->getBlock();
         
         if ($block instanceof Mage_Paypal_Block_Express_Shortcut || $block instanceof Amazon_Payments_Block_Button
-            || $block instanceof Mage_Paypal_Block_Bml_Banners) {
+            || $block instanceof Mage_Paypal_Block_Bml_Banners || $block instanceof Affirm_Affirm_Block_Button) {
             $quote = Mage::getSingleton("checkout/session")->getQuote();
             $hasPartial = false;
             if ($quote) {

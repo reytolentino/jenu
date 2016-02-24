@@ -27,7 +27,7 @@ class Jenu_ReviewForm_Model_Resource_Review_Product_Collection extends Mage_Revi
                 array('rt.review_id', 'review_created_at'=> 'rt.created_at', 'rt.entity_pk_value', 'rt.status_id'))
             ->join(array('rdt' => $reviewDetailTable),
                 'rdt.review_id = rt.review_id',
-                array('rdt.title','rdt.email','rdt.products','rdt.nickname', 'rdt.detail', 'rdt.customer_id', 'rdt.store_id'));
+                array('rdt.title','rdt.email_id','rdt.products_id','rdt.nickname', 'rdt.detail', 'rdt.customer_id', 'rdt.store_id'));
         return $this;
     }
 
@@ -45,8 +45,8 @@ class Jenu_ReviewForm_Model_Resource_Review_Product_Collection extends Mage_Revi
             case 'rt.created_at':
             case 'rt.status_id':
             case 'rdt.title':
-            case 'rdt.email':
-            case 'rdt.products':
+            case 'rdt.email_id':
+            case 'rdt.products_id':
             case 'rdt.nickname':
             case 'rdt.detail':
                 $this->getSelect()->order($attribute . ' ' . $dir);
@@ -78,8 +78,8 @@ class Jenu_ReviewForm_Model_Resource_Review_Product_Collection extends Mage_Revi
             case 'rt.created_at':
             case 'rt.status_id':
             case 'rdt.title':
-            case 'rdt.email':
-            case 'rdt.products':
+            case 'rdt.email_id':
+            case 'rdt.products_id':
             case 'rdt.nickname':
             case 'rdt.detail':
                 $conditionSql = $this->_getConditionSql($attribute, $condition);

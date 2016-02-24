@@ -7,7 +7,7 @@
 <config>
     <modules>
         <Jenu_ReviewForm>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </Jenu_ReviewForm>
     </modules>

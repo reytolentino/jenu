@@ -73,16 +73,16 @@ class Mage_Adminhtml_Block_Review_Add_Form extends Mage_Adminhtml_Block_Widget_F
             $field->setRenderer($renderer);
         }
 
-        $fieldset->addField('email2', 'text', array(
-            'name'      => 'email2',
+        $fieldset->addField('email', 'text', array(
+            'name'      => 'email',
             'title'     => Mage::helper('review')->__('Email'),
             'label'     => Mage::helper('review')->__('Email'),
             'maxlength' => '50',
             'required'  => true,
         ));
 
-        $fieldset->addField('products2', 'text', array(
-            'name'      => 'products2',
+        $fieldset->addField('products', 'text', array(
+            'name'      => 'products',
             'title'     => Mage::helper('review')->__('Other Products Used With JeNu'),
             'label'     => Mage::helper('review')->__('Other Products Used With JeNu'),
             'maxlength' => '255',

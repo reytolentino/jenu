@@ -47,6 +47,15 @@ i.fa {
     line-height: normal;
 }
 
+.mptop h4 {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 0;
+    line-height: normal;
+    font-size: 22px;
+}
+
+
 .mptop h5 {
     text-align: center;
     margin-bottom: 24px;
@@ -1933,7 +1942,10 @@ i.fa {
         transform: translate3d(0px,0px,0px);
     }
     .droz-gold .mptop h1 {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .droz-gold .mptop h4 {
+        font-size: 15px;
     }
     .droz-gold .mptop h5 {
         font-size: 12px;

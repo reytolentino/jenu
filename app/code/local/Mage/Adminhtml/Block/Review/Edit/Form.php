@@ -110,16 +110,16 @@ class Mage_Adminhtml_Block_Review_Edit_Form extends Mage_Adminhtml_Block_Widget_
             $review->setSelectStores(Mage::app()->getStore(true)->getId());
         }
 
-        $fieldset->addField('email_id', 'text', array( // New field 1
+        $fieldset->addField('email2', 'text', array( // New field 1
             'label' => Mage::helper('review')->__('Email'),
             'required' => true,
-            'name' => 'email_id'
+            'name' => 'email2'
         ));
 
-        $fieldset->addField('products_id', 'text', array( // New field 2
+        $fieldset->addField('products2', 'text', array( // New field 2
             'label' => Mage::helper('review')->__('Other Products Used With JeNu'),
             'required' => false,
-            'name' => 'products_id'
+            'name' => 'products2'
         ));
 
         $fieldset->addField('nickname', 'text', array(

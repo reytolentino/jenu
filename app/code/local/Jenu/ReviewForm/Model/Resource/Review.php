@@ -18,8 +18,8 @@ class Jenu_ReviewForm_Model_Resource_Review extends Mage_Review_Model_Resource_R
             'title'     => $object->getTitle(),
             'detail'    => $object->getDetail(),
             'nickname'  => $object->getNickname(),
-            'email_id'    => $object->getEmail(),
-            'products_id'  => $object->getProducts(),
+            'email2'    => $object->getEmail2(),
+            'products2'  => $object->getProducts2(),
         );
         $select = $adapter->select()
             ->from($this->_reviewDetailTable, 'detail_id')

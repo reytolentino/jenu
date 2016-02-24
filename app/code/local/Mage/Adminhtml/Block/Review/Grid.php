@@ -116,23 +116,23 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
             'escape'        => true,
         ));
 
-        $this->addColumn('email2', array(
+        $this->addColumn('email', array(
             'header'        => Mage::helper('review')->__('Email'),
             'align'         => 'left',
             'width'         => '100px',
-            'filter_index'  => 'rdt.email2',
-            'index'         => 'email2',
+            'filter_index'  => 'rdt.email',
+            'index'         => 'email',
             'type'          => 'text',
             'truncate'      => 50,
             'escape'        => true,
         ));
 
-        $this->addColumn('products2', array(
+        $this->addColumn('products', array(
             'header'        => Mage::helper('review')->__('Products Used With JeNu'),
             'align'         => 'left',
             'width'         => '100px',
-            'filter_index'  => 'rdt.products2',
-            'index'         => 'products2',
+            'filter_index'  => 'rdt.products',
+            'index'         => 'products',
             'type'          => 'text',
             'truncate'      => 100,
             'escape'        => true,

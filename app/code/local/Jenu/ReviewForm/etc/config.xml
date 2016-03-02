@@ -33,4 +33,15 @@
             </jenu_reviewform_setup>
         </resources>
     </global>
+    <frontend>
+        <routers>
+            <review>
+                <args>
+                    <modules>
+                        <Jenu_ReviewForm before="Mage_Review">Jenu_ReviewForm</Jenu_ReviewForm>
+                    </modules>
+                </args>
+            </review>
+        </routers>
+    </frontend>
 </config>

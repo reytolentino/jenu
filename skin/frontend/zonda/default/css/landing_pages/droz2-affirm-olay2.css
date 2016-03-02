@@ -1,0 +1,83 @@
+.olay {
+    color:#a22720;
+    font-family:"lato", helvetica, arial;
+}
+
+.logo-olay {
+    width: auto;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.olay strong {
+    font-weight: 400;
+}
+
+p.olay-disclaimer {
+    color:#666;
+    font-size: 11px;
+    font-style:italic;
+}
+
+.droz-ba-clinical-wrap .ba-clinical-disclaimer,
+.droz-results .ba-clinical-disclaimer {
+    margin-top: 40px;
+    text-align: left;
+}
+
+
+.droz-results .ba-slick-set1 {
+    display: none;
+}
+
+.droz-results .ba-slick-set3 li img {
+    width: 100%;
+}
+
+.droz-results .ba-slick-set3 {
+    width: 100%;
+}
+
+.droz-results .ba-slick-set3 .slick-prev,
+.droz-results .ba-slick-set3 .slick-next
+{
+    top: 40%;
+}
+
+.ba-clinical-disclaimer {
+    margin-top: 40px;
+    text-align: left;
+}
+
+@media(max-width: 991px) {
+    .droz-gold .droz-hero-right h1 {
+        font-size: 18px;
+    }
+
+    .droz-gold .droz-hero-right h2.subplus {
+        font-size: 15px;
+    }
+
+    .logo-olay {
+        height: 30px;
+        margin: 0 3px;
+    }
+}
+
+@media(max-width: 767px) {
+    p.olay-disclaimer {
+        line-height: 12px;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+    .droz-results .ba-slick-set3 {
+        display: none;
+    }
+
+    .droz-results .ba-slick-set1 {
+        display: block;
+    }
+    .logo-olay {
+        height: 25px;
+    }
+}

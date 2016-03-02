@@ -1,0 +1,29 @@
+p.olay-disclaimer {
+    color:#666;
+    font-size: 11px;
+    font-style:italic;
+}
+
+.droz-results .ba-slick-set2 .slick-prev,
+.droz-results .ba-slick-set2 .slick-next
+{
+    top: 25%;
+}
+
+@media(max-width: 991px) {
+    .droz-gold .droz-hero-right h1 {
+        font-size: 18px;
+    }
+
+    .droz-gold .droz-hero-right h2.subplus {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 767px) {
+    p.olay-disclaimer {
+        line-height: 12px;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+}

@@ -1955,4 +1955,12 @@ i.fa {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+    .droz-about .using-jenu .how-jenu-works-videos {
+        margin-top: 30px;
+    }
+    .droz-about .using-jenu .how-jenu-works-videos .col-sm-3 {
+        width: 50%;
+        float: left;
+        margin-top: 0;
+    }
 }

@@ -742,7 +742,7 @@ i.fa {
 }
 
 .droz-about .how-jenu-works-videos {
-    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .droz-about .how-jenu-works-videos p,
@@ -768,7 +768,7 @@ i.fa {
 }
 
 .droz-about .great-for p {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .droz-about .great-for p .fa {
@@ -1376,7 +1376,7 @@ i.fa {
         max-width: 360px;
     }
     .droz-about .great-for p {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .droz-about .great-for p .fa {
@@ -1956,9 +1956,9 @@ i.fa {
         margin-bottom: 10px;
     }
     .droz-about .using-jenu .how-jenu-works-videos {
-        margin-top: 30px;
+        margin-bottom: 30px;
     }
-    .droz-about .using-jenu .how-jenu-works-videos .col-sm-3 {
+    .droz-about .how-jenu-works-videos .col-sm-3 {
         width: 50%;
         float: left;
         margin-top: 0;

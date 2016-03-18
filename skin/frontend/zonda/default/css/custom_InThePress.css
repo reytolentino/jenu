@@ -13,6 +13,24 @@
 	margin-bottom: 16px;
 }
 
+#page-contents .sizzle-wrap {
+	margin-bottom: 20px;
+}
+
+#page-contents .img-sizzle-banner,
+#page-contents .img-sizzle-banner-m {
+	width: 100%;
+}
+
+#page-contents .img-sizzle-banner-m {
+	display: none;
+}
+
+#page-contents a.sizzle-play {
+	display: block;
+	overflow: hidden;
+}
+
 
 #page-contents.container h4{
 	margin-bottom: 0px;
@@ -135,6 +153,14 @@ span.pipe{
 		font-size: 14px;
 	}
 
+@media(max-width: 767px){
+	#page-contents .img-sizzle-banner {
+		display: none;
+	}
 
+	#page-contents .img-sizzle-banner-m {
+		display: block;
+	}
+}
 
 }

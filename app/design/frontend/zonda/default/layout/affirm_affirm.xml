@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Affirm Customization
+ *
+ * @category    Affirm
+ * @package     affirm
+ */
+-->
+<layout version="0.1.0">
+
+    <!--
+    Cart
+    -->
+    <checkout_cart_index>
+
+        <reference name="checkout.cart">
+            <block type="affirm/button" name="AffirmPayButtonTop" template="affirm_affirm/button.phtml"/>
+            <block type="affirm/button" name="AffirmPayButtonMethod" template="affirm_affirm/button.phtml"/>
+
+            <reference name="checkout.cart.top_methods">
+                <action method="append" ifconfig="payment/affirm/active">
+                    <block>AffirmPayButtonTop</block>
+                </action>
+            </reference>
+
+            <reference name="checkout.cart.methods">
+                <action method="append" ifconfig="payment/affirm/active">
+                    <block>AffirmPayButtonMethod</block>
+                </action>
+            </reference>
+
+        </reference>
+    </checkout_cart_index>
+
+</layout>

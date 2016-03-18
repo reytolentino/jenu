@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Jenu_ReviewForm>
+            <version>1.0.0</version>
+        </Jenu_ReviewForm>>
+    </modules>
+    <global>
+        <models>
+            <review>
+                <rewrite>
+                    <review>Jenu_ReviewForm_Model_Review</review>
+                </rewrite>
+            </review>
+            <review_resource>
+                <rewrite>
+                    <review>Jenu_ReviewForm_Model_Resource_Review</review>
+                    <review_collection>Jenu_ReviewForm_Model_Resource_Review_Collection</review_collection>
+                    <review_product_collection>Jenu_ReviewForm_Model_Resource_Review_Product_Collection</review_product_collection>
+                </rewrite>
+            </review_resource>
+        </models>
+        <resources>
+            <jenu_reviewform_setup>
+                <setup>
+                    <module>Jenu_ReviewForm</module>
+                </setup>
+            </jenu_reviewform_setup>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <review>
+                <args>
+                    <modules>
+                        <Jenu_ReviewForm before="Mage_Review">Jenu_ReviewForm</Jenu_ReviewForm>
+                    </modules>
+                </args>
+            </review>
+        </routers>
+    </frontend>
+</config>

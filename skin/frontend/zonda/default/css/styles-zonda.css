@@ -5159,6 +5159,20 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
   font-size: 13px;
   font-weight: normal;
 }
+.catalog-product-view #affirm-learn-more {
+    color: #333;
+    line-height: 18px;
+    margin: 10px 0 20px 0;
+    display: block;
+    overflow: hidden;
+}
+.catalog-product-view #affirm-learn-more span {
+    color:#a98236;
+}
+.catalog-product-view #affirm-learn-more .affirm-logo {
+    width: auto;
+    height: 15px;
+}
 /*********************************** CMS Pages **************************************/
 
 .cms-page-view .main-content .cms-banner .container,

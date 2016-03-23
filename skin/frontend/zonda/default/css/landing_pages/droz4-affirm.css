@@ -471,6 +471,11 @@ i.fa {
     font-weight: 400;
 }
 
+.droz-hero-right .affirm-box strong,
+.droz-hero-right .droz-price-wrap strong {
+color: #000;
+}
+
 .droz-hero-right .affirm-box .affirm-box-copy {
     margin-top: 8px;
 }
@@ -559,11 +564,11 @@ i.fa {
     color: #666;
     font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
     text-transform: uppercase;
-    font-weight: 300;
     display: block;
     text-align: center;
     margin: 20px auto;
     clear:both;
+    font-weight: 400;
 }
 
 .droz-hero-right .bottomcopy .fa-circle {

@@ -466,6 +466,11 @@ i.fa {
     padding: 10px 0 10px 0;
 }
 
+.droz-hero-right .affirm-box,
+.droz-hero-right .droz-price-wrap {
+    font-weight: 400;
+}
+
 .droz-hero-right .affirm-box .affirm-box-copy {
     margin-top: 8px;
 }

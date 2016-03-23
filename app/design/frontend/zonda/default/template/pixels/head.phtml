@@ -26,7 +26,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
     fbq('track', 'AddToCart');
     <?php endif; ?>
-    <?php if(Mage::getURL('paypal/express/review') == Mage::helper('core/url')->getCurrentUrl()): ?>
+    <?php if(Mage::getURL('checkout/onepage') == Mage::helper('core/url')->getCurrentUrl()): ?>
     fbq('track', 'InitiateCheckout');
     <?php endif; ?>
     <?php if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurrentUrl()): ?>

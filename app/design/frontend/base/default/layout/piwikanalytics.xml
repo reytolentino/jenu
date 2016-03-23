@@ -20,7 +20,7 @@ Default layout, loads most of the pages
 
     <default>
         <!-- Mage_PiwikAnalytics -->
-        <reference name="before_body_end">
+        <reference name="before_head_end">
             <block type="piwikanalytics/piwik" name="piwik_analytics" as="piwik_analytics" template="piwikanalytics/piwik.phtml" />
         </reference>
     </default>

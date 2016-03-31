@@ -6621,6 +6621,7 @@ h2.jenu-howitworks-header-h2 strong {
 .cms-retailers .cslinks-left .cslinks li.retailers a,
 .cms-customer-support .cslinks-left .cslinks li.customer-support a,
 .cms-ordering-and-shipping .cslinks-left .cslinks li.ordering-and-shipping a,
+.cms-international-ordering-and-shipping .cslinks-left .cslinks li.international-ordering-and-shipping a,
 .cms-privacy-policy .cslinks-left .cslinks li.privacy-policy a,
 .cms-terms-and-conditions .cslinks-left .cslinks li.terms-and-conditions a {
     color: #a98236;
@@ -6631,6 +6632,7 @@ h2.jenu-howitworks-header-h2 strong {
 .cms-riskfree .cslinks-left .cslinks li.riskfree a,
 .cms-customer-support .cslinks-left .cslinks li.customer-support a,
 .cms-ordering-and-shipping .cslinks-left .cslinks li.ordering-and-shipping a,
+.cms-international-ordering-and-shipping .cslinks-left .cslinks li.international-ordering-and-shipping a,
 .cms-privacy-policy .cslinks-left .cslinks li.privacy-policy a,
 .cms-terms-and-conditions .cslinks-left .cslinks li.terms-and-conditions a {
     text-decoration: none;

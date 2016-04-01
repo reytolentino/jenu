@@ -1701,6 +1701,11 @@ p.olay-disclaimer {
         font-size: 16px;
     }
 
+    .droz-hero-mobile .product-highlights .hydrotest .voguemention {
+        font-size: 12px;
+        line-height: normal;
+    }
+
     .droz-hero-mobile .product-highlights.container {
         overflow: visible;
     }
@@ -1708,6 +1713,11 @@ p.olay-disclaimer {
     .droz-hero-mobile .product-highlights .voguemention2 {
         font-size: 22px;
         color: #000;
+    }
+
+    .droz-hero-mobile .product-highlights .hydrotest .voguemention2 {
+        font-size: 14px;
+        font-weight: bold;
     }
 
     .droz-hero-mobile .product-highlights .slide3 h1 {
@@ -1753,6 +1763,10 @@ p.olay-disclaimer {
 
     .mobile-asseenon a {
         display: inline-block;
+    }
+
+    .mobile-asseenon.hydrotest img {
+        max-width: 100px;
     }
 
     .droz-wrap .product-view .reviews-summary-wrap .btn-writereview {
@@ -2093,6 +2107,9 @@ p.olay-disclaimer {
         margin-right: 0;
         max-width: 60px;
         height: auto;
+    }
+    .product-highlights .slide1 .hydrotest-img .wandgel {
+        max-width: 130px;
     }
     #buywrap-phantom {
         display: none;

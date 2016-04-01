@@ -214,6 +214,10 @@
         width: 160px;
     }
 
+    .product-highlights .slide1 .slide1-copy.hydrotest {
+        width: 100px;
+    }
+
     .product-highlights .ratings {
         text-align: center;
         width: auto;

@@ -411,10 +411,33 @@ i.fa {
     line-height: 26px;
     background: url('/media/landing_pages/droz/bg-buynow-heading.png') repeat-x center;
     background-size: 100% 24px;
-    margin: 20px 0;
+    margin: 20px 0 8px;
 }
 
-.droz-hero-right .buynow-heading span {
+.hydrotest.buynow-subheading {
+    text-align: center;
+    font-family: "Avenir Next Condensed Demi Bold", Helvetica, Arial;
+    margin-bottom: 10px;
+}
+
+.hydrotest.buynow-subheading span {
+    display: block;
+}
+
+.hydrotest.buynow-subheading .buynow-subheading-title {
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #4c7faf;
+}
+
+.hydrotest.buynow-subheading .buynow-subheading-sub {
+    color: #333;
+    font-size: 12px;
+    font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+.buynow-heading span {
     display: inline-block;
     padding: 0 14px;
     background-color: #fff;

@@ -727,5 +727,25 @@
         text-align: left;
     }
 
+    .hydrotest.buynow-subheading span {
+        display: block;
+    }
+
+    .hydrotest.buynow-subheading .buynow-subheading-title {
+        font-size: 16px;
+        line-height: 16px;
+        text-transform: uppercase;
+        color: #4c7faf;
+    }
+
+    .hydrotest.buynow-subheading .buynow-subheading-sub {
+        color: #333;
+        font-size: 11px;
+        font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .hydrotest.ltocopy {
+        text-align: center;
+    }
 
 }

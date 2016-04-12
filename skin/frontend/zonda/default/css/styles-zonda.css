@@ -4977,17 +4977,6 @@ ul.homepage-content-worksgreat-list ul {
   text-transform: uppercase;
   font-weight: bold;
 }
-/** fix to hide old shipping method **/
-
-#checkout-shipping-method-load .sp-methods dt:first-child,
-#checkout-shipping-method-load .sp-methods dd:first-of-type {
-    display: none;
-}
-.jenu-paypal--shipping-method #shipping_method optgroup:first-of-type {
-    display: none;
-}
-
-/** end fix to hide old shipping method **/
 #checkout-payment-method-load .sp-methods dt {
     margin: 8px 0;
 }

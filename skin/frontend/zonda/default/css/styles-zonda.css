@@ -3701,13 +3701,13 @@ div.cart-empty {
 #slide-1 .homepage-hero-banner--copy {
     color: #333;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 300;
     margin: 124px 0 0;
     text-align: center;
 }
 
-#slide-1 .homepage-hero-banner--copy .hompage-hero-banner-intro {
+#slide-3 .homepage-hero-banner--copy .hompage-hero-banner-intro {
     font-size: 28px;
     line-height: normal;
     margin-bottom: 8px;
@@ -3745,23 +3745,24 @@ div.cart-empty {
     text-align: center;
 }
 
-#slide-3 .homepage-hero-banner--copy .homepage-hero-caps {
+#slide-1 .homepage-hero-banner--copy .homepage-hero-caps {
     text-transform: uppercase;
     font-weight: 400;
     display: block;
     margin-left: 12px;
+    font-size: 30px
 }
 
-#slide-3 .homepage-hero-banner--copy .bylogo {
+#slide-1 .homepage-hero-banner--copy .bylogo {
     display: block;
     margin: 12px 0 12px 12px;
 }
 
-#slide-3 .homepage-hero-banner--copy p {
+#slide-1 .homepage-hero-banner--copy p {
     display: block;
 }
 
-#slide-3 .homepage-button-cta {
+#slide-1 .homepage-button-cta {
     font-style: normal;
     margin-left: 12px;
 }
@@ -4107,21 +4108,26 @@ ul.homepage-content-worksgreat-list ul {
     .homepage-banner {
         height: 300px;
     }
-    #slide-1 .homepage-hero-banner--copy .hompage-hero-banner-intro {
-        font-size: 18px;
+    #slide-3 .homepage-hero-banner--copy .hompage-hero-banner-intro {
+        font-size: 20px;
     }
     #slide-1 .homepage-hero-banner--copy {
         font-size: 18px;
         margin: 45px 0 0 0;
         width: 310px;
     }
+    #slide-1 .homepage-hero-banner--copy .homepage-hero-caps {
+        font-size: 20px
+    }
     #slide-3 .homepage-hero-banner--copy {
         font-size: 22px;
         margin: 45px 0 0 0;
         width: 310px;
+        line-height: normal;
     }
-    #slide-3 .homepage-hero-banner-copy--image {
-        width: 130px !important;
+    #slide-3 .homepage-hero-banner-copy--image,
+    #slide-1 .homepage-hero-banner-copy--image {
+        width: 120px !important;
     }
     #slide-3 .homepage-button-cta {
         margin-top: 10px;
@@ -4218,7 +4224,8 @@ ul.homepage-content-worksgreat-list ul {
         background-size: auto 100%;
     }
     #slide-1 .homepage-hero-banner--copy,
-    #slide-3 .homepage-hero-banner--copy {
+    #slide-3 .homepage-hero-banner--copy,
+    #slide-2 .homepage-hero-banner--copy {
         background: rgba(255,255,255, 0.8);
         margin-top: 28px;
         padding: 20px;

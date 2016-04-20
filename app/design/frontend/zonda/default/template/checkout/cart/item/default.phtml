@@ -323,3 +323,23 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 <?php endif; ?>
 <td class="a-center rm-td for-desktop"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove"><i class="icon-remove">&nbsp;</i></a></td>
 </tr>
+
+<script type="text/javascript">
+    if(typeof optimizely !== 'undefined') {
+        /* _optimizely_evaluate=force */
+        if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "Original") {
+            console.log('Original');
+        }
+        else if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "novalue") {
+            console.log('novalue');
+            jQuery(".ampromo-price").hide();
+            jQuery(".free-price").hide();
+        } else {
+            console.log('test with value');
+        }
+        /* _optimizely_evaluate=safe */
+        //...OR...
+        /* _optimizely_evaluate=safe */
+    }
+    jQuery(".free-price").hide();
+</script>

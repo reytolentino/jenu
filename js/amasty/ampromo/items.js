@@ -59,7 +59,7 @@ function ampromo_init()
                 'ampromo-carousel-wrapper',
                 $$('#ampromo-carousel-content .slide'),
                 $$('.ampromo-carousel-control'), {
-                    visibleSlides: 2,
+                    visibleSlides: 3,
                     controlClassName: 'ampromo-carousel-control'
                 }
             );

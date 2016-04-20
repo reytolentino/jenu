@@ -111,7 +111,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                         <?php $_price = $_item->getProduct()->getPrice(); ?>
                         <?php $_finalPrice = $_item->getCalculationPrice(); ?>
                         <?php if ($_price > $_finalPrice): ?>
-                            <p class="old-price">
+                            <p class="<?php if ($_finalPrice == 0.00){echo 'free-price ';} ?>old-price">
                                 <?php echo $this->helper('checkout')->formatPrice($_item->getProduct()->getPrice()); ?>
                             </p>
                         <?php

@@ -105,22 +105,24 @@ $products = $this->getNewItems();
     </div>
 
     <script type="text/javascript">
-        if(typeof optimizely !== 'undefined') {
-            /* _optimizely_evaluate=force */
-            if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "Original") {
-                console.log('Original');
+        jQuery(document).ready(function() {
+            if(typeof optimizely !== 'undefined') {
+                /* _optimizely_evaluate=force */
+                if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "Original") {
+                    console.log('Original');
+                }
+                else if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "novalue") {
+                    console.log('novalue');
+                    jQuery(".ampromo-price").hide();
+                    jQuery(".free-price").hide();
+                } else {
+                    console.log('test with value');
+                }
+                /* _optimizely_evaluate=safe */
+                //...OR...
+                /* _optimizely_evaluate=safe */
             }
-            else if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "novalue") {
-                console.log('novalue');
-                jQuery(".ampromo-price").hide();
-                jQuery(".free-price").hide();
-            } else {
-                console.log('test with value');
-            }
-            /* _optimizely_evaluate=safe */
-            //...OR...
-            /* _optimizely_evaluate=safe */
-        }
+        });
     </script>
 
 <?php endif ?>

@@ -121,6 +121,9 @@
                 <label>Page Footer Banner</label>
             </block>
             <action method="unsetChild"><name>store_switcher</name></action>
+            <block type="cms/block" name="exit-popup">
+                <action method="setBlockId"><block_id>exit-popup</block_id></action>
+            </block>
         </reference>
 
         <!-- remove unnecessary blocks -->
@@ -165,6 +168,7 @@
         <reference name="footer">
             <action method="unsetChild" ifconfig="zonda_setting/twitter/show_in_bottom"><name>social_twitter_tweets_footer</name></action>
             <action method="insert" ifconfig="zonda_setting/twitter/show_in_bottom"><name>social_twitter_tweets</name></action>
+            <remove name="exit-popup"/>
         </reference>
 	</cms_index_index>
     <cms_page translate="label">

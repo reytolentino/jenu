@@ -1661,17 +1661,19 @@ p.olay-disclaimer {
         height: 40px;
     }
     #buybar.mobile-buybar {
-        background-color:rgba(0, 0, 0, 0.6);
+        background-color: rgba(233,221,216,0.8);
         height: 40px;
         z-index: 9;
         font-weight: 300;
+        color: #000;
     }
 
     #buybar.mobile-buybar .buybar-lto {
         font-size: 13px;
-        font-weight: 400;
+        font-weight: 300;
         height: 40px;
         line-height: 40px;
+        color: #000;
     }
 
     #buybar.mobile-buybar .buybar-button {
@@ -1798,7 +1800,7 @@ p.olay-disclaimer {
     }
 
     .droz-gold .droz-wrap .droz-hero-mobile .product-highlights h1 .hlight {
-        color:#d19a8c;
+        color:#b37c6e;
     }
 
     .droz-hero-mobile .product-highlights .ratings .amount a {
@@ -1840,7 +1842,7 @@ p.olay-disclaimer {
     }
     .droz-gold .mobile-product-cta.product-cta h2 {
         font-size: 13px;
-        color: #d19a8c;
+        color: #b37c6e;
     }
     .droz-gold .mobile-product-cta.product-cta h2 .new {
         color: #000;

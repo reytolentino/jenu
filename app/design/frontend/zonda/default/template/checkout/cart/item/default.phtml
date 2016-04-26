@@ -63,6 +63,13 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     }
 
 **/
+
+    $productid = $_item->getProductId();
+
+    if($productid == "46" || $productid == "45"){
+        echo '<p class="item-msg red">Expected ship date: Monday, 5/2</p>';
+    }
+
     ?>
 
     <?php /*End item added to cart custom content */ ?>

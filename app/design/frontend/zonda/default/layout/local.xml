@@ -380,6 +380,7 @@
                         <label>Review Form Fields Before</label>
                         <action method="setMayBeInvisible"><value>1</value></action>
                     </block>
+                    <block type="studioforty9_recaptcha/explicit" name="studioforty9.recaptcha.explicit" template="studioforty9/recaptcha/explicit.phtml"/>
                 </block>
             </block>
             <action method="insert">

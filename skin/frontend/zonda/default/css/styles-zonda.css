@@ -3211,6 +3211,9 @@ div.cart-empty {
   width: 49%;
   float: left;
 }
+.contacts-index-index .recaptcha {
+    margin-top: 10px;
+}
 .contacts-index-index .content-right {
   width: 49%;
   float: right;

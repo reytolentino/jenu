@@ -26,6 +26,8 @@
         </reference>
     </review_product_list>
 
+    <!--
+
     <customer_account_create>
         <reference name="customer_form_register">
             <block type="studioforty9_recaptcha/explicit" name="studioforty9.recaptcha.explicit" template="studioforty9/recaptcha/explicit.phtml"/>
@@ -37,5 +39,7 @@
             <block type="studioforty9_recaptcha/explicit" name="studioforty9.recaptcha.explicit" template="studioforty9/recaptcha/explicit.phtml"/>
         </reference>
     </sendfriend_product_send>
+
+    -->
 
 </layout>

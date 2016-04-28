@@ -796,7 +796,7 @@ button.button span.name {
 }
 .footer-main ul li.phone,
 .footer-main ul li.phone a[href^=tel] {
-    color: #d19a8c;
+    color: #aa8436;
     font-weight: bold;
 }
 .footer-main .privacy-terms {
@@ -1284,7 +1284,7 @@ button.button span.name {
 }
 .ratings .rating-box {
   width: 80px;
-  background: url(../images/bkg-rating-rosegold.png) repeat-x 0 0;
+  background: url(../images/bkg-rating-gold.png) repeat-x 0 0;
   height: 15px;
   line-height: 0;
   overflow: hidden;
@@ -1295,7 +1295,7 @@ button.button span.name {
     background-size: 16px auto;
 }
 .rating-box .rating {
-  background: url(../images/bkg-rating-rosegold.png) repeat-x 0 100%;
+  background: url(../images/bkg-rating-gold.png) repeat-x 0 100%;
   height: 15px;
     background-size: 16px auto;
 }
@@ -1937,7 +1937,7 @@ a.highlight-link {
 
 .product-view .reviews-summary-wrap .rating-box {
     float: right;
-    background: url("../images/bkg-rating-lg-rosegold.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../images/bkg-rating-lg-gold.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
     display: inline-block;
     height: 37px;
     line-height: 0;
@@ -1949,7 +1949,7 @@ a.highlight-link {
 }
 
 .product-view .reviews-summary-wrap .rating-box .rating {
-    background: url("../images/bkg-rating-lg-rosegold.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
+    background: url("../images/bkg-rating-lg-gold.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
     height: 37px;
     background-size: 40px auto;
 }
@@ -2804,7 +2804,7 @@ td.for-desktop {
 .checkout-cart-index .btn-continue, .checkout-cart-index .btn-update {
   background: transparent;
   font-size: 16px;
-  color: #d19a8c;
+  color: #a98236;
   text-transform: none;
 }
 .checkout-cart-index .btn-continue {
@@ -3211,6 +3211,9 @@ div.cart-empty {
   width: 49%;
   float: left;
 }
+.contacts-index-index .recaptcha {
+    margin-top: 10px;
+}
 .contacts-index-index .content-right {
   width: 49%;
   float: right;
@@ -3587,7 +3590,7 @@ div.cart-empty {
 }
 /* new home page */
 .homepage-button-cta {
-    background: #d19a8c;
+    background: #c0a879;
     color: #fff;
     display: inline-block;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3602,7 +3605,7 @@ div.cart-empty {
 }
 
 .homepage-section-lto .homepage-button-cta {
-    background: #d19a8c;
+    background: #c0a879;
 }
 
 .homepage-button-cta:after {
@@ -3618,7 +3621,7 @@ div.cart-empty {
 
 .homepage-button-cta:hover {
     color: #fff;
-    background: #be8677;
+    background: #8d6a26;
     text-decoration: none;
 }
 
@@ -3768,20 +3771,20 @@ div.cart-empty {
 
 #slide-1 .homepage-button-cta,
 #slide-2 .homepage-button-cta {
-    background: #222;
+    background: #a98236;
 }
 
 #slide-1 .homepage-button-cta:hover,
 #slide-2 .homepage-button-cta:hover {
-    background: #000;
+    background: #8d6a26;
 }
 
 #slide-3 .homepage-button-cta {
-    background: #222;
+    background: #6197c9;
 }
 
 #slide-3 .homepage-button-cta:hover {
-    background: #000;
+    background: #3d71a1;
 }
 
 .homepage-hero-banner--copy p {
@@ -3914,7 +3917,7 @@ ul.homepage-content-worksgreat-list ul {
 }
 
 .homepage-content-worksgreat-list ul li:before {
-    color: #d19a8c;
+    color: #a98236;
     content: "+";
     font-weight: 600;
     height: 28px;
@@ -3957,7 +3960,7 @@ ul.homepage-content-worksgreat-list ul {
 }
 
 .homepage-section-lto-content .homepage-heading h3 .special {
-    color: #d19a8c;
+    color: #c0a879;
 }
 
 .homepage-section-lto-content p {
@@ -4396,7 +4399,7 @@ ul.homepage-content-worksgreat-list ul {
   display: block;
   width: 49px;
   height: 49px;
-  background: url(../images/backtotop-rosegold.png) no-repeat left top;
+  background: url(../images/backtotop-gold.png) no-repeat left top;
   background-size: auto 49px;
   text-indent: -999em;
 }
@@ -5158,7 +5161,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     overflow: hidden;
 }
 .catalog-product-view #affirm-learn-more span {
-    color:#d19a8c;
+    color:#a98236;
 }
 .catalog-product-view #affirm-learn-more .affirm-logo {
     width: auto;
@@ -5190,7 +5193,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .cms-wrapper a {
-    color: #d19a8c;
+    color: #a98236;
     outline: none;
 }
 
@@ -5236,14 +5239,14 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .refurbished-faqs-container .refurb-cta .button {
     background-color: #fff;
-    border: 1px solid #d19a8c;
+    border: 1px solid #c0a879;
     padding: 0 24px;
     margin-top: 12px;
     color: #333;
 }
 
 .refurbished-faqs-container .refurb-cta .button:hover {
-    background: #d19a8c;
+    background: #c0a879;
     color: #fff;
 }
 
@@ -6371,7 +6374,7 @@ h2.jenu-howitworks-header-h2 strong {
   overflow: hidden;
 }
 .jenu-howitworks-body-features .howitworks-blue-plus {
-  color: #d19a8c;
+  color: #a98236;
 }
 .howitworks-bottomcopy {
     font-size: 14px;
@@ -6613,7 +6616,7 @@ h2.jenu-howitworks-header-h2 strong {
 .cms-international-ordering-and-shipping .cslinks-left .cslinks li.international-ordering-and-shipping a,
 .cms-privacy-policy .cslinks-left .cslinks li.privacy-policy a,
 .cms-terms-and-conditions .cslinks-left .cslinks li.terms-and-conditions a {
-    color: #d19a8c;
+    color: #a98236;
 }
 
 .cms-faqs .cslinks-left .cslinks li.faqs a:hover,
@@ -7195,7 +7198,7 @@ h2.jenu-howitworks-header-h2 strong {
     margin-right: 12px;
 }
 .bizrate-seal {
-    margin-top: 30px;
+    margin-top: 10px;
     float: left;
 }
 .doctor_trusted {

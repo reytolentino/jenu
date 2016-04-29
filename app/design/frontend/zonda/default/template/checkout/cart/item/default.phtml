@@ -19,7 +19,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         if ($b['product']['aspect_ratio'])
             $imgHeight = $imgWidth * $b['product']['image_ratio'];
         ?>
-        <img src="<?php echo $zonda->getImage($this->getProduct(), $imgWidth, $imgHeight, 'thumbnail'); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" />
+        <img src="<?php echo $this->getProductThumbnail()->resize(180); ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
         <?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
 <td class="a-left product-name-td">
     <h2 class="product-name">

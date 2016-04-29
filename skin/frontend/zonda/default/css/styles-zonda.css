@@ -2544,6 +2544,13 @@ caption, th, td, .data-table th, .data-table td {
 .product-options p.required, .option .required em, .product-options .required em {
   display: none;
 }
+
+
+
+.product-options .required em {
+    display: inline-block;
+    color: red;
+}
 .option label, .product-options dt label {
   text-transform: uppercase;
 }
@@ -4388,7 +4395,7 @@ ul.homepage-content-worksgreat-list ul {
   margin-bottom: 10px;
 }
 .product-view .product-options {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 /*scroll top*/
 

@@ -3699,12 +3699,12 @@ div.cart-empty {
 }
 
 #slide-2 {
-    background: url("../images/homepage-hero-banner-2-desktop2.jpg") no-repeat center bottom #d0b698;
+    background: url("../images/homepage-hero-banner-2-desktop2.jpg") no-repeat center bottom #ffd9cc;
     background-size: auto 100%;
 }
 
 #slide-3 {
-    background: url("../images/homepage-hero-forbes2.jpg") no-repeat center top #abc7d5;
+    background: url("../images/homepage-hero-forbes2.jpg") no-repeat center top #9bb6cc;
     background-size: auto 100%;
 }
 
@@ -5426,7 +5426,7 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 }
 
 .results-section-hero {
-    background: url("../images/results-banner.jpg") no-repeat center #dfd0b3;
+    background: url("../images/results-banner.jpg") no-repeat center #eadec8;
     background-size: auto 100%;
     height: 340px;
     width: 100%;

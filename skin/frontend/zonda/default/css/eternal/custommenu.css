@@ -415,10 +415,14 @@ div.eternal-custom-menu-popup a.level1,
 
 #nav .submega-links a {
     padding: 0;
-    margin-bottom: 16px;
+    margin-top: 16px;
     display: block;
     width: auto;
     clear: both;
+}
+
+#nav .submega-links a:first-child {
+    margin-top: 0;
 }
 
 #nav .submega-links a span {
@@ -474,6 +478,7 @@ div.eternal-custom-menu-popup a.level1,
     width: 265px;
     height: 263px;
     background: url('/skin/frontend/zonda/default/images/header-thumb-wand.jpg') no-repeat top;
+    background-size: 265px auto;
 }
 
 #nav .submega-right.submega-right-shop .submega-right-shop-inner {

@@ -63,6 +63,13 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     }
 
 **/
+
+    $productid = $_item->getProductId();
+
+    if($productid == "46" || $productid == "45"){
+        echo '<p class="item-msg red">Expected ship date: Monday, 5/6</p>';
+    }
+
     ?>
 
     <?php /*End item added to cart custom content */ ?>
@@ -111,7 +118,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                         <?php $_price = $_item->getProduct()->getPrice(); ?>
                         <?php $_finalPrice = $_item->getCalculationPrice(); ?>
                         <?php if ($_price > $_finalPrice): ?>
-                            <p class="old-price">
+                            <p class="<?php if ($_finalPrice == 0.00){echo 'free-price ';} ?>old-price">
                                 <?php echo $this->helper('checkout')->formatPrice($_item->getProduct()->getPrice()); ?>
                             </p>
                         <?php
@@ -323,3 +330,22 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 <?php endif; ?>
 <td class="a-center rm-td for-desktop"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove"><i class="icon-remove">&nbsp;</i></a></td>
 </tr>
+
+<script type="text/javascript">
+    if(typeof optimizely !== 'undefined') {
+        /* _optimizely_evaluate=force */
+        if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "Original") {
+            console.log('Original');
+        }
+        else if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "novalue") {
+            console.log('novalue');
+            jQuery(".ampromo-price").hide();
+            jQuery(".free-price").hide();
+        } else {
+            console.log('test with value');
+        }
+        /* _optimizely_evaluate=safe */
+        //...OR...
+        /* _optimizely_evaluate=safe */
+    }
+</script>

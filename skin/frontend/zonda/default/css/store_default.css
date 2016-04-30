@@ -19,10 +19,10 @@ h6,
     color: #333;
 }
 a {
-    color: #d19a8c;
+    color: #a98236;
 }
 a:hover {
-    color: #be8677;
+    color: #8b651b;
 }
 .button,
 .sbToggle,
@@ -30,14 +30,14 @@ a:hover {
 .pager .pages ol li.current,
 .button-normal {
     display: inline-block;
-    background-color: #222;
+    background-color: #a98236;
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #ffffff;
     font-size: 13px;
     text-transform: uppercase;
 }
 .cms-no-route .main-content .form-search .input-text {
-    border: solid 1px #be8677;
+    border: solid 1px #0067aa;
 }
 .pager .pages ol li a {
     color: #ffffff;
@@ -51,14 +51,14 @@ a:hover {
 .btn-remove2:hover,
 .btn-remove:hover
 {
-    background-color: #000;
+    background-color: #926e28;
     color: #ffffff;
 }
 .button.link-wishlist:hover,
 .button.link-wishlist:focus,
 .button.link-compare:hover,
 .button.link-compare:focus {
-    background-color: #000;
+    background-color: #926e28;
 }
 .pager .pages ol li a:hover,
 .pager .pages ol li a:focus {
@@ -287,7 +287,7 @@ div.menu.active a,
 #blog_nav>li.active>a,
 #blog_nav>li.over>a
 {
-    color: #d19a8c;
+    color: #a98236;
     background-color: #ffffff;
     background-image: none;
 }
@@ -339,7 +339,7 @@ div.eternal-custom-menu-popup a.level1,
 #nav ul li.level1 a,
 #blog_nav ul li.level1 a{
     font-size: 13px;
-    color: #d19a8c;
+    color: #a98236;
 }
 div.eternal-custom-menu-popup a.level2,
 .menu-mobile a.level2,
@@ -362,7 +362,7 @@ div.eternal-custom-menu-popup a.level1:hover,
 .menu-mobile a.level1:hover,
 div.eternal-custom-menu-popup a.level2:hover,
 .menu-mobile a.level2:hover{
-    color: #d19a8c;
+    color: #a98236;
 }
 #menu-button .btn-navbar .icon-bar {
     background-color: #a1abb3;
@@ -467,12 +467,12 @@ div.eternal-custom-menu-popup a.level2:hover,
 }
 .footer-main a:hover,
 .footer-main a:focus {
-    color: #be8677;
+    color: #0067aa;
     padding-left: 5px;
 }
 .footer-top a:hover,
 .footer-top a:focus {
-    color: #be8677;
+    color: #0067aa;
     padding-left: 5px;
 }
 .footer-top .fblike-box a:hover,
@@ -483,11 +483,11 @@ div.eternal-custom-menu-popup a.level2:hover,
 }
 .footer-top #twitter-footer-slider a,
 .footer-main .fblike-box .facebook-like-wrap a {
-    color: #be8677;
+    color: #0067aa;
 }
 .footer-main #twitter-footer-slider a,
 .footer-main .fblike-box .facebook-like-wrap a {
-    color: #be8677;
+    color: #0067aa;
 }
 .footer address{
     font-size: 13px;

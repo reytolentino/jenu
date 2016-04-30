@@ -121,6 +121,9 @@
                 <label>Page Footer Banner</label>
             </block>
             <action method="unsetChild"><name>store_switcher</name></action>
+            <block type="cms/block" name="exit-popup">
+                <action method="setBlockId"><block_id>exit-popup</block_id></action>
+            </block>
         </reference>
 
         <!-- remove unnecessary blocks -->
@@ -158,7 +161,6 @@
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="head">
-            <action method="addItem"><type>js</type><name>eternal/jquery/jquery-2.1.3.min.js</name></action>
             <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/owl.carousel.css</name><params/></action>
         </reference>
@@ -378,6 +380,7 @@
                         <label>Review Form Fields Before</label>
                         <action method="setMayBeInvisible"><value>1</value></action>
                     </block>
+                    <block type="studioforty9_recaptcha/explicit" name="studioforty9.recaptcha.explicit" template="studioforty9/recaptcha/explicit.phtml"/>
                 </block>
             </block>
             <action method="insert">

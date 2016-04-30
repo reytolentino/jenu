@@ -25,10 +25,6 @@ class MD_Reviews_Block_Reviews extends Mage_Core_Block_Template {
             $toolbar->setCollection($reviewesCollection);
 	    $reviewesCollection->addRateVotes();
             $this->setChild('toolbar', $toolbar);
-
         return $this;
     }
-    
-    
-    
 }

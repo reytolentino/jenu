@@ -532,6 +532,7 @@ Product.Config.prototype.configureImage = function(event){
     if($$('body.sm_market').length > 0){
         jQuery('#attribute' + attributeId).trigger("change");
     }
+
 }
 
 Product.Config.prototype.selectImage = function(element)
@@ -885,6 +886,15 @@ Product.Config.prototype.reloadImageBlock = function(url)
                     AmZoomerObj.loadZoom();
                 }
                 jQuery('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
+                /** refresh elastislide thumbnails **/
+                var image_es;
+                if (image_es)
+                    image_es.destroy();
+                image_es = jQuery('.elastislide-list').elastislide({
+                    orientation : 'vertical',
+                    minItems: 4
+                });
+                /** emnd refresh elastislide thumbnails **/
             }
         });
     }

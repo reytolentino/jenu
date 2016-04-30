@@ -93,7 +93,7 @@ hr.amconf-hr{
 .amconf-image-selected
 {
     margin: 0;
-    outline: 3px double #eaff00;
+    border: 2px solid #333;
 }
 
 .amconf-image-outofstock

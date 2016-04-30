@@ -19,10 +19,6 @@
     border-radius: 50%;
 }
 
-em{
-     color:red;
- }
-
 .product-image img#amasty_zoom:nth-child(2){
     display: none;
 } 

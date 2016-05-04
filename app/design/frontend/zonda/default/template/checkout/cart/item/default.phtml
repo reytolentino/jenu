@@ -67,7 +67,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     $productid = $_item->getProductId();
 
     if($productid == "46" || $productid == "45"){
-        echo '<p class="item-msg red">Expected ship date: Monday, 5/6</p>';
+        echo '<p class="item-msg red">Expected ship date: Friday, 5/6</p>';
     }
 
     ?>
@@ -331,6 +331,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 <td class="a-center rm-td for-desktop"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove"><i class="icon-remove">&nbsp;</i></a></td>
 </tr>
 
+<!--
 <script type="text/javascript">
     if(typeof optimizely !== 'undefined') {
         /* _optimizely_evaluate=force */
@@ -349,3 +350,4 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         /* _optimizely_evaluate=safe */
     }
 </script>
+-->

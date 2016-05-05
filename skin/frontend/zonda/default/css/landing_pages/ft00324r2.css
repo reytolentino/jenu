@@ -1,0 +1,52 @@
+.droz-hero {
+    padding-top: 0;
+}
+
+.droz-hero .droz-hero-img {
+    padding-top: 35px;
+}
+
+.droz-hero-right .cta-wrapper {
+    padding-left:0;
+    padding-right: 0;
+}
+
+.cta-colors-label {
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
+    display: block;
+}
+
+.cta-colors,.cta-colors-mobile {
+    margin-bottom: 20px;
+}
+
+.cta-colors a img,
+.cta-colors-mobile a img {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.cta-colors a:hover img,
+.cta-colors a.active img,
+.cta-colors-mobile a:hover img,
+.cta-colors-mobile a.active img {
+    border: 1px solid #000;
+}
+
+.cta-colors-mobile .cta-colors-mobile-box,
+.cta-colors-mobile {
+    padding: 0;
+}
+
+@media(max-width: 991px) {
+    .cta-colors a img,
+    .cta-colors-mobile a img {
+        width: 100%;
+        max-width: 207px;
+    }
+}

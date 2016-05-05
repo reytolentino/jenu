@@ -415,7 +415,7 @@ i.fa {
     line-height: 26px;
     background: url('/media/landing_pages/droz/bg-buynow-heading.png') repeat-x center;
     background-size: 100% 24px;
-    margin: 20px 0 8px;
+    margin: 20px 0;
 }
 
 .hydrotest.buynow-subheading {

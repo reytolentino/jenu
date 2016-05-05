@@ -62,13 +62,15 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         echo '<p class="item-msg red">Due to high demand, the Microsphere Gel is temporarily on back order. Your entire order won\'t ship until the week of March 21. We apologize for this inconvenience.</p>';
     }
 
-**/
+
 
     $productid = $_item->getProductId();
 
     if($productid == "46" || $productid == "45"){
         echo '<p class="item-msg red">Expected ship date: Friday, 5/6</p>';
     }
+
+ **/
 
     ?>
 

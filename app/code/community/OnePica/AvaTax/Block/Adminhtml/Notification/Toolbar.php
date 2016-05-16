@@ -39,10 +39,16 @@ class OnePica_AvaTax_Block_Adminhtml_Notification_Toolbar extends Mage_Adminhtml
     	$html = '';
     	
     	if(Mage::getStoreConfig('tax/avatax/error_notification_toolbar')) {
-	    	if($count = $this->_getQueuePendingRetryCount()) {
+    		$count = $this->_getQueuePendingRetryCount();
+	    	if ($count) {
 	    		if($count==1) $text = 'There is <strong>' . $count . '</strong> entry in the AvaTax Order Sync Queue that has errored. Syncing is attemped ' . OnePica_AvaTax_Model_Config::QUEUE_ATTEMPT_MAX . ' times before permanently failing.';
 	    		else $text = 'There are <strong>' . $count . '</strong> entries in the AvaTax Order Sync Queue that have errored. Syncing is attemped ' . OnePica_AvaTax_Model_Config::QUEUE_ATTEMPT_MAX . ' times before permanently failing.';
-		        $html = '<div class="notification-global"><span class="f-right">Go to the <a href="' . $this->getUrl('avatax/adminhtml_grid/queue') . '">AvaTax Order Sync Queue</a></span><strong class="label">AvaTax:</strong> ' . $text . '</div>';
+	    		
+	    		$html = '<div class="notification-global">';
+	    		if (Mage::getSingleton('admin/session')->isAllowed('avatax')) { 
+	    			$html .= '<span class="f-right">Go to the <a href="' . $this->getUrl('avatax/adminhtml_grid/queue') . '">AvaTax Order Sync Queue</a></span>';
+	    		}
+	    		$html .= '<strong class="label">AvaTax:</strong> ' . $text . '</div>';
 	    	}
     	}
     	

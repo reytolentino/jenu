@@ -112,7 +112,9 @@ class OnePica_AvaTax_Model_Config extends Varien_Object
 			'GetTaxResult',
 			'TaxLine',
 			'TaxDetail',
-			'PingResult'
+			'PingResult',
+			'TaxOverride',
+			'TaxOverrideType'
 		));	
 	}
 
@@ -143,9 +145,9 @@ class OnePica_AvaTax_Model_Config extends Varien_Object
 	 * - MyERP: the ERP that this connector is for (not always applicable)
 	 * - Majver: version info for the ERP (not always applicable)
 	 * - MinVer: version info for the ERP (not always applicable)
-	 * - MyConnector: Name of the OEM’s connector AND the name of the OEM (company)  *required*
-	 * - Majver: OEM’s connector version *required*
-	 * - MinVer: OEM’s connector version *required*
+	 * - MyConnector: Name of the OEMï¿½s connector AND the name of the OEM (company)  *required*
+	 * - Majver: OEMï¿½s connector version *required*
+	 * - MinVer: OEMï¿½s connector version *required*
 	 * 
 	 * @example Magento,1.4,.0.1,OP_AvaTax by One Pica,2,0.1
 	 * @return string

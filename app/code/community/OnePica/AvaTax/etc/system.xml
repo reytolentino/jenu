@@ -22,7 +22,7 @@
 		<tax>
 			<tab>sales</tab>
 			<groups>
-				<avatax>
+				<avatax translate="label comment">
 					<label>AvaTax</label>
 					<comment><![CDATA[
 						<style type="text/css"> #tax_avatax textarea { height:65px; } #tax_avatax .multiselect { height:155px; } </style>
@@ -74,7 +74,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</license>
-						<company_code translate="label">
+						<company_code translate="label comment">
 							<label>Company Code</label>
 							<comment>Required. Your company code from the dashboard.</comment>
 							<frontend_type>text</frontend_type>
@@ -92,7 +92,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</region_filter_mode>
-                        <region_filter_list translate="label">
+                        <region_filter_list translate="label comment">
                             <label></label>
 							<comment><![CDATA[Select regions to use AvaTax services. Ignored if <em>Filter Requests by Region</em> is set to <em>None</em>.]]></comment>
                             <frontend_type>multiselect</frontend_type>
@@ -128,7 +128,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</log_status>
-						<log_lifetime translate="label">
+						<log_lifetime translate="label comment">
 							<label>Log Entry Lifetime</label>
 							<comment>Required. Days before entries are auto-purged.</comment>
 							<frontend_type>text</frontend_type>
@@ -137,7 +137,7 @@
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
 						</log_lifetime>
-						<queue_success_lifetime translate="label">
+						<queue_success_lifetime translate="label comment">
 							<label>Successful Queue Lifetime</label>
 							<comment>Required. Days before entries are auto-purged.</comment>
 							<frontend_type>text</frontend_type>
@@ -146,7 +146,7 @@
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
 						</queue_success_lifetime>
-						<queue_failed_lifetime translate="label">
+						<queue_failed_lifetime translate="label comment">
 							<label>Failed Queue Lifetime</label>
 							<comment>Required. Days before entries are auto-purged.</comment>
 							<frontend_type>text</frontend_type>
@@ -155,6 +155,17 @@
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
 						</queue_failed_lifetime>
+
+						<log_type_list>
+							<label>Log Type</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>avatax/source_logtype</source_model>
+							<sort_order>125</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</log_type_list>
+
 						<log_export>
 							<label></label>
 							<frontend_model>avatax/adminhtml_system_config_form_field_export</frontend_model>
@@ -172,7 +183,7 @@
 		                    <show_in_website>1</show_in_website>
 		                    <show_in_store>1</show_in_store>
                         </title_data_mapping>
-						<cust_code_format>
+						<cust_code_format translate="label comment">
 							<label>Customer Code Format</label>
 							<comment><![CDATA[Recommended: <code>customer_id</code>]]></comment>
 							<frontend_type>select</frontend_type>
@@ -182,7 +193,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</cust_code_format>
-						<shipping_sku translate="label">
+						<shipping_sku translate="label comment">
 							<label>Shipping Sku</label>
 							<comment>Required. The sku sent to denote shipping costs.</comment>
 							<frontend_type>text</frontend_type>
@@ -191,7 +202,34 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</shipping_sku>
-						<adjustment_positive_sku translate="label">
+						<gw_order_sku translate="label comment">
+							<label>Gift Wrap Order Sku</label>
+							<comment>Required. The sku sent to denote gift wrap order costs.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>215</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</gw_order_sku>
+                                                <gw_items_sku translate="label comment">
+							<label>Gift Wrap Items Sku</label>
+							<comment>Required. The sku sent to denote gift wrap items costs.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>216</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</gw_items_sku>
+                        <gw_printed_card_sku translate="label comment">
+							<label>Gift Wrap Printed Card Sku</label>
+							<comment>Required. The sku sent to denote gift wrap printed card costs.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>217</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</gw_printed_card_sku>
+						<adjustment_positive_sku translate="label comment">
 							<label>Adjustment Refund Sku</label>
 							<comment>Required. The sku sent to denote positive ajustments.</comment>
 							<frontend_type>text</frontend_type>
@@ -200,7 +238,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</adjustment_positive_sku>
-						<adjustment_negative_sku translate="label">
+						<adjustment_negative_sku translate="label comment">
 							<label>Adjustment Fee Sku</label>
 							<comment>Required. The sku sent to denote negative ajustments.</comment>
 							<frontend_type>text</frontend_type>
@@ -209,7 +247,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</adjustment_negative_sku>
-						<sales_person_code translate="label">
+						<sales_person_code translate="label comment">
 							<label>Sales Person Code</label>
 							<comment>Optional. The sales person code for orders.</comment>
 							<frontend_type>text</frontend_type>
@@ -218,7 +256,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</sales_person_code>
-						<location_code translate="label">
+						<location_code translate="label comment">
 							<label>Location Code</label>
 							<comment>Optional. The location code for orders.</comment>
 							<frontend_type>text</frontend_type>
@@ -235,7 +273,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</line_ref1_code>
-						<line_ref2_code translate="label">
+						<line_ref2_code translate="label comment">
 							<label>Reference Code 2</label>
 							<comment>Optional. An attribute code to pass with each product. See product attributes in catalog > attributes.</comment>
 							<frontend_type>text</frontend_type>
@@ -253,17 +291,26 @@
 		                    <show_in_website>1</show_in_website>
 		                    <show_in_store>1</show_in_store>
                         </title_address_validation>
-						<validate_address translate="label">
+						<validate_address translate="label comment">
 							<label>Address Validation</label>
 							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<source_model>avatax/source_addressvalidation</source_model>
 							<comment>Require a validated address from AvaTax to checkout</comment>
-							<sort_order>310</sort_order>
+							<sort_order>301</sort_order>
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</validate_address>
-						<normalize_address translate="label">
+						<validate_address_message translate="label comment">
+							<label>Multi-Address Address Validation Error</label>
+							<comment>Only applies if address validation is enabled and shows ONLY for the multi-address checkout</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>331</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</validate_address_message>
+						<normalize_address translate="label comment">
 							<label>Address Normalization</label>
 							<frontend_type>select</frontend_type>
 							<source_model>adminhtml/system_config_source_enabledisable</source_model>
@@ -273,7 +320,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</normalize_address>
-						<onepage_normalize_message translate="label">
+						<onepage_normalize_message translate="label comment">
 							<label>Onepage Checkout Address Normalized Notice</label>
 							<comment>Only applies if address normalization is enabled</comment>
 							<frontend_type>textarea</frontend_type>
@@ -282,6 +329,42 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</onepage_normalize_message>
+						<multiaddress_normalize_message translate="label comment">
+							<label>Multi-Address Checkout Address Normalized Notice</label>
+							<comment>Only applies if address normalization is enabled</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>330</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</multiaddress_normalize_message>
+
+						<title_request_settings translate="label">
+							<label><![CDATA[<strong>Request Settings</strong>]]></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>340</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+						</title_request_settings>
+						<field_required_list>
+							<label>Required Fileds</label>
+                        	<frontend_type>multiselect</frontend_type>
+                            <source_model>avatax/source_fieldlist</source_model>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       	</field_required_list>
+						<field_rule>
+							<label>Field Rule</label>
+							<comment>Example: ' ,-,_'</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>360</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</field_rule>
 
 						<title_error_handling translate="label">
                             <label><![CDATA[<strong>Error Handling</strong>]]></label>
@@ -316,7 +399,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</error_backend_message>
-						<error_notification_toolbar translate="label">
+						<error_notification_toolbar translate="label comment">
 							<label>Notification Toolbar</label>
 							<frontend_type>select</frontend_type>
 							<source_model>adminhtml/system_config_source_enabledisable</source_model>
@@ -386,10 +469,10 @@
 				</calculation>
 				<defaults>
 					<fields>
-						<region>
+						<region translate="comment">
 							<comment>Set this to "*" (asterisk) to stop unneeded requests to Avalara and to help speed up page loads</comment>
 						</region>
-						<postcode>
+						<postcode translate="comment">
 							<comment>Set this to "*" (asterisk) to stop unneeded requests to Avalara and to help speed up page loads</comment>
 						</postcode>
 					</fields>

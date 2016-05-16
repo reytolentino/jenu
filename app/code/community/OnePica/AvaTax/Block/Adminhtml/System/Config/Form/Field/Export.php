@@ -24,12 +24,12 @@ class OnePica_AvaTax_Block_Adminhtml_System_Config_Form_Field_Export extends Mag
         );
 
         $data1 = array(
-            'label'     => Mage::helper('adminhtml')->__('Export Logs'),
+            'label'     => Mage::helper('avatax')->__('Export Logs'),
             'onclick'   => 'setLocation(\''.Mage::helper('adminhtml')->getUrl("avatax/adminhtml_export/log", $params) . '\')',
             'class'     => '',
         );
         $data2 = array(
-            'label'     => Mage::helper('adminhtml')->__('Export Queue'),
+            'label'     => Mage::helper('avatax')->__('Export Queue'),
             'onclick'   => 'setLocation(\''.Mage::helper('adminhtml')->getUrl("avatax/adminhtml_export/queue", $params) . '\')',
             'class'     => '',
         );

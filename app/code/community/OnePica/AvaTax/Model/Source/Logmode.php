@@ -32,13 +32,13 @@ class OnePica_AvaTax_Model_Source_Logmode
         return array(
             array(
             	'value' => self::ERRORS,
-            	'label' => 'Log only errors'),
+            	'label' => Mage::helper('avatax')->__('Log only errors')),
 			array(
 				'value' => self::NORMAL,
-				'label' => 'Log all actions (recommended)'),
+				'label' => Mage::helper('avatax')->__('Log all actions (recommended)')),
 			array(
 				'value' => self::DEBUG,
-				'label' => 'Log all actions with trace (debug mode)')
+				'label' => Mage::helper('avatax')->__('Log all actions with trace (debug mode)'))
         );
     }
 }

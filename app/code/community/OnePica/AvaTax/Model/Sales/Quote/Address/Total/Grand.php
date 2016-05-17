@@ -31,7 +31,7 @@ class OnePica_AvaTax_Model_Sales_Quote_Address_Total_Grand extends Mage_Sales_Mo
         $grandTotal     = $address->getGrandTotal();
         parent::collect($address);
         
-        if(Mage::helper('avatax')->isAddressActionable($address->getQuote()->getShippingAddress(), $address->getQuote()->getStoreId())) {
+        if(Mage::helper('avatax')->isAddressActionable($address, $address->getQuote()->getStoreId())) {
 	        if($address->getGrandTotal() == $grandTotal) {
 	        	$address->setGrandTotal($address->getGrandTotal() + $address->getTaxAmount());
 	        	$address->setBaseGrandTotal($address->getBaseGrandTotal() + $address->getBaseTaxAmount());

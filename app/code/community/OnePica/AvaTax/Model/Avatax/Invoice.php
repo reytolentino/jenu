@@ -40,9 +40,12 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 	 * @param Mage_Sales_Model_Order_Invoice $invoice
 	 * @return array
 	 */
-	public function invoice($invoice) {
+	public function invoice($invoice, $queue) {
 		$order = $invoice->getOrder();
-		
+		$invoiceDate = $order->getInvoiceCollection()->getFirstItem()->getCreatedAt();
+		$orderDate = $order->getCreatedAt();
+		$statusDate = $queue->getUpdatedAt();
+
 		$shippingAddress = ($order->getShippingAddress()) ? $order->getShippingAddress() : $order->getBillingAddress();
 		if(!$shippingAddress) {
 			throw new Exception($this->__('There is no address attached to this order'));
@@ -54,9 +57,18 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 
         $this->_addGeneralInfo($order);
         $this->_addShipping($invoice);
+		//Added code for calculating tax for giftwrap items
+        $this->_addGwOrderAmount($invoice);
+        $this->_addGwItemsAmount($invoice);
+        $this->_addGwPrintedCardAmount($invoice);
+		
 		$this->_setOriginAddress($order->getStoreId());
 		$this->_setDestinationAddress($shippingAddress);
-        $this->_request->setPaymentDate(date('Y-m-d'));
+        //$this->_request->setPaymentDate(date('Y-m-d'));
+		$this->_request->setDocDate(substr($invoiceDate, 0, 10));
+		$this->_request->setPaymentDate(substr($invoiceDate, 0, 10));
+		$this->_request->setTaxDate(substr($orderDate, 0, 10));
+		$this->_request->setStatusDate(substr($statusDate, 0, 10));
     	
 		$configAction = Mage::getStoreConfig('tax/avatax/action', $order->getStoreId());
 		$commitAction = OnePica_AvaTax_Model_Config::ACTION_CALC_SUBMIT_COMMIT;
@@ -75,8 +87,8 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 			$message = Mage::helper('avatax')->__('Invoice #%s was saved to AvaTax', $result->getDocCode());
 			$this->_addStatusHistoryComment($order, $message);
 			
-			if($result->getTotalTax() != $invoice->getTaxAmount()) {
-				throw new OnePica_AvaTax_Model_Avatax_Exception_Unbalanced('Collected: ' . $invoice->getTaxAmount() . ', Actual: ' . $result->getTotalTax());
+			if($result->getTotalTax() != $invoice->getBaseTaxAmount()) {
+				throw new OnePica_AvaTax_Model_Avatax_Exception_Unbalanced('Collected: ' . $invoice->getBaseTaxAmount() . ', Actual: ' . $result->getTotalTax());
 			}
 		
 		//if not successful
@@ -95,8 +107,11 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 	 * @see OnePica_AvaTax_Model_Observer::salesOrderPlaceAfter()
 	 * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
 	 */
-	public function creditmemo($creditmemo) {
+	public function creditmemo($creditmemo, $queue) {
 		$order = $creditmemo->getOrder();
+		$orderDate = $order->getCreatedAt(); 
+		$statusDate = $queue->getUpdatedAt();
+		$creditmemoDate = $order->getCreditmemosCollection()->getFirstItem()->getCreatedAt();
 		
 		$shippingAddress = ($order->getShippingAddress()) ? $order->getShippingAddress() : $order->getBillingAddress();
 		if(!$shippingAddress) {
@@ -109,12 +124,28 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
         
         $this->_addGeneralInfo($order);
         $this->_addShipping($creditmemo, true);
+		//Added code for calculating tax for giftwrap items
+        $this->_addGwOrderAmount($creditmemo);
+        $this->_addGwItemsAmount($creditmemo);
+        $this->_addGwPrintedCardAmount($creditmemo);
+		
         $this->_addAdjustments($creditmemo->getAdjustmentPositive(), $creditmemo->getAdjustmentNegative());
 		$this->_setOriginAddress($order->getStoreId());
 		$this->_setDestinationAddress($shippingAddress);
 		
-		$invoiceDate = $order->getInvoiceCollection()->getFirstItem()->getCreatedAt();
-        $this->_request->setDocDate(substr($invoiceDate, 0, 10));
+		// Set the tax date for calculation.
+		//$invoiceDate = $order->getInvoiceCollection()->getFirstItem()->getCreatedAt();
+		$override = new TaxOverride();
+		//$override->setTaxDate(substr($invoiceDate, 0, 10));
+		$override->setTaxDate(substr($orderDate, 0, 10));
+		$override->setTaxOverrideType(TaxOverrideType::$TaxDate);
+		$override->setReason('Credit memo - refund');
+		$this->_request->setTaxOverride($override);
+
+		$this->_request->setDocDate(substr($creditmemoDate, 0, 10));
+		$this->_request->setPaymentDate(substr($creditmemoDate, 0, 10));
+		$this->_request->setTaxDate(substr($orderDate, 0, 10));
+		$this->_request->setStatusDate(substr($statusDate, 0, 10));
 		
 		$configAction = Mage::getStoreConfig('tax/avatax/action', $order->getStoreId());
 		$commitAction = OnePica_AvaTax_Model_Config::ACTION_CALC_SUBMIT_COMMIT;
@@ -154,7 +185,7 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 	 * @return int
 	 */
 	protected function _addShipping($object, $credit=false) {
-		if($object->getShippingAmount() == 0) {
+		if($object->getBaseShippingAmount() == 0) {
 			return false;
 		}
 		
@@ -162,7 +193,7 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
     	$storeId = Mage::app()->getStore()->getId();
     	$taxClass = Mage::helper('tax')->getShippingTaxClass($storeId);
     	
-    	$amount = $object->getShippingAmount();
+    	$amount = $object->getBaseShippingAmount();
     	if($credit) $amount *= -1;
 		
 		$line = new Line();
@@ -179,6 +210,139 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
     	$this->_request->setLines($this->_lines);
     	return $lineNumber;
 	}
+	
+	/**
+	 * Adds giftwraporder cost to request as item
+	 *
+	 * @param int $shippingAmount
+	 * @return int
+	 */
+	protected function _addGwOrderAmount($object, $credit=false) {
+		if($object->getGwPrice() == 0) {
+			return false;
+		}
+		
+		$lineNumber = count($this->_lines);
+    	$storeId = Mage::app()->getStore()->getId();
+    	$taxClass = Mage::helper('tax')->getShippingTaxClass($storeId);
+    	
+    	$amount = $object->getGwBasePrice();
+    	if($credit) $amount *= -1;
+		
+		$line = new Line();
+		$line->setNo($lineNumber);
+        $line->setItemCode(Mage::helper('avatax')->getGwOrderSku($storeId));
+        $line->setDescription('Gift Wrap Order Amount');
+        $line->setTaxCode('');
+        $line->setQty(1);
+        $line->setAmount($amount);
+        $line->setDiscounted(false);
+        
+        $this->_lineToItemId[$lineNumber] = Mage::helper('avatax')->getGwOrderSku($storeId);
+        $this->_lines[$lineNumber] = $line;
+    	$this->_request->setLines($this->_lines);
+    	return $lineNumber;
+	}
+	
+	/**
+	 * Adds giftwrapitems cost to request as item
+	 *
+	 * @param int $shippingAmount
+	 * @return int
+	 */
+	protected function _addGwItemsAmount($object, $credit=false) {
+		if($object->getGwItemsPrice() == 0) {
+			return false;
+		}
+		
+		$lineNumber = count($this->_lines);
+    	$storeId = Mage::app()->getStore()->getId();
+    	
+    	$amount = $object->getGwItemsBasePrice();
+    	if($credit) $amount *= -1;
+		
+		$line = new Line();
+		$line->setNo($lineNumber);
+        $line->setItemCode(Mage::helper('avatax')->getGwItemsSku($storeId));
+        $line->setDescription('Gift Wrap Items Amount');
+        $line->setTaxCode('');
+        $line->setQty(1);
+        $line->setAmount($amount);
+        $line->setDiscounted(false);
+        
+        $this->_lineToItemId[$lineNumber] = Mage::helper('avatax')->getGwItemsSku($storeId);
+        $this->_lines[$lineNumber] = $line;
+    	$this->_request->setLines($this->_lines);
+    	return $lineNumber;
+	}
+	
+	/**
+	 * Adds giftwrap printed card cost to request as item
+	 *
+	 * @param int $shippingAmount
+	 * @return int
+	 */
+	protected function _addGwPrintedCardAmount($object, $credit=false) {
+		if($object->getGwPrintedCardSku() == 0) {
+			return false;
+		}
+		
+		$lineNumber = count($this->_lines);
+    	$storeId = Mage::app()->getStore()->getId();
+   	
+    	$amount = $object->getGwPrintedCardBasePrice();
+    	if($credit) $amount *= -1;
+		
+		$line = new Line();
+		$line->setNo($lineNumber);
+        $line->setItemCode(Mage::helper('avatax')->getGwPrintedCardSku($storeId));
+        $line->setDescription('Gift Wrap Printed Card Amount');
+        $line->setTaxCode('');
+        $line->setQty(1);
+        $line->setAmount($amount);
+        $line->setDiscounted(false);
+        
+        $this->_lineToItemId[$lineNumber] = Mage::helper('avatax')->getGwPrintedCardSku($storeId);
+        $this->_lines[$lineNumber] = $line;
+    	$this->_request->setLines($this->_lines);
+    	return $lineNumber;
+	}
+        
+        /**
+	 * Adds shipping cost to request as item
+	 * 
+	 * Not used...?
+	 *
+	 * @param int $shippingAmount
+	 * @return int
+	 */
+	/*
+	protected function _addGiftAmount($object, $credit=false) {
+            if($object->getGiftCardsAmount() == 0) {
+                    return false;
+            }
+
+            $lineNumber = count($this->_lines);
+            $storeId = Mage::app()->getStore()->getId();
+
+            $giftAmount = $object->getShippingAmount();
+            if($credit) $amount *= -1;
+            $line = new Line();
+            $line->setNo($lineNumber);
+            $giftSku = Mage::helper('avatax')->getGiftSku($storeId);
+            $line->setItemCode($giftSku ? $giftSku : 'GiftAmount');
+            $line->setDescription('Gift Amount');
+            $line->setTaxCode('');
+            $line->setQty(1);
+            $line->setAmount($giftAmount);
+            $line->setDiscounted(false);
+
+            $this->_lineToItemId[$lineNumber] = Mage::helper('avatax')->getGiftSku($storeId);
+            $this->_lines[$lineNumber] = $line;
+            $this->_request->setLines($this->_lines);
+            return $lineNumber;
+	}
+	*/
 	
 	/**
 	 * Adds adjustments to request as items
@@ -241,7 +405,7 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 			return false;
 		}
 		
-		$price = $item->getRowTotal() - $item->getDiscountAmount();
+		$price = $item->getBaseRowTotal() - $item->getBaseDiscountAmount();
     	if($credit) $price *= -1;
     	
 		$line = new Line();
@@ -250,7 +414,7 @@ class OnePica_AvaTax_Model_Avatax_Invoice extends OnePica_AvaTax_Model_Avatax_Ab
 		$line->setDescription($item->getName());
 		$line->setQty($item->getQty());
 		$line->setAmount($price);
-		$line->setDiscounted($item->getDiscountAmount() ? true : false);
+		$line->setDiscounted($item->getBaseDiscountAmount() ? true : false);
 		
 		$product = Mage::getModel('catalog/product')->load($item->getProductId());
 		$taxClass = Mage::getModel('tax/class')->load($product->getTaxClassId())->getOpAvataxCode();

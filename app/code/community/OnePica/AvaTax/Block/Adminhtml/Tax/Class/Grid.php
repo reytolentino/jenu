@@ -33,7 +33,7 @@ class OnePica_AvaTax_Block_Adminhtml_Tax_Class_Grid extends Mage_Adminhtml_Block
     protected function _prepareColumns() {
         $this->addColumn('op_avatax_code',
             array(
-                'header'    => Mage::helper('tax')->__('AvaTax Code'),
+                'header'    => Mage::helper('avatax')->__('AvaTax Code'),
                 'align'     => 'left',
                 'index'     => 'op_avatax_code',
                 'width'		=> '175px'

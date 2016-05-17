@@ -18,7 +18,7 @@
  *  
  * Copyright (c) 2007, Avalara.  All rights reserved.
  */
- 
+
 class DynamicSoapClient extends SoapClient
 {
     private $config;

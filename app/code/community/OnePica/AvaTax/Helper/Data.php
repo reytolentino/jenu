@@ -20,11 +20,6 @@
  */
 class OnePica_AvaTax_Helper_Data extends Mage_Core_Helper_Abstract 
 {	
-	public function isAvataxEnabled($store = null)
-	{
-		return ($this->_getConfig('action', $store) != OnePica_AvaTax_Model_Config::ACTION_DISABLE);
-	}
-	
 	/**
 	 * Gets the documenation url
 	 *
@@ -112,17 +107,6 @@ class OnePica_AvaTax_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return $this->_getConfig('log_status', $store);
     }
-
-	/**
-	 * Returns the logging type
-	 *
-	 * @return string
-	 */
-    public function getLogType($store=null)
-    {
-        return explode(",", $this->_getConfig('log_type_list', $store));
-    }
-
     
 	/**
 	 * Returns shipping line item faked sku
@@ -132,36 +116,6 @@ class OnePica_AvaTax_Helper_Data extends Mage_Core_Helper_Abstract
     public function getShippingSku($store=null)
     {
         return $this->_getConfig('shipping_sku', $store);
-    }
-	
-	/**
-	 * Returns giftwraporder line item faked sku
-	 *
-	 * @return string
-	 */
-    public function getGwOrderSku($store=null)
-    {
-        return $this->_getConfig('gw_order_sku', $store);
-    }
-    
-    /**
-	 * Returns giftwrapitems line item faked sku
-	 *
-	 * @return string
-	 */
-    public function getGwItemsSku($store=null)
-    {
-        return $this->_getConfig('gw_items_sku', $store);
-    }
-    
-        /**
-	 * Returns giftwrapprintedcard line item faked sku
-	 *
-	 * @return string
-	 */
-    public function getGwPrintedCardSku($store=null)
-    {
-        return $this->_getConfig('gw_printed_card_sku', $store);
     }
     
 	/**
@@ -223,27 +177,6 @@ class OnePica_AvaTax_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return $this->_getConfig('adjustment_negative_sku', $store);
     }
-
-	/**
-	 * Returns the required field list
-	 *
-	 * @return string
-	 */
-    public function getFieldRequiredList($store=null)
-    {
-        return $this->_getConfig('field_required_list', $store);
-    }
-
-	/**
-	 * Returns the rules for field
-	 *
-	 * @return string
-	 */
-    public function getFieldRule($store=null)
-    {
-        return $this->_getConfig('field_rule', $store);
-    }
-
     
 	/**
 	 * 
@@ -353,12 +286,12 @@ class OnePica_AvaTax_Helper_Data extends Mage_Core_Helper_Abstract
 	    		$filter = 'region';
 	    	}
     	}
-			
+	    	
     	$countryFilters = explode(',', Mage::getStoreConfig('tax/avatax/country_filter_list', $storeId));
     	if(!in_array($address->getCountryId(), $countryFilters)) {
     		$filter = 'country';
     	}
-   		
+    	
 		if($filter && $this->getLogMode($storeId)) {
 			$filterLog = Mage::getSingleton('avatax/session')->getFilterLog();
 			if(!is_array($filterLog)) $filterLog = array();

@@ -49,13 +49,10 @@ class GetTaxRequest
     private $ExchangeRate;		//decimal
     private $ExchangeRateEffDate;	//date
 
-
 	//@author: Rapshtynska Svitlana
 	//Added new properties
 	private $TaxDate;			//date
 	private $StatusDate;		//date
-    
-    
     
 
 	public function __construct()
@@ -258,17 +255,17 @@ class GetTaxRequest
      * </p>
      * <p>
      * The standard values for the CustomerUsageType (A-L).<br/>
-        A – Federal Government<br/>
-        B – State/Local Govt.<br/>
-        C – Tribal Government<br/>
-        D – Foreign Diplomat<br/>
-        E – Charitable Organization<br/>
-        F – Religious/Education<br/>
-        G – Resale<br/>
-        H – Agricultural Production<br/>
-        I – Industrial Prod/Mfg.<br/>
-        J – Direct Pay Permit<br/>
-        K – Direct Mail<br/>
+        A ï¿½ Federal Government<br/>
+        B ï¿½ State/Local Govt.<br/>
+        C ï¿½ Tribal Government<br/>
+        D ï¿½ Foreign Diplomat<br/>
+        E ï¿½ Charitable Organization<br/>
+        F ï¿½ Religious/Education<br/>
+        G ï¿½ Resale<br/>
+        H ï¿½ Agricultural Production<br/>
+        I ï¿½ Industrial Prod/Mfg.<br/>
+        J ï¿½ Direct Pay Permit<br/>
+        K ï¿½ Direct Mail<br/>
         L - Other<br/>
      * </p>
      * @param customerUsageType
@@ -401,7 +398,6 @@ class GetTaxRequest
 	 */
 	public function setExchangeRateEffDate($value){ $this->ExchangeRateEffDate = $value; return $this; }	//date
 	
-	
 	/**
 	 *TaxOverride for the document. 
 	 *
@@ -415,23 +411,20 @@ class GetTaxRequest
 		$this->ReferenceCode=$value;
 	}
 
-
 	//@author: Rapshtynska Svitlana
 	/**
-	 * TaxDate should be in the format yyyy-mm-dd 
+	 * TaxDate should be in the format yyyy-mm-dd
 	 *
-	 * @param date $value	 
+	 * @param date $value
 	 */
-    public function setTaxDate($value) { $this->TaxDate = $value; return $this; }				//date
+	public function setTaxDate($value) { $this->TaxDate = $value; return $this; }				//date
 
 	/**
-	 * StatusDate should be in the format yyyy-mm-dd 
+	 * StatusDate should be in the format yyyy-mm-dd
 	 *
-	 * @param date $value	 
+	 * @param date $value
 	 */
-    public function setStatusDate($value) { $this->StatusDate = $value; return $this; }				//date
-
-
+	public function setStatusDate($value) { $this->StatusDate = $value; return $this; }				//date
 
 /**#@+
  * Accessor
@@ -516,13 +509,13 @@ class GetTaxRequest
 			}
 		}
 	}
-
-	//@author: Rapshtynska Svitlana
-	public function getTaxDate()  { return $this->TaxDate; }		//date	
-	public function getStatusDate()  { return $this->StatusDate; }		//date	
 	
 	
 /**#@-*/
+
+	//@author: Rapshtynska Svitlana
+	public function getTaxDate()  { return $this->TaxDate; }		//date
+	public function getStatusDate()  { return $this->StatusDate; }		//date
 	
 
 	

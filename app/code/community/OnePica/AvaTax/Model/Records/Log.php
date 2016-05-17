@@ -18,10 +18,6 @@
 
 class OnePica_AvaTax_Model_Records_Log extends Mage_Core_Model_Abstract
 {
-
-	const LOG_LEVEL_SUCCESS = 'Success';
-	const LOG_LEVEL_ERROR	= 'Error';
-
 	public function _construct()
 	{
 		parent::_construct();
@@ -36,20 +32,4 @@ class OnePica_AvaTax_Model_Records_Log extends Mage_Core_Model_Abstract
 		return $this;
 	}
 
-	public function getTypeOptions() {
-		$storeId = Mage::app()->getStore()->getId();
-		$types = Mage::helper('avatax')->getLogType($storeId);
-		foreach ($types as $key => $value)
-		{
-			$result[$value] = $value;
-		}
-		return $result;
-    }
-
-	public function getLevelOptions() {
-		return array(
-			self::LOG_LEVEL_SUCCESS		=> self::LOG_LEVEL_SUCCESS,
-			self::LOG_LEVEL_ERROR		=> self::LOG_LEVEL_ERROR
-  	 	);
-	}
 }

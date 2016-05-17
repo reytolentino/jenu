@@ -36,23 +36,20 @@ class OnePica_AvaTax_Model_Adminhtml_Sales_Order_Create extends Mage_Adminhtml_M
 	public function setShippingAddress($address)
 	{
 		parent::setShippingAddress($address);
-		
-		if (Mage::helper('avatax')->isAvataxEnabled()) {
-			if (!Mage::app()->getFrontController()->getRequest()->getParam('isAjax')) {
-				$result = $this->getShippingAddress()->validate();
-				if ($result !== true) {
-					$storeId = $this->_session->getStore()->getId();
-					if(Mage::helper('avatax')->fullStopOnError($storeId)) {
-						foreach ($result as $error) {
-							$this->getSession()->addError($error);
-						}
-						Mage::throwException('');
+		if (!Mage::app()->getFrontController()->getRequest()->getParam('isAjax')) {
+			$result = $this->getShippingAddress()->validate();
+			if ($result !== true) {
+				$storeId = $this->_session->getStore()->getId();
+				if(Mage::helper('avatax')->fullStopOnError($storeId)) {
+					foreach ($result as $error) {
+						$this->getSession()->addError($error);
 					}
+					Mage::throwException('');
 				}
-				else if ($this->getShippingAddress()->getAddressNormalized() && !$this->_messageAdded) {
-					Mage::getSingleton('avatax/session')->addNotice(Mage::helper('avatax')->__('The shipping address has been modified during the validation process.  Please confirm the address below is accurate.'));
-					$this->_messageAdded = true;  // only add the message once
-				}
+			}
+			else if ($this->getShippingAddress()->getAddressNormalized() && !$this->_messageAdded) {
+				Mage::getSingleton('avatax/session')->addNotice(Mage::helper('avatax')->__('The shipping address has been modified during the validation process.  Please confirm the address below is accurate.'));
+				$this->_messageAdded = true;  // only add the message once
 			}
 		}
 		return $this;

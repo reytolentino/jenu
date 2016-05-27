@@ -212,5 +212,29 @@ $spanClass = $zonda->getSpanClass();
     $('billing-address-select') && billing.newAddress(!$('billing-address-select').value);
 
     var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
+
+    Billing.prototype.save  = Billing.prototype.save.wrap(function(parentMethod){
+        // call the parent so normale behavior is executed
+        parentMethod();
+
+        //letterpress pixel fire
+
+        window.letterpress('trackUnstructEvent', {
+            schema: 'iglu:com.getletterpress/abandon/jsonschema/1-0-0',
+            data: {
+                name: jQuery('#billing\\:firstname').val() + ' ' +  jQuery('#billing\\:lastname').val(),
+                street: jQuery('#billing\\:street1').val(),
+                street_2: jQuery('#billing\\:street2').val(),
+                zip: jQuery('#billing\\:postcode').val(),
+                city: jQuery('#billing\\:city').val(),
+                state: jQuery('#billing\\:region_id option:selected').text(),
+                country: jQuery('#billing\\:country_id').val(),
+                email: jQuery('#billing\\:email').val()
+            }
+        });
+
+    });
+
+
 //]]>
 </script>

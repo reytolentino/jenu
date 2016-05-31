@@ -71,7 +71,8 @@ class Mirasvit_Email_Model_Observer extends Varien_Object
 
     public function clearOldData()
     {
-        $monthAgo = date('Y-m-d H:i:s', Mage::getSingleton('core/date')->gmtTimestamp() - 30 * 24 * 60 * 60);
+        // changed from a month ago to a year ago 20160531
+        $monthAgo = date('Y-m-d H:i:s', Mage::getSingleton('core/date')->gmtTimestamp() - 365 * 24 * 60 * 60);
 
         # Step 1. Remove old events
         $collection = Mage::getModel('email/event')->getCollection()

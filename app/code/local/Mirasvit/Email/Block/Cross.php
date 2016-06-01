@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Block_Cross extends Mage_Catalog_Block_Product_List
@@ -28,5 +29,22 @@ class Mirasvit_Email_Block_Cross extends Mage_Catalog_Block_Product_List
     public function getItems()
     {
         return $this->_productCollection;
+    }
+
+    protected function _beforeToHtml()
+    {
+        $collection = $this->_getProductCollection();
+        Mage::dispatchEvent('catalog_block_product_list_collection', array(
+            'collection' => $this->_getProductCollection(),
+        ));
+
+        $this->_getProductCollection()->load();
+
+        return parent::_beforeToHtml();
+    }
+
+    public function getShowTemplateHints()
+    {
+        return false;
     }
 }

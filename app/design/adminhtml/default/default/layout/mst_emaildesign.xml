@@ -18,37 +18,37 @@
         </reference>
     </emaildesign_adminhtml>
 
-    <emaildesign_adminhtml_design_new>
+    <adminhtml_emaildesign_design_new>
         <update handle="emaildesign_adminhtml" />
-    </emaildesign_adminhtml_design_new>
+    </adminhtml_emaildesign_design_new>
 
-    <emaildesign_adminhtml_design_edit>
+    <adminhtml_emaildesign_design_edit>
         <update handle="emaildesign_adminhtml" />
-    </emaildesign_adminhtml_design_edit>
+    </adminhtml_emaildesign_design_edit>
 
-    <emaildesign_adminhtml_template_new>
+    <adminhtml_emaildesign_template_new>
         <update handle="emaildesign_adminhtml" />
-    </emaildesign_adminhtml_template_new>
+    </adminhtml_emaildesign_template_new>
 
-    <emaildesign_adminhtml_template_edit>
+    <adminhtml_emaildesign_template_edit>
         <update handle="emaildesign_adminhtml" />
-    </emaildesign_adminhtml_template_edit>
+    </adminhtml_emaildesign_template_edit>
 
-    <emaildesign_adminhtml_design_preview>
+    <adminhtml_emaildesign_design_preview>
         <reference name="root">
             <action method="setTemplate">
                 <template>mst_emaildesign/design/preview.phtml</template>
             </action>
             <block type="adminhtml/newsletter_queue_preview_form" name="preview_form" />
         </reference>
-    </emaildesign_adminhtml_design_preview>
+    </adminhtml_emaildesign_design_preview>
 
-    <emaildesign_adminhtml_template_preview>
+    <adminhtml_emaildesign_template_preview>
         <reference name="root">
             <action method="setTemplate">
                 <template>mst_emaildesign/template/preview.phtml</template>
             </action>
             <block type="adminhtml/newsletter_queue_preview_form" name="preview_form" />
         </reference>
-    </emaildesign_adminhtml_template_preview>
+    </adminhtml_emaildesign_template_preview>
 </layout>

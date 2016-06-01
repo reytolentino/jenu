@@ -9,33 +9,34 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Rule_Condition_Shipping extends Mirasvit_Email_Model_Rule_Condition_Abstract
 {
-	public function loadAttributeOptions()
-	{
-		$attributes = array(
-			'country_id' 	=> Mage::helper('email')->__('Shipping: Country'),
-			'city'			=> Mage::helper('email')->__('Shipping: City'),
-			'region_id'		=> Mage::helper('email')->__('Shipping: State/Province'),
-			'region'		=> Mage::helper('email')->__('Shipping: Region'),
-			'postcode'		=> Mage::helper('email')->__('Shipping: Postcode')
-		);
+    public function loadAttributeOptions()
+    {
+        $attributes = array(
+            'country_id' => Mage::helper('email')->__('Shipping: Country'),
+            'city' => Mage::helper('email')->__('Shipping: City'),
+            'region_id' => Mage::helper('email')->__('Shipping: State/Province'),
+            'region' => Mage::helper('email')->__('Shipping: Region'),
+            'postcode' => Mage::helper('email')->__('Shipping: Postcode'),
+        );
 
-		asort($attributes);
-		$this->setAttributeOption($attributes);
+        asort($attributes);
+        $this->setAttributeOption($attributes);
 
-		return $this;
-	}
+        return $this;
+    }
 
     public function getInputType()
     {
-    	$type = 'string';
+        $type = 'string';
         switch ($this->getAttribute()) {
             case 'country_id':
             case 'region_id':
@@ -48,14 +49,14 @@ class Mirasvit_Email_Model_Rule_Condition_Shipping extends Mirasvit_Email_Model_
 
     public function getValueElementType()
     {
-    	$type = 'text';
+        $type = 'text';
         switch ($this->getAttribute()) {
             case 'country_id':
             case 'region_id':
                 $type = 'select';
                 break;
         }
-        
+
         return $type;
     }
 
@@ -84,24 +85,24 @@ class Mirasvit_Email_Model_Rule_Condition_Shipping extends Mirasvit_Email_Model_
 
     public function validate(Varien_Object $object)
     {
-    	$attrCode = $this->getAttribute();
+        $attrCode = $this->getAttribute();
         $value = null;
 
-    	if ($object->hasData('order_id')) {
-    		$order = Mage::getModel('sales/order')->load($object->getId());
-    		$address = $order->getShippingAddress();
-    	} elseif ($object->hasData('quote_id')) {
-    		$quote = Mage::getModel('sales/quote')->load($object->getQuoteId());
-    		$address = $quote->getShippingAddress();
-    	} elseif ($object->hasData('customer_id')) {
-    		$customer = Mage::getModel('customer/customer')->load($object->getCustomerId());
-    		$address = Mage::getModel('customer/address')->load($customer->getDefaultShipping());
-    	}
+        if ($object->hasData('order_id')) {
+            $order = Mage::getModel('sales/order')->load($object->getOrderId());
+            $address = $order->getShippingAddress();
+        } elseif ($object->hasData('quote_id')) {
+            $quote = Mage::getModel('sales/quote')->load($object->getQuoteId());
+            $address = $quote->getShippingAddress();
+        } elseif ($object->hasData('customer_id')) {
+            $customer = Mage::getModel('customer/customer')->load($object->getCustomerId());
+            $address = Mage::getModel('customer/address')->load($customer->getDefaultShipping());
+        }
 
-        if ($address->getId()) {
+        if (isset($address) && $address && $address->getId()) {
             $value = $address->getData($attrCode);
         }
 
-    	return parent::validateAttribute($value);
+        return parent::validateAttribute($value);
     }
 }

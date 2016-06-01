@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -79,6 +79,8 @@ class Mirasvit_EmailDesign_Helper_Mailchimp extends Mage_Core_Helper_Abstract
         $html = preg_replace('/mc:variant="[^"]*"/', '', $html);
 
         $html = str_replace('%24', '$', $html);
+        $html = str_replace('&lt;', '<', $html);
+        $html = str_replace('&gt;', '>', $html);
         
         return $html;
     }

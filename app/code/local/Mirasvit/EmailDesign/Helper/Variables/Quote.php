@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailDesign_Helper_Variables_Quote
@@ -31,5 +32,26 @@ class Mirasvit_EmailDesign_Helper_Variables_Quote
         $parent->setData('quote', $quote);
 
         return $quote;
+    }
+
+    public function getFirstQuoteItem($parent, $args)
+    {
+        $item = false;
+        if ($parent->getData('first_quote_item')) {
+            return $parent->getData('first_quote_item');
+        } elseif ($quote = $this->getQuote($parent, $args)) {
+            $itemsCollection = $quote->getItemsCollection()
+                ->setOrder('item_id', 'ASC');
+            foreach ($itemsCollection as $item) {
+                if (!$item->isDeleted() && !$item->getParentItemId()) {
+                    $item = $item;
+                    break;
+                }
+            }
+        }
+
+        $parent->setData('first_quote_item', $item);
+
+        return $item;
     }
 }

@@ -9,13 +9,14 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controller_Action
+
+class Mirasvit_Email_Adminhtml_Email_TriggerController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction()
     {
@@ -57,7 +58,6 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
             $this->_initAction();
             $this->_title(Mage::helper('email')->__("Edit Trigger '%s'", $model->getTitle()));
 
-
             $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
 
             $this->_addContent($this->getLayout()->createBlock('email/adminhtml_trigger_edit'))
@@ -85,11 +85,14 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('email')->__('Test email was successfully sent'));
 
                 $this->_redirect('*/*/edit', array('id' => $model->getId()));
+
                 return;
             } elseif ($back == 'generate') {
-                $model->generate(strtotime($data['generate_from']));
+                $model->generate(Mage::app()->getLocale()->date($data['generate_from'])->get(Zend_Date::TIMESTAMP));
+                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Generation of emails started'));
 
                 $this->_redirect('*/*/edit', array('id' => $model->getId()));
+
                 return;
             }
 
@@ -102,6 +105,7 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
 
                 if ($back == 'edit') {
                     $this->_redirect('*/*/edit', array('id' => $model->getId()));
+
                     return;
                 }
 
@@ -139,9 +143,9 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
 
     public function newConditionHtmlAction()
     {
-        $id      = $this->getRequest()->getParam('id');
+        $id = $this->getRequest()->getParam('id');
         $typeArr = explode('|', str_replace('-', '/', $this->getRequest()->getParam('type')));
-        $type    = $typeArr[0];
+        $type = $typeArr[0];
 
         $model = Mage::getModel($type)
             ->setId($id)
@@ -165,14 +169,15 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
     public function massStatusAction()
     {
         $triggerIds = $this->getRequest()->getParam('trigger_id');
-        $status     = $this->getRequest()->getParam('status');
+        $status = $this->getRequest()->getParam('status');
 
         if (!is_array($triggerIds)) {
-             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('email')->__('Please select trigger(s)'));
+            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('email')->__('Please select trigger(s)'));
         } else {
             try {
                 foreach ($triggerIds as $triggerId) {
                     $trigger = Mage::getModel('email/trigger')->load($triggerId);
+                    $trigger->setIsMassAction(true); // Do not save chain if it is a mass action
 
                     $trigger->setIsActive($status)
                         ->save();
@@ -195,7 +200,7 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
         $triggerIds = $this->getRequest()->getParam('trigger_id');
 
         if (!is_array($triggerIds)) {
-             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('email')->__('Please select trigger(s)'));
+            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('email')->__('Please select trigger(s)'));
         } else {
             try {
                 foreach ($triggerIds as $triggerId) {
@@ -219,11 +224,10 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
     public function massSendAction()
     {
         $triggerIds = $this->getRequest()->getParam('trigger_id');
-        $email      = $this->getRequest()->getParam('email');
-
+        $email = $this->getRequest()->getParam('email');
 
         if (!is_array($triggerIds)) {
-             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('email')->__('Please select trigger(s)'));
+            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('email')->__('Please select trigger(s)'));
         } else {
             try {
                 foreach ($triggerIds as $triggerId) {
@@ -260,7 +264,7 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
     protected function _filterPostData($data)
     {
         $data = $this->_filterDateTime($data, array('active_from', 'active_to'));
-        
+
         return $data;
     }
 
@@ -273,8 +277,55 @@ class Mirasvit_Email_Adminhtml_TriggerController extends Mage_Adminhtml_Controll
         }
     }
 
-	protected function _isAllowed()
-	{
-		return Mage::getSingleton('admin/session')->isAllowed('email/email_trigger');
-	}
+    public function subscribeAction()
+    {
+        $id = $this->getRequest()->getParam('id');
+        $unsubscription = Mage::getModel('email/unsubscription')->load($id);
+
+        try {
+            $unsubscription->delete();
+            Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Customer successfully subscribed'));
+        } catch (Exception $e) {
+            Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+        }
+
+        $this->_redirectReferer($this->_getRefererUrl());
+    }
+
+    public function massSubscribeAction()
+    {
+        $ids = $this->getRequest()->getParam('unsubscription_id');
+        if (!is_array($ids)) {
+            Mage::getSingleton('adminhtml/session')->addError($this->__('Please select customers(s)'));
+        } else {
+            try {
+                foreach ($ids as $id) {
+                    $trigger = Mage::getModel('email/unsubscription')->load($id);
+                    $trigger->delete();
+                }
+
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    $this->__('Total of %d customer(s) were subscribed', count($ids))
+                );
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
+
+        $this->_redirectReferer($this->_getRefererUrl());
+    }
+
+    // Used for AJAX loading
+    public function gridAction()
+    {
+        $this->getModel();
+        $this->getResponse()->setBody(
+            $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_subscription')->toHtml()
+        );
+    }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('email/email_trigger');
+    }
 }

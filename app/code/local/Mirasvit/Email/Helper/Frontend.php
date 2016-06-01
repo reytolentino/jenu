@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Helper_Frontend
@@ -62,7 +63,8 @@ class Mirasvit_Email_Helper_Frontend
                     }
                 }
 
-                $cart->saveQuote();
+                // Commented out for compatibility with Magento ver. 1.6.1.0 and lower
+                // $cart->saveQuote();
                 $cart->save();
 
                 Mage::getSingleton('checkout/session')->replaceQuote($cart->getQuote());

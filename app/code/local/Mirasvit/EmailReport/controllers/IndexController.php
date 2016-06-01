@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailReport_IndexController extends Mage_Core_Controller_Front_Action
@@ -21,10 +22,10 @@ class Mirasvit_EmailReport_IndexController extends Mage_Core_Controller_Front_Ac
     {
         $queueKey = $this->getRequest()->getParam('emqo');
 
-        $queue      = Mage::getModel('email/queue')->loadByUniqKeyMd5($queueKey);
-        $sessionId  = Mage::getSingleton('core/session')->getSessionId();
-        $triggerId  = $queue->getTrigger()->getId();
-        $observer   = Mage::getModel('emailreport/observer');
+        $queue = Mage::getModel('email/queue')->loadByUniqKeyMd5($queueKey);
+        $sessionId = Mage::getSingleton('core/session')->getSessionId();
+        $triggerId = ($queue) ? $queue->getTriggerId() : null;
+        $observer = Mage::getModel('emailreport/observer');
 
         if ($queue && $queue->getId() && !$observer->isReported('open', $queue->getId(), $triggerId, $sessionId)) {
             Mage::getModel('emailreport/open')
@@ -36,9 +37,11 @@ class Mirasvit_EmailReport_IndexController extends Mage_Core_Controller_Front_Ac
             Mage::helper('emailreport')->setQueueId($queue->getId());
         }
 
+        $pixel = base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw==');
         Mage::app()->getResponse()
             ->clearHeaders()
             ->setHeader('Content-Type', 'image/gif')
-            ->setBody(base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw=='));
+            ->setHeader('Content-Length', strlen($pixel))
+            ->setBody($pixel);
     }
 }

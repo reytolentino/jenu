@@ -9,18 +9,26 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailSmtp_Model_Email_Template extends Mage_Core_Model_Email_Template
 {
     public function send($email, $name = null, array $variables = array())
     {
-        $emails = array_values((array)$email);
-        $names = is_array($name) ? $name : (array)$name;
+        $storeId = null;
+        if (isset($variables['store']) && is_object($variables['store'])) {
+            $storeId = $variables['store']->getStoreId();
+        } elseif (isset($variables['store_id']) && is_int($variables['store_id'])) {
+            $storeId = $variables['store_id'];
+        }
+
+        $emails = array_values((array) $email);
+        $names = is_array($name) ? $name : (array) $name;
         $names = array_values($names);
         foreach ($emails as $key => $email) {
             if (!isset($names[$key])) {
@@ -31,8 +39,8 @@ class Mirasvit_EmailSmtp_Model_Email_Template extends Mage_Core_Model_Email_Temp
         $variables['email'] = reset($emails);
         $variables['name'] = reset($names);
 
-        ini_set('SMTP', Mage::getStoreConfig('system/smtp/host'));
-        ini_set('smtp_port', Mage::getStoreConfig('system/smtp/port'));
+        ini_set('SMTP', Mage::getStoreConfig('system/smtp/host', $storeId));
+        ini_set('smtp_port', Mage::getStoreConfig('system/smtp/port', $storeId));
 
         $mail = $this->getMail();
 
@@ -50,28 +58,28 @@ class Mirasvit_EmailSmtp_Model_Email_Template extends Mage_Core_Model_Email_Temp
                 break;
         }
 
-        if (Mage::getStoreConfig('emailsmtp/smtp/enabled')) {
+        if (Mage::getStoreConfig('emailsmtp/smtp/enabled', $storeId)) {
             $config = array(
-                'ssl'      => Mage::getStoreConfig('emailsmtp/smtp/ssl'),
-                'port'     => Mage::getStoreConfig('emailsmtp/smtp/port'),
-                'auth'     => Mage::getStoreConfig('emailsmtp/smtp/auth'),
-                'username' => Mage::getStoreConfig('emailsmtp/smtp/login'),
-                'password' => Mage::getStoreConfig('emailsmtp/smtp/password'),
+                'ssl' => Mage::getStoreConfig('emailsmtp/smtp/ssl', $storeId),
+                'port' => Mage::getStoreConfig('emailsmtp/smtp/port', $storeId),
+                'auth' => Mage::getStoreConfig('emailsmtp/smtp/auth', $storeId),
+                'username' => Mage::getStoreConfig('emailsmtp/smtp/login', $storeId),
+                'password' => Mage::getStoreConfig('emailsmtp/smtp/password', $storeId),
             );
 
             if ($config['ssl'] == 'none') {
                 unset($config['ssl']);
             }
 
-            $mailTransport = new Zend_Mail_Transport_Smtp(Mage::getStoreConfig('emailsmtp/smtp/host'), $config);
+            $mailTransport = new Zend_Mail_Transport_Smtp(Mage::getStoreConfig('emailsmtp/smtp/host', $storeId), $config);
             Zend_Mail::setDefaultTransport($mailTransport);
         } elseif ($returnPathEmail !== null) {
-            $mailTransport = new Zend_Mail_Transport_Sendmail("-f".$returnPathEmail);
+            $mailTransport = new Zend_Mail_Transport_Sendmail('-f'.$returnPathEmail);
             Zend_Mail::setDefaultTransport($mailTransport);
         }
 
         foreach ($emails as $key => $email) {
-            $mail->addTo($email, '=?utf-8?B?' . base64_encode($names[$key]) . '?=');
+            $mail->addTo($email, '=?utf-8?B?'.base64_encode($names[$key]).'?=');
         }
 
         $this->setUseAbsoluteLinks(true);
@@ -84,18 +92,20 @@ class Mirasvit_EmailSmtp_Model_Email_Template extends Mage_Core_Model_Email_Temp
         }
 
         $subject = $this->getProcessedTemplateSubject($variables);
-        $mail->setSubject('=?utf-8?B?' . base64_encode($subject) . '?=');
+        $mail->setSubject('=?utf-8?B?'.base64_encode($subject).'?=');
         $mail->setFrom($this->getSenderEmail(), $this->getSenderName());
 
-        $mailModel = Mage::getModel('emailsmtp/mail');
-        $mailModel->setFromName($this->getSenderName())
-            ->setFromEmail($this->getSenderEmail())
-            ->setReplyTo($this->getReplyTo())
-            ->setToName($variables['name'])
-            ->setToEmail($variables['email'])
-            ->setBody($text)
-            ->setSubject($subject)
-            ->save();
+        if (Mage::getSingleton('emailsmtp/config')->isSmtpLoggingEnabled()) {
+            $mailModel = Mage::getModel('emailsmtp/mail')
+                ->setFromName($this->getSenderName())
+                ->setFromEmail($this->getSenderEmail())
+                ->setReplyTo($this->getReplyTo())
+                ->setToName($variables['name'])
+                ->setToEmail($variables['email'].' ['.implode(', ', array_diff($mail->getRecipients(), array($variables['email']))).']')
+                ->setBody($text)
+                ->setSubject($subject)
+                ->save();
+        }
 
         try {
             $mail->send();
@@ -104,7 +114,9 @@ class Mirasvit_EmailSmtp_Model_Email_Template extends Mage_Core_Model_Email_Temp
             $this->_mail = null;
             Mage::logException($e);
 
-            $mailModel->setMessage($e)->save();
+            if (Mage::getSingleton('emailsmtp/config')->isSmtpLoggingEnabled()) {
+                $mailModel->setMessage($e)->save();
+            }
 
             return false;
         }

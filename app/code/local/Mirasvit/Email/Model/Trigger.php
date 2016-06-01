@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
@@ -25,7 +26,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Chain Collection sorted by delay
+     * Chain Collection sorted by delay.
      *
      * @return collection
      */
@@ -41,7 +42,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * List of triggering events
+     * List of triggering events.
      *
      * @return array
      */
@@ -51,7 +52,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * List of cancellation events
+     * List of cancellation events.
      *
      * @return array
      */
@@ -61,7 +62,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * List of all events (triggering + cancellation)
+     * List of all events (triggering + cancellation).
      *
      * @return array
      */
@@ -72,8 +73,10 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
 
     public function getRunRule()
     {
-        return Mage::getModel('email/rule')
-            ->load($this->getRunRuleId());
+        $rule = Mage::getModel('email/rule')->load($this->getRunRuleId());
+        $rule->getConditions()->setJsFormObject('rule_run_fieldset');
+
+        return $rule;
     }
 
     public function getStopRule()
@@ -82,7 +85,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Sender email specified for trigger or global
+     * Sender email specified for trigger or global.
      *
      * @return string
      */
@@ -96,7 +99,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Sender name specified for trigger or global
+     * Sender name specified for trigger or global.
      *
      * @return string
      */
@@ -111,9 +114,9 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
 
     /**
      * Collection of events with status "new" for current trigger
-     * (unprocesssed events for current trigger)
+     * (unprocesssed events for current trigger).
      *
-     * @return collection
+     * @return Mirasvit_Email_Model_Resource_Event_Collection
      */
     public function getNewEvents()
     {
@@ -121,12 +124,13 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
             ->addFieldToFilter('code', array('in' => $this->getEvents()))
             ->addNewFilter($this->getId(), $this->getStoreIds())
             ->setOrder('main_table.created_at', 'asc');
+        $collection->getSelect()->limit(100);
 
         return $collection;
     }
 
     /**
-     * Processing all new events
+     * Processing all new events.
      *
      * @return $this
      */
@@ -143,10 +147,10 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Processing one event
+     * Processing one event.
      *
-     * @param  object  $event
-     * @param  boolean $isTest
+     * @param object $event
+     * @param bool   $isTest
      *
      * @return $this
      */
@@ -167,7 +171,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     {
         $objArgs = new Varien_Object($args);
 
-        $runRule       = $this->getRunRule();
+        $runRule = $this->getRunRule();
         $runRuleResult = $runRule->validate($objArgs);
 
         return $runRuleResult;
@@ -176,17 +180,16 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
     /**
      * Trigger Event!
      * Check run, stop rules
-     * Generate mail chain
+     * Generate mail chain.
      *
-     * @param  object  $event
-     * @param  boolean $isTest
+     * @param object $event
+     * @param bool   $isTest
      *
      * @return $this
      */
     public function triggerEvent($event, $isTest = false)
     {
-        $uniqKey   = $event->getUniqKey();
-        $args      = $event->getArgs();
+        $args = $event->getArgs();
 
         if (!$isTest) {
             if (!$this->validateRules($args)) {
@@ -195,6 +198,7 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
         }
 
         foreach ($this->getChainCollection() as $chain) {
+            $uniqKey = $event->getUniqKey().'|'.$this->getId().'|'.$chain->getId();
             $scheduledAt = $chain->getScheduledAt($args['time']);
 
             if ($isTest) {
@@ -251,26 +255,33 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
 
     public function generate($timestamp = null)
     {
-        if ($timestamp) {
-            $queueCollection = Mage::getModel('email/queue')->getCollection()
-                ->addFieldToFilter('trigger_id', $this->getId())
-                ->addFieldToFilter('created_at', array('gteq' => Mage::getSingleton('core/date')->date(null, $timestamp)))
-                ->addFieldToFilter('status', array('neq' => Mirasvit_Email_Model_Queue::STATUS_DELIVERED));
-            foreach ($queueCollection as $queue) {
-                $queue->delete();
-            }
-        }
+        $this->removeTriggerQueue($timestamp);
 
         foreach ($this->getEvents() as $eventCode) {
-            $oldEvents = Mage::getModel('email/event')->getCollection()->addFieldToFilter('code', $eventCode);
-            foreach ($oldEvents as $event) {
-                $event->delete();
-            }
             $eventModel = Mage::helper('email/event')->getEventModel($eventCode);
-            $eventModel->check($eventCode, $timestamp);
+            $eventModel->setTriggerId($this->getId()) // Set trigger ID to use it later in observer
+                ->check($eventCode, $timestamp);
         }
 
         $this->processNewEvents();
+    }
+
+    /**
+     * Remove email queue associated with current trigger from given timestamp with status not equal to 'delivered'.
+     *
+     * @param string|int $timestamp
+     *
+     * @return $this
+     */
+    public function removeTriggerQueue($timestamp)
+    {
+        Mage::getModel('email/queue')->getCollection()
+            ->addFieldToFilter('trigger_id', $this->getId())
+            ->addFieldToFilter('created_at', array('gteq' => Mage::getSingleton('core/date')->date(null, $timestamp)))
+            ->addFieldToFilter('status', array('neq' => Mirasvit_Email_Model_Queue::STATUS_DELIVERED))
+            ->delete();
+
+        return $this;
     }
 
     public function sendTest($to = null)
@@ -295,14 +306,24 @@ class Mirasvit_Email_Model_Trigger extends Mage_Core_Model_Abstract
             $event = Mage::getModel('email/event')
                 ->setArgsSerialized(serialize($args))
                 ->setUniqKey('test_'.time());
-            
-            ini_set('display_errors',1);
-            
+
+            ini_set('display_errors', 1);
+
             try {
                 $this->triggerEvent($event, true);
             } catch (Exception $e) {
                 throw $e;
             }
         }
+    }
+
+    /**
+     * Retrieve unsubscribers related with current trigger.
+     *
+     * @return Mirasvit_Email_Model_Resource_Unsubscription_Collection
+     */
+    public function getUnsubscriptionCollection()
+    {
+        return Mage::getModel('email/unsubscription')->getCollection()->addTriggerToFilter($this);
     }
 }

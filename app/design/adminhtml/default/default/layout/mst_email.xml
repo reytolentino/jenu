@@ -14,21 +14,21 @@
         </reference>
     </email_adminhtml>
 
-    <email_adminhtml_trigger_new>
+    <adminhtml_email_trigger_new>
         <update handle="email_adminhtml" />
-    </email_adminhtml_trigger_new>
+    </adminhtml_email_trigger_new>
 
-    <email_adminhtml_trigger_edit>
+    <adminhtml_email_trigger_edit>
         <update handle="email_adminhtml" />
-    </email_adminhtml_trigger_edit>
+    </adminhtml_email_trigger_edit>
 
-    <email_adminhtml_queue_preview>
+    <adminhtml_email_queue_preview>
         <reference name="root">
             <action method="setTemplate">
                 <template>mst_email/queue/preview.phtml</template>
             </action>
             <block type="email/adminhtml_queue_preview" name="preview_form" />
         </reference>
-    </email_adminhtml_queue_preview>
+    </adminhtml_email_queue_preview>
 
 </layout>

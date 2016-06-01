@@ -9,13 +9,14 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_MstCore_Adminhtml_ValidatorController extends Mage_Adminhtml_Controller_Action
+
+class Mirasvit_MstCore_Adminhtml_Mstcore_ValidatorController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {
@@ -53,12 +54,12 @@ class Mirasvit_MstCore_Adminhtml_ValidatorController extends Mage_Adminhtml_Cont
             switch ($this->getRequest()->getParam('action')) {
                 case 'disable':
                     $compiler->registerIncludePath(false);
-                    $msg = "Compiler include path disabled";
+                    $msg = 'Compiler include path disabled';
                     break;
                 case 'recompile':
                     $compiler->clear();
                     $compiler->run();
-                    $msg = "Compilation successfully finished";
+                    $msg = 'Compilation successfully finished';
                     break;
             }
             $this->_getSession()->addSuccess($msg);
@@ -67,5 +68,15 @@ class Mirasvit_MstCore_Adminhtml_ValidatorController extends Mage_Adminhtml_Cont
         }
 
         return $this->_redirectUrl($this->_getRefererUrl());
+    }
+
+    /*
+     * Admin ACL fix to work with SUPEE-6482 security patch. Reads permission from Role Resource: System -> Tools -> Mirasvit Extensions Validator
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('system/tools/mst_validator');
     }
 }

@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -48,7 +48,9 @@ class Mirasvit_Email_Model_Resource_Trigger extends Mage_Core_Model_Mysql4_Abstr
 
     protected function _afterSave(Mage_Core_Model_Abstract $object)
     {
-        $this->_saveChain($object);
+        if (!$object->getIsMassAction()) { // Save chain only if a trigger saved from a trigger edit page
+            $this->_saveChain($object);
+        }
     }
 
     protected function _afterLoad(Mage_Core_Model_Abstract $object)

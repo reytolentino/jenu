@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailDesign_Block_Adminhtml_Template_Grid extends Mage_Adminhtml_Block_Widget_Grid
@@ -31,50 +32,56 @@ class Mirasvit_EmailDesign_Block_Adminhtml_Template_Grid extends Mage_Adminhtml_
         $collection = Mage::getModel('emaildesign/template')->getCollection();
 
         $this->setCollection($collection);
+
         return parent::_prepareCollection();
     }
 
     protected function _prepareColumns()
     {
         $this->addColumn('template_id', array(
-            'header'    => Mage::helper('emaildesign')->__('ID'),
-            'align'     => 'right',
-            'width'     => '50px',
-            'index'     => 'template_id',
+            'header' => Mage::helper('emaildesign')->__('ID'),
+            'align' => 'right',
+            'width' => '50px',
+            'index' => 'template_id',
         ));
 
         $this->addColumn('title', array(
-            'header'    => Mage::helper('emaildesign')->__('Title'),
-            'align'     => 'left',
-            'index'     => 'title',
-            'renderer'  => 'Mirasvit_EmailDesign_Block_Adminhtml_Design_Grid_Renderer_Title',
+            'header' => Mage::helper('emaildesign')->__('Title'),
+            'align' => 'left',
+            'index' => 'title',
+            'renderer' => 'Mirasvit_EmailDesign_Block_Adminhtml_Design_Grid_Renderer_Title',
         ));
 
         $this->addColumn('action',
             array(
-                'header'  => Mage::helper('emaildesign')->__('Action'),
-                'width'   => '100',
-                'type'    => 'action',
-                'getter'  => 'getId',
+                'header' => Mage::helper('emaildesign')->__('Action'),
+                'width' => '100',
+                'type' => 'action',
+                'getter' => 'getId',
                 'actions' => array(
                     array(
                         'caption' => Mage::helper('emaildesign')->__('Edit'),
-                        'url'     => array('base' => '*/*/edit'),
-                        'field'   => 'id'
+                        'url' => array('base' => '*/*/edit'),
+                        'field' => 'id',
                     ),
                     array(
                         'caption' => Mage::helper('emaildesign')->__('Export'),
-                        'url'     => array('base' => '*/*/export'),
-                        'field'   => 'id'
+                        'url' => array('base' => '*/*/export'),
+                        'field' => 'id',
+                    ),
+                    array(
+                        'caption' => Mage::helper('emaildesign')->__('Convert'),
+                        'url' => array('base' => '*/*/convert'),
+                        'field' => 'id',
                     ),
                     array(
                         'caption' => Mage::helper('emaildesign')->__('Remove'),
-                        'url'     => array('base' => '*/*/delete'),
-                        'field'   => 'id'
+                        'url' => array('base' => '*/*/delete'),
+                        'field' => 'id',
                     ),
                 ),
-                'filter'    => false,
-                'sortable'  => false,
+                'filter' => false,
+                'sortable' => false,
                 'is_system' => true,
             )
         );

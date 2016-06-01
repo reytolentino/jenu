@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Event_Customer_Newsletter extends Mirasvit_Email_Model_Event_Abstract
@@ -30,6 +31,7 @@ class Mirasvit_Email_Model_Event_Customer_Newsletter extends Mirasvit_Email_Mode
 
         $result[self::EVENT_CODE.'subscribed'] = Mage::helper('email')->__('Newsletter subscription');
         $result[self::EVENT_CODE.'unsubscribed'] = Mage::helper('email')->__('Newsletter unsubscription');
+        $result[self::EVENT_CODE.'subscription_status_changed'] = Mage::helper('email')->__('Newsletter subscription status change');
 
         return $result;
     }
@@ -39,22 +41,27 @@ class Mirasvit_Email_Model_Event_Customer_Newsletter extends Mirasvit_Email_Mode
         return array();
     }
 
-    public function observer($eventCode, $observer)
+    protected function observe($eventCode, $observer)
     {
-        $subsriber = $observer->getDataObject();
-
-        $customer = Mage::getModel('customer/customer')->load($subsriber->getCustomerId());
+        $subscriber = $observer->getDataObject();
+        $customer = Mage::getModel('customer/customer')->load($subscriber->getCustomerId());
 
         $event = array(
-            'time'              => time(),
-            'customer_email'    => $subsriber->getSubscriberEmail(),
-            'customer_name'     => $customer->getName(),
-            'customer_id'       => $customer->getId(),
-            'store_id'          => $subsriber->getStoreId(),
+            'time' => time(),
+            'customer_email' => $subscriber->getSubscriberEmail(),
+            'customer_name' => $customer->getName(),
+            'customer_id' => $customer->getId(),
+            'store_id' => $subscriber->getStoreId(),
+            'subscription_status' => $this->getStatusLabelByCode($subscriber->getSubscriberStatus()),
         );
 
-        $this->saveEvent($eventCode, $this->getEventUniqKey($event), $event);
+        return array($event);
+    }
 
-        return $this;
+    public function getStatusLabelByCode($statusCode)
+    {
+        $options = Mage::getModel('email/system_source_subscriptionStatus')->toArray();
+
+        return $options[$statusCode];
     }
 }

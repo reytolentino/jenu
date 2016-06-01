@@ -9,16 +9,20 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
 class Mirasvit_MstCore_Block_Adminhtml_Toolbar extends Mirasvit_MstCore_Block_Adminhtml_Validator
 {
+    /**
+     * @return bool
+     */
     public function isToolbarAllowed()
     {
-        return in_array($_SERVER['REMOTE_ADDR'], Mage::helper('mstcore/config')->getDeveloperIp());
+        $ip = Mage::helper('mstcore')->getRemoteIP();
+        return in_array($ip, Mage::helper('mstcore/config')->getDeveloperIp());
     }
 }

@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Resource_Queue_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
@@ -27,6 +28,19 @@ class Mirasvit_Email_Model_Resource_Queue_Collection extends Mage_Core_Model_Mys
         $this->addFieldToFilter('scheduled_at', array('lt' => Mage::getSingleton('core/date')->gmtDate()))
             ->addFieldToFilter('sent_at', array('null' => true))
             ->addFieldToFilter('status', Mirasvit_Email_Model_Queue::STATUS_PENDING);
+
+        return $this;
+    }
+
+    /**
+     * Delete collection from select.
+     *
+     * @return $this
+     */
+    public function delete()
+    {
+        $deleteQuery = $this->getSelect()->deleteFromSelect('main_table');
+        $this->getConnection()->query($deleteQuery);
 
         return $this;
     }

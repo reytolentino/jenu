@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Rule_Condition_Product_Combine extends Mage_Rule_Model_Condition_Combine
@@ -25,15 +26,15 @@ class Mirasvit_Email_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
 
     public function getNewChildSelectOptions()
     {
-        $productCondition = Mage::getModel('salesrule/rule_condition_product');
+        $productCondition = Mage::getModel('email/rule_condition_product');
         $productAttributes = $productCondition->loadAttributeOptions()->getAttributeOption();
         $pAttributes = array();
         $iAttributes = array();
         foreach ($productAttributes as $code => $label) {
             if (strpos($code, 'quote_item_') === 0) {
-                $iAttributes[] = array('value' => 'salesrule/rule_condition_product|'.$code, 'label' => $label);
+                $iAttributes[] = array('value' => 'email/rule_condition_product|'.$code, 'label' => $label);
             } else {
-                $pAttributes[] = array('value' => 'salesrule/rule_condition_product|'.$code, 'label' => $label);
+                $pAttributes[] = array('value' => 'email/rule_condition_product|'.$code, 'label' => $label);
             }
         }
 
@@ -49,7 +50,7 @@ class Mirasvit_Email_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
             // ),
             array(
                 'label' => Mage::helper('catalog')->__('Product Attribute'),
-                'value' => $pAttributes
+                'value' => $pAttributes,
             ),
         ));
 

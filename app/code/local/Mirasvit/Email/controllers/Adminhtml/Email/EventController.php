@@ -9,13 +9,13 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_Email_Adminhtml_EventController extends Mage_Adminhtml_Controller_Action
+class Mirasvit_Email_Adminhtml_Email_EventController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction()
     {
@@ -41,7 +41,7 @@ class Mirasvit_Email_Adminhtml_EventController extends Mage_Adminhtml_Controller
 
         Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('email')->__('Completed'));
         
-        $this->_redirect('email/adminhtml_event/index');
+        $this->_redirect('*/*/index');
     }
 
     public function resetAction()

@@ -23,7 +23,7 @@ class Mirasvit_Email_Model_Event_Custom_Example extends Mirasvit_Email_Model_Eve
         return array();
     }
 
-    public function observer($eventCode, $observer)
+    protected function observe($eventCode, $observer)
     {
         if ($eventCode == self::EVENT_CODE.'productadded') {
             $product  = $observer->getProduct();
@@ -35,7 +35,7 @@ class Mirasvit_Email_Model_Event_Custom_Example extends Mirasvit_Email_Model_Eve
             $key[] = $wishlist->getId();
             $key[] = $product->getId();
 
-            $args = array(
+            $event = array(
                 'time'              => time(),
                 'customer_email'    => $customer->getEmail(),
                 'customer_name'     => $customer->getName(),
@@ -45,7 +45,7 @@ class Mirasvit_Email_Model_Event_Custom_Example extends Mirasvit_Email_Model_Eve
                 'wishlist_id'       => $wishlist->getId(),
             );
 
-            $this->dispatchEvent($eventCode, $key, $args);
+            return array($event)
         } elseif ($eventCode == self::EVENT_CODE.'shared') {
             $wishlist = $observer->getWishlist();
             $customer = Mage::getModel('customer/customer')->load($wishlist->getCustomerId());
@@ -54,7 +54,7 @@ class Mirasvit_Email_Model_Event_Custom_Example extends Mirasvit_Email_Model_Eve
             $key[] = $customer->getEmail();
             $key[] = $wishlist->getId();
 
-            $args = array(
+            $event = array(
                 'time'              => time(),
                 'customer_email'    => $customer->getEmail(),
                 'customer_name'     => $customer->getName(),
@@ -63,7 +63,7 @@ class Mirasvit_Email_Model_Event_Custom_Example extends Mirasvit_Email_Model_Eve
                 'wishlist_id'       => $wishlist->getId(),
             );
 
-            $this->saveEvent($eventCode, $key, $args);
+            return array($event)
         }
     }
 }

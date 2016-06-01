@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
@@ -25,11 +26,11 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
             if (!$queue) {
                 Mage::getSingleton('core/session')->addError($this->__('Wrong unsubscription link'));
                 $this->getResponse()->setRedirect($this->_getUrl('/', true));
-                
+
                 return;
             }
-            
-            Mage::getSingleton('email/unsubscription')->unsubscribe($queue->getRecipientEmail(), $queue->getTriggerId());
+
+            Mage::getSingleton('email/unsubscription')->unsubscribe($queue->getRecipientEmail(true), $queue->getTriggerId());
 
             Mage::getSingleton('core/session')->addSuccess($this->__('You have been successfully unsubscribed from receiving these emails.'));
         }
@@ -45,11 +46,11 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
             if (!$queue) {
                 Mage::getSingleton('core/session')->addError($this->__('Wrong unsubscription link'));
                 $this->getResponse()->setRedirect($this->_getUrl('/', true));
-                
+
                 return;
             }
 
-            Mage::getSingleton('email/unsubscription')->unsubscribe($queue->getRecipientEmail(), null);
+            Mage::getSingleton('email/unsubscription')->unsubscribe($queue->getRecipientEmail(true), null);
 
             Mage::getSingleton('core/session')->addSuccess($this->__('You have been successfully unsubscribed from receiving these emails.'));
         }
@@ -65,12 +66,12 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
             if (!$queue) {
                 Mage::getSingleton('core/session')->addError($this->__('Wrong unsubscription link'));
                 $this->getResponse()->setRedirect($this->_getUrl('/', true));
-                
+
                 return;
             }
 
-            Mage::getSingleton('email/unsubscription')->unsubscribe($queue->getRecipientEmail(), null);
-            Mage::getSingleton('email/unsubscription')->unsubscribeNewsletter($queue->getRecipientEmail());
+            Mage::getSingleton('email/unsubscription')->unsubscribe($queue->getRecipientEmail(true), null);
+            Mage::getSingleton('email/unsubscription')->unsubscribeNewsletter($queue->getRecipientEmail(true));
 
             Mage::getSingleton('core/session')->addSuccess($this->__('You have been successfully unsubscribed from receiving these emails.'));
         }
@@ -105,7 +106,14 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
                 $to = base64_decode($to);
             }
 
-            $this->getResponse()->setRedirect($this->_getUrl($to));
+            $url = $this->_getUrl($to);
+            // Place hash to the end of URL
+            if (($hashPos = strpos($url, '#')) && strpos($url, '?') > $hashPos) {
+                $fragment = substr($url, $hashPos, strpos($url, '?') - $hashPos);
+                $url = str_replace($fragment, '', $url).$fragment;
+            }
+
+            $this->getResponse()->setRedirect($url);
         } else {
             $this->getResponse()->setRedirect($this->_getUrl('/', true));
         }
@@ -113,19 +121,24 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
 
     public function viewAction()
     {
-        if ($code = $this->getRequest()->getParam('code')) {
-            $queue = Mage::getModel('email/queue')->getCollection()
+        if (($queueId = $this->getRequest()->getParam('queue_id')) || ($code = $this->getRequest()->getParam('code'))) {
+            if ($queueId) {
+                $queue = Mage::getModel('email/queue')->load($queueId);
+            } else {
+                $queue = Mage::getModel('email/queue')->getCollection()
                     ->addFieldToFilter('uniq_key_md5', $code)
                     ->addFieldToFilter('status', Mirasvit_Email_Model_Queue::STATUS_DELIVERED)
                     ->getFirstItem();
+            }
 
             if (!$queue) {
                 Mage::getSingleton('core/session')->addError($this->__('The email not found.'));
                 $this->getResponse()->setRedirect($this->_getUrl('/', true));
+
                 return;
             }
 
-            echo $queue->getContent();
+            $this->getResponse()->setBody($queue->getContent());
         } else {
             Mage::getSingleton('core/session')->addError($this->__('The cart for restore not found.'));
             $this->getResponse()->setRedirect($this->_getUrl('/', true));
@@ -144,11 +157,12 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
                 ->save();
         }
 
-        echo 'ok';
+        $this->getResponse()->setBody('ok');
     }
 
     public function imageAction()
     {
+        $length = 0;
         $path = $this->getRequest()->getParam('path');
         $size = $this->getRequest()->getParam('size');
 
@@ -158,10 +172,24 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
         if (intval($size) > 0) {
             $url = $url->resize(intval($size));
         }
-        
-        echo file_get_contents($url->__toString());
-    }
 
+        $path = $url->__toString();
+
+        $info = pathinfo($path);
+        $ext = $info['extension'];
+        $headers = get_headers($path, true);
+
+        if (isset($headers['Content-Length'])) {
+            $length = $headers['Content-Length'];
+        } elseif (filesize($path)) {
+            $length = filesize($path);
+        }
+
+        $this->getResponse()
+            ->setHeader('Content-Type', 'image/'.$ext)
+            ->setHeader('Content-Length', $length)
+            ->setBody(readfile($path));
+    }
 
     protected function _getUrl($url, $full = false)
     {
@@ -176,7 +204,7 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
             $url = Mage::getUrl($url, array('_query' => $params));
         } else {
             $query = http_build_query($params);
-            
+
             if ($query) {
                 if (strpos($url, '?') !== false) {
                     $url .= '&'.$query;
@@ -186,7 +214,23 @@ class Mirasvit_Email_IndexController extends Mage_Core_Controller_Front_Action
             }
         }
 
-
         return $url;
+    }
+
+    public function addToCartAction()
+    {
+        if ($code = $this->getRequest()->getParam('code')) {
+            Mage::helper('email/frontend')->loginCustomerByQueueCode($code);
+        }
+
+        if ($id = $this->getRequest()->getParam('id')) {
+            $product = Mage::getModel('catalog/product')->load($id);
+            if ($product) {
+                $url = Mage::helper('checkout/cart')->getAddUrl($product);
+                $this->getResponse()->setRedirect($this->_getUrl($url));
+            }
+        } else {
+            $this->getResponse()->setRedirect($this->_getUrl('/', true));
+        }
     }
 }

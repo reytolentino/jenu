@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Resource_Unsubscription_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
@@ -20,5 +21,23 @@ class Mirasvit_Email_Model_Resource_Unsubscription_Collection extends Mage_Core_
     protected function _construct()
     {
         $this->_init('email/unsubscription');
+    }
+
+    /**
+     * Filter unsubscriptions by trigger.
+     *
+     * @param int|Mirasvit_Email_Model_Trigger $trigger
+     *
+     * @return $this
+     */
+    public function addTriggerToFilter($trigger)
+    {
+        if ($trigger instanceof Mirasvit_Email_Model_Trigger) {
+            $trigger = $trigger->getId();
+        }
+
+        $this->addFieldToFilter('trigger_id', $trigger);
+
+        return $this;
     }
 }

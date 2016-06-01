@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Rule_Condition_Abstract extends Mage_Rule_Model_Condition_Abstract
@@ -31,7 +32,13 @@ class Mirasvit_Email_Model_Rule_Condition_Abstract extends Mage_Rule_Model_Condi
                     $options = Mage::getModel('adminhtml/system_config_source_shipping_allmethods')
                         ->toOptionArray();
                     break;
-
+                case 'payment_method':
+                    $options = Mage::getModel('adminhtml/system_config_source_payment_allowedmethods')
+                        ->toOptionArray();
+                    break;
+                case 'order_status':
+                    $options = Mage::getResourceModel('sales/order_status_collection')->toOptionArray();
+                    break;
                 default:
                     $options = array();
             }
@@ -45,7 +52,12 @@ class Mirasvit_Email_Model_Rule_Condition_Abstract extends Mage_Rule_Model_Condi
     {
         switch ($this->getAttribute()) {
             case 'shipping_method':
+            case 'payment_method':
+            case 'order_status':
                 return 'select';
+            case 'updated_at':
+            case 'created_at':
+                return 'date';
         }
 
         return parent::getInputType();
@@ -55,10 +67,28 @@ class Mirasvit_Email_Model_Rule_Condition_Abstract extends Mage_Rule_Model_Condi
     {
         switch ($this->getAttribute()) {
             case 'shipping_method':
+            case 'payment_method':
+            case 'order_status':
                 return 'select';
+            case 'updated_at':
+            case 'created_at':
+                return 'date';
         }
 
         return parent::getValueElementType();
+    }
+
+    public function getValueElement()
+    {
+        $element = parent::getValueElement();
+        switch ($this->getAttribute()) {
+                case 'updated_at':
+                case 'created_at':
+                    $element->setImage(Mage::getDesign()->getSkinUrl('images/grid-cal.gif'));
+                    break;
+            }
+
+        return $element;
     }
 
     public function getValueAfterElementHtml()
@@ -101,6 +131,8 @@ class Mirasvit_Email_Model_Rule_Condition_Abstract extends Mage_Rule_Model_Condi
         switch ($this->getAttribute()) {
             case 'sku':
             case 'category_ids':
+            case 'updated_at':
+            case 'created_at':
                 return true;
             break;
         }

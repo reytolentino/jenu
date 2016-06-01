@@ -22,7 +22,7 @@
                 <emailreport module="emailreport">
                     <title>Statistics</title>
                     <sort_order>80</sort_order>
-                    <action>emailreport/adminhtml_dashboard/index</action>
+                    <action>adminhtml/emailreport_dashboard/index</action>
                 </emailreport>
             </children>
         </email>

@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -57,6 +57,7 @@ class Mirasvit_MstCore_Helper_Cron extends Mage_Core_Helper_Data
         $collection
             ->addFieldToFilter('status', 'success')
             ->setOrder('scheduled_at', 'desc')
+            ->setPageSize(1)
             ;
 
         $job = $collection->getFirstItem();

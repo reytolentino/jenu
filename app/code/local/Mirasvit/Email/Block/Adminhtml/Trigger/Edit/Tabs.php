@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
@@ -28,35 +29,42 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tabs extends Mage_Adminhtml_Bl
     protected function _beforeToHtml()
     {
         $this->addTab('general_section', array(
-            'label'   => __('General Information'),
-            'title'   => __('General Information'),
+            'label' => __('General Information'),
+            'title' => __('General Information'),
             'content' => $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_general')->toHtml(),
         ));
 
         $this->addTab('rule_section', array(
-            'label'   => __('Rules'),
-            'title'   => __('Rules'),
+            'label' => __('Rules'),
+            'title' => __('Rules'),
             'content' => $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_rule')->toHtml(),
         ));
 
         $this->addTab('sender_section', array(
-            'label'   => __('Sender Details'),
-            'title'   => __('Sender Details'),
+            'label' => __('Sender Details'),
+            'title' => __('Sender Details'),
             'content' => $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_sender')->toHtml(),
         ));
 
         $this->addTab('ga_section', array(
-            'label'   => __('Google Analytics'),
-            'title'   => __('Google Analytics'),
+            'label' => __('Google Analytics'),
+            'title' => __('Google Analytics'),
             'content' => $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_ga')->toHtml(),
         ));
 
         $this->addTab('additonal_section', array(
-            'label'   => __('Additional'),
-            'title'   => __('Additional'),
+            'label' => __('Additional'),
+            'title' => __('Additional'),
             'content' => $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_additional')->toHtml(),
         ));
 
+        if (Mage::registry('current_model')->getUnsubscriptionCollection()->getSize()) {
+            $this->addTab('subscription', array(
+                'label' => __('Unsubscribed Customers'),
+                'title' => __('Manage Customer Subscription'),
+                'content' => $this->getLayout()->createBlock('email/adminhtml_trigger_edit_tab_subscription')->toHtml(),
+            ));
+        }
 
         return parent::_beforeToHtml();
     }

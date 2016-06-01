@@ -9,18 +9,19 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_Email_Helper_Variables_CrossSells
+
+class Mirasvit_Email_Helper_Variables_Crosssells
 {
     public function getCrossSellHtml($parent, $args)
     {
         $collection = $this->getCrossSellProducts($parent, $args);
-        
+
         $crossBlock = Mage::app()->getLayout()->createBlock('email/cross')
             ->setCollection($collection);
 
@@ -33,6 +34,7 @@ class Mirasvit_Email_Helper_Variables_CrossSells
         $productIds[] = 0;
 
         $collection = Mage::getModel('catalog/product')->getCollection()
+            ->setStoreId($parent->getStoreId())
             ->addFieldToFilter('entity_id', array('in' => $productIds))
             ->addAttributeToSelect('thumbnail')
             ->addAttributeToSelect('small_image')
@@ -72,7 +74,6 @@ class Mirasvit_Email_Helper_Variables_CrossSells
             return $productIds;
         }
 
-
         if ($parent->getChain()) {
             $chain = $parent->getChain();
 
@@ -84,6 +85,7 @@ class Mirasvit_Email_Helper_Variables_CrossSells
                     case Mirasvit_Email_Model_System_Source_CrossSell::MAGE_CROSS:
                     case Mirasvit_Email_Model_System_Source_CrossSell::MAGE_RELATED:
                     case Mirasvit_Email_Model_System_Source_CrossSell::MAGE_UPSELLS:
+                    case Mirasvit_Email_Model_System_Source_CrossSell::MAGE_NEW:
                         // base Products
                         $baseProducts = $this->_getBaseProducts($parent);
 
@@ -96,6 +98,8 @@ class Mirasvit_Email_Helper_Variables_CrossSells
                                     $crossIds = $product->getRelatedProductIds();
                                 } elseif ($crossType == Mirasvit_Email_Model_System_Source_CrossSell::MAGE_UPSELLS) {
                                     $crossIds = $product->getUpSellProductIds();
+                                } else {
+                                    $crossIds = $this->getNewArrivalProductIds();
                                 }
                             }
 
@@ -150,7 +154,7 @@ class Mirasvit_Email_Helper_Variables_CrossSells
                             )
                             ->where('sc.product_id IN (?)', $baseProductsIds)
                             ->order(new Zend_Db_Expr('RAND()'));
-                        
+
                         $productIds = $collection->getAllIds();
                     break;
 
@@ -167,7 +171,7 @@ class Mirasvit_Email_Helper_Variables_CrossSells
                             )
                             ->where('so.product_id IN (?)', $baseProductsIds)
                             ->order(new Zend_Db_Expr('RAND()'));
-                        
+
                         $productIds = $collection->getAllIds();
                     break;
 
@@ -181,6 +185,27 @@ class Mirasvit_Email_Helper_Variables_CrossSells
                                 foreach ($collection as $product) {
                                     $productIds[$product->getId()] = $product->getId();
                                 }
+                            }
+                        }
+                    break;
+
+                    case Mirasvit_Email_Model_System_Source_CrossSell::IWD_ARP:
+                        if (Mage::helper('core')->isModuleEnabled('IWD_AutoRelatedProducts')) {
+                            $baseProductsIds = $this->_getBaseProductsIds($parent);
+                            $blocks = Mage::getModel('iwd_autorelatedproducts/blocks')->getCollection();
+                            foreach ($blocks as $block) {
+                                $block->load($block->getId());
+
+                                 // Collect current products
+                                $currentRule = $block->getCurrentConditions();
+                                $currentRule->setProductsFilter($baseProductsIds);
+                                $matchedProducts = $currentRule->getMatchingProductIds();
+
+                                // Collect related products for current products
+                                $relatedRule = $block->getRelatedConditions();
+                                $relatedRule->setProductsFilter($matchedProducts);
+                                $relatedProducts = $relatedRule->getMatchingProductIds();
+                                $productIds = array_merge($productIds, $relatedProducts);
                             }
                         }
                     break;
@@ -232,8 +257,43 @@ class Mirasvit_Email_Helper_Variables_CrossSells
 
         foreach ($baseProducts as $product) {
             $baseProductsIds[] = $product->getId();
-        } 
+        }
 
         return $baseProductsIds;
+    }
+
+    protected function getNewArrivalProductIds()
+    {
+        $todayStartOfDayDate = Mage::app()->getLocale()->date()
+            ->setTime('00:00:00')
+            ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
+
+        $todayEndOfDayDate = Mage::app()->getLocale()->date()
+            ->setTime('23:59:59')
+            ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
+
+        $collection = Mage::getResourceModel('catalog/product_collection');
+        $collection->setVisibility(Mage::getSingleton('catalog/product_visibility')->getVisibleInCatalogIds());
+
+        $collection = $collection->addStoreFilter()
+            ->addAttributeToFilter('news_from_date', array('or' => array(
+                0 => array('date' => true, 'to' => $todayEndOfDayDate),
+                1 => array('is' => new Zend_Db_Expr('null')), ),
+            ), 'left')
+            ->addAttributeToFilter('news_to_date', array('or' => array(
+                0 => array('date' => true, 'from' => $todayStartOfDayDate),
+                1 => array('is' => new Zend_Db_Expr('null')), ),
+            ), 'left')
+            ->addAttributeToFilter(
+                array(
+                    array('attribute' => 'news_from_date', 'is' => new Zend_Db_Expr('not null')),
+                    array('attribute' => 'news_to_date', 'is' => new Zend_Db_Expr('not null')),
+                )
+            )
+            ->addAttributeToSort('news_from_date', 'desc')
+            ->setPageSize(100)
+            ->setCurPage(1);
+
+        return $collection->getAllIds();
     }
 }

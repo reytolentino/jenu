@@ -47,7 +47,7 @@
         <layout>
             <updates>
                 <emailsmtp>
-                    <file>emailsmtp.xml</file>
+                    <file>mst_emailsmtp.xml</file>
                 </emailsmtp>
             </updates>
         </layout>
@@ -63,13 +63,13 @@
     </frontend>
     <admin>
         <routers>
-            <emailsmtp>
-                <use>admin</use>
-                <args>
-                    <module>Mirasvit_EmailSmtp</module>
-                    <frontName>emailsmtp</frontName>
-                </args>
-            </emailsmtp>
+            <adminhtml>
+				<args>
+					<modules>
+						<emailsmtp after="Mage_Adminhtml">Mirasvit_EmailSmtp_Adminhtml</emailsmtp>
+					</modules>
+				</args>
+			</adminhtml>
         </routers>
     </admin>
     <adminhtml>
@@ -85,9 +85,30 @@
         <layout>
             <updates>
                 <emailsmtp>
-                    <file>emailsmtp.xml</file>
+                    <file>mst_emailsmtp.xml</file>
                 </emailsmtp>
             </updates>
         </layout>
     </adminhtml>
+    <crontab>
+        <jobs>
+            <emailsmtp_clear_old>
+                <schedule>
+                    <cron_expr>0 3 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>emailsmtp/observer::clearOldData</model>
+                </run>
+            </emailsmtp_clear_old>
+        </jobs>
+    </crontab>
+    <default>
+        <emailsmtp>
+            <log>
+                <email_logging>1</email_logging>
+                <logsdelete>1</logsdelete>
+                <smtpmaillogsdays>30</smtpmaillogsdays>
+            </log>
+        </emailsmtp>
+    </default>
 </config>

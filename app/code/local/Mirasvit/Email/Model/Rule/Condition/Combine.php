@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condition_Combine
@@ -39,7 +40,7 @@ class Mirasvit_Email_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condit
                 foreach ($classAttributes as $code => $label) {
                     $attributes[ucfirst($key)][] = array(
                         'value' => 'email/rule_condition_'.$key.'|'.$code,
-                        'label' => $label
+                        'label' => $label,
                     );
                 }
             }
@@ -49,18 +50,18 @@ class Mirasvit_Email_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condit
         $conditions = array_merge_recursive($conditions, array(
             array(
                 'value' => 'email/rule_condition_combine',
-                'label' => Mage::helper('email')->__('Conditions Combination')
+                'label' => Mage::helper('email')->__('Conditions Combination'),
             ),
             array(
                 'value' => 'email/rule_condition_product_subselect',
-                'label' => Mage::helper('email')->__('Products subselection')),
+                'label' => Mage::helper('email')->__('Products subselection'), ),
         ));
 
         foreach ($attributes as $group => $arrAttributes) {
             $conditions = array_merge_recursive($conditions, array(
                 array(
                     'label' => $group,
-                    'value' => $arrAttributes
+                    'value' => $arrAttributes,
                 ),
             ));
         }
@@ -73,13 +74,13 @@ class Mirasvit_Email_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condit
         $classes = array();
 
         $rulesDir = Mage::getModuleDir('', 'Mirasvit_Email').DS.'Model'.DS.'Rule'.DS.'Condition';
-        
+
         $io = new Varien_Io_File();
         $io->open();
         $io->cd($rulesDir);
 
         foreach ($io->ls(Varien_Io_File::GREP_FILES) as $event) {
-            if ($event['filetype'] != 'php') {
+            if ($event['filetype'] != 'php' || $event['text'] === 'Product.php') {
                 continue;
             }
 

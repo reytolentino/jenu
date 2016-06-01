@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -31,6 +31,10 @@ class Mirasvit_Email_Model_System_Source_Event
             foreach ($io->ls(Varien_Io_File::GREP_FILES) as $event) {
                 if ($event['filetype'] != 'php') {
                     continue;
+                } elseif (strtolower($entity['text']) === 'rma') {
+                    if (!Mage::helper('mstcore')->isModuleInstalled('Mirasvit_Rma')) {
+                        continue;
+                    }
                 }
 
                 $info      = pathinfo($event['text']);

@@ -55,12 +55,12 @@
                 <email_trigger module="email">
                     <title>Manage Triggers</title>
                     <sort_order>10</sort_order>
-                    <action>email/adminhtml_trigger/index</action>
+                    <action>adminhtml/email_trigger/index</action>
                 </email_trigger>
                 <email_queue module="email">
                     <title>Mail Log (Queue)</title>
                     <sort_order>30</sort_order>
-                    <action>email/adminhtml_queue/index</action>
+                    <action>adminhtml/email_queue/index</action>
                 </email_queue>
                 <email_system module="email">
                     <title>System</title>
@@ -69,7 +69,7 @@
                         <email_event module="email">
                             <title>Event Log</title>
                             <sort_order>10</sort_order>
-                            <action>email/adminhtml_event/index</action>
+                            <action>adminhtml/email_event/index</action>
                         </email_event>
                         <email_settings module="email">
                             <title>Settings</title>

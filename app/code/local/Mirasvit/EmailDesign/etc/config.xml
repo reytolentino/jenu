@@ -62,13 +62,13 @@
     </adminhtml>
     <admin>
         <routers>
-            <emaildesign>
-                <use>admin</use>
-                <args>
-                    <module>Mirasvit_EmailDesign</module>
-                    <frontName>emaildesign</frontName>
-                </args>
-            </emaildesign>
+            <adminhtml>
+				<args>
+					<modules>
+						<emaildesign after="Mage_Adminhtml">Mirasvit_EmailDesign_Adminhtml</emaildesign>
+					</modules>
+				</args>
+			</adminhtml>
         </routers>
     </admin>
 </config>

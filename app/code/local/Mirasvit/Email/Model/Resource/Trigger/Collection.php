@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Resource_Trigger_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
@@ -26,15 +27,13 @@ class Mirasvit_Email_Model_Resource_Trigger_Collection extends Mage_Core_Model_M
     {
         $date = Mage::app()->getLocale()->date();
 
-        $activeFrom   = array();
+        $activeFrom = array();
         $activeFrom[] = array('date' => true, 'to' => date($date->toString('YYYY-MM-dd H:mm:ss')));
-        $activeFrom[] = array('date' => true, 'from' => '0000-00-00 00:00:00');
         $activeFrom[] = array('date' => true, 'null' => true);
 
-        $activeTo     = array();
-        $activeTo[]   = array('date' => true, 'from' => date($date->toString('YYYY-MM-dd H:mm:ss')));
-        $activeTo[]   = array('date' => true, 'from' => '0000-00-00 00:00:00');
-        $activeTo[]   = array('date' => true, 'null' => true);
+        $activeTo = array();
+        $activeTo[] = array('date' => true, 'from' => date($date->toString('YYYY-MM-dd H:mm:ss')));
+        $activeTo[] = array('date' => true, 'null' => true);
 
         $this->addFieldToFilter('is_active', 1);
         $this->addFieldToFilter('active_from', $activeFrom);

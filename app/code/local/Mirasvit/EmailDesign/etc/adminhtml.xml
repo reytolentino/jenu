@@ -36,12 +36,12 @@
                         <emaildesing_desing module="emaildesign">
                             <title>Manage Designs</title>
                             <sort_order>10</sort_order>
-                            <action>emaildesign/adminhtml_design/index</action>
+                            <action>adminhtml/emaildesign_design/index</action>
                         </emaildesing_desing>
                         <emaildesing_template module="emaildesign">
                             <title>Manage Templates</title>
                             <sort_order>20</sort_order>
-                            <action>emaildesign/adminhtml_template/index</action>
+                            <action>adminhtml/emaildesign_template/index</action>
                         </emaildesing_template>
                     </children>
                 </email_desing_template>

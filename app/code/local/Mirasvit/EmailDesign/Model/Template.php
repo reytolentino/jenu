@@ -9,15 +9,16 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailDesign_Model_Template extends Mage_Core_Model_Abstract
 {
-    protected $_areas  = null;
+    protected $_areas = null;
     protected $_design = null;
 
     protected function _construct()
@@ -110,7 +111,7 @@ class Mirasvit_EmailDesign_Model_Template extends Mage_Core_Model_Abstract
     public function getProcessedTemplate($variables = null)
     {
         $tpl = $this->getDesign()->getTemplate();
-        
+
         $result = $this->_render($tpl, $variables);
 
         if ($this->getDesign()->getTemplateType() == Mirasvit_EmailDesign_Model_Design::TEMPLATE_TYPE_HTML) {
@@ -126,7 +127,7 @@ class Mirasvit_EmailDesign_Model_Template extends Mage_Core_Model_Abstract
     }
 
     protected function _render($tpl, $variables = null)
-    { 
+    {
         if (!is_array($variables)) {
             $variables = array();
         }
@@ -158,9 +159,9 @@ class Mirasvit_EmailDesign_Model_Template extends Mage_Core_Model_Abstract
 
     public function import($path)
     {
-        $content   = file_get_contents($path);
-        $xml       = new Varien_Simplexml_Element($content);
-        $template  = $xml->asArray();
+        $content = file_get_contents($path);
+        $xml = new Varien_Simplexml_Element($content);
+        $template = $xml->asArray();
 
         $template['areas_content'] = base64_decode($template['areas_content64']);
 
@@ -177,5 +178,59 @@ class Mirasvit_EmailDesign_Model_Template extends Mage_Core_Model_Abstract
             ->save();
 
         return $model;
+    }
+
+    /**
+     * Retrieve area code of email template based on the its content.
+     *
+     * @param string $content
+     *
+     * @return null|string
+     */
+    public function getAreaCodeByContent($content)
+    {
+        $code = null;
+        foreach ($this->getAreasContent() as $areaCode => $areaContent) {
+            if ($areaContent == $content) {
+                $code = $areaCode;
+                break;
+            }
+        }
+
+        return $code;
+    }
+
+    /**
+     * Convert extension's email template to transactional email.
+     *
+     * @return string - template code of new transactional email
+     */
+    public function convert()
+    {
+        $template = $this->getDesign()->getTemplate();
+        foreach ($this->getDesign()->getAreas() as $areaCode => $area) {
+            $replacement = $this->getAreaContent($areaCode) ? $this->getAreaContent($areaCode) : '';
+            $template = preg_replace("/<\?php[\sa-zA-Z]*\\\$this\->area\('{$areaCode}'[,\s'\".\w)]*\?>/i", $replacement, $template);
+        }
+
+        $templateType = ($this->getDesign()->getTemplateType() === 'html')
+            ? Mage_Core_Model_Template::TYPE_HTML
+            : Mage_Core_Model_Template::TYPE_TEXT;
+
+        $emailTemplate = Mage::getModel('core/email_template');
+
+        if (preg_match('/<style[^>]*>(?:<\!--)?(.*)(?:-->)?<\/style>/ims', $template, $match)) {
+            $emailTemplate->setTemplateStyles($match[1]);
+            $template = str_replace($match[1], '', $template);
+        }
+
+        $emailTemplate->setTemplateText($template)
+            ->setTemplateSubject($this->getSubject())
+            ->setTemplateCode($this->getTitle().' (FUE)')
+            ->setTemplateType($templateType)
+            ->setAddedAt(Mage::getSingleton('core/date')->gmtDate())
+            ->save();
+
+        return $emailTemplate->getTemplateCode();
     }
 }

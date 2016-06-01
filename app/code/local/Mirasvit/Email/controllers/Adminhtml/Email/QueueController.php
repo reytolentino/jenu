@@ -9,13 +9,14 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller_Action
+
+class Mirasvit_Email_Adminhtml_Email_QueueController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction()
     {
@@ -43,7 +44,7 @@ class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller
         $this->_initAction();
 
         $this->getModel();
-        
+
         $this->_addContent($this->getLayout()->createBlock('email/adminhtml_queue_view'));
         $this->renderLayout();
     }
@@ -66,10 +67,10 @@ class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller
 
     public function sendAction()
     {
-        $this->getModel()->send();
+        $this->getModel()->send(true);
 
         Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('email')->__('The mail was sent.'));
-        
+
         $this->_redirect('*/*/');
     }
 
@@ -87,7 +88,7 @@ class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller
         $this->getModel()->reset('Manually change');
 
         Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('email')->__('The mail was reseted.'));
-        
+
         $this->_redirect('*/*/');
     }
 
@@ -96,7 +97,7 @@ class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller
         if (is_array($this->getRequest()->getParam('queue'))) {
             foreach ($this->getRequest()->getParam('queue') as $queueId) {
                 $model = Mage::getModel('email/queue')->load($queueId);
-                $model->send();
+                $model->send(true);
             }
         }
 
@@ -156,12 +157,11 @@ class Mirasvit_Email_Adminhtml_QueueController extends Mage_Adminhtml_Controller
 
         $html[] = $this->__('Current Time: <b>%s</b>', Mage::getSingleton('core/date')->date('M d, Y g:i:s A'));
 
-
         return implode('<br>', $html);
     }
 
-	protected function _isAllowed()
-	{
-		return Mage::getSingleton('admin/session')->isAllowed('email/email_queue');
-	}
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('email/email_queue');
+    }
 }

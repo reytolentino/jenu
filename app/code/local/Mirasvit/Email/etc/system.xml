@@ -7,8 +7,8 @@
             <frontend_type>text</frontend_type>
             <sort_order>100</sort_order>
             <show_in_default>1</show_in_default>
-            <show_in_website>0</show_in_website>
-            <show_in_store>0</show_in_store>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
             <groups>
                 <general>
                     <label>General</label>
@@ -21,8 +21,8 @@
                             <label>Limit number of emails per address</label>
                             <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
                             <sort_order>0</sort_order>
                         </max_email_heading>
                         <max_email translate="label">

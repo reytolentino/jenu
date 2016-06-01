@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Trigger_Chain extends Mage_Core_Model_Abstract
@@ -33,7 +34,7 @@ class Mirasvit_Email_Model_Trigger_Chain extends Mage_Core_Model_Abstract
                 break;
 
             case 'email':
-                $template = Mage::getModel('core/email_template')->load($info[1]);
+                $template = Mage::getModel('emaildesign/email_template')->load($info[1]);
                 break;
 
             case 'newsletter':
@@ -49,7 +50,7 @@ class Mirasvit_Email_Model_Trigger_Chain extends Mage_Core_Model_Abstract
         if (!@unserialize($this->getDelay())) {
             return;
         }
-        
+
         foreach (unserialize($this->getDelay()) as $key => $value) {
             switch ($key) {
                 case 'days':
@@ -73,14 +74,16 @@ class Mirasvit_Email_Model_Trigger_Chain extends Mage_Core_Model_Abstract
     {
         $scheduledAt = $time;
         $excludeDays = $this->getExcludeDays();
-        $days        = ($this->getDays()) * 24 * 60 * 60;
-        $hours       = $this->getHours() * 60 * 60;
-        $minutes     = $this->getMinutes() * 60;
-        $type        = (!$this->getType()) ? 'after' : $this->getType();
+        $days = ($this->getDays()) * 24 * 60 * 60;
+        $hours = $this->getHours() * 60 * 60;
+        $minutes = $this->getMinutes() * 60;
+        $type = (!$this->getType()) ? 'after' : $this->getType();
 
         if ($type == 'at') {
-            $days = ($days === 0) ? 86400 : $days;
             $scheduledAt = $time + (($days - ($time - strtotime('00:00', $time)))  + $hours + $minutes);
+            if ($time >= $scheduledAt) {
+                $scheduledAt += 86400;
+            }
         } else {
             $scheduledAt = $time + $days + $hours + $minutes;
         }
@@ -95,7 +98,7 @@ class Mirasvit_Email_Model_Trigger_Chain extends Mage_Core_Model_Abstract
         $result = 0;
         if (is_array($excludeDaysOfWeek) && (count($excludeDaysOfWeek) > 0)) {
             while (in_array(date('w', $time + $result * 86400), $excludeDaysOfWeek)) {
-                $result++;
+                ++$result;
 
                 if ($result > 7) {
                     break;

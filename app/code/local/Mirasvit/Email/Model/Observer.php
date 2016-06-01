@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Observer extends Varien_Object
@@ -34,7 +35,7 @@ class Mirasvit_Email_Model_Observer extends Varien_Object
 
     public function checkEvents()
     {
-        $events = $this->getActiveEvents();
+        $events = Mage::helper('email/event')->getActiveEvents();
 
         foreach ($events as $eventCode) {
             $event = Mage::helper('email/event')->getEventModel($eventCode);
@@ -53,26 +54,32 @@ class Mirasvit_Email_Model_Observer extends Varien_Object
         return true;
     }
 
-    public function getActiveEvents()
+    /**
+     * Event 'after_check_m_email_events'
+     * Create new trigger related events based on newly registered events.
+     *
+     * @param Varien_Event_Observer $observer
+     */
+    public function afterCheckEvents(Varien_Event_Observer $observer)
     {
-        $events = array();
+        $newEvents = $observer->getNewEvents();
 
-        $triggers = Mage::getModel('email/trigger')->getCollection()
-            ->addActiveFilter();
-
-        foreach ($triggers as $trigger) {
-            $events = array_merge($events, $trigger->getEvents());
+        if (empty($newEvents)) {
+            return;
         }
 
-        $events = array_values(array_unique($events));
+        if ($observer->getEventModel()->getTriggerId()) {
+            $triggers = array($observer->getEventModel()->getTriggerId());
+        } else {
+            $triggers = Mage::helper('email/event')->getAssociatedTriggers($observer->getEventCode());
+        }
 
-        return $events;
+        Mage::getModel('email/event')->addTriggerEvents($observer->getNewEvents(), $triggers);
     }
 
     public function clearOldData()
     {
-        // changed from a month ago to a year ago 20160531
-        $monthAgo = date('Y-m-d H:i:s', Mage::getSingleton('core/date')->gmtTimestamp() - 365 * 24 * 60 * 60);
+        $monthAgo = date('Y-m-d H:i:s', Mage::getSingleton('core/date')->gmtTimestamp() - 30 * 24 * 60 * 60);
 
         # Step 1. Remove old events
         $collection = Mage::getModel('email/event')->getCollection()
@@ -92,24 +99,46 @@ class Mirasvit_Email_Model_Observer extends Varien_Object
         }
     }
 
-    public function onWishlistProductAdd($observer)
-    {
-        Mage::getModel('email/event_wishlist_wishlist')->observer('wishlist_wishlist|productadded', $observer);
-    }
-
     public function onWishlistShared($observer)
     {
-        Mage::getModel('email/event_wishlist_wishlist')->observer('wishlist_wishlist|shared', $observer);
+        Mage::getModel('email/event_wishlist_wishlist')->check('wishlist_wishlist|shared', false, $observer);
     }
 
-    public function onNewsletterSubscriberSaveAfter($observer)
+    public function onNewsletterSubscriberSaveBefore($observer)
     {
+        $originalStatus = $observer->getEvent()->getDataObject()->getOrigData('subscriber_status');
         $status = $observer->getEvent()->getDataObject()->getSubscriberStatus();
 
+        if ($originalStatus !== $status) {
+            Mage::getModel('email/event_customer_newsletter')->check('customer_newsletter|subscription_status_changed', false, $observer);
+        }
+
         if ($status == Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED) {
-            Mage::getModel('email/event_customer_newsletter')->observer('customer_newsletter|subscribed', $observer);
+            Mage::getModel('email/event_customer_newsletter')->check('customer_newsletter|subscribed', false, $observer);
         } elseif ($status == Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED) {
-            Mage::getModel('email/event_customer_newsletter')->observer('customer_newsletter|unsubscribed', $observer);
+            Mage::getModel('email/event_customer_newsletter')->check('customer_newsletter|unsubscribed', false, $observer);
+        }
+    }
+
+    public function onCustomerSaveAfter($observer)
+    {
+        $customer = $observer->getEvent()->getCustomer();
+        if ($customer->getId()) {
+            // Process the event if a customer group was changed
+            if ($customer->getOrigData('group_id') !== $customer->getGroupId()) {
+                Mage::getModel('email/event_customer_groupchanged')->check(Mirasvit_Email_Model_Event_Customer_Groupchanged::EVENT_CODE, false, $observer);
+            }
+        }
+    }
+
+    public function onReviewBeforeSave($observer)
+    {
+        $originalReviewStatus = $observer->getEvent()->getDataObject()->getOrigData('status_id');
+        $newReviewStatus = $observer->getEvent()->getDataObject()->getData('status_id');
+
+        if ($newReviewStatus == Mage_Review_Model_Review::STATUS_APPROVED &&
+            $originalReviewStatus !== $newReviewStatus) {
+            Mage::getModel('email/event_customer_review')->check('customer_review|approved', false, $observer);
         }
     }
 
@@ -125,7 +154,10 @@ class Mirasvit_Email_Model_Observer extends Varien_Object
         $coupons = Mage::getModel('salesrule/coupon')->getCollection()
             ->addFieldToFilter('code', array('like' => 'EML%'))
             ->addFieldToFilter('expiration_date', array(
-                'lteq'      => Mage::getSingleton('core/date')->gmtDate()
+                'neq' => '0000-00-00 00:00:00',
+            ))
+            ->addFieldToFilter('expiration_date', array(
+                'lteq' => Mage::getSingleton('core/date')->gmtDate(),
             ));
 
         foreach ($coupons as $coupon) {

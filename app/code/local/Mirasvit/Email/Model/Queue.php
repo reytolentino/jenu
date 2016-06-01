@@ -9,24 +9,25 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
 {
-    const STATUS_PENDING       = 'pending';
-    const STATUS_DELIVERED     = 'delivered';
-    const STATUS_CANCELED      = 'canceled';
-    const STATUS_UNSUBSCRIBED  = 'unsubscribed';
-    const STATUS_ERROR         = 'error';
-    const STATUS_MISSED        = 'missed';
+    const STATUS_PENDING = 'pending';
+    const STATUS_DELIVERED = 'delivered';
+    const STATUS_CANCELED = 'canceled';
+    const STATUS_UNSUBSCRIBED = 'unsubscribed';
+    const STATUS_ERROR = 'error';
+    const STATUS_MISSED = 'missed';
 
-    protected $_args    = null;
+    protected $_args = null;
     protected $_trigger = null;
-    protected $_chain   = null;
+    protected $_chain = null;
 
     protected function _construct()
     {
@@ -94,58 +95,87 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
     public function getEmailContent()
     {
         if ($this->getData('content') == '') {
+            Mage::helper('email/ErrorHandler')->handleErrors();
             $content = $this->getTemplate()->getProcessedTemplate($this->getArgs());
+            Mage::helper('email/ErrorHandler')->restoreErrorHandler();
 
             $this->setData('content', $content);
-            
+
             Mage::dispatchEvent('email_queue_get_content_after', array('queue' => $this));
         }
 
         return $this->getData('content');
     }
 
-
-    public function send()
+    public function getRecipientEmail($forceOriginal = false)
     {
+        $recipient = $this->getData('recipient_email');
+        if ($forceOriginal) {
+            return $recipient;
+        }
+
+        if (Mage::getSingleton('email/config')->isSandbox() && !$this->getTest()) {
+            $recipient = Mage::helper('email')->determineEmails(Mage::getSingleton('email/config')->getSandboxEmail());
+        }
+
+        if ($this->getTrigger()->getIsTriggerSandboxActive() && !$this->getTest()) {
+            $recipient = Mage::helper('email')->determineEmails($this->getTrigger()->getTriggerSandboxEmail());
+        }
+
+        if (is_array($recipient) && count($recipient)) {
+            $recipient = implode(',', $recipient);
+        } else {
+            $recipient = $this->getData('recipient_email');
+        }
+
+        return $recipient;
+    }
+
+    public function send($force = false)
+    {
+        Mage::register('email_queue', $this, true);
         $args = $this->getArgs();
 
         if (!isset($args['is_test'])) {
             // change status to missed after 2 days
-            if (time() - strtotime($this->getScheduledAt()) > 60 * 60 * 24 * 2) {
-                $this->miss("Scheduled At $this->getScheduledAt(), attempt to send after 2 days");
+            if ($this->isMissed() && !$force) {
+                $this->miss("Scheduled At \"{$this->getScheduledAt()}\", attempt to send after 2 days");
+
                 return $this;
             }
 
             // check unsubscription
-            if (Mage::getSingleton('email/unsubscription')->isUnsubscribed($this->getRecipientEmail(), $this->getTriggerId())) {
-                $this->unsubscribe("Customer $this->getRecipientEmail() is unsubscribed");
+            if (Mage::getSingleton('email/unsubscription')->isUnsubscribed($this->getRecipientEmail(true), $this->getTriggerId())) {
+                $this->unsubscribe("Customer \"{$this->getRecipientEmail(true)}\" is unsubscribed");
+
                 return $this;
             }
 
             // check rules
             if (!$this->getTrigger()->validateRules($args)) {
-                $this->cancel("Canceled by trigger rules");
+                $this->cancel('Canceled by trigger rules');
+
                 return $this;
             }
 
             // check limitation
             if (!$this->isValidByLimit($args)) {
-                $this->cancel("Canceled by global limitation settings");
+                $this->cancel('Canceled by global limitation settings');
+
                 return $this;
             }
         }
 
-
         $appEmulation = Mage::getSingleton('core/app_emulation');
         $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($args['store_id']);
 
-        $email     = Mage::getModel('core/email_template');
+        $email = Mage::getModel('core/email_template');
         $translate = Mage::getSingleton('core/translate');
         $translate->setTranslateInline(false);
 
-
         if (!$this->getTemplate()) {
-            $this->cancel("Missed Template");
+            $this->cancel('Missed Template');
+
             return $this;
         }
 
@@ -165,9 +195,7 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
         $email->setTemplateText($this->getEmailContent());
 
         $recipient = $this->getRecipientEmail();
-        if (Mage::getSingleton('email/config')->isSandbox()) {
-            $recipient = Mage::helper('email')->determineEmails(Mage::getSingleton('email/config')->getSandboxEmail());
-        }
+        $recipient = explode(',', $recipient);
 
         $copyTo = Mage::helper('email')->determineEmails($this->getTrigger()->getCopyEmail());
         foreach ($copyTo as $bcc) {
@@ -178,10 +206,10 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
             $recipient,
             $this->getRecipientName(),
             array(
-                'name'    => $this->getRecipientName(),
-                'email'   => $recipient,
+                'name' => $this->getRecipientName(),
+                'email' => $recipient,
                 'subject' => $this->getEmailSubject(),
-                'message' => $this->getEmailContent()
+                'message' => $this->getEmailContent(),
             )
         );
 
@@ -192,10 +220,24 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
         return $result;
     }
 
+    /**
+     * If a queue was not sent within 2 days - it is missed.
+     *
+     * @return bool
+     */
+    public function isMissed()
+    {
+        $isMissed = false;
+        if (time() - strtotime($this->getScheduledAt()) > 60 * 60 * 24 * 2) {
+            $isMissed = true;
+        }
+
+        return $isMissed;
+    }
 
     public function pending($message = '')
     {
-        $this->setStatus(Mirasvit_Email_Model_Queue::STATUS_PENDING)
+        $this->setStatus(self::STATUS_PENDING)
             ->setStatusMessage($message)
             ->save();
     }
@@ -203,21 +245,21 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
     public function delivery($message = '')
     {
         $this->setSentAt(Mage::getSingleton('core/date')->gmtDate())
-            ->setStatus(Mirasvit_Email_Model_Queue::STATUS_DELIVERED)
+            ->setStatus(self::STATUS_DELIVERED)
             ->setStatusMessage($message)
             ->save();
     }
 
     public function miss($message = '')
     {
-        $this->setStatus(Mirasvit_Email_Model_Queue::STATUS_MISSED)
+        $this->setStatus(self::STATUS_MISSED)
             ->setStatusMessage($message)
             ->save();
     }
 
     public function cancel($message = '')
     {
-        $this->setStatus(Mirasvit_Email_Model_Queue::STATUS_CANCELED)
+        $this->setStatus(self::STATUS_CANCELED)
             ->setStatusMessage($message)
             ->save();
 
@@ -226,7 +268,7 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
 
     public function error($message = '')
     {
-        $this->setStatus(Mirasvit_Email_Model_Queue::STATUS_ERROR)
+        $this->setStatus(self::STATUS_ERROR)
             ->setStatusMessage($message)
             ->save();
 
@@ -235,7 +277,7 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
 
     public function unsubscribe($message = '')
     {
-        $this->setStatus(Mirasvit_Email_Model_Queue::STATUS_UNSUBSCRIBED)
+        $this->setStatus(self::STATUS_UNSUBSCRIBED)
             ->setStatusMessage($message)
             ->save();
 
@@ -244,7 +286,7 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
 
     public function reset($message = '')
     {
-        $this->setStatus(Mirasvit_Email_Model_Queue::STATUS_PENDING)
+        $this->setStatus(self::STATUS_PENDING)
             ->setStatusMessage($message)
             ->setSentAt(null)
             ->setContent(null)
@@ -257,7 +299,7 @@ class Mirasvit_Email_Model_Queue extends Mage_Core_Model_Abstract
     {
         $result = true;
         $emailLimit = Mage::getModel('email/config')->getEmailLimit();
-        $hourLimit  = Mage::getModel('email/config')->getEmailLimitPeriod() * 60 * 60;
+        $hourLimit = Mage::getModel('email/config')->getEmailLimitPeriod() * 60 * 60;
         if (in_array(0, array($emailLimit, $hourLimit))) {
             return $result;
         }

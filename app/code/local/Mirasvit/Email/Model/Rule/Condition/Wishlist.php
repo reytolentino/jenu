@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Rule_Condition_Wishlist extends  Mirasvit_Email_Model_Rule_Condition_Abstract
@@ -20,9 +21,10 @@ class Mirasvit_Email_Model_Rule_Condition_Wishlist extends  Mirasvit_Email_Model
     public function loadAttributeOptions()
     {
         $attributes = array(
-            'summary_qty'    => Mage::helper('email')->__('Wishlist: Total quantity of products'),
-            'summary_count'  => Mage::helper('email')->__('Wishlist: Total count of products'),
-            'subtotal'       => Mage::helper('email')->__('Wishlist: Subtotal'),
+            'summary_qty' => Mage::helper('email')->__('Wishlist: Total quantity of products'),
+            'summary_count' => Mage::helper('email')->__('Wishlist: Total count of products'),
+            'subtotal' => Mage::helper('email')->__('Wishlist: Subtotal'),
+            'wishlist_item_duration' => Mage::helper('email')->__('Wishlist Item: Number of passed days since date when a product was added to wishlist'),
         );
 
         asort($attributes);
@@ -32,13 +34,30 @@ class Mirasvit_Email_Model_Rule_Condition_Wishlist extends  Mirasvit_Email_Model
         return $this;
     }
 
+    public function getInputType()
+    {
+        switch ($this->getAttribute()) {
+            case 'wishlist_item_duration':
+                return 'numeric';
+                break;
+        }
+
+        return parent::getInputType();
+    }
+
     public function validate(Varien_Object $object)
     {
         $attrCode = $this->getAttribute();
 
-        $qty      = 0;
-        $count    = 0;
+        $qty = 0;
+        $count = 0;
         $subtotal = 0;
+        $duration = 0;
+
+        if ($object->getData('wishlist_item_id')) {
+            $diff = Mage::getModel('core/date')->gmtTimestamp() - $object->getData('time'); // getData('time') - is a wishlist item's added_at value
+            $duration = floor($diff / (60 * 60 * 24));
+        }
 
         if ($object->getData('customer_id')) {
             $wishlist = Mage::getModel('wishlist/wishlist')->loadByCustomer($object->getData('customer_id'));
@@ -50,13 +69,14 @@ class Mirasvit_Email_Model_Rule_Condition_Wishlist extends  Mirasvit_Email_Model
 
                 $subtotal += $product->getFinalPrice() * $item->getQty();
                 $qty      += $item->getQty();
-                $count++;
+                ++$count;
             }
         }
 
         $object->setData('summary_qty', $qty)
             ->setData('summary_count', $count)
-            ->setData('subtotal', $subtotal);
+            ->setData('subtotal', $subtotal)
+            ->setData('wishlist_item_duration', $duration);
 
         $value = $object->getData($attrCode);
 

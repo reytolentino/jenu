@@ -77,9 +77,47 @@
                             <show_in_store>1</show_in_store>
                             <source_model>emailsmtp/system_source_ssl</source_model>
                         </ssl>
-
                     </fields>
                 </smtp>
+                <log translate="label">
+                    <label>Logging</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <email_logging translate="label">
+                            <label>Enabled Email Logging</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </email_logging>
+                        <logsdelete translate="label">
+                            <label>Enable Log Cleaning</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>160</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </logsdelete>
+                        <smtpmaillogsdays translate="label">
+                            <label>SMTP Mail Logs are stored for, days</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry validate-digits-range digits-range-10-10000</validate>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>0 for unlimit, range between 10 and 10000 </comment>
+                            <depends><logsdelete><value>1</value></logsdelete></depends>
+                        </smtpmaillogsdays>
+                    </fields>
+                </log>
             </groups>
         </emailsmtp>
     </sections>

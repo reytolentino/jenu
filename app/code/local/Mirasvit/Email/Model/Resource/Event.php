@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Resource_Event extends Mage_Core_Model_Mysql4_Abstract
@@ -33,7 +34,7 @@ class Mirasvit_Email_Model_Resource_Event extends Mage_Core_Model_Mysql4_Abstrac
         if ($object->hasData('args')) {
             $object->setArgsSerialized(serialize($object->getData('args')));
         }
-        
+
         return parent::_beforeSave($object);
     }
 
@@ -45,25 +46,26 @@ class Mirasvit_Email_Model_Resource_Event extends Mage_Core_Model_Mysql4_Abstrac
         return parent::_beforeDelete($object);
     }
 
+    /**
+     * Create new trigger related events
+     * if similar records exists - just update their status and created_at/updated_at dates.
+     *
+     * @param array $data
+     */
+    public function addTriggerEvents($data)
+    {
+        $columns = array('status', 'created_at', 'updated_at');
+        $connection = $this->_getWriteAdapter();
+        $connection->insertOnDuplicate($this->getTable('email/event_trigger'), $data, $columns);
+    }
+
     public function addProcessedTriggerId($eventId, $triggerId)
     {
-        $data = array(
-            'trigger_id' => $triggerId,
-            'event_id'   => $eventId,
-            'status'     => 'done',
-            'created_at' => Mage::getSingleton('core/date')->gmtDate(),
-            'updated_at' => Mage::getSingleton('core/date')->gmtDate(),
-        );
+        $data = array('status' => 'done', 'updated_at' => Mage::getSingleton('core/date')->gmtDate());
+        $where = array('trigger_id = ?' => (int) $triggerId, 'event_id = ?' => (int) $eventId);
 
         $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
-
-        $connection->delete($this->getTable('email/event_trigger'),
-            'event_id = '.$eventId.' AND trigger_id='.$triggerId);
-
-        $connection->insert(
-            $this->getTable('email/event_trigger'),
-            $data
-        );
+        $connection->update($this->getTable('email/event_trigger'), $data, $where);
     }
 
     public function getProcessedTriggerIds($eventId)

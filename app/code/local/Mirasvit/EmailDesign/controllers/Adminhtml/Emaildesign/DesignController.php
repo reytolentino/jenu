@@ -9,13 +9,13 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_EmailDesign_Adminhtml_DesignController extends Mage_Adminhtml_Controller_Action
+class Mirasvit_EmailDesign_Adminhtml_Emaildesign_DesignController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction()
     {

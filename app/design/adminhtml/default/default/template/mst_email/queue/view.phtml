@@ -3,6 +3,7 @@ $_model = $this->getModel();
 ?>
 <div class="content-header">
     <h3 class="icon-head head-adminhtml-queue-view"><?php echo $this->getHeaderText() ?></h3>
+    <p class="form-buttons"><button title="Back" type="button" class="scalable back" onclick="setLocation('<?php echo $this->getBackUrl() ?>')" style=""><span><span><span>Back</span></span></span></button></p>
 </div>
 <table width="100%">
     <tr>
@@ -37,15 +38,15 @@ $_model = $this->getModel();
                         <tr>
                             <td class="label"><?php echo Mage::helper('email')->__('Recipient Name') ?></td>
                             <td class="value"><?php echo $_model->getRecipientName() ?></td>
-                        </tr> 
+                        </tr>
                         <tr>
                             <td class="label"><?php echo Mage::helper('email')->__('Sender Email') ?></td>
                             <td class="value"><?php echo $_model->getSenderEmail() ?></td>
-                        </tr> 
+                        </tr>
                         <tr>
                             <td class="label"><?php echo Mage::helper('email')->__('Sender Name') ?></td>
                             <td class="value"><?php echo $_model->getSenderName() ?></td>
-                        </tr> 
+                        </tr>
                     </table>
                 </div>
 
@@ -55,11 +56,11 @@ $_model = $this->getModel();
                 </div>
                 <div class="fieldset">
                     <table class="form-list">
-                    <?php foreach(explode(PHP_EOL, $_model->getHistory()) as $_message): ?>
-                        <tr>
-                            <td colspan="2"><?php echo $_message ?></td>
-                        </tr>
-                    <?php endforeach ?>
+                        <?php foreach(explode(PHP_EOL, $_model->getHistory()) as $_message): ?>
+                            <tr>
+                                <td colspan="2"><?php echo $_message ?></td>
+                            </tr>
+                        <?php endforeach ?>
                     </table>
                 </div>
 
@@ -72,12 +73,12 @@ $_model = $this->getModel();
                         <tr>
                             <td class="label"><?php echo Mage::helper('email')->__('Unique Key') ?></td>
                             <td class="value"><?php echo $_model->getUniqKey() ?></td>
-                        </tr> 
-                        <?php foreach ($_model->getArgs() as $_key => $_value): ?>
-                        <tr>
-                            <td class="label"><?php echo $_key ?></td>
-                            <td class="value"><?php echo is_object($_value) ? '[...]' : $_value ?></td>
                         </tr>
+                        <?php foreach ($_model->getArgs() as $_key => $_value): ?>
+                            <tr>
+                                <td class="label"><?php echo $_key ?></td>
+                                <td class="value"><?php echo is_object($_value) ? '[...]' : $_value ?></td>
+                            </tr>
                         <?php endforeach ?>
                     </table>
                 </div>

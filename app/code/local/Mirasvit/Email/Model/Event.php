@@ -9,17 +9,17 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
+
 /**
- * Event Class
+ * Event Class.
  *
  * @category Mirasvit
- * @package  Mirasvit_Email
  */
 class Mirasvit_Email_Model_Event extends Mage_Core_Model_Abstract
 {
@@ -31,7 +31,7 @@ class Mirasvit_Email_Model_Event extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Return array of event arguments
+     * Return array of event arguments.
      *
      * @return array
      */
@@ -42,6 +42,31 @@ class Mirasvit_Email_Model_Event extends Mage_Core_Model_Abstract
         }
 
         return $this->_args;
+    }
+
+    /**
+     * Create new trigger related events.
+     *
+     * @param array $events   - array of IDs of newly created events
+     * @param array $triggers - triggers associated with passed events
+     */
+    public function addTriggerEvents($events, $triggers)
+    {
+        $data = array();
+        foreach ($events as $eventId) {
+            foreach ($triggers as $triggerId) {
+                $date = Mage::getSingleton('core/date')->gmtDate();
+                $data[] = array(
+                    'event_id' => $eventId,
+                    'trigger_id' => $triggerId,
+                    'status' => 'new',
+                    'created_at' => $date,
+                    'updated_at' => $date,
+                );
+            }
+        }
+
+        $this->getResource()->addTriggerEvents($data);
     }
 
     public function addProcessedTriggerId($triggerId)

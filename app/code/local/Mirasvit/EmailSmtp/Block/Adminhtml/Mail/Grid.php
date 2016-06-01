@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -97,5 +97,10 @@ class Mirasvit_EmailSmtp_Block_Adminhtml_Mail_Grid extends Mage_Adminhtml_Block_
         );
 
         return parent::_prepareColumns();
+    }
+
+    public function getRowUrl($row)
+    {
+        return $this->getUrl('*/*/view', array('id' => $row->getId()));
     }
 }

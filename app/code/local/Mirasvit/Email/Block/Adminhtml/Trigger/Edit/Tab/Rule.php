@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -48,7 +48,7 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_Rule extends Mage_Adminhtm
         $form->setHtmlIdPrefix('rule_');
         $renderer = Mage::app()->getLayout()->createBlock('adminhtml/widget_form_renderer_fieldset')
             ->setTemplate('promo/fieldset.phtml')
-            ->setNewChildUrl(Mage::getModel('adminhtml/url')->getUrl('*/adminhtml_trigger/newConditionHtml/form/rule_run_fieldset'));
+            ->setNewChildUrl(Mage::getModel('adminhtml/url')->getUrl('*/*/newConditionHtml/form/rule_run_fieldset'));
 
         $runFieldset = $form->addFieldset('run_fieldset',
                 array('legend' => Mage::helper('email')->__('Send emails only if the following conditions are met')))

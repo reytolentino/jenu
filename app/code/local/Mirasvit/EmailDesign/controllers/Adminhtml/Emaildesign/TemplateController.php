@@ -9,13 +9,14 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_Controller_Action
+
+class Mirasvit_EmailDesign_Adminhtml_Emaildesign_TemplateController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction()
     {
@@ -42,7 +43,6 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
         $model = $this->getModel();
         $this->_initAction();
         $this->_title($this->__('New Template'));
-
 
         $this->_addContent($this->getLayout()->createBlock('emaildesign/adminhtml_template_edit'));
 
@@ -82,9 +82,10 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
                     $this->getResponse()->setHeader('Content-type', 'application/json');
                     $jsonData = Mage::helper('core')->jsonEncode(array(
                         'success' => true,
-                        'message' => Mage::helper('emaildesign')->__('Template was successfully saved'))
+                        'message' => Mage::helper('emaildesign')->__('Template was successfully saved'), )
                     );
                     $this->getResponse()->setBody($jsonData);
+
                     return;
                 }
 
@@ -122,12 +123,28 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
         $this->_redirect('*/*/');
     }
 
+    /**
+     * Action used for converting extension's email template to transactional email.
+     */
     public function exportAction()
     {
         try {
             $path = $this->getModel()->export();
 
             Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('emaildesign')->__('Template exported to %s', $path));
+            $this->_redirect('*/*/');
+        } catch (Exception $e) {
+            Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            $this->_redirect('*/*/');
+        }
+    }
+
+    public function convertAction()
+    {
+        try {
+            $code = $this->getModel()->convert();
+
+            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('emaildesign')->__('Template converted to transactional email "%s"', $code));
             $this->_redirect('*/*/');
         } catch (Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
@@ -179,8 +196,8 @@ class Mirasvit_EmailDesign_Adminhtml_TemplateController extends Mage_Adminhtml_C
         }
     }
 
-	protected function _isAllowed()
-	{
-		return Mage::getSingleton('admin/session')->isAllowed('email/email_desing_template/emaildesing_template');
-	}
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('email/email_desing_template/emaildesing_template');
+    }
 }

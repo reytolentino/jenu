@@ -9,17 +9,23 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Helper_Event extends Mage_Core_Helper_Abstract
 {
+    /**
+     * @param $eventCode
+     *
+     * @return bool|Mirasvit_Email_Model_Event_Abstract
+     */
     public function getEventModel($eventCode)
     {
-        $arr  = explode('|', $eventCode);
+        $arr = explode('|', $eventCode);
 
         try {
             $model = Mage::getModel('email/event_'.$arr[0]);
@@ -61,22 +67,91 @@ class Mirasvit_Email_Helper_Event extends Mage_Core_Helper_Abstract
         $orderCollection->getSelect()->limit(1, rand(0, $orderCollection->getSize() - 1));
         $order = Mage::getModel('sales/order')->load($orderCollection->getFirstItem()->getId());
 
+        $wishlistCollection = Mage::getModel('wishlist/wishlist')->getCollection();
+        $wishlistCollection->getSelect()
+            ->joinLeft(
+                array('w_item' => $wishlistCollection->getResource()->getTable('wishlist/item')),
+                'main_table.wishlist_id = w_item.wishlist_id',
+                array('wishlist_item_id')
+            )
+            ->where('wishlist_item_id IS NOT NULL')
+            ->order('RAND()')
+            ->limit(1);
+        $wishlist = Mage::getModel('wishlist/wishlist');
+        if ($wishlistCollection->getSize() > 0) {
+            $wishlist->load($wishlistCollection->getFirstItem()->getId());
+        }
+
         $testEmail = Mage::getSingleton('email/config')->getTestEmail();
 
         $store = $defaultStoreId = Mage::app()->getWebsite(true)
             ->getDefaultGroup()
-            ->getDefaultStore();        
+            ->getDefaultStore();
 
         $args = array(
-            'customer_id'    => $customer->getId(),
+            'customer_id' => $customer->getId(),
             'customer_email' => $testEmail,
-            'customer_name'  => $customer->getName(),
-            'quote_id'       => $quote->getId(),
-            'order_id'       => $order->getId(),
-            'time'           => time(),
-            'store_id'       => $store->getId()
+            'customer_name' => $customer->getName(),
+            'quote_id' => $quote->getId(),
+            'order_id' => $order->getId(),
+            'wishlist_id' => $wishlist->getId(),
+            'time' => time(),
+            'store_id' => $store->getId(),
         );
 
         return $args;
+    }
+
+    /**
+     * Check whether the event code is observed.
+     *
+     * @param string $eventCode
+     *
+     * @return bool
+     */
+    public function isEventObserved($eventCode)
+    {
+        $events = $this->getActiveEvents();
+
+        return in_array($eventCode, $events);
+    }
+
+    /**
+     * Return all events observed by active triggers.
+     *
+     * @return array
+     */
+    public function getActiveEvents()
+    {
+        $events = array();
+        $triggers = Mage::getModel('email/trigger')->getCollection()
+            ->addActiveFilter();
+
+        foreach ($triggers as $trigger) {
+            $events = array_merge($events, $trigger->getEvents());
+        }
+
+        return array_unique($events);
+    }
+
+    /**
+     * Return array of trigger IDs associated with the given event code.
+     *
+     * @param string $eventCode - event code
+     *
+     * @return array - array of trigger IDs associated with given event code
+     */
+    public function getAssociatedTriggers($eventCode)
+    {
+        $triggers = array();
+        foreach (Mage::getModel('email/trigger')->getCollection()->addActiveFilter() as $trigger) {
+            foreach ($trigger->getEvents() as $event) {
+                if ($eventCode === $event) {
+                    $triggers[] = $trigger->getId();
+                }
+            }
+        }
+
+        return $triggers;
     }
 }

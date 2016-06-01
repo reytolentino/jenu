@@ -109,15 +109,26 @@
     </adminhtml>
     <admin>
         <routers>
-            <emailreport>
-                <use>admin</use>
+            <adminhtml>
+				<args>
+					<modules>
+						<emailreport after="Mage_Adminhtml">Mirasvit_EmailReport_Adminhtml</emailreport>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <m_emailreport>
+                <use>standard</use>
                 <args>
                     <module>Mirasvit_EmailReport</module>
                     <frontName>emailreport</frontName>
                 </args>
-            </emailreport>
+            </m_emailreport>
         </routers>
-    </admin>
+    </frontend>
     <crontab>
         <jobs>
             <emailreport_aggregate_all>

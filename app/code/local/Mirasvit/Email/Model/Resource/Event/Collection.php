@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Resource_Event_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
@@ -32,7 +33,7 @@ class Mirasvit_Email_Model_Resource_Event_Collection extends Mage_Core_Model_Mys
             ->joinLeft(array('et' => $this->getTable('email/event_trigger')),
                 "et.`event_id` = main_table.`event_id` AND et.`trigger_id` = $triggerId",
                 array())
-            ->where('(et.`status` = "new" OR et.`status` IS NULL)');
+            ->where('et.`status` = "new"');
 
         if (count($storeIds) && !in_array(0, $storeIds)) {
             $this->getSelect()->where('(main_table.`store_ids` IN ('.implode(',', $storeIds).') OR main_table.`store_ids` = 0)');

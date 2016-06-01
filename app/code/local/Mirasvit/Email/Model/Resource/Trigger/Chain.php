@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -37,6 +37,19 @@ class Mirasvit_Email_Model_Resource_Trigger_Chain extends Mage_Core_Model_Mysql4
     {
         parent::_afterLoad($object);
         $object->prepareSerializedData();
+
+        return $this;
+    }
+
+    protected function _beforeDelete(Mage_Core_Model_Abstract $object)
+    {
+        $queueCollectionToDelete = Mage::getModel('email/queue')->getCollection()
+            ->addFieldToFilter('status', Mirasvit_Email_Model_Queue::STATUS_PENDING)
+            ->addFieldToFilter('chain_id', $object->getId());
+
+        foreach ($queueCollectionToDelete as $queue) {
+            $queue->delete();
+        }
 
         return $this;
     }

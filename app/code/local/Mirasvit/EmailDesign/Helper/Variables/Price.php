@@ -9,15 +9,16 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailDesign_Helper_Variables_Price
 {
-    public function getFormatedPrice($parent, $args)
+    public function getFormattedPrice($parent, $args)
     {
         if (isset($args[0]) && floatval($args[0]) > 0) {
             return $parent->getStore()->formatPrice($args[0], false);

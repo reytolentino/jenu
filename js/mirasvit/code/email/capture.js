@@ -29,7 +29,7 @@ if (typeof Prototype !== "undefined") {
 
         ajax: function(type, value)
         {
-            url = window.location.protocol + '//' + window.location.host + '/index.php/email/index/capture';
+            url = window.location.protocol + '//' + window.location.host + '/index.php/eml/index/capture';
 
             new Ajax.Request(url, {
                 method: 'post',
@@ -38,7 +38,9 @@ if (typeof Prototype !== "undefined") {
         }
     };
 
-    DataCapture.attachEvents();
+    document.observe("dom:loaded", function() {
+        DataCapture.attachEvents();
+    });
 } else if (typeof jQuery !== 'undefined') {
     var DataCapture = {
         attachEvents: function ()
@@ -70,7 +72,7 @@ if (typeof Prototype !== "undefined") {
 
         ajax: function(type, value)
         {
-            url = window.location.protocol + '//' + window.location.host + '/index.php/email/index/capture';
+            url = window.location.protocol + '//' + window.location.host + '/index.php/eml/index/capture';
 
             $.ajax(url, {
                 method: 'post',

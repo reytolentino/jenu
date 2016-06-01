@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -37,5 +37,10 @@ class Mirasvit_Email_Block_Adminhtml_Queue_View extends Mage_Adminhtml_Block_Tem
     public function getPreviewUrl()
     {
         return $this->getUrl('*/*/drop', array('_current' => true));
+    }
+
+    public function getBackUrl()
+    {
+        return $this->getUrl('adminhtml/email_queue/index');
     }
 }

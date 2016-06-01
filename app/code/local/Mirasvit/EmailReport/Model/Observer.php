@@ -9,22 +9,23 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_EmailReport_Model_Observer extends Varien_Object
 {
     public function onControllerActionPredispatch($observer)
-    {        
+    {
         if (Mage::app()->getRequest()->getParam('emqc')) {
             $queueKey = Mage::app()->getRequest()->getParam('emqc');
 
             $queue = Mage::getModel('email/queue')->loadByUniqKeyMd5($queueKey);
-            $sessionId  = Mage::getSingleton('core/session')->getSessionId();
-            $triggerId  = $queue->getTrigger()->getId();
+            $sessionId = Mage::getSingleton('core/session')->getSessionId();
+            $triggerId = ($queue) ? $queue->getTriggerId() : null;
 
             if ($queue && $queue->getId() && !$this->isReported('click', $queue->getId(), $triggerId, $sessionId)) {
                 Mage::getModel('emailreport/click')
@@ -43,10 +44,9 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
         if ($observer->getObject()
             && $observer->getObject()->getReviewId()
             && Mage::helper('emailreport')->getQueueId()) {
-
             $queue = Mage::getModel('email/queue')->load(Mage::helper('emailreport')->getQueueId());
-            $sessionId  = Mage::getSingleton('core/session')->getSessionId();
-            $triggerId  = $queue->getTrigger()->getId();
+            $sessionId = Mage::getSingleton('core/session')->getSessionId();
+            $triggerId = ($queue) ? $queue->getTriggerId() : null;
 
             if ($queue && $queue->getId() && !$this->isReported('review', $queue->getId(), $triggerId, $sessionId)) {
                 Mage::getModel('emailreport/review')
@@ -63,11 +63,10 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
     {
         if ($observer->getOrder()
             && Mage::helper('emailreport')->getQueueId()) {
-
-            $order      = $observer->getOrder();
-            $queue      = Mage::getModel('email/queue')->load(Mage::helper('emailreport')->getQueueId());
-            $sessionId  = Mage::getSingleton('core/session')->getSessionId();
-            $triggerId  = $queue->getTrigger()->getId();
+            $order = $observer->getOrder();
+            $queue = Mage::getModel('email/queue')->load(Mage::helper('emailreport')->getQueueId());
+            $sessionId = Mage::getSingleton('core/session')->getSessionId();
+            $triggerId = ($queue) ? $queue->getTriggerId() : null;
 
             if ($queue && $queue->getId() && !$this->isReported('order', $queue->getId(), $triggerId, $sessionId)) {
                 Mage::getModel('emailreport/order')
@@ -81,7 +80,6 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
         }
     }
 
-
     public function onEmailQueueGetContentAfter($observer)
     {
         $queue = $observer->getQueue();
@@ -91,7 +89,7 @@ class Mirasvit_EmailReport_Model_Observer extends Varien_Object
 
     public function isReported($reportType, $queueId, $triggerId, $sessionId)
     {
-        $reports = Mage::getModel('emailreport/' . $reportType)->getCollection()
+        $reports = Mage::getModel('emailreport/'.$reportType)->getCollection()
             ->addFieldToFilter('queue_id', $queueId)
             ->addFieldToFilter('trigger_id', $triggerId)
             ->addFieldToFilter('session_id', $sessionId);

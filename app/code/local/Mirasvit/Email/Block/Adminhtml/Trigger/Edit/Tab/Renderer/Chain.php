@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_Renderer_Chain implements Varien_Data_Form_Element_Renderer_Interface
@@ -24,7 +25,7 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_Renderer_Chain implements 
             ->setParent($this)
             ->setTemplate('mst_email/trigger/edit/tab/renderer/chain.phtml')
             ->setChainCollection($this->getChainCollection())
-            ->toHtml();   
+            ->toHtml();
     }
 
     public function getChainCollection()
@@ -39,32 +40,33 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_Renderer_Chain implements 
 
     public function getCouponFieldset($model)
     {
-        $form  = new Varien_Data_Form();
+        $form = new Varien_Data_Form();
         $prefix = 'chain['.$model->getId().'][';
 
         $fieldset = $form->addFieldset('fieldset', array('legend' => Mage::helper('email')->__('Coupons')));
-    
+
         $fieldset->addField('coupon_enabled', 'select', array(
-            'label'    => Mage::helper('email')->__('Include coupon in email'),
+            'label' => Mage::helper('email')->__('Include coupon in email'),
             'required' => false,
-            'name'     => $prefix.'coupon_enabled]',
-            'values'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray(),
-            'value'    => $model->getCouponEnabled(),
+            'name' => $prefix.'coupon_enabled]',
+            'values' => Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray(),
+            'value' => $model->getCouponEnabled(),
         ));
 
         $fieldset->addField('coupon_sales_rule_id', 'select', array(
-            'label'    => Mage::helper('email')->__('Shopping Cart Price Rule'),
+            'label' => Mage::helper('email')->__('Shopping Cart Price Rule'),
             'required' => false,
-            'name'     => $prefix.'coupon_sales_rule_id]',
-            'values'   => Mage::getSingleton('email/system_source_salesRule')->toOptionArray(),
-            'value'    => $model->getCouponSalesRuleId(),
+            'name' => $prefix.'coupon_sales_rule_id]',
+            'values' => Mage::getSingleton('email/system_source_salesRule')->toOptionArray(),
+            'value' => $model->getCouponSalesRuleId(),
+            'note' => 'The coupon codes are generated automatically. Check the option "Use Auto Generation" at the shopping cart price rule to use it.',
         ));
 
         $fieldset->addField('coupon_expires_days', 'text', array(
-            'label'    => Mage::helper('email')->__('Coupon expires after, days'),
+            'label' => Mage::helper('email')->__('Coupon expires after, days'),
             'required' => false,
-            'name'     => $prefix.'coupon_expires_days]',
-            'value'    => $model->getCouponExpiresDays(),
+            'name' => $prefix.'coupon_expires_days]',
+            'value' => $model->getCouponExpiresDays(),
         ));
 
         return $form->toHtml();
@@ -72,25 +74,25 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_Renderer_Chain implements 
 
     public function getCrossSellFieldset($model)
     {
-        $form  = new Varien_Data_Form();
+        $form = new Varien_Data_Form();
         $prefix = 'chain['.$model->getId().'][';
 
         $fieldset = $form->addFieldset('fieldset', array('legend' => Mage::helper('email')->__('Cross-sells')));
-    
+
         $fieldset->addField('cross_sells_enabled', 'select', array(
-            'label'    => Mage::helper('email')->__('Include cross-sells in email'),
+            'label' => Mage::helper('email')->__('Include cross-sells in email'),
             'required' => false,
-            'name'     => $prefix.'cross_sells_enabled]',
-            'values'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray(),
-            'value'    => $model->getCrossSellsEnabled(),
+            'name' => $prefix.'cross_sells_enabled]',
+            'values' => Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray(),
+            'value' => $model->getCrossSellsEnabled(),
         ));
 
         $fieldset->addField('cross_sells_type_id', 'select', array(
-            'label'    => Mage::helper('email')->__('Cross-sells source'),
+            'label' => Mage::helper('email')->__('Cross-sells source'),
             'required' => false,
-            'name'     => $prefix.'cross_sells_type_id]',
-            'values'   => Mage::getSingleton('email/system_source_crossSell')->toOptionArray(),
-            'value'    => $model->getCrossSellsTypeId(),
+            'name' => $prefix.'cross_sells_type_id]',
+            'values' => Mage::getSingleton('email/system_source_crossSell')->toOptionArray(),
+            'value' => $model->getCrossSellsTypeId(),
         ));
 
         return $form->toHtml();
@@ -98,16 +100,16 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_Renderer_Chain implements 
 
     public function getExcludeDaysFieldset($model)
     {
-        $form  = new Varien_Data_Form();
+        $form = new Varien_Data_Form();
         $prefix = 'chain['.$model->getId().'][';
 
         $fieldset = $form->addFieldset('fieldset', array('legend' => Mage::helper('email')->__('Options')));
         $fieldset->addField('exclude_days', 'multiselect', array(
-            'label'    => Mage::helper('email')->__('Excluded Weekdays'),
+            'label' => Mage::helper('email')->__('Excluded Weekdays'),
             'required' => false,
-            'name'     => $prefix.'exclude_days]',
-            'value'    => $model->getExcludeDays(),
-            'values'   => Mage::getModel('adminhtml/system_config_source_locale_weekdays')->toOptionArray()
+            'name' => $prefix.'exclude_days]',
+            'value' => $model->getExcludeDays(),
+            'values' => Mage::getModel('adminhtml/system_config_source_locale_weekdays')->toOptionArray(),
         ));
 
         return $form->toHtml();

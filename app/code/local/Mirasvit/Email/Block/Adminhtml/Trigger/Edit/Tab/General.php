@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -46,7 +46,20 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_General extends Mage_Admin
             'value'    => $model->getDescription(),
             'style'    => 'height:50px'
         ));
-
+        $general->addField('is_trigger_sandbox_active', 'select', array(
+            'label'    => Mage::helper('email')->__('Is email redirection active'),
+            'required' => false,
+            'name'     => 'is_trigger_sandbox_active',
+            'value'    => $model->getIsTriggerSandboxActive(),
+            'values'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray(),
+        ));
+        $general->addField('trigger_sandbox_email', 'text', array(
+            'label'    => Mage::helper('email')->__('Send only to email'),
+            'required' => false,
+            'name'     => 'trigger_sandbox_email',
+            'value'    => $model->getTriggerSandboxEmail(),
+            'note'     => 'If not defined messages will be sent to the clients'
+        ));
         $general->addField('is_active', 'select', array(
             'label'    => Mage::helper('email')->__('Is Active'),
             'required' => true,
@@ -62,7 +75,7 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_General extends Mage_Admin
             'format'       => Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
             'time'         => true,
             'required'     => false,
-            'value'        => Mage::app()->getLocale()->date($model->getActiveFrom(), Varien_Date::DATETIME_INTERNAL_FORMAT),
+            'value'        => $model->getActiveFrom() == '0000-00-00 00:00:00' ? '' : $model->getActiveFrom(),
         ));
 
         $general->addField('active_to', 'date', array(
@@ -129,5 +142,16 @@ class Mirasvit_Email_Block_Adminhtml_Trigger_Edit_Tab_General extends Mage_Admin
         $chain->setRenderer($helper);
 
         return parent::_prepareForm();
+    }
+
+    protected function _toHtml()
+    {
+        $dependency_block = $this->getLayout()
+            ->createBlock('adminhtml/widget_form_element_dependence')
+            ->addFieldMap('is_trigger_sandbox_active', 'is_trigger_sandbox_active')
+            ->addFieldMap('trigger_sandbox_email', 'trigger_sandbox_email')
+            ->addFieldDependence('trigger_sandbox_email', 'is_trigger_sandbox_active', 1);
+
+        return parent::_toHtml() . $dependency_block->toHtml();
     }
 }

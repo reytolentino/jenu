@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Rule extends Mage_Rule_Model_Rule
@@ -34,14 +35,14 @@ class Mirasvit_Email_Model_Rule extends Mage_Rule_Model_Rule
         return Mage::getModel('email/rule_action_collection');
     }
 
-     /**
-     * Reset rule combine conditions
+    /**
+     * Reset rule combine conditions.
      *
      * @param null|Mage_Rule_Model_Condition_Combine $conditions
      *
      * @return Mage_Rule_Model_Abstract
      */
-    protected function _resetConditions($conditions = null)
+    public function _resetConditions($conditions = null)
     {
         if (is_null($conditions)) {
             $conditions = $this->getConditionsInstance();
@@ -53,13 +54,13 @@ class Mirasvit_Email_Model_Rule extends Mage_Rule_Model_Rule
     }
 
     /**
-     * Reset rule actions
+     * Reset rule actions.
      *
      * @param null|Mage_Rule_Model_Action_Collection $actions
      *
      * @return Mage_Rule_Model_Abstract
      */
-    protected function _resetActions($actions = null)
+    public function _resetActions($actions = null)
     {
         if (is_null($actions)) {
             $actions = $this->getActionsInstance();

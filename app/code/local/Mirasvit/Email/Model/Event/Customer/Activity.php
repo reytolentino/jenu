@@ -9,9 +9,9 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
@@ -38,7 +38,7 @@ class Mirasvit_Email_Model_Event_Customer_Activity extends Mirasvit_Email_Model_
         $events = array();
 
         $nowDate  = Mage::getSingleton('core/date')->date(null, time());
-        $lastDate = Mage::getSingleton('core/date')->date(null, $timestamp);
+        $lastDate = date('Y-m-d H:i:s', $timestamp);
 
         $resource   = Mage::getSingleton('core/resource');
         $collection = Mage::getModel('log/visitor')->getCollection();

@@ -9,10 +9,11 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Model_Event_Order_Status extends Mirasvit_Email_Model_Event_Abstract
@@ -39,26 +40,40 @@ class Mirasvit_Email_Model_Event_Order_Status extends Mirasvit_Email_Model_Event
 
     public function findEvents($eventCode, $timestamp)
     {
-        $events   = array();
+        $events = array();
         $fromDate = date('Y-m-d H:i:s', $timestamp);
+        $resource = Mage::getSingleton('core/resource');
 
         $historyCollection = Mage::getModel('sales/order_status_history')->getCollection()
             ->addAttributeToSelect('*')
-            ->addFieldToFilter('created_at', array('gt' => $fromDate))
-            ->setOrder('created_at', 'asc');
+            ->addFieldToFilter('main_table.created_at', array('gt' => $fromDate))
+            ->setOrder('main_table.created_at', 'asc');
+
+        $historyCollection->getSelect()
+            ->joinLeft(
+                array('order' => $resource->getTableName('sales/order')),
+                'main_table.parent_id = order.entity_id',
+                array(
+                    'customer_name' => 'CONCAT_WS(" ", order.customer_firstname, order.customer_lastname)',
+                    'customer_email' => 'order.customer_email',
+                    'customer_id' => 'order.customer_id',
+                    'store_id' => 'order.store_id',
+                )
+            )
+            ->group('CONCAT(main_table.parent_id, main_table.status)');
 
         foreach ($historyCollection as $history) {
-            $code  = self::EVENT_CODE.$history->getStatus();
-            $order      = Mage::getModel('sales/order')->load($history->getParentId());
+            $code = self::EVENT_CODE.$history->getStatus();
 
             if ($code == $eventCode || $eventCode == self::EVENT_CODE) {
                 $args = array(
-                    'time'           => strtotime($history->getCreatedAt()),
-                    'customer_email' => $order->getCustomerEmail(),
-                    'customer_name'  => $order->getCustomerName(),
-                    'customer_id'    => $order->getCustomerId(),
-                    'order_id'       => $order->getId(),
-                    'store_id'       => $order->getStoreId(),
+                    'time' => strtotime($history->getCreatedAt()),
+                    'created_at' => $history->getCreatedAt(),
+                    'customer_email' => $history['customer_email'],
+                    'customer_name' => $history['customer_name'],
+                    'customer_id' => $history['customer_id'],
+                    'order_id' => $history['parent_id'],
+                    'store_id' => $history['store_id'],
                 );
 
                 $events[] = $args;

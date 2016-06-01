@@ -9,13 +9,13 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
 
 
-class Mirasvit_EmailSmtp_Adminhtml_MailController extends Mage_Adminhtml_Controller_Action
+class Mirasvit_EmailSmtp_Adminhtml_Emailsmtp_MailController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction ()
     {
@@ -31,6 +31,38 @@ class Mirasvit_EmailSmtp_Adminhtml_MailController extends Mage_Adminhtml_Control
         $this->_addContent($this->getLayout()
             ->createBlock('emailsmtp/adminhtml_mail'));
         $this->renderLayout();
+    }
+
+    public function viewAction()
+    {
+        $this->loadLayout();
+        $this->_initAction();
+
+        $this->getModel();
+
+        $this->_addContent($this->getLayout()->createBlock('emailsmtp/adminhtml_mail_view'));
+        $this->renderLayout();
+    }
+
+    public function previewAction()
+    {
+        $model = $this->getModel();
+
+        $this->getResponse()->setBody($model->getBody());
+    }
+
+    public function getModel()
+    {
+        $model = Mage::getModel('emailsmtp/mail');
+
+        if ($this->getRequest()->getParam('id')) {
+            $model->load($this->getRequest()->getParam('id'));
+        }
+
+        Mage::register('current_model', $model);
+
+
+        return $model;
     }
 
 	protected function _isAllowed()

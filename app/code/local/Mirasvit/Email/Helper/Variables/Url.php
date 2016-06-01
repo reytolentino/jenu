@@ -9,14 +9,25 @@
  *
  * @category  Mirasvit
  * @package   Follow Up Email
- * @version   1.0.2
- * @build     435
- * @copyright Copyright (C) 2015 Mirasvit (http://mirasvit.com/)
+ * @version   1.0.23
+ * @build     667
+ * @copyright Copyright (C) 2016 Mirasvit (http://mirasvit.com/)
  */
+
 
 
 class Mirasvit_Email_Helper_Variables_Url
 {
+    public function getAddToCartUrl($parent, $args)
+    {
+        $query = array();
+        if (isset($args[0])) {
+            $query['id'] = $args[0];
+        }
+
+        return $this->_getUrl($parent, 'eml/index/addToCart', $query);
+    }
+
     public function getRestoreCartUrl($parent, $args)
     {
         return $this->_getUrl($parent, 'eml/index/restoreCart');
@@ -24,11 +35,16 @@ class Mirasvit_Email_Helper_Variables_Url
 
     public function getViewInBrowserUrl($parent, $args)
     {
-        return $this->_getUrl($parent, 'eml/index/view');
+        $url = $this->_getUrl($parent, 'eml/index/view');
+        if ($parent->getQueue()) {
+            $url = $this->_getUrl($parent, 'eml/index/view', array('queue_id' => $parent->getQueue()->getId()));
+        }
+
+        return $url;
     }
 
     /**
-     * Unsubscribe only from already scheduled emails
+     * Unsubscribe only from already scheduled emails.
      */
     public function getUnsubscribeUrl($parent, $args)
     {
@@ -36,7 +52,7 @@ class Mirasvit_Email_Helper_Variables_Url
     }
 
     /**
-     * Unsubscribe from all triggers at all time
+     * Unsubscribe from all triggers at all time.
      */
     public function getUnsubscribeAllUrl($parent, $args)
     {
@@ -44,11 +60,21 @@ class Mirasvit_Email_Helper_Variables_Url
     }
 
     /**
-     * Unsubscribe from all triggers at all time + newsletter
+     * Unsubscribe from all triggers at all time + newsletter.
      */
     public function getUnsubscribeNewsletterUrl($parent, $args)
     {
         return $this->_getUrl($parent, 'eml/index/unsubscribeNewsletter');
+    }
+
+    /**
+     * confirmation of newsletter subscription.
+     */
+    public function getSubscriberConfirmationUrl($parent, $args)
+    {
+        $subscriber = Mage::getModel('newsletter/subscriber')->loadByEmail($parent->getData('customer_email'));
+
+        return Mage::helper('newsletter')->getConfirmationUrl($subscriber);
     }
 
     public function getResumeUrl($parent, $args)
@@ -71,10 +97,21 @@ class Mirasvit_Email_Helper_Variables_Url
         return Mage::getStoreConfig('trigger_email/info/twitter_url');
     }
 
+    public function getReviewUrl($parent, $args)
+    {
+        $query = array();
+        if (isset($args[0]) && ($product = $args[0]) && $product instanceof Mage_Catalog_Model_Product) {
+            $query['to'] = base64_encode(Mage::getUrl('review/product/list/', array('id' => $product->getId(), '_fragment' => 'review-form')));
+        }
+
+        return $this->_getUrl($parent, 'eml/index/resume', $query);
+    }
+
     protected function _getUrl($parent, $path, $query = array())
     {
         if ($parent->getQueue() && $parent->getStore()) {
             $arQuery = array_merge(array('code' => $parent->getQueue()->getUniqKeyMd5()), $query);
+
             return $parent->getStore()->getUrl($path, $arQuery);
         } else {
             return Mage::helper('email')->__('Not available in preview mode');

@@ -2234,3 +2234,182 @@ p.olay-disclaimer {
         margin-right: 5px;
     }
 }
+
+/** upsell styles **/
+
+#upsell-div {
+    color: #000;
+    padding: 20px;
+    width: 1000px;
+    font-size: 13px;
+}
+.upsell-top .upsell-added {
+    color: #333333;
+    font-size: 13px;
+    line-height: 36px;
+}
+.upsell-top .upsell-added i.fa {
+    color: #579b3c;
+    margin-right: 6px;
+    font-size: 16px;
+}
+.upsell-bottom {
+    margin-top: 16px;
+}
+.upsell-top .upsell-cta {
+    line-height: 36px;
+    text-align: right;
+}
+.upsell-top .upsell-cta a.view-cart {
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 13px;
+}
+.upsell-top .upsell-cta a.btn-checkout {
+    text-transform: uppercase;
+    color:#fff;
+    display: inline-block;
+    background: #999;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
+    font-family: "Lato", Helvetica, Arial;
+}
+.upsell-top .upsell-cta a.btn-checkout:hover {
+    background:#000;
+}
+.upsell-top .upsell-cta .or {
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 0 12px;
+}
+.upsell-title {
+    text-align: center;
+    margin: 16px 0 0;
+}
+.upsell-title span {
+    display: block;
+}
+.upsell-title-main {
+    font-family: "Lato", Helvetica, Arial;
+    font-size: 24px;
+    background: url('/media/landing_pages/20160615/bg-title.png') repeat-x center;
+}
+.upsell-title-main span {
+    display: inline-block;
+    background: #f9f9f9;
+    padding: 0 10px;
+}
+.upsell-title-sub {
+    font-size: 14px;
+}
+
+.upsell-prodbox {
+    padding: 20px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.upsell-prodbox p {
+    margin: 8px 0;
+}
+
+.upsell-prodbox .btn-cart {
+    margin-top: 8px;
+}
+
+.upsell-prodbox p.upsell-price {
+    margin-bottom: 0;
+}
+
+p.upsell-savings {
+    margin-top: 0;
+}
+
+.upsell-prodname {
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.upsell-price, .upsell-savings {
+    font-size: 15px;
+}
+
+.upsell-newprice, .upsell-savings-red {
+    color: #c03e3e;
+}
+
+.upsell-oldprice {
+    text-decoration: line-through;
+    margin-right: 6px;
+}
+
+@media(max-width: 991px) {
+    #upsell-div {
+        width: 100%;
+    }
+    .upsell-top .upsell-added {
+        font-size: 11px;
+    }
+    .upsell-top .upsell-cta a.btn-checkout {
+        font-size: 12px;
+        height: 34px;
+        line-height: 34px;
+        padding: 0 10px;
+    }
+    .upsell-title-main {
+        font-size: 22px;
+    }
+    .upsell-title-sub {
+        font-size: 13px;
+    }
+    .upsell-prodimg img {
+        width: 100%;
+        max-width: 180px;
+    }
+    .upsell-prodname {
+        font-size: 15px;
+    }
+    #upsell-div {
+        font-size: 12px;
+    }
+    .upsell-price, .upsell-savings {
+        font-size: 13px;
+    }
+}
+
+@media(max-width:767px) {
+    #upsell-div {
+        padding: 0;
+    }
+    .upsell-top .upsell-added {
+        text-align: center;
+        line-height: normal;
+    }
+    .upsell-top .upsell-cta {
+        text-align: center;
+    }
+    .upsell-top .upsell-cta .or {
+        display: none;
+    }
+    .upsell-top .upsell-cta {
+        line-height: 32px;
+    }
+    .upsell-title {
+        border-top: 1px solid #eee;
+        padding-top: 8px;
+    }
+    .upsell-title-main {
+        font-size: 18px;
+    }
+    .upsell-title-sub {
+        font-size: 12px;
+    }
+    .upsell-prodimg {
+        text-align: center;
+    }
+    .upsell-prodname {
+        font-size: 13px;
+        line-height: normal;
+    }
+}

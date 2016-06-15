@@ -2356,11 +2356,11 @@ p.upsell-savings {
 }
 
 .upsell-addedcopy {
-    width: 230px; height: 50px; line-height: 50px; margin: auto; position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px;z-index:9999;background: rgba(182, 224, 165, 0.5);-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);color:#000;text-align:center;font-size: 15px;
+    width: 230px; height: 50px; line-height: 50px; margin: auto !important; position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px;z-index:9999;background: rgba(182, 224, 165, 0.5);-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);color:#000;text-align:center;font-size: 15px;
 }
 
 .upsell-preloader {
-    width: 31px; height: 39px; margin: auto; position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px;z-index:9999;
+    width: 31px; height: 39px; margin: auto !important; position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px;z-index:9999;
 }
 
 @media(max-width: 991px) {

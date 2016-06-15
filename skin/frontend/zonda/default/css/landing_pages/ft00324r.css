@@ -2344,6 +2344,25 @@ p.upsell-savings {
     margin-right: 6px;
 }
 
+.upsell-bg {
+    background: rgba(0, 0, 0, 0) url("/js/eternal/jquery/fancybox/images/fancybox_overlay.png") repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 8010;
+}
+
+.upsell-addedcopy {
+    width: 230px; height: 50px; line-height: 50px; margin: auto; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;z-index:9999;background: rgba(182, 224, 165, 0.5);-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.39);color:#000;text-align:center;font-size: 15px;
+}
+
+.upsell-preloader {
+    width: 31px; height: 39px; margin: auto; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;z-index:9999;
+}
+
 @media(max-width: 991px) {
     #upsell-div {
         width: 100%;
@@ -2385,6 +2404,7 @@ p.upsell-savings {
     .upsell-top .upsell-added {
         text-align: center;
         line-height: normal;
+        margin-bottom: 8px;
     }
     .upsell-top .upsell-cta {
         text-align: center;

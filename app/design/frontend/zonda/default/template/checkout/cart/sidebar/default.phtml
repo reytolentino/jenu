@@ -58,7 +58,15 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(),     
         <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales')): ?>
             <?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()+$_item->getWeeeTaxAppliedAmount()+$_item->getWeeeTaxDisposition()); ?>
         <?php else: ?>
-            <?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?>
+                <?php
+                $discountAmt = $_item->getDiscountAmount();
+                $discountedAmount = ($_item->getCalculationPrice() - ($_item->getDiscountAmount()/$_item->getQty()));
+                ?>
+                <?php if ($discountAmt > 0): ?>
+                    <?php echo $this->helper('checkout')->formatPrice($discountedAmount) ?>
+                <?php else: ?>
+                    <?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?>
+                <?php endif; ?>
         <?php endif; ?>
         <?php if (Mage::helper('weee')->getApplied($_item)): ?>
             <br />

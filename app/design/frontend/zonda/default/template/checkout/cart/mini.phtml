@@ -32,7 +32,7 @@ $grandTotal=$quoteData['grand_total'];
         <?php if ($_cartQty > 0): ?>
             <span class="subtotal">
                 <?php if ($this->canApplyMsrp()): ?>
-                    <span class="price"><?php echo $this->__('MSRP') ?></span>
+                    <span class="price">test<?php echo $this->__('MSRP') ?></span>
                 <?php else: ?>
                     <?php echo Mage::helper('checkout')->formatPrice($grandTotal); ?>
                 <?php endif; ?>

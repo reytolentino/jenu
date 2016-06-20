@@ -1,0 +1,84 @@
+/** start lp test styles  20160620 **/
+.droz-hero-list .listbox {
+    background: rgba(255,255,255,0.95);
+    border: 1px solid #d19a8c;
+    padding: 30px;
+    position: absolute;
+    text-align: center;
+    z-index: 9;
+    display: none;
+    max-width: 560px;
+}
+
+.droz-hero-list .listbox p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.droz-hero-list .listbox p.lbtitle {
+    margin-bottom: 0;
+    color:#d19a8c;
+    font-family: 'lato', helvetica, arial;
+}
+
+.droz-hero-list .listbox .listbox-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #666;
+    font-size: 18px;
+}
+
+.droz-gold .droz-hero-right .droz-hero-list.list-clickable {
+    position: static;
+}
+
+.droz-gold .droz-hero-right .droz-hero-list.list-clickable li:before {
+    color:#d19a8c;
+    left: -12px;
+    position: relative;
+}
+
+.droz-hero-list.list-clickable li {
+    cursor: pointer;
+}
+
+.droz-gold .droz-hero-right .droz-hero-list.list-clickable li.active:before {
+    content: '\f068';
+}
+
+.droz-hero-right-test {
+    overflow: visible;
+    position: static;
+}
+
+.using-vid a.vidlink img {
+    margin-top: 30px;
+}
+
+#howjenuworks .droz-vidwrap .droz-vidcopy {
+    margin-top: 0;
+}
+
+.droz-hero-mobile .product-highlights .slide2 .slidecontent img,
+.droz-hero-mobile .product-highlights .slide4 .slidecontent img {
+    width: 100%;
+}
+
+.droz-hero-mobile .product-highlights .slide3 .slidecontent p {
+    text-align: left;
+}
+
+.droz-hero-mobile .product-highlights .slide3 .slidecontent p.lbtitle {
+    color:#d19a8c;
+}
+
+.droz-gold .droz-hero-mobile .product-highlights .slide4 h1 {
+    color: #272727;
+    display: block;
+    font-family: "lato",Helvetica,"Helvetica Neue",Arial,sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+}

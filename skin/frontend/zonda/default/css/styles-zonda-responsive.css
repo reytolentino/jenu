@@ -205,7 +205,7 @@
     width: 100%;
   }
   .checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
-    min-height: auto;
+    min-height: inherit;
   }
   .cart .checkout-types {
     float: none;
@@ -899,6 +899,26 @@
     .jenu-howitworks-body-features .jenu-howitworks-text-copy-img img {
       max-width: 212px;
       width: 100%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
+      overflow: hidden;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .product-image {
+      display: inline-block;
+      float: left;
+      text-align: center;
+      width: 20%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .product-image img {
+      max-width: 100px;
+      width: 100%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .item-inner .price-review {
+      float: left;
+      padding-left: 10px;
+      padding-top: 10px;
+      width: 80%;
+      text-align: left;
     }
 }
 @media(max-width:767px) {
@@ -2153,6 +2173,13 @@
   }
   .homepage-content-threeup--content a {
     font-size: 13px;
+  }
+  .checkout-cart-index .crosssell-products.products-grid .product-image {
+    width: 40%;
+  }
+  .checkout-cart-index .crosssell-products.products-grid .item-inner .price-review {
+    width: 60%;
+    padding-top: 5px;
   }
 }
 @media(max-width: 480px) {

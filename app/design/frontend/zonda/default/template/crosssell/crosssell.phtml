@@ -1,0 +1,166 @@
+<?php
+/**
+ * @category   Septsite
+ * @package    Septsite_Popup
+ * @author     www.septsite.pl  | szokart.eu
+ */
+?>
+<?php 
+$product_block = new Mage_Catalog_Block_Product; 
+$_helper = $this->helper('catalog/output');
+$_taxHelper = $this->helper('tax');
+$zonda = $this->helper('zonda');
+$b = $zonda->getConfigGroup();
+
+//Default image size
+$imgWidth = 150;
+$imgHeight = 150;
+
+//Aspect Ratio
+if ($b['product']['aspect_ratio'])
+    $imgHeight = $imgWidth * $b['product']['image_ratio'];
+?>
+<?php $lager = $this->getCroCollection(1); ?>
+ 
+<?php if(count($this->getCroItem())>0): ?>
+<div class="crosssell box-cross-sell">
+    <h3 class="subtitle"><span class="inline-title"><?php echo $this->__('Customers Also Bought') ?></span><?php if ($this->getItemCount() > 2) echo '<div class="line"></div>'; ?></h3>
+    <p class="desc"><?php echo $this->__('Based on your selection, you may be interested in the following items.') ?></p>
+    <div id="crosssell-products-list" class="container crosssell-products products-grid large-icons"><ul class="slides row">
+    <?php foreach ($this->getCroItem() as $_item): ?>
+        <li class="item col-md-2">
+            <div class="item-inner">
+                <div class="product-image">
+                    <?php
+                    if ($b['category']['hover_image'])
+                        $hoverImgHtml = $zonda->getHoverImageHtml($_item, $imgWidth, $imgHeight);
+                    ?>
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_item, 'small_image')) ?>">
+                        <img<?php if ($hoverImgHtml) echo ' class="primary-image"'; ?> src="<?php echo $zonda->getImage($_item, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                        <?php echo $hoverImgHtml; ?>
+                        <?php
+                        $labels_tl = ''; $labels_tr = ''; $labels_bl = ''; $labels_br = '';
+                        if ($b['product']['new_label']) {
+                            // New Product
+                            $newsFromDate = $_item->getNewsFromDate();
+                            $newsToDate = $_item->getNewsToDate();
+                            $new_html = '';
+                            if ($newsFromDate && $newsToDate && Mage::app()->getLocale()->IsStoreDateInInterval(Mage::app()->getStore(), $newsFromDate, $newsToDate))
+                                $new_html = '<div class="new ' . $b['product']['new_label_type'] . '">'. $this->__('New') .'</div>';
+                            switch ($b['product']['new_label_pos']) {
+                                case 'top-right': $labels_tr .= $new_html; break;
+                                case 'bottom-left': $labels_bl .= $new_html; break;
+                                case 'bottom-right': $labels_br .= $new_html; break;
+                                default: $labels_tl .= $new_html; break;
+                            }
+                        }
+                        if ($b['product']['sale_label']) {
+                            // Special Product
+                            $specialPriceFromDate = $_item->getSpecialFromDate();
+                            $specialPriceToDate = $_item->getSpecialToDate();
+                            $sales_html = '';
+                            if ($specialPriceFromDate && $specialPriceToDate && Mage::app()->getLocale()->isStoreDateInInterval(Mage::app()->getStore(), $specialPriceFromDate, $specialPriceToDate)) {
+                                $price = $_item->getPrice();
+                                $specialprice = $_item->getSpecialPrice();
+                                $sales_html = '<div class="sales ' . $b['product']['sale_label_type'] . '">' . round(($specialprice - $price) / $price * 100) . '%</div>';
+                            }
+                            switch ($b['product']['sale_label_pos']) {
+                                case 'top-right': $labels_tr .= $sales_html; break;
+                                case 'bottom-left': $labels_bl .= $sales_html; break;
+                                case 'bottom-right': $labels_br .= $sales_html; break;
+                                default: $labels_tl .= $sales_html; break;
+                            }
+                        }
+                        if ($labels_tl) echo '<div class="labels top-left">' . $labels_tl . '</div>';
+                        if ($labels_tr) echo '<div class="labels top-right">' . $labels_tr . '</div>';
+                        if ($labels_bl) echo '<div class="labels bottom-left">' . $labels_bl . '</div>';
+                        if ($labels_br) echo '<div class="labels bottom-right">' . $labels_br . '</div>';
+                        ?>
+                    </a>
+                    <?php if ($b['product']['price_on_image']) : ?>
+                        <?php echo $this->getPriceHtml($_item, true) ?>
+                    <?php endif; ?>
+                    <div class="reviews-wrap">
+                        <?php echo $this->getReviewsSummaryHtml($_item, 'short') ?>
+                    </div>
+                </div>
+            <div class="price-review">
+                <h2 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h2>
+                
+<div class="price-box clearfix">
+
+<?php
+$_store = $_item->getStore();
+$_convertedFinalPrice = $_store->roundPrice($_store->convertPrice($_item->getFinalPrice()));
+
+if(Mage::getStoreConfig('tax/display/type') == 1){
+    $cena =	$_finalPrice = $_taxHelper->getPrice($_item, $_convertedFinalPrice);
+}else{
+    $cena = $_taxHelper->getPrice($_item, $_convertedFinalPrice, true);
+}
+$convertedcena = Mage::helper('core')->currency($cena);
+$value = NULL;
+$value = ((100-$lager[$_item->getId()])/100) ;
+$value = $value * $cena;
+$value = round($value, 2);
+$convertedvalue = Mage::helper('core')->currency($value);
+?>
+
+<?php if ($cena > $value) : ?>
+
+    <p class="old-price">
+    <?php
+    $_store = $_item->getStore();
+    $_convertedFinalPrice = $_store->roundPrice($_store->convertPrice($_item->getFinalPrice()));
+
+    if(Mage::getStoreConfig('tax/display/type') == 1){
+    $cena =	$_finalPrice = $_taxHelper->getPrice($_item, $_convertedFinalPrice);
+    }else{
+    $cena = $_taxHelper->getPrice($_item, $_convertedFinalPrice, true);
+    }
+
+
+    //$cena = $_item->getFinalPrice();
+    //$cena = $_item->getPriceModel()->getFinalPrice(1, $_item);
+    echo $convertedcena;
+
+    ?>
+    </p>
+    <p class="special-price">
+    <?php
+     echo $convertedvalue;
+     ?>
+    </p>
+
+    <p class="special-price-discount">
+        <?php
+        $disc = NULL;
+        $disc = 1 - ($value / $cena);
+        $disc = $disc * 100;
+        echo $disc.'% Savings';
+        ?>
+    </p>
+<?php else : ?>
+
+    <p class="price">
+        <?php
+        echo $convertedcena;
+        ?>
+    </p>
+
+<?php endif; ?>
+</div>
+                <div class="actions clearfix">
+     <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button> 
+</div>
+
+               
+        </div>
+
+                </div>
+        </li>
+    <?php endforeach; ?>
+            </ul>
+    </div>
+</div>
+<?php endif; ?>

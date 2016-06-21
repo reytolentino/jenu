@@ -3017,7 +3017,17 @@ td.for-desktop {
     margin: -29px auto 10px auto;
 }
 .checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
-    min-height: 480px;
+    min-height: 400px;
+}
+.checkout-cart-index .crosssell-products.products-grid .product-name a,
+.checkout-cart-index .crosssell-products.products-grid .product-name {
+    font-size: 14px;
+}
+.checkout-cart-index .crosssell-products.products-grid .btn-cart {
+    padding: 0 10px;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
 }
 .checkout-onepage-index #AmazonPayButtonBefore {
     margin-top: 10px;

@@ -35,7 +35,6 @@
 #page-contents.container h4{
 	margin-bottom: 0px;
 	font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
-	line-height: 16px;
 	font-size: 16px;
 }
 
@@ -86,7 +85,7 @@ span.pipe{
 	}
 
 	.logo_caption{
-		margin: 0px auto;
+		margin: 12px auto;
 		line-height: 18px;
 		text-align: justify;
 	}
@@ -126,7 +125,7 @@ span.pipe{
 	}
 
 	.logo_caption{
-		margin: 0px auto;
+		margin: 10px auto;
 		line-height: 20px;
 	}
 
@@ -140,7 +139,6 @@ span.pipe{
 
 
 	#page-contents.container h4{
-	line-height: 14px;
 	font-size: 14px;
 	}
 

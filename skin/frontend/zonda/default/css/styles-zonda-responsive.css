@@ -2214,9 +2214,9 @@
   }
   .data-table.cart-table tbody tr {
     border-top: 1px solid #ccc;
-    margin: 20px 0 0;
+    margin: 0;
     overflow: hidden;
-    padding-top: 20px !important;
+    padding-top: 15px !important;
   }
   .checkout-cart-index .product-image img {
     padding: 0;
@@ -2231,7 +2231,7 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-top: 0 !important;
-    width: 35%;
+    width: 30%;
     text-align: center !important;
   }
   #shopping-cart-table .product-image img, #shopping-cart-table .pr-img-td img {
@@ -2242,55 +2242,60 @@
     font-size: 11px;
     line-height: normal;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
    }
   .cart-table .product-name, .cart-table .product-name a {
     font-size: 13px;
     font-weight: bold;
+    line-height: normal;
   }
   .data-table.cart-table tbody td.product-name-td {
     text-align: left !important;
-    width: 65%;
-    padding-left: 20px !important;
+    width: 70%;
+    padding-left: 10px !important;
     padding-top: 0 !important;
     float: right;
   }
   .data-table.cart-table tbody td.for-mobile-product-code {
     display: none;
   }
+  .data-table.cart-table .qty-td-desktop {
+    display: none;
+  }
+  .data-table.cart-table .qty-td-mobile {
+    display: block;
+  }
   .data-table.cart-table .qty-td,
   .data-table.cart-table tbody td.sub-total {
     float: right;
-    width: 65%;
-    padding: 0 0 0 20px !important;
+    width: 70%;
+    padding: 0 0 0 10px !important;
   }
   .data-table.cart-table .qty-holder {
     margin: 5px 0;
   }
   .data-table.cart-table .qty-holder .input-text.qty {
-    height: 30px;
+    height: 25px;
     line-height: 5px;
-    padding: 7px 6px;
+    padding: 5px 5;
     text-align: center;
-    width: 40px;
+    width: 35px;
+    font-size: 10px;
   }
   .data-table.cart-table .qty-holder .button-up {
-    height: 30px;
+    height: 25px;
     vertical-align: middle;
-    width: 30px;
+    width: 25px;
   }
   .data-table.cart-table .qty-holder .button-up span {
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     vertical-align: top;
-    height: 30px;
-    line-height: 30px;
+    height: 25px;
+    line-height: 25px;
   }
   .data-table.cart-table tbody td.sub-total .for-mobile-inline {
     display: none !important;
-  }
-  .data-table.cart-table tbody td.sub-total {
-    margin-top: 10px;
   }
   .data-table.cart-table tbody td.sub-total .old-price,
   .data-table.cart-table tbody td.sub-total .special-price {
@@ -2343,6 +2348,17 @@
   .checkout-cart-index .crosssell-products.products-grid .product-name a,
   .checkout-cart-index .crosssell-products.products-grid .product-name {
     font-size: 13px;
+  }
+  .checkout-cart-index .btn-update {
+    height: 20px;
+    line-height: 20px;
+    margin: 0;
+  }
+  .cart .data-table tbody .special-price .price, .crosssell .special-price .price, .crosssell .special-price-discount, .crosssell .old-price .price, .crosssell .price-box .price {
+    font-size: 13px;
+  }
+  .checkout-cart-index .coupon-box {
+    margin-top: 0;
   }
 }
 @media(max-width: 480px) {
@@ -2911,7 +2927,7 @@
   .data-table .product-image {
     margin-bottom: 5px;
   }
-    .checkout-cart-index .payment-method {
+  .checkout-cart-index .other-methods-wrapper {
         margin-bottom: 5px;
     }
 }

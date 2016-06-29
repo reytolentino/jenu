@@ -2844,6 +2844,9 @@ td.for-desktop {
   width: 50%;
   overflow: hidden;
 }
+.checkout-cart-index .riskfree-box-mobile {
+    display: none;
+}
 .checkout-cart-index .riskfree-box {
   float: left;
   width: 440px;

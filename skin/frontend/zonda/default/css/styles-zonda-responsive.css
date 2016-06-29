@@ -1681,6 +1681,12 @@
   .checkout-cart-index .riskfree-box {
     width: 100%;
   }
+  .checkout-cart-index .riskfree-box-desktop {
+    display: none;
+  }
+  .checkout-cart-index .riskfree-box-mobile {
+    display: block;
+  }
   .checkout-cart-index .riskfree-box .riskfree-seal {
     text-align: center;
     float: none;
@@ -2354,7 +2360,8 @@
     line-height: 20px;
     margin: 0;
   }
-  .cart .data-table tbody .special-price .price, .crosssell .special-price .price, .crosssell .special-price-discount, .crosssell .old-price .price, .crosssell .price-box .price {
+  .cart .data-table tbody .special-price .price, .crosssell .special-price .price, .crosssell .special-price-discount, .crosssell .old-price .price, .crosssell .price-box .price,
+  .cart-table .price, .cart-table .input[type="text"] {
     font-size: 13px;
   }
   .checkout-cart-index .coupon-box {

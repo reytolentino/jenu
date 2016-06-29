@@ -2844,6 +2844,9 @@ td.for-desktop {
   width: 50%;
   overflow: hidden;
 }
+.checkout-cart-index .riskfree-box-mobile {
+    display: none;
+}
 .checkout-cart-index .riskfree-box {
   float: left;
   width: 440px;
@@ -2900,7 +2903,7 @@ td.for-desktop {
     float: left;
 }
 .checkout-cart-index .other-methods-wrapper {
-    margin-left: 5px;
+    margin-right: 5px;
 }
 .checkout-cart-index #other-methods {
     display: none;
@@ -3109,6 +3112,9 @@ td.for-desktop {
 }
 .cart-table .qty-td {
   padding-top: 13px;
+}
+.cart-table .qty-td-mobile {
+    display: none;
 }
 .cart-table .price, .cart-table .input[type="text"] {
   font-size: 15px;

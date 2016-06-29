@@ -17,7 +17,7 @@
 $zonda = $this->helper('zonda');
 ?>
 <div class="show-your-carts">
-    <?php echo $this->__('Your shopping cart contents ') ?><?php echo $this->helper('checkout/cart')->getSummaryCount(); ?> <?php echo $this->__('products') ?>
+    <?php echo $this->__('Items in Cart ') ?><?php echo $this->__('(') ?><?php echo $this->helper('checkout/cart')->getSummaryCount(); ?><?php echo $this->__(')') ?>
 </div>
  <div class="checkout-box clearfix">
      <?php if($this->getContinueShoppingUrl()): ?>
@@ -34,11 +34,6 @@ $zonda = $this->helper('zonda');
      <?php endif; ?>
      <?php if(!$this->hasError()): ?>
          <div class="checkout-types">
-             <?php foreach ($this->getMethods('methods') as $method): ?>
-                 <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-                     <div class="payment-method"><?php echo $methodHtml; ?></div>
-                 <?php endif; ?>
-             <?php endforeach; ?>
              <?php foreach ($this->getMethods('other_methods') as $method): ?>
                  <?php if ($othermethodHtml = $this->getMethodHtml($method)): ?>
                      <?php $othermethods = ($othermethodHtml == "" ? false : true); ?>
@@ -58,6 +53,11 @@ $zonda = $this->helper('zonda');
                  </div>
                  </div>
              <?php endif; ?>
+             <?php foreach ($this->getMethods('methods') as $method): ?>
+                 <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                     <div class="payment-method"><?php echo $methodHtml; ?></div>
+                 <?php endif; ?>
+             <?php endforeach; ?>
          </div>
          <script type="text/javascript">
              //<![CDATA[
@@ -91,10 +91,9 @@ $zonda = $this->helper('zonda');
                         <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Wishlist') ?></span></th>
                         <?php endif ?>
                         <th colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product Code') ?></span></th>
-                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Unit Price') ?></span></th>
-                        <th colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('QTY') ?></span></th>
-                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Total') ?></span></th>
-                        <th colspan="<?php echo $mergedCells; ?>" class="last">&nbsp;</th>
+                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('QTY') ?></span></th>
+                        <th colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Price') ?></span></th>
+                        <th rowspan="<?php echo $mergedCells; ?>" class="last">&nbsp;</th>
                     </tr>
                     <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                     <tr>
@@ -166,10 +165,15 @@ $zonda = $this->helper('zonda');
                 <div class="coupon-box">
                     <?php echo $this->getChildHtml('coupon') ?>
                 </div>
+                <div class="riskfree-box-desktop">
                 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free')->toHtml(); ?>
+                </div>
             </div>
             <div class="total-container">
                 <?php echo $this->getChildHtml('totals'); ?>
+            </div>
+            <div class="riskfree-box-mobile">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free')->toHtml(); ?>
             </div>
         </div>
         <div class="btn-container clearfix">

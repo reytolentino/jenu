@@ -28,7 +28,7 @@ $_helper = $this->helper('catalog/output');
     (function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
     affirm.ui.ready( function() { updateAffirmAsLowAs( <?php echo str_replace(array('.', '$'), '', Mage::helper('core')->currency($_product->getFinalPrice(),true,false)); ?>  ) } ); // change to your template value for product or cart price
     function updateAffirmAsLowAs( amount ){
-        if ( ( amount == null ) || ( amount > 1700000 ) || (amount < 14900) ) { return; } // Only display as low as for items over $10 CHANGE the 1000 FOR A DIFFERENT LOWER LIMIT. amount > 1700000 represents the Affirm UPPER limit of 17k
+        if ( ( amount == null ) || ( amount > 1700000 ) || (amount < 9900) ) { return; } // Only display as low as for items over $10 CHANGE the 1000 FOR A DIFFERENT LOWER LIMIT. amount > 1700000 represents the Affirm UPPER limit of 17k
         // payment estimate options
         var options = {
             apr: "0.10", // percentage assumed APR for loan

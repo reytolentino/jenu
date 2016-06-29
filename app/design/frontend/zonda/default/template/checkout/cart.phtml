@@ -17,7 +17,7 @@
 $zonda = $this->helper('zonda');
 ?>
 <div class="show-your-carts">
-    <?php echo $this->__('Your shopping cart contents ') ?><?php echo $this->helper('checkout/cart')->getSummaryCount(); ?> <?php echo $this->__('products') ?>
+    <?php echo $this->__('Items in Cart ') ?><?php echo $this->__('(') ?><?php echo $this->helper('checkout/cart')->getSummaryCount(); ?><?php echo $this->__(')') ?>
 </div>
  <div class="checkout-box clearfix">
      <?php if($this->getContinueShoppingUrl()): ?>
@@ -91,10 +91,9 @@ $zonda = $this->helper('zonda');
                         <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Wishlist') ?></span></th>
                         <?php endif ?>
                         <th colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product Code') ?></span></th>
-                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Unit Price') ?></span></th>
-                        <th colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('QTY') ?></span></th>
-                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Total') ?></span></th>
-                        <th colspan="<?php echo $mergedCells; ?>" class="last">&nbsp;</th>
+                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('QTY') ?></span></th>
+                        <th colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Price') ?></span></th>
+                        <th rowspan="<?php echo $mergedCells; ?>" class="last">&nbsp;</th>
                     </tr>
                     <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                     <tr>

@@ -7,20 +7,21 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 ?>
 <tr>
 <td class="no-border-right pr-img-td">
-    <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove2 for-mobile"><i class="icon-remove">&nbsp;</i></a>
     <?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image">
         <?php endif;?>
         <?php
         //Default image size
-        $imgWidth = 180;
-        $imgHeight = 180;
+        $imgWidth = 150;
+        $imgHeight = 150;
 
         //Aspect Ratio
         if ($b['product']['aspect_ratio'])
             $imgHeight = $imgWidth * $b['product']['image_ratio'];
         ?>
-        <img src="<?php echo $this->getProductThumbnail()->resize(180); ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
-        <?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
+        <img src="<?php echo $this->getProductThumbnail()->resize(150); ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
+        <?php if ($this->hasProductUrl()):?></a><?php endif;?>
+    <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove-item for-mobile"><?php echo $this->__('Remove')?></a>
+</td>
 <td class="a-left product-name-td">
     <h2 class="product-name">
         <?php if ($this->hasProductUrl()):?>
@@ -88,7 +89,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php endif ?>
     </td>
 <?php endif ?>
-<td class="a-center">
+<td class="a-center for-mobile-product-code">
     <?php echo "<span class='for-mobile-inline'>".$this->__('Product Code : ')."</span>" ?>
     <?php echo $_item->getSku(); ?>
 </td>
@@ -107,6 +108,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 <?php else: ?>
 
     <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+        <!-- hide unit price
         <td class="a-center unit-price">
             <?php echo "<span class='for-mobile-inline'>".$this->__('Unit price : ')."</span>" ?>
             <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && $_item->getWeeeTaxAppliedAmount()): ?>
@@ -175,6 +177,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
+                -->
         </td>
     <?php endif; ?>
     <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
@@ -247,9 +250,21 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                             $subtotalAmt = $_item->getRowTotal();
                             $discountedSubtotal = $subtotalAmt - $discountAmt;
                             ?>
-                            <?php echo $this->helper('checkout')->formatPrice($discountedSubtotal) ?>
+                            <p class="old-price"><?php echo $this->helper('checkout')->formatPrice($subtotalAmt) ?></p>
+                            <p class="special-price"><?php echo $this->helper('checkout')->formatPrice($discountedSubtotal) ?></p>
                         <?php else: ?>
-                            <?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()); ?>
+                            <?php
+                            $_price = $_item->getProduct()->getPrice();
+                            $_finalPrice = $_item->getCalculationPrice();
+                            $_finalPrice2 = $_item->getCalculationPrice() * $_item->getQty();
+                            $subtotalAmt2 = $_item->getProduct()->getPrice() * $_item->getQty();
+                            ?>
+                            <?php if ($_price > $_finalPrice): ?>
+                                <p class="<?php if ($_finalPrice == 0.00){echo 'free-price ';} ?>old-price">
+                                    <?php echo $this->helper('checkout')->formatPrice($subtotalAmt2); ?>
+                                </p>
+                            <?php endif; ?>
+                            <p class="<?php if ($_finalPrice2 < $subtotalAmt2){echo 'special-price';} ?>"><?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()); ?></p>
                         <?php endif; ?>
                     <?php endif; ?>
                 <?php endif; ?>

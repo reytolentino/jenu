@@ -521,6 +521,9 @@
                 </action>
             </block>
         </reference>
+        <reference name="content">
+            <block type="core/template" name="cartPixels" template="pixels/cart.phtml"/>
+        </reference>
     </checkout_cart_index>
     <checkout_onepage_index>
         <reference name="breadcrumbs">

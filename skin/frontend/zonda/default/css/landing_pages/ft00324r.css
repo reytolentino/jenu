@@ -125,6 +125,20 @@ i.fa {
     position: relative;
 }
 
+.mpwrap .mptop-container .container {
+    text-align: center;
+    position:relative;
+    padding-bottom: 30px
+}
+
+.mpwrap .mptop-container .btn-cart {
+    float: none;
+    margin: -20px 0 0 -60px;
+    position: absolute;
+    text-align: center;
+}
+
+
 .mpwrap a#mpclose {
     height: 30px;
     padding-right: 40px;

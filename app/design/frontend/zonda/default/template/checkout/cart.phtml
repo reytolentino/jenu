@@ -73,7 +73,7 @@ $zonda = $this->helper('zonda');
      <?php endif; ?>
  </div>
 
- <div class="cart" id="cart1" style="display:none;">
+ <div class="cart" id="cart1">
     <div class="page-title title-buttons">
         <h1><?php echo $this->__('Shopping Cart') ?></h1>
     </div>
@@ -384,6 +384,7 @@ $zonda = $this->helper('zonda');
          }
          else if(optimizely.variationNamesMap[6487531400].split(", ")[0] == "badass-cart") {
              console.log('novalue');
+             jQuery("#cart1").hide();
              jQuery("#cart2").show();
              jQuery(".for-mobile-product-code").hide();
              jQuery(".item-sku").show();

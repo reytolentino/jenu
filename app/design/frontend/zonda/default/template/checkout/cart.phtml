@@ -352,16 +352,8 @@ $zonda = $this->helper('zonda');
                              </ul>
                              <?php if ($othermethods == true): ?>
                                  <div class="other-methods-bottom-wrapper">
-                                 <div class="other-methods-bottom" id="other-methods-bottom">
-                                 <span class="or-bottom-method"><?php echo $this->__('or') ?></span>
                              <?php endif; ?>
-                             <?php foreach ($this->getMethods('other_bottom_methods') as $method): ?>
-                                 <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-                                     <div><?php echo $methodHtml; ?></div>
-                                 <?php endif; ?>
-                             <?php endforeach; ?>
                              <?php if ($othermethods == true): ?>
-                                 </div>
                                  </div>
                              <?php endif; ?>
                          <?php endif; ?>
@@ -386,6 +378,8 @@ $zonda = $this->helper('zonda');
              console.log('novalue');
              jQuery("#cart1").hide();
              jQuery("#cart2").show();
+             jQuery("#cart1 #other-methods div:first-child").prependTo("#cart2 #other-methods");
+             jQuery("#cart1 #other-methods-bottom").appendTo("#cart2 .other-methods-bottom-wrapper");
              jQuery(".for-mobile-product-code").hide();
              jQuery(".item-sku").show();
              jQuery('head').append('<link rel="stylesheet" href="/skin/frontend/zonda/default/css/test-20160711.css" type="text/css" />');

@@ -1,0 +1,2961 @@
+@media(max-width: 991px) {
+    /*common styles*/
+
+    .col1 {
+        width: 16.666666666666664%;
+    }
+    .col2 {
+        width: 25%;
+    }
+    .col3 {
+        width: 33.33333333333333%;
+    }
+    .col4 {
+        width: 50%;
+    }
+    .col6 {
+        width: 100%;
+    }
+    .col8 {
+        width: 100%;
+    }
+    .footer-above .col4 {
+        width: 33.33333333333333%;
+    }
+    .footer-above .content {
+        padding: 20px 20px;
+        min-height: 220px;
+    }
+    .footer-above .col4 .title {
+        font-size: 24px;
+    }
+    .footer-above .col4 .learn {
+        font-size: 18px;
+        line-height: 28px;
+        height: 28px;
+        padding: 1px 8px 0 8px;
+        margin: 0 auto;
+        width: 130px;
+        bottom: 20px;
+    }
+    .footer-above .col4 .text {
+        font-size: 16px;
+        line-height: 20px;
+        margin: 18px auto;
+    }
+    .authorize-seal div.AuthorizeNetSeal,
+    .authorize-seal div.AuthorizeNetSeal img {
+        width: 70px !important;
+        height: auto !important;
+    }
+    .doctor_trusted img {
+        width: 80px;
+    }
+    .doctor_floating {
+        display: none !important;
+    }
+    .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 15px;
+    }
+    .cms-container .messages {
+        max-width: 768px;
+        padding: 0 15px !important;
+    }
+    .col-main {
+        width: 70%;
+    }
+    .col-sidebar {
+        width: 28%;
+        padding: 0;
+    }
+    .col1, .col2, .col3, .col4, .col6, .col8, .col12, .col-social, .col-copy {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    /*header & menu*/
+
+    .block .item-name, .mobile-hide, .mobile-hide-inline {
+        display: none;
+    }
+    .mobile-show-inline {
+        display: inline-block;
+    }
+    .block .item-value, .block-language .dropdown-menu .mobile-show-inline {
+        text-transform: uppercase;
+    }
+    .dropdown>a {
+        max-width: 70px;
+    }
+    .dropdown-menu {
+        min-width: 70px;
+    }
+    .store-switcher .block-content {
+        width: auto;
+    }
+    .store-switcher .dropdown>a {
+        max-width: none;
+        width: auto;
+    }
+    .store-switcher .dropdown-menu {
+        min-width: 110px;
+        width: 100%;
+    }
+    .icon-dropdown {
+        margin-left: 12px;
+    }
+    .header-menu-right .header-right {
+        float: none;
+    }
+    .header-menu-right .header-right .nav-container {
+        float: left;
+    }
+    html[xmlns] #menu-button, html[xmlns] .parentMenu {
+        line-height: 40px;
+        padding: 0;
+    }
+    div.level1, .menu-mobile.level0 {
+        padding: 0;
+    }
+    .menu-mobile.level1, .menu-mobile.level2 {
+        padding: 0 5px;
+    }
+    #menu-content {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    /*footer*/
+    .col-copy {
+        padding-right: 0;
+    }
+    .col-social {
+        padding-left: 0;
+    }
+    .footer-tweets #twitter-slider {
+        width: 85%;
+    }
+    .footer-tweets #twitter-slider {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #twitter-slider .flex-direction-nav {
+        left: 40%;
+    }
+    .toolbar .pager, .toolbar .sorter {
+        float: none;
+        text-align: center;
+    }
+    .toolbar .pager {
+        margin-top: 10px;
+    }
+    .products-list .product-shop .description {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .products-list .list-border {
+        position: relative;
+        width: 100%;
+        height: 1px;
+        margin: 0;
+        clear: left;
+        padding: 20px 10px 0 10px;
+    }
+    .products-list .list-border .list-border-item {
+        height: 1px;
+        width: 100%;
+    }
+    .products-list .price-box {
+        float: left;
+        width: 100%;
+        text-align: left;
+    }
+    .products-list .product-shop .actions {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .products-list .btn-cart {
+        float: left;
+    }
+    .products-list .add-to-links {
+        clear: none;
+    }
+    /*product view*/
+
+    .product-view .product-img-box {
+        float: none;
+        width: 100%;
+    }
+    .product-view .product-shop {
+        float: none;
+        width: 100%;
+        padding: 0;
+        margin-top: 30px;
+    }
+    #shopping-cart-table .product-image img,
+    #shopping-cart-table .pr-img-td img {
+        width: 80px;
+    }
+    .checkout-cart-index .cart-collaterals {
+        padding-top: 0;
+    }
+    .checkout-cart-index .cartleftbox, .coupon-box, .riskfree-box, .shipping-container, .total-container {
+        float: none;
+        width: 100%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
+        min-height: inherit;
+    }
+    .cart .checkout-types {
+        float: none;
+        text-align: left;
+    }
+    .checkout-types li {
+        margin-left: 0;
+        float: none;
+    }
+    .coupon-box {
+        margin-top: 15px;
+    }
+    .shipping-container, .total-container {
+        margin-top: 20px;
+    }
+    .cms-no-route .number-container .container, .cms-no-route .text-container .container {
+        padding: 20px 15px;
+    }
+    /*cms about us page*/
+
+    .cms-container .block-we .img-slider, .cms-container .block-we .who-we-content {
+        float: none;
+        width: 100%;
+    }
+    .for-responsive {
+        display: block;
+    }
+    .more-info {
+        display: none;
+    }
+    .for-more {
+        display: none;
+    }
+    .shipping-container, .total-container, .account-login .registered-users, .account-login .new-users {
+        float: none;
+        width: 100%;
+    }
+    .my-account .form-list .field .sbHolder {
+        width: 226px;
+    }
+    .my-account .form-list .field .sbSelector {
+        width: 185px;
+    }
+    .header-abs .header-container {
+        position: relative;
+    }
+    .header-top .risk-free-top {
+        height: 38px;
+        line-height: 38px;
+    }
+    .header-top .risk-free-top .risk-free {
+        height: 38px;
+        line-height: 38px;
+    }
+    #homeslider-revolution {
+        position: relative;
+        max-height: 500px !important;
+    }
+    .header-menu {
+        position: static;
+    }
+    .header-container {
+        position: relative;
+    }
+    .tp-caption.dark_big_text {
+        display: none !important;
+        font-size: 36px !important;
+        line-height: 40px !important;
+        top: 200px !important;
+        left: 200px !important;
+    }
+    .tp-caption.secondary_headline_text {
+        display: none !important;
+        font-size: 13px !important;
+        top: 290px !important;
+        left: 200px !important;
+    }
+    .header-container h1.logo {
+        margin-top: 0;
+    }
+    /*********************************** CMS Pages **************************************/
+
+    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+        position: static;
+    }
+    .left-qa.col4 {
+        margin-bottom: 20px;
+    }
+    .ultrasound .ultra-bottom {
+        background: none;
+    }
+    .ultrasound .ultra-bottom-inner {
+        margin-top: 0;
+    }
+    .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
+        margin: 20px 0;
+        width: 100%;
+    }
+    .ultrasound .ultra-top {
+        margin-bottom: 30px;
+    }
+    .ultrasound .ultra-top .ultra-top-right img {
+        width: 100%;
+    }
+    .ultrasound .ultra-top-left {
+        width: 100%;
+    }
+    .ultrasound .ultra-bottom-title {
+        display: block;
+    }
+    #homeslider-revolution .container .home-adv {
+        bottom: 10%;
+    }
+    #homeslider-revolution .hp-copy-fade {
+        width: 100%;
+        height: 80px;
+        bottom: 10%;
+        position: absolute;
+        padding: 14px;
+    }
+    #homeslider-revolution .hp-copy-inner h2 {
+        font-size: 14px;
+        line-height: inherit;
+    }
+    #homeslider-revolution .hp-copy-inner h1 {
+        font-size: 24px;
+        font-family: "apexsanslightst", Arial, Helvetica;
+    }
+    #homeslider-revolution .container .home-adv .bx-viewport {
+        height: 314px !important;
+    }
+    #homeslider-revolution .container .home-adv ul.bx-slider li {
+        width: 356px !important;
+    }
+    #homeslider-revolution .container .home-adv ul.bx-slider li img {
+        width: 100%;
+    }
+    #homeslider-revolution .container .home-adv ul.bx-slider li .home-adv-container {
+        height: 147px;
+    }
+    .cms-box.using-jenu .numbox {
+        height: auto;
+    }
+    .cms-box.using-jenu .numbox .num {
+        font-size: 52px;
+        height: 52px;
+        line-height: 52px;
+    }
+    .cms-box.using-jenu .numbox .numtxt {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .cms-box.before-afters .col2-set div p {
+        font-size: 12px;
+    }
+    .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+        top: 35%;
+    }
+    .cms-box.before-afters .before-afters-inner .slick-prev {
+        left: -10px;
+        margin-top: -40px;
+    }
+    .cms-box.before-afters .before-afters-inner .slick-next{
+        right: -10px;
+        margin-top: -40px;
+    }
+    .cms-box.before-afters .before-afters-inner .ba-set2 .slick-prev {
+        margin-top: -20px;
+    }
+    .cms-box.before-afters .before-afters-inner .ba-set2 .slick-next{
+        margin-top: -20px;
+    }
+    .cms-box.before-afters .before-afters-inner p {
+        line-height: normal;
+    }
+    .cms-page-view .drbanner-img {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+    }
+    .cms-page-view .drbanner-title {
+        position: absolute;
+        right: 100px;
+        top: 80px;
+    }
+    .cms-page-view .drbanner-title h1 {
+        font-size: 50px;
+    }
+    .cms-page-view .drbanner-title h2 {
+        font-size: 24px;
+    }
+    .cms-box .clinical-inner img.clinical-jars {
+        width: 100%;
+        height: auto;
+    }
+    /*********************************** Clinical Results Styles **************************************/
+
+    .clinical-results-header {
+        margin: 0 auto;
+        width: 100%;
+    }
+    ul.clinical-results--list.two-up li {
+        margin: 0 10px 40px 0;
+        min-height: 134px;
+        width: 100%;
+    }
+    ul.clinical-results--list.two-up li:last-child {
+        margin-right: 0;
+    }
+    ul.clinical-results--list.two-up li:nth-child(even) {
+        margin-right: 0;
+    }
+    ul.clinical-results--list.three-up li {
+        margin: 0 10px 40px 0;
+        width: 100%;
+    }
+    ul.clinical-results--list.three-up li:last-child {
+        margin-right: 0;
+    }
+    .clinical-results-list--item {
+        float: left;
+        margin: 0 0 40px 0;
+        width: 100%;
+    }
+    .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    ul.clinical-results-graph--bars {
+        bottom: 0;
+        height: 100%;
+        right: 0;
+        width: 83%;
+    }
+    .clinical-results-graph-bars--item {
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+    }
+    .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .clinical-results-graph-bars--item.bar-1 {
+        background: #628ba6;
+        height: 47%;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item.bar-2 {
+        background: #3c7da6;
+        height: 65%;
+        margin-left: 33%;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item.bar-3 {
+        background: #0f6ba6;
+        height: 74%;
+        margin-left: 66%;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        color: #fff;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        left: auto;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+        top: auto;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    ul.clinical-results-graph--perc {
+        padding-left: 0;
+    }
+    .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        border-left: 0;
+        color: #525252;
+        float: none;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+        width: 100%;
+    }
+    .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+    }
+    .clinical-results--cta {
+        background: #f9f9f9;
+        height: 150px;
+        position: relative;
+        width: 104.3%;
+    }
+    .clinical-results-cta--copy {
+        background: url("/media/content/bg-lto-cta.png") no-repeat 70% 0;
+        background-size: 57px auto;
+        height: 180px;
+        position: relative;
+        top: -20px;
+        width: 100%;
+    }
+    .clinical-results-cta-copy--inner {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        left: 50%;
+        line-height: 30px;
+        margin-left: -120px;
+        position: relative;
+        top: 42px;
+        text-transform: uppercase;
+        width: 160px;
+    }
+    .clinical-results-cta-copy--inner .copy-main {
+        display: block;
+        font-size: 40px;
+        font-weight: 700;
+    }
+    .clinical-results-cta-copy--inner .copy-sub {
+        display: block;
+        font-size: 27px;
+        font-weight: 300;
+    }
+    .product-view .gallerywrap .videogallery,
+    .product-view .gallerywrap .bagallery {
+        width: 100%;
+    }
+
+    .product-view .gallerywrap .videogallery .vid {
+        width: 48%;
+        display: inline-block;
+    }
+
+    .product-view .gallerywrap .videogallery .vid {
+        margin-right: 10px;
+    }
+
+    .product-view .gallerywrap .videogallery .vid img {
+        width: 100%;
+    }
+    .product-view .gallerywrap h3 {
+        text-align: center;
+    }
+    .product-view .gallerywrap .bagallery {
+        margin-top: 30px;
+    }
+    .reviews-bottomwrap .review-row .ratings {
+        margin: 0 auto 5px auto;
+    }
+    .reviews-bottomwrap .review-row .review-title {
+        font-size: 18px;
+    }
+    .reviews-bottomwrap .name_date {
+        font-size: 13px;
+    }
+    .product-view .riskfree {
+        right: 10px;
+    }
+    .also-available {
+        right: 16px;
+        height: 38px;
+        line-height: 38px;
+        overflow: hidden;
+    }
+    .top-available {
+        line-height: 38px;
+    }
+    .also-available img.mobile-aaa-logo {
+        display: inline-block;
+        margin-top: -9px;
+    }
+
+    .header-container .minicart-wrap {
+        position: absolute;
+        right:16px;
+        margin-top:38px;
+        z-index:9;
+        height: 48px;
+    }
+    .header-top {
+        height:38px;
+    }
+    .block-minicart {
+        height: 48px;
+    }
+    .block-minicart .block-content {
+        padding: 0;
+        height: 48px;
+    }
+    .icon-minicart {
+        /* background: url("../images/icon-cart-white.png") no-repeat center center; */
+        background-image: none;
+        display: inline-block;
+        height: 48px;
+        margin: 0;
+        width: 48px;
+    }
+    .icon-minicart:before {
+        content: "\f07a";
+        position: absolute;
+        color: #ccc;
+        font-family: "FontAwesome";
+        font-size: 28px;
+        top: 15px;
+        left: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .block-minicart .cart-items {
+        display: none;
+    }
+    #mini-cart > .mini-cart-button {
+        padding: 0;
+        position: static;
+        right: 0;
+        height: 48px;
+        width: 48px;
+        text-align: center;
+    }
+    #mini-cart.open .mini-cart-button .icon-minicart {
+        background-position: center center;
+    }
+    #mini-cart .dropdown-menu {
+        margin-top: -15px;
+    }
+    .header-container .logo {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        position: absolute;
+        right: 0;
+        left: 0;
+        height: 38px;
+    }
+
+    /** How It Works Styles 031215 **/
+
+    .jenu-howitworks-hero-wide-banner {
+        background-position: 80% center;
+    }
+    .jenu-howitworks-hero-wide-banner:after {
+        background: rgba(95, 125, 152, 0.8);
+        bottom: 0;
+        content: "";
+        position: absolute;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    .jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text {
+        padding-left: 20px;
+        position: relative;
+        width: 100%;
+    }
+    .jenu-howitworks-hero-wide-banner-inner {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 80%;
+        z-index: 10;
+    }
+    .jenu-howitworks-text-copy {
+        padding: 0;
+    }
+    /*.jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+      margin: 0 auto;
+      width: 70%;
+    }*/
+    .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
+        margin: 0 auto 10px;
+        width: 100%;
+    }
+    .jenu-howitworks-text-copy-img img.howitworks-device-hand {
+        width: auto;
+        display: block;
+        margin: 20px auto 0 auto;
+    }
+    .jenu-howitworks-minute {
+        margin-top: 50px;
+    }
+    .jenu-howitworks-minute h2 {
+        font-size: 28px;
+    }
+    .jenu-howitworks-minute p {
+        padding: 0;
+    }
+    .customer-account-index .data-table .nobr {
+        white-space: normal !important;
+    }
+
+    /** Results Page Styles 032315 **/
+
+    .jenu-results-container h1,
+    .jenu-results-container h2,
+    .jenu-results-container h3,
+    .jenu-results-container h4,
+    .jenu-results-container h5,
+    .jenu-results-container h6 {
+        margin: 0 0 10px;
+        width: 100%;
+    }
+    .jenu-results-container h1 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+    .jenu-results-container h2 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .jenu-results-container h3 {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .results-section {
+        padding: 20px 0;
+    }
+    .results-section-hero .banner-content {
+        margin: 127px 0 0;
+    }
+    .results-synopsis {
+        padding-bottom: 20px;
+    }
+    .results-synopsis:after {
+        display: none;
+    }
+    .results-synopsis:last-child {
+        padding-bottom: 0;
+    }
+    .results-section-theresults .results-theresults-top {
+        text-align: left;
+    }
+    .results-section-theresults .results-theresults-element {
+        padding-bottom: 20px;
+    }
+    .results-section-theresults .results-theresults-copy {
+        margin: 0;
+    }
+    .results-section-theresults .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .results-section-theresults .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .results-section-theresults .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .results-section-theresults ul.clinical-results-graph--bars {
+        bottom: 0;
+        height: 100%;
+        right: 0;
+        width: 83%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item {
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
+        height: 50%;
+        width: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
+        height: 65%;
+        margin-left: 33%;
+        width: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
+        height: 78%;
+        margin-left: 66%;
+        width: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        left: auto;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+        top: auto;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    .results-section-theresults .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    .results-section-theresults ul.clinical-results-graph--perc {
+        padding-left: 0;
+    }
+    .results-section-theresults .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        border-left: 0;
+        color: #525252;
+        float: none;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+        width: 100%;
+    }
+    .results-section-theresults .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+        margin-left: 5px;
+    }
+    .results-section-banner {
+        background: url("../images/results-bottom-banner-bg.jpg") no-repeat 40% top #c8e3f9;
+        background-size: cover;
+    }
+    .jenu-howitworks-absorption-img img {
+        max-width: none;
+        width: 864px;
+    }
+    .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+        text-align: center;
+    }
+    .jenu-howitworks-text-content .row {
+        text-align: center;
+    }
+    /*.jenu-howitworks-text-content .jenu-howitworks-text-copy-img img {
+      display: inline-block;
+      float: none;
+      max-width: 212px;
+      margin: 0 auto;
+      width: 100%;
+    }*/
+    .howitworks-banner .banner-content {
+        margin-left: 5%;
+        margin-top: 12%;
+    }
+    .batra-banner .banner-content {
+        padding: 0 20px 0 0;
+    }
+    .howitworks-banner .banner-content {
+        margin-left: 5%;
+        margin-top: 13%;
+    }
+    .jenu-howitworks-body-features .jenu-howitworks-text-copy-img img {
+        max-width: 212px;
+        width: 100%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
+        overflow: hidden;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .product-image {
+        display: inline-block;
+        float: left;
+        text-align: center;
+        width: 20%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .product-image img {
+        max-width: 100px;
+        width: 100%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .item-inner .price-review {
+        float: left;
+        padding-left: 10px;
+        padding-top: 10px;
+        width: 80%;
+        text-align: left;
+    }
+    .checkout-cart-index .riskfree-box .riskfree-copy {
+        font-size: 13px;
+        padding-top: 0;
+    }
+}
+@media(max-width:767px) {
+    .col1, .col2, .col3, .col4, .col6, .col8, .col12, .col-copy, .col-social, .footer-above .col4 {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    .col-main, .col-sidebar {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+    .col-sidebar {
+        margin-top: 10px;
+    }
+    .mobile-bg {
+        height: 40px;
+        position: absolute;
+        width: 100%;
+        background-color: #15323c;
+        bottom: 0;
+    }
+    .block {
+        margin-bottom: 10px;
+    }
+    .main {
+        margin-bottom: 20px;
+    }
+    .review-row .review-title {
+        font-size: 18px;
+        line-height: normal;
+        float: left;
+    }
+    .review-row .ratings {
+        float: left;
+        margin-top: 10px;
+        clear: both;
+    }
+    .product-view .data-table th {
+        padding: 10px 3px;
+        font-size: 11px;
+    }
+    .cms-page-view .main {
+        margin-bottom: 0;
+    }
+    .cms-page-view.cms-in-the-press .main, .cms-page-view.cms-before-afters .main {
+        background: #fff;
+    }
+    .header-top .container .toplinks, .header-top .container .login-container-big, .cart-value, .menu-active .quick-access, .search-active .nav-container, .block-container {
+        display: none;
+    }
+    .toplinks {
+        left: 0;
+    }
+    .mobile-toplinks {
+        display: block;
+        padding: 0 15px;
+    }
+    .header-top .right {
+        float: none !important;
+    }
+    .block-switcher {
+        float: left;
+        position: relative;
+        left: -12px;
+    }
+    .header-container .logo {
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        line-height: normal;
+        height: auto;
+    }
+    .logo-bg-img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header-container .form-search .button {
+        background: none;
+        padding: 0;
+    }
+    .header-menu-right .header-right {
+        float: none;
+        padding: 0 0 0 20px;
+        margin-top: 10px;
+    }
+    .header-menu-right .container {
+        padding: 0;
+    }
+    .header-menu-right .header-right .nav-container {
+        float: left;
+    }
+    #custommenu-mobile #menu-button {
+        margin: 0;
+    }
+    html[xmlns] #menu-button, html[xmlns] .parentMenu {
+        padding: 0;
+    }
+    .quick-access {
+        padding-top: 5px;
+        padding-bottom: 4px;
+        position: relative;
+    }
+    .search-active .quick-access {
+        width: 100%;
+    }
+    .header-container .search-active .quick-access .form-search {
+        background: none;
+        text-align: right;
+    }
+    .header-container .search-active .quick-access .form-search .input-text {
+        padding-left: 0;
+    }
+    .jenu-paypal--purchase-meta-col > div {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    .jenu-paypal--purchase-meta-col:last-child > div {
+        border-bottom: 0px;
+        padding-bottom: 0;
+    }
+    .paypal-express-review .data-table .product-image {
+        display: inline-block;
+        height: 100px;
+        margin: 0;
+        margin-right: 10px;
+        vertical-align: top;
+        width: 78px;
+    }
+    #custommenu-mobile #menu-button a, #custommenu-mobile #menu-button a:link, #custommenu-mobile #menu-button a:visited {
+        padding-top: 13px;
+        line-height: 40px;
+        height: 40px;
+    }
+    #custommenu-mobile #menu-content {
+        margin: 0 10px 10px 10px;
+    }
+    .mobile-block-container {
+        display: block;
+    }
+    .footer .social-links {
+        text-align: center;
+        padding-right: 0;
+    }
+    .footer .copyright address {
+        text-align: center;
+    }
+    .footer-tweets #twitter-slider {
+        width: 80%;
+    }
+    .footer-tweets #twitter-slider {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #twitter-slider .flex-direction-nav {
+        left: 30%;
+    }
+    .main-content {
+        padding: 0;
+    }
+    .header-container .logo img {
+        height: 38px;
+    }
+    /*category*/
+
+    .category-banner {
+        background: none !important;
+        height: auto !important;
+    }
+    .banner-image {
+        display: block;
+    }
+    .category-banner .category-wrap .container .inner {
+        top: 0;
+    }
+    .category-banner .category-wrap .category-title, .category-banner .category-title h1 {
+        padding-top: 20px;
+        font-size: 30px;
+    }
+    .category-banner .category-wrap .category-description {
+        display: none;
+    }
+    .products-list .product-shop {
+        margin: 0;
+    }
+    .products-list .product-image {
+        margin-bottom: 20px;
+    }
+    .product-view .product-options .options .clearfix .option {
+        float: none;
+    }
+    /*compare products*/
+
+    .for-desktop {
+        display: none !important;
+    }
+    .for-mobile {
+        display: block !important;
+    }
+    table.for-mobile {
+        display: table !important;
+    }
+    tr.for-mobile {
+        display: table-row !important;
+    }
+    .catalog-product-compare-index .data-table th {
+        text-align: center;
+    }
+    /*shopping cart*/
+
+    .cart-table thead {
+        display: none;
+    }
+    .data-table.cart-table tbody td {
+        display: block;
+        padding: 0;
+        width: 100%;
+        border: 0;
+        line-height: 30px;
+    }
+    .data-table.cart-table tbody tr {
+        padding: 0;
+        position: relative;
+        display: block;
+        clear: both;
+    }
+    .data-table.cart-table tbody tr.last {
+        border-bottom-width: 2px;
+    }
+    .data-table.cart-table tbody td.pr-img-td {
+        clear: both;
+        padding: 30px;
+    }
+    .data-table.cart-table tbody td.pr-img-td .btn-remove2 {
+        margin-bottom: 10px;
+    }
+    .data-table.cart-table tbody td.product-name-td {
+        padding-top: 0;
+        text-align: center !important;
+    }
+    .data-table.cart-table tbody td.pr-img-td a.product-image {
+        width: 100%;
+    }
+    .data-table.cart-table tbody td.sub-total {
+        padding-bottom: 40px;
+    }
+    .data-table.cart-table tbody td.sub-total span.mobile-show {} .cart-table .product-name {
+                                                                      margin: 0;
+                                                                      line-height: 30px;
+                                                                  }
+    .cart-table .product-image img {
+        width: 100%;
+    }
+    .cart-table .qty-holder {
+        margin: 15px 0;
+    }
+    .cart-table input.qty {
+        width: 100px;
+        padding: 0 10px;
+    }
+    .cart-table .item-options > div {
+        line-height: 30px;
+    }
+    span.for-mobile-inline {
+        display: inline !important;
+    }
+    .button-up.for-mobile {
+        display: inline-block !important;
+    }
+    #shopping-cart-table .product-image img, #shopping-cart-table .pr-img-td img {
+        width: auto;
+    }
+    .checkout-cart-index .box-cross-sell {
+        margin-top: 24px;
+    }
+    .crosssell-products.products-grid {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .crosssell-products.products-grid .product-image {
+        text-align: center;
+    }
+    .crosssell-products.products-grid .product-image img {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .crosssell-products.products-grid .product-image .hover-image {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .crosssell-products.products-grid .price-review {
+        text-align: center;
+    }
+    .crosssell-products.products-grid .price-review .actions {
+        display: inline-block;
+    }
+    .order-review .product-image img {
+        width: auto;
+    }
+    .cart .data-table .btn-continue {
+        float: none;
+    }
+    .checkout-cart-index .cart-table tfoot td {
+        text-align: center !important;
+    }
+    .checkout-cart-index .cart-table tfoot td .button {
+        margin: 5px 0;
+    }
+    .shipping-form {
+        padding: 10px;
+    }
+    #checkout-step-review.step {
+        padding: 10px;
+    }
+    .order-review .data-table th {
+        font-size: 11px;
+    }
+    .order-review .product-image img {
+        width: 50px;
+    }
+    .cart-table col, .order-review .data-table col, .my-account .data-table col, .my-wishlist .data-table col {
+        display: none;
+    }
+    /**
+    .cart-table thead tr, .order-review .data-table thead tr, .my-account .data-table thead tr, .my-wishlist .data-table thead tr {
+      display: none;
+    }
+    .cart-table thead tr.mobile-row, .order-review .data-table thead tr.mobile-row, .my-account .data-table thead tr.mobile-row, .my-wishlist .data-table thead tr.mobile-row {
+      display: block;
+    }
+    **/
+    .cart-table thead tr, .my-account .data-table thead tr, .my-wishlist .data-table thead tr {
+        display: none;
+    }
+    .cart-table thead tr.mobile-row, .my-account .data-table thead tr.mobile-row, .my-wishlist .data-table thead tr.mobile-row {
+        display: block;
+    }
+    /**
+    .cart-table tr, .cart-table td, .cart-table th, .order-review .data-table tr, .order-review .data-table td, .order-review .data-table th, .my-account .data-table tr, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table tr, .my-wishlist .data-table td, .my-wishlist .data-table th {
+      border-left: none !important;
+      border-right: none !important;
+      display: block;
+      padding: 0 !important;
+      text-align: center !important;
+    }
+    **/
+    .cart-table tr, .cart-table td, .cart-table th, .my-account .data-table tr, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table tr, .my-wishlist .data-table td, .my-wishlist .data-table th {
+        border-left: none !important;
+        border-right: none !important;
+        display: block;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    .cart-table td, .cart-table th, .order-review .data-table td, .order-review .data-table th, .my-account .data-table td, .my-account .data-table th, .my-wishlist .data-table td, .my-wishlist .data-table th {
+        padding: 10px 5px !important;
+    }
+    .cart-table tbody td:first-child, .cart-table tbody th:first-child, .order-review .data-table tbody td:first-child, .order-review .data-table tbody th:first-child, .my-account .data-table tbody td:first-child, .my-account .data-table tbody th:first-child, .my-wishlist .data-table tbody td:first-child, .my-wishlist .data-table tbody th:first-child {
+        padding-top: 20px !important;
+    }
+    /**
+    .cart-table tbody td:last-child, .cart-table tbody th:last-child, .order-review .data-table tbody td:last-child, .order-review .data-table tbody th:last-child, .my-account .data-table tbody td:last-child, .my-account .data-table tbody th:last-child, .my-wishlist .data-table tbody td:last-child, .my-wishlist .data-table tbody th:last-child {
+      padding-bottom: 20px !important;
+    }
+    **/
+    .cart-table tbody td:last-child, .cart-table tbody th:last-child, .my-account .data-table tbody td:last-child, .my-account .data-table tbody th:last-child, .my-wishlist .data-table tbody td:last-child, .my-wishlist .data-table tbody th:last-child {
+        padding-bottom: 20px !important;
+    }
+    .cart-table thead tr.mobile-row th, .order-review .data-table thead tr.mobile-row th, .my-account .data-table thead tr.mobile-row th, .my-wishlist .data-table thead tr.mobile-row th {
+        padding: 20px 10px !important;
+    }
+    .cart-table tbody td, .cart-table tbody tr.last td, .order-review .data-table tbody td, .order-review .data-table tbody tr.last td, .my-account .data-table tbody td, .my-account .data-table tbody tr.last td, .my-wishlist .data-table tbody td, .my-wishlist .data-table tbody tr.last td {
+        border-bottom-width: 0;
+    }
+    .cart-table tbody td.last, .cart-table tbody tr.last td.last, .order-review .data-table tbody td.last, .order-review .data-table tbody tr.last td.last, .my-account .data-table tbody td.last, .my-account .data-table tbody tr.last td.last {
+        border-bottom-width: 1px;
+    }
+    .data-table .product-image {
+        float: none;
+        width: 150px;
+        margin: 15px auto;
+    }
+    .data-table .product-shop {
+        float: none;
+        padding-left: 0;
+        text-align: center;
+    }
+    .data-table .actions {
+        margin-top: 0;
+    }
+    .data-table .item-options {
+        float: none;
+    }
+    .data-table .item-options dt, .data-table .item-options dd {
+        float: none;
+        display: inline;
+    }
+    .data-table .cart-price {
+        margin-top: 0;
+        display: inline;
+    }
+    .data-table .total-price .cart-price {
+        padding-right: 0;
+    }
+    .col2-set .col-1, .col2-set .col-2 {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+    .form-list .field {
+        float: none;
+        width: 100%;
+    }
+    .form-list .fields {
+        margin-bottom: 8px;
+    }
+    #contact-block-map {
+        height: 250px;
+    }
+    .contacts-index-index .content-left, .contacts-index-index .content-right {
+        float: none;
+        width: 100%;
+    }
+    .contacts-index-index .content .msg {
+        margin-top: 15px;
+    }
+    .cms-no-route .text-container .container h2, .cms-no-route .text-container .container .search-form {
+        width: 400px;
+    }
+    /*about us page*/
+
+    .cms-heading-container {
+        padding-top: 50px;
+    }
+    .cms-heading-container .page-title h1 {
+        color: #000000;
+    }
+    /*cms about us page*/
+
+    .cms-container .block-testminial .minial-comments {
+        width: 330px;
+    }
+    #topcontrol {
+        display: none;
+    }
+    .my-account .form-list .field .sbHolder {
+        width: 394px;
+    }
+    .my-account .form-list .field .sbSelector {
+        width: 353px;
+    }
+    .tp-caption.dark_big_text {
+        font-size: 20px !important;
+        line-height: normal !important;
+        top: 100px !important;
+        left: 180px !important;
+        display: block !important;
+    }
+    .tp-caption.secondary_headline_text {
+        font-size: 11px !important;
+        top: 150px !important;
+        left: 180px !important;
+        max-width: 700px;
+        white-space: normal !important;
+        line-height: normal !important;
+        display: block !important;
+    }
+    #homeslider-revolution {
+        max-height: 300px !important;
+    }
+    .footer-above .col4 {
+        margin-bottom: 20px;
+    }
+    /*********************************** CMS Pages **************************************/
+
+    .cms-jenu-biosciences .header-container, .cms-dr-sonia-batra .header-container, .cms-ultrasound-101 .header-container, .cms-clinical-results .header-container, .cms-box .header-container {
+        position: static;
+    }
+    .ultrasound .timepoint.odd .ultra-image, .ultrasound .timepoint.odd .ultra-image img, .ultrasound .timepoint.even .ultra-image, .ultrasound .timepoint.even .ultra-image img, .ultrasound .timepoint.odd .ultra-text, .ultrasound .timepoint.even .ultra-text {
+        width: 100%;
+        padding: 0;
+        text-align: left;
+    }
+    .ultrasound .timepoint.odd .ultra-year-text, .ultrasound .timepoint.even .ultra-year-text {
+        padding: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .ultrasound .timepoint.even, .ultrasound .timepoint.odd {
+        padding: 0;
+    }
+    .ultrasound .timepoint.even .ultra-year {
+        text-align: left;
+        width: 100%;
+    }
+    .ultrasound .timepoint.yr-2015 .ultra-year-text {
+        position: static;
+    }
+    .ultrasound .timepoint.yr-2015 .ultra-year-text .ultra-text {
+        position: static;
+        top: 0;
+        width: 100%;
+    }
+    #homeslider-revolution .hp-copy-fade {
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        position: absolute;
+        padding: 10px;
+        top: auto;
+    }
+    #homeslider-revolution .hp-copy-fade h1 {
+        margin-bottom: 5px;
+    }
+    #homeslider-revolution .hp-copy-inner h2 {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    #homeslider-revolution .hp-copy-inner h1 {
+        font-size: 18px;
+        font-family: "apexsanslightst", Arial, Helvetica;
+    }
+    .cms-box.ultrasound101 h1, .cms-box.using-jenu h1, .cms-box.how-jenu-works h1, .cms-box.clinical-results h1 {
+        font-size: 35px;
+        margin: 30px 0 15px 0;
+        padding: 0 0 10px 0;
+    }
+    .cms-box.ultrasound101 h2 {
+        font-size: 16px;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .cms-box.ultrasound101 .whatis {
+        width: 100%;
+        margin: 30px auto 0 auto;
+    }
+    .cms-box.ultrasound101 .whatis p {
+        font-size: 13px;
+        line-height: 18px;
+        margin: 10px 0;
+    }
+    .cms-box.using-jenu .numbox {
+        height: auto;
+    }
+    .cms-box.using-jenu .numbox .num {
+        font-size: 52px;
+    }
+    .cms-box.using-jenu .numbox .numtxt {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .cms-box.using-jenu .step h4, .cms-box.using-jenu .step ul {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+    .cms-box.using-jenu .step3 .devicewrap .dasharrow {
+        display: none;
+    }
+    .cms-box.using-jenu .experttip {
+        margin: 30px 0;
+        text-align: center;
+    }
+    .cms-box.using-jenu .experttip .roundtip {
+        float: none;
+        margin: 0 auto;
+        display: block;
+    }
+    .cms-box.using-jenu .experttip .tip {
+        font-size: 16px;
+        padding-left: 0;
+        margin-left: auto;
+        display: block;
+        width: 100%;
+        float: none;
+        margin-top: 20px;
+    }
+    .cms-box.using-jenu .bottom-note {
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 0;
+    }
+    .cms-box .how-jenu-works-inner {
+        margin: 0;
+    }
+    .cms-box.how-jenu-works h4 {
+        font-size: 16px;
+        margin: 20px 0;
+    }
+    .cms-box.how-jenu-works h5 {
+        font-size: 14px;
+        margin: 10px 0 10px 0;
+    }
+    .cms-box.how-jenu-works .imgbox {
+        margin: 20px 0 40px 0;
+        float: none;
+    }
+    .cms-box.how-jenu-works .imgbox .img1, .cms-box.how-jenu-works .imgbox .img1 .roundtip, .cms-box.how-jenu-works .imgbox .img1 img {
+        position: static;
+    }
+    .cms-box.how-jenu-works .imgbox img, .cms-box.how-jenu-works .imgbox .img1 {
+        width: 100%;
+        height: auto;
+    }
+    .cms-box.how-jenu-works .imgbox .img1 {
+        position: relative;
+    }
+    .cms-box.how-jenu-works .imgbox .img1 .roundtip {
+        width: 80px;
+        height: 80px;
+        font-size: 10px;
+        padding-top: 20px;
+        top: 5px;
+        right: 5px;
+        z-index: 2;
+        position: absolute;
+    }
+    .cms-box.how-jenu-works h2 {
+        font-size: 22px;
+        margin: 0 0 10px 0;
+    }
+    .cms-box.how-jenu-works h2 strong {
+        font-size: 24px;
+    }
+    .cms-box.how-jenu-works .how-bottomcopy {
+        font-size: 16px;
+    }
+    .cms-box.how-jenu-works .buttons-wrap {
+        margin: 15px 0;
+    }
+    .cms-box.how-jenu-works a.btn-lto {
+        margin-bottom: 10px;
+    }
+    .cms-box.how-jenu-works a.btn-learn {
+        font-size: 16px;
+    }
+    .cms-box .clinical-inner {
+        margin: 0 0 10px 0;
+    }
+    .cms-box .clinical-inner .clinical-sub {
+        font-size: 22px;
+        margin: 20px 0;
+    }
+    .cms-box .clinical-inner .clinical-sub span {
+        display: inline;
+        font-size: 18px;
+        margin-top: 0;
+    }
+    .cms-box .clinical-inner .clinical-list {
+        font-size: 16px;
+        margin: 15px 0;
+        line-height: 20px;
+    }
+    .cms-box .clinical-inner img.clinical-jars, .cms-box .clinical-inner img.clinical-graph {
+        width: 100%;
+        height: auto;
+    }
+    .cms-box .clinical-inner .flowerswrap {
+        margin-left: 0;
+    }
+    .cms-box .clinical-inner .flowerswrap .flowersbox {
+        display: inline-block;
+        font-size: 14px;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+    .cms-box .clinical-inner .flowerswrap .flowersbox.versus {
+        font-size: 24px;
+        height: 60px;
+        line-height: 60px;
+        padding: 0;
+        width: auto;
+    }
+    .cms-box .clinical-inner .flowerswrap .flowersbox span {
+        display: block;
+    }
+    .cms-box .clinical-inner .clinical-data-wrap {
+        margin-left: 0;
+        font-size: 14px;
+        float: none;
+    }
+    .cms-box .clinical-inner .clinical-data-left {
+        float: none;
+        font-size: 80px;
+    }
+    .cms-box .clinical-inner .clinical-data-right {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .cms-box .clinical-inner .clinical-circles-wrap {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle:first-child {
+        margin-left: auto;
+    }
+    .cms-box .clinical-inner .clinical-circles-wrap .clinical-circle {
+        margin: 20px auto;
+        display: block;
+    }
+    .cms-box.clinical-results table.clinical-grid {
+        display: none;
+    }
+    .cms-box.before-afters .before-afters-inner .bx-wrapper .bx-controls-direction {
+        top: 33%;
+    }
+    .cms-box.before-afters .before-afters-inner .bx-wrapper:first-child .bx-controls-direction {
+        top: 25%;
+    }
+    .also-available {
+        display: none;
+    }
+    .cms-page-view .drbanner-title {
+        left: 40%;
+        top: 20%;
+        right: 0;
+    }
+    .cms-page-view .drbanner-title h1 {
+        font-size: 24px;
+    }
+    .cms-page-view .drbanner-title h2 {
+        font-size: 14px;
+    }
+    .cms-page-view .batravid {
+        width: 300px;
+        height: 169px;
+    }
+    .cms-page-view .jenu-vid {
+        width: 320px;
+        height: 180px;
+    }
+    .checkout-cart-index .support-box {
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+    }
+    .checkout-cart-index .btn-continue, .checkout-cart-index .btn-update {
+        font-size: 13px;
+        padding: 0;
+    }
+    .checkout-cart-index .or {
+        font-size: 12px;
+        margin: 0 10px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .checkout-cart-index .checkout-box {
+        width: 100%;
+        margin-top: 12px;
+        text-align: left;
+    }
+    .checkout-cart-index .riskfree-box {
+        width: 100%;
+    }
+    .checkout-cart-index .riskfree-box-desktop {
+        display: none;
+    }
+    .checkout-cart-index .riskfree-box-mobile {
+        display: block;
+    }
+    .checkout-cart-index .riskfree-box .riskfree-seal {
+        text-align: center;
+        float: none;
+        display: block;
+    }
+    .checkout-cart-index .riskfree-box .riskfree-copy {
+        border: none;
+        padding-left: 0;
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+
+    }
+    .checkout-cart-index .contbox, .checkout-cart-index .checkout-box ul.checkout-types {
+        float: left;
+    }
+    .checkout-cart-index .checkout-box-bottom ul.checkout-types {
+        float: none;
+    }
+    .checkout-cart-index .other-methods-bottom .paypal-logo,
+    .checkout-cart-index .other-methods-bottom #AmazonPayButtonMethod,
+    .checkout-cart-index .other-methods-bottom div {
+        display: block;
+        margin-top: 10px;
+    }
+    .checkout-cart-index div.checkout-types {
+        float: none;
+    }
+    .cms-box.before-afters .before-afters-inner .baslideswrap .bx-prev {
+        left: -20px;
+        float: left;
+        display: block;
+        z-index: 90;
+        cursor: pointer;
+        position: relative;
+        background: url(/media/landing_pages/lp3/arrow-left.png) no-repeat top left;
+        width: 28px;
+        height: 28px;
+        text-indent: -9999px;
+    }
+    .cms-box.before-afters .before-afters-inner .baslideswrap .bx-next {
+        right: -20px;
+        float: right;
+        display: block;
+        z-index: 90;
+        cursor: pointer;
+        position: relative;
+        background: url(/media/landing_pages/lp3/arrow-right.png) no-repeat top left;
+        width: 28px;
+        height: 28px;
+        text-indent: -9999px;
+    }
+    .sarp-terms-popup {
+        width: 90%;
+    }
+    .product-view .product-name, .product-view .product-name h1, .review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
+        font-size: 20px;
+    }
+    .product-view .reviews-summary-wrap .amount {
+        float: none;
+        display: block;
+        padding-right: 0;
+        margin-right: 0;
+        border-right: 0;
+        margin-bottom: 20px;
+    }
+    .product-view .product-shop .price-review .price-box {
+        float: none;
+        padding-top: 0;
+    }
+    .product-view .product-shop .price-review .ratings,
+    .product-view .product-shop .price-review-wrap {
+        float: none;
+        margin-top: 4px;
+        text-align: left;
+        width: 100%;
+    }
+    .product-view .product-shop .price-review-wrap .amount {
+        margin-left: 4px;
+    }
+    .product-view .product-shop .price-review-wrap .review-toggle {
+        margin: 5px 0;
+        display: inline-block;
+    }
+    .product-view .riskfree {
+        margin-top: -50px;
+        right: 10px;
+    }
+    .product-view .alsobought .prod-image {
+        width: 100px;
+    }
+    .product-view .alsobought .prod-info-right {
+        margin-left: 5px;
+        width: 180px;
+    }
+    .product-view .alsobought .prod-info-right .prodname a {
+        font-size: 14px;
+    }
+    .product-view .gallerywrap .videogallery .vid {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .product-view .gallerywrap .bagallery .bx-controls-direction {
+        top: 28%;
+    }
+    .product-view .reviews-summary-wrap .rating-box {
+        float: none;
+    }
+    .product-view .reviews-summary-wrap .amount a {
+        display: block;
+        float: none;
+        padding: 0;
+        margin: 6px 0;
+        border: none;
+        font-size: 20px;
+    }
+    .product-view .reviews-summary-wrap .btn-writereview {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    .product-view .line-separator1 {
+        margin: 30px auto;
+        width: 40%;
+    }
+    .product-view .box-reviews {
+        width: 100%;
+    }
+    .product-view .line-separator2 {
+        margin: 20px auto;
+    }
+    .jenu-howitworks-features .jenu-howitworks-text-copy-img img {
+    }
+    .jenu-howitworks-absorption-img img {
+        width: 100%;
+    }
+    .jenu-howitworks-img-wandfeatures {
+        float: none;
+        margin-top: 20px;
+    }
+    .jenu-howitworks-img-wandfeatures img {
+        width: 456px;
+    }
+    .jenu-howitworks-feature div {
+    }
+    .jenu-howitworks-feature p {
+        width: 80%;
+    }
+    .jenu-howitworks-features .jenu-howitworks-text-copy-img {
+        text-align: center;
+    }
+    .jenu-howitworks-bodyfeatures-container ul.jenu-howitworks-text-copy-list {
+        margin-bottom: 20px;
+    }
+
+    .jenu-howitworks-feature img {
+        display: block;
+        margin: 0 auto 10px;
+        width: 60px;
+    }
+    .jenu-howitworks-text-copy-img img.wand-features {
+        margin-top: 16px;
+    }
+    .jenu-howitworks-bodyfeatures-container .jenu-howitworks-text-copy-img {
+        margin: 0 auto 10px;
+        width: 212px;
+    }
+    .jenu-howitworks-minute {
+        margin-top: 0;
+    }
+    .howitworks-banner .banner-content {
+        margin-top: 20%;
+        margin-left: 5%;
+    }
+    .howitworks-banner .banner-content h1 {
+        font-size: 22px;
+    }
+    .howitworks-banner .banner-content .jenu-howitworks-sub-text {
+        display: block;
+        font-size: 14px;
+        line-height: 24px;
+        text-shadow: 0 0 0;
+    }
+    .header-right {
+        display: none;
+    }
+    .header-top, .mobile-block-container {
+        height: auto;
+    }
+    .header-container .minicart-wrap {
+        right: 10px;
+        margin-top: 0;
+    }
+    .header-container .logo {
+        line-height: 44px;
+    }
+    .header-menu {
+        margin-top: 0;
+    }
+    .cms-index-index .footer_column.footer-column-1 .footer-left-logo img {
+        width: 40%;
+        max-width: 150px;
+    }
+    .cms-howtouse .steps-img:before {
+        display: none;
+    }
+    .cms-howtouse .steps-img, .cms-howtouse .steps-copy {
+        margin: 20px auto 0;
+        width: 260px;
+    }
+    .footer_column.footer-column-1 .footer-left-logo {
+        margin-top: 0;
+    }
+    .footer_column:after {
+        display: none;
+    }
+    .footer_column.footer-column-1 .footer-left-lto {
+        margin-top: 0;
+    }
+    .footer_column.footer-column-1 .footer-left-lto img {
+        width: auto;
+    }
+
+    /** Results Page Styles 032315 **/
+
+    .jenu-results-container h1,
+    .jenu-results-container h2,
+    .jenu-results-container h3,
+    .jenu-results-container h4,
+    .jenu-results-container h5,
+    .jenu-results-container h6 {
+        margin: 0 0 10px;
+        width: 100%;
+    }
+    .jenu-results-container h1 {
+        font-size: 36px;
+        line-height: 36px;
+    }
+    .jenu-results-container h2 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .jenu-results-container h3 {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .results-section-hero .banner-content {
+        margin: 137px 0 0;
+        text-align: left;
+    }
+    .results-synopsis-img {
+        margin: 0 0 10px 0;
+    }
+    .results-section-theresults .results-theresults-top {
+        text-align: center;
+        background: transparent;
+    }
+    .results-section-theresults .results-theresults-copy {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .results-section-theresults .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .results-section-theresults .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .results-section-theresults ul.clinical-results-graph--bars {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        width: 83%;
+        z-index: 10;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item {
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+        width: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
+        height: 50%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
+        height: 65%;
+        margin-left: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
+        height: 78%;
+        margin-left: 66%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    .results-section-theresults ul.clinical-results-graph--perc {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    .results-section-theresults .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        color: #525252;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+    }
+    .results-section-theresults .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+    }
+    .results-section-theresults .clinical-results-graph--note {
+        color: #525252;
+        margin: 0 0 80px;
+    }
+    .results-section-banner .results-banner-copy {
+        text-align: center;
+    }
+    .results-section-banner {
+        background: url("../images/results-bottom-banner-bg.jpg") no-repeat 30% bottom #c8e3f9;
+        background-size: cover;
+        min-height: 0;
+    }
+    .results-section-banner .results-banner-copy {
+        background: rgba(255, 255, 255, 0.7);
+        margin: 40px 0;
+        padding: 20px;
+        text-align: center;
+    }
+    .block-subscribe {
+        overflow: hidden;
+        padding: 20px 0 0;
+    }
+    .block-subscribe-title {
+        line-height: normal;
+        padding-top: 2px;
+        width: 100%;
+        float: none;
+    }
+    .block-subscribe-form {
+        display: block;
+        float: none;
+        margin: 10px auto;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+    }
+    .footer .social-links {
+        line-height: normal;
+        text-align: left;
+        margin-bottom: 20px;
+        padding-left: 0;
+    }
+    .footer .social-links .icon:before {
+        font-family: "FontAwesome";
+        position: absolute;
+        top: 5px;
+    }
+    .cms-no-route h1 {
+        font-size: 36px;
+    }
+    .main-content .cms-wrapper {
+        padding: 0 15px;
+    }
+    .results-section-theresults h3.results-theresults-header-number {
+        text-align: center;
+    }
+    .paypal-express-review .data-table thead .th-product {
+        display: none;
+    }
+    .paypal-express-review .data-table .product-image {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .paypal-express-review .data-table .product-shop .product-name {
+        font-size: 14px;
+        text-align: center;
+    }
+    .paypal-express-review .data-table td {
+        padding: 6px;
+    }
+    .checkout-cart-index .checkout-box {
+        text-align: center;
+    }
+    .checkout-cart-index .checkout-box .contbox {
+        float: none;
+        clear: both;
+    }
+    .checkout-cart-index .checkout-box {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .checkout-cart-index .checkout-box .checkout-types {
+        clear: both;
+        display: block;
+    }
+    .checkout-cart-index .payment-method, .checkout-cart-index .other-methods-wrapper {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+    .jenubiosciences-banner {
+        height: 280px;
+    }
+    .signupbox {
+        width: 95%;
+        height: auto;
+        background-image: none;
+    }
+    .signupbox-ty {
+        width: 100%;
+    }
+    .fancy-signup .fancybox-skin {
+        padding: 0 !important;
+    }
+    .signupbox .signup-content {
+        text-align: center;
+        padding: 20px;
+    }
+    .signupbox h2 {
+        font-size: 24px;
+    }
+    .signupbox p {
+        font-size: 14px;
+        line-height: normal;
+    }
+    .signupbox input.email {
+        width: 70%;
+        color: #747474;
+        padding: 0 10px;
+    }
+    .data-table .border {
+        height: auto;
+    }
+    #checkout-step-login .col2-set .col-1 {
+        margin-bottom: 16px;
+    }
+    .product-view .gallerywrap .videogallery .vid h4, .product-view .gallerywrap .bagallery h4 {
+        font-size: 14px;
+    }
+    .product-view .gallerywrap .videogallery .slick-prev, .product-view .gallerywrap .videogallery .slick-next {
+        margin-top: -20px;
+    }
+    .pager .pages {
+        margin-left: 0;
+        height: auto;
+    }
+    .pager .pages ol {
+        display: inline-block;
+        padding-left: 0;
+    }
+    .pager .pages li {
+        display: inline-block;
+        margin-bottom: 3px;
+        vertical-align: top;
+    }
+    .homepage-heading h2.hpheading {
+        font-size: 20px;
+    }
+    .homepage-content-threeup--content {
+        padding: 0;
+    }
+    .homepage-content-threeup--content a {
+        font-size: 13px;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .product-image {
+        width: 40%;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .item-inner .price-review {
+        width: 60%;
+        padding-top: 5px;
+    }
+    .checkout-cart-index .support-box {
+        display: none;
+    }
+    .checkout-cart-index .breadcrumbs.title-show .page-title {
+        display: none;
+    }
+    .checkout-cart-index .breadcrumbs.title-show {
+        padding-top: 5px;
+    }
+    .breadcrumbs {
+        font-size: 11px;
+    }
+    .checkout-cart-index .show-your-carts {
+        float: none;
+        margin: 0 0 10px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #000;
+    }
+    .checkout-cart-index .checkout-box .contbox {
+        display: none;
+    }
+    .error-msg, .success-msg, .note-msg, .notice-msg {
+        background-color: #f7f7f7;
+        color: #000;
+        padding: 10px 10px 10px 75px !important;
+        border-style: none !important;
+    }
+    .checkout-cart-index .data-table tr, .checkout-cart-index .data-table tr.even, .checkout-cart-index .shipping-form, .checkout-cart-index .content {
+        background-color: transparent;
+    }
+    .data-table.cart-table tbody tr {
+        border-top: 1px solid #ccc;
+        margin: 0;
+        overflow: hidden;
+        padding-top: 15px !important;
+    }
+    .checkout-cart-index .product-image img {
+        padding: 0;
+    }
+    .data-table.cart-table tbody td {
+        display: block;
+        text-align: left !important;
+    }
+    .data-table.cart-table tbody td.pr-img-td {
+        float: left;
+        vertical-align: top;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        width: 30%;
+        text-align: center !important;
+    }
+    #shopping-cart-table .product-image img, #shopping-cart-table .pr-img-td img {
+        width: 100%;
+        max-width: 150px;
+    }
+    .checkout-cart-index .btn-remove-item {
+        font-size: 11px;
+        line-height: normal;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .cart-table .product-name, .cart-table .product-name a {
+        font-size: 13px;
+        font-weight: bold;
+        line-height: normal;
+    }
+    .data-table.cart-table tbody td.product-name-td {
+        text-align: left !important;
+        width: 70%;
+        padding-left: 10px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        float: right;
+    }
+    .data-table.cart-table tbody td.for-mobile-product-code {
+        display: none;
+    }
+    .data-table.cart-table .qty-td-desktop {
+        display: none;
+    }
+    .data-table.cart-table .qty-td-mobile {
+        display: block;
+    }
+    .data-table.cart-table .qty-td,
+    .data-table.cart-table tbody td.sub-total {
+        float: right;
+        width: 70%;
+        padding: 0 0 0 10px !important;
+    }
+    .data-table.cart-table .qty-holder {
+        margin: 5px 0;
+    }
+    .data-table.cart-table .qty-holder .input-text.qty {
+        height: 25px;
+        line-height: 5px;
+        padding: 5px 5;
+        text-align: center;
+        width: 35px;
+        font-size: 10px;
+    }
+    .data-table.cart-table .qty-holder .button-up {
+        height: 25px;
+        vertical-align: middle;
+        width: 25px;
+    }
+    .data-table.cart-table .qty-holder .button-up span {
+        font-size: 18px;
+        display: block;
+        vertical-align: top;
+        height: 25px;
+        line-height: 25px;
+    }
+    .data-table.cart-table tbody td.sub-total .for-mobile-inline {
+        display: none !important;
+    }
+    .data-table.cart-table tbody td.sub-total .old-price,
+    .data-table.cart-table tbody td.sub-total .special-price {
+        display: inline-block;
+    }
+    .data-table.cart-table tbody td.sub-total .old-price {
+        margin-right: 5px;
+    }
+    .data-table.cart-table tbody td.sub-total .old-price span,
+    .data-table.cart-table tbody td.sub-total .special-price span {
+        font-size: 13px;
+    }
+    .checkout-cart-index .discount-form .btn-box {
+        width: 30%;
+        margin-top: 0;
+    }
+    .checkout-cart-index .discount-form .input-box {
+        width: 70%;
+    }
+    .checkout-cart-index .riskfree-box .riskfree-seal {
+        width: 30%;
+    }
+    .checkout-cart-index .riskfree-box .riskfree-seal img {
+        width: 100%;
+        max-width: 107px;
+        height: auto;
+        float: left;
+    }
+    .checkout-cart-index .riskfree-box .riskfree-copy {
+        width: 70%;
+        float: left;
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    .checkout-cart-index .total-container .heading {
+        font-size: 13px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .checkout-cart-index .cart .total-container .data-table td,
+    .checkout-cart-index .cart .total-container .data-table .price {
+        font-size: 13px;
+    }
+    .checkout-cart-index .footer-container .footer_column {
+        display: none;
+    }
+    .checkout-cart-index .footer-container .footer_column.footer-column-4 {
+        display: block;
+    }
+    .checkout-cart-index .crosssell-products.products-grid .product-name a,
+    .checkout-cart-index .crosssell-products.products-grid .product-name {
+        font-size: 13px;
+    }
+    .checkout-cart-index .btn-update {
+        height: 20px;
+        line-height: 20px;
+        margin: 0;
+    }
+    .cart .data-table tbody .special-price .price, .crosssell .special-price .price, .crosssell .special-price-discount, .crosssell .old-price .price, .crosssell .price-box .price,
+    .cart-table .price, .cart-table .input[type="text"] {
+        font-size: 13px;
+    }
+    .checkout-cart-index .coupon-box {
+        margin-top: 0;
+    }
+    .cart-table .item-options > div {
+        font-size: 11px;
+        line-height: normal;
+        margin: 5px 0;
+    }
+    .checkout-cart-index .other-methods-bottom .paypal-logo,
+    .checkout-cart-index .other-methods-bottom #AmazonPayButtonMethod,
+    .checkout-cart-index .other-methods-bottom div {
+        margin-top: 0;
+    }
+}
+@media(max-width: 480px) {
+    .jenu-howitworks-img-wandfeatures img {
+        width: 100%;
+    }
+    .jenu-howitworks-minute .jenu-howitworks-text-copy-img {
+        margin-bottom: 0;
+    }
+    .homepage-content-worksgreat--image img {
+        width: 100%;
+    }
+    .login-container-big {
+        margin-top: 10px;
+    }
+    .footer-tweets #twitter-slider {
+        width: 70%;
+    }
+    .footer-tweets #twitter-slider {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #twitter-slider .flex-direction-nav {
+        left: 15%;
+    }
+    .category-banner .category-wrap .category-title, .category-banner .category-title h1 {
+        padding-top: 5px;
+    }
+    .toolbar .sorter .btn-compare {
+        display: none;
+    }
+    .toolbar .pager .btn-compare {
+        display: inline-block;
+        float: left;
+    }
+    .toolbar .limiter {
+        width: 100%;
+    }
+    .toolbar .pager .show-by {
+        float: right;
+    }
+    .toolbar .pager .pages {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .footer-tweets #twitter-slider .twitter-content {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .data-table .qty-holder-con {
+        width: 90px;
+    }
+    .data-table .qty-holder-con .input-text.qty {
+        width: 40px;
+    }
+    .product-options-bottom .add-to-cart {
+        width: 100%;
+    }
+    .product-options-bottom .add-to-links {
+        margin-top: 20px;
+    }
+    .product-options-bottom .button-up {
+        margin-right: 10px;
+    }
+    .elastislide-wrapper nav span.elastislide-prev, .elastislide-wrapper nav span.elastislide-next {
+        width: 20px !important;
+        padding: 0;
+    }
+    .elastislide-next .icon-next, .elastislide-prev .icon-prev {
+        left: 4px !important;
+    }
+    .catalog-product-compare-index .breadcrumbs .page-title, .catalog-product-compare-index .breadcrumbs ul, .checkout-cart-index .breadcrumbs .page-title, .checkout-cart-index .breadcrumbs ul {
+        float: none;
+    }
+    .breadcrumbs.title-show .ul-right {
+        float: none !important;
+    }
+    .shipping-form .sbHolder, .shipping-form .form-list input.input-text {
+        width: 270px;
+    }
+    .shipping-form .sbSelector {
+        width: 230px;
+    }
+    .cms-no-route .text-container .container h2, .cms-no-route .text-container .container .search-form {
+        width: 100%;
+    }
+    .cms-no-route .main-content .form-search .input-text {
+        width: 220px;
+    }
+    /*cms about us page*/
+
+    .cms-container .block-testminial .minial-comments {
+        width: 180px;
+    }
+    .sort-by {
+        margin-right: 5px;
+    }
+    .sort-by .sbHolder {
+        margin-left: 5px;
+    }
+    .sorter .view-mode .grid {
+        margin-right: 5px;
+    }
+    .discount-form .btn-box, .discount-form .input-box {
+        width: 100%;
+    }
+    .discount-form .btn-box {
+        margin-top: 10px;
+    }
+    .discount-form .btn-box .button {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .my-account .form-list .field .sbHolder {
+        width: 236px;
+    }
+    .my-account .form-list .field .sbSelector {
+        width: 195px;
+    }
+    .tp-caption.dark_big_text {
+        font-size: 20px !important;
+        line-height: normal !important;
+        top: 100px !important;
+        left: 80px !important;
+    }
+    .tp-caption.secondary_headline_text {
+        font-size: 11px !important;
+        top: 150px !important;
+        left: 80px !important;
+        max-width: 700px;
+        white-space: normal !important;
+        line-height: normal !important;
+    }
+    .cms-box.in-the-press .col4-set .col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .cms-box.in-the-press .in-the-press-inner {
+        margin-top: 20px;
+    }
+    .cms-page-view .jenu-vid {
+        width: 256px;
+        height: 144px;
+    }
+    .cms-box.how-jenu-works .contentvid {
+        width: 300px;
+        height: 169px;
+    }
+    /*********************************** Clinical Results Styles **************************************/
+
+    .clinical-results {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 0;
+        text-align: center;
+    }
+    .clinical-results .row {
+        text-align: center;
+    }
+    .clinical-results .row > div {
+        padding: 0 30px;
+    }
+    .clinical-results h1, .clinical-results h2, .clinical-results h3, .clinical-results h4, .clinical-results h5, .clinical-results h6, .clinical-results p {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .clinical-results--simulation .row > div, .clinical-results--better-results .row > div {
+        padding: 0 15px;
+    }
+    .clinical-results-header h2 {
+        color: #0f6ba6;
+        font-size: 36px;
+    }
+    .clinical-results-header h3 {
+        color: #0f6ba6;
+        font-size: 30px;
+    }
+    .clinical-results-header h4 {
+        color: #525252;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .clinical-results-header--heading {
+        font-weight: 300;
+        margin: 0 auto;
+        text-transform: uppercase;
+        width: 90%;
+    }
+    h3.clinical-results-header--heading-blue {
+        color: #0f6ba6;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+    h3.clinical-results-header--heading-blue .sup-text {
+        display: inline-block;
+        font-size: 20px;
+        position: relative;
+        top: -3px;
+    }
+    h3.clinical-results-header--heading-blue .bottom-text {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    ul.clinical-results--list {
+        margin: 80px 0;
+        overflow: hidden;
+    }
+    .clinical-results-list--item {
+        float: left;
+        margin: 0 0 40px 0;
+        width: 100%;
+    }
+    .clinical-results-list--heading {
+        color: #525252;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .clinical-results-list--image {
+        border: 1px solid #e5e5e5;
+        box-shadow: inset 2px 0 2px #cccccc;
+        height: 200px;
+        margin: 0 auto 20px;
+        overflow: hidden;
+        position: relative;
+        width: 200px;
+        z-index: 10;
+        -moz-border-radius: 200px;
+        -webkit-border-radius: 200px;
+        border-radius: 200px;
+    }
+    .clinical-results-list--image img {
+        height: auto;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+    .clinical-results-list--copy {
+        color: #525252;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 26px;
+        margin: 0 auto;
+        width: 60%;
+    }
+    .clinical-results-divider {
+        border-top: 1px solid #79afde;
+        margin: 0 auto 80px;
+    }
+    .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    ul.clinical-results-graph--bars {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        width: 83%;
+        z-index: 10;
+    }
+    .clinical-results-graph-bars--item {
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+        width: 33%;
+    }
+    .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .clinical-results-graph-bars--item.bar-1 {
+        background: #628ba6;
+        height: 47%;
+    }
+    .clinical-results-graph-bars--item.bar-2 {
+        background: #3c7da6;
+        height: 65%;
+        margin-left: 33%;
+    }
+    .clinical-results-graph-bars--item.bar-3 {
+        background: #0f6ba6;
+        height: 74%;
+        margin-left: 66%;
+    }
+    .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        color: #fff;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    ul.clinical-results-graph--perc {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        color: #525252;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+    }
+    .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+    }
+    .clinical-results-graph--note {
+        color: #525252;
+        margin: 0 0 80px;
+    }
+    .clinical-results-simulation--inner {
+        height: 100%;
+        width: 100%;
+    }
+    .clinical-results-simulation--inner img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .clinical-results--cta {
+        background: #f9f9f9;
+        height: 150px;
+        position: relative;
+        width: 104.3%;
+    }
+    .clinical-results-cta--copy {
+        background: url("/media/content/bg-lto-cta.png") no-repeat 70% 0;
+        background-size: 57px auto;
+        height: 180px;
+        position: relative;
+        top: -20px;
+        width: 100%;
+    }
+    .clinical-results-cta-copy--inner {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        left: 50%;
+        line-height: 30px;
+        margin-left: -120px;
+        position: relative;
+        top: 42px;
+        text-transform: uppercase;
+        width: 160px;
+    }
+    .clinical-results-cta-copy--inner .copy-main {
+        display: block;
+        font-size: 40px;
+        font-weight: 700;
+    }
+    .clinical-results-cta-copy--inner .copy-sub {
+        display: block;
+        font-size: 27px;
+        font-weight: 300;
+    }
+    .clinical-results-cta--btn {
+        background: #0f6ba6;
+        color: #fff;
+        font-size: 20px;
+        display: inline-block;
+        margin: 10px 0;
+        padding: 5px 20px;
+    }
+    .clinical-results-cta--btn:hover {
+        background: #1389d5;
+        color: #fff;
+    }
+
+    /** How It Works Styles 031215 **/
+
+    .jenu-howitworks-how-it-works {
+        padding: 20px 15px;
+    }
+    .jenu-howitworks-hero-wide-banner {
+        padding: 113px 0;
+        position: relative;
+    }
+    .jenu-howitworks-hero-wide-banner .jenu-howitworks-hero-wide-banner-inner {
+        width: 100%;
+    }
+    .jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text {
+        padding: 0 20px;
+        width: 90%;
+    }
+    .jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text h1 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .jenu-howitworks-hero-wide-banner .jenu-howitworks-banner-text .jenu-howitworks-sub-text {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .jenu-howitworks-text-content {
+        margin-top: 40px;
+    }
+    .jenu-howitworks-text-copy {
+        padding: 20px 0 0;
+        width: 100%;
+    }
+    .jenu-howitworks-feature h3, .jenu-howitworks-feature p {
+        width: 100%;
+    }
+    .jenu-howitworks-body-features .jenu-howitworks-text-copy-list {
+        margin-bottom: 20px;
+    }
+
+    /** Results Page Styles 032315 **/
+
+    .results-section-hero {
+        background: url("../images/results-banner.jpg") no-repeat center #dfd0b3;
+        background-size: auto 100%;
+    }
+    .results-section-hero .banner-content {
+        background: rgba(255, 255, 255, 0.8);
+        margin: 60px 0 0;
+        padding: 20px;
+        text-align: center;
+    }
+    .results-section-hero .banner-content h1 {
+        margin: 0;
+        text-shadow: 0 0 0;
+    }
+    .results-section-theresults .results-theresults-bottom .results-theresults-header {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    .results-section-theresults .results-theresults-header-number {
+        text-align: center;
+    }
+    .results-section-theresults .results-theresults-copy {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .results-section-theresults .clinical-results--graph {
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0 0 20px;
+    }
+    .results-section-theresults .clinical-results-graph--inner {
+        height: 400px;
+        margin: 40px 10px 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .results-section-theresults ul.clinical-results-graph--bars {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        width: 83%;
+        z-index: 10;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item {
+        border-left: 0;
+        box-shadow: inset -1px 0 0 0 #fff;
+        bottom: 0;
+        float: left;
+        margin-right: 1px;
+        padding: 5px;
+        position: absolute;
+        vertical-align: bottom;
+        width: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item:last-child {
+        box-shadow: inset 0 0 0 0 #fff;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-1 {
+        height: 50%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-2 {
+        height: 65%;
+        margin-left: 33%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item.bar-3 {
+        height: 78%;
+        margin-left: 66%;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item > span {
+        bottom: 0;
+        display: block;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        padding: 5px;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .results-section-theresults .clinical-results-graph-bars--item .jenu {
+        text-transform: none;
+    }
+    .results-section-theresults ul.clinical-results-graph--perc {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    .results-section-theresults .clinical-results-graph-perc--item {
+        border-bottom: 1px solid #e7e7e7;
+        color: #525252;
+        font-size: 16px;
+        font-weight: 300;
+        height: 9.09090909090909%;
+        position: relative;
+        width: 100%;
+    }
+    .results-section-theresults .clinical-results-graph-perc--item span {
+        display: block;
+        float: left;
+        margin-top: 10px;
+        text-align: right;
+        width: 40px;
+    }
+    .results-section-theresults .clinical-results-graph--note {
+        color: #525252;
+        margin: 0 0 80px;
+    }
+
+    .results-section-banner .results-banner-bluetext-small {
+        font-size: 24px;
+    }
+    .results-section-banner .results-banner-bluetext-large {
+        font-size: 36px;
+    }
+    .results-section-banner .results-banner-greytext {
+        color: #747474;
+        font-size: 14px;
+    }
+    .cms-banner.howitworks-banner,
+    .cms-banner.results-banner {
+        height: 280px;
+        min-height: auto;
+    }
+    /*.jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
+      margin: 10px auto;
+      width: 100%;
+    }*/
+    .howitworks-banner .banner-content {
+        margin-top: 28%;
+        width: 100%;
+    }
+    .batra-banner .banner-content {
+        margin-top: 30px;
+        padding: 0;
+    }
+    .data-table .product-image {
+        margin-bottom: 5px;
+    }
+    .checkout-cart-index .other-methods-wrapper {
+        margin-bottom: 5px;
+    }
+}
+@media(max-width:320px) {
+    .header-container .right .block {
+        margin-bottom: 0;
+    }
+}

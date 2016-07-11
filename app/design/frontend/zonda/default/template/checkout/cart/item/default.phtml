@@ -30,6 +30,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
             <?php echo $this->htmlEscape($this->getProductName()) ?>
         <?php endif; ?>
     </h2>
+    <span class="item-sku" style="display:none;"><?php echo "<span class='labelsku'>".$this->__('SKU : ')."</span>" ?> <?php echo $_item->getSku(); ?></span>
     <?php if ($_options = $this->getOptionList()):?>
         <div class="item-options">
             <?php foreach ($_options as $_option) : ?>
@@ -89,7 +90,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php endif ?>
     </td>
 <?php endif ?>
-<td class="a-center for-mobile-product-code">
+<td class="a-center for-mobile-product-code" id="mobile-product-code">
     <?php echo "<span class='for-mobile-inline'>".$this->__('Product Code : ')."</span>" ?>
     <?php echo $_item->getSku(); ?>
 </td>
@@ -238,7 +239,6 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php else: ?>
             <span class="cart-price">
         <?php endif; ?>
-
                 <?php if ($canApplyMsrp): ?>
                     <span class="cart-msrp-subtotal">--</span>
                 <?php else: ?>
@@ -360,10 +360,10 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 <script type="text/javascript">
     if(typeof optimizely !== 'undefined') {
         /* _optimizely_evaluate=force */
-        if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "Original") {
+        if(optimizely.variationNamesMap[6487531400].split(", ")[0] == "Original") {
             console.log('Original');
         }
-        else if(optimizely.variationNamesMap[5686090405].split(", ")[0] == "novalue") {
+        else if(optimizely.variationNamesMap[6487531400].split(", ")[0] == "badass-cart") {
             console.log('novalue');
             jQuery(".ampromo-price").hide();
             jQuery(".free-price").hide();

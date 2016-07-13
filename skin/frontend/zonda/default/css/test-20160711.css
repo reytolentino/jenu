@@ -3047,6 +3047,11 @@ td.for-desktop {
     font-size: 11px;
     display: block;
 }
+.checkout-cart-index .headerstrip,
+.checkout-onepage-index .headerstrip,
+.checkout-onepage-success .headerstrip {
+    display: none;
+}
 .checkout-onepage-index #AmazonPayButtonBefore {
     margin-top: 10px;
     margin-bottom: 6px;

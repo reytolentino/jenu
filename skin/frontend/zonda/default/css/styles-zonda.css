@@ -3064,6 +3064,11 @@ td.for-desktop {
 .onepagecheckout-index-index .order-products-table .review-product .review-product-img img {
     width: 64px;
 }
+.checkout-cart-index .headerstrip,
+.checkout-onepage-index .headerstrip,
+.checkout-onepage-success .headerstrip {
+    display: none;
+}
 .order-review .product-image img {
   width: 50px;
 }

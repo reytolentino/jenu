@@ -315,7 +315,7 @@ $zonda = $this->helper('zonda');
                      </div>
                      <div class="cartleftbox">
                          <div class="coupon-box">
-                             <?php echo $this->getChildHtml('coupon') ?>
+
                          </div>
                          <div class="riskfree-box-desktop">
                              <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('risk-free')->toHtml(); ?>
@@ -372,6 +372,7 @@ $zonda = $this->helper('zonda');
          /* _optimizely_evaluate=force */
          if(optimizely.variationNamesMap[6487531400].split(", ")[0] == "Original") {
              console.log('Original');
+             jQuery("#cart2").remove();
              jQuery("#cart1").show();
          }
          else if(optimizely.variationNamesMap[6487531400].split(", ")[0] == "badass-cart") {
@@ -380,6 +381,7 @@ $zonda = $this->helper('zonda');
              jQuery("#cart2").show();
              jQuery("#cart1 #other-methods div:first-child").prependTo("#cart2 #other-methods");
              jQuery("#cart1 #other-methods-bottom").appendTo("#cart2 .other-methods-bottom-wrapper");
+             jQuery("#cart1 .coupon-box").appendTo("#cart2 .coupon-box");
              jQuery(".for-mobile-product-code").hide();
              jQuery(".item-sku").show();
              jQuery('head').append('<link rel="stylesheet" href="/skin/frontend/zonda/default/css/test-20160711.css" type="text/css" />');
@@ -393,6 +395,7 @@ $zonda = $this->helper('zonda');
          //...OR...
          /* _optimizely_evaluate=safe */
      } else {
+         jQuery("#cart2").remove();
          jQuery("#cart1").show();
      }
  </script>

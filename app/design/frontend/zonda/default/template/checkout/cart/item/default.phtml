@@ -30,7 +30,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
             <?php echo $this->htmlEscape($this->getProductName()) ?>
         <?php endif; ?>
     </h2>
-    <span class="item-sku" style="display:none;"><?php echo "<span class='labelsku'>".$this->__('SKU : ')."</span>" ?> <?php echo $_item->getSku(); ?></span>
+    <span class="item-sku"><?php echo "<span class='labelsku'>".$this->__('SKU : ')."</span>" ?> <?php echo $_item->getSku(); ?></span>
     <?php if ($_options = $this->getOptionList()):?>
         <div class="item-options">
             <?php foreach ($_options as $_option) : ?>
@@ -90,10 +90,6 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php endif ?>
     </td>
 <?php endif ?>
-<td class="a-center for-mobile-product-code" id="mobile-product-code">
-    <?php echo "<span class='for-mobile-inline'>".$this->__('Product Code : ')."</span>" ?>
-    <?php echo $_item->getSku(); ?>
-</td>
 <?php if ($canApplyMsrp): ?>
     <td class="a-center unit-price"<?php if ($this->helper('tax')->displayCartBothPrices()): ?> colspan="2"<?php endif; ?>>
         <?php echo "<span class='for-mobile-inline'>".$this->__('Unit price : ')."</span>" ?>

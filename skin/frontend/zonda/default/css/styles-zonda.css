@@ -1854,6 +1854,10 @@ a.highlight-link {
     width: 100%;
 }
 
+.product-view .gallerywrap .vidgallery {
+    visibility: hidden;
+}
+
 .product-view .gallerywrap h3 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -1869,15 +1873,14 @@ a.highlight-link {
     line-height: normal;
     color: #193540;
     margin-top: 8px;
-    font-style: italic;
     padding: 0 5px;
+    font-weight: 400;
 }
 
 .product-view .gallerywrap .bagallery h4 {
     font-size: 18px;
-    margin-top: 8px;
-    margin-bottom: 0;
-    font-style: italic;
+    margin-bottom: 8px;
+    margin-top: 0;
 }
 
 .product-view .gallerywrap .videogallery .vid img {
@@ -1897,6 +1900,7 @@ a.highlight-link {
 .product-view .gallerywrap .bagallery .baslides {
     width: 100%;
     margin: 0 auto 40px auto;
+    visibility: hidden;
 }
 .product-view .gallerywrap .bagallery .baslides img {
     width: 100%;
@@ -4118,6 +4122,8 @@ ul.homepage-content-worksgreat-list ul {
 .paypal-express-review .data-table td {
     text-align: left;
 }
+
+.slick-initialized { visibility: visible !important; }
 
 @media(max-width: 991px) {
     .homepage-heading {

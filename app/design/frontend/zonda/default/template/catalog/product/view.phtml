@@ -408,59 +408,93 @@ calling JeNu Customer Service at 866-565-JENU.
 
     <div class="product-essential-reviews row">
         <div class="product-essential-inner col12">
-
             <?php if($_product->getId() == 7 || $_product->getId() == 33 || $_product->getId() == 35 || $_product->getId() == 49): ?>
                 <div class="gallerywrap">
-                    <div class="videogallery">
-                        <h3><?php echo $this->__('Video Gallery') ?></h3>
-                        <div class="clearfix"></div>
-                        <ul class="vidslides vidgallery">
-                            <li class="vid"><h4><?php echo $this->__('Why The Gel Matters') ?></h4>
-                                <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/pt72Fa87xQM?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-whythegelmatters.jpg'); ?>"/></a></li>
-                            <li class="vid"><h4><?php echo $this->__('How to Use Video') ?></h4>
-                                <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a></li>
+                    <div class="col-sm-12">
+                        <div class="videogallery">
+                            <h3><?php echo $this->__('Video Gallery') ?></h3>
+                            <div class="clearfix"></div>
+                            <ul class="vidslides vidgallery">
+                                <li class="vid">
+                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/RLPFIS9xtc0?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-qvc.jpg'); ?>"/></a>
+                                    <h4><?php echo $this->__('How The JeNu Plus Ultrasonic Infuser Works') ?></h4>
+                                </li>
+                                <li class="vid">
+                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/DepH0wb3jhc?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-sizzle.jpg'); ?>"/></a>
+                                    <h4><?php echo $this->__('Hailed by <strong>VOGUE & FORBES</strong> as a ‘Game-Changer’ for your skin care.') ?></h4>
+                                </li>
+                                <li class="vid">
+                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/pt72Fa87xQM?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-whythegelmatters.jpg'); ?>"/></a>
+                                    <h4><?php echo $this->__('Why The Gel Matters') ?></h4>
+                                </li>
+                                <li class="vid">
+                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a>
+                                    <h4><?php echo $this->__('How to Use Video') ?></h4>
+                                </li>
 
-                        </ul>
-                    </div>
-                    <div class="bagallery">
-                        <h3><?php echo $this->__('Before & After Gallery') ?></h3>
-                        <h4><?php echo $this->__('Independent Study Photos') ?></h4>
-                        <div class="baslideswrap">
-                            <ul class="baslides ba-set-prod">
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-jacobsen.jpg'; ?>" alt="Before And After" /></li>
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-savin.jpg'; ?>" alt="Before And After" /></li>
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-cotran.jpg'; ?>" alt="Before And After" /></li>
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-peddemors1.jpg'; ?>" alt="Before And After" /></li>
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-peddemors2.jpg'; ?>" alt="Before And After" /></li>
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-mont.jpg'; ?>" alt="Before And After" /></li>
-                                <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-sheraton.jpg'; ?>" alt="Before And After" /></li>
                             </ul>
                         </div>
-                        <script type="text/javascript">
-                            //<![CDATA[
-                            jQuery(document).ready(function(){
-                                jQuery('.ba-set-prod').slick({
-                                    adaptiveHeight: true
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="bagallery">
+                            <h3><?php echo $this->__('Before & After Gallery') ?></h3>
+                            <div class="baslideswrap">
+                                <ul class="baslides ba-set-prod">
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-jacobsen.jpg'; ?>" alt="Before And After" /></li>
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-savin.jpg'; ?>" alt="Before And After" /></li>
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-cotran.jpg'; ?>" alt="Before And After" /></li>
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-peddemors1.jpg'; ?>" alt="Before And After" /></li>
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-peddemors2.jpg'; ?>" alt="Before And After" /></li>
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-mont.jpg'; ?>" alt="Before And After" /></li>
+                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-sheraton.jpg'; ?>" alt="Before And After" /></li>
+                                </ul>
+                            </div>
+                            <h4><?php echo $this->__('Independent Study Photos') ?></h4>
+                            <script type="text/javascript">
+                                //<![CDATA[
+                                jQuery(document).ready(function(){
+                                    jQuery('.ba-set-prod').slick({
+                                        adaptiveHeight: true
+                                    });
+                                    jQuery('.vidgallery').slick({
+                                        adaptiveHeight: true,
+                                        slidesToShow: 4,
+                                        responsive: [
+                                            {
+                                                breakpoint: 600,
+                                                settings: {
+                                                    slidesToShow: 2,
+                                                    slidesToScroll: 2
+                                                }
+                                            },
+                                            {
+                                                breakpoint: 480,
+                                                settings: {
+                                                    slidesToShow: 1,
+                                                    slidesToScroll: 1
+                                                }
+                                            }
+                                            // You can unslick at a given breakpoint now by adding:
+                                            // settings: "unslick"
+                                            // instead of a settings object
+                                        ]
+                                    });
+                                    jQuery(".vidlink").fancybox({
+                                        maxWidth	: 640,
+                                        maxHeight	: 360,
+                                        fitToView	: true,
+                                        width		: '640',
+                                        height		: '360',
+                                        autoSize	: true,
+                                        aspectRatio: true,
+                                        closeClick	: true,
+                                        openEffect	: 'none',
+                                        closeEffect	: 'none'
+                                    });
                                 });
-                                jQuery('.vidgallery').slick({
-                                    adaptiveHeight: true,
-                                    slidesToShow: 2
-                                });
-                                jQuery(".vidlink").fancybox({
-                                    maxWidth	: 640,
-                                    maxHeight	: 360,
-                                    fitToView	: true,
-                                    width		: '640',
-                                    height		: '360',
-                                    autoSize	: true,
-                                    aspectRatio: true,
-                                    closeClick	: true,
-                                    openEffect	: 'none',
-                                    closeEffect	: 'none'
-                                });
-                            });
-                            //]]>
-                        </script>
+                                //]]>
+                            </script>
+                        </div>
                     </div>
                 </div>
             <?php endif; ?>

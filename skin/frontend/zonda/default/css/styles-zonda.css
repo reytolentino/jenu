@@ -7396,13 +7396,13 @@ h2.jenu-howitworks-header-h2 strong {
     margin-top: 24px;
 }
 .cms-box.before-afters .before-afters-inner .slick-prev {
-    left: -20px;
+    left: -25px;
 }
 .cms-box.before-afters .before-afters-inner p {
     margin: 8px 0;
 }
 .cms-box.before-afters .before-afters-inner .slick-next{
-    right: -20px;
+    right: -25px;
 }
 .cms-box.before-afters .slick-prev, .cms-box.before-afters .slick-next {
     margin-top: -25px;

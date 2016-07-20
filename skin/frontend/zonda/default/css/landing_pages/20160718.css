@@ -1,0 +1,214 @@
+.droz-gold .droz-hero-right .droz-hero-list li:before {
+    font-family: "FontAwesome";
+    content: '\f105';
+    position: absolute;
+    left: 0;
+}
+
+.droz-hero-right .droz-hero-list li {
+    padding-left: 20px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    margin-top: 0;
+}
+
+.droz-gold .droz-hero-right h1.title-plus {
+    font-size: 28px;
+    font-weight: 300;
+    border-bottom: 1px solid #d19a8c;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.droz-gold .droz-hero-right h1.title-plus .subplus-title {
+    font-weight: bold;
+}
+
+.hero-main-img {
+    overflow: hidden;
+}
+
+.droz-hero-img-main {
+    padding-top: 30px;
+    padding-right: 10px;
+}
+
+.droz-hero-img-main .droz-hero-png {
+    width: 100%;
+    max-width: 340px;
+    float: right;
+}
+
+.hero-main-img .main-image2,
+.hero-main-img .main-image3,
+.hero-main-img .main-image4 {
+    display: none;
+}
+
+.droz-hero .hero-thumbs {
+    max-width: 350px;
+    width: 100%;
+    float: right;
+    margin-right: 10px;
+}
+
+.droz-hero .hero-thumbs li {
+    margin: 0 1px;
+    border: 1px solid #ccc;
+    width: 68px;
+    height: 66px;
+    display: inline-block;
+}
+
+.droz-hero .hero-thumbs li:hover,
+.droz-hero .hero-thumbs li.active {
+    border: 1px solid #000;
+}
+
+.droz-hero .hero-thumbs li img {
+    width: 66px;
+    height: 64px;
+}
+
+.hero-thumbs .slick-slide{
+    width: 66px;
+}
+
+.droz-hero .hero-thumbs div {
+
+}
+
+.droz-wrap .hero-thumbs .slick-prev,
+.droz-wrap .hero-thumbs .slick-next
+{
+    background-color: transparent;
+    border: none;
+    top: 5px;
+}
+
+.droz-wrap .hero-thumbs .slick-prev {
+    left: -30px;
+}
+
+.droz-wrap .hero-thumbs .slick-next {
+    right: -30px;
+}
+
+.droz-wrap .slick-prev:before,
+.droz-wrap .slick-next:before
+{
+    font-size: 40px;
+}
+
+#before-afters-fancy {
+    width: 100%;
+}
+
+.fancybox-skin {
+    background: #fff;
+}
+
+@media(max-width: 991px) {
+    .droz-hero .hero-thumbs {
+        padding: 0 8px;
+        margin-right: 0;
+    }
+    .droz-wrap .hero-thumbs .slick-prev,
+    .droz-wrap .hero-thumbs .slick-next
+    {
+        top: 3px;
+        z-index: 99999;
+    }
+    .droz-wrap .hero-thumbs .slick-prev {
+        left: -20px;
+    }
+
+    .droz-wrap .hero-thumbs .slick-next {
+        right: -20px;
+    }
+}
+
+@media(max-width: 767px) {
+    #buywrap.fixed {
+        bottom: 0;
+        top: auto !important;
+    }
+    #buywrap-phantom {
+        display: none;
+    }
+    .droz-hero-mobile .product-highlights .slidecontent img {
+        width: 100%;
+        max-width: 300px;
+    }
+    .product-highlights .slide1 .hydrotest-img .wandgel {
+        max-width: 180px;
+    }
+    .product-highlights-wrap h1 {
+        font-size: 18px;
+        font-weight: 300;
+        border-bottom: 1px solid #d19a8c;
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    .product-highlights-wrap h1 .hlight {
+        font-weight: bold;
+    }
+    .product-highlights h2 {
+        font-size: 15px;
+        line-height: normal;
+    }
+    .product-highlights .ratings {
+        margin-top: 8px;
+        font-style: italic;
+    }
+    .product-cta h2 {
+        margin-bottom: 8px;
+        background: #333;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: #fff !important;
+        border-bottom: none;
+        font-size: 14px !important;
+        letter-spacing: 0.5px;
+    }
+    .cta-colors-label {
+        margin-bottom: 5px;
+    }
+    .cta-colors-mobile .cta-colors-mobile-box, .cta-colors-mobile {
+        padding: 0;
+    }
+    .mobile-product-cta {
+        padding-top: 0;
+    }
+    .product-highlights-wrap .slick-slide h1 {
+        border-bottom: none;
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 20px;
+    }
+    #before-afters-fancy h1 {
+        font-size: 24px;
+    }
+    .cms-box.before-afters .before-afters-inner .batitle {
+        font-size: 13px;
+    }
+    .cms-box.before-afters .before-afters-inner p {
+        font-size: 11px;
+        text-align: center;
+    }
+    .cms-box.before-afters .before-afters-inner .results-disclaimer p {
+        text-align: left;
+    }
+    .droz-gold .droz-hero-mobile .product-highlights .slide4 h1 {
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 20px;
+    }
+}

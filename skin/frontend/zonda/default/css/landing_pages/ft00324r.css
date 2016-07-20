@@ -688,6 +688,10 @@ color: #000;
     margin-top: 10px;
 }
 
+#howjenuworks .droz-vidwrap .droz-vidcopy {
+    margin-top: 0;
+}
+
 .droz-results h2 {
     margin-bottom: 40px;
 }
@@ -1371,6 +1375,86 @@ p.olay-disclaimer {
     text-align: left;
 }
 
+.droz-hero {
+    padding-top: 0;
+}
+
+.droz-hero .droz-hero-img {
+    padding-top: 35px;
+}
+
+.droz-hero-right .cta-wrapper {
+    padding-left:0;
+    padding-right: 0;
+}
+
+.cta-colors-label {
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
+    display: block;
+}
+
+.cta-colors,.cta-colors-mobile {
+    margin-bottom: 20px;
+}
+
+.cta-colors a img,
+.cta-colors-mobile a img {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.cta-colors a:hover img,
+.cta-colors a.active img,
+.cta-colors-mobile a:hover img,
+.cta-colors-mobile a.active img {
+    border: 1px solid #000;
+}
+
+.cta-colors-mobile .cta-colors-mobile-box,
+.cta-colors-mobile {
+    padding: 0;
+}
+
+.droz-hero-mobile .product-highlights .slide2 .slidecontent img,
+.droz-hero-mobile .product-highlights .slide4 .slidecontent img {
+    width: 100%;
+}
+
+.droz-hero-mobile .product-highlights .slide3 .slidecontent p {
+    text-align: left;
+}
+
+.droz-hero-mobile .product-highlights .slide3 .slidecontent p.lbtitle {
+    color:#d19a8c;
+}
+
+.droz-gold .droz-hero-mobile .product-highlights .slide4 h1 {
+    color: #272727;
+    display: block;
+    font-family: "lato",Helvetica,"Helvetica Neue",Arial,sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    margin-top: 30px;
+}
+
+.droz-subnav ul.subnav-menu li a {
+    margin: 0;
+}
+
+.using-vid a.vidlink img {
+    margin-top: 30px;
+}
+
 
 @media(max-width: 991px) {
     .droz-hero {
@@ -1663,6 +1747,11 @@ p.olay-disclaimer {
         margin: 10px auto;
     }
 
+    .cta-colors a img,
+    .cta-colors-mobile a img {
+        width: 100%;
+        max-width: 207px;
+    }
 
 }
 

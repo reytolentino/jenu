@@ -558,13 +558,17 @@
     width: 100%;
   }
 
+  .vidgallery.slick-slider {
+    margin-bottom: 0;
+  }
+
   .product-view .gallerywrap .videogallery .vid {
     width: 48%;
     display: inline-block;
   }
 
   .product-view .gallerywrap .videogallery .vid {
-    margin-right: 10px;
+    margin: 0 2px;
   }
 
   .product-view .gallerywrap .videogallery .vid img {
@@ -1786,6 +1790,10 @@
   .product-view .gallerywrap .videogallery .vid {
     width: 100%;
     margin-bottom: 16px;
+  }
+  .product-view .gallerywrap .videogallery .slick-prev,
+  .product-view .gallerywrap .videogallery .slick-next {
+    top: 40%;
   }
   .product-view .gallerywrap .bagallery .bx-controls-direction {
     top: 28%;

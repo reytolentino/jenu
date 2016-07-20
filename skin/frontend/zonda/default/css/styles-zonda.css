@@ -1851,7 +1851,7 @@ a.highlight-link {
 
 .product-view .gallerywrap .videogallery,
 .product-view .gallerywrap .bagallery {
-    width: 49%;
+    width: 100%;
 }
 
 .product-view .gallerywrap h3 {
@@ -1864,11 +1864,20 @@ a.highlight-link {
     float: left;
 }
 
-.product-view .gallerywrap .videogallery .vid h4,
+.product-view .gallerywrap .videogallery .vid h4 {
+    font-size: 14px;
+    line-height: normal;
+    color: #193540;
+    margin-top: 8px;
+    font-style: italic;
+    padding: 0 5px;
+}
+
 .product-view .gallerywrap .bagallery h4 {
     font-size: 18px;
-    color: #193540;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-style: italic;
 }
 
 .product-view .gallerywrap .videogallery .vid img {
@@ -1905,6 +1914,15 @@ a.highlight-link {
     text-indent: -9999px;
     background-size: 52px auto;
 }
+
+.product-view .gallerywrap .bagallery .baslideswrap .slick-prev::before,
+.product-view .gallerywrap .bagallery .baslideswrap .slick-next::before,
+.product-view .gallerywrap .videogallery .slick-prev::before,
+.product-view .gallerywrap .videogallery .slick-next::before {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 6px;
+}
+
 .product-view .gallerywrap .bagallery .baslideswrap .bx-next {
     right: -10px;
     float: right;

@@ -231,7 +231,7 @@ i.fa {
     font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     text-transform: uppercase;
-    padding: 5px 8px;
+    padding: 5px 5px;
     font-size: 10px;
     margin: 0 2px;
 }
@@ -1883,7 +1883,7 @@ p.olay-disclaimer {
         padding: 0;
     }
 
-    .droz-hero-mobile .product-highlights .ratings .amount {
+    .droz-hero-mobile .ratings .amount {
         clear: none;
         display: inline-block;
         vertical-align: top;
@@ -1906,7 +1906,7 @@ p.olay-disclaimer {
         color:#b37c6e;
     }
 
-    .droz-hero-mobile .product-highlights .ratings .amount a {
+    .droz-hero-mobile .ratings .amount a {
         font-size: 12px;
     }
 

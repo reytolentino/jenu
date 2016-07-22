@@ -9091,6 +9091,7 @@ ul.clinical-results-graph--perc {
     width: 593px;
     height: 343px;
     background: url('../images/bg-signup.jpg') no-repeat;
+    background-size:cover;
 }
 .signupbox.signupbox-ty {
     background: url('../images/bg-signup-ty.jpg') no-repeat;
@@ -9108,7 +9109,7 @@ ul.clinical-results-graph--perc {
     padding: 114px 243px 0 20px;
 }
 .signupbox h2 {
-    color: #0069a7;
+    color: #000;
     font-size: 44px;
     font-weight: 300;
     text-transform: uppercase;
@@ -9125,25 +9126,27 @@ ul.clinical-results-graph--perc {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 }
 .signupbox-ty a.pop-continue {
-    background: #033958 none repeat scroll 0 0;
+    background: #000 none repeat scroll 0 0;
     color: #fff;
     display: inline-block;
     margin: 10px auto;
     padding: 12px 20px;
     text-align: center;
     text-transform: uppercase;
+    font-family: "lato", Helvetica, Arial;
 }
 .signupbox h2 strong {
     font-weight: 400;
 }
 .signupbox p {
-    font-family: "Helvetica Neue", Helvetica,  Arial, sans-serif;;
+    font-family: "lato", Helvetica, Arial;
     font-size: 18px;
-    color: #747474;
+    color: #000;
+    font-weight: 300;
     line-height: 24px;
 }
 .signupbox p .exl {
-    color: #333;
+    color: #000;
     font-weight: bold;
 }
 .signupbox p.disclaimer {
@@ -9162,7 +9165,7 @@ ul.clinical-results-graph--perc {
     height: 30px;
     line-height: 30px;
     width: 50%;
-    color: #747474;
+    color: #333;
     padding: 0 10px;
 }
 .signupbox input.button {

@@ -124,6 +124,9 @@
             <block type="cms/block" name="exit-popup">
                 <action method="setBlockId"><block_id>exit-popup</block_id></action>
             </block>
+            <block type="cms/block" name="email-popup">
+                <action method="setBlockId"><block_id>email-popup</block_id></action>
+            </block>
         </reference>
 
         <!-- remove unnecessary blocks -->

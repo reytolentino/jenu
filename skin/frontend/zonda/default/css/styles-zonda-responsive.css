@@ -2127,9 +2127,10 @@
     height: 280px;
   }
   .signupbox {
-    width: 95%;
+    width: 100%;
     height: auto;
     background-image: none;
+    background-color: #ffd3be;
   }
   .signupbox-ty {
     width: 100%;

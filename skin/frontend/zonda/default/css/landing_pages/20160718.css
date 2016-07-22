@@ -2,6 +2,8 @@
     background-image: none;
 }
 
+.header-container {display:none;}
+
 .droz-gold .droz-hero-right .droz-hero-list li:before {
     font-family: "FontAwesome";
     color:#d19a8c;

@@ -4,11 +4,19 @@
 
 .droz-hero-right .buynow-heading {
     height: auto;
+    padding: 10px 0;
+    background: #000;
+}
+
+.droz-hero-right .buynow-heading span {
+    color: #fff;
+    background: #000;
 }
 
 .droz-hero-right .bottomcopy {
-    margin: 10px auto;
-    font-size: 13px;
+    margin: 0 auto 10px auto;
+    font-size: 18px;
+    font-weight: bold;
     color: #333;
     letter-spacing: 0.4px;
 }
@@ -20,4 +28,25 @@
 
 .slide-perception .slidecontent p {
     margin-bottom: 8px;
+}
+
+.droz-hero-right a#multipay {
+    background-color: #00c8e9;
+}
+
+.droz-hero-right a#multipay:hover {
+    background-color: #009bb5;
+}
+
+@media(max-width: 991px) {
+    .droz-hero-list .listbox {
+        max-width: 400px;
+    }
+    .droz-hero-list .listbox img {
+        max-width: 340px;
+        height: auto;
+    }
+    .droz-hero-right .bottomcopy {
+        font-size: 14px;
+    }
 }

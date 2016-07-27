@@ -1,0 +1,23 @@
+.droz-hero-list.list-clickable li {
+    cursor: default;
+}
+
+.droz-hero-right .buynow-heading {
+    height: auto;
+}
+
+.droz-hero-right .bottomcopy {
+    margin: 10px auto;
+    font-size: 13px;
+    color: #333;
+    letter-spacing: 0.4px;
+}
+
+.slidecontent .disc {
+    font-size: 11px;
+    color: #666;
+}
+
+.slide-perception .slidecontent p {
+    margin-bottom: 8px;
+}

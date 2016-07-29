@@ -29,6 +29,18 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     $customerEmail = $order->getCustomerEmail();
 }
 ?>
+<!--friendbuy tracking-->
+<script>
+    window['friendbuy'] = window['friendbuy'] || [];
+    window['friendbuy'].push(['track', 'order',
+        {
+            id: '', //INPUT ORDER ID
+            amount: '0.00', //INPUT ORDER AMOUNT
+            //new_customer: false, //OPTIONAL, true if this is the customer's first purchase
+            email: '' //INPUT EMAIL
+        }
+    ]);
+</script>
 <!-- Facebook Pixel Code -->
 <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?

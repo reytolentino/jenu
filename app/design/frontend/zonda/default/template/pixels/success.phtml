@@ -8,8 +8,20 @@ $subtotal = $order->getSubtotal();
 $discount = $order->getDiscountAmount();
 $affiliateTotal = ($subtotal + $discount);
 $billingAddress = $order->getBillingAddress();
-
+$customerEmail = $order->getCustomerEmail();
 ?>
+<!--friendbuy tracking-->
+<script>
+    window['friendbuy'] = window['friendbuy'] || [];
+    window['friendbuy'].push(['track', 'order',
+        {
+            id: '<?php echo $orderId; ?>', //INPUT ORDER ID
+            amount: '<?php echo $amount; ?>', //INPUT ORDER AMOUNT
+            //new_customer: false, //OPTIONAL, true if this is the customer's first purchase
+            email: '<?php echo $customerEmail; ?>' //INPUT EMAIL
+        }
+    ]);
+</script>
 <!-- Rev Content Conversion -->
 <img src='https://trending.revcontent.com/ads/tracker.php?t=MzkxODs2OTU4' style="visibility:hidden;position: absolute;"/>
 <!--Google Adwords Pixel -->

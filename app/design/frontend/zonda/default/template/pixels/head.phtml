@@ -32,14 +32,18 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
 <!--friendbuy tracking-->
 <script>
     window['friendbuy'] = window['friendbuy'] || [];
-    window['friendbuy'].push(['track', 'order',
+    window['friendbuy'].push(['site', 'site-6d2dfbf8-www.jenu.com']);
+    window['friendbuy'].push(['track', 'customer',
         {
-            id: '', //INPUT ORDER ID
-            amount: '0.00', //INPUT ORDER AMOUNT
-            //new_customer: false, //OPTIONAL, true if this is the customer's first purchase
-            email: '' //INPUT EMAIL
+            id: '', //INSERT CUSTOMER ID PARAMETER
+            email: '', //INSERT CUSTOMER EMAIL PARAMETER
+            first_name: '', //INSERT CUSTOMER FIRST NAME PARAMETER
+            last_name: '' //INSERT CUSTOMER LAST NAME PARAMETER
         }
     ]);
+    (function (f, r, n, d, b, y) {
+        b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
+    })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
 </script>
 <!-- Facebook Pixel Code -->
 <script>

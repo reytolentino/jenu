@@ -5261,6 +5261,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     width: auto;
     height: 15px;
 }
+.catalog-product-view p.reviews-disclaimer {
+    margin-top: 30px;
+    text-align: center;
+}
 /*********************************** CMS Pages **************************************/
 
 .cms-page-view .main-content .cms-banner .container,

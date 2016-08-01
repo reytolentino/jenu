@@ -828,7 +828,7 @@ button.button span.name {
 }
 .footer .copyright p {
     margin-bottom: 5px;
-    font-size: 11px;
+    font-size: 12px;
 }
 .footer .social-links {
     text-align: right;
@@ -5368,6 +5368,10 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .howtouse-banner .banner-content span {
     display: block;
+}
+
+.howtouse-banner .banner-content span.lato-regular sup {
+    font-weight: 300;
 }
 
 .howtouse-banner .banner-content h1 {

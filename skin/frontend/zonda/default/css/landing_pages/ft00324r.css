@@ -1464,6 +1464,11 @@ p.olay-disclaimer {
     text-align: center;
 }
 
+.disc-cross {
+    font-size: 50%;
+    font-weight: normal;
+}
+
 
 @media(max-width: 991px) {
     .droz-hero {

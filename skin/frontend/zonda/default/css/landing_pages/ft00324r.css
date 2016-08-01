@@ -1455,6 +1455,15 @@ p.olay-disclaimer {
     margin-top: 30px;
 }
 
+.droz-reviews p.bottom.center {
+    text-align: center;
+}
+
+.droz-reviews p.reviews-disclaimer {
+    margin-top: 30px;
+    text-align: center;
+}
+
 
 @media(max-width: 991px) {
     .droz-hero {

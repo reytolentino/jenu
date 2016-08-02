@@ -65,8 +65,8 @@ return $tabpro;
 
 // pobranie listy produtków /////////
 public function getCroItem(){
-	
-// remove outstock configuroable //////////////////////////////////////	
+
+// remove outstock configuroable //////////////////////////////////////
 $collectionConfigurable = Mage::getModel('catalog/product')->getCollection()
 ->addMinimalPrice()
 ->addFinalPrice()
@@ -86,7 +86,7 @@ foreach ($collectionConfigurable as $_configurableproduct) {
     if (!$product->getData('is_salable')) {
        $outOfStockConfis[] = $product->getId();
     }
-}	
+}
 	
 	
 // end remove outstock configuroable //////////////////////////////////////		
@@ -98,7 +98,8 @@ $products = Mage::getModel('catalog/product')->getCollection()
 ->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
 ->addUrlRewrite()
 ->addAttributeToSelect('image')
-->addAttributeToFilter('entity_id', array('in' => $this->getCroCollection()));
+->addAttributeToFilter('entity_id', array('in' => $this->getCroCollection()))
+    ->addAttributeToSort('entity_id', 'desc');
 
 if(count($outOfStockConfis) > 0){
 $products->addAttributeToFilter('entity_id', array('nin' => $outOfStockConfis));

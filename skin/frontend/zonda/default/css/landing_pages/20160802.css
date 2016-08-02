@@ -1,0 +1,25 @@
+/** start google lp hide nav  20160802 **/
+
+#custommenu #nav {
+    display: none;
+}
+
+.nav-container {
+    height: 60px;
+}
+
+.footer-main {
+    display: none;
+}
+
+.risk-free-top .risk-free a,
+.risk-free-top .risk-free a,
+.product-name a,
+a.product-image,
+.product-image a {
+    cursor: default;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    margin-bottom: 20px;
+}

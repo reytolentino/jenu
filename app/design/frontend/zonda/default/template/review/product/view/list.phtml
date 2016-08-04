@@ -46,7 +46,7 @@
                             <div class="rating" style="width:<?php echo $rating ?>%;"></div>
                         </div>
                     </div>
-                    <span class="review-title"><?php echo $this->htmlEscape($_review->getTitle()) ?><span class="asterisk-review tooltip" data-tooltip="<?php echo $this->__('All testimonials are submitted by real customers, are their own opinions and are unedited. Results may vary.') ?>"><?php echo $this->__('*') ?></span></span>
+                    <span class="review-title"><?php echo $this->htmlEscape($_review->getTitle()) ?><a href="#reviews-disclaimer" class="asterisk-review"><?php echo $this->__('*') ?></a></span>
                 </div>
                 <p class="name_date">
                     <?php echo $this->__('by <span class="by_name">%s</span>', $this->htmlEscape($_review->getNickname())) ?><?php echo $this->__(' on <span class="on_date">%s</span>', $this->formatDate($_review->getCreatedAt()), 'long') ?>
@@ -58,5 +58,27 @@
         </dl>
         <?php echo $this->getChildHtml('toolbar') ?>
         <p class="reviews-disclaimer"><?php echo $this->__('All testimonials are submitted by real customers, are their own opinions and are unedited. Results may vary.') ?></p>
+
+        <div id="reviews-disclaimer">
+            <?php echo $this->__('All testimonials are submitted by real customers, are their own opinions and are unedited. Results may vary.') ?>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(".asterisk-review").fancybox({
+                maxWidth	: 300,
+                maxHeight	: 80,
+                minHeight   : 50,
+                autoHeight   : true,
+                fitToView	: false,
+                width		: '100%',
+                height		: '100%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'fade',
+                closeEffect	: 'fade',
+                wrapCSS     : 'fancy-disc'
+            });
+        </script>
+
     <?php endif;?>
 </div>

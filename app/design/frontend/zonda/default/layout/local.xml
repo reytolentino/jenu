@@ -47,6 +47,7 @@
             <action method="addJs"><script>eternal/jquery/jquery.nicescroll.js</script></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery.cookie.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/bioep.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery.qtip.min.js</name><params/></action>
             <!-- custom script -->
             <action method="addJs"><script>eternal/zonda.js</script></action>
         <!-- add stylesheet -->
@@ -71,6 +72,7 @@
 
             <!--custom css-->
             <action method="addItem"><type>skin_css</type><name>css/jenu-custom.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>css/jquery.qtip.min.css</name><params/></action>
 
             <!-- CSS for IE -->
             <action method="addCssIe"><css>css/styles-ie.css</css></action>

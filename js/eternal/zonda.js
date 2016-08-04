@@ -251,4 +251,16 @@ jQuery(document).ready(function($){
             eternalEvent($(this).attr('id'), 'change');
         zonda_refresh_elements();
     });
+
+    //activate tooltip
+
+    jQuery('[data-tooltip!=""]').qtip({ // Grab all elements with a non-blank data-tooltip attr.
+        content: {
+            attr: 'data-tooltip' // Tell qTip2 to look inside this attr for its content
+        },
+        style: {
+            classes: 'qtip-light'
+        }
+    })
+
 });

@@ -20,7 +20,7 @@
 	    		    <div class="rating" style="width:<?php echo $rating ?>%;"></div>
 	    		</div>
 	    	    </div>
-	    	    <span class="review-title"><?php echo $this->htmlEscape($_review->getTitle()) ?></span>
+	    	    <span class="review-title"><?php echo $this->htmlEscape($_review->getTitle()) ?><span class="asterisk-review tooltip" data-tooltip="<?php echo $this->__('All testimonials are submitted by real customers, are their own opinions and are unedited. Results may vary.') ?>"><?php echo $this->__('*') ?></span></span>
 	    	</div>
 	    	<p class="name_date">
 			<?php echo $this->__('by ') ?>

@@ -4242,6 +4242,12 @@ ul.homepage-content-worksgreat-list ul {
     line-height: 26px;
 }
 
+.asterisk-review {
+    color:#d19a8c;
+    font-weight: 300;
+    cursor: default;
+}
+
 
 
 @media(max-width: 991px) {

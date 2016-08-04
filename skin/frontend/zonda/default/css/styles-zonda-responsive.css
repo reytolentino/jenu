@@ -2390,6 +2390,66 @@
     margin-top: 0;
   }
   select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { font-size: 16px; }
+
+  .raf-page .raf-main {
+    min-height: 312px;
+  }
+
+  .raf-page .raf-main h1 {
+    font-size: 30px;
+    line-height: 40px;
+    margin: 30px auto 0 auto;
+    padding: 0 15px;
+  }
+
+  .raf-page .raf-main h2 {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 300px;
+    margin: 16px auto 30px auto;
+    padding: 0 15px;
+  }
+
+  .raf-page .raf-main a.rafbtn-earn {
+    height: 65px;
+    line-height: 57px;
+    padding: 0 25px;
+    color: #fff;
+    margin: 0 auto 30px auto;
+    font-size: 14px;
+    max-width: 300px;
+  }
+
+  .raf-page a.rafbtn-refer {
+    height: 66px;
+    line-height: 66px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 16px;
+    max-width: 350px;
+  }
+
+  .raf-page .raf-content-wrap {
+    margin: 50px auto 35px auto;
+  }
+
+  .raf-page .raf-content-wrap h3 {
+    font-size: 24px;
+  }
+
+  .raf-page .raf-content-wrap .question {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    display: block;
+    margin-top: 40px;
+  }
+
+  .raf-page .raf-content-wrap .answer {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
 }
 @media(max-width: 480px) {
   .jenu-howitworks-img-wandfeatures img {

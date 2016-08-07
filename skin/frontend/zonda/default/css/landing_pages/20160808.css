@@ -1,0 +1,234 @@
+/** start risk free lp test 20160808 **/
+
+.asi-wrap {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 12px 0 0;
+}
+
+.asi-wrap .asi-box {
+    display:inline-block;
+    vertical-align: middle;
+    margin: 0 12px 12px 12px;
+}
+
+.asi-wrap .asi-box img {
+    width: 100%;
+    height: auto;
+}
+
+.asi-wrap .asi-box img.asi-elle {
+    max-width: 72px;
+}
+
+.asi-wrap .asi-box img.asi-forbes {
+    max-width: 96px;
+}
+
+.asi-wrap .asi-box img.asi-vogue {
+    max-width: 97px;
+}
+
+.asi-wrap .asi-box img.asi-newbeauty {
+    max-width: 171px;
+}
+
+.asi-wrap .asi-box img.asi-label {
+    max-width: 115px;
+}
+
+.asi-wrap .asi-box img.asi-instyle {
+    max-width: 120px;
+}
+
+.asi-wrap .asi-box img.asi-foxnews {
+    max-width: 62px;
+}
+
+.droz-riskfree h4 {
+    font-size: 18px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    color: #444;
+    text-align: center;
+    font-style: italic;
+}
+
+.droz-riskfreewrap {
+    margin: 40px auto;
+    text-align: center;
+}
+.droz-riskfreebox .riskfree-droz {
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.droz-riskfreewrap .droz-riskfreecopy {
+    font-size: 16px;
+    line-height: 30px;
+    text-align: left;
+    padding-top: 30px;
+}
+
+#riskfree .droz-riskfreewrap .droz-riskfreecopy {
+    margin-top: 0;
+}
+
+.droz-hero-right .bottomcopy {
+    font-size: 12px;
+    color: #000;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    clear:both;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.droz-hero-right .affirm-box {
+    border: none;
+    padding: 8px 0;
+}
+
+.droz-hero-right .droz-price-wrap {
+    padding: 12px 0;
+}
+
+.cta-colors, .cta-colors-mobile {
+    margin-bottom: 10px;
+}
+
+.droz-hero-right .cta-bg-wrap {
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #f1f1f1;
+    background: #f1f1f1;
+    padding: 2px 0 16px 0;
+    margin: 20px 0 10px 0;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    margin-bottom: 10px;
+}
+
+.droz-hero-right .ratings {
+    margin: 0 0 10px;
+}
+
+.droz-hero-right .droz-hero-list {
+    font-size: 14px;
+    line-height: normal;
+}
+
+.droz-hero-right .droz-hero-list li {
+    margin-bottom: 8px;
+}
+
+.buynow-heading span {
+    background: #f1f1f1;
+}
+
+.droz-hero-right .buynow-heading {
+    background: url('/media/landing_pages/20160808/bg-buynow-heading.png') repeat-x center;
+}
+
+.droz-hero-right a#multipay {
+    background: #00c8e7;
+}
+
+.droz-hero-list.list-clickable li {
+    cursor: default;
+}
+
+@media(max-width: 991px) {
+    .asi-wrap {
+        padding: 8px 0 0;
+    }
+
+    .asi-wrap .asi-box {
+        margin: 0 8px 8px 8px;
+    }
+
+    .asi-wrap .asi-box img.asi-elle {
+        max-width: 52px;
+    }
+
+    .asi-wrap .asi-box img.asi-forbes {
+        max-width: 76px;
+    }
+
+    .asi-wrap .asi-box img.asi-vogue {
+        max-width: 77px;
+    }
+
+    .asi-wrap .asi-box img.asi-newbeauty {
+        max-width: 151px;
+    }
+
+    .asi-wrap .asi-box img.asi-label {
+        max-width: 95px;
+    }
+
+    .asi-wrap .asi-box img.asi-instyle {
+        max-width: 100px;
+    }
+
+    .asi-wrap .asi-box img.asi-foxnews {
+        max-width: 42px;
+    }
+    .droz-riskfreewrap .droz-riskfreecopy  {
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 0;
+    }
+}
+
+@media(max-width: 767px) {
+    .asi-wrap {
+        padding: 8px 0 0;
+    }
+
+    .asi-wrap .asi-box {
+        margin: 0 8px 8px 8px;
+    }
+
+    .asi-wrap .asi-box img.asi-elle {
+        max-width: 32px;
+    }
+
+    .asi-wrap .asi-box img.asi-forbes {
+        max-width: 56px;
+    }
+
+    .asi-wrap .asi-box img.asi-vogue {
+        max-width: 57px;
+    }
+
+    .asi-wrap .asi-box img.asi-newbeauty {
+        max-width: 131px;
+    }
+
+    .asi-wrap .asi-box img.asi-label {
+        max-width: 75px;
+    }
+
+    .asi-wrap .asi-box img.asi-instyle {
+        max-width: 80px;
+    }
+
+    .asi-wrap .asi-box img.asi-foxnews {
+        max-width: 22px;
+    }
+    .droz-riskfreewrap .droz-riskfreecopy {
+        line-height: 18px;
+        margin-top: 20px;
+    }
+    .droz-riskfree h4 {
+        font-size: 15px;
+    }
+}

@@ -2457,6 +2457,15 @@ p.olay-disclaimer {
         font-size: 22px;
         margin-right: 5px;
     }
+    .cta-colors-label {
+        margin-bottom: 10px;
+    }
+    .droz-hero-right .cta-colors-mobile .cta-colors-mobile-box {
+        padding-left: 0;
+    }
+    #howjenuworks .droz-vidwrap .droz-vidcopy {
+        margin-top: 20px;
+    }
 }
 
 /** upsell styles **/

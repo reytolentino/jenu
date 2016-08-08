@@ -45,13 +45,26 @@
     max-width: 62px;
 }
 
-.droz-riskfree h4 {
-    font-size: 18px;
+.droz-wrap .droz-riskfree.droz-section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.droz-wrap .droz-riskfree h2 {
+    font-size: 26px;
+    text-align: left;
+    margin-bottom: 16px;
+    padding-top: 10px;
+}
+
+.droz-riskfree a.riskfree-buynow {
+    font-size: 15px;
     font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 300;
-    color: #444;
-    text-align: center;
+    font-weight: 600;
     font-style: italic;
+    margin-top: 13px;
+    text-decoration: underline;
+    display: inline-block;
 }
 
 .droz-riskfreewrap {
@@ -66,8 +79,8 @@
 }
 
 .droz-riskfreewrap .droz-riskfreecopy {
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 13px;
+    line-height: 24px;
     text-align: left;
     padding-top: 30px;
 }
@@ -106,8 +119,8 @@
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
-    border: 0px solid #f1f1f1;
-    background: #f1f1f1;
+    border: 0px solid #e1ebf1;
+    background: #e1ebf1;
     padding: 2px 0 16px 0;
     margin: 20px 0 10px 0;
 }
@@ -130,7 +143,7 @@
 }
 
 .buynow-heading span {
-    background: #f1f1f1;
+    background: #e1ebf1;
 }
 
 .droz-hero-right .buynow-heading {
@@ -139,6 +152,10 @@
 
 .droz-hero-right a#multipay {
     background: #00c8e7;
+}
+
+.droz-hero-right a#multipay:hover {
+    background: #008ea5;
 }
 
 .droz-hero-list.list-clickable li {
@@ -231,4 +248,17 @@
     .droz-riskfree h4 {
         font-size: 15px;
     }
+    .droz-riskfreebox .riskfree-droz {
+        max-width: 150px;
+    }
+    .droz-wrap .droz-riskfree h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+        margin-top: 0;
+        text-align: center;
+    }
+    .droz-riskfreewrap .droz-riskfreecopy {
+        padding-top: 16px;
+    }
+
 }

@@ -6067,7 +6067,7 @@ div.jenu-results-container div.results-section-banner div.container {
 
 .cms-batra .batra-recommend-copy {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .cms-batra .batra-recommend-copy h3,
@@ -6407,6 +6407,12 @@ a.jenu-gel-shopnow {
 .jenu-howitworks-minute p {
     padding: 0 40px;
 }
+.jenu-howitworks-minute a.button {
+    margin-top: 16px;
+}
+.cms-batra .batra-recommend-copy a.button {
+    margin: 10px 0;
+}
 h2.jenu-howitworks-header-h2 {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 36px;
@@ -6699,12 +6705,13 @@ h2.jenu-howitworks-header-h2 strong {
     .cms-batra .batra-recommend-copy h3,
     .cms-batra .batra-qa-right h3 {
         font-size: 30px;
+        line-height: normal;
     }
     .cms-batra .batra-videoquote {
         padding: 30px 0;
     }
     .cms-batra .batra-recommend-copy {
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .cms-batra .batra-recommend-copy p {
         font-size: 13px;

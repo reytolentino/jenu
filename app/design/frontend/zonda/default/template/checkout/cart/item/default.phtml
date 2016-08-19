@@ -292,13 +292,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
             <?php endif; ?>
     </td>
 <?php endif; ?>
-    <td class="a-center qty-td qty-td-mobile">
-        <div class="qty-holder">
-            <input type="text" name="cart[<?php echo $_item->getId() ?>][qty]" maxlength="12" value="<?php echo $this->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
-            <a href="javascript:void(0)" class="button button-up for-mobile"><span>+</span></a>
-            <div class="clear"></div>
-        </div>
-    </td>
+
 <?php if (($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()) && !$_item->getNoSubtotal()): ?>
     <td class="a-center sub-total">
         <?php echo "<span class='for-mobile-inline'>".$this->__('Subtotal : ')."</span>" ?>

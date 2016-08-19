@@ -2340,12 +2340,6 @@
   .data-table.cart-table tbody td.for-mobile-product-code {
     display: none;
   }
-  .data-table.cart-table .qty-td-desktop {
-    display: none;
-  }
-  .data-table.cart-table .qty-td-mobile {
-    display: block;
-  }
   .data-table.cart-table .qty-td,
   .data-table.cart-table tbody td.sub-total {
     float: right;

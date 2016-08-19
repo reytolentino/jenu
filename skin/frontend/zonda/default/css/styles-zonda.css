@@ -3162,9 +3162,6 @@ td.for-desktop {
 .cart-table .qty-td {
     padding-top: 13px;
 }
-.cart-table .qty-td-mobile {
-    display: none;
-}
 .cart-table .price, .cart-table .input[type="text"] {
     font-size: 15px;
 }

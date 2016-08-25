@@ -1139,6 +1139,7 @@ button.button span.name {
 
 .col-main {
     border: none;
+    width: 75%;
 }
 .col-main-left, .com-main-right {
     width: 75%;
@@ -1167,9 +1168,20 @@ button.button span.name {
     padding-left: 20px;
 }
 .col-sidebar .block-content ul li {
-    line-height: 36px;
+    line-height: normal;
     height: auto;
-    padding: 0 0 14px 25px;
+    padding: 7px 12px;
+}
+.col-sidebar .block-content ul li.current {
+    padding-left: 12px;
+
+}
+.col-sidebar .block-content ul li.current strong {
+    background: url(../images/li_bg.png) no-repeat 0 center;
+    padding-left: 12px;
+    display: block;
+    line-height: normal;
+    text-transform: uppercase;
 }
 .col-sidebar .block-account .block-content ul li a, .block .akordeon ul li a {
     background: url(../images/li_bg.png) no-repeat 0 center;
@@ -1306,6 +1318,17 @@ button.button span.name {
     padding: 1px;
     background: #ebebeb;
 }
+.sarp-customer-index .data-table td {
+    padding: 6px;
+    font-size: 12px;
+}
+
+.sarp-customer-index .data-table th {
+    white-space: normal;
+    font-size: 13px;
+    padding: 6px;
+}
+
 /** auto refill terms **/
 
 .sarp-terms-popup {

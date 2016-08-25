@@ -1808,6 +1808,38 @@
   .sarp-terms-popup {
     width: 90%;
   }
+
+  .sarp-customer-history #customer-subscriptions-history-table th {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .sarp-customer-history #customer-subscriptions-history-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .sarp-customer-index #customer-subscriptions-table,
+  .sarp-customer-index #customer-subscriptions-history-table {
+    border-collapse: separate;
+    empty-cells: hide;
+  }
+  .sarp-customer-index #customer-subscriptions-table,
+  .sarp-customer-index #customer-subscriptions-table tr,
+  .sarp-customer-index #customer-subscriptions-table td,
+  .sarp-customer-index #customer-subscriptions-table tbody {
+    display: block;
+  }
+  .sarp-customer-index #customer-subscriptions-table td {
+    padding: 12px;
+  }
+  .sarp-customer-index #customer-subscriptions-table tr.odd,
+  .sarp-customer-index #customer-subscriptions-table tr.even {
+    border-bottom: 1px solid #333;
+  }
+  .sarp-customer-index #customer-subscriptions-table th {
+    display: none;
+  }
   .product-view .product-name, .product-view .product-name h1, .review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
     font-size: 20px;
   }

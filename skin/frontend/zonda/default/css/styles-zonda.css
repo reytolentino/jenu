@@ -6074,20 +6074,21 @@ div.jenu-results-container div.results-section-banner div.container {
 
 .cms-batra .batra-recommend {
     background-color: #f4faff;
-    height: 346px;
+    height: auto;
     width: 100%;
     margin: 0;
 }
 
 .cms-batra .batra-recommend .row.batra-rec-box {
-    background: url('../images/batra-recommend-bg.jpg') no-repeat top left;
     height: 346px;
+    background: url('../images/batra-recommend-bg.jpg') no-repeat top left;
     border-bottom: 2px solid #d5d5d5;
 }
 
 .cms-batra .batra-recommend-copy {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
+    padding: 0 60px;
 }
 
 .cms-batra .batra-recommend-copy h3,
@@ -6097,7 +6098,7 @@ div.jenu-results-container div.results-section-banner div.container {
 
 .cms-batra .batra-recommend-copy h3 {
     line-height: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .cms-batra .batra-recommend-copy h3 span.title-top {
@@ -6478,6 +6479,11 @@ h2.jenu-howitworks-header-h2 strong {
     font-size: 42px;
     font-weight: 300;
 }
+.howitworks-banner .banner-content h1 sup,
+.jenu-howitworks-text-content h2 sup {
+    font-size: 50%;
+    vertical-align: top;
+}
 .howitworks-banner .banner-content h1 strong {
     text-transform: uppercase;
     font-weight: 400;
@@ -6528,7 +6534,8 @@ h2.jenu-howitworks-header-h2 strong {
 }
 .jenu-howitworks-text-content2 {
     border-bottom: 1px solid #d6d6d6;
-    padding: 30px 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
     overflow: hidden;
     text-align: center;
 }

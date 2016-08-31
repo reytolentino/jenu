@@ -28,9 +28,43 @@
     background-color: #ececec;
 }
 
+.ratings .rating-box {
+    background-image: url("../../images/bkg_rating.png");
+}
+
 .droz-gold .droz-subnav {
     background-color: rgba(8, 61, 110, 0.2) !important;
     color: #000;
+}
+
+.droz-gold .rating-box .rating {
+    background-image: url("../../images/bkg_rating.png");
+}
+
+.droz-gold .droz-hero-right .droz-hero-list.list-clickable li::before {
+    color: #00588e;
+}
+
+.scrolltop {
+    background: url(../../images/backtotop.png) no-repeat left top;
+    width: 48px;
+}
+
+.product-view .reviews-summary-wrap .rating-box {
+    background: rgba(0, 0, 0, 0) url("../../images/bkg_rating_lg.png") repeat-x scroll 0 0 / 40px auto;
+}
+
+.droz-gold .product-view .reviews-summary-wrap .rating-box .rating {
+    background-image: url("../../images/bkg_rating_lg.png");
+}
+
+.droz-gold .product-view .reviews-summary-wrap .amountnum,
+.droz-gold a {
+    color:#0089b0;
+}
+
+.footer_column.footer-column-1 .footer-left-lto {
+    display: none;
 }
 
 @media(max-width: 991px) {

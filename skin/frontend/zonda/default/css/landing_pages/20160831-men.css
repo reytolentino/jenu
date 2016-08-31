@@ -1,0 +1,41 @@
+.droz-hero {
+    background-image: none;
+}
+
+.droz-hero-right a#multipay {
+    background-color: #00c8e9;
+}
+
+.droz-hero-right a#multipay:hover {
+    background-color: #009bb5;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.droz-hero-right .droz-hero-list {
+    margin: 25px 0;
+}
+
+.droz-hero-right .buynow-heading {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.droz-gold .droz-wrap .graysection {
+    background-color: #ececec;
+}
+
+.droz-gold .droz-subnav {
+    background-color: rgba(8, 61, 110, 0.2) !important;
+    color: #000;
+}
+
+@media(max-width: 991px) {
+    .droz-gold .droz-hero-right h2.subplus {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+}

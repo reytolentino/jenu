@@ -64,7 +64,6 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
         document,'script','//connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1391558251146849');
-    fbq('init', '547174985449849');
     fbq('init', '450917225103344');
     fbq('track', 'PageView');
     <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
@@ -77,11 +76,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     fbq('track', 'Purchase', {value: '<?php echo $amount; ?>', currency: 'USD', order_id: '<?php echo $orderId; ?>'});
     <?php endif; ?>
 </script>
-<noscript><img height="1" width="1" style="display:none"
-               src="https://www.facebook.com/tr?id=1391558251146849&ev=PageView&noscript=1"
-        /><img height="1" width="1" style="display:none"
-               src="https://www.facebook.com/tr?id=547174985449849&ev=PageView&noscript=1"
-    /></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1391558251146849&ev=PageView&noscript=1"/></noscript>
 <!-- End Facebook Pixel Code -->
 
 <!--Letterpress Pixel -->

@@ -73,3 +73,9 @@
         margin-top: 30px;
     }
 }
+
+@media(max-width:767px) {
+    .product-cta p.ltocopy {
+        text-align: center;
+    }
+}

@@ -181,6 +181,22 @@
   .products-list .add-to-links {
     clear: none;
   }
+
+  /** products list view **/
+
+  .catalog-category-view .products-grid .col1,
+  .catalog-category-view .products-grid .col2,
+  .catalog-category-view .products-grid .col3,
+  .catalog-category-view .products-grid .col4,
+  .catalog-category-view .products-grid .col5,
+  .catalog-category-view .products-grid .col6
+  {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+  }
+
   /*product view*/
 
   .product-view .product-img-box {

@@ -3098,6 +3098,15 @@ td.for-desktop {
 .checkout-onepage-success .headerstrip {
     display: none;
 }
+.checkout-onepage-success p {
+    margin: 8px 0;
+}
+.checkout-onepage-success iframe#refcandy-candyjar {
+    margin: 10px 0;
+}
+.checkout-onepage-success .buttons-set {
+    display: none;
+}
 .checkout-onepage-index #AmazonPayButtonBefore {
     margin-top: 10px;
     margin-bottom: 6px;

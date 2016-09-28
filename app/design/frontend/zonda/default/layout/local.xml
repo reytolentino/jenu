@@ -544,6 +544,9 @@
         </reference>
     </checkout_onepage_index>
     <checkout_onepage_success>
+        <reference name="root">
+            <remove name="right"/>
+        </reference>
         <reference name="content">
             <block type="core/template" name="confirmationPixels" template="pixels/success.phtml"/>
         </reference>

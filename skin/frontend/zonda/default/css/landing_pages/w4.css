@@ -53,7 +53,7 @@
     float: right;
 }
 .hero-w4 {
-    background: url('/media/landing_pages/w4/bg-hero.jpg') no-repeat center;
+    background: url('https://cdn.jenu.com/media/landing_pages/w4/bg-hero.jpg') no-repeat center;
     height: 562px;
 }
 
@@ -128,7 +128,7 @@
 .steps-w4 .container {
     text-align: center;
     padding-top: 50px;
-    background: #f6f7f8 url( '/media/landing_pages/w4/bg-steps.jpg') no-repeat bottom left;
+    background: #f6f7f8 url( 'https://cdn.jenu.com/media/landing_pages/w4/bg-steps.jpg') no-repeat bottom left;
 }
 .steps-w4 .step-title {
     font-size: 22px;
@@ -145,13 +145,13 @@
     min-height: 360px;
 }
 .steps-w4 .step1-w4 {
-    background: url('/media/landing_pages/w4/img-step1.jpg') no-repeat bottom center;
+    background: url('https://cdn.jenu.com/media/landing_pages/w4/img-step1.jpg') no-repeat bottom center;
 }
 .steps-w4 .step2-w4 {
-    background: url('/media/landing_pages/w4/img-step2.jpg') no-repeat bottom center;
+    background: url('https://cdn.jenu.com/media/landing_pages/w4/img-step2.jpg') no-repeat bottom center;
 }
 .steps-w4 .step3-w4 {
-    background: url('/media/landing_pages/w4/img-step3.jpg') no-repeat bottom center;
+    background: url('https://cdn.jenu.com/media/landing_pages/w4/img-step3.jpg') no-repeat bottom center;
 }
 .clinical-w4 .row {
     text-align: center;
@@ -162,7 +162,7 @@
     background: #05b2d5;
 }
 .clinical-w4 .container {
-    background: #05b2d5 url('/media/landing_pages/w4/bg-clinical.jpg') no-repeat bottom right;
+    background: #05b2d5 url('https://cdn.jenu.com/media/landing_pages/w4/bg-clinical.jpg') no-repeat bottom right;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -205,7 +205,7 @@
     text-align: left;
     padding-left: 50px;
     padding-right: 50px;
-    background: #f1eae7 url('/media/landing_pages/w4/bg-clinical-bottom.jpg') no-repeat top right;
+    background: #f1eae7 url('https://cdn.jenu.com/media/landing_pages/w4/bg-clinical-bottom.jpg') no-repeat top right;
 }
 .ba-w4 .babox {
     text-align: center;
@@ -276,7 +276,7 @@
     font-style: italic;
 }
 .lto-w4 {
-    background: #b1b1b1 url('/media/landing_pages/w4/bg-lto.jpg') no-repeat center;
+    background: #b1b1b1 url('https://cdn.jenu.com/media/landing_pages/w4/bg-lto.jpg') no-repeat center;
     background-size: auto 100%;
     min-height: 306px;
 }
@@ -315,7 +315,7 @@
     background: #05b2d5;
 }
 .use-w4 .container {
-    background: url('/media/landing_pages/w4/bg-use.png') no-repeat top center;
+    background: url('https://cdn.jenu.com/media/landing_pages/w4/bg-use.png') no-repeat top center;
     padding-top: 60px;
     padding-bottom: 60px;
     text-align: center;

@@ -44,7 +44,6 @@
             <action method="addJs"><script>eternal/jquery/prettyCheckable.js</script></action>
             <action method="addJs"><script>eternal/jquery/scrolltopcontrol.js</script></action>
             <action method="addJs"><script>eternal/jquery/lightbox-2.6.min.js</script></action>
-            <action method="addJs"><script>eternal/jquery/jquery.nicescroll.js</script></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery.cookie.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/bioep.js</name><params/></action>
             <!-- custom script -->
@@ -165,7 +164,6 @@
         </reference>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/jquery-2.2.3.min.js</name><params/></action>
-            <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/owl.carousel.css</name><params/></action>
         </reference>

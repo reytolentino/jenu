@@ -13,21 +13,21 @@ $_helper = $this->helper('catalog/output');
 $cloudZoom = $this->helper('eternal_cloudzoom');
 
 //Get image sizes.
-$imgWidth       = 560;
-$imgHeight      = 560;
+$imgWidth       = 1000;
+$imgHeight      = 1000;
 
 $bigImageWidth  = intval($cloudZoom->getConfig('general/big_image_width'));
 $bigImageHeight = intval($cloudZoom->getConfig('general/big_image_height'));
 
 if ($bigImageWidth <= 0)
 {
-    $bigImageWidth = 800;
-    $bigImageHeight= 800;
+    $bigImageWidth = 2000;
+    $bigImageHeight= 2000;
 }
 
 //Thumbnail images size
-$thumbImgWidth = 86;
-$thumbImgHeight = 86;
+$thumbImgWidth = 172;
+$thumbImgHeight = 172;
 $thumbTotalPadd = 14;
 $thumbTotalWidth = $thumbImgWidth + $thumbTotalPadd;
 
@@ -53,57 +53,7 @@ $img_class = '';
 
 <div class="clearfix">
 
-<?php //Thumbnails ?>
 
-    <?php if ($imageCount > 0):
-        $img_class = 'no-empty-more';
-    ?>
-    <div class="more-images">
-        <ul id="moreimages-slider-<?php echo $_product->getId() ?>"<?php if ($imageCount > 4) echo ' class="elastislide-list"'; else echo 'class="normal-list"'; ?>>
-        <?php if ($cloudZoom->isCloudZoomEnabled()): ?>
-
-            <?php foreach ($this->getGalleryImages() as $_image): ?>
-                <?php
-                    if ($_image->getFile() == NULL)
-                        continue; ?>
-                <li>
-                    <a href="<?php echo $zonda->getImage($_product, $bigImageWidth, $bigImageHeight, 'image', $_image->getFile()); ?>"
-                    <?php echo $lightboxGroup ?>
-                    class="cloud-zoom-gallery"
-                    title="<?php echo $this->htmlEscape($_image->getLabel()); ?>"
-                    rel="useZoom:'product-zoom-<?php echo $_product->getId() ?>', smallImage: '<?php echo $zonda->getImage($_product, $imgWidth, $imgHeight, 'image', $_image->getFile()); ?>'"
-                    >
-                        <img src="<?php echo $zonda->getImage($_product, $thumbImgWidth, $thumbImgHeight, 'thumbnail', $_image->getFile()); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()); ?>"/>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-
-        <?php else: // show thumbnails in Magento default style ?>
-            <?php $img_class = 'no-empty-more'; ?>
-            <?php foreach ($this->getGalleryImages() as $_image): ?>
-                <?php
-                if ($_image->getFile() == NULL)
-                    continue;
-                ?>
-                <li>
-
-                    <a href="<?php echo $zonda->getImage($_product, $bigImageWidth, $bigImageHeight, 'image', $_image->getFile()); ?>"
-                    <?php echo $lightboxGroup ?>
-                    <?php if (!$cloudZoom->useLightbox()) : ?> onclick="popWin('<?php echo $this->getGalleryUrl($_image) ?>', 'gallery', 'width=300,height=300,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes'); return false;"<?php endif; ?>
-                    title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
-                    >
-                        <img src="<?php echo $zonda->getImage($_product, $thumbImgWidth, $thumbImgHeight, 'thumbnail', $_image->getFile()); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
-                    </a>
-
-                </li>
-            <?php endforeach; ?>
-
-        <?php endif; ?>
-        </ul>
-    </div> <!-- end: more-images -->
-    <?php endif; ?>
-
-<?php // End Thumbnails ?>
 
 <?php //Main image ?>
 
@@ -133,6 +83,59 @@ $img_class = '';
 
 <?php endif; ?>
 <?php // End Main image ?>
+
+    <?php //Thumbnails ?>
+
+    <?php if ($imageCount > 0):
+        $img_class = 'no-empty-more';
+        ?>
+        <div class="more-images">
+            <ul id="moreimages-slider-<?php echo $_product->getId() ?>"<?php if ($imageCount > 4) echo ' class="elastislide-list"'; else echo 'class="normal-list"'; ?>>
+                <?php if ($cloudZoom->isCloudZoomEnabled()): ?>
+
+                    <?php foreach ($this->getGalleryImages() as $_image): ?>
+                        <?php
+                        if ($_image->getFile() == NULL)
+                            continue; ?>
+                        <li>
+                            <a href="<?php echo $zonda->getImage($_product, $bigImageWidth, $bigImageHeight, 'image', $_image->getFile()); ?>"
+                                <?php echo $lightboxGroup ?>
+                               class="cloud-zoom-gallery"
+                               title="<?php echo $this->htmlEscape($_image->getLabel()); ?>"
+                               rel="useZoom:'product-zoom-<?php echo $_product->getId() ?>', smallImage: '<?php echo $zonda->getImage($_product, $imgWidth, $imgHeight, 'image', $_image->getFile()); ?>'"
+                            >
+                                <img src="<?php echo $zonda->getImage($_product, $thumbImgWidth, $thumbImgHeight, 'thumbnail', $_image->getFile()); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()); ?>"/>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+
+                <?php else: // show thumbnails in Magento default style ?>
+                    <?php $img_class = 'no-empty-more'; ?>
+                    <?php foreach ($this->getGalleryImages() as $_image): ?>
+                        <?php
+                        if ($_image->getFile() == NULL)
+                            continue;
+                        ?>
+                        <li>
+
+                            <a href="<?php echo $zonda->getImage($_product, $bigImageWidth, $bigImageHeight, 'image', $_image->getFile()); ?>"
+                                <?php echo $lightboxGroup ?>
+                                <?php if (!$cloudZoom->useLightbox()) : ?> onclick="popWin('<?php echo $this->getGalleryUrl($_image) ?>', 'gallery', 'width=300,height=300,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes'); return false;"<?php endif; ?>
+                               title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
+                            >
+                                <img src="<?php echo $zonda->getImage($_product, $thumbImgWidth, $thumbImgHeight, 'thumbnail', $_image->getFile()); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                            </a>
+
+                        </li>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            </ul>
+        </div> <!-- end: more-images -->
+    <?php endif; ?>
+
+    <?php // End Thumbnails ?>
+
 </div>
 <script type="text/javascript">
 //<![CDATA[
@@ -145,11 +148,33 @@ jQuery(function($) {
         $(".more-images .cloud-zoom-gallery").first().trigger('touchstart');
         <?php if ($imageCount > 4) : ?>
         if (image_es)
-            image_es.destroy();
+            image_es.slick('unslick');
+        /**
         image_es = $('#moreimages-slider-<?php echo $_product->getId() ?>').elastislide({
-            orientation : 'vertical',
+            orientation : 'horizontal',
             minItems: 4
         });
+         **/
+
+        image_es = $('#moreimages-slider-<?php echo $_product->getId() ?>').slick({
+            infinite: false,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 991,
+                    settings: {
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }
+            ]
+        });
+
         <?php endif; ?>
         if (zoom_timer) clearTimeout(zoom_timer);
     }

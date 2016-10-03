@@ -121,11 +121,11 @@ textarea,
     background-color: #ffffff;
 }
 .header-container .header-menu-back {
-    margin-left: 150px;
+    margin-left: 120px;
 }
 .header-container .logo{
-    height: 100%
-    width: 150px;
+    height: 100%;
+    width: 120px;
     text-align: center !important;
     line-height: 48px;
 }
@@ -516,7 +516,7 @@ div.eternal-custom-menu-popup a.level2:hover,
     border: solid 1px #e0e0e0;
 }
 .products-grid .ratings {
-    background: #f8f8f8;
+    background: transparent;
 }
 .product-name a,
 .products-grid .product-name a,
@@ -605,12 +605,18 @@ div.eternal-custom-menu-popup a.level2:hover,
 .by_name {
     color: #0c303c;
 }
-.product-tabs-ul,
+
 .product-tabs-ul li{
-    background-color: #eaeae9;
+    background-color: #fff;
+    letter-spacing: 0.5px;
 }
-.product-tabs-ul li.active {
-    background-color: #8e8e8e;
+.product-tabs-ul li.active,
+.product-tabs-ul li:hover {
+    background: #000;
+    color: #fff;
+}
+.product-tabs-ul li:hover a {
+    color: #fff;
 }
 .product-tabs-ul li a {
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -623,11 +629,8 @@ div.eternal-custom-menu-popup a.level2:hover,
 .cc-item-container {
     border: solid 1px #e0e0e0;
 }
-.data-con {
-    height: 238px;
-}
 .product-tabs-ul {
-    border-bottom: solid 2px #0c303c;
+    border-bottom: solid 1px #0c303c;
 }
 
 /*========== Compare Products Page ==========*/

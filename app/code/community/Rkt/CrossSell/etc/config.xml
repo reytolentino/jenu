@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Rkt_CrossSell>
+            <version>1.0.0</version>
+        </Rkt_CrossSell>
+    </modules>
+    <global>
+        <helpers>
+            <rkt_crossell>
+                <class>Rkt_CrossSell_Helper</class>
+            </rkt_crossell>
+        </helpers>
+        <blocks>
+            <rkt_crossell>
+                <class>Rkt_CrossSell_Block</class>
+            </rkt_crossell>
+        </blocks>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <rkt_crossell>
+                    <file>rkt_crossell.xml</file>
+                </rkt_crossell>
+            </updates>
+        </layout>
+    </frontend>
+</config>

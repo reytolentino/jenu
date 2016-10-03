@@ -189,7 +189,8 @@
   .catalog-category-view .products-grid .col3,
   .catalog-category-view .products-grid .col4,
   .catalog-category-view .products-grid .col5,
-  .catalog-category-view .products-grid .col6
+  .catalog-category-view .products-grid .col6,
+  .catalog-product-view .crosssell-products .col-sm-3
   {
     width: 49%;
     display: inline-block;
@@ -197,17 +198,32 @@
     float: none;
   }
 
+  .catalog-product-view .crosssell-products.products-grid .product-image img {
+    width: 100%;
+  }
+
+  .catalog-product-view .crosssell-products.products-grid .product-name a,
+  .catalog-product-view .crosssell-products.products-grid .product-name {
+    font-size: 14px;
+  }
+
+  .catalog-product-view .crosssell-products.products-grid .actions .button span {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .catalog-product-view .crosssell-products.products-grid .item-inner {
+    padding: 8px;
+  }
+
   /*product view*/
 
   .product-view .product-img-box {
-    float: none;
-    width: 100%;
+    width: 55%;
   }
   .product-view .product-shop {
-    float: none;
-    width: 100%;
-    padding: 0;
-    margin-top: 30px;
+    width: 45%;
+    margin-top: 20px;
   }
   #shopping-cart-table .product-image img,
   #shopping-cart-table .pr-img-td img {
@@ -1003,7 +1019,6 @@
     float: right;
     margin: 16px 16px 0;
   }
-
 
 }
 @media(max-width:767px) {
@@ -1856,6 +1871,30 @@
   .sarp-customer-index #customer-subscriptions-table th {
     display: none;
   }
+
+  .product-view .product-img-box {
+    float: none;
+    width: 100%;
+  }
+  .product-view .product-shop {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .catalog-product-view .slick-slider {
+    padding: 0 10px;
+  }
+
+  .product-view .product-img-box {
+    padding-bottom: 20px;
+  }
+
+  .catalog-product-view .slick-slider {
+    margin-bottom: 0;
+  }
+
   .product-view .product-name, .product-view .product-name h1, .review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
     font-size: 20px;
   }
@@ -1883,7 +1922,7 @@
   }
   .product-view .product-shop .price-review-wrap .review-toggle {
     margin: 5px 0;
-    display: inline-block;
+    display: none;
   }
   .product-view .riskfree {
     margin-top: -50px;
@@ -2682,6 +2721,29 @@
   .mpplan-how .affirm-easy {
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  .catalog-product-view .slick-slide {
+    text-align: center;
+  }
+
+  .product-essential .product-image {
+    float: none;
+  }
+
+  .catalog-product-view .product-essential .more-images img {
+    width: 100%;
+    max-width: 76px;
+  }
+
+  .catalog-product-view .product-essential .more-images {
+    margin: 10px auto;
+    float: none;
+    text-align: center;
+  }
+
+  .catalog-product-view .slick-slide img {
+    display: inline-block;
   }
 
 }

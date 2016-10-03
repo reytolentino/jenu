@@ -38,9 +38,9 @@
 </script>
 
 <?php if ($_product->isSaleable()): ?>
-<p class="availability"><?php echo $this->__('Availability: In stock.') ?></p>
+<p class="availability"><?php echo $this->__('In stock.') ?></p>
 <?php else: ?>
-<p class="availability"><?php echo $this->__('Availability: Out of stock.') ?></p>
+<p class="availability"><?php echo $this->__('Out of stock.') ?></p>
 <?php endif; ?>
 
 <?php if ($subscription->hasSubscriptionOptions() && $subscription->getProduct()->getAwSarpEnabled()): ?>

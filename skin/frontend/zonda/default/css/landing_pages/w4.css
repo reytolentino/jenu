@@ -356,6 +356,155 @@
 .footer-w4 p {
     margin: 10px 0;
 }
+.mpwrap {
+    background:#fff;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    display: none;
+    clear: both;
+}
+
+.mptop {
+    background: url('/media/landing_pages/ft00324mp/bg-mptop.png') repeat-x top;
+}
+
+.mptop h1 {
+    font-weight: 300;
+    font-size: 30px;
+    text-transform: none;
+    margin: 24px 0 5px 0;
+    text-align: center;
+    line-height: normal;
+}
+
+.mptop h4 {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 0;
+    line-height: normal;
+    font-size: 22px;
+}
+
+
+.mptop h5 {
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: normal;
+}
+
+.droz-gold .mptop h1 {
+    color: #000;
+}
+
+.mptop .mpwand {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    height: auto;
+}
+
+.mpplan {
+    background: #f7f7f7;
+}
+
+.mpplan-right {
+    padding-left: 40px;
+}
+
+.mpplan .retail {
+    color: #999;
+}
+
+.mpplan a.mpplan-terms {
+    font-size:12px;
+}
+
+.mpplan .mpplan-mb {
+    width: 110px;
+    height: auto;
+    margin: 14px 0 0;
+}
+
+.mpplan .mpplan-desc {
+    font-size: 16px;
+    color: #000;
+    line-height: 22px;
+    margin: 14px 0 18px;
+    display: block;
+}
+
+.mpplan .mpplan-includes {
+    font-size: 13px;
+}
+
+.mpplan-includes-wrap {
+    margin-top: 20px;
+}
+
+.mpplan ul.form-list {
+    display: none;
+}
+
+.mpplan .mpplan-desc .mpplan-today {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.mpwrap .mptop-container {
+    position: relative;
+}
+
+.mpwrap .mptop-container .container {
+    text-align: center;
+    position:relative;
+    padding-bottom: 30px
+}
+
+.mpwrap .mptop-container .btn-cart {
+    float: none;
+    margin: -20px 0 0 -60px;
+    position: absolute;
+    text-align: center;
+}
+
+
+.mpwrap a#mpclose {
+    height: 30px;
+    padding-right: 40px;
+    line-height: 30px;
+    background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #c2c2c2;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.mpwrap a#mpclose:hover {
+    background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right bottom;
+    color: #2f2f2f;
+}
+
+.mpplan h3 {
+    color:#000;
+    font-size: 24px;
+    border-bottom: none;
+    font-weight: 500;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.mpplan .button {
+    margin-top: 16px;
+}
+
+.mpbottom {
+    background: url('/media/landing_pages/ft00324mp/bg-mpbottom.png') no-repeat bottom;
+    height: 30px;
+}
 @media(max-width:991px) {
     .header-w4 .top-special span {
         font-size: 18px;
@@ -479,6 +628,20 @@
     }
     .use-w4 .use-btn-set img {
         width: auto;
+    }
+    .mpwrap a#mpclose {
+        display: inline-block;
+        position: static;
+        float: right;
+        margin: 16px 16px 0;
+    }
+
+    .mptop h1 {
+        margin: 18px 0 0;
+        clear: both;
+    }
+    .mptop h5 {
+        margin-bottom: 18px;
     }
 }
 @media(max-width:767px) {
@@ -673,5 +836,12 @@
     }
     .use-w4 .mobile-use {
         width: 100%;
+    }
+    .mpplan-how .row div {
+        margin-bottom: 20px;
+    }
+    .mpplan-how .affirm-easy {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }

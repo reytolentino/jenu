@@ -2149,8 +2149,8 @@ a.highlight-link {
 .product-essential .more-images {
     width: 100%;
     max-width: 438px;
-    float: left;
     margin-top: 10px;
+    text-align: center;
 }
 .product-essential .more-images .normal-list li {
     display: inline-block;

@@ -2,6 +2,11 @@
     font-family: "Lato", Helvetica, Arial;
     color: #000;
 }
+.wrapper-w4 sup {
+    font-size: 70%;
+    font-weight: 300;
+    color: #666;
+}
 .wrapper-w4 .container {
     max-width: 1230px;
 }
@@ -347,6 +352,9 @@
     text-align: center;
     color: #ccc;
     font-size: 12px;
+}
+.footer-w4 p {
+    margin: 10px 0;
 }
 @media(max-width:991px) {
     .header-w4 .top-special span {

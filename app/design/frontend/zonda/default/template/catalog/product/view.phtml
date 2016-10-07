@@ -96,11 +96,11 @@ $_helper = $this->helper('catalog/output');
                     <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
                 <div class="price-review">
-                    <?php echo $this->getPriceHtml($_product) ?>
                     <div class="price-review-wrap">
                         <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                         <a href="#customer-reviews" class="highlight-link review-toggle" id="write-review-link"><?php echo $this->__('Write a Review') ?></a>
                     </div>
+                    <?php echo $this->getPriceHtml($_product) ?>
                 </div>
                 <div class="info-container">
                     <?php if($_product->getId() == 7 || $_product->getId() == 33 || $_product->getId() == 35 || $_product->getId() == 49): ?>
@@ -240,31 +240,7 @@ calling JeNu Customer Service at 866-565-JENU.
                     -->
                 <?php endif; ?>
 
-                <?php if (($c['tabs']['tab_type'] == 'accordion') || (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'top'))): ?>
-                <div class="product-collateral">
-                    <div class="product-info">
-                        <div class="product-tabs">
-                            <div class="box-additional box-tabs">
-                                <?php
-                                $info_tabs_html = trim($this->getChildHtml('info_tabs'));
-                                if ($info_tabs_html)
-                                    echo $info_tabs_html;
-                                ?>
-                            </div>
-                        </div>
-                        <script type="text/javascript">
-                        //<![CDATA[
-                        jQuery(function($){
-                            <?php // open review tab ?>
-                            $("#goto-reviews").click(function() {
-                               tabs.remoteTabs('product_tabs_tabreviews');
-                            });
-                        });
-                        //]]>
-                        </script>
-                    </div>
-                </div>
-                <?php endif; ?>
+
                 <?php if($_product->getId() == 7 || $_product->getId() == 33 || $_product->getId() == 35 || $_product->getId() == 49): ?>
                     <?php
                         $obj = Mage::getModel('catalog/product');
@@ -406,7 +382,43 @@ calling JeNu Customer Service at 866-565-JENU.
         <?php endif; ?>
     </div>
 
-    <div class="product-essential-reviews row">
+
+
+
+<?php if (($c['tabs']['tab_type'] == 'accordion') || (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'top'))): ?>
+
+<div class="product-collateral-wrap row">
+    <div class="product-collateral-inner col12">
+        <div class="product-collateral">
+            <div class="product-info">
+                <div class="product-tabs">
+                    <div class="box-additional box-tabs">
+                        <?php
+                        $info_tabs_html = trim($this->getChildHtml('info_tabs'));
+                        if ($info_tabs_html)
+                            echo $info_tabs_html;
+                        ?>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    jQuery(function($){
+                        <?php // open review tab ?>
+                        $("#goto-reviews").click(function() {
+                            tabs.remoteTabs('product_tabs_tabreviews');
+                        });
+                    });
+                    //]]>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php echo $this->getChildHtml('crosssell') ?>
+
+<div class="product-essential-reviews row">
         <div class="product-essential-inner col12">
             <?php if($_product->getId() == 7 || $_product->getId() == 33 || $_product->getId() == 35 || $_product->getId() == 49): ?>
                 <div class="gallerywrap">

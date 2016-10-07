@@ -82,10 +82,6 @@
     overflow: visible;
 }
 
-.product-view .info-container {
-    margin: 10px 0 10px;
-}
-
 @media(max-width:767px){
     .product-view .product-shop .price-review .ratings {
         margin-bottom: 0;

@@ -93,12 +93,8 @@ var tabs = new Varien.Tabs('#product-tabs');
 //
   jQuery(document).ready(function(){
 
-        nice = jQuery('.data-con').niceScroll({horizrailenabled:false, autohidemode:false, scrollspeed:150, cursorfixedheight:'15', cursorcolor:'#cccccc', cursorbor:'1px solid rgba(178, 178, 178, .55)', cursorborderradius:'15px', cursorwidth:15});
-//        nice.each(function(){$(this.rail).addClass('nicescroll-rail')});    
-        nice.rail.addClass('nicescroll-rail');
         var $ = jQuery;
         $('.product-tabs-li').click(function(){
-            $('.data-con').getNiceScroll().resize();
             if ( $(this).attr('id') == 'product_tabs_crosssell') {
                 var slider = $('#crosssell-products-list').data('flexslider');
                 if (slider) {
@@ -106,11 +102,9 @@ var tabs = new Varien.Tabs('#product-tabs');
                 }
             }
         });
-      $('.review-toggle').click(function(){
-          $('.data-con').getNiceScroll().resize();
-      });
-        
-  });  
+
+
+  });
 //]]>
 </script>
 <?php elseif(($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'left')): ?>

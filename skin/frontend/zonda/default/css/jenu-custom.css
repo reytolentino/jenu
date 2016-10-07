@@ -223,6 +223,11 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     border: 1px solid #eee;
 }
 
+.product-essential-inner .product-img-box {
+    background: transparent;
+    border: none;
+}
+
 .product-info p {
     margin: 8px 0;
 }

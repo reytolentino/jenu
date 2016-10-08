@@ -1,11 +1,16 @@
 .product-tabs-ul {
 }
 .product-tabs-ul li {
-    float: left; 
+    float: left;
+}
+
+.product-tabs-ul li a {
     line-height: 43px;
     height: 43px;
-    padding: 0 10px;  
+    padding: 0 10px;
+    display: block;
 }
+
 .product-tabs-ul li.active {
     
 }

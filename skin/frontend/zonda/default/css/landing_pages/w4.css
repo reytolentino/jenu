@@ -74,6 +74,14 @@
     text-transform: uppercase;
     color: #000;
 }
+.hero-w4 .hero-aslow {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+    display: block;
+    width: 291px;
+}
 .hero-w4 .worksgreatfor img {
     width: 100%;
     height: auto;
@@ -338,6 +346,11 @@
     text-align: center;
     margin-top: 40px;
 }
+.use-w4 .use-btn-set a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: underline;
+}
 .use-w4 .use-txt1 {
     font-size: 25px;
     font-weight: 300;
@@ -533,6 +546,11 @@
         width: 100%;
         height: auto;
         margin-bottom: 20px;
+    }
+    .hero-w4 .hero-aslow {
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: 10px;
     }
     .hero-w4 img {
         width: 100%;

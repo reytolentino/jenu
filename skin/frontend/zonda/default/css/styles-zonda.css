@@ -1725,8 +1725,12 @@ a.sarp-link-tip {
 .product-view .product-img-box .product-image img {
     background: transparent;
 }
-.product-view .product-name, .product-view .product-name h1, .review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
+.review-row .review-title, .product-view .box-up-sell h1.subtitle, .product-view .block-related h1.subtitle {
     font-size: 25px;
+}
+.product-view .product-name, .product-view .product-name h1 {
+    font-size: 18px;
+    line-height: normal;
 }
 .product-view .product-shop .price-review {
     clear: both;
@@ -1793,12 +1797,11 @@ a.sarp-link-tip {
     margin-bottom: 5px;
 }
 .product-view .riskfree {
-    width: 100px;
-    height: 100px;
-    position: absolute;
     display: block;
-    right: 0;
-    margin-top: 20px;
+    float: left;
+    height: 100px;
+    margin-left: 30px;
+    width: 100px;
 }
 .product-view .riskfree img {
     width: 100px;
@@ -2639,6 +2642,11 @@ caption, th, td, .data-table th, .data-table td {
     height: auto;
     float: left;
 }
+.catalog-product-view .product-options-bottom {
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+}
 .input-text.qty {
     line-height: 20px;
     height: 35px;
@@ -3091,17 +3099,31 @@ td.for-desktop {
     clear: both;
     margin: -29px auto 10px auto;
 }
-.checkout-cart-index .crosssell-products.products-grid .slides .item-inner {
+.catalog-product-view .crosssell-products .col-sm-3 {
+    width: 19.5%;
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+}
+
+.catalog-product-view .crosssell-products.products-grid .price-review .regular-price .price {
+    font-size: 14px;
+}
+.checkout-cart-index .crosssell-products.products-grid .slides .item-inner,
+.catalog-product-view .crosssell-products.products-grid .slides .item-inner{
     min-height: 400px;
 }
 .checkout-cart-index .crosssell-products {
     width: 100%;
 }
 .checkout-cart-index .crosssell-products.products-grid .product-name a,
-.checkout-cart-index .crosssell-products.products-grid .product-name {
+.checkout-cart-index .crosssell-products.products-grid .product-name,
+.catalog-product-view .crosssell-products.products-grid .product-name a,
+.catalog-product-view .crosssell-products.products-grid .product-name {
     font-size: 14px;
 }
-.checkout-cart-index .crosssell-products.products-grid .btn-cart {
+.checkout-cart-index .crosssell-products.products-grid .btn-cart,
+.catalog-product-view .crosssell-products.products-grid .btn-cart {
     padding: 0 10px;
     font-size: 11px;
     height: 30px;

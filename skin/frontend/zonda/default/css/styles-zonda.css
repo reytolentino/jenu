@@ -9711,7 +9711,7 @@ ul.clinical-results-graph--perc {
 }
 /*********************************************************************************/
 
-/** sign up popup box **/
+/** sign up and raf popup box **/
 
 .signupbox {
     width: 593px;
@@ -9719,11 +9719,65 @@ ul.clinical-results-graph--perc {
     background: url('../images/bg-signup.jpg') no-repeat;
     background-size:cover;
 }
+.rafpopbox {
+    width: 600px;
+    height: 600px;
+    background: url('../images/bg-rafpop.jpg') no-repeat;
+    background-size:cover;
+    padding: 55px;
+}
+.rafpopbox .raf-content {
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    height: 100%;
+    padding: 35px;
+}
+.rafpopbox .raf-content .title-rafpop {
+    width: 282px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+.rafpopbox .raf-content .rafpop-copy {
+    display: block;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    font-family: "Century Gothic", Helvetica, arial;
+    text-align: center;
+    color: #204246;
+    margin: 10px auto;
+}
+.rafpopbox .raf-content .btn-rafpop {
+    background-color: #ffe0a9;
+    border: 3px solid #fff;
+    display: block;
+    height: 58px;
+    line-height: 52px;
+    width: 235px;
+    text-align: center;
+    margin: 50px auto 0 auto;
+    color: #204246;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: "Lato", Helvetica, Arial;
+    letter-spacing: 0.8px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+}
+.rafpopbox .raf-content .btn-rafpop:hover {
+    background-color: #eecc91;
+}
+.fancy-raf .fancybox-close {
+background-position: -12px 3px;
+}
 .signupbox.signupbox-ty {
     background: url('../images/bg-signup-ty.jpg') no-repeat;
     background-size:cover;
 }
-.fancy-signup .fancybox-skin {
+.fancy-signup .fancybox-skin,
+.fancy-raf .fancybox-skin {
     padding: 0 !important;
 }
 .signupbox .signup-content {
@@ -9811,6 +9865,7 @@ ul.clinical-results-graph--perc {
     margin: 10px auto 0 auto;
     background: url('../images/ajax-loader.gif') no-repeat;
 }
+
 .block-subscribe-form #loading-msg {
     height: 32px;
     width: 32px;

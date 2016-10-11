@@ -1,0 +1,14 @@
+<?php
+/**
+ * Product short description template
+ *
+ * @see Mage_Catalog_Block_Product_View_Description
+ */
+?>
+<?php $_studydata = Mage::registry('current_product')->getData('study_data'); ?>
+<?php if ($_studydata): ?>
+    <h2><?php echo $this->__('Study Data') ?></h2>
+    <div class="std">
+        <?php echo $_studydata; ?>
+    </div>
+<?php endif; ?>

@@ -404,6 +404,8 @@
                 <!-- description -->
                 <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
                 <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>How To Use</title><block>catalog/product_view_attributes</block><template>catalog/product/view/how_to_use.phtml</template></action>
+                <action method="addTab" translate="title" module="catalog"><alias>study-data</alias><title>Study Data</title><block>catalog/product_view_attributes</block><template>catalog/product/view/study_data.phtml</template></action>
+                <action method="addTab" translate="title" module="catalog"><alias>ingredients</alias><title>Ingredients</title><block>catalog/product_view_attributes</block><template>catalog/product/view/ingredients.phtml</template></action>
                 <!-- add reviews -->
 
                 <!-- add tags -->

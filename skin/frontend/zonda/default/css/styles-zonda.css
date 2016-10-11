@@ -2642,6 +2642,12 @@ caption, th, td, .data-table th, .data-table td {
     height: auto;
     float: left;
 }
+.catalog-product-view p.short-description {
+    margin-bottom: 14px;
+}
+.catalog-product-view a.more-details {
+    text-decoration: underline;
+}
 .catalog-product-view .product-options-bottom {
     display: inline-block;
     float: left;

@@ -100,6 +100,10 @@ $_helper = $this->helper('catalog/output');
                         <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                         <a href="#customer-reviews" class="highlight-link review-toggle" id="write-review-link"><?php echo $this->__('Write a Review') ?></a>
                     </div>
+
+                    <p class="short-description clearfix"><?php echo $_product->getShortDescription(); ?> <a href="#product-tabs" class="more-details"><?php echo $this->__('More Info...') ?></a></p>
+
+
                     <?php echo $this->getPriceHtml($_product) ?>
                 </div>
                 <div class="info-container">
@@ -361,7 +365,7 @@ calling JeNu Customer Service at 866-565-JENU.
 
 <?php if (($c['tabs']['tab_type'] == 'accordion') || (($c['tabs']['tab_type'] == 'tab') && ($c['tabs']['tab_position'] == 'top'))): ?>
 
-<div class="product-collateral-wrap row">
+<div class="product-collateral-wrap row" id="product-tabs">
     <div class="product-collateral-inner col12">
         <div class="product-collateral">
             <div class="product-info">
@@ -394,96 +398,12 @@ calling JeNu Customer Service at 866-565-JENU.
 
 <div class="product-essential-reviews row">
         <div class="product-essential-inner col12">
-            <?php if($_product->getId() == 7 || $_product->getId() == 33 || $_product->getId() == 35 || $_product->getId() == 49): ?>
-                <div class="gallerywrap">
-                    <div class="col-sm-12">
-                        <div class="videogallery">
-                            <h3><?php echo $this->__('Video Gallery') ?></h3>
-                            <div class="clearfix"></div>
-                            <ul class="vidslides vidgallery">
-                                <li class="vid">
-                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/RLPFIS9xtc0?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-qvc.jpg'); ?>"/></a>
-                                    <h4><?php echo $this->__('How the JeNu Ultrasonic Infuser Works') ?></h4>
-                                </li>
-                                <li class="vid">
-                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/DepH0wb3jhc?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-sizzle.jpg'); ?>"/></a>
-                                    <h4><?php echo $this->__('Featured Press') ?></h4>
-                                </li>
-                                <li class="vid">
-                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/pt72Fa87xQM?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-whythegelmatters.jpg'); ?>"/></a>
-                                    <h4><?php echo $this->__('How the Optional MiscroSphere Gel Makes A Difference') ?></h4>
-                                </li>
-                                <li class="vid">
-                                    <a class="vidlink fancybox.iframe" href="//www.youtube.com/embed/EhuI4vGZbvw?autoplay=1"><img src="<?php echo $this->getSkinUrl('images/thumb-howtouse.jpg'); ?>"/></a>
-                                    <h4><?php echo $this->__('How to Use the JeNu Ultrasonic Infuser') ?></h4>
-                                </li>
 
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="bagallery">
-                            <h3><?php echo $this->__('Before & After Gallery') ?></h3>
-                            <h4><?php echo $this->__('Independent Study Photos') ?></h4>
-                            <div class="baslideswrap">
-                                <ul class="baslides ba-set-prod">
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-jacobsen.jpg'; ?>" alt="Before And After" /></li>
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-savin.jpg'; ?>" alt="Before And After" /></li>
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-cotran.jpg'; ?>" alt="Before And After" /></li>
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-peddemors1.jpg'; ?>" alt="Before And After" /></li>
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-peddemors2.jpg'; ?>" alt="Before And After" /></li>
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-mont.jpg'; ?>" alt="Before And After" /></li>
-                                    <li><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'content/ba/ba-is-sheraton.jpg'; ?>" alt="Before And After" /></li>
-                                </ul>
-                            </div>
-                            <script type="text/javascript">
-                                //<![CDATA[
-                                jQuery(document).ready(function(){
-                                    jQuery('.ba-set-prod').slick({
-                                        adaptiveHeight: true
-                                    });
-                                    jQuery('.vidgallery').slick({
-                                        adaptiveHeight: true,
-                                        slidesToShow: 4,
-                                        responsive: [
-                                            {
-                                                breakpoint: 600,
-                                                settings: {
-                                                    slidesToShow: 2,
-                                                    slidesToScroll: 2
-                                                }
-                                            },
-                                            {
-                                                breakpoint: 480,
-                                                settings: {
-                                                    slidesToShow: 1,
-                                                    slidesToScroll: 1
-                                                }
-                                            }
-                                            // You can unslick at a given breakpoint now by adding:
-                                            // settings: "unslick"
-                                            // instead of a settings object
-                                        ]
-                                    });
-                                    jQuery(".vidlink").fancybox({
-                                        maxWidth	: 640,
-                                        maxHeight	: 360,
-                                        fitToView	: true,
-                                        width		: '640',
-                                        height		: '360',
-                                        autoSize	: true,
-                                        aspectRatio: true,
-                                        closeClick	: true,
-                                        openEffect	: 'none',
-                                        closeEffect	: 'none'
-                                    });
-                                });
-                                //]]>
-                            </script>
-                        </div>
-                    </div>
-                </div>
+            <?php $_customhtml = Mage::registry('current_product')->getData('custom_html'); ?>
+            <?php if ($_customhtml): ?>
+                <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->productAttribute($_product, $_customhtml) ) ?>
             <?php endif; ?>
+
             <?php $reviewcount = $_product->getRatingSummary()->getReviewsCount(); ?>
             <?php if ($reviewcount > 0):?>
                 <div class="reviews-summary-wrap">
@@ -497,6 +417,8 @@ calling JeNu Customer Service at 866-565-JENU.
             </div>
 
         </div>
+
+
 
     </div><!--product-essential-reviews-->
 

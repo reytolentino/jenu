@@ -10,6 +10,21 @@ $affiliateTotal = ($subtotal + $discount);
 $billingAddress = $order->getBillingAddress();
 $customerEmail = $order->getCustomerEmail();
 ?>
+<!-- HowLifeWorks Conversion Pixel Start-->
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            pid: 29
+            , details: "<?php echo $orderId; ?>"
+        };
+        var qs = Object.keys(params).reduce(function(a, k){ a.push(k + '=' + encodeURIComponent(params[k])); return a},[]).join('&');
+        var i = d.createElement('iframe'); i.style = "width:1px;height:1px;display:none;";
+        i.src = ('https:' === document.location.protocol? 'https' : 'http') + "://www.howlifeworks.com/Lib/Pixel.aspx?" + qs;
+        d.body.appendChild(i);
+    })(document);
+</script>
+<!-- HowLifeWorks Conversion Pixel End-->
 <!--friendbuy tracking-->
 <script>
     window['friendbuy'] = window['friendbuy'] || [];

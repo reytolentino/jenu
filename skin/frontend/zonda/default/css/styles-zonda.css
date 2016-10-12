@@ -5592,6 +5592,8 @@ div.menu a, #nav li a, #blog_nav li a, #nav-links a {
 
 .howtouse-banner .banner-content span.lato-regular sup {
     font-weight: 300;
+    font-weight: 300;
+    vertical-align: top;
 }
 
 .howtouse-banner .banner-content h1 {
@@ -5820,6 +5822,11 @@ div.jenu-results-container div.results-section-banner div.container {
     text-align: center;
 }
 
+.results-section-theresults .results-theresults-header sup {
+    font-size: 50%;
+    vertical-align: top;
+}
+
 .results-section-theresults .results-theresults-header-bordered {
     border-bottom: 1px solid #d6d6d6;
     padding-bottom: 20px;
@@ -5960,6 +5967,11 @@ div.jenu-results-container div.results-section-banner div.container {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1;
+}
+
+.results-section-banner .results-banner-bluetext sup {
+    font-size: 40%;
+    vertical-align: top;
 }
 
 .results-section-banner .results-banner-bluetext strong {

@@ -450,6 +450,16 @@ div.eternal-custom-menu-popup a.level1,
     margin-bottom: 4px;
 }
 
+.submega-heading sup {
+    font-size: 50%;
+    vertical-align: top;
+}
+
+.submega-desc sup {
+    font-size: 70%;
+    vertical-align: top;
+}
+
 .submega-desc {
     color: #747474;
     font-size: 11px;

@@ -24,9 +24,6 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
         <?php foreach ($_categories as $_category): ?>
             <?php echo $this->drawCustomMenuItem($_category) ?>
         <?php endforeach ?>
-        <?php if(Mage::helper('blog')->getEnabled() && Mage::helper('blog')->includeMenu()) {
-            echo Mage::helper('blog')->getMenuWideLink();
-        }?>
     <?php else: ?>
         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_menu_block')->toHtml();?>
         <?php /*?><ul id="nav">
@@ -76,9 +73,6 @@ if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNode
             <?php foreach ($_categories as $_category): ?>
                 <?php echo $this->drawCustomMenuMobileItem($_category) ?>
             <?php endforeach ?>
-            <?php if(Mage::helper('blog')->getEnabled() && Mage::helper('blog')->includeMenu()) {
-                echo Mage::helper('blog')->getMobileMenuLink();
-            }?>
             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main_mobile_menu')->toHtml();?>
             <?php
             $loggedIn = $this->helper("customer")->isLoggedIn();

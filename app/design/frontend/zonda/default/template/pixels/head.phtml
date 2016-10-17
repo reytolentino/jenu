@@ -64,7 +64,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
         document,'script','//connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1391558251146849');
-    fbq('init', '450917225103344');
+    fbq('init', '1235554323133423');
     fbq('track', 'PageView');
     <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
     fbq('track', 'AddToCart');
@@ -78,7 +78,28 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1391558251146849&ev=PageView&noscript=1"/></noscript>
 <!-- End Facebook Pixel Code -->
+<!-- Pinterest Pixel Code -->
+<script type="text/javascript">
+    !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
 
+    pintrk('load','2619335824307');
+    pintrk('page', {
+        page_name: '<?php echo $this->getLayout()->getBlock('head')->getTitle(); ?>',
+        page_category: '<?php echo Mage::getModel('catalog/layer')->getCurrentCategory()->getName(); ?>'
+    });
+    pintrk('track', 'pagevisit');
+    <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
+    pintrk('track', 'addtocart');
+    <?php endif; ?>
+    <?php if(Mage::getURL('checkout/onepage') == Mage::helper('core/url')->getCurrentUrl()): ?>
+    pintrk('track', 'checkout');
+    <?php endif; ?>
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none;" alt=""
+         src="https://ct.pinterest.com/v3/?tid=2619335824307&noscript=1" />
+</noscript>
+<!-- End Pinterest Pixel Code -->
 <!--Letterpress Pixel -->
 <script type="text/javascript">
     ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];

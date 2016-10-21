@@ -2560,6 +2560,10 @@ caption, th, td, .data-table th, .data-table td {
     clear: left;
     margin-top: 25px;
 }
+.crosssell-products .labels .sales,
+.crosssell-products .labels .new {
+    display: none;
+}
 .crosssell-products .cart-container .price-box {
     float: left;
 }

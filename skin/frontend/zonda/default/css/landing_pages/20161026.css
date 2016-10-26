@@ -2,7 +2,15 @@
     display: inline-block;
     color: #c03e3e;
 }
-
+.lto-w4 {
+    font-family: "Lato", Helvetica, Arial;
+    color: #000;
+}
+.topbar-w4 {
+    height:12px;
+    background: #000;
+    width: 100%;
+}
 .header-w4-wrap {
     height: 85px;
     width: 100%;
@@ -34,7 +42,8 @@
     float: right;
 }
 
-.header-w4-wrap .container-mobile {
+.header-w4-wrap .container-mobile,
+.lto-w4 .container-mobile {
     display: none;
 }
 
@@ -42,7 +51,8 @@
 .header-w4-wrap .hlight {
     color: #c03e3e;
 }
-.header-w4-wrap .hlight2 {
+.header-w4-wrap .hlight2,
+.lto-w4 .hlight2 {
     color: #05b2d5;
 }
 .header-w4-wrap .hlight3 {
@@ -129,4 +139,167 @@
     font-style: italic;
     font-family: "Lato", Helvetica, Arial;
     font-weight: 400;
+}
+
+.lto-w4 {
+    background: #b1b1b1 url('https://cdn.jenu.com/media/landing_pages/w4/bg-lto.jpg') no-repeat center;
+    background-size: auto 100%;
+    min-height: 306px;
+}
+.lto-w4 .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.lto-w4 .lto-text1 {
+    font-size: 24px;
+    font-weight: 300;
+}
+.lto-w4 .lto-text2 {
+    font-size: 16px;
+    font-weight: 300;
+}
+.lto-w4 .lto-btn {
+    margin: 20px 0 10px 0;
+}
+.lto-w4 .lto-text3 {
+    font-size: 14px;
+}
+
+@media(max-width:991px) {
+    .header-w4 .top-special span {
+        font-size: 18px;
+    }
+
+    .logo-w4 {
+        width: 100%;
+        height: auto;
+        max-width: 106px;
+    }
+
+    .header-w4 .top-available {
+        width: 100%;
+        height: auto;
+        margin-top: 25px;
+    }
+    .droz-gold .cta-section .cta-cartbtn .btn-cart {
+        float: none;
+    }
+
+    .droz-gold .cta-section .cta-cartbtn, .droz-gold .cta-section .cta-cartcopy {
+        width: 100%;
+        margin: 8px 0;
+        text-align: center;
+    }
+    .lto-w4 .lto-btn img {
+        max-width: 310px;
+        width: 100%;
+    }
+    .cta-section .cta-cartcopy br {
+        display: none;
+    }
+}
+
+@media(max-width:767px) {
+    .header-w4 {
+        padding: 0;
+    }
+
+    .header-w4 .container,
+    .lto-w4 .container {
+        display: none;
+    }
+
+    .header-w4 .container-mobile,
+    .lto-w4 .container-mobile {
+        display: block;
+    }
+
+    .header-w4 .col-sm-6 {
+        width: 50%;
+        display: inline-block;
+        float: left;
+    }
+
+    .header-w4 img.top-available {
+        width: 100%;
+        height: auto;
+        max-width: 222px;
+        margin-top: 14px;
+    }
+
+    .header-w4 .top-special {
+        clear: both;
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+        margin: 10px auto;
+        width: 95%;
+        float: left;
+    }
+
+    .header-w4 .top-special span {
+        font-size: 18px;
+    }
+
+    .header-w4-wrap {
+        height: auto;
+    }
+    .droz-gold .droz-price-wrap div,
+    .droz-gold .affirm-box div {
+        padding: 0;
+    }
+    .droz-gold .droz-price-wrap,
+    .droz-gold .affirm-box {
+        width: 50%;
+        float: left;
+        vertical-align: top;
+        margin: 0;
+
+    }
+    .droz-hero-right a#multipay {
+        font-size: 12px;
+        font-weight: 400;
+        height: 40px;
+        line-height: 40px;
+        width: 132px;
+    }
+
+    .droz-gold .btn-cart  {
+        background: #000 none repeat scroll 0 0;
+        font-size: 12px;
+        height: 40px;
+        line-height: 40px;
+        width: 132px;
+    }
+
+    .droz-gold .affirm-box-copy {
+        font-size: 12px;
+        text-align: center;
+    }
+    .lto-w4 .container {
+        background: #fff !important;
+        padding-top: 30px;
+        padding-bottom: 0;
+        border-top: 1px solid #666;
+    }
+    .lto-w4 {
+        background-image: none;
+    }
+    .lto-w4 .lto-text1 {
+        font-size: 24px;
+    }
+    .lto-w4 .lto-btn {
+        text-align: center;
+    }
+    .lto-w4 .lto-btn img {
+        width: 100%;
+        max-width: 310px;
+    }
+    .lto-w4 .lto-text3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .lto-w4 .mobile-lto {
+        width: 100%;
+    }
 }

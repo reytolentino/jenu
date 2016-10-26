@@ -1,0 +1,132 @@
+.droz-hero-right .buynow-heading span div {
+    display: inline-block;
+    color: #c03e3e;
+}
+
+.header-w4-wrap {
+    height: 85px;
+    width: 100%;
+    background: #333;
+}
+.header-w4 {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.logo-w4 {
+    margin-top: 14px;
+    float: left;
+}
+.header-w4 .top-special {
+    background: #fff;
+    font-family: "Lato", Helvetica, Arial;
+    line-height: 85px;
+    height: 85px;
+    padding: 0;
+    text-align: center;
+    display: block;
+}
+.header-w4 .top-special span {
+    font-size: 30px;
+    font-weight: 300;
+}
+.header-w4 .top-available {
+    margin-top: 18px;
+    float: right;
+}
+
+.header-w4-wrap .container-mobile {
+    display: none;
+}
+
+
+.header-w4-wrap .hlight {
+    color: #c03e3e;
+}
+.header-w4-wrap .hlight2 {
+    color: #05b2d5;
+}
+.header-w4-wrap .hlight3 {
+    color: #996699;
+}
+
+.droz-hero-right .riskfree-seal-wrap {
+    text-align: center;
+}
+
+.droz-hero-right .droz-price-wrap {
+    padding: 20px 15px;
+}
+
+.droz-hero-right a#multipay {
+    background: #04c8e7 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 162px;
+    letter-spacing: 0.7px;
+}
+
+   .droz-hero-right a#multipay:hover {
+       background: #00a9c4;
+   }
+
+.droz-gold .btn-cart  {
+    background: #000 none repeat scroll 0 0;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    font-weight: 400;
+    height: 45px;
+    line-height: 45px;
+    width: 162px;
+}
+
+.droz-gold .droz-asseenon .btn-cart {
+    width: auto;
+    padding: 0 16px;
+}
+
+.droz-hero-right .affirm-box {
+    font-size: 13px;
+    color: #333;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    border: none;
+    -webkit-border-radius: none;
+    -moz-border-radius:none;
+    border-radius: none;
+    display: inline-block;
+    padding: 0;
+}
+
+.droz-hero-right .droz-price-wrap {
+    padding: 0;
+    margin: 16px 0;
+}
+
+.droz-hero-right .affirm-box-copy {
+    margin-top: 5px;
+}
+
+.droz-gold .cta-section {
+    margin-top: 30px;
+}
+
+.droz-gold .cta-section .cta-cartbtn,
+.droz-gold .cta-section .cta-cartcopy {
+    display: inline-block;
+    float: left;
+    padding-left: 15px;
+    width: 50%;
+}
+
+.droz-gold .cta-section .cta-cartcopy {
+    color: #04c8e7;
+    font-size: 20px;
+    font-style: italic;
+    font-family: "Lato", Helvetica, Arial;
+    font-weight: 400;
+}

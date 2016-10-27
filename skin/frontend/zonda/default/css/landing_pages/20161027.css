@@ -46,6 +46,26 @@
     color: #000;
 }
 
+.disclaimer {
+    font-size: 11px;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color: #999;
+    font-weight: normal;
+}
+
+.product-highlights .disclaimer {
+    text-align: left;
+    margin-top: 16px;
+}
+
+#howjenuworks .disclaimer {
+    margin-top: 16px;
+}
+
+.droz-results .disclaimer {
+    margin-top: 16px;
+}
+
 @media(max-width:991px) {
     .droz-hero-right .btn-cart {
         font-size: 12px;

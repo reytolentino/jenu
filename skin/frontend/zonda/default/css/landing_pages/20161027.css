@@ -1,0 +1,64 @@
+.droz-hero-right .droz-price {
+    font-size: 16px;
+}
+
+.droz-hero-right .btn-cart {
+    float: none;
+    font-size: 14px;
+    font-weight: normal;
+    height: 40px;
+    letter-spacing: 0.8px;
+    line-height: 40px;
+    width: auto;
+    margin-top: 16px;
+    padding: 0 14px;
+}
+
+.droz-hero-right .riskfree-seal {
+    display: block;
+    margin: 0 auto;
+    max-width: 112px;
+    text-align: center;
+    width: 100%;
+}
+
+.droz-hero-right .cta-content-wrap {
+    float: left;
+}
+
+.droz-hero-right .droz-hero-list li:hover {
+    cursor: default;
+}
+
+.resultsvary {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.droz-hero-right .droz-hero-list {
+    margin: 24px 0 34px 0;
+}
+
+.pressimg {
+    font-size: 34px;
+    line-height: normal;
+    font-weight: 400;
+    color: #000;
+}
+
+@media(max-width:991px) {
+    .droz-hero-right .btn-cart {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        padding: 0 14px;
+    }
+    .clinical-75-left {
+        height: auto;
+    }
+    .droz-hero-right .droz-price-wrap {
+        text-align: center;
+    }
+    .product-cta p.ltocopy {
+        text-align: center;
+    }
+}

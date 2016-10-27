@@ -93,6 +93,11 @@
     height: 45px;
     line-height: 45px;
     width: 162px;
+    text-align: center;
+}
+
+.droz-gold .droz-batra .cta-section .cta-cartcopy {
+    line-height: normal;
 }
 
 .droz-gold .droz-asseenon .btn-cart {

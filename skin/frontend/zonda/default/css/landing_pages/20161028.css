@@ -27,6 +27,7 @@
     max-width: 1230px;
     padding-left: 15px;
     padding-right: 15px;
+    display: block;
 }
 
 .w4offer-title {
@@ -40,6 +41,13 @@
     font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     letter-spacing: 2px;
+    border-bottom: 1px solid #ccc;
+}
+
+.w4offer-title a {
+    color:#fff;
+    display: block;
+    cursor: default;
 }
 
 .w4offer-title .offernum {
@@ -338,9 +346,17 @@ a#w4offers-close {
         border: 0;
         float: left;
     }
+    .w4offers-box .container {
+        display: none;
+    }
     .w4offer-title {
         font-size: 16px;
         letter-spacing: 0.5px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .w4offer-title a {
+        pointer-events: auto;
     }
     .w4offers-wrap h1 {
         font-size: 50px;

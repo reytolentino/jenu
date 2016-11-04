@@ -36,7 +36,7 @@
 }
 
 .droz-hero-right .droz-hero-list {
-    margin: 24px 0 34px 0;
+    margin: 0 0 16px 0;
 }
 
 .pressimg {
@@ -65,6 +65,45 @@
 .droz-results .disclaimer {
     margin-top: 16px;
 }
+
+.droz-hero-right .buynow-heading {
+    margin-top: 24px;
+    font-size: 20px;
+}
+
+.droz-hero-right .new-price {
+    font-size: 70px;
+    line-height: 70px;
+}
+
+.droz-hero-right .new-price strong {
+    color: #c03e3e;
+}
+
+.droz-hero-right .new-price .sm-price {
+    font-size: 24px;
+    line-height: 45px;
+    vertical-align: top;
+}
+
+.droz-hero-right .droz-price-wrap {
+    padding-top: 0;
+}
+
+
+.droz-hero-right .old-price {
+    margin: 0;
+    font-size: 13px;
+    display: block;
+    float: none;
+}
+
+.droz-hero-right .freegifts,
+.droz-hero-right .freesh {
+    font-size: 15px;
+}
+
+
 
 @media(max-width:991px) {
     .droz-hero-right .btn-cart {

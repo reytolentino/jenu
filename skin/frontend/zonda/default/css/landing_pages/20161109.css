@@ -1,0 +1,475 @@
+.w4offers-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.w4offers-wrap h1 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 60px;
+    color: #000;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.w4offers-box {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+    color: #000;
+}
+
+.w4offers-box .container {
+    width: 100%;
+    max-width: 1230px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
+}
+
+.w4offer-title {
+    height: 50px;
+    background: #4b9dc6;
+    line-height: 50px;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #ccc;
+}
+
+.w4offer-title a {
+    color:#fff;
+    display: block;
+    cursor: default;
+}
+
+.w4offer-title .offernum {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 15px;
+    color: #4b9dc6;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 16px;
+    text-align: center;
+    width: 30px;
+    letter-spacing: 0;
+}
+
+.w4offers-box .w4-prod-image {
+    text-align: center;
+}
+
+.w4offers-box .w4-prod-image img {
+    width: 100%;
+    max-width: 369px;
+    margin: 20px auto;
+    display: block;
+}
+
+.w4offers-box .w4offer1 .w4-prod-desc,
+.w4offers-box .w4offer2 .w4-prod-desc{
+    min-height: 477px;
+}
+
+.w4offers-box .w4-prod-image {
+    text-align: center;
+}
+
+.w4offers-box .w4-prod-desc,
+.w4offers-box .w4-prod-cta {
+    padding: 40px 20px;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.6px;
+    font-weight: 300;
+}
+
+.w4offers-box .w4-prod-desc {
+    padding: 40px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.w4offers-box .w4-prod-desc-title {
+    text-transform: uppercase;
+    font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+}
+
+.w4offers-box .w4-prod-desc ul {
+    margin-top: 30px;
+}
+
+.w4offers-box .w4-prod-desc ul li {
+    margin-bottom: 10px;
+    padding-left: 1.8em;
+}
+
+.w4offers-box .w4-prod-desc ul li:before {
+    content: "\f00c"; /* FontAwesome Unicode */
+    font-family: "FontAwesome";
+    display: inline-block;
+    margin-left: -1.8em; /* same as padding-left set on li */
+    width: 1.8em; /* same as padding-left set on li */
+    color: #727272;
+}
+
+.w4offers-box .w4-prod-desc ul li .affirm-logo {
+    height: 16px;
+    width: auto;
+    margin-top: 3px;
+}
+
+.w4offers-box .w4-prod-desc ul li a.affirm-mp {
+    color: #00c9e9;
+    text-decoration: underline;
+    font-weight: 400;
+    display: block;
+}
+
+.w4offers-box .w4-prod-cta {
+    font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+.w4offers-box .w4-prod-cta .w4-old-price {
+    text-decoration: line-through;
+}
+
+.w4offers-box .w4-prod-cta .nowprice {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.w4offers-box .w4-prod-cta .todayprice {
+    margin: 10px 0;
+}
+
+.w4offers-box .w4-prod-cta .savings {
+    color: #bf1e2e;
+    font-weight: 400;
+}
+
+.w4offers-box .w4-prod-cta .coloroptions {
+    margin: 30px 0;
+    font-size: 16px;
+}
+
+.w4offers-box .w4-prod-cta .coloroptions .selecttext {
+    height: 40px;
+    line-height: 40px;
+}
+
+.w4offers-box .w4-prod-cta .coloroptions sup {
+    color: red;
+}
+
+.w4offers-box .w4-prod-cta .coloricon {
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 400;
+    height: 40px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 40px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.w4offers-box .w4-prod-cta .coloricon.active,
+.w4offers-box .w4-prod-cta .coloricon:hover {
+    border:2px solid #000;
+}
+
+.w4offers-box .w4-prod-cta .coloricon.color-rg {
+    background: #ffd9cb;
+}
+
+.w4offers-box .w4-prod-cta .coloricon.color-g {
+    background: #d2c483;
+}
+
+.w4offers-box .w4-prod-cta .btn-cart {
+    font-size: 20px;
+    letter-spacing: 2px;
+    width: auto;
+    padding: 0 20px;
+    height: 55px;
+    line-height: 55px;
+    font-weight: 400;
+}
+
+.w4offers-box .w4-prod-desc-title2 {
+    text-transform: none;
+    margin: 40px 0 20px;
+    display: block;
+}
+
+.w4offers-box .w4offer3 .w4-prod-desc p a {
+    text-decoration: underline;
+}
+
+.w4offers-box .w4offer3 .w4-prod-cta .savings {
+    margin-bottom: 40px;
+}
+
+#w4offers-wrap {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+#w4offers-wrap {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.affirm-sandbox-iframe {
+    z-index: 999999 !important;
+}
+
+a#w4offers-close {
+    height: 30px;
+    padding-right: 40px;
+    line-height: 30px;
+    background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #c2c2c2;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
+
+.header-w4 .top-special span {
+    font-size: 36px;
+}
+
+.hero-w4 .hero-copy1 {
+    font-size: 18px;
+}
+
+.droz-hero-right .droz-hero-list {
+    margin: 24px 0;
+}
+
+.droz-gold .btn-cart {
+    width: auto;
+    display: inline-block;
+    background: #04c8e7;
+    padding: 10px;
+    line-height: normal;
+}
+
+.droz-gold .btn-cart:hover {
+    background: #000;
+}
+
+.droz-gold .cta-section .cta-cartbtn, .droz-gold .cta-section .cta-cartcopy {
+    width: 100%;
+}
+
+.droz-gold .cta-section .cta-cartcopy {
+    color: #000;
+}
+
+.droz-hero-right .btn-cart {
+    margin-top: 20px;
+}
+
+.droz-gold .cta-section .cta-cartcopy {
+    margin: 12px 0;
+    display: block;
+}
+
+@media(max-width:991px) {
+    .w4offers-box .container {
+        width: 100%;
+    }
+    .w4offers-box .w4-prod-desc,
+    .w4offers-box .w4-prod-cta {
+        padding: 30px 10px;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+
+    .w4offers-box .w4-prod-desc {
+        padding: 30px;
+    }
+
+    .w4offers-box .w4-prod-desc-title {
+        font-size: 20px;
+        letter-spacing: 0.6px;
+    }
+
+    .w4offers-box .w4-prod-desc ul {
+        margin-top: 30px;
+    }
+
+    .w4offers-box .w4-prod-desc ul li {
+        margin-bottom: 10px;
+    }
+
+    .w4offers-box .w4offer1 .w4-prod-desc,
+    .w4offers-box .w4offer2 .w4-prod-desc{
+        min-height: 407px;
+    }
+
+    .w4offers-box .w4-prod-cta .btn-cart {
+        font-size: 16px;
+        letter-spacing: 1px;
+        padding: 0 16px;
+        height: 45px;
+        line-height: 45px;
+    }
+    .w4offers-box .w4-prod-cta .coloroptions {
+        margin-top: 10px;
+    }
+
+    .w4offers-box .w4-prod-cta .coloroptions .selecttext {
+        display: block;
+    }
+
+    .w4offers-box .w4-prod-cta .coloroptions .coloricon {
+        margin-right: 5px;
+        margin-left: 0;
+    }
+    .header-w4 .top-special span {
+        font-size: 28px;
+    }
+    .hero-w4 .hero-copy1 {
+        font-size: 16px;
+    }
+    .droz-gold .btn-cart {
+        font-size: 12px;
+        height: auto;
+        line-height: auto;
+        padding: 16px;
+        width: auto;
+    }
+    .droz-gold .droz-price-wrap, .droz-gold .affirm-box {
+        width: 100%;
+    }
+    .droz-gold .droz-asseenon .btn-cart {
+        padding: 16px;
+    }
+    .droz-gold .cta-section .cta-cartcopy {
+        margin: 6px 0;
+    }
+}
+@media(max-width:767px) {
+    .w4offers-box .w4-prod-image img {
+        margin: 0 auto;
+    }
+    .w4offers-box .w4-prod-desc {
+        text-align: center;
+    }
+    .w4offers-box .w4-prod-desc ul {
+        text-align: left;
+        display: block;
+        max-width: 320px;
+        margin: 20px auto;
+        width: 100%;
+    }
+    .w4offers-box .w4-prod-cta {
+        width: 50%;
+        float: left;
+    }
+    .w4offers-box .w4-prod-desc {
+        width: 50%;
+        border: 0;
+        float: left;
+    }
+    .w4offers-box .container {
+        display: none;
+    }
+    .w4offer-title .offernum {
+        display: none;
+    }
+    .w4offer-title a:after {
+        font-family: "FontAwesome";
+        content: '\f107';
+        right: 20px;
+        position: absolute;
+        font-size: 20px;
+    }
+    .w4offer-title a.active:after {
+        content: '\f106';
+    }
+    .w4offer-title {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .w4offer-title a {
+        pointer-events: auto;
+    }
+    .w4offers-wrap h1 {
+        font-size: 50px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    .header-w4 .top-special span {
+        font-size: 22px;
+    }
+    .featured-w4 .droz-discount {
+        line-height: normal;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+}
+
+@media(max-width: 480px) {
+    .w4offers-box .w4-prod-image {
+        width: 100%;
+    }
+    .w4offers-box .w4-prod-desc,
+    .w4offers-box .w4-prod-cta {
+        width: 100%;
+    }
+    .w4offers-box .w4offer1 .w4-prod-desc, .w4offers-box .w4offer2 .w4-prod-desc{
+        min-height: auto;
+        padding-bottom: 0;
+    }
+    .w4offers-box .w4-prod-desc ul {
+        margin: 20px 0;
+        max-width: auto;
+    }
+    .w4offers-box .w4-prod-desc, .w4offers-box .w4-prod-cta {
+        padding: 30px;
+        text-align: center;
+    }
+    .w4offers-box .w4-prod-cta .coloroptions .selecttext {
+        display: inline-block;
+    }
+    .w4offers-box .w4-prod-cta .btn-cart {
+        font-size: 18px;
+        padding: 0 20px;
+        height: 55px;
+        line-height: 55px;
+        float: none;
+    }
+    .w4offer-title .offernum{
+       margin-right: 5px;
+    }
+    .w4offer-title {
+        font-size: 14px;
+        letter-spacing: 0px;
+    }
+}

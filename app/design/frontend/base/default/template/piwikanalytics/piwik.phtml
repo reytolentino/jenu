@@ -58,9 +58,9 @@
                 if($action == 'noRoute'){?>
                 _paq.push(['setDocumentTitle', '404/URL = '+String(document.location.pathname+document.location.search).replace(/\//g,"%2f") + '/From = ' + String(document.referrer).replace(/\//g,"%2f")]);
                 <?php }?>
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
-                s.parentNode.insertBefore(g,s); })();
+            })();
         </script>
+        <script type="text/javascript" src="<?php echo $installPath ?>piwik.js">
         <noscript><p><img src="<?php echo $installPath ?>piwik.php?idsite=<?php echo $siteId ?>" style="border:0" alt="" /></p></noscript>
         <!-- END PIWIK TRACKING CODE -->
 

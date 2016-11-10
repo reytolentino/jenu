@@ -272,8 +272,9 @@ a#w4offers-close {
     width: auto;
     display: inline-block;
     background: #04c8e7;
-    padding: 10px;
-    line-height: normal;
+    padding: 0 16px;
+    line-height: 45px;
+    font-size: 13px;
 }
 
 .droz-gold .btn-cart:hover {
@@ -358,7 +359,7 @@ a#w4offers-close {
     .droz-gold .btn-cart {
         font-size: 12px;
         height: auto;
-        line-height: auto;
+        line-height: normal;
         padding: 16px;
         width: auto;
     }

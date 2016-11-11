@@ -28,6 +28,21 @@
     padding: 0 10px;
 }
 
+.buynow-heading span {
+    color: #c03e3e;
+}
+
+.droz-hero-right .buynow-heading {
+    font-size: 24px;
+    background-image: url("/media/landing_pages/droz/bg-buynow-heading3.png");
+}
+
+.product-cta p.ltocopy {
+    font-size: 18px;
+    font-family: "Avenir Next Condensed Demi Bold",Helvetica,Arial;
+    color: #c03e3e;
+}
+
 @media(max-width: 991px) {
     .droz-hero-right .new-price {
         font-size: 50px;
@@ -64,5 +79,9 @@
         font-size: 12px;
         letter-spacing: 0.5px;
         padding: 0 10px;
+    }
+
+    .product-cta p.ltocopy {
+        font-size: 24px !important;
     }
 }

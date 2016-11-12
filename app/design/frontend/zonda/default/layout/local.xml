@@ -42,7 +42,7 @@
             <action method="addJs"><script>eternal/jquery/jquery.colorbox-min.js</script></action>
             <action method="addJs"><script>eternal/jquery/jquery.jscrollpane.min.js</script></action>
             <action method="addJs"><script>eternal/jquery/prettyCheckable.js</script></action>
-            
+            <action method="addJs"><script>eternal/jquery/scrolltopcontrol.js</script></action>
             <action method="addJs"><script>eternal/jquery/lightbox-2.6.min.js</script></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery.cookie.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/bioep.js</name><params/></action>

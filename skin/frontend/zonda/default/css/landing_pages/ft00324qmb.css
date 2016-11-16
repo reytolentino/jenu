@@ -1,0 +1,112 @@
+html, body {
+    -webkit-text-size-adjust:none;
+}
+
+.header-w4-wrap {
+    height: auto;
+}
+
+.header-w4 .top-special img {
+    height: auto;
+    width: 100%;
+}
+
+.header-w4 .top-special {
+    background: #333;
+    height: auto;
+    line-height: normal;
+}
+
+.header-w4 .top-available {
+    margin-top: 16px;
+}
+
+.logo-w4 {
+    margin-top: 10px;
+}
+
+.droz-gold .droz-hero-right .droz-hero-list.list-clickable li {
+    cursor: default;
+}
+
+.droz-hero-right .droz-hero-list li {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.droz-hero-right .cta-colors {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.droz-hero-right .bottomcopy {
+    margin: 10px auto;
+}
+
+.droz-hero-right .buynow-heading {
+    font-size: 22px;
+    height: auto;
+    line-height: 24px;
+    margin: 16px 0;
+}
+
+@media(max-width:1300px) {
+    .droz-hero {
+        background-image: none;
+    }
+}
+
+@media(max-width:767px) {
+    .header-w4 .top-special img {
+        max-width: 500px;
+        width: 100%;
+        margin-top: 10px auto;
+    }
+    .header-w4 .top-special {
+        float: none;
+    }
+    .product-highlights .slide1 .hydrotest-img .wandgel {
+        max-width: 320px;
+        width: 100%;
+    }
+    .product-highlights .slide1 .wandgel-wrap {
+        width: 60%;
+        float: left;
+    }
+    .product-highlights .slide1 .slide1-copy.hydrotest  {
+        width: 40% !important;
+        float: left;
+        padding-left: 6px;
+        margin-top: 16px;
+    }
+    .cta-colors, .cta-colors-mobile {
+        margin-bottom: 16px;
+        margin-top: 16px;
+        text-align: center;
+    }
+    .cta-colors-label {
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    .product-cta p.ltocopy {
+        color: #c03e3e;
+        text-align: center;
+    }
+    .droz-gold .droz-price-wrap, .droz-gold .affirm-box {
+        text-align: center;
+        width: 100%;
+    }
+    .droz-gold .droz-price-wrap .cta-cartbtn {
+        display: inline-block;
+    }
+    .droz-hero-right .col-sm-7, .droz-hero-right .col-sm-5 {
+        width: 40%;
+    }
+
+}
+
+@media(max-width: 480px) {
+    .droz-hero-right .col-sm-7, .droz-hero-right .col-sm-5 {
+        width: 48%;
+    }
+}

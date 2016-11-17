@@ -2527,7 +2527,12 @@ caption, th, td, .data-table th, .data-table td {
     display: none;
 }
 .product-view a.highlight-link.review-toggle {
-    display: none;
+    color: #000;
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 5px 0;
+    text-decoration: underline;
 }
 .product-view .review-toggle {
     margin-bottom: 10px;

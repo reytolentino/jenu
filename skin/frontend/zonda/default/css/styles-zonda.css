@@ -1986,8 +1986,14 @@ a.highlight-link {
 }
 
 .product-view .reviews-summary-wrap {
-    text-align: center;
-    margin-top: 30px;
+     text-align: center;
+     margin-top: 30px;
+ }
+
+.product-view .reviews-summary-wrap .noreviews {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
 }
 
 .product-view .reviews-summary-wrap .ratings {
@@ -2533,6 +2539,7 @@ caption, th, td, .data-table th, .data-table td {
     font-weight: 300;
     margin: 5px 0;
     text-decoration: underline;
+    display: none;
 }
 .product-view .review-toggle {
     margin-bottom: 10px;

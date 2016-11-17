@@ -5,6 +5,7 @@
 .sarp-subscription li {
     list-style: none;
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
 }
 
 .sarp-subscription li .sub-price {
@@ -43,6 +44,11 @@
     font-weight: normal;
 }
 
+.sarp-subscription .price-box,
+.sarp-subscription .price-box p{
+    line-height: normal;
+}
+
 .calendar {
     z-index: 100;
 }
@@ -55,7 +61,7 @@
     color: #EB340A;
 }
 .catalog-product-view .sarp-subscription input.radio  {
-    margin: 6px 5px 0 0;
+    margin: 6px 10px 0 0;
 }
 
 .catalog-product-view .sarp-subscription .smallcap {

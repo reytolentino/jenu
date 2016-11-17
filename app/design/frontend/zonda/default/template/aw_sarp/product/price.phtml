@@ -339,9 +339,11 @@ $_minimalPrice = $_taxHelper->getPrice($_product, $_minimalPriceValue, $_simpleP
         if ($('aw-sarp-first-period-price-<?php echo $_id ?>') !== null) {
             $('aw-sarp-first-period-price-<?php echo $_id ?>').show();
         }
+        /**
         $$('.old-price').each(function(item){
-            item.hide();
+             item.hide();
         });
+         **/
         $$('.special-price .price-label').each(function(item){
             item.hide();
         })

@@ -410,6 +410,11 @@ calling JeNu Customer Service at 866-565-JENU.
                     <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?><div class="btn-writereview"><input type="button" class="button button-normal review-toggle" value="Write Your Review"></div>
                 </div>
                 <div class="line-separator1"></div>
+            <?php else : ?>
+                <div class="reviews-summary-wrap">
+                    <span class="noreviews"><?php echo $this->__('No Reviews Yet.') ?></span><div class="btn-writereview"><input type="button" class="button button-normal review-toggle" value="Write Your Review"></div>
+                </div>
+                <div class="line-separator1"></div>
             <?php endif; ?>
             <div class="reviews-bottomwrap">
                 <?php echo $this->getChildHtml('product_customer_reviews') ?>

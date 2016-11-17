@@ -1902,6 +1902,7 @@
     margin-top: 4px;
     text-align: left;
     width: 100%;
+    overflow: hidden;
   }
   .product-view .product-shop .price-review-wrap .amount {
     margin-left: 4px;

@@ -70,7 +70,10 @@
     display: inline-block;
 }
 
-.product-shop .price-review .price-box,
+.product-shop .price-review .price-box {
+    float: left;
+    width: 100%;
+}
 .info-container .price-box {
     display: none;
 }

@@ -1699,6 +1699,10 @@ a.sarp-link-tip {
 }
 /*product image*/
 
+.product-view {
+    color:#000;
+}
+
 .product-view .product-img-box {
     width: 45%;
     position: relative;
@@ -1729,7 +1733,7 @@ a.sarp-link-tip {
     font-size: 25px;
 }
 .product-view .product-name, .product-view .product-name h1 {
-    font-size: 18px;
+    font-size: 24px;
     line-height: normal;
 }
 .product-view .product-shop .price-review {
@@ -1828,10 +1832,10 @@ a.highlight-link {
 .std ul, .std ol, .std dl, .std p, .std address, .std blockquote {
     line-height: 1.6;
 }
-.product-tabs-content ul {
+.product-tabs-content .std ul {
     list-style: disc outside;
     padding-left: 18px;
-    margin: 0 0 10px;
+    margin: 16px 0;
 }
 .product-tabs-content ul li {
     margin-left: 15px;
@@ -2648,6 +2652,8 @@ caption, th, td, .data-table th, .data-table td {
 }
 .catalog-product-view p.short-description {
     margin-bottom: 14px;
+    color: #000;
+    line-height: 1.7;
 }
 .catalog-product-view a.more-details {
     text-decoration: underline;

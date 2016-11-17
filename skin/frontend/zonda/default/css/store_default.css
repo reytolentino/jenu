@@ -563,11 +563,11 @@ div.eternal-custom-menu-popup a.level2:hover,
 .product-tabs-content li a,
 .quickview-main .product-view .short-description
 {
-    color: #747474;
+    color: #000;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 .product-view .info-container p,
 .product-view .info-container p.alert-urls a,

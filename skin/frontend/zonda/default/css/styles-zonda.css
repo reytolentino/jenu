@@ -1832,10 +1832,16 @@ a.highlight-link {
 .std ul, .std ol, .std dl, .std p, .std address, .std blockquote {
     line-height: 1.6;
 }
+.product-tabs-content h3 {
+    margin: 24px 0 8px 0;
+}
 .product-tabs-content .std ul {
     list-style: disc outside;
     padding-left: 18px;
-    margin: 16px 0;
+    margin: 10px 0;
+}
+.product-info p {
+    margin: 10px 0;
 }
 .product-tabs-content ul li {
     margin-left: 15px;

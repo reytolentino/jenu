@@ -1762,6 +1762,9 @@ a.sarp-link-tip {
 .product-view .info-container {
     margin: 0 0 10px;
 }
+.product-view .info-container .price-box{
+    display: none;
+}
 .product-view .info-container p, .product-view .info-container p.alert-urls a, .product-view .info-container .product-pricing {
     font-size: 13px;
     text-transform: capitalize;

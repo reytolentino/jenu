@@ -1875,10 +1875,11 @@ p.olay-disclaimer {
 }
 
 .w4offers-box .w4-prod-desc ul li a.affirm-mp {
-    color: #00c9e9;
+    color: #000;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 300;
     display: block;
+    letter-spacing: normal;
 }
 
 .w4offers-box .w4-prod-cta {

@@ -1,0 +1,322 @@
+a#soffers-close {
+    height: 30px;
+    padding-right: 40px;
+    line-height: 30px;
+    background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #c2c2c2;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
+
+.soffers-box {
+    display: none;
+}
+
+.soffer-cont {
+    padding-top: 42px;
+    padding-bottom: 52px;
+}
+
+.soffer1 {
+    background: #fff2f3;
+    padding-top: 30px;
+}
+
+.soffer2 {
+    background: #f6fcff;
+    margin-top: -30px;
+}
+
+.soffer3 {
+    background: #f2f2f2;
+    margin-top: -30px;
+}
+
+.soffer-prodimg img {
+    width: 100%;
+    max-width: 375px;
+}
+
+.soffers-box h2 {
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.soffer-proddesc {
+    padding: 60px 0;
+}
+
+.soffer-proddesc p {
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+.soffer-price {
+    font-size: 13px;
+    color: #000;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.soffer-oldprice {
+    color: #666666;
+}
+
+.lineThrough {
+    text-decoration: line-through;
+}
+
+.soffer-newprice {
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.soffer-savings {
+    color: #bf1e2e;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.soffers-box .soffer-cont {
+    max-height: 360px;
+    height: auto;
+    overflow: hidden;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -ms-transition: all .8s;
+    -o-transition: all .8s;
+    transition: all .8s;
+}
+
+.soffers-box .soffer-cont.toggled {
+    max-height: 2000px;
+    -webkit-transition: all .8s ease-in;
+    -moz-transition: all .8s ease-in;
+    -ms-transition: all .8s ease-in;
+    -o-transition: all .8s ease-in;
+    transition: all .8s ease-in;
+}
+
+.soffers-box .coloroptions {
+    margin: 12px 0;
+    font-size: 13px;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+    font-weight: 400;
+}
+
+.soffers-box . .coloroptions .selecttext {
+    height: 40px;
+    line-height: 40px;
+}
+
+.soffers-box  .coloroptions sup {
+    color: red;
+}
+
+.soffers-box .coloricon {
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 400;
+    height: 40px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 40px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.soffers-box  .coloricon.active,
+.soffers-box  .coloricon:hover {
+    border:2px solid #000;
+}
+
+.soffers-box .coloricon.color-rg {
+    background: #ffd9cb;
+}
+
+.soffers-box .coloricon.color-g {
+    background: #d2c483;
+}
+
+.soffers-box .btn-cart {
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    width: auto;
+    padding: 0 14px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 400;
+    float: left;
+}
+
+.soffers-box .soffer-proddesc .affirm-logo {
+    height: 13px;
+    width: auto;
+    margin-top: 2px;
+}
+
+.soffers-box .soffer-proddesc a.affirm-mp {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    display: block;
+    clear: both;
+    margin: 13px 0;
+    font-size: 13px;
+    font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+    float: left;
+}
+
+.soffers-box .soffer-includes {
+    margin-top: 13px;
+}
+
+.soffers-box .soffer-prod-desc-title {
+    text-transform: uppercase;
+    font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+    color: #000;
+}
+
+.soffers-box .soffer-prod-desc-title2 {
+    text-transform: none;
+    font-weight: bold;
+}
+
+.soffers-box .soffer-proddesc ul {
+    margin-top: 16px;
+    color: #000;
+}
+
+.soffers-box .soffer-proddesc ul li {
+    margin-bottom: 8px;
+    padding-left: 1.6em;
+    font-size: 12px;
+}
+
+.soffers-box .soffer-proddesc ul li:before {
+    content: "\f00c"; /* FontAwesome Unicode */
+    font-family: "FontAwesome";
+    display: inline-block;
+    margin-left: -1.6em; /* same as padding-left set on li */
+    width: 1.6em; /* same as padding-left set on li */
+    color: #000
+}
+
+.soffers-box .soffer-slide {
+    border-radius: 50%;
+    width: 60px;
+    height:60px;
+    border: 2px solid;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -30px;
+    position: relative;
+    z-index: 9999;
+}
+
+.soffers-box .soffer1-slide {
+    border-color: #ffe1e3;
+    background-color: #e9b7ba;
+}
+
+.soffers-box .soffer2-slide {
+    background-color: #a2bccd;
+    border-color: #f6fcff;
+}
+
+.soffers-box .soffer3-slide {
+    background-color: #bebcbc;
+    border-color: #f2f2f2;
+}
+
+.soffers-box .soffer-slide .fa-angle-down {
+    color:#fff;
+    line-height: 68px;
+}
+
+.soffers-box .soffer-slide:before {
+    font-family: "fontawesome";
+    position: relative;
+    content: "\f107";
+    font-size: 40px;
+    color: #fff;
+}
+
+.soffers-box .soffer-slide.toggled:before {
+    content: "\f106";
+    top: -2px;
+}
+
+.soffers-box .soffer1-slide:active {
+    background-color: #ffe1e3;
+}
+
+.soffers-box .soffer2-slide:active {
+    background-color: #c9dbe6;
+}
+
+.soffers-box .soffer3-slide:active {
+    background-color: #dbdbdb;
+}
+
+.soffers-box .soffer-bottombg {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    margin-top: -100px;
+}
+
+.soffers-box .soffer3 .soffer-savings {
+    margin-bottom: 16px;
+}
+
+.soffers-box .soffer3 .soffer-whoshould {
+    margin-top: 30px;
+}
+
+.soffers-box .soffer3 .soffer-whoshould p {
+    margin-top: 16px;
+    color: #000;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.soffers-box .soffer-bottombg1 {
+    background: linear-gradient(to bottom, rgba(255, 242, 243, 0), rgba(255, 242, 243, 1));
+}
+
+.soffers-box .soffer-bottombg2 {
+    background: linear-gradient(to bottom, rgba(246, 252, 255, 0), rgba(246, 252, 255, 1));
+}
+
+.soffers-box .soffer-bottombg3 {
+    background: linear-gradient(to bottom, rgba(242, 242, 242, 0), rgba(242, 242, 242, 1));
+}
+
+@media(max-width: 767px) {
+    .soffers-box {
+        display: block;
+    }
+    .soffer-cont .container {
+        display: block;
+    }
+    .soffer-prodimg {
+        width: 40%;
+        float: left;
+    }
+    .soffer-proddesc {
+        width: 60%;
+        float: left;
+        padding: 0 15px 0 0;
+    }
+}

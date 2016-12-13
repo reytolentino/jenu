@@ -46,6 +46,7 @@
             <action method="addJs"><script>eternal/jquery/lightbox-2.6.min.js</script></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery.cookie.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/bioep.js</name><params/></action>
+            <action method="addJs"><script>jenu/jquery.countdownTimer.min.js</script></action>
             <!-- custom script -->
             <action method="addJs"><script>eternal/zonda.js</script></action>
         <!-- add stylesheet -->

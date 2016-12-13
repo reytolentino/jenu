@@ -524,6 +524,11 @@ i.fa {
     vertical-align: bottom;
 }
 
+.affirm-sandbox-container {
+    position:relative;
+    z-index: 900000000000000000 !important;
+}
+
 .droz-hero-right .affirm-box {
     font-size: 14px;
     color: #333;

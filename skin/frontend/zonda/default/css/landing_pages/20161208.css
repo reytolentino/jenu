@@ -1,3 +1,5 @@
+
+
 a#soffers-close {
     height: 30px;
     padding-right: 40px;
@@ -361,5 +363,12 @@ a#soffers-close {
         right: 30px;
         bottom: 15px;
         top: auto;
+    }
+    .w4offers-wrap h1 {
+        color: #fff;
+        background-color: rgba(4,200,231,1);
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 20px 0;
     }
 }

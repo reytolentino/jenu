@@ -24,7 +24,7 @@ a#soffers-close {
 
 .soffer1 {
     background: #fff2f3;
-    padding-top: 30px;
+    padding-top:20px;
 }
 
 .soffer2 {
@@ -46,6 +46,9 @@ a#soffers-close {
     text-transform: uppercase;
     margin-bottom: 16px;
     font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
 }
 
 .soffer-proddesc {
@@ -80,10 +83,11 @@ a#soffers-close {
     color: #bf1e2e;
     font-size: 16px;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .soffers-box .soffer-cont {
-    max-height: 360px;
+    max-height: 280px;
     height: auto;
     overflow: hidden;
     -webkit-transition: all .8s;
@@ -103,16 +107,16 @@ a#soffers-close {
 }
 
 .soffers-box .coloroptions {
-    margin: 12px 0;
-    font-size: 13px;
+    margin: 10px 0;
+    font-size: 12px;
     font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
     color: #000;
     font-weight: 400;
 }
 
 .soffers-box . .coloroptions .selecttext {
-    height: 40px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
 }
 
 .soffers-box  .coloroptions sup {
@@ -123,12 +127,12 @@ a#soffers-close {
     border-radius: 20px;
     display: inline-block;
     font-weight: 400;
-    height: 40px;
+    height: 35px;
     overflow: hidden;
     text-indent: -9999px;
-    width: 40px;
+    width: 35px;
     vertical-align: middle;
-    margin-left: 8px;
+    margin-left: 6px;
 }
 
 .soffers-box  .coloricon.active,
@@ -141,7 +145,7 @@ a#soffers-close {
 }
 
 .soffers-box .coloricon.color-g {
-    background: #d2c483;
+    background: #f9ea98;
 }
 
 .soffers-box .btn-cart {
@@ -156,9 +160,9 @@ a#soffers-close {
 }
 
 .soffers-box .soffer-proddesc .affirm-logo {
-    height: 13px;
+    height: 9px;
     width: auto;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 .soffers-box .soffer-proddesc a.affirm-mp {
@@ -167,8 +171,8 @@ a#soffers-close {
     font-weight: 400;
     display: block;
     clear: both;
-    margin: 13px 0;
-    font-size: 13px;
+    margin: 0 0 13px 0;
+    font-size: 12px;
     font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
     float: left;
 }
@@ -271,13 +275,13 @@ a#soffers-close {
 
 .soffers-box .soffer-bottombg {
     width: 100%;
-    height: 100px;
+    height: 50px;
     position: relative;
-    margin-top: -100px;
+    margin-top: -50px;
 }
 
 .soffers-box .soffer3 .soffer-savings {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 .soffers-box .soffer3 .soffer-whoshould {
@@ -303,6 +307,11 @@ a#soffers-close {
     background: linear-gradient(to bottom, rgba(242, 242, 242, 0), rgba(242, 242, 242, 1));
 }
 
+.affirm-sandbox-container {
+    position:relative;
+    z-index: 900000000000000000 !important;
+}
+
 @media(max-width: 767px) {
     .soffers-box {
         display: block;
@@ -318,5 +327,40 @@ a#soffers-close {
         width: 60%;
         float: left;
         padding: 0 15px 0 0;
+    }
+    #buybar.mobile-buybar {
+        background-color: rgba(4,200,231,0.8);
+    }
+    #buybar.mobile-buybar .buybar-lto {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 400;
+        height: 40px;
+        line-height: 40px;
+        letter-spacing: 0.5px;
+    }
+    .droz-hero-right .droz-price-wrap {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .w4offers-wrap {
+        padding: 0 0 30px;
+    }
+    a#w4offers-close {
+        height: 30px;
+        padding-right: 40px;
+        line-height: 30px;
+        background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #c2c2c2;
+        font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
+        display: block;
+        position: absolute;
+        right: 30px;
+        bottom: 15px;
+        top: auto;
     }
 }

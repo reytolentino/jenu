@@ -47,8 +47,7 @@ a#soffers-close {
     margin-bottom: 16px;
     font-size: 18px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
+    font-weight: 400;
 }
 
 .soffer-proddesc {

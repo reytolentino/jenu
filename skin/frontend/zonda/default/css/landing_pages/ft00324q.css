@@ -1850,7 +1850,7 @@ p.olay-disclaimer {
 .w4offers-box .w4-prod-desc-title {
     text-transform: uppercase;
     font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     letter-spacing: 0.8px;
     font-weight: 400;
 }
@@ -3187,7 +3187,7 @@ a#w4offers-close {
         pointer-events: auto;
     }
     .w4offers-wrap h1 {
-        font-size: 30px;
+        font-size: 22px;
         margin-bottom: 20px;
         margin-top: 20px;
     }

@@ -15,7 +15,7 @@ window.bioEp = {
 	fonts: [],
 	delay: 5,
 	showOnDelay: false,
-	cookieExp: 30,
+	cookieExp: 7,
 	
 	// Object for handling cookies, taken from QuirksMode
 	// http://www.quirksmode.org/js/cookies.html

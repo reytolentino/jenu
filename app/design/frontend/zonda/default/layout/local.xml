@@ -121,6 +121,9 @@
                 <label>Page Footer Banner</label>
             </block>
             <action method="unsetChild"><name>store_switcher</name></action>
+            <block type="cms/block" name="exit-popup2">
+                <action method="setBlockId"><block_id>exit-popup2</block_id></action>
+            </block>
             <block type="cms/block" name="exit-popup">
                 <action method="setBlockId"><block_id>exit-popup</block_id></action>
             </block>

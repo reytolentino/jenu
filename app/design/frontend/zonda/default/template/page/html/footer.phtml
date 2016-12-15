@@ -202,6 +202,20 @@ if (!$brands->getConfig('slider/custom_enable') || !$b['footer']['show_two_lows'
     </div>
 </div>
 
+<?php
+/** exit popup for free charger */
+$quote = Mage::getSingleton('checkout/session')->getQuote();
+
+foreach ($quote->getAllItems() as $item) {
+    $productName = $item->getProduct()->getName();
+    if (stripos($productName, 'infuser') !== false) {
+        echo $this->getChildHtml('exit-popup2');
+        break;
+    } else {
+    }
+}
+
+?>
 <?php echo $this->getChildHtml('exit-popup') ?>
 <?php echo $this->getChildHtml('email-popup') ?>
 <?php echo $this->getChildHtml('raf-popup') ?>

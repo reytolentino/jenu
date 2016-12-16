@@ -14,11 +14,6 @@
             <ebizmarts_mandrill_resource>
                 <class>Ebizmarts_Mandrill_Model_Resource</class>
             </ebizmarts_mandrill_resource>
-            <core>
-                <rewrite>
-                    <email_template>Ebizmarts_Mandrill_Model_Email_Template</email_template>
-                </rewrite>
-            </core>
         </models>
         <blocks>
             <ebizmarts_mandrill>

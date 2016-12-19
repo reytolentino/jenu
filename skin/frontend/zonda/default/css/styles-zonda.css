@@ -647,6 +647,9 @@ input.input-text {
 .form-search {
     line-height: 30px;
 }
+.search-form h1 {
+    margin-bottom: 24px;
+}
 .form-search label {
     display: none;
 }
@@ -1328,6 +1331,19 @@ button.button span.name {
     font-size: 13px;
     padding: 6px;
 }
+
+/** order status **/
+
+#oar_widget_orders_and_returns_form .form-list li .input-box {
+    margin-bottom: 12px;
+}
+
+#oar_widget_orders_and_returns_form .form-list .sbHolder {
+    margin-left: 0;
+    width: 148px;
+}
+
+/** end order status **/
 
 /** auto refill terms **/
 

@@ -314,6 +314,9 @@ a#soffers-close {
 }
 
 @media(max-width: 767px) {
+    .w4offers-box {
+        border: none;
+    }
     .soffers-box {
         display: block;
     }

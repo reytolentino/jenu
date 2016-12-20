@@ -317,6 +317,11 @@ a#soffers-close {
     .w4offers-box {
         border: none;
     }
+    .w4offer1,
+    .w4offer2,
+    .w4offer3 {
+        display: none;
+    }
     .soffers-box {
         display: block;
     }

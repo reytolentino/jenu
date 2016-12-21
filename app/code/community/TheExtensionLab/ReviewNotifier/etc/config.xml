@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TheExtensionLab_ReviewNotifier>
+            <version>1.0.0</version>
+        </TheExtensionLab_ReviewNotifier>
+    </modules>
+
+    <global>
+        <models>
+            <theextensionlab_reviewnotifier>
+                <class>TheExtensionLab_ReviewNotifier_Model</class>
+            </theextensionlab_reviewnotifier>
+        </models>
+
+        <helpers>
+            <theextensionlab_reviewnotifier>
+                <class>TheExtensionLab_ReviewNotifier_Helper</class>
+            </theextensionlab_reviewnotifier>
+        </helpers>
+
+        <events>
+            <review_save_after>
+                <observers>
+                    <theextensionlab_reviewnotifier>
+                        <class>theextensionlab_reviewnotifier/observer</class>
+                        <method>reviewSaveAfter</method>
+                    </theextensionlab_reviewnotifier>
+                </observers>
+            </review_save_after>
+        </events>
+
+        <template>
+            <email>
+                <catalog_review_alert_email_template>
+                    <label>New Review Notification Template</label>
+                    <file>theextensionlab/reviewnotifier/new_review.html</file>
+                    <type>html</type>
+                </catalog_review_alert_email_template>
+            </email>
+        </template>
+
+    </global>
+
+    <default>
+        <catalog>
+            <review>
+                <enable_alerts>0</enable_alerts>
+                <alert_email_identity>general</alert_email_identity>
+                <alert_email_template>catalog_review_alert_email_template</alert_email_template>
+            </review>
+        </catalog>
+    </default>
+
+    <phpunit>
+        <suite>
+            <modules>
+                <TheExtensionLab_ReviewNotifier/>
+            </modules>
+        </suite>
+    </phpunit>
+
+</config>

@@ -1,0 +1,17 @@
+<!--@subject A new product review has been posted and is ready for moderation @-->
+<!--@vars
+{"var review.id":"Review ID",
+"var review.detail":"Review detail",
+"var review.name":"Review name",
+"var review.title":"Review name",
+"var store.name":"Store Name",
+"var moderationUrl":"Moderation Url"
+}
+@-->
+
+<!--@styles
+@-->
+
+<p>A new review (ID:{{var review.id}}) titled "{{var review.title}}" was posted on {{var store.name}} at {{var review.created_at}} and needs moderation.</p>
+
+<p><a href="{{var moderationUrl}}">Click here to moderate.</a></p>

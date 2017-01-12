@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<gridcontrol>
+    <grids>
+        <!-- grid id -->
+        <productGrid>
+            <short_description>
+                <add>
+                    <header>Main SKU</header>
+                    <type>options</type>
+                    <options>
+                        <option_1>
+                            <key>238</key>
+                            <value>No</value>
+                        </option_1>
+
+                        <option_2>
+                            <key>239</key>
+                            <value>Yes</value>
+                        </option_2>
+                    </options>
+                    <!-- index: attribute/field name -->
+                    <index>mainsku</index>
+                </add>
+                <after>name</after>
+            </short_description>
+        </productGrid>
+    </grids>
+</gridcontrol>

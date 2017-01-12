@@ -20,7 +20,8 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         ?>
         <img src="<?php echo $this->getProductThumbnail()->resize(150); ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
         <?php if ($this->hasProductUrl()):?></a><?php endif;?>
-    <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove-item for-mobile"><?php echo $this->__('Remove')?></a>
+    <?php $_finalPrice = $_item->getCalculationPrice(); ?>
+    <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove-item for-mobile" <?php if ($_finalPrice == 0.00){echo 'style="visibility:hidden;"';} ?>><?php echo $this->__('Remove')?></a>
 </td>
 <td class="a-left product-name-td">
     <h2 class="product-name">
@@ -222,8 +223,8 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 <?php endif; ?>
 <td class="a-center qty-td qty-td-desktop">
     <div class="qty-holder">
-        <input type="text" name="cart[<?php echo $_item->getId() ?>][qty]" maxlength="12" value="<?php echo $this->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
-        <a href="javascript:void(0)" class="button button-up for-mobile"><span>+</span></a>
+        <input <?php if ($_finalPrice == 0.00){echo 'disabled';} ?> type="text" name="cart[<?php echo $_item->getId() ?>][qty]" maxlength="12" value="<?php echo $this->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+        <a href="javascript:void(0)" class="button button-up for-mobile" <?php if ($_finalPrice == 0.00){echo 'style="visibility:hidden;"';} ?>><span>+</span></a>
         <div class="clear"></div>
     </div>
 </td>
@@ -343,7 +344,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     </td>
 <?php endif; ?>
 
-<td class="a-center rm-td for-desktop"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove"><i class="icon-remove">&nbsp;</i></a></td>
+<td class="a-center rm-td for-desktop"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove" <?php if ($_finalPrice == 0.00){echo 'style="display:none;"';} ?>><i class="icon-remove">&nbsp;</i></a></td>
 </tr>
 
 <!--

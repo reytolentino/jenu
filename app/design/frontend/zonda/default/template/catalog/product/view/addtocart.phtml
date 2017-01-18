@@ -236,6 +236,7 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
+
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
             <label for="qty"><?php echo $this->__('Qty:') ?></label>
@@ -244,6 +245,12 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
         <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="<?php echo (int)Mage::getStoreConfig('jenumodal/settings/enabled') ? 'beforeAdding();return false;' : 'productAddToCartForm.submit(this)' ?>"><span><span><?php echo $buttonTitle ?></span></span></button>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
+
+    <?php if($_product->getId() == 88): ?>
+        <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
+            Your card will be charged today. Pre-sale items are expected to ship on or around <strong>January 27, 2017</strong>. You will be notified via email once your order ships.
+        </div>
+    <?php endif; ?>
 
 <?php endif; ?>
 

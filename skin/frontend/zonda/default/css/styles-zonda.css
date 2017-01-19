@@ -3903,6 +3903,11 @@ div.cart-empty {
     margin-bottom: 0;
 }
 
+#slide-ha {
+    background: url("../images/homepage-hero-ha.jpg") no-repeat center top #f0d0b2;
+    background-size: auto 100%;
+}
+
 #slide-1 {
     background: url("../images/homepage-hero-banner2.jpg") no-repeat center top #bb8674;
     background-size: auto 100%;
@@ -3916,6 +3921,75 @@ div.cart-empty {
 #slide-3 {
     background: url("../images/homepage-hero-forbes2.jpg") no-repeat center top #9bb6cc;
     background-size: auto 100%;
+}
+
+#slide-ha {
+    color: #000;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+#slide-ha .homepage-hero-titlewrap1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+#slide-ha .homepage-hero-title1 {
+    font-size: 42px;
+    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+#slide-ha .homepage-hero-title-hlight {
+    font-weight: 400;
+    color: #835c49;
+}
+
+#slide-ha .homepage-hero-title2,
+#slide-ha .homepage-hero-title3 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+#slide-ha .homepage-hero-title2 {
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+#slide-ha .homepage-hero-title3 {
+    font-size: 22px;
+}
+
+#slide-ha .homepage-hero-title3 sup {
+    font-size: 12px;
+}
+
+#slide-ha .homepage-hero-titlewrap2 {
+    border-top: 5px solid #d1ab8a;
+    margin: 24px auto 0;
+    padding:24px 12px 0;
+    width: 60%;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+#slide-ha .homepage-button-cta {
+    background-color: #000;
+    margin: 24px auto;
+}
+
+#slide-ha .homepage-hero-banner--copy {
+    text-align: center;
+}
+
+#slide-ha .homepage-hero-title-hlight2 {
+    color: #be1e2d;
+    font-weight: bold;
 }
 
 #slide-1 .homepage-hero-banner--copy {
@@ -4416,6 +4490,47 @@ ul.homepage-content-worksgreat-list ul {
     #slide-3 {
         background-size: auto 140%;
     }
+
+    #slide-ha .homepage-hero-banner--copy {
+        float: right;
+        width: 520px;
+    }
+
+    #slide-ha .homepage-hero-titlewrap1 {
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    #slide-ha .homepage-hero-title1 {
+        font-size: 36px;
+        letter-spacing: 0.5px;
+    }
+
+    #slide-ha .homepage-hero-title2 {
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    #slide-ha .homepage-hero-title3 {
+        font-size: 18px;
+    }
+
+    #slide-ha .homepage-hero-title3 sup {
+        font-size: 10px;
+    }
+
+    #slide-ha .homepage-hero-titlewrap2 {
+        margin: 18px auto 0;
+        padding:18px 10px 0;
+        width: 60%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    #slide-ha .homepage-button-cta {
+        margin: 18px auto;
+    }
+
     #slide-1 .homepage-hero-banner--copy {
         float: right;
         font-size: 24px;
@@ -4451,6 +4566,37 @@ ul.homepage-content-worksgreat-list ul {
 @media(max-width: 767px) {
     .homepage-banner {
         height: 300px;
+    }
+    #slide-ha .homepage-hero-banner--copy {
+        width: 410px;
+    }
+
+    #slide-ha .homepage-hero-titlewrap1 {
+        margin-top: 30px;
+    }
+
+    #slide-ha .homepage-hero-title1 {
+        font-size: 30px;
+        letter-spacing: 0.3px;
+    }
+
+    #slide-ha .homepage-hero-title2 {
+        font-size: 18px;
+    }
+
+    #slide-ha .homepage-hero-title3 {
+        font-size: 16px;
+    }
+
+    #slide-ha .homepage-hero-titlewrap2 {
+        margin: 14px auto 0;
+        padding:12px 8px 0;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    #slide-ha .homepage-button-cta {
+        margin: 10px auto;
     }
     #slide-1 .homepage-hero-banner--copy .hompage-hero-banner-intro {
         font-size: 18px;
@@ -4521,6 +4667,38 @@ ul.homepage-content-worksgreat-list ul {
     .homepage-hero-banner--copy {
         width: 100%;
     }
+
+    #slide-ha .homepage-hero-banner--copy {
+        width: 85%;
+    }
+
+    #slide-ha .homepage-hero-titlewrap1 {
+        margin-top: 16px;
+    }
+
+    #slide-ha .homepage-hero-title1 {
+        font-size: 24px;
+        letter-spacing: 0;
+    }
+
+    #slide-ha .homepage-hero-title2 {
+        font-size: 16px;
+    }
+
+    #slide-ha .homepage-hero-title3 {
+        font-size: 14px;
+    }
+
+    #slide-ha .homepage-hero-titlewrap2 {
+        margin: 10px auto 0;
+        padding:10px 6px 0;
+        font-size: 14px;
+    }
+
+    #slide-ha .homepage-button-cta {
+        margin: 10px auto;
+    }
+
     .homepage-content-worksgreat--copy {
         text-align: center;
     }

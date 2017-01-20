@@ -24,8 +24,8 @@
 <div style="display:none!important">
     <?php $_image = Mage::helper('catalog/image')->init($_product, 'small_image')->resize(125, 125); ?>
     <meta itemprop="image" content="<?php echo $_image; ?>">
-    <meta itemprop="name" content="<?php echo $this->escapeHtml($_product->getName()); ?>">
-    <meta itemprop="description" content="<?php echo $this->escapeHtml($_product->getDescription()); ?>">
+    <meta itemprop="name" content="<?php echo $this->stripTags($_product->getName()); ?>">
+    <meta itemprop="description" content="<?php echo $this->stripTags($_product->getDescription()); ?>">
     <meta itemprop="productID" content="<?php echo $_product->getSku(); ?>">
 </div>
 <div style="display:none!important" itemscope itemprop="offers" itemtype="http://schema.org/Offer">

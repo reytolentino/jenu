@@ -30,11 +30,16 @@ a#soffers-close {
 }
 
 .soffer2 {
-    background: #f6fcff;
+    background: #ffeee4;
     margin-top: -30px;
 }
 
 .soffer3 {
+    background: #f6fcff;
+    margin-top: -30px;
+}
+
+.soffer4 {
     background: #f2f2f2;
     margin-top: -30px;
 }
@@ -235,11 +240,16 @@ a#soffers-close {
 }
 
 .soffers-box .soffer2-slide {
+    border-color: #f2c9b1;
+    background-color: #f3c8b0;
+}
+
+.soffers-box .soffer3-slide {
     background-color: #a2bccd;
     border-color: #f6fcff;
 }
 
-.soffers-box .soffer3-slide {
+.soffers-box .soffer4-slide {
     background-color: #bebcbc;
     border-color: #f2f2f2;
 }
@@ -263,14 +273,18 @@ a#soffers-close {
 }
 
 .soffers-box .soffer1-slide:active {
-    background-color: #ffe1e3;
-}
+     background-color: #ffe1e3;
+ }
 
 .soffers-box .soffer2-slide:active {
-    background-color: #c9dbe6;
+    background-color: #f7dccc;
 }
 
 .soffers-box .soffer3-slide:active {
+    background-color: #c9dbe6;
+}
+
+.soffers-box .soffer4-slide:active {
     background-color: #dbdbdb;
 }
 
@@ -281,15 +295,15 @@ a#soffers-close {
     margin-top: -50px;
 }
 
-.soffers-box .soffer3 .soffer-savings {
+.soffers-box .soffer4 .soffer-savings {
     margin-bottom: 10px;
 }
 
-.soffers-box .soffer3 .soffer-whoshould {
+.soffers-box .soffer4 .soffer-whoshould {
     margin-top: 30px;
 }
 
-.soffers-box .soffer3 .soffer-whoshould p {
+.soffers-box .soffer4 .soffer-whoshould p {
     margin-top: 16px;
     color: #000;
     font-size: 15px;
@@ -301,10 +315,14 @@ a#soffers-close {
 }
 
 .soffers-box .soffer-bottombg2 {
-    background: linear-gradient(to bottom, rgba(246, 252, 255, 0), rgba(246, 252, 255, 1));
+    background: linear-gradient(to bottom, rgba(255, 238, 228, 0), rgba(255, 238, 228, 1));
 }
 
 .soffers-box .soffer-bottombg3 {
+    background: linear-gradient(to bottom, rgba(246, 252, 255, 0), rgba(246, 252, 255, 1));
+}
+
+.soffers-box .soffer-bottombg4 {
     background: linear-gradient(to bottom, rgba(242, 242, 242, 0), rgba(242, 242, 242, 1));
 }
 
@@ -319,7 +337,8 @@ a#soffers-close {
     }
     .w4offer1,
     .w4offer2,
-    .w4offer3 {
+    .w4offer3,
+    .w4offer4 {
         display: none;
     }
     .soffers-box {

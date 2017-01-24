@@ -1996,12 +1996,14 @@ a#w4offers-close {
     background: url('/media/landing_pages/ft00324mp/icon-close.png') no-repeat right top;
     font-size: 18px;
     text-transform: uppercase;
-    color: #c2c2c2;
+    /** color: #c2c2c2; **/
+    color: #fff;
     font-family: 'Lato', Helvetica, "Helvetica Neue", Arial, sans-serif;
     display: block;
     position: absolute;
     right: 30px;
     top: 15px;
+    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
 
 .header-w4 .top-special span {
@@ -2047,6 +2049,72 @@ a#w4offers-close {
 .droz-gold .cta-section .cta-cartcopy {
     margin: 12px 0;
     display: block;
+}
+
+.top-todayonly {
+    min-height: 189px;
+    background: url('/media/landing_pages/20161208/bg-todayonly.png') repeat-x top;
+}
+
+.top-todayonly-content {
+    text-align: center;
+}
+
+.top-todayonly-content p {
+    display: block;
+}
+
+.top-todayonly .container {
+    background: url('/media/landing_pages/20161208/bg-todayonly-gel.jpg') no-repeat right top;
+    min-height: 189px;
+}
+
+.todayonly-title1 {
+    font-size: 65px;
+    line-height: 65px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+    margin-top: 30px;
+}
+
+.todayonly-title1 {
+     font-size: 65px;
+     line-height: 65px;
+     font-family: "Lato", "Helvetica Neue", Helvetica, Arial;
+     font-weight: bold;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     color: #fff;
+     text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+ }
+
+.todayonly-title2 {
+    font-size: 24px;
+    line-height: 24px;
+    font-family: "Avenir Next Condensed", Helvetica, Arial;
+    text-transform: uppercase;
+    color: #000;
+    margin-top: 8px;
+}
+
+.cta-todayonly {
+    width: 100%;
+    max-width: 192px;
+    height: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.cms-container .messages {
+    display: none !important;
+}
+
+#w4offers-wrap {
+    display: block !important;
 }
 
 
@@ -3362,6 +3430,9 @@ p.upsell-savings {
     .upsell-price, .upsell-savings {
         font-size: 13px;
     }
+    .cta-todayonly {
+        max-width: 148px;
+    }
 }
 
 @media(max-width:767px) {
@@ -3399,6 +3470,33 @@ p.upsell-savings {
         font-size: 13px;
         line-height: normal;
     }
+
+    .top-todayonly {
+        min-height: 100px;
+        background: url('/media/landing_pages/20161208/bg-todayonly.png') repeat-x top;
+    }
+
+    .top-todayonly .container {
+        background-image: none;
+        min-height: 100px;
+    }
+
+    .todayonly-title1 {
+        font-size: 45px;
+        line-height: 45px;
+        margin-top: 16px;
+    }
+
+    .todayonly-title2 {
+        font-size: 18px;
+        line-height: 18px;
+        margin-top: 4px;
+    }
+
+    .cta-todayonly {
+        max-width: 128px;
+    }
+
 }
 
 @media(max-width: 480px) {

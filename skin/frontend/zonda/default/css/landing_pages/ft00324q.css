@@ -1824,9 +1824,12 @@ p.olay-disclaimer {
 }
 
 .w4offers-box .w4offer1 .w4-prod-desc,
-.w4offers-box .w4offer2 .w4-prod-desc,
 .w4offers-box .w4offer3 .w4-prod-desc {
-    min-height: 477px;
+    min-height: 510px;
+}
+
+.w4offers-box .w4offer2 .w4-prod-desc {
+    min-height: 570px;
 }
 
 .w4offers-box .w4-prod-image {
@@ -2480,10 +2483,14 @@ a#w4offers-close {
     }
 
     .w4offers-box .w4offer1 .w4-prod-desc,
-    .w4offers-box .w4offer2 .w4-prod-desc,
     .w4offers-box .w4offer3 .w4-prod-desc {
-        min-height: 407px;
+        min-height: 480px;
     }
+
+    .w4offers-box .w4offer2 .w4-prod-desc {
+        min-height: 540px;
+    }
+
 
     .w4offers-box .w4-prod-cta .btn-cart {
         font-size: 16px;

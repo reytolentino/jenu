@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Gremlin_Lowstocknotify>
+			<version>1.0.3</version>
+		</Gremlin_Lowstocknotify>
+	</modules>
+	
+	<global>
+		<helpers>
+			<lowstocknotify>
+				<class>Gremlin_Lowstocknotify_Helper</class>
+			</lowstocknotify>
+		</helpers>
+
+		<models>
+			<lowstocknotify>
+				<class>Gremlin_Lowstocknotify_Model</class>
+				<resourceModel>lowstocknotify_mysql4</resourceModel>
+			</lowstocknotify>
+
+			<lowstocknotify_mysql4>
+				<class>Gremlin_Lowstocknotify_Model_Mysql4</class>
+				<entities>
+					<lowstocknotify>
+						<table>gremlin_lowstocknotify</table>
+					</lowstocknotify>
+				</entities>
+			</lowstocknotify_mysql4>
+		</models>
+
+		<resources>
+			<lowstocknotify_setup>
+				<setup>
+					<module>Gremlin_Lowstocknotify</module>
+				</setup>
+				
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</lowstocknotify_setup>
+
+			<lowstocknotify_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</lowstocknotify_write>
+			
+			<lowstocknotify_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</lowstocknotify_read>
+		</resources>
+
+		<events>
+			<cataloginventory_stock_item_save_commit_after>
+				<observers>
+					<gremlin_lowstocknotify_observer>
+						<type>singleton</type>
+						<class>lowstocknotify/observer</class>
+						<method>stockChanged</method>
+					</gremlin_lowstocknotify_observer>
+				</observers>
+			</cataloginventory_stock_item_save_commit_after>
+
+			<sales_order_place_after>
+				<observers>
+					<gremlin_lowstocknotify_observer>
+						<type>singleton</type>
+						<class>lowstocknotify/observer</class>
+						<method>orderPlaced</method>
+					</gremlin_lowstocknotify_observer>
+				</observers>
+			</sales_order_place_after>
+		</events>
+
+		<template>
+			<email>
+				<gremlin_lowstocknotify_email>
+					<label>Low Stock Notification Email</label>
+					<file>lowstocknotify/notification.html</file>
+					<type>html</type>
+				</gremlin_lowstocknotify_email>
+			</email>
+		</template>
+	</global>
+
+	<default>
+		<cataloginventory>
+			<lowstocknotify>
+				<active>0</active>
+				<email_addresses></email_addresses>
+				<stock_level>0</stock_level>
+				<email_template></email_template>
+			</lowstocknotify>
+		</cataloginventory>
+	</default>
+
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<cataloginventory translate="title" module="lowstocknotify">
+											<title>Low Stock Notification</title>
+										</cataloginventory>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+
+</config>

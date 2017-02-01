@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<config>
+	<sections>
+		<cataloginventory>
+			<groups>
+				
+				<lowstocknotify translate="label" module="lowstocknotify">
+					<label>Low Stock Notification</label>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>0</show_in_website>
+					<show_in_store>0</show_in_store>
+					<expanded>1</expanded>
+					<fields>
+						
+						<active translate="label">
+							<label>Enable</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>Send email notification when products are out of stock?</comment>
+						</active>
+
+						<email_addresses translate="label">
+							<label>Email Address(es)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>Single or comma separated email addresses to send the notification to</comment>
+							<validate>required-entry</validate>
+							<depends>
+								<active>1</active>
+							</depends>
+						</email_addresses>
+
+						<stock_level translate="label">
+							<label>Stock Level</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>The email is sent when any product's stock quantity reaches this number</comment>
+							<validate>required-entry validate-digits</validate>
+							<depends>
+								<active>1</active>
+							</depends>
+						</stock_level>
+
+						<email_template translate="label">
+							<label>Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>Select the email template that goes out as a notification</comment>
+							<depends>
+								<active>1</active>
+							</depends>
+						</email_template>
+
+					</fields>
+				</lowstocknotify>
+
+			</groups>
+		</cataloginventory>
+	</sections>
+</config>

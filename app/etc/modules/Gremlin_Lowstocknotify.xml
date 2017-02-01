@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Gremlin_Lowstocknotify>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Mage_CatalogInventory />
+			</depends>
+		</Gremlin_Lowstocknotify>
+	</modules>
+</config>

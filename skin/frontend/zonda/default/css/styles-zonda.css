@@ -4325,6 +4325,99 @@ ul.homepage-content-worksgreat-list ul {
 
 .slick-initialized { visibility: visible !important; }
 
+.nm-page .nm-main {
+    background-image: url("../images/nm/nm-bg-main.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 513px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.nm-main .nmlogo {
+    max-width: 215px;
+    width: 100%;
+    height: auto;
+}
+
+.nm-page .nm-main h1 {
+    text-align: center;
+    line-height: 80px;
+    margin-top: 100px;
+}
+
+.nm-page .nm-main h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #a98236;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.nm-page .nm-main a.nmbtn-shop {
+    height: 55px;
+    line-height: 47px;
+    padding: 0 25px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    background: #3d3d3d;
+    font-size: 16px;
+    border: 4px solid #fff;
+    max-width: 180px;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
+}
+
+.nm-content-wrap {
+    background-color: #f7f7f7;
+    padding:60px 0;
+}
+
+.nm-content-wrap .nmnblogo {
+    max-width: 380px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 60px auto;
+    display: block;
+}
+
+.nm-content-wrap .nmnb-copy {
+    color:#333;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.8px;
+    padding: 20px 20px;
+}
+
+.nm-content-wrap .nmnbimg {
+    max-width: 558px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.nm-content-wrap .nmnb-copy a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 16px;
+}
+
+.nm-content-wrap .nmnb-copy.nmnb-learn a {
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 40px;
+    display: inline-block;
+}
+
 .raf-page .raf-main {
     background-image: url("../images/raf/bg-main.jpg");
     background-size: cover;

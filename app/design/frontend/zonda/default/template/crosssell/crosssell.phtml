@@ -24,8 +24,9 @@ if ($b['product']['aspect_ratio'])
  
 <?php if(count($this->getCroItem())>0): ?>
 <div class="crosssell box-cross-sell">
-    <h3 class="subtitle"><span class="inline-title"><?php echo $this->__('Customers Also Bought') ?></span><?php if ($this->getItemCount() > 2) echo '<div class="line"></div>'; ?></h3>
-    <p class="desc"><?php echo $this->__('Based on your selection, you may be interested in the following items.') ?></p>
+    <h3 class="subtitle"><span class="inline-title"><?php echo $this->__('People Also Bought') ?></span><?php if ($this->getItemCount() > 2) echo '<div class="line"></div>'; ?></h3>
+    <p class="desc"><?php echo $this->__('Based on your selection, you are eligible for introductory savings on the following items.<br> 
+Enjoy exclusive savings on products we recommend for use with the JeNu Infuser.') ?></p>
     <div id="crosssell-products-list" class="container crosssell-products products-grid large-icons"><ul class="slides row">
     <?php foreach ($this->getCroItem() as $_item): ?>
         <li class="item col-md-3">

@@ -1,0 +1,302 @@
+.header-w4 .top-special span.hlight.top-specials {
+    margin-top: 0;
+    width: 100%;
+    display:inline-block;
+}
+
+.header-w4 .top-flash {
+    height: 85px;
+    width: auto;
+}
+
+.droz-hero {
+    background-image: none;
+}
+
+.droz-hero-img {
+    margin-top: 20px;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-top: 50px;
+    display: block;
+    border-bottom: 1px solid #d19a8c;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.droz-gold .droz-hero-right h3.subplus3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.droz-hero-right .affirm-box {
+    font-size: 14px;
+    color: #333;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    border: 1px solid #eee;
+    -webkit-border-radius: 3px;
+    -moz-border-radius:3px;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 10px 0 10px 0;
+}
+
+.droz-hero-right .affirm-box,
+.droz-hero-right .droz-price-wrap {
+    font-weight: 400;
+}
+
+.droz-hero-right .affirm-box strong,
+.droz-hero-right .droz-price-wrap strong {
+    color: #000;
+}
+
+.droz-hero-right .affirm-box .affirm-box-copy {
+    margin-top: 8px;
+}
+
+.droz-hero-right .affirm-box .affirm-logo {
+    height: 14px;
+    width: auto;
+    vertical-align: baseline;
+}
+
+.droz-hero-right a#multipay {
+    width: 120px;
+    background: #22c9e7;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 36px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    height: 36px;
+}
+
+.droz-hero-right a#multipay:hover {
+    background: #2993a6;
+}
+
+.droz-hero-right .droz-price-wrap {
+    display: inline-block;
+    font-size: 13px;
+    color: #333;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.droz-hero-right .droz-price-wrap .freegifts {
+    display: block;
+}
+
+.droz-hero-right .btn-cart {
+    height: 36px;
+    line-height: 36px;
+    width: 120px;
+    background: #000;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 0;
+    padding: 0;
+}
+
+.droz-hero-right .cta-or {
+    color: #000;
+    font-size: 13px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 12px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.droz-hero-right .multipaywrap {
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+    font-size: 13px;
+    width: 220px;
+    line-height: normal;
+    background: url('/media/landing_pages/droz/icon-multipay.png') no-repeat left center;
+    background-size: 27px 22px;
+    padding-left: 32px;
+    display: inline-block;
+    margin-top: 3px;
+    font-weight: 400;
+}
+
+.droz-hero-right .multipaywrap a {
+    text-decoration: underline;
+    color: #000;
+    font-weight: bold;
+}
+
+.droz-hero-right .bottomcopy {
+    font-size: 12px;
+    color: #666;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    clear:both;
+    font-weight: 400;
+}
+
+.droz-hero-right .bottomcopy .fa-circle {
+    font-size: 8px;
+    color: #ccc;
+    display: inline-block;
+    margin: 0 16px;
+    vertical-align: middle;
+}
+
+@media(max-width: 991px) {
+    .droz-hero-right .affirm-box {
+        font-size: 13px;
+        padding: 10px 0 10px 0;
+    }
+
+    .droz-hero-right .affirm-box .affirm-box-copy {
+        margin-top: 4px;
+    }
+
+    .droz-hero-right .col-sm-7,
+    .droz-hero-right .col-sm-5 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .droz-hero-right .affirm-box .affirm-logo {
+        height: 11px;
+    }
+
+    .droz-hero-right a#multipay {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    .droz-hero-right .droz-price-wrap {
+        display: inline-block;
+        font-size: 12px;
+        color: #333;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        text-align: center;
+        padding: 16px 0;
+        overflow: hidden;
+    }
+
+    .droz-hero-right .droz-price {
+        font-size: 12px;
+    }
+
+    .droz-hero-right .btn-cart {
+        width: 100px;
+        background: #000;
+        font-size: 11px;
+        padding: 0;
+    }
+
+    .droz-hero-right .bottomcopy {
+        font-size: 11px;
+        margin: 10px auto;
+    }
+}
+
+
+@media(max-width: 767px) {
+    .header-w4 .top-flash {
+        height: 50px;
+        width: auto;
+    }
+    .droz-hero-mobile.product-highlights-wrap .slide1 .droz-hero-png {
+        width: 100%;
+    }
+    .droz-hero-mobile.product-highlights-wrap h1 {
+        font-size: 16px;
+        line-height: normal;
+        text-align: center;
+    }
+    .droz-hero-mobile.product-highlights-wrap h3 {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 5px auto;
+        text-align: center;
+    }
+    .droz-hero-mobile.product-highlights-wrap .ratings {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .droz-hero-mobile.product-highlights-wrap .ratings .amount a {
+        color:#000;
+    }
+    .droz-hero-mobile .product-highlights .slide3 .slidecontent img,
+    .droz-hero-mobile .product-highlights .slide4 .slidecontent img {
+        width: 100%;
+    }
+    .product-highlights .slide2 .slidecontent {
+        text-align: left;
+    }
+    .droz-gold .droz-hero-mobile .product-highlights .slide4 h1,
+    .droz-gold .droz-hero-mobile .product-highlights .slide3 h1{
+        font-size: 13px;
+        line-height: normal;
+        margin-bottom: 5px;
+    }
+
+    .droz-gold .droz-hero-mobile .product-highlights .droz-hero-list li {
+        padding-left: 20px;
+        margin-bottom: 10px;
+        color:#000;
+        line-height: normal;
+    }
+
+    .droz-gold .droz-hero-mobile .product-highlights .droz-hero-list li:before {
+        font-family: "FontAwesome";
+        content: '\f067';
+        position: absolute;
+        color:#d19a8c;
+        left: 24px;
+        margin-top:2px;
+    }
+    .droz-hero-right .col-sm-7,
+    .droz-hero-right .col-sm-5 {
+        vertical-align: top;
+        width: 48%;
+        display: inline-block;
+    }
+    .droz-hero-right .droz-price-wrap {
+        text-align: left;
+    }
+    .droz-hero-right .droz-price {
+        text-align: center;
+    }
+
+    .droz-hero-right .droz-price-wrap .btn-cart {
+        text-align: center;
+    }
+
+    .droz-hero-right .affirm-box,
+    .droz-hero-right .droz-price-wrap {
+        display: block;
+        font-weight: 400;
+    }
+
+    .product-cta.mobile-product-cta .bottombar .mobile-riskfree-bar {
+        text-align: center;
+        padding: 0 0 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #999;
+        display: block;
+    }
+}

@@ -38,7 +38,12 @@ a#soffers-close {
 }
 
 .soffer4 {
-    background: #f2f2f2;
+     background: #f2f2f2;
+     margin-top: -30px;
+ }
+
+.soffer5 {
+    background: #f7f7f7;
     margin-top: -30px;
 }
 
@@ -293,7 +298,8 @@ a#soffers-close {
     margin-top: -50px;
 }
 
-.soffers-box .soffer4 .soffer-savings {
+.soffers-box .soffer4 .soffer-savings,
+.soffers-box .soffer5 .soffer-savings{
     margin-bottom: 10px;
 }
 

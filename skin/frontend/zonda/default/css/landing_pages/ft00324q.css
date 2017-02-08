@@ -1824,7 +1824,8 @@ p.olay-disclaimer {
 }
 
 .w4offers-box .w4offer1 .w4-prod-desc,
-.w4offers-box .w4offer3 .w4-prod-desc {
+.w4offers-box .w4offer3 .w4-prod-desc,
+.w4offers-box .w4offer5 .w4-prod-desc{
     min-height: 510px;
 }
 
@@ -1971,7 +1972,8 @@ p.olay-disclaimer {
     text-decoration: underline;
 }
 
-.w4offers-box .w4offer4 .w4-prod-cta .savings {
+.w4offers-box .w4offer4 .w4-prod-cta .savings,
+.w4offers-box .w4offer5 .w4-prod-cta .savings {
     margin-bottom: 40px;
 }
 
@@ -2483,7 +2485,8 @@ a#w4offers-close {
     }
 
     .w4offers-box .w4offer1 .w4-prod-desc,
-    .w4offers-box .w4offer3 .w4-prod-desc {
+    .w4offers-box .w4offer3 .w4-prod-desc,
+    .w4offers-box .w4offer5 .w4-prod-desc{
         min-height: 480px;
     }
 

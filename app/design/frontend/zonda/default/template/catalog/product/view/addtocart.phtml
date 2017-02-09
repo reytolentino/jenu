@@ -246,12 +246,6 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
 
-    <?php if($_product->getId() == 88): ?>
-        <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
-            Due to unexpected demand for this item, shipping may be slightly delayed. Please allow 3 extra business days for your order to ship.
-        </div>
-    <?php endif; ?>
-
 <?php endif; ?>
 
 

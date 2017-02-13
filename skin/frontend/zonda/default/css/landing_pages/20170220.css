@@ -1,0 +1,16 @@
+.header-w4 .top-special {
+    background: #5399a5 url('/media/landing_pages/20170220/bg-stars.png') repeat center center;
+}
+
+.header-w4 .top-flash {
+    height: 120px;
+    margin-top: -16px;
+    width: auto;
+}
+
+@media(max-width: 767px) {
+    .header-w4 .top-flash {
+        height: 85px;
+        margin-top: -16px;
+    }
+}

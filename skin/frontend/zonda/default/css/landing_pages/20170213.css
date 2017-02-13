@@ -101,17 +101,18 @@
 
 .droz-hero-right .cta-more a.w4offers-wrap_open {
     float: none;
-    background: #00c8e9;
-    height: 40px;
-    line-height: 40px;
+    background: none;
+    height: auto;
+    line-height: normal;
     width: auto;
     display: inline-block;
-    margin: 20px auto;
-    padding: 0 16px;
-}
-
-.droz-hero-right .cta-more a.w4offers-wrap_open:hover {
-    background: #009bb5;
+    margin-top: 20px;
+    padding: 0;
+    text-transform: none;
+    color: #000;
+    text-decoration: underline;
+    letter-spacing: normal;
+    font-size: 13px;
 }
 
 .droz-gold .droz-hero-right h2.subplus {
@@ -127,6 +128,10 @@
 
     .droz-gold .droz-price-wrap .droz-price {
         padding-right: 5px;
+    }
+
+    .droz-hero-right .cta-more a.w4offers-wrap_open {
+        margin-top: 0;
     }
 
 }

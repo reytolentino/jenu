@@ -1,0 +1,132 @@
+.droz-hero-right .affirm-box {
+    font-size: 14px;
+    color: #333;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    border: 1px solid #eee;
+    -webkit-border-radius: 3px;
+    -moz-border-radius:3px;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 10px 0 10px 0;
+}
+
+.droz-hero-right .affirm-box,
+.droz-hero-right .droz-price-wrap {
+    font-weight: 400;
+}
+
+.droz-hero-right .affirm-box strong,
+.droz-hero-right .droz-price-wrap strong {
+    color: #000;
+}
+
+.droz-hero-right .affirm-box .affirm-box-copy {
+    margin-top: 8px;
+}
+
+.droz-hero-right .affirm-box .affirm-logo {
+    height: 14px;
+    width: auto;
+    vertical-align: baseline;
+}
+
+.droz-hero-right a#multipay {
+    background: #22c9e7 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 120px;
+}
+
+.droz-hero-right a#multipay:hover {
+    background: #0d472f;
+}
+
+.droz-hero-right .droz-price-wrap {
+    display: inline-block;
+    font-size: 13px;
+    color: #333;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.droz-hero-right .droz-price-wrap .freegifts {
+    display: block;
+}
+
+.droz-hero-right .btn-cart {
+    background: #000 none repeat scroll 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 0;
+    padding: 0;
+    width: 120px;
+    float: left;
+}
+
+.droz-hero-right .cta-or {
+    color: #000;
+    font-size: 13px;
+    font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 12px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.droz-price-wrap .cta-cartbtn,
+.droz-price-wrap .droz-price {
+    float: left;
+}
+
+.droz-gold .btn-cart {
+    background-color: #000;
+}
+
+.droz-hero-right .cta-more {
+    text-align: center;
+}
+
+.droz-hero-right .cta-more a.w4offers-wrap_open {
+    float: none;
+    background: #00c8e9;
+    height: 40px;
+    line-height: 40px;
+    width: auto;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+.droz-hero-right .cta-more a.w4offers-wrap_open:hover {
+    background: #009bb5;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    margin-top: 30px;
+}
+
+.droz-hero-right .buynow-heading {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+@media(max-width: 767px) {
+
+    .droz-gold .droz-price-wrap .droz-price {
+        padding-right: 5px;
+    }
+
+}

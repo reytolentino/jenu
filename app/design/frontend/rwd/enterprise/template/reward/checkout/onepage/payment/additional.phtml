@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     rwd_enterprise
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -37,6 +37,7 @@
     //<![CDATA[
     var isEnoughPointsToCoverAmount = <?php if ($this->isEnoughPoints()): ?>true<?php else: ?>false<?php endif; ?>;
     var rewardPointsSubstracted = <?php if ($this->useRewardPoints()): ?>true<?php else: ?>false<?php endif; ?>;
+    var rewardPointsAmount = <?php echo (float)$this->getCurrencyAmount(); ?>;
 
     if (rewardPointsSubstracted) {
         quoteBaseGrandTotal += <?php echo (float)$this->getQuote()->getBaseRewardCurrencyAmount(); ?>;
@@ -52,6 +53,12 @@
         }
         if (rewardPointsSubstracted && !$('use_reward_points').checked) {
             quoteBaseGrandTotal += <?php echo (float)$this->getCurrencyAmount(); ?>;
+            if(quoteBaseGrandTotal > quoteGrandTotalClean) {
+                quoteBaseGrandTotal = quoteGrandTotalClean;
+                if($('use_customer_balance') && $('use_customer_balance').checked) {
+                    quoteBaseGrandTotal -= customerBalanceAmount;
+                }
+            }
             rewardPointsSubstracted = false;
             checkQuoteBaseGrandTotal = quoteBaseGrandTotal;
         }
@@ -83,8 +90,18 @@
                 $('checkout-payment-method-load').hide();
                 payment.switchMethod();
             } else {
-                $('checkout-payment-method-load').show();
-                payment.switchMethod(payment.lastUsedMethod);
+                if (quoteBaseGrandTotal > 0) {
+                    $('checkout-payment-method-load').show();
+                    var elements = Form.getElements(this.form);
+                    for (var i = 0; i < elements.length; i++) {
+                        if (elements[i].name == 'payment[method]') {
+                            elements[i].disabled = false;
+                        }
+                    }
+                    if (payment.lastUsedMethod != 'free') {
+                        payment.switchMethod(payment.lastUsedMethod);
+                    }
+                }
             }
         } else {
             var elements = Form.getElements(this.form);
@@ -95,6 +112,15 @@
             }
             $('checkout-payment-method-load').show();
             payment.switchMethod(payment.lastUsedMethod);
+        }
+        if (quoteBaseGrandTotal > 0) {
+            if ($('dt_method_free')) {
+                $('dt_method_free').hide();
+                if ($('p_method_free')) {
+                    $('p_method_free').checked = false;
+                    $('p_method_free').disabled = true;
+                }
+            }
         }
     }
     if (payment) {

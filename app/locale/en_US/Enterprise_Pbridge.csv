@@ -77,6 +77,7 @@
 "Unable to cancel order.","Unable to cancel order."
 "Unable to communicate with Payment Bridge service.","Unable to communicate with Payment Bridge service."
 "Use via Payment Bridge","Use via Payment Bridge"
+"Verify SSL Connection","Verify SSL Connection"
 "Worldpay","Worldpay"
 "Wrong Order ID (%s) specified.","Wrong Order ID (%s) specified."
 "Your payment information has been submitted to the server. If you need to make changes, please click <a style=""color: #1E75B4"" href=""#"" onclick=""parent.reloadIframe(paymentObj.currentMethod); return false;"">here</a> .","Your payment information has been submitted to the server. If you need to make changes, please click <a style=""color: #1E75B4"" href=""#"" onclick=""parent.reloadIframe(paymentObj.currentMethod); return false;"">here</a> ."

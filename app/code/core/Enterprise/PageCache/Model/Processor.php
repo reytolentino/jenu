@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_PageCache
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -379,8 +379,12 @@ class Enterprise_PageCache_Model_Processor
      */
     public function getSessionInfoCacheId()
     {
-        $cookieName = Mage_Core_Model_Store::COOKIE_NAME;
-        return 'full_page_cache_session_info' . (isset($_COOKIE[$cookieName]) ? '_' . $_COOKIE[$cookieName] : '');
+        $cookieName = '_';
+        if (isset($_COOKIE[Mage_Core_Model_Store::COOKIE_NAME])) {
+            $cookieName .= $_COOKIE[Mage_Core_Model_Store::COOKIE_NAME];
+        }
+        $host = $this->_getCurrentHost();
+        return sprintf("full_page_cache_session_info%s_%s", $cookieName, $host);
     }
 
     /**
@@ -415,9 +419,8 @@ class Enterprise_PageCache_Model_Processor
             $isProcessed = false;
         }
 
-        if (isset($_COOKIE[Enterprise_PageCache_Model_Cookie::COOKIE_FORM_KEY])) {
-            $formKey = $_COOKIE[Enterprise_PageCache_Model_Cookie::COOKIE_FORM_KEY];
-        } else {
+        $formKey = Enterprise_PageCache_Model_Cookie::getFormKeyCookieValue();
+        if (!$formKey) {
             $formKey = Enterprise_PageCache_Helper_Data::getRandomString(16);
             Enterprise_PageCache_Model_Cookie::setFormKeyCookieValue($formKey);
         }
@@ -502,10 +505,13 @@ class Enterprise_PageCache_Model_Processor
      */
     public function addRequestTag($tag)
     {
-        if (is_array($tag)) {
-            $this->_requestTags = array_merge($this->_requestTags, $tag);
-        } else {
-            $this->_requestTags[] = $tag;
+        if (!is_array($tag)) {
+            $tag = array($tag);
+        }
+        foreach ($tag as $value) {
+            if (!in_array($value, $this->_requestTags)) {
+                $this->_requestTags[] = $value;
+            }
         }
         return $this;
     }
@@ -713,21 +719,19 @@ class Enterprise_PageCache_Model_Processor
      */
     protected function _getFullPageUrl()
     {
-        $uri = false;
-        /**
-         * Define server HTTP HOST
-         */
-        if (isset($_SERVER['HTTP_HOST'])) {
-            $uri = $_SERVER['HTTP_HOST'];
-        } elseif (isset($_SERVER['SERVER_NAME'])) {
-            $uri = $_SERVER['SERVER_NAME'];
-        }
+        $uri = $this->_getCurrentHost();
 
         /**
          * Define request URI
          */
-        if ($uri) {
-            if (isset($_SERVER['REQUEST_URI'])) {
+        if (!empty($uri)) {
+            if (isset($_SERVER['HTTP_X_ORIGINAL_URL'])) {
+                // IIS with Microsoft Rewrite Module
+                $uri.= $_SERVER['HTTP_X_ORIGINAL_URL'];
+            } elseif (isset($_SERVER['HTTP_X_REWRITE_URL'])) {
+                // IIS with ISAPI_Rewrite
+                $uri.= $_SERVER['HTTP_X_REWRITE_URL'];
+            } elseif (isset($_SERVER['REQUEST_URI'])) {
                 $uri.= $_SERVER['REQUEST_URI'];
             } elseif (!empty($_SERVER['IIS_WasUrlRewritten']) && !empty($_SERVER['UNENCODED_URL'])) {
                 $uri.= $_SERVER['UNENCODED_URL'];
@@ -741,6 +745,31 @@ class Enterprise_PageCache_Model_Processor
         return $uri;
     }
 
+    /**
+     * Get Current Host
+     *
+     * @return string
+     */
+    protected function _getCurrentHost()
+    {
+        $uri = '';
+
+        /**
+         * Define server HTTP HOST
+         */
+        if (isset($_SERVER['HTTP_HOST'])) {
+            if (strpos($_SERVER['HTTP_HOST'], ',') !== false || strpos($_SERVER['HTTP_HOST'], ';') !== false) {
+                $response = new Zend_Controller_Response_Http();
+                $response->setHttpResponseCode(400)->sendHeaders();
+                exit();
+            }
+            $uri = $_SERVER['HTTP_HOST'];
+        } elseif (isset($_SERVER['SERVER_NAME'])) {
+            $uri = $_SERVER['SERVER_NAME'];
+        }
+
+        return $uri;
+    }
 
     /**
      * Save metadata for cache in cache storage

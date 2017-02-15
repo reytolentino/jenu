@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Cms
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -56,5 +56,15 @@ class Enterprise_Cms_Adminhtml_Cms_Hierarchy_WidgetController extends Mage_Admin
         return $this->getLayout()->createBlock('enterprise_cms/adminhtml_cms_hierarchy_widget_chooser', '', array(
             'id' => $this->getRequest()->getParam('uniq_id')
         ));
+    }
+
+    /**
+     * Check is allowed access to action
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/widget_instance');
     }
 }

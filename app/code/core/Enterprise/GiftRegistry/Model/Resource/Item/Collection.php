@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_GiftRegistry
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -75,7 +75,7 @@ class Enterprise_GiftRegistry_Model_Resource_Item_Collection extends Mage_Core_M
     public function addProductFilter($productId)
     {
         if ((int)$productId > 0) {
-            $this->addFieldToFilter('product_id ', (int)$productId);
+            $this->addFieldToFilter('product_id', (int)$productId);
         }
         return $this;
     }

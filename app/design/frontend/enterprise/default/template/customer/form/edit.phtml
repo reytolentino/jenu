@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     enterprise_default
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 ?>
@@ -39,7 +39,7 @@
         <li>
             <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
             <div class="input-box">
-                <input type="text" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text required-entry validate-email" />
+                <input type="text" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text required-entry validate-email" />
             </div>
         </li>
         <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
@@ -58,9 +58,19 @@
             <?php endif ?>
         </li>
         <?php endif ?>
+        <li class="fields">
+            <div class="field">
+                <label for="current_password" class="required"><em>*</em><?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?></label>
+                <div class="input-box">
+                    <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
+                    <input type="text" class="input-text no-display" name="dummy" id="dummy" />
+                    <input type="password" class="input-text required-entry" name="current_password" id="current_password" />
+                </div>
+            </div>
+        </li>
         <li class="control">
             <div class="input-box">
-                <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Change Password')) ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" />
             </div>
             <label for="change_password"><?php echo $this->__('Change Password') ?></label>
         </li>
@@ -75,25 +85,15 @@
     <ul class="form-list">
         <li class="fields">
             <div class="field">
-                <label for="current_password"><?php echo $this->__('Current Password') ?></label>
-                <div class="input-box">
-                    <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
-                    <input type="text" class="input-text no-display" name="dummy" id="dummy" />
-                    <input type="password" class="input-text" name="current_password" id="current_password" />
-                </div>
-            </div>
-        </li>
-        <li class="fields">
-            <div class="field">
                 <label for="password"><?php echo $this->__('New Password') ?></label>
                 <div class="input-box">
-                    <input type="password" class="input-text validate-both-passwords validate-password" name="password" id="password" />
+                    <input type="password" class="input-text required-entry validate-both-passwords validate-password" name="password" id="password" />
                 </div>
             </div>
             <div class="field">
                 <label for="confirmation"><?php echo $this->__('Confirm New Password') ?></label>
                 <div class="input-box">
-                    <input type="password" class="input-text validate-both-passwords" name="confirmation" id="confirmation" />
+                    <input type="password" class="input-text required-entry validate-both-passwords" name="confirmation" id="confirmation" />
                 </div>
             </div>
         </li>
@@ -101,7 +101,7 @@
 </div>
 <div class="buttons-set form-buttons">
     <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Go back') ?></a></p>
-    <button type="submit" class="button" title="<?php echo $this->__('Save') ?>"><span><span><?php echo $this->__('Save') ?></span></span></button>
+    <button type="submit" class="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save')) ?>"><span><span><?php echo $this->__('Save') ?></span></span></button>
 </div>
 <p class="required"><?php echo $this->__('* Required Fields') ?></p>
 </form>
@@ -109,18 +109,7 @@
 //<![CDATA[
     var dataForm = new VarienForm('form-validate', true);
     function setPasswordForm(arg){
-        if(arg){
-            $('current_password').up(4).show();
-            $('current_password').addClassName('required-entry');
-            $('password').addClassName('required-entry');
-            $('confirmation').addClassName('required-entry');
-
-        }else{
-            $('current_password').up(4).hide();
-            $('current_password').removeClassName('required-entry');
-            $('password').removeClassName('required-entry');
-            $('confirmation').removeClassName('required-entry');
-        }
+        $('password').up('.fieldset')[arg ? 'show': 'hide']();
     }
     <?php if($this->getCustomer()->getChangePassword()): ?>
         setPasswordForm(true);

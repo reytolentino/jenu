@@ -19,7 +19,7 @@
  *
  * @category    design
  * @package     default_default
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 jQuery.noConflict();
@@ -83,8 +83,9 @@ merchandiserJS.prototype = {
         });
     },
     observeCategoryAdd : function() {
+        var escapedId = jQuery("<div></div>").text(this.id).html();
         jQuery('.category-add-button').unbind('click').click( function() {
-            var liHTML = '<li id="s' + this.id + '" class="' + $('search-s' + this.id).className + '">';
+            var liHTML = '<li id="s' + escapedId + '" class="' + $('search-s' + this.id).className + '">';
             liHTML += $('search-s' + this.id).innerHTML;
             liHTML += '</li>';
             jQuery(liHTML).prependTo('#infinite_scroll');
@@ -99,7 +100,7 @@ merchandiserJS.prototype = {
         jQuery('.search-results .dragbox').each( function(index) {
             item = jQuery(this);
             var merJSObject = new merchandiserJS();
-            prodId = merJSObject.getProdIdFromClass(item.attr('class'), mandatory)
+            prodId = merJSObject.getProdIdFromClass(item.attr('class'), mandatory);
             if (prodId) {
                 duplItem = jQuery('#merchandiser-categories input.productid'+prodId);
                 if (0 < duplItem.length) {
@@ -253,7 +254,7 @@ merchandiserJS.prototype = {
             var mainUrl = jQuery(this).parents('.cols2-left').find('a').first().attr('href');
             if(event.type == 'mouseenter') mainImg.attr('src', url);
             else mainImg.attr('src', mainUrl);
-        })
+        });
     },
     showDimWindow : function(){
         jQuery('#dimwindow').show();
@@ -294,8 +295,10 @@ merchandiserJS.prototype = {
 
         sku_array.each(function(value){
             value = value.trim().replace(/ /g, "_");
-            if (jQuery('#merchandiser-categories #sku-'+value).length) {
-                jQuery('#merchandiser-categories #sku-'+value).remove();
+            var merJSObject = new merchandiserJS();
+            var escapedValue = merJSObject.escapeSpecialChars(value);
+            if (jQuery('#merchandiser-categories #sku-'+escapedValue).length) {
+                jQuery('#merchandiser-categories #sku-'+escapedValue).remove();
                 sku_removed.push(value);
             } else {
                 sku_error.push(value);
@@ -312,7 +315,6 @@ merchandiserJS.prototype = {
             jQuery('#massproductresult').append(sku_removed.join(', '));
             jQuery('#massproductresult').append('<br/>');
             jQuery('#massproductresult').show();
-            this.hideMassProducts();
         }
         this.updateInputPositions();
         observerAddMassProducts();
@@ -356,11 +358,12 @@ merchandiserJS.prototype = {
         var addmassfunction = function(sku_array,index){
             var productSku = sku_array[index];
             var checkSKU = "";
+            var merJSObject = new merchandiserJS();
             if (typeof productSku != 'undefined') {
                 sku_array[index] = productSku.trim();
                 checkSKU = sku_array[index].replace(/ /g,"_");
+                checkSKU = merJSObject.escapeSpecialChars(checkSKU);
             }
-            var merJSObject = new merchandiserJS();
             if (jQuery('#merchandiser-categories #sku-'+checkSKU).length) {
                 if (typeof productSku != 'undefined') {
                     sku_existed.push(sku_array[index]);
@@ -407,7 +410,6 @@ merchandiserJS.prototype = {
                             jQuery('#massproductresult').append('Following SKUs were added: ');
                             jQuery('#massproductresult').append(sku_added.join(", "));
                             jQuery('#massproductresult').append('<br/>');
-                            merJSObject.hideMassProducts();
                             jQuery('#massproductresult').show();
                         }
                         if(merJSObject.countElements(sku_existed) ) {
@@ -437,13 +439,17 @@ merchandiserJS.prototype = {
     },
     removeDups : function(){
         $$('li.productid').each(function (e){
-            var ids = $$('[id=' + e.id + ']');  
-            if (ids.length > 1 && ids[0] === e) {  
-                ids[1].remove();
-            }
+            $$('input[type=hidden].productid.hiddenbox').each(function (ee) {
+                if (e.id == ee.id) {
+                    ee.remove();
+                    return;
+                }
+            });
             var removedIds = $('removed_product_ids').value;
-            if(removedIds.search(e.id) >= 0){
-                ids[0].remove();
+            var merJSObject = new merchandiserJS();
+            escapedId = merJSObject.escapeSpecialChars(e.id);
+            if (removedIds.search(escapedId) >= 0) {
+                e.remove();
             }
         });
     },
@@ -458,6 +464,9 @@ merchandiserJS.prototype = {
     },
     unObserverScrollbar : function(){
         jQuery(window).unbind('scroll');
+    },
+    escapeSpecialChars : function(id){
+        return id.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|\@\%\&\!\#\=\:\;\'\"\>\<]/g, "\\$&");
     }
-}
+};
 

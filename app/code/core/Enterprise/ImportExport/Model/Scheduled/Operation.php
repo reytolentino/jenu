@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_ImportExport
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -137,12 +137,24 @@ class Enterprise_ImportExport_Model_Scheduled_Operation extends Mage_Core_Model_
     {
         $fileInfo = $this->getFileInfo();
         if (trim($fileInfo)) {
-            $this->setFileInfo(unserialize($fileInfo));
+            try {
+                $fileInfo = Mage::helper('core/unserializeArray')
+                    ->unserialize($fileInfo);
+            } catch (Exception $e) {
+                Mage::logException($e);
+            }
+            $this->setFileInfo($fileInfo);
         }
 
         $attrsInfo = $this->getEntityAttributes();
         if (trim($attrsInfo)) {
-            $this->setEntityAttributes(unserialize($attrsInfo));
+            try {
+                $attrsInfo = Mage::helper('core/unserializeArray')
+                    ->unserialize($attrsInfo);
+            } catch (Exception $e) {
+                Mage::logException($e);
+            }
+            $this->setEntityAttributes($attrsInfo);
         }
 
         return parent::_afterLoad();
@@ -378,7 +390,7 @@ class Enterprise_ImportExport_Model_Scheduled_Operation extends Mage_Core_Model_
      *
      * @throws Mage_Core_Exception
      * @param Enterprise_ImportExport_Model_Scheduled_Operation_Interface $operation
-     * @param string $fileContent
+     * @param string|array $fileContent
      * @return bool
      */
     public function saveFileSource(Enterprise_ImportExport_Model_Scheduled_Operation_Interface $operation, $fileContent)
@@ -392,10 +404,17 @@ class Enterprise_ImportExport_Model_Scheduled_Operation extends Mage_Core_Model_
         $fs       = $this->getServerIoDriver();
         $fileName = $operation->getScheduledFileName() . '.' . $fileInfo['file_format'];
 
-        $result   = $fs->write($fileName, $fileContent);
+        if (is_array($fileContent) && isset($fileContent['value'])) {
+            $fs->chmod($fileContent['value'], 0777);
+            $result = $fs->mv($fileContent['value'], $fileName);
+        } else {
+            $result = $fs->write($fileName, $fileContent);
+        }
+
         if (!$result) {
             Mage::throwException(
-                Mage::helper('enterprise_importexport')->__('Unable to write file "%s" to "%s" with "%s" driver', $fileName, $fileInfo['file_path'], $fileInfo['server_type'])
+                Mage::helper('enterprise_importexport')->__('Unable to write file "%s" to "%s" with "%s" driver',
+                    $fileName, $fileInfo['file_path'], $fileInfo['server_type'])
             );
         }
         $operation->addLogComment(Mage::helper('enterprise_importexport')->__('Save file content'));
@@ -484,7 +503,7 @@ class Enterprise_ImportExport_Model_Scheduled_Operation extends Mage_Core_Model_
      * Save operation file history.
      *
      * @throws Mage_Core_Exception
-     * @param string $source
+     * @param string|array $source
      * @return Enterprise_ImportExport_Model_Scheduled_Operation
      */
     protected function _saveOperationHistory($source)
@@ -495,7 +514,14 @@ class Enterprise_ImportExport_Model_Scheduled_Operation extends Mage_Core_Model_
         $fs->open(array(
             'path' => dirname($filePath)
         ));
-        if (!$fs->write(basename($filePath), $source)) {
+
+        if (is_array($source) && isset($source['value'])) {
+            $success = $fs->cp($source['value'], basename($filePath));
+        } else {
+            $success = $fs->write(basename($filePath), $source, 0640);
+        }
+
+        if (!$success) {
             Mage::throwException(Mage::helper('enterprise_importexport')->__('Unable to save file history file'));
         }
         return $this;
@@ -512,7 +538,7 @@ class Enterprise_ImportExport_Model_Scheduled_Operation extends Mage_Core_Model_
         $dirPath = basename(Mage::getBaseDir('var')) . DS . Mage_ImportExport_Model_Abstract::LOG_DIRECTORY
             . date('Y' . DS . 'm' . DS . 'd') . DS . self::FILE_HISTORY_DIRECTORY . DS;
         if (!is_dir(Mage::getBaseDir() . DS . $dirPath)) {
-            mkdir(Mage::getBaseDir() . DS . $dirPath, 0777, true);
+            mkdir(Mage::getBaseDir() . DS . $dirPath, 0750, true);
         }
 
         $fileName = $fileName = join('_', array(

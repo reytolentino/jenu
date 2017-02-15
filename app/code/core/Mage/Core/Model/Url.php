@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Core
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -1141,8 +1141,12 @@ class Mage_Core_Model_Url extends Varien_Object
      */
     public function sessionUrlVar($html)
     {
-        return preg_replace_callback('#(\?|&amp;|&)___SID=([SU])(&amp;|&)?#',
-            array($this, "sessionVarCallback"), $html);
+        if (strpos($html, '__SID') === false) {
+            return $html;
+        } else {
+            return preg_replace_callback('#(\?|&amp;|&)___SID=([SU])(&amp;|&)?#',
+                array($this, "sessionVarCallback"), $html);
+        }
     }
 
     /**

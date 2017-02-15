@@ -3290,6 +3290,11 @@ td.for-desktop {
 .cart-table .qty-td {
     padding-top: 13px;
 }
+.cart-table .qty-td input[type="text"]:disabled {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border: 1px solid #b5b5b5;
+    color: #333;
+}
 .cart-table .price, .cart-table .input[type="text"] {
     font-size: 15px;
 }

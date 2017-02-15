@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_ImportExport
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -84,7 +84,7 @@ class Enterprise_ImportExport_Model_Observer
                      . Mage_ImportExport_Model_Abstract::LOG_DIRECTORY;
 
             if (!file_exists($logPath) || !is_dir($logPath)) {
-                if (!mkdir($logPath, 0777, true)) {
+                if (!mkdir($logPath, 0750, true)) {
                     Mage::throwException(
                         Mage::helper('enterprise_importexport')->__('Unable to create directory "%s".', $logPath)
                     );

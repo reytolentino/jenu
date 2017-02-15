@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Logging
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -51,5 +51,26 @@ class Enterprise_Logging_Model_Resource_Event_Collection extends Mage_Core_Model
     public function getSelectCountSql()
     {
         return parent::getSelectCountSql()->resetJoinLeft();
+    }
+
+    /**
+     * Add IP filter to collection
+     *
+     * @param string $value
+     * @return Enterprise_Logging_Model_Resource_Event_Collection
+     */
+    public function addIpFilter($value)
+    {
+        if (preg_match('/^(\d+\.){3}\d+$/', $value)
+            || preg_match('/^(([0-9a-f]{1,4})?(:([0-9a-f]{1,4})?){1,}:([0-9a-f]{1,4}))(%[0-9a-z]+)?$/i', $value)
+        ) {
+            return $this->addFieldToFilter('ip', inet_pton($value));
+        }
+        $condition = $this->getConnection()->prepareSqlCondition(
+            Mage::getResourceHelper('enterprise_logging')->getInetNtoaExpr('ip'),
+            array('like' => Mage::getResourceHelper('core')->addLikeEscape($value, array('position' => 'any')))
+        );
+        $this->getSelect()->where($condition);
+        return $this;
     }
 }

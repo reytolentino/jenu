@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_PromotionPermissions
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -240,8 +240,8 @@ class Enterprise_PromotionPermissions_Model_Observer
     public function controllerActionPredispatch($observer)
     {
         $controllerAction = $observer->getControllerAction();
-        $controllerActionName = $this->_request->getActionName();
-        $forbiddenActionNames = array('new', 'applyRules', 'save', 'delete', 'run');
+        $controllerActionName = strtolower($this->_request->getActionName());
+        $forbiddenActionNames = array('new', 'applyrules', 'save', 'delete', 'run');
 
         if (in_array($controllerActionName, $forbiddenActionNames)
             && ((!$this->_canEditSalesRules

@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Customer
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -32,6 +32,9 @@
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 
+/**
+ * @deprecated
+ */
 class Mage_Customer_Block_Account_Resetpassword extends Mage_Core_Block_Template
 {
 

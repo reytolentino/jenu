@@ -20,7 +20,7 @@
  *
  * @category    Varien
  * @package     Varien_Autoload
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -105,7 +105,7 @@ class Varien_Autoload
     {
         self::$_scope = $code;
         if (defined('COMPILER_INCLUDE_PATH')) {
-            @include COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . self::SCOPE_FILE_PREFIX.$code.'.php';
+            @include_once COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . self::SCOPE_FILE_PREFIX.$code.'.php';
         }
     }
 

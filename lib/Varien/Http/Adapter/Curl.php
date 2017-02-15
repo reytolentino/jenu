@@ -20,7 +20,7 @@
  *
  * @category    Varien
  * @package     Varien_Http
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -57,7 +57,8 @@ class Varien_Http_Adapter_Curl implements Zend_Http_Client_Adapter_Interface
         'maxredirects'  => CURLOPT_MAXREDIRS,
         'proxy'         => CURLOPT_PROXY,
         'ssl_cert'      => CURLOPT_SSLCERT,
-        'userpwd'       => CURLOPT_USERPWD
+        'userpwd'       => CURLOPT_USERPWD,
+        'ssl_version'   => CURLOPT_SSLVERSION,
     );
 
     /**

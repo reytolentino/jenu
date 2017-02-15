@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Wishlist
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -45,7 +45,7 @@ class Enterprise_Wishlist_IndexController extends Mage_Wishlist_IndexController
     {
         parent::preDispatch();
 
-        $action = $this->getRequest()->getActionName();
+        $action = strtolower($this->getRequest()->getActionName());
         $protectedActions = array(
             'createwishlist', 'editwishlist', 'deletewishlist', 'copyitems', 'moveitem', 'moveitems'
         );

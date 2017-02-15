@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_PageCache
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -77,6 +77,13 @@ class Enterprise_PageCache_Model_Observer
     protected $_cacheInstance;
 
     /**
+     * Uses for store rendering context (parent blocks)
+     *
+     * @var array
+     */
+    protected $_context = array();
+
+    /**
      * Class constructor
      */
     public function __construct(array $args = array())
@@ -116,6 +123,7 @@ class Enterprise_PageCache_Model_Observer
         $request = $frontController->getRequest();
         $response = $frontController->getResponse();
         $this->_saveDesignException();
+        $this->_saveCookieConfig();
         $this->_checkAndSaveSslOffloaderHeaderToCache();
         $this->_processor->processRequestResponse($request, $response);
         return $this;
@@ -145,8 +153,14 @@ class Enterprise_PageCache_Model_Observer
         }
         /**
          * Check if request will be cached
+         * canProcessRequest checks is theoretically possible to cache page
+         * getRequestProcessor check is page have full page cache processor
+         * isStraight works for partially cached pages where getRequestProcessor doesn't work
+         * (not all holes are filled by content)
          */
-        if ($this->_processor->canProcessRequest($request)) {
+        if ($this->_processor->canProcessRequest($request)
+            && ($request->isStraight() || $this->_processor->getRequestProcessor($request))
+        ) {
             Mage::app()->getCacheInstance()->banUse(Mage_Core_Block_Abstract::CACHE_GROUP);
         }
         $this->_getCookie()->updateCustomerCookies();
@@ -212,6 +226,60 @@ class Enterprise_PageCache_Model_Observer
     }
 
     /**
+     * Load cookie config from cache
+     *
+     * @return array
+     */
+    protected function _loadCookieConfig()
+    {
+        $config = $this->_cacheInstance
+            ->load(Enterprise_PageCache_Helper_Data::COOKIE_CONFIG_FPC_KEY)
+        ;
+        $config = @unserialize($config);
+        return is_array($config) ? $config : array();
+    }
+
+    /**
+     * Save cookie config for current store in cache
+     *
+     * @return Enterprise_PageCache_Model_Observer
+     */
+    protected function _saveCookieConfig()
+    {
+        if (!$this->isCacheEnabled()) {
+            return $this;
+        }
+
+        if (isset($_COOKIE[Mage_Core_Model_Store::COOKIE_NAME])) {
+            $storeIdentifier = $_COOKIE[Mage_Core_Model_Store::COOKIE_NAME];
+        } else {
+            $storeIdentifier = Mage::app()->getRequest()->getHttpHost() . Mage::app()->getRequest()->getBaseUrl();
+        }
+
+        $config = $this->_loadCookieConfig();
+        $config[$storeIdentifier] = array(
+            Enterprise_PageCache_Helper_Data::XML_PATH_USE_COOKIE_CONFIG
+                => Mage::getStoreConfig(Enterprise_PageCache_Helper_Data::XML_PATH_USE_COOKIE_CONFIG),
+            Mage_Core_Model_Cookie::XML_PATH_COOKIE_DOMAIN
+                => Mage::getStoreConfig(Mage_Core_Model_Cookie::XML_PATH_COOKIE_DOMAIN),
+            Mage_Core_Model_Cookie::XML_PATH_COOKIE_HTTPONLY
+                 => Mage::getStoreConfig(Mage_Core_Model_Cookie::XML_PATH_COOKIE_HTTPONLY),
+            Mage_Core_Model_Cookie::XML_PATH_COOKIE_LIFETIME
+                 => Mage::getStoreConfig(Mage_Core_Model_Cookie::XML_PATH_COOKIE_LIFETIME),
+            Mage_Core_Model_Cookie::XML_PATH_COOKIE_PATH
+                 => Mage::getStoreConfig(Mage_Core_Model_Cookie::XML_PATH_COOKIE_PATH)
+        );
+
+        $this->_cacheInstance->save(
+            serialize($config),
+            Enterprise_PageCache_Helper_Data::COOKIE_CONFIG_FPC_KEY,
+            array(Enterprise_PageCache_Model_Processor::CACHE_TAG)
+        );
+
+        return $this;
+    }
+
+    /**
      * Saves 'web/secure/offloader_header' config to cache, only when value was updated
      *
      * @return Enterprise_PageCache_Model_Observer
@@ -273,6 +341,22 @@ class Enterprise_PageCache_Model_Observer
     }
 
     /**
+     * Add block to rendering context if it declared as cached
+     *
+     * @param Varien_Event_Observer $observer
+     * @return $this
+     */
+    public function registerBlockContext(Varien_Event_Observer $observer)
+    {
+        if (!$this->isCacheEnabled()) {
+            return $this;
+        }
+        $block = $observer->getEvent()->getBlock();
+        $this->registerContext($block);
+        return $this;
+    }
+
+    /**
      * Retrieve block tags and add it to processor
      *
      * @param Varien_Event_Observer $observer
@@ -286,9 +370,8 @@ class Enterprise_PageCache_Model_Observer
 
         /** @var $block Mage_Core_Block_Abstract*/
         $block = $observer->getEvent()->getBlock();
-        if (in_array($block->getType(), array_keys($this->_config->getDeclaredPlaceholders()))) {
-            return $this;
-        }
+        $contextBlock = $this->_getContextBlock($block);
+        $this->unregisterContext($block);
 
         $tags = $block->getCacheTags();
         if (empty($tags)) {
@@ -301,9 +384,56 @@ class Enterprise_PageCache_Model_Observer
         if (empty($tags)) {
             return $this;
         }
-        $this->_processor->addRequestTag($tags);
+
+        if (!empty($contextBlock)) {
+            if ($contextBlock->getType() != $block->getType()) {
+                $contextBlock->addCacheTag($tags);
+            } else {
+                $block->addCacheTag($tags);
+            }
+        } else {
+            $this->_processor->addRequestTag($tags);
+        }
 
         return $this;
+    }
+
+    /**
+     * Retrieve nearest cached block from context
+     *
+     * @return bool|Mage_Core_Block_Abstract
+     */
+    protected function _getContextBlock()
+    {
+        $contextBlock = end($this->_context);
+        reset($this->_context);
+
+        return $contextBlock;
+    }
+
+    /**
+     * Store block to context
+     *
+     * @param Mage_Core_Block_Abstract $block
+     */
+    public function registerContext(Mage_Core_Block_Abstract $block)
+    {
+        if (in_array($block->getType(), array_keys($this->_config->getDeclaredPlaceholders()))) {
+            array_push($this->_context, $block);
+        }
+    }
+
+    /**
+     * Remove last block from context
+     *
+     * @param Mage_Core_Block_Abstract $block
+     */
+    public function unregisterContext(Mage_Core_Block_Abstract $block)
+    {
+        if (in_array($block->getType(), array_keys($this->_config->getDeclaredPlaceholders()))) {
+            array_pop($this->_context);
+        }
+
     }
 
     /**
@@ -663,6 +793,7 @@ class Enterprise_PageCache_Model_Observer
         $cookie->updateCustomerCookies();
         $cookie->updateCustomerRatesCookie();
         $this->updateCustomerProductIndex();
+        $this->updateFormKeyCookie();
         return $this;
     }
 
@@ -685,6 +816,7 @@ class Enterprise_PageCache_Model_Observer
             Enterprise_PageCache_Model_Cookie::registerViewedProducts(array(), 0, false);
         }
 
+        $this->updateFormKeyCookie();
         return $this;
     }
 
@@ -961,7 +1093,7 @@ class Enterprise_PageCache_Model_Observer
         /** @var $session Mage_Core_Model_Session  */
         $session = Mage::getSingleton('core/session');
         $cachedFrontFormKey = Enterprise_PageCache_Model_Cookie::getFormKeyCookieValue();
-        if ($cachedFrontFormKey) {
+        if ($cachedFrontFormKey && !$session->getData('_form_key')) {
             $session->setData('_form_key', $cachedFrontFormKey);
         }
     }
@@ -1059,5 +1191,30 @@ class Enterprise_PageCache_Model_Observer
             )
         );
         return $this;
+    }
+
+    /**
+     * Clear request path cache by tag
+     * (used for redirects invalidation)
+     *
+     * @param Varien_Event_Observer $observer
+     * @return $this
+     */
+    public function fixInvalidCategoryCookie(Varien_Event_Observer $observer)
+    {
+        $categoryId = $observer->getCategoryId();
+        if (Enterprise_PageCache_Model_Cookie::getCategoryCookieValue () != $categoryId) {
+            Enterprise_PageCache_Model_Cookie::setCategoryViewedCookieValue($categoryId);
+            Enterprise_PageCache_Model_Cookie::setCurrentCategoryCookieValue($categoryId);
+        }
+
+    }
+
+    /**
+     * Updates form key cookie with hash from session
+     */
+    public function updateFormKeyCookie()
+    {
+        Enterprise_PageCache_Model_Cookie::setFormKeyCookieValue(Mage::getSingleton('core/session')->getFormKey());
     }
 }

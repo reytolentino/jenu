@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Paypal
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -92,7 +92,12 @@ class Mage_Paypal_PayflowadvancedController extends Mage_Paypal_Controller_Expre
                     $session->unsLastRealOrderId();
                     $redirectBlock->setGotoSuccessPage(true);
                 } else {
-                    $gotoSection = $this->_cancelPayment(strval($this->getRequest()->getParam('RESPMSG')));
+                    $gotoSection = $this->_cancelPayment(
+                        Mage::helper('core')
+                            ->stripTags(
+                                strval($this->getRequest()->getParam('RESPMSG'))
+                            )
+                    );
                     $redirectBlock->setGotoSection($gotoSection);
                     $redirectBlock->setErrorMsg($this->__('Payment has been declined. Please try again.'));
                 }

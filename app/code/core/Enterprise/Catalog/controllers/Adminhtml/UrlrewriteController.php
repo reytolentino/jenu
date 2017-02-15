@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Catalog
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -49,5 +49,15 @@ class Enterprise_Catalog_Adminhtml_UrlrewriteController extends Mage_Adminhtml_C
     {
         $this->loadLayout();
         $this->renderLayout();
+    }
+
+    /**
+     * Check for is allowed
+     *
+     * @return boolean
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('catalog');
     }
 }

@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Catalog
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -482,8 +482,27 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
             );
         }
 
+        $tableName = $this->_productHelper->getFlatTableName($this->_storeId);
+        $foreignEntityKey = $this->_connection->getForeignKeyName(
+            $tableName, 'entity_id', $this->_productHelper->getTable('catalog/product'), 'entity_id'
+        );
+        $foreignChildKey  = $this->_connection->getForeignKeyName(
+            $tableName, 'child_id', $this->_productHelper->getTable('catalog/product'), 'entity_id'
+        );
+
+        $table->addForeignKey($foreignEntityKey,
+            'entity_id', $this->_productHelper->getTable('catalog/product'), 'entity_id',
+            Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE);
+
+        if ($this->_productHelper->getFlatHelper()->isAddChildData()) {
+            $table->addForeignKey($foreignChildKey,
+                'child_id', $this->_productHelper->getTable('catalog/product'), 'entity_id',
+                Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE);
+        }
+
         $table->setComment("Catalog Product Flat (Store {$this->_storeId})");
 
+        $this->_dropOldForeignKeys($tableName);
         $this->_connection->dropTable(
             $this->_getTemporaryTableName($this->_productHelper->getFlatTableName($this->_storeId))
         );
@@ -493,13 +512,48 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
     }
 
     /**
+     * Drop foreign keys from current active table
+     * to avoid keys name duplication during new table
+     * creation
+     *
+     * @param string $tableName
+     * @return Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh
+     */
+    protected function _dropOldForeignKeys($tableName)
+    {
+        $writeAdapter = $this->_connection;
+
+        if ($writeAdapter->isTableExists($tableName)) {
+
+            $writeAdapter->dropForeignKey(
+                $tableName,
+                $writeAdapter->getForeignKeyName(
+                    $tableName, 'entity_id', $this->_productHelper->getTable('catalog/product'), 'entity_id'
+                )
+            );
+
+            if ($this->_productHelper->getFlatHelper()->isAddChildData()) {
+                $writeAdapter->dropForeignKey(
+                    $tableName,
+                    $writeAdapter->getForeignKeyName(
+                        $tableName, 'child_id', $this->_productHelper->getTable('catalog/product'), 'entity_id'
+                    )
+                );
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * Fill temporary flat table by data from temporary flat table parts
      *
      * @param array $tables
+     * @param array $changedIds
      *
      * @return Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh
      */
-    protected function _fillTemporaryFlatTable(array $tables)
+    protected function _fillTemporaryFlatTable(array $tables, array $changedIds = array())
     {
         $select                   = $this->_connection->select();
         $temporaryFlatTableName   = $this->_getTemporaryTableName(
@@ -528,8 +582,6 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
         $statusConditions = array('e.entity_id = dstatus.entity_id',
             'dstatus.entity_type_id = ' . (int)$status->getEntityTypeId(), 'dstatus.store_id = ' . (int)$this->_storeId,
             'dstatus.attribute_id = ' . (int)$status->getId());
-        $statusExpression = $this->_connection->getIfNullSql('dstatus.value',
-            $this->_connection->quoteIdentifier("$statusTable.status"));
 
         $select->from(
             array('e' => $entityTemporaryTableName),
@@ -542,7 +594,7 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
             array('dstatus' => $status->getBackend()->getTable()),
             implode(' AND ', $statusConditions),
             array()
-        )->where($statusExpression . ' = ' . Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
+        );
 
         foreach ($tables as $tableName => $columns) {
             $columnValueNames        = array();
@@ -572,6 +624,13 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
                 $allColumns = array_merge($allColumns, $columnValueNames);
             }
         }
+
+        if (!empty($changedIds)) {
+            $select->where(
+                $this->_connection->quoteInto('e.entity_id IN (?)', $changedIds)
+            );
+        }
+
         $sql = $select->insertFromSelect($temporaryFlatTableName, $allColumns, false);
         $this->_connection->query($sql);
 
@@ -601,7 +660,7 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
                         . ' AND t.entity_type_id = ' . $attribute->getEntityTypeId()
                         . ' AND t.attribute_id=' . $attribute->getId()
                         . ' AND t.store_id = ' . $this->_storeId
-                        . ' AND t.value IS NOT NULL';
+                        . ' AND t.value_id > 0';
 
                     $select = $this->_connection->select()
                         ->joinInner(
@@ -694,11 +753,12 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
      *
      * @param int $storeId
      * @param array $changedIds
+     * @param bool $resetFlag
      *
      * @return Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh
      * @throws Exception
      */
-    protected function _reindex($storeId, array $changedIds = array())
+    protected function _reindex($storeId, array $changedIds = array(), $resetFlag = false)
     {
         $this->_storeId     = $storeId;
         $entityTableName    = $this->_productHelper->getTable('catalog/product');
@@ -745,7 +805,7 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
             }
             //Create and fill flat temporary table
             $this->_createTemporaryFlatTable();
-            $this->_fillTemporaryFlatTable($eavAttributes);
+            $this->_fillTemporaryFlatTable($eavAttributes, $changedIds);
             //Update zero based attributes by values from current store
             $this->_updateTemporaryTableByStoreValues($eavAttributes, $changedIds);
 
@@ -914,6 +974,15 @@ class Enterprise_Catalog_Model_Index_Action_Product_Flat_Refresh extends Enterpr
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function resetIndexer()
+    {
+        self::$_calls = 0;
         return $this;
     }
 }

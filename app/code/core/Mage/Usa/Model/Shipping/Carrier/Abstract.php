@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Usa
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -439,6 +439,17 @@ abstract class Mage_Usa_Model_Shipping_Carrier_Abstract extends Mage_Shipping_Mo
         }
 
         return false;
+    }
+
+    /**
+     * Check is Canada
+     *
+     * @param string $countryId
+     * @return boolean
+     */
+    protected function _isCanada($countryId)
+    {
+        return $countryId == 'CA';
     }
 
     /**

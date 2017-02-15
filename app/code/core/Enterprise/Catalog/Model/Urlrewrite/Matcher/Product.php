@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Catalog
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -104,6 +104,14 @@ class Enterprise_Catalog_Model_Urlrewrite_Matcher_Product
     protected $_baseUrl;
 
     /**
+     * Magento application object
+     *
+     * @var Mage_Core_Model_App
+     */
+    protected $_app;
+
+
+    /**
      * Constructor
      *
      * @param array $args
@@ -122,6 +130,9 @@ class Enterprise_Catalog_Model_Urlrewrite_Matcher_Product
         $this->_response = !empty($args['response'])
             ? $args['response']
             : Mage::app()->getFrontController()->getResponse();
+        $this->_app = !empty($args['app'])
+            ? $args['app']
+            : Mage::app();
 
         $this->_storeId = !empty($args['storeId']) ? $args['storeId'] : Mage::app()->getStore()->getId();
 
@@ -176,13 +187,18 @@ class Enterprise_Catalog_Model_Urlrewrite_Matcher_Product
         $rewriteTail = array_pop($rewriteParts);
 
         if (!empty($this->_seoSuffix)) {
-            $rewriteTail .= '.' . $this->_seoSuffix;
+            $rewriteTail .= $this->_seoSuffix;
         }
 
         $requestParts = explode('/', $requestPath);
         $requestTail = array_pop($requestParts);
 
-        if (strcmp($rewriteTail, $requestTail) === 0) {
+        $cmpRequestTail = $requestTail;
+        if ($this->_seoSuffix == '/' && substr($this->_request->getPathInfo(), -1) == '/') {
+            $cmpRequestTail .= '/';
+        }
+
+        if (strcmp($rewriteTail, $cmpRequestTail) === 0) {
 
             $categoryPath = implode('/', $requestParts);
 
@@ -197,6 +213,16 @@ class Enterprise_Catalog_Model_Urlrewrite_Matcher_Product
 
             if ($isMatched) {
                 $this->_checkStoreRedirect($productId, $categoryPath);
+                if (!empty($categoryPath)) {
+                    $categoryId = $this->_categoryResource->getCategoryIdByRequestPath(
+                        $categoryPath,
+                        $this->_storeId
+                    );
+                    $this->_app->dispatchEvent(
+                        'catalog_category_product_fix_category_id',
+                        array('category_id' => $categoryId)
+                    );
+                }
                 return true;
             }
         }
@@ -249,7 +275,7 @@ class Enterprise_Catalog_Model_Urlrewrite_Matcher_Product
             if (!empty($rewrite)) {
                 $requestPath = $rewrite['request_path'];
                 if (!empty($this->_newStoreSeoSuffix)) {
-                    $requestPath .= '.' . $this->_newStoreSeoSuffix;
+                    $requestPath .= $this->_newStoreSeoSuffix;
                 }
                 if (!empty($categoryPath)) {
                     $requestPath = $this->_getNewStoreCategoryPath($categoryPath) . '/' . $requestPath;

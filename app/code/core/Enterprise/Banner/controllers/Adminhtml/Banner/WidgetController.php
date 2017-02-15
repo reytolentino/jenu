@@ -20,7 +20,7 @@
  *
  * @category    Enterprise
  * @package     Enterprise_Banner
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -46,5 +46,15 @@ class Enterprise_Banner_Adminhtml_Banner_WidgetController extends Mage_Adminhtml
         $html = $bannersGrid->toHtml();
 
         $this->getResponse()->setBody($html);
+    }
+
+    /**
+     * Check is allowed access to action
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/widget_instance');
     }
 }

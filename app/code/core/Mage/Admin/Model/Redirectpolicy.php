@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Admin
- * @copyright Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license http://www.magento.com/license/enterprise-edition
  */
 
@@ -62,7 +62,8 @@ class Mage_Admin_Model_Redirectpolicy
         if (empty($request)) {
             return;
         }
-        $countRequiredParams = $this->_urlModel->useSecretKey() ? 1 : 0;
+        $countRequiredParams = ($this->_urlModel->useSecretKey()
+            && $request->getParam(Mage_Adminhtml_Model_Url::SECRET_KEY_PARAM_NAME)) ? 1 : 0;
         $countGetParams = count($request->getUserParams()) + count($request->getQuery());
 
         return ($countGetParams > $countRequiredParams) ?

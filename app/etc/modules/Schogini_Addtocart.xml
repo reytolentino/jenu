@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Schogini_Addtocart>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Schogini_Addtocart>
+	</modules>
+</config>

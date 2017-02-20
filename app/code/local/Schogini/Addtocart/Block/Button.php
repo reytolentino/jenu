@@ -1,2 +1,0 @@
-<?php
-class Schogini_Addtocart_Block_Button extends Mage_Adminhtml_Block_System_Config_Form_Field { protected function _getElementHtml(Varien_Data_Form_Element_Abstract $sp67558b) { $this->setElement($sp67558b); $spf8d9ed = $this->getLayout()->createBlock('adminhtml/widget_button')->setType('button')->setClass('scalable')->setLabel('Generate URL')->setOnClick('configForm.submit()')->toHtml(); return $spf8d9ed; } }

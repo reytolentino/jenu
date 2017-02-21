@@ -1,0 +1,2 @@
+<?php
+class Schogini_Addtocart_AddtocartController extends Mage_Core_Controller_Front_Action { public function addProductToCartAction() { if (!isset($_GET['id']) || empty($_GET['id']) || intval($_GET['id']) <= 0) { die; } $sp89b552 = intval($_GET['id']); Mage::app('default'); Mage::getSingleton('core/session', array('name' => 'frontend')); if (empty($spd27fc0)) { $spd27fc0 = Mage::getSingleton('customer/session'); } $speaa7cc = Mage::getModel('catalog/product')->load($sp89b552); $this->_redirectUrl(Mage::helper('checkout/cart')->getAddUrl($speaa7cc)); } }

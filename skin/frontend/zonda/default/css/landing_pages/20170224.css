@@ -1,0 +1,47 @@
+.w4offer-featured {
+    border: 10px solid #dfc457;
+}
+
+.w4offer-featured .w4-prod-image {
+    margin-top: 30px;
+}
+
+.w4offer-featured img.icon-best-deal {
+    height: auto;
+    margin-left: 30%;
+    margin-top: -68px;
+    max-width: 180px;
+    position: absolute;
+}
+
+.soffers-box .soffer-slide::before {
+    top: 8px;
+}
+
+.soffers-box .soffer-slide.toggled::before {
+    top: 6px;
+}
+
+.soffer-featured .soffer-title {
+    text-align: left;
+}
+
+.soffers-box img.icon-best-deal {
+    height: auto;
+    margin-left: 14%;
+    margin-top: -12px;
+    max-width: 80px;
+    position: absolute;
+    z-index: 9;
+}
+
+.soffer-featured {
+    border: 8px solid #dfc457;
+    margin-top: 20px;
+}
+
+@media(max-width: 767px) {
+    .w4offers-box {
+        display: none;
+    }
+}

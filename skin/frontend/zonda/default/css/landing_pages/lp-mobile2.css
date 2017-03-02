@@ -1,3 +1,11 @@
+.droz-gold {
+    display: block;
+}
+
+.lpmobile-wrap {
+    display: none;
+}
+
 @media(max-width:767px) {
 
     .droz-gold {
@@ -155,7 +163,8 @@
     }
 
     .lpmobile-cta .ctabtn-wrap,
-    .lpmobile-how .lpmobile-howcta {
+    .lpmobile-how .lpmobile-howcta,
+    .lpmobile-batra .lpmobile-batracta {
         text-align: center;
         padding: 30px 0;
     }
@@ -183,7 +192,8 @@
         letter-spacing: 1px;
     }
 
-    .lpmobile-how .lpmobile-howcta a.ctabtn {
+    .lpmobile-how .lpmobile-howcta a.ctabtn,
+    .lpmobile-batra .lpmobile-batracta a.ctabtn {
         background-color: #fff;
         border:2px solid #1992c1;
         display: inline-block;
@@ -199,12 +209,14 @@
         letter-spacing: 1px;
     }
 
-    .lpmobile-how .lpmobile-howcta a.ctabtn:hover {
+    .lpmobile-how .lpmobile-howcta a.ctabtn:hover,
+    .lpmobile-batra .lpmobile-batracta a.ctabtn:hover {
         background:#1992c1;
         color: #fff;
     }
 
-    .lpmobile-how .lpmobile-howcta .ctacopy {
+    .lpmobile-how .lpmobile-howcta .ctacopy,
+    .lpmobile-batra .lpmobile-batracta .ctacopy {
         color: #000;
         display: block;
         margin: 10px auto 0 auto;
@@ -286,7 +298,8 @@
         letter-spacing: 0.8px;
     }
 
-    .lpmobile-results {
+    .lpmobile-results,
+    .lpmobile-data{
         overflow: hidden;
     }
 
@@ -300,23 +313,46 @@
         clear: both;
     }
 
+    .lpmobile-data .datahead-wrap {
+        background: #f7f7f7;
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.54);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.54);
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.54);
+        text-align: center;
+        overflow: hidden;
+        clear: both;
+    }
+
     .lpmobile-results .reshead-wrap h2 {
         border-bottom: 5px dashed #ddada5;
-        padding-bottom: 24px;
-        margin-bottom: 24px;
-        margin-top: 30px;
+        padding-bottom: 18px;
+        margin-bottom: 10px;
+        margin-top: 20px;
         display: block;
         color: #fff;
         font-size: 24px;
         font-weight: 400;
     }
 
-    ul.restabs{
+    .lpmobile-data .datahead-wrap h2 {
+        border-bottom: 5px dashed #efefef;
+        padding-bottom: 18px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        display: block;
+        color: #000;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    ul.restabs,
+    ul.datatabs {
         margin: 0px;
         padding: 0px;
         list-style: none;
     }
-    ul.restabs li{
+    ul.restabs li,
+    ul.datatabs li {
         background: none;
         color: #fff;
         text-transform: uppercase;
@@ -331,18 +367,288 @@
         font-size: 13px;
     }
 
-    ul.restabs li.current{
+    ul.datatabs li {
+        color: #333;
+        padding: 10px 0;
+        letter-spacing: 0.5px;
+    }
+
+    ul.restabs li.current {
         border-bottom: 5px solid #fff;
     }
 
-    .restab-content{
-        display: none;
-        padding: 15px;
-        clear: both;
+    ul.datatabs li.current {
+        border-bottom: 5px solid #a0a0a0;
     }
 
-    .restab-content.current{
+    .restab-content,
+    .datatab-content {
+        display: none;
+        clear: both;
+        margin-top: 10px;
+    }
+
+    .restab-content.current,
+    .datatab-content.current {
         display: inherit;
+    }
+
+    .ba-slick-set1 img,
+    .ba-slick-set2 img {
+        width: 100%;
+    }
+
+    .lpmobile-data .clinical-list {
+         border-bottom: 1px solid #ccc;
+         padding-bottom: 16px;
+        margin-top: 10px;
+        overflow: hidden;
+        clear: both;
+        width: 100%;
+     }
+
+    .lpmobile-data .clinical-list:first-child {
+        margin-top: 20px;
+    }
+
+    .lpmobile-data .clinical-list-left {
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 56px;
+        font-weight: 400;
+        text-align: center;
+        width: 35%;
+        float: left;
+    }
+
+    .lpmobile-data .clinical-list-right {
+        width: 65%;
+        float: left;
+        padding: 0 10px;
+        margin-top: 20px;
+    }
+
+    .lpmobile-data .clinical-independent {
+        font-size: 10px;
+        font-style: italic;
+        line-height: normal;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .clinical-75 {
+        clear: both;
+        background: url('/media/landing_pages/20170228/bg-absorption.jpg') no-repeat right top;
+        background-size: 50% auto;
+        padding: 20px 0 20px 15px;
+    }
+
+    .clinical-75-left {
+        color: #000;
+        font-family: "lato",Helvetica,"Helvetica Neue",Arial,sans-serif;
+        font-size: 13px;
+        height: 50px;
+        line-height: 20px;
+        text-transform: uppercase;
+        display: inline-block;
+        float: left;
+        text-align: center;
+        letter-spacing: 0.5px;
+
+    }
+
+    .clinical-75-right {
+        float: left;
+        margin-left: 6px;
+    }
+
+    .clinical-75-right sup {
+        font-size: 50%;
+        vertical-align: top;
+    }
+
+    .lpmobile-data .bottom2 {
+        font-size: 10px;
+        line-height: normal;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .lpmobile-data .lpmobile-data-vid {
+        background: #f7f7f7;
+        padding: 30px 0;
+        margin: 20px -15px;
+        text-align: center;
+    }
+
+    .lpmobile-data .lpmobile-data-vid .col-sm-6 {
+        width: 50%;
+        text-align: center;
+        float: left;
+    }
+
+    .lpmobile-data .lpmobile-data-vid a {
+        overflow: hidden;
+    }
+
+    .lpmobile-data .lpmobile-data-vid img {
+        max-width: 230px;
+        width: 100%;
+        height: auto;
+    }
+
+    .lpmobile-data .lpmobile-data-vid p {
+        font-size: 11px;
+        font-style: italic;
+        line-height: normal;
+        margin-top: 5px;
+    }
+
+    .lpmobile-data .user-logos {
+        margin: 30px auto;
+    }
+
+    .lpmobile-data img.img-user-logos,
+    .lpmobile-data img.img-user-graph {
+        width: 100%;
+    }
+
+    .lpmobile-data .user-graph {
+        margin-bottom: 10px;
+    }
+
+    .lpmobile-data .user-graph p {
+        text-transform: uppercase;
+        text-align: center;
+        font-family: "lato",Helvetica,"Helvetica Neue",Arial,sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.8px;
+    }
+
+    .lpmobile-batra .container {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .lpmobile-batra h2 {
+        font-size: 24px;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #000;
+        font-weight: 300;
+        text-transform: uppercase;
+        border-bottom: 1px solid #000;
+        line-height: normal;
+        padding-bottom: 5px;
+        display: block;
+        margin: 30px 0;
+    }
+
+    .lpmobile-batra .col-sm-7 {
+        width: 60%;
+        float: left;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .lpmobile-batra .col-sm-5 {
+        width: 40%;
+        float: left;
+    }
+
+    .lpmobile-batra .batra-right {
+        background: url('/media/landing_pages/droz/drbatra.jpg') no-repeat top left;
+        padding-left: 40%;
+        background-size: 50% auto;
+        position: relative;
+    }
+
+    .lpmobile-batra .img-batra {
+        width: 100%;
+    }
+
+    .lpmobile-batra p {
+        font-size: 13px;
+        line-height: 20px;
+        color: #000;
+    }
+
+    .lpmobile-batra p.batraquote {
+        font-style: italic;
+        padding-left: 8px;
+        margin-top: 10px;
+    }
+
+    .lpmobile-batra p.batraquote:before {
+        content:'\f10d';
+        font-family: 'FontAwesome';
+        color: #444;
+        font-size: 24px;
+        margin-left: -30px;
+        margin-top: -5px;
+        position: static;
+        float: left;
+    }
+
+    .lpmobile-batra p.batrainfo {
+        font-size: 12px;
+        text-align: right;
+        margin: 20px 0;
+        font-style: italic;
+        line-height: 18px;
+    }
+
+    .lpmobile-batra a.batra-watchvideo {
+        font-size: 18px;
+        color: #000;
+        text-decoration: none;
+        font-weight: 400;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        vertical-align: top;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+
+    .lpmobile-batra a.batra-watchvideo .fa {
+        font-size: 40px;
+        margin: 0 5px;
+        vertical-align: top;
+    }
+
+    .lpmobile-batra .batra-watch-wrap {
+        text-align: center;
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .lpmobile-batra .lpmobile-batracta a.ctabtn {
+        padding: 0 40px;
+    }
+
+    .product-view .reviews-summary-wrap .rating-box {
+        background-size: 30px auto;
+        display: inline-block;
+
+        height: 27px;
+        line-height: 0;
+        margin: 0;
+        overflow: hidden;
+        text-indent: -9999em;
+        width: 150px;
+    }
+
+    .product-view .reviews-summary-wrap .rating-box .rating {
+        background-size: 30px auto;
+        height: 27px;
+    }
+
+    .product-view .reviews-summary-wrap .amount {
+        font-size: 24px;
+    }
+
+    .product-view .reviews-summary-wrap {
+        margin-top: 10px;
     }
 
 }
@@ -442,15 +748,125 @@
         letter-spacing: 0.5px;
     }
 
-    ul.restabs li{
+    ul.restabs li {
         font-size: 11px;
     }
 
-    .lpmobile-results .reshead-wrap h2 {
+    ul.datatabs li {
+        font-size: 10px;
+    }
+
+    .lpmobile-results .reshead-wrap h2,
+    .lpmobile-data .datahead-wrap h2 {
         padding-bottom: 20px;
         margin-bottom: 20px;
         margin-top: 30px;
         font-size: 20px;
+    }
+
+    .lpmobile-data .clinical-list {
+        padding-bottom: 10px;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .lpmobile-data .clinical-list-left {
+        font-size: 38px;
+    }
+
+    .lpmobile-data .clinical-list-right {
+        width: 65%;
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: normal;
+    }
+
+    .clinical-75 {
+        clear: both;
+        background: url('/media/landing_pages/20170228/bg-absorption.jpg') no-repeat right center;
+        background-size: 40% auto;
+        padding: 10px 0 10px 15px;
+    }
+
+    .clinical-75-left {
+        font-size: 12px;
+        line-height: 18px;
+        height: 50px;
+        margin-top: 3px;
+    }
+
+    .clinical-75-right {
+        float: left;
+        margin-left: 6px;
+    }
+
+    .lpmobile-how h2,
+    .lpmobile-batra h2 {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .lpmobile-batra .batra-right {
+        background: url('/media/landing_pages/droz/drbatra.jpg') no-repeat top left;
+        padding-left: 30%;
+        background-size: 40% auto;
+        position: relative;
+    }
+
+    .lpmobile-batra p {
+        font-size: 11px;
+        line-height: normal;
+        color: #000;
+    }
+
+    .lpmobile-batra p.batraquote {
+        font-style: italic;
+        padding-left: 5px;
+        margin-top: 10px;
+    }
+
+    .lpmobile-batra p.batraquote:before {
+        content:'\f10d';
+        font-family: 'FontAwesome';
+        color: #444;
+        font-size: 18px;
+        margin-left: -25px;
+        margin-top: -5px;
+        position: static;
+    }
+
+    .lpmobile-batra p.batrainfo {
+        font-size: 9px;
+        text-align: right;
+        margin: 10px 0;
+        font-style: italic;
+        line-height: normal;
+    }
+
+    .lpmobile-batra a.batra-watchvideo {
+        font-size: 14px;
+        color: #000;
+        text-decoration: none;
+        font-weight: 400;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: top;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+
+    .lpmobile-batra a.batra-watchvideo .fa {
+        font-size: 20px;
+        margin: 0 3px;
+        vertical-align: top;
+    }
+
+    .lpmobile-batra .batra-watch-wrap {
+        text-align: center;
+        margin-top: 15px;
+        padding-bottom: 20px;
     }
 
 }

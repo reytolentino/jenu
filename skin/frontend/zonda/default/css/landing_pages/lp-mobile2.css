@@ -1,0 +1,456 @@
+@media(max-width:767px) {
+
+    .droz-gold {
+        display: none;
+    }
+
+    .lpmobile-wrap {
+        display: block;
+        color: #000;
+    }
+
+    .lpmobile-wrap h1 .hlight {
+        color:#b37c6e;
+    }
+
+    .lpmobile-header {
+        text-align: center;
+        padding: 24px 0;
+        background: #f7f7f7;
+    }
+
+    .lpmobile-header .row {
+        text-align: center;
+    }
+
+    .lpmobile-header h1 {
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+
+    .lpmobile-header h4 {
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .lpmobile-hero {
+
+    }
+
+    .lpmobile-hero .womanbg {
+         background: url('/media/landing_pages/20170228/lpmobile-hero-bg1.jpg') no-repeat top center;
+         background-size: cover
+     }
+
+    .lpmobile-hero .productbg {
+        background: url('/media/landing_pages/20170228/lpmobile-hero-bg2.jpg') no-repeat top center;
+        background-size: cover;
+    }
+
+    .lpmobile-hero .ratings {
+        width: 110px;
+        height: auto;
+    }
+
+    .lpmobile-hero .womanbg .rating-box {
+        width: 110px;
+    }
+
+    .lpmobile-hero .womanbg .rating-box .rating {
+        background: rgba(0, 0, 0, 0) url("/media/landing_pages/20170228/bg-stars.png") repeat-x scroll 0 100% / 22px auto;
+        height: 21px;
+    }
+
+    .lpmobile-hero .womanbg .ratings .rating-box {
+        background: url("/media/landing_pages/20170228/bg-stars.png");
+        height: 21px;
+        background-size: 22px auto;
+    }
+
+    .lpmobile-hero .womanbg .ratings .amount a {
+        color: #000;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+    }
+
+    .lpmobile-hero .womanbg .ratings .amount {
+        display: block;
+        width: 110px;
+        text-align: center;
+    }
+
+    .lpmobile-hero .womanbg .slide1-copy,
+    .lpmobile-hero .productbg .slide2-copy,
+    .lpmobile-hero .womanbg .slide3-copy,
+    .lpmobile-hero .productbg .slide4-copy {
+        text-align: center;
+        float: right;
+        width: 40%;
+        padding: 60px 30px 0 0;
+    }
+
+    .lpmobile-hero.slick-slider {
+        margin-bottom: 0;
+    }
+
+    .lpmobile-hero .productbg .slide2-copy {
+        width: 45%;
+        padding:100px 30px 0 0;
+    }
+
+    .lpmobile-hero .womanbg .slidecopy {
+        color: #000;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 16px;
+        line-height: normal;
+        margin: 40px 0;
+    }
+
+    .lpmobile-hero .womanbg .slide3-copy .slidecopy {
+        font-size: 16px;
+    }
+
+    .lpmobile-hero .productbg .slidecopy {
+        color: #000;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 15px;
+        line-height: normal;
+        margin: 20px 0;
+        font-weight: 300;
+    }
+
+    .lpmobile-hero .womanbg .mbseal {
+        max-width: 120px;
+        height: auto;
+        width: 100%;
+        display: block;
+        margin: 30px auto 0 auto;
+    }
+
+    .lpmobile-hero .slick-slide {
+        padding: 0;
+        height: 494px;
+    }
+
+    .lpmobile-cta {
+    }
+
+    .lpmobile-cta .ctabar {
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        background: #000;
+        height: 45px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 300;
+        line-height: 45px;
+        letter-spacing: 0.5px;
+    }
+
+    .lpmobile-cta .ctabtn-wrap,
+    .lpmobile-how .lpmobile-howcta {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .lpmobile-cta .ctabtn-wrap a.ctabtn {
+        background-color: #1992c1;
+        display: inline-block;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-align: center;
+        font-size: 14px;
+        padding: 0 20px;
+        height: 55px;
+        line-height: 55px;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+
+    .lpmobile-cta .ctabtn-wrap .ctacopy {
+        color: #000;
+        display: block;
+        margin: 10px auto 0 auto;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        letter-spacing: 1px;
+    }
+
+    .lpmobile-how .lpmobile-howcta a.ctabtn {
+        background-color: #fff;
+        border:2px solid #1992c1;
+        display: inline-block;
+        color: #1992c1;
+        text-transform: uppercase;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 14px;
+        padding: 0 80px;
+        height: 55px;
+        line-height: 53px;
+        letter-spacing: 1px;
+    }
+
+    .lpmobile-how .lpmobile-howcta a.ctabtn:hover {
+        background:#1992c1;
+        color: #fff;
+    }
+
+    .lpmobile-how .lpmobile-howcta .ctacopy {
+        color: #000;
+        display: block;
+        margin: 10px auto 0 auto;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        letter-spacing: 1px;
+        font-style: italic;
+        font-size: 18px;
+    }
+
+    .lpmobile-how {
+        background: #f6ece8;
+    }
+
+    .lpmobile-how h2 {
+        font-size: 24px;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #000;
+        font-weight: 300;
+        text-transform: uppercase;
+        border-bottom: 1px solid #000;
+        line-height: normal;
+        padding-bottom: 5px;
+        display: block;
+        margin: 30px 0;
+    }
+
+    .lpmobile-how .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+    .lpmobile-how .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .lpmobile-how .lpmobile-step {
+        margin: 30px auto 0 auto;
+        height: auto;
+    }
+
+    .lpmobile-how .lpmobile-step.step1 {
+        background: url('/media/landing_pages/20170228/bg-step1.jpg') no-repeat bottom right;
+        background-size: auto 100%;
+    }
+
+    .lpmobile-how .lpmobile-step.step2 {
+        background: url('/media/landing_pages/20170228/bg-step2.jpg') no-repeat bottom right;
+        background-size: auto 100%;
+    }
+
+    .lpmobile-how .lpmobile-step.step3 {
+        background: url('/media/landing_pages/20170228/bg-step3.jpg') no-repeat bottom right;
+        background-size: auto 100%;
+    }
+
+    .lpmobile-how .lpmobile-stepcopy {
+        width: 50%;
+        padding-top: 10%;
+        padding-bottom: 25%;
+    }
+
+    .lpmobile-how .lpmobile-stepcopy h5 {
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 0.8px;
+        font-size: 22px;
+    }
+
+    .lpmobile-how .lpmobile-stepcopy p {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.8px;
+    }
+
+    .lpmobile-results {
+        overflow: hidden;
+    }
+
+    .lpmobile-results .reshead-wrap {
+        background: #e9b9b0;
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.54);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.54);
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.54);
+        text-align: center;
+        overflow: hidden;
+        clear: both;
+    }
+
+    .lpmobile-results .reshead-wrap h2 {
+        border-bottom: 5px dashed #ddada5;
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+        margin-top: 30px;
+        display: block;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    ul.restabs{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    ul.restabs li{
+        background: none;
+        color: #fff;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 10px 15px;
+        text-align: center;
+        width: 50%;
+        float: left;
+        cursor: pointer;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        letter-spacing: 0.8px;
+        font-size: 13px;
+    }
+
+    ul.restabs li.current{
+        border-bottom: 5px solid #fff;
+    }
+
+    .restab-content{
+        display: none;
+        padding: 15px;
+        clear: both;
+    }
+
+    .restab-content.current{
+        display: inherit;
+    }
+
+}
+
+@media(max-width: 480px) {
+    .lpmobile-hero .slick-slide {
+        height: 247px;
+    }
+    .lpmobile-hero .ratings {
+        width: 90px;
+    }
+
+    .lpmobile-hero .womanbg .rating-box {
+        width: 90px;
+    }
+
+    .lpmobile-hero .womanbg .rating-box .rating {
+        background: rgba(0, 0, 0, 0) url("/media/landing_pages/20170228/bg-stars.png") repeat-x scroll 0 100% / 18px auto;
+        height: 17px;
+    }
+
+    .lpmobile-hero .womanbg .ratings .rating-box {
+        height: 17px;
+        background-size: 18px auto;
+    }
+
+    .lpmobile-hero .womanbg .ratings .amount a {
+        font-size: 13px;
+    }
+
+    .lpmobile-hero .womanbg .ratings .amount {
+        width: 90px;
+    }
+
+    .lpmobile-hero .womanbg .slide1-copy,
+    .lpmobile-hero .productbg .slide2-copy,
+    .lpmobile-hero .womanbg .slide3-copy,
+    .lpmobile-hero .productbg .slide4-copy {
+        width: 40%;
+        padding: 20px 10px 0 0;
+    }
+
+    .lpmobile-hero.slick-slider {
+        margin-bottom: 0;
+    }
+
+    .lpmobile-hero .productbg .slide2-copy,
+    .lpmobile-hero .productbg .slide4-copy {
+        width: 45%;
+        padding:50px 30px 0 0;
+    }
+
+    .lpmobile-hero .womanbg .slide3-copy {
+        padding:50px 20px 0 0;
+    }
+
+    .lpmobile-hero .womanbg .slidecopy {
+        color: #000;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 11px;
+        line-height: normal;
+        margin: 18px 0;
+    }
+
+    .lpmobile-hero .womanbg .slide3-copy .slidecopy {
+        font-size: 13px;
+    }
+
+    .lpmobile-hero .productbg .slidecopy {
+        color: #000;
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 13px;
+        line-height: normal;
+        margin: 20px 0;
+        font-weight: 300;
+    }
+
+    .lpmobile-hero .womanbg .mbseal {
+        max-width: 70px;
+        margin: 14px auto;
+    }
+
+    .lpmobile-how .lpmobile-stepcopy {
+        width: 50%;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+
+    .lpmobile-how .lpmobile-stepcopy h5 {
+        letter-spacing: 0.5px;
+        font-size: 16px;
+    }
+
+    .lpmobile-how .lpmobile-stepcopy p {
+        font-size: 12px;
+        line-height: normal;
+        letter-spacing: 0.5px;
+    }
+
+    ul.restabs li{
+        font-size: 11px;
+    }
+
+    .lpmobile-results .reshead-wrap h2 {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+}

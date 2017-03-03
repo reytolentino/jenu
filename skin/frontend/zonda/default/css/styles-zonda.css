@@ -3909,9 +3909,9 @@ div.cart-empty {
 }
 
 #slide-ha {
-    background: url("../images/homepage-hero-ha.jpg") no-repeat center top #f0d0b2;
-    background-size: auto 100%;
-}
+     background: url("../images/homepage-hero-ha.jpg") no-repeat center top #f0d0b2;
+     background-size: auto 100%;
+ }
 
 #slide-1 {
     background: url("../images/homepage-hero-banner2.jpg") no-repeat center top #bb8674;
@@ -3928,11 +3928,101 @@ div.cart-empty {
     background-size: auto 100%;
 }
 
-#slide-ha {
+#slide-ha, #slide-marine {
     color: #000;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
 }
+
+#slide-marine {
+    background: url("../images/homepage-hero-marine.jpg") no-repeat center top #e7b990;
+    background-size: auto 100%;
+}
+
+#slide-marine .homepage-hero-titlewrap1 {
+    text-align: center;
+    margin-top: 120px;
+}
+
+#slide-marine .homepage-hero-title1 {
+    font-family: "Avenir Next Condensed Demi Bold",Helvetica,Arial;
+    font-size: 30px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+#slide-marine .homepage-hero-title1 span:before {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    left: -20px;
+    position: relative;
+    top: -8px;
+    width: 60px;
+}
+
+#slide-marine .homepage-hero-title1 span:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    right: -20px;
+    position: relative;
+    top: -8px;
+    width: 60px;
+}
+
+#slide-marine .homepage-hero-title2 {
+    font-size: 34px;
+    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+}
+
+#slide-marine .homepage-hero-title3 {
+    font-size: 20px;
+    font-family: "Avenir Next Condensed Demi Bold",Helvetica,Arial;
+    margin-top: 6px;
+}
+
+#slide-marine .homepage-hero-title3 sup {
+    font-size: 10px;
+}
+
+#slide-marine .homepage-hero-titlewrap2 {
+    margin: 24px auto 0;
+    padding:24px 12px 0;
+    width: 60%;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-family: "Avenir Next Condensed Demi Bold",Helvetica,Arial;
+    letter-spacing: 0.4px;
+    color: #9b0101;
+}
+
+#slide-marine .homepage-button-cta {
+    background-color: transparent;
+    border: 2px solid #000;
+    color: #000;
+    margin: 24px auto;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+#slide-marine .homepage-button-cta:hover {
+    background: #000;
+    color: #fff;
+}
+
+#slide-marine .homepage-button-cta::after {
+    display: none;
+}
+
+
 
 #slide-ha .homepage-hero-titlewrap1 {
     text-align: center;
@@ -3947,6 +4037,7 @@ div.cart-empty {
     font-weight: 300;
     letter-spacing: 0.5px;
 }
+
 
 #slide-ha .homepage-hero-title-hlight {
     font-weight: 400;
@@ -3968,9 +4059,12 @@ div.cart-empty {
     font-size: 22px;
 }
 
-#slide-ha .homepage-hero-title3 sup {
+#slide-ha .homepage-hero-title3 sup
+{
     font-size: 12px;
 }
+
+
 
 #slide-ha .homepage-hero-titlewrap2 {
     border-top: 5px solid #d1ab8a;
@@ -4589,6 +4683,44 @@ ul.homepage-content-worksgreat-list ul {
         background-size: auto 140%;
     }
 
+
+    #slide-marine .homepage-hero-titlewrap1 {
+        margin-top: 70px;
+    }
+
+    #slide-marine .homepage-hero-banner--copy {
+        float: right;
+        width: 520px;
+    }
+
+    #slide-marine .homepage-hero-title1 {
+        font-size: 24px;
+    }
+
+    #slide-marine .homepage-hero-title2 {
+        font-size: 24px;
+    }
+
+    #slide-marine .homepage-hero-title3 {
+        font-size: 18px;
+        margin-top: 4px;
+    }
+
+    #slide-marine .homepage-hero-title3 sup {
+        font-size: 10px;
+    }
+
+    #slide-marine .homepage-hero-titlewrap2 {
+        margin: 18px auto 0;
+        padding:18px 12px 0;
+        width: 60%;
+        font-size: 18px;
+    }
+
+    #slide-marine .homepage-button-cta {
+        margin: 18px auto;
+    }
+
     #slide-ha .homepage-hero-banner--copy {
         float: right;
         width: 520px;
@@ -4665,6 +4797,55 @@ ul.homepage-content-worksgreat-list ul {
     .homepage-banner {
         height: 300px;
     }
+
+    #slide-marine .homepage-hero-titlewrap1 {
+        margin-top: 50px;
+    }
+
+    #slide-marine .homepage-hero-banner--copy {
+        width: 410px;
+    }
+
+    #slide-marine .homepage-hero-title1 {
+        font-size: 18px;
+    }
+
+    #slide-marine .homepage-hero-title1 span:before {
+        width: 30px;
+        left: -10px;
+        top: -5px;
+    }
+
+    #slide-marine .homepage-hero-title1 span:after {
+        width: 30px;
+        right: -10px;
+        top: -5px;
+    }
+
+    #slide-marine .homepage-hero-title2 {
+        font-size: 18px;
+    }
+
+    #slide-marine .homepage-hero-title3 {
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+    #slide-marine .homepage-hero-title3 sup {
+        font-size: 9px;
+    }
+
+    #slide-marine .homepage-hero-titlewrap2 {
+        margin: 10px auto 0;
+        padding:10px 8px 0;
+        width: 60%;
+        font-size: 15px;
+    }
+
+    #slide-marine .homepage-button-cta {
+        margin: 10px auto;
+    }
+
     #slide-ha .homepage-hero-banner--copy {
         width: 410px;
     }
@@ -4764,6 +4945,46 @@ ul.homepage-content-worksgreat-list ul {
 
     .homepage-hero-banner--copy {
         width: 100%;
+    }
+
+    #slide-marine {
+        background-position-x: -200px;
+    }
+
+    #slide-marine .homepage-hero-banner--copy {
+        width: 85%;
+    }
+
+    #slide-marine .homepage-hero-titlewrap1 {
+        margin-top: 68px;
+    }
+
+    #slide-marine .homepage-hero-banner--copy {
+        width: 85%;
+    }
+
+    #slide-marine .homepage-hero-title1 {
+        font-size: 16px;
+    }
+
+    #slide-marine .homepage-hero-title2 {
+        font-size: 14px;
+    }
+
+    #slide-marine .homepage-hero-title3 {
+        font-size: 13px;
+        margin-top: 2px;
+    }
+
+    #slide-marine .homepage-hero-title3 sup {
+        font-size: 7px;
+    }
+
+    #slide-marine .homepage-hero-titlewrap2 {
+        margin: 8px auto 0;
+        padding:8px 8px 0;
+        width: 80%;
+        font-size: 13px;
     }
 
     #slide-ha .homepage-hero-banner--copy {

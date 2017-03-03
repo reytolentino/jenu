@@ -14,14 +14,6 @@
     position: absolute;
 }
 
-.soffers-box .soffer-slide::before {
-    top: 8px;
-}
-
-.soffers-box .soffer-slide.toggled::before {
-    top: 6px;
-}
-
 .soffer-featured .soffer-title {
     text-align: left;
 }

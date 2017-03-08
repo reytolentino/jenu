@@ -1745,6 +1745,10 @@ p.olay-disclaimer {
     font-size: 14px;
 }
 
+#w4offers-wrap_background {
+    background: #fff !important;
+}
+
 .w4offers-wrap {
     width: 100%;
     max-width: 1200px;

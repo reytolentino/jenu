@@ -57,22 +57,18 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     <?php /* Start item added to cart custom content */ ?>
 
     <?php
-/**
 
-    $productid = $_item->getProductId();
-
-    if($productid == "29" || $productid == "30"){
-        echo '<p class="item-msg red">Due to high demand, the Microsphere Gel is temporarily on back order. Your entire order won\'t ship until the week of March 21. We apologize for this inconvenience.</p>';
+    if(stripos($this->getProductName(), 'infuser') == true || stripos($this->getProductName(), 'infusion gel') == true){
+        echo '<p class="item-msg red">Due to high demand, all JeNu Infusers and Conducting Gels are currently on back-order and expected to ship the 1st week of April. Complete your order today to RESERVE YOURS NOW. Your card will be charged at the time of purchase. </p>';
     }
 
 
-
+/**
     $productid = $_item->getProductId();
 
     if($productid == "46" || $productid == "45"){
         echo '<p class="item-msg red">Expected ship date: Friday, 5/6</p>';
     }
-
  **/
 
     ?>

@@ -1,0 +1,100 @@
+.droz-hero {
+    background: rgba(0, 0, 0, 0) url("/media/landing_pages/20170313/bg-model.jpg") no-repeat scroll left top / auto 600px;
+    padding-top: 35px;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    margin-top: 0;
+}
+
+.droz-gold .droz-hero-right h2.subplus {
+    font-size: 30px;
+}
+
+.droz-gold .droz-hero-right h3 {
+    border-bottom: 1px solid #d19a8c;
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.droz-hero-right .droz-hero-list {
+    margin: 10px 0;
+}
+
+.droz-hero-right .droz-hero-list {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.droz-hero-right .droz-price-wrap {
+    margin: 0;
+}
+
+.droz-hero-right .cta-more a.w4offers-wrap_open {
+    margin-top: 0;
+}
+
+.droz-hero .droz-hero-img {
+    padding-top: 0;
+}
+
+.cta-colors, .cta-colors-mobile {
+    margin-top: 0;
+}
+
+.droz-hero-right .buynow-heading {
+    margin-bottom: 20px;
+}
+
+.droz-hero-right .droz-price-wrap {
+    padding: 10px 0;
+}
+
+.droz-hero {
+    padding-top: 20px;
+}
+
+.droz-hero-right-test {
+    padding-bottom: 20px;
+}
+
+.droz-hero-right .droz-price {
+    font-size: 16px;
+}
+
+@media(max-width: 991px) {
+    .droz-hero {
+        background-image: none;
+    }
+    .droz-gold .droz-hero-right h2.subplus {
+        font-size: 24px;
+    }
+    .droz-gold .droz-hero-right h3 {
+        font-size: 18px;
+    }
+    .droz-hero-right .droz-hero-list {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .droz-hero-right .affirm-box .affirm-box-copy {
+        font-size: 12px;
+    }
+    .droz-hero-right .cta-content-wrap {
+        padding: 0;
+    }
+    .droz-hero-right a#multipay {
+        font-size: 11px;
+        width: 105px;
+    }
+    .droz-hero-right .affirm-box .affirm-logo {
+        height: 11px;
+    }
+    .droz-hero-right .droz-price {
+        font-size: 13px;
+    }
+    .droz-hero-right .btn-cart {
+        width: 105px;
+        font-size: 11px;
+    }
+}

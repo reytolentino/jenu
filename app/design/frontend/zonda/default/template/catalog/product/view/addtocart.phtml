@@ -244,7 +244,7 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
 <?php
 if (stripos($_product->getName(), 'infuser') == true) {
     $buttonTitle = $this->__('Pre-Order Now');
-} elseif (stripos($_product->getName(), 'infusion gel') == true) {
+} elseif (stripos($_product->getName(), 'infusion gel') == true || stripos($_product->getName(), 'skin duo') == true) {
     $buttonTitle = $this->__('Pre-Order Now');
 } else {
     $buttonTitle = $this->__('Add to Cart');

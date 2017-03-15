@@ -206,6 +206,10 @@
     margin-top: 40px;
 }
 
+.droz-wrap .ba-slick-set3 .slick-dots {
+    bottom: 0;
+}
+
 @media(max-width: 991px) {
     .droz-hero {
         background-image: none;

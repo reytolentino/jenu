@@ -1,3 +1,10 @@
+.lpmobile-hero-wrap,
+.lpmobile-header,
+.lpmobile-cta,
+.droz-reviews-mobile {
+    display: none;
+}
+
 .droz-hero {
     background: rgba(0, 0, 0, 0) url("/media/landing_pages/20170313/bg-model.jpg") no-repeat scroll left top / auto 600px;
     padding-top: 35px;
@@ -36,7 +43,7 @@
 }
 
 .droz-hero .droz-hero-img {
-    padding-top: 0;
+    padding-top: 60px;
 }
 
 .cta-colors, .cta-colors-mobile {
@@ -237,6 +244,102 @@
 
 @media(max-width: 767px) {
 
+    .lpmobile-hero-wrap,
+    .lpmobile-header,
+    .lpmobile-cta,
+    .lpmobile-wrap {
+        display: block;
+    }
+
+    .header-container,
+    #buywrap,
+    .droz-ba-prod,
+    #droz-results,
+    #droz-asseenon,
+    #droz-about,
+    #droz-batra,
+    #droz-press,
+    .droz-reviews,
+    .mobile-lpsubnav
+    {
+        display: none;
+    }
+
+    .droz-reviews-mobile {
+        display: block;
+    }
+
+    .lpmobile-header h4 {
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
+    .lpmobile-header h1 {
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .lpmobile-header h1 .hlight {
+        color:#b37c6e;
+        font-style:italic;
+    }
+
+    .lpmobile-hero {
+        background: #d29d8b url('/media/landing_pages/20170313/bg-model-m.jpg') no-repeat;
+        background-size: auto 100%;
+        overflow: hidden;
+    }
+
+    img#mobile-slide1 {
+        max-width: 200px;
+        float: left;
+        margin-left: 40%;
+        margin-top: 3%;
+    }
+
+    .cta-more {
+        text-align: center;
+    }
+
+    .cta-more a {
+        text-align: center;
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .droz-hero-right .col-sm-7 {
+        width: 58%;
+    }
+
+    .droz-hero-right .col-sm-5 {
+        width: 38%;
+    }
+
+    .cta-colors-mobile {
+        margin-top: 10px;
+    }
+
+    .droz-hero-right .col-sm-5.cta-colors-mobile-box {
+        width: 48%;
+    }
+
+    .droz-results1 h2 {
+        font-size: 17px !important;
+    }
+
+    .droz-ba-ha {
+        padding: 0;
+    }
+
+    .droz-results1 .ba-slick-set3 {
+        width: 100%;
+    }
+
+    .droz-results1 .ba-slick-set3 li img {
+        width: 100%;
+    }
+
     img.lp-hero-img {
         width: 100%;
         max-width: 767px;
@@ -244,6 +347,107 @@
 
     .lpmobile-hero .slide1 {
         padding: 0;
+    }
+
+    .droz-gold {
+        display: block;
+    }
+
+    .lpmobile-header {
+        padding: 18px 0;
+    }
+
+    .cms-page-view .main-content .product-cta {
+        overflow: visible;
+    }
+
+    .product-cta h2 {
+        font-size: 18px;
+        text-align: center;
+        display: block;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #ebebeb;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+    .product-cta p {
+        line-height: normal;
+        margin-bottom: 12px;
+    }
+
+    .product-cta p.ltocopy {
+        font-size: 14px;
+    }
+
+    .product-cta .bottombar {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 20px 0 0;
+    }
+
+    .product-cta .bottombar span {
+        display: block;
+        font-size: 12px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        display: inline-block;
+    }
+
+    .product-cta .bottombar .warranty {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 3px;
+        margin-bottom: 3px;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
+    .product-cta .bottombar .freeshipping {
+        display: block;
+    }
+
+    .mobile-riskfree {
+        float: right;margin-top: -60px
+    }
+
+    .droz-aboutha {
+        background: #efd0b6 url('/media/landing_pages/20170313/bg-about.jpg') no-repeat center;
+        min-height: 300px;
+        background-size: cover;
+        background-position-x: 55%;
+    }
+
+    .droz-aboutha .aboutha {
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        letter-spacing: 0.6px;
+        font-style: italic;
+        font-size: 12px;
+        color: #000;
+        border-bottom: 1px solid #b0927e;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        width: 60%;
+    }
+
+    .droz-aboutha .droz-aboutha-copy {
+        margin-top: 40px;
+    }
+
+    .droz-aboutha .lp-aboutcta {
+        padding: 30px 0;
+        text-align: center;
+        width: 60%;
+    }
+
+    .droz-aboutha .lp-aboutcta a.ctabtn {
+        font-size: 12px;
+        font-weight: bold;
+        height: 45px;
+        letter-spacing: 0.5px;
+        line-height: 43px;
+        padding: 0 50px;
     }
 
 }

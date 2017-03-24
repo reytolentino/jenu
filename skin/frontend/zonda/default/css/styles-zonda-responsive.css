@@ -2024,11 +2024,11 @@
     font-size: 22px;
   }
   .howitworks-banner .banner-content .jenu-howitworks-sub-text {
-    display: block;
-    font-size: 14px;
-    line-height: 24px;
-    text-shadow: 0 0 0;
-  }
+     display: block;
+     font-size: 14px;
+     line-height: 24px;
+     text-shadow: 0 0 0;
+   }
   .jenu-howitworks-text-content .jenu-howitworks-text-copy-img {
     display: none;
   }

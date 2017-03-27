@@ -236,6 +236,12 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu,#nav>li, #blog_nav>li {
     line-height: 40px;
     padding: 0;
 }
+
+#custommenu-mobile .parentMenu .itemMenuName span {
+    line-height: normal;
+    display: block;
+    margin: 10px 0;
+}
 * html #menu-button, * html .parentMenu {
     height: 1%;
 }

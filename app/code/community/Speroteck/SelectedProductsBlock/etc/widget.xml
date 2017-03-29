@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Selected products
+ *
+ * @category    Speroteck
+ * @package     Speroteck_SelectedProductsBlock
+ */
+-->
+<widgets>
+    <Speroteck_SelectedProductsBlock type="speroteck_selectedproductsblock/list" module="speroteck_selectedproductsblock">
+        <name>Display selected products</name>
+        <description>Display list of selected products</description>
+        <parameters>
+            <block_name translate="label">
+                <label>Block Name</label>
+                <type>text</type>
+                <required>1</required>
+                <visible >1</visible>
+            </block_name>
+            <template translate="label">
+                <label>Frontend Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                    <values>
+                        <grid translate="label">
+                            <value>speroteck/selectedproductsblock/default.phtml</value>
+                            <label>Default template</label>
+                        </grid>
+                    </values>
+            </template>
+            <products_limit translate="label">
+                <label>Products Limit</label>
+                <type>text</type>
+                <required>1</required>
+                <visible >1</visible>
+                <value>4</value>
+            </products_limit>
+            <selected_products>
+                <label>Product sku's</label>
+                <description>Product sku's separated by comma</description>
+                <type>textarea</type>
+                <required>1</required>
+                <visible >1</visible>
+            </selected_products>
+        </parameters>
+    </Speroteck_SelectedProductsBlock>
+</widgets>

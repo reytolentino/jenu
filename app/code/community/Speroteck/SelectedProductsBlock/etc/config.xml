@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Selected products
+ *
+ * @category    Speroteck
+ * @package     Speroteck_SelectedProductsBlock
+ */
+-->
+<config>
+    <modules>
+        <Speroteck_SelectedProductsBlock>
+            <version>0.1.0</version>
+        </Speroteck_SelectedProductsBlock>
+    </modules>
+    <global>
+        <helpers>
+            <speroteck_selectedproductsblock>
+                <class>Speroteck_SelectedProductsBlock_Helper</class>
+            </speroteck_selectedproductsblock>
+        </helpers>
+        <blocks>
+            <speroteck_selectedproductsblock>
+                <class>Speroteck_SelectedProductsBlock_Block</class>
+            </speroteck_selectedproductsblock>
+        </blocks>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <speroteck_selectedproductsblock>
+                    <file>speroteck/selectedproductsblock.xml</file>
+                </speroteck_selectedproductsblock>
+            </updates>
+        </layout>
+    </frontend>
+</config>

@@ -1,0 +1,60 @@
+<?php
+/**
+ * Selected products
+ *
+ * @category    Speroteck
+ * @package     Speroteck_SelectedProductsBlock
+ */
+
+/** @var $this Speroteck_SelectedProductsBlock_Block_List */
+
+$products = $this->getProductCollection();
+?>
+<?php if ($products && $products->getSize()): ?>
+    <div class="block block-products selected-products">
+        <div class="block-title">
+            <strong><span><?php echo $this->getBlockName() ?></span></strong>
+        </div>
+        <div class="block-content">
+            <div class="products-block">
+                <?php foreach ($products->getItems() as $product): ?>
+                    <?php /** @var $product Mage_Catalog_Model_Product */ ?>
+                    <div class="item">
+                        <a class="product-image"
+                           href="<?php echo $product->getProductUrl() ?>"
+                           title="<?php echo $this->stripTags($product->getName(), null, true) ?>">
+                            <img
+                                src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(120) ?>"
+                                alt="<?php echo $this->stripTags($product->getName(), null, true) ?>" />
+                        </a>
+
+                        <div class="product-details">
+                            <p class="product-name">
+                                <a href="<?php echo $product->getProductUrl() ?>"
+                                   title="<?php echo $this->stripTags($product->getName(), null, true) ?>)">
+                                    <?php echo $this->helper('catalog/output')->productAttribute($product, $product->getName(), 'name') ?>
+                                </a>
+                            </p>
+                            <?php if ($product->getIsSalable()): ?>
+                                <div class="product-price">
+                                    <?php echo $this->getPriceHtml($product, true) ?>
+                                </div>
+                                <button type="button"
+                                        title="<?php echo $this->__('Add to Cart') ?>"
+                                        class="button btn-cart"
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($product) ?>')">
+                                    <span><span><?php echo $this->__('Add to Cart') ?></span></span>
+                                </button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+
+
+
+

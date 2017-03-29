@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Selected products
+ *
+ * @category    Speroteck
+ * @package     Speroteck_SelectedProductsBlock
+ */
+ -->
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><name>speroteck/selectedproductsblock/css/style.css</name><params/></action>
+        </reference>
+    </default>
+</layout>

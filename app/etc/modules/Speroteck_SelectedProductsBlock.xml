@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Selected products
+ *
+ * @category    Speroteck
+ * @package     Speroteck_SelectedProductsBlock
+ */
+ -->
+<config>
+    <modules>
+        <Speroteck_SelectedProductsBlock>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Speroteck_SelectedProductsBlock>
+    </modules>
+</config>

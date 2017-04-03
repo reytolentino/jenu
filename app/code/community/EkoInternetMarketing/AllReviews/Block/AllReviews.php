@@ -52,6 +52,9 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 			$data['reviews'][$i]['review_created_at'] = $this->formatCreatedDate($review->getCreatedAt(), "m/d/Y");
 			$data['reviews'][$i]['review_detail'] = $review->getDetail();
 			$data['reviews'][$i]['review_percentage'] = $this->getReviewFinalPercentage($review->getRatingVotes());
+            $_product = Mage::getModel('catalog/product')->load($review->getData('entity_pk_value'));
+            $data['reviews'][$i]['review_productname'] = $_product->getName();
+            $data['reviews'][$i]['review_producturl'] = $_product->getProductUrl();
 			
 			if($enable_product_image == "1"):
 				

@@ -38,6 +38,11 @@
     padding: 0;
 }
 
+#all-reviews-table .review-productname,
+#all-reviews-table .review-productname a {
+    color: #999;
+}
+
 @media(max-width: 767px){
     #all-reviews-table .review-body a.product-image{ width: auto; float: none;display: block;margin-left: auto;margin-right: auto;padding-right: 0; }
 }

@@ -430,7 +430,7 @@
                 <block type="core/template" name="productPixels" template="pixels/catalog/product/view.phtml"/>
             </reference>
             -->
-            <action method="unsetChild"><name>alert.urls</name></action>
+            <remove name="alert.urls" />
             <reference name="alert.urls">
                 <block type="productalert/product_view" name="productalert.stock" as="productalert_stock" template="productalert/product/view.phtml">
                     <action method="prepareStockAlertData"/>

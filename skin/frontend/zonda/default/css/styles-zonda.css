@@ -1787,6 +1787,13 @@ a.sarp-link-tip {
     font-weight: normal;
     line-height: 1.8;
 }
+p.alert-urls a {
+    background: #000 none repeat scroll 0 0;
+    color: #fff !important;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 10px 16px;
+}
 .product-view .alsobought h3 {
     border-bottom: 1px solid #e0e0e0;
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;

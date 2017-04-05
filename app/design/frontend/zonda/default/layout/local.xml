@@ -430,6 +430,13 @@
                 <block type="core/template" name="productPixels" template="pixels/catalog/product/view.phtml"/>
             </reference>
             -->
+            <reference name="alert.urls">
+                <block type="productalert/product_view" name="productalert.stock" as="productalert_stock" template="productalert/product/view.phtml">
+                    <action method="prepareStockAlertData"/>
+                    <action method="setHtmlClass"><value>alert-stock link-stock-alert</value></action>
+                    <action method="setSignupLabel" translate="value"><value>Notify me when this product is back in stock</value></action>
+                </block>
+            </reference>
         </reference>
 
         <!-- remove product tags block (already inserted as a tab) -->

@@ -38,11 +38,7 @@
 </script>
 
 <?php if ($_product->isSaleable()): ?>
-    <?php if (stripos($_product->getName(), 'infuser') == true || stripos($_product->getName(), 'skin duo') == true || stripos($_product->getName(), 'infusion gel') == true): ?>
-        <p class="availability"><?php echo $this->__('Pre-sale.') ?></p>
-    <?php else: ?>
-        <p class="availability"><?php echo $this->__('In stock.') ?></p>
-    <?php endif; ?>
+    <p class="availability"><?php echo $this->__('In stock.') ?></p>
 <?php else: ?>
 <p class="availability"><?php echo $this->__('Out of stock.') ?></p>
 <?php endif; ?>

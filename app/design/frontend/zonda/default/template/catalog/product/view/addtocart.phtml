@@ -235,20 +235,8 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
 </script>
 <?php $_product = $this->getProduct(); ?>
 
-<?php if (stripos($_product->getName(), 'infuser') == true): ?>
-    <div style="color:red;font-style:italic;clear: both;margin-bottom: 20px;float: left;">
-        Due to high demand, this item is currently on back-order and expected to ship before April 15, 2017. RESERVE YOURS NOW.
-    </div>
-<?php endif; ?>
-
 <?php
-if (stripos($_product->getName(), 'infuser') == true) {
-    $buttonTitle = $this->__('Pre-Order Now');
-} elseif (stripos($_product->getName(), 'infusion gel') == true || stripos($_product->getName(), 'skin duo') == true) {
-    $buttonTitle = $this->__('Pre-Order Now');
-} else {
     $buttonTitle = $this->__('Add to Cart');
-}
 ?>
 <?php if($_product->isSaleable()): ?>
 
@@ -260,17 +248,6 @@ if (stripos($_product->getName(), 'infuser') == true) {
         <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="<?php echo (int)Mage::getStoreConfig('jenumodal/settings/enabled') ? 'beforeAdding();return false;' : 'productAddToCartForm.submit(this)' ?>"><span><span><?php echo $buttonTitle ?></span></span></button>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
-
-    <?php if (stripos($_product->getName(), 'infuser') == true || stripos($_product->getName(), 'skin duo') == true || stripos($_product->getName(), 'infusion gel') == true): ?>
-        <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
-            Your card will be charged at time of purchase. Pre-order items are expected to ship before April 15, 2017. You will be notified via email once your order ships.
-        </div>
-    <?php elseif (stripos($_product->getName(), 'conducting gel') == true): ?>
-    <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
-        Due to high demand, this item is currently OOS. We will be receiving inventory on the NEW naturally derived Gel before April 15, 2017. To pre-order the NEW Gel, <a href="/coming-soon/jenu-microsphere-infusion-gel"><strong>click here</strong></a>.
-    </div>
-<?php endif; ?>
-
 
 <?php endif; ?>
 

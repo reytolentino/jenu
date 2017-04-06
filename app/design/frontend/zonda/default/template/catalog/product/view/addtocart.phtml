@@ -253,6 +253,12 @@ if (stripos($_product->getName(), 'collagen mineral gel') == true) {
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
 
+    <?php if (stripos($_product->getName(), 'collagen mineral gel') == true): ?>
+        <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
+            Your card will be charged at time of purchase. Pre-order items are expected to ship the week of April 17, 2017. You will be notified via email once your order ships.
+        </div>
+    <?php endif; ?>
+
 <?php endif; ?>
 
 

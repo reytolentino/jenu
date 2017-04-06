@@ -236,7 +236,11 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
 <?php $_product = $this->getProduct(); ?>
 
 <?php
+if (stripos($_product->getName(), 'collagen mineral gel') == true) {
+    $buttonTitle = $this->__('Pre-Order Now');
+} else {
     $buttonTitle = $this->__('Add to Cart');
+}
 ?>
 <?php if($_product->isSaleable()): ?>
 

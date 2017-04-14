@@ -1229,7 +1229,82 @@ button.button span.name {
     margin-top: 20px;
     position: relative;
 }
-/*my account page*/
+
+.catalog-category-view .cat-subnav a img {
+    max-width: 100px;
+    width: 100%;
+}
+
+.catalog-category-view .cat-subnav {
+    text-align: center;
+    background: #f7f7f7;
+    padding: 20px 0;
+}
+
+.catalog-category-view .cat-subnav div {
+    vertical-align: top;
+}
+
+.catalog-category-view .cat-subnav a {
+    text-transform: uppercase;
+    color: #333;
+    font-size: 11px;
+    font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.catalog-category-view .cat-subnav a span {
+    border-bottom: 5px solid transparent;
+    padding-bottom: 5px;
+    display: block;
+}
+
+.catalog-category-view .cat-subnav a:hover span,
+.catalog-category-view .cat-subnav a.active span {
+    border-bottom: 5px solid #000;
+}
+
+.catalog-category-view .cat-subnav a:hover span:after,
+.catalog-category-view .cat-subnav a.active span:after {
+    font-family: "fontawesome";
+    content: "\f0dd";
+    color: #000;
+    position: absolute;
+    bottom: -10px;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.category-infuser-devices .cat-subnav a.cat-subnav-infusers span,
+.category-infuser-gel .cat-subnav a.cat-subnav-gel span,
+.category-infuser-accessories .cat-subnav a.cat-subnav-infuser-acc span,
+.category-open-box-devices .cat-subnav a.cat-subnav-openbox span {
+    border-bottom: 5px solid #000;
+}
+
+.category-infuser-devices .cat-subnav a.cat-subnav-infusers span:after,
+.category-infuser-gel .cat-subnav a.cat-subnav-gel span:after,
+.category-infuser-accessories .cat-subnav a.cat-subnav-infuser-acc span:after,
+.category-open-box-devices .cat-subnav a.cat-subnav-openbox span:after {
+    font-family: "fontawesome";
+    content: "\f0dd";
+    color: #000;
+    position: absolute;
+    bottom: -10px;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.catalog-category-view .cat-subnav a.cat-shopall {
+    display: none;
+}
+
+    /*my account page*/
 
 .hello {
     font-size: 18px;

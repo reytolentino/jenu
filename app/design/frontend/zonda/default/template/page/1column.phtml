@@ -87,6 +87,7 @@ $b = $zonda->getConfigGroup();
 
         <?php $breadcrumbs_html = $this->getChildHtml('breadcrumbs') ?>
         <?php echo $breadcrumbs_html ?>
+        <?php echo $this->getChildHtml('cat-subnav'); ?>
         <?php
         if ($b['category']['banner_position'] == 'bottom') 
             echo $this->getChildHtml('category.banner');

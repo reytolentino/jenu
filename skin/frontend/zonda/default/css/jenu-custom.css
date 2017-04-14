@@ -110,7 +110,7 @@ ul#nav li.order-now a:hover {
 div.menu a, #nav li a, #blog_nav li a, #nav-links a {
     font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 11px;
-    padding: 0 10px;
+    padding: 0 16px;
 }
 
 #custommenu #nav .level1 a {

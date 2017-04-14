@@ -2874,6 +2874,25 @@
     display: inline-block;
   }
 
+  .catalog-category-view .cat-subnav {
+    padding: 10px 0 5px;
+  }
+
+  .catalog-category-view .cat-subnav .col-sm-2 {
+    width: 32.33333333333333%;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .catalog-category-view .cat-subnav a:hover span:after,
+  .catalog-category-view .cat-subnav a.active span:after {
+    display: none;
+  }
+
+  .catalog-category-view .cat-subnav a {
+    font-size: 10px;
+  }
+
 }
 @media(max-width: 480px) {
   .jenu-howitworks-img-wandfeatures img {

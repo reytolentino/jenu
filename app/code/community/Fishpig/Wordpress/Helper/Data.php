@@ -18,9 +18,19 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 		try {
 			if ($this->isEnabled()) {
 				if ($this->isFullyIntegrated()) {
-					return $this->getUrl();
+					if ($this->_isCached('toplink_url')) {
+						return $this->_cached('toplink_url');
+					}
+					
+					$transport = new Varien_Object(array('toplink_url' => $this->getUrl()));
+					
+					Mage::dispatchEvent('wordpress_get_toplink_url', array('transport' => $transport));
+
+					$this->_cache('toplink_url', $transport->getToplinkUrl());
+					
+					return $transport->getToplinkUrl();
 				}
-			
+
 				return $this->getWpOption('home');
 			}
 		}
@@ -40,7 +50,7 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	public function getTopLinkPosition()
 	{
 		if ($this->isEnabled()) {
-			return (int)Mage::getStoreConfig('wordpress_blog/layout/toplink_position');
+			return (int)Mage::getStoreConfig('wordpress/toplink/position');
 		}
 		
 		return false;
@@ -55,7 +65,17 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	public function getTopLinkLabel()
 	{
 		if ($this->isEnabled()) {
-			return Mage::getStoreConfig('wordpress_blog/layout/toplink_label');
+			if ($this->_isCached('toplink_label')) {
+				return $this->_cached('toplink_label');
+			}
+					
+			$transport = new Varien_Object(array('toplink_label' => Mage::getStoreConfig('wordpress/toplink/label')));
+			
+			Mage::dispatchEvent('wordpress_get_toplink_label', array('transport' => $transport));
+
+			$this->_cache('toplink_label', $transport->getToplinkLabel());
+			
+			return $transport->getToplinkLabel();
 		}
 		
 		return false;
@@ -99,7 +119,7 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	 */
 	public function getTableName($table)
 	{
-		return Mage::helper('wordpress/database')->getTableName($table);
+		return Mage::getSingleton('core/resource')->getTableName($table);
 	}
 	
 	/**
@@ -110,8 +130,8 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	 */
 	public function isEnabled()
 	{
-		return Mage::getStoreConfigFlag('wordpress/module/enabled')
-			&& !Mage::getStoreConfig('advanced/modules_disable_output/Fishpig_Wordpress');
+		return Mage::getStoreConfigFlag('wordpress/module/enabled', Mage::helper('wordpress/app')->getStore()->getId())
+			&& !Mage::getStoreConfig('advanced/modules_disable_output/Fishpig_Wordpress', Mage::helper('wordpress/app')->getStore()->getId());
 	}
 	
 	/**
@@ -153,6 +173,24 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	}
 	
 	/**
+	 * Split a date by spaces and translate
+	 *
+	 * @param string $date
+	 * @param string $splitter = ' '
+	 * @return string
+	 */
+	public function translateDate($date, $splitter = ' ')
+	{
+		$dates = explode($splitter, $date);
+		
+		foreach($dates as $it => $part) {
+			$dates[$it] = $this->__($part);
+		}
+		
+		return implode($splitter, $dates);
+	}
+	
+	/**
 	  * Return the default date formatting
 	  *
 	  */
@@ -177,41 +215,11 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	 * @param bool $format
 	 * @return bool
 	 */
-	public function isPluginEnabled($name, $format = true)
+	public function isPluginEnabled($name)
 	{
-		$name = $format ? Mage::getSingleton('catalog/product_url')->formatUrlKey($name) : $name;
-		
-		$plugins = false;
-
-		if ($this->isWordPressMU() && Mage::helper('wpmultisite')->canRun()) {
-			$plugins = Mage::helper('wpmultisite')->getWpSiteOption('active_sitewide_plugins');
-			$plugins = unserialize($plugins);
-		}
-		else if ($plugins = $this->getWpOption('active_plugins')) {
-			$plugins = unserialize($plugins);
-		}
-		
-		if ($plugins) {
-			foreach($plugins as $a => $b) {
-				if (strpos($a, $name) !== false || strpos($b, $name) !== false) {
-					return true;
-				}
-			}
-		}
-
-		return false;
+		return Mage::helper('wordpress/plugin')->isEnabled($name);
 	}
-
-	/**
-	 * Determine whether Cryllic locale support is enabled
-	 *
-	 * @return bool
-	 */
-	public function isCryllicLocaleEnabled()
-	{
-		return Mage::getStoreConfigFlag('wordpress_blog/locale/cyrillic_enabled');
-	}
-
+	
 	/**
 	 * Determine whether to force single store
 	 *
@@ -219,7 +227,7 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	 */
 	public function forceSingleStore()
 	{
-		return Mage::getStoreConfigFlag('wordpress_blog/associations/force_single_store');
+		return Mage::getStoreConfigFlag('wordpress/integration/force_single_store', Mage::helper('wordpress/app')->getStore()->getId());
 	}
 	
 	/**
@@ -233,7 +241,7 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 			$this->_cache('is_wpmu', false);
 			
 			if ($this->isWordPressMUInstalled()) {
-				$this->_cache('is_wpmu', Mage::helper('wpmultisite')->canRun());
+				$this->_cache('is_wpmu', Mage::helper('wp_addon_multisite')->canRun());
 			}
 		}
 		
@@ -248,21 +256,12 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	public function isWordPressMUInstalled()
 	{
 		if (!$this->_isCached('is_wpmu_installed')) {
-			$modules = (array)Mage::getConfig()->getNode('modules')->children();
+			$config = Mage::getConfig();
 
-			if (isset($modules['Fishpig_WordpressMu'])) {
-				$module = (array)$modules['Fishpig_WordpressMu'];
-
-				$this->_cache('is_wpmu_installed', ($module['active'] == 'true' || $module['active'] === true));
-			}
-			else if (isset($modules['Fishpig_Wordpress_Addon_Multisite'])) {
-				$module = (array)$modules['Fishpig_Wordpress_Addon_Multisite'];
-
-				$this->_cache('is_wpmu_installed', ($module['active'] == 'true' || $module['active'] === true));
-			}
-			else {
-				$this->_cache('is_wpmu_installed', false);
-			}
+			$isInstalled = (string)$config->getNode('modules/Fishpig_Wordpress_Addon_Multisite/active') === 'true'
+				|| (string)$config->getNode('modules/Fishpig_WordpressMu/active') === 'true';
+				
+			$this->_cache('is_wpmu_installed', $isInstalled);
 		}
 		
 		return $this->_cached('is_wpmu_installed');
@@ -280,13 +279,26 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 		if (!$url) {
 			foreach(array('upload_url_path', 'upload_path') as $config) {
 				if ($value = $this->getWpOption($config)) {
-					$url = $this->getBaseUrl($value);
+					if (strpos($value, 'http') === false) {
+						if (substr($value, 0, 1) !== '/') {
+							$url = $this->getBaseUrl($value);
+						}
+					}
+					else {
+						$url = $value;
+					}
+
 					break;
 				}
 			}
 			
 			if (!$url) {
-				$url = $this->getBaseUrl('wp-content/uploads/');
+				if ($this->isWordPressMU() && !Mage::helper('wpmultisite')->isDefaultBlog() && Mage::helper('wpmultisite')->getBlogId()) {
+					$url = $this->getBaseUrl('wp-content/uploads/sites/' . Mage::helper('wpmultisite')->getBlogId() . '/');
+				}
+				else {
+					$url = $this->getBaseUrl('wp-content/uploads/');
+				}
 			}
 		}
 		
@@ -305,24 +317,92 @@ class Fishpig_Wordpress_Helper_Data extends Fishpig_Wordpress_Helper_Abstract
 	
 	/**
 	 * Retrieve the path for the WordPress installation
-	 * The main use of this is to include the phpass class file for Customer Synchronisation
+	 * Return false if path is invalid
 	 *
 	 * @return false|string
 	 */
 	public function getWordPressPath()
 	{
-		$path = rtrim($this->getConfigValue('wordpress/misc/path'), DS);
+		$path = $this->getRawWordPressPath();
 		
+		return is_dir($path) && is_file($path . 'wp-config.php')
+			? $path
+			: false;
+	}
+	
+	/**
+	 * Retrieve the path for the WordPress installation
+	 * Do not check, just return
+	 *
+	 * @return string
+	 */
+	public function getRawWordPressPath()
+	{
+		$path = rtrim(Mage::getStoreConfig('wordpress/integration/path', Mage::helper('wordpress/app')->getStore()->getId()), DS);
+
 		if ($path === '') {
 			return false;
 		}
-		
+
 		if (substr($path, 0, 1) !== DS) {
-			$path = Mage::getBaseDir() . DS . $path . DS;
+			return Mage::getBaseDir() . DS . $path . DS;
+		}
+
+		return rtrim($path, DS) . DS;
+	}
+	
+	/**
+	 * Determine whether an addon is installed
+	 *
+	 * @param string $addon
+	 * @return bool
+	 */
+	public function isAddonInstalled($addon)
+	{
+		if (strpos($addon, '_') === false) {
+			$addon = 'Fishpig_Wordpress_Addon_' . $addon;
+		}
+
+		return (string)Mage::getConfig()->getNode('modules/' . $addon . '/active') === 'true';
+	}
+	
+	/**
+	 * Provides backwards compatibility for older Magento versions running Legacy
+	 *
+	 * @param string $data
+	 * @param array $allowedTags = null
+	 * @return string
+	 */
+	public function escapeHtml($data, $allowedTags = null)
+	{
+		return Mage::helper('core')->htmlEscape($data, $allowedTags);
+	}
+	
+	/**
+	 * Determine wether the Legacy add-on is installed
+	 *
+	 * @return bool
+	 */
+	public function isLegacy()
+	{
+		if ($this->_isCached('is_legacy')) {
+			return $this->_cached('is_legacy');
 		}
 		
-		if (is_dir($path) && is_file($path . DS . 'wp-config.php')) {
-			return $path;
-		}
+		$isLegacy = is_file(Mage::getBaseDir() . DS . 'app' . DS . 'etc' . DS . 'modules' . DS . 'Fishpig_Wordpress_Addon_Legacy.xml');
+		
+		$this->_cache('is_legacy', $isLegacy);
+		
+		return $isLegacy;
+	}
+	
+	/**
+	 * Determine whether the request is an API request
+	 *
+	 * @return bool
+	**/
+	public function isApiRequest()
+	{
+		return strpos(trim(Mage::app()->getRequest()->getPathInfo(), '/'), 'api/') === 0;
 	}
 }

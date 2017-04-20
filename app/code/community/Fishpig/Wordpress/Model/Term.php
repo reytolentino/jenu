@@ -8,19 +8,41 @@
  
 class Fishpig_Wordpress_Model_Term extends Fishpig_Wordpress_Model_Abstract
 {
+	/**
+	 * Event data
+	 *
+	 * @var string
+	 */
+	protected $_eventPrefix = 'wordpress_term';
+	protected $_eventObject = 'term';
+	
 	public function _construct()
 	{
 		$this->_init('wordpress/term');
 	}
 	
 	/**
-	 * Determine whether this term is a custom term or a default term
+	 * Get the taxonomy object for this term
 	 *
-	 * @return bool
+	 * @return Fishpig_Wordpress_Model_Term_Taxonomy
 	 */
-	public function isDefaultTerm()
+	public function getTaxonomyInstance()
 	{
-		return in_array($this->_getData('taxonomy'), array('category', 'link_category', 'post_tag'));
+		return Mage::helper('wordpress/app')->getTaxonomy($this->getTaxonomy());
+	}
+
+	/**
+	 * Retrieve the taxonomy label
+	 *
+	 * @return string
+	 */
+	public function getTaxonomyLabel()
+	{
+		if ($this->getTaxonomy()) {
+			return ucwords(str_replace('_', ' ', $this->getTaxonomy()));
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -46,36 +68,13 @@ class Fishpig_Wordpress_Model_Term extends Fishpig_Wordpress_Model_Abstract
 	}
 	
 	/**
-	 * Retrieve the path for the term
-	 *
-	 * @return string
-	 */
-	public function getPath()
-	{
-		if (!$this->hasPath()) {
-			if ($this->getParentTerm()) {
-				$this->setPath($this->getParentTerm()->getPath() . '/' . $this->getId());
-			}
-			else {
-				$this->setPath($this->getId());
-			}
-		}
-		
-		return $this->_getData('path');
-	}
-	
-	/**
 	 * Retrieve a collection of children terms
 	 *
 	 * @return Fishpig_Wordpress_Model_Mysql_Term_Collection
 	 */
 	public function getChildrenTerms()
 	{
-		if (!$this->hasChildrenTerms()) {
-			$this->setChildrenTerms($this->getCollection()->addParentFilter($this));
-		}
-		
-		return $this->_getData('children_terms');
+		return $this->getCollection()->addParentFilter($this);
 	}
 	
 	/**
@@ -85,19 +84,11 @@ class Fishpig_Wordpress_Model_Term extends Fishpig_Wordpress_Model_Abstract
 	 */    
     public function getPostCollection()
     {
-		if (!$this->hasPostCollection()) {
-			if ($this->getTaxonomy()) {
-				$posts = Mage::getResourceModel('wordpress/post_collection')
-    				->addIsPublishedFilter()
-    				->addTermIdFilter($this->getId(), $this->getTaxonomy());
-    			
-	    		$this->setPosts($posts);
-	    	}
-    	}
-    	
-    	return $this->_getData('posts');
+		return parent::getPostCollection()
+			->addIsViewableFilter()
+			->addTermIdFilter($this->getChildIds(), $this->getTaxonomy());
     }
-    
+      
 	/**
 	 * Retrieve the numbers of items that belong to this term
 	 *
@@ -107,36 +98,6 @@ class Fishpig_Wordpress_Model_Term extends Fishpig_Wordpress_Model_Abstract
 	{
 		return $this->getCount();
 	}
-
-	/**
-	 * Load a term based on it's slug
-	 *
-	 * @param string $slug
-	 * @return $this
-	 */	
-	public function loadBySlug($slug)
-	{
-		if (strpos($slug, '/') !== false) {
-			return $this->loadBySlugs($slug);
-		}
-		
-		return $this->load($slug, 'slug');
-	}
-	
-	/**
-	 * Load a term by an array of slugs
-	 * If the slugs match a category URI
-	 * The most child term will be returned
-	 *
-	 * @param array $slugs
-	 * @return Fishpig_Wordpress_Model_Term
-	 */
-	public function loadBySlugs(array $slugs)
-	{
-		$this->getResource()->loadBySlugs($slugs, $this);
-		
-		return $this;
-	}
 	
 	/**
 	 * Retrieve the parent ID
@@ -145,11 +106,7 @@ class Fishpig_Wordpress_Model_Term extends Fishpig_Wordpress_Model_Abstract
 	 */	
 	public function getParentId()
 	{
-		if ($this->_getData('parent')) {
-			return $this->_getData('parent');
-		}
-		
-		return false;
+		return $this->_getData('parent') ? $this->_getData('parent') : false;
 	}
 	
 	/**
@@ -169,61 +126,97 @@ class Fishpig_Wordpress_Model_Term extends Fishpig_Wordpress_Model_Abstract
 	 */
 	public function getUrl()
 	{
-		if (!$this->isDefaultTerm() && $this->getCategory()) {
-			return $this->getCategory()->getUrl() . $this->getUri() . '/';
-		}
-		
 		return Mage::helper('wordpress')->getUrl($this->getUri() . '/');
 	}
 	
 	/**
-	 * Retrieve the URI for this term
-	 * This takes into account parent relationships
-	 * This does not include the base URL
+	 * Retrieve the URL for this term
 	 *
 	 * @return string
 	 */
 	public function getUri()
 	{
-		if (($tree = $this->getTermTree()) !== false) {
-			$uri = array();
-			
-			foreach($tree as $branch) {
-				$uri[] = $branch->getSlug();
-			}
-
-			return implode('/', $uri);		
+		if (!$this->hasUri()) {
+			$this->setUri(
+				$this->getTaxonomyInstance()->getUriById($this->getId())
+			);
 		}
 		
-		return false;
+		return $this->_getData('uri');
 	}
 	
 	/**
-	 * Retrieve an array of parent terms
-	 * The first element of the array is the most parent term
-	 * The last element of the array is $this
+	 * Retrieve an image URL for the category
+	 * This uses the Category Images plugin (http://wordpress.org/plugins/categories-images/)
 	 *
-	 * @return false|array
-	 */	
-	public function getTermTree()
+	 * @return false|string
+	 */
+	public function getImageUrl()
 	{
-		if (!$this->hasTermTree()) {
-			if ($this->getParentTerm()) {
-				$term = $this;
-				$terms = array();
+		return ($imageUrl = Mage::helper('wordpress')->getWpOption('z_taxonomy_image' . $this->getId()))
+			 ? $imageUrl
+			 : false;
+	}
 	
-				do {
-					$terms[] = $term;
-					$term = $term->getParentTerm();
-				} while ($term);
-				
-				$this->setTermTree(array_reverse($terms));
-			}
-			else {
-				$this->setTermTree(array($this));
-			}
+	/**
+	 * Get the children terms
+	 *
+	 * @deprecated - 3.2.0.0 / use self::getChildrenTerms
+	 */
+	public function getChildrenCategories()
+	{
+		return $this->getChildrenTerms();
+	}
+	
+	/**
+	 * Get the number of posts belonging to the term
+	 *
+	 * @return int
+	 */
+	public function getPostCount()
+	{
+		return (int)$this->getCount();
+	}
+	
+	/**
+	 * Get an array of all child ID's
+	 * This includes the ID's of children's children
+	 *
+	 * @return array
+	 */
+	public function getChildIds()
+	{
+		if (!$this->hasChildIds()) {
+			$this->setChildIds(
+				$this->getResource()->getChildIds($this->getId())
+			);
 		}
 		
-		return $this->_getData('term_tree');
+		return $this->_getData('child_ids');
+	}
+	
+	/**
+	 * Get the meta value using ACF if it's installed
+	 *
+	 * @param string $key
+	 * @return mixed
+	 **/
+	public function getMetaValue($key)
+	{
+		$ikey = '__acf_meta_' . $key;
+		
+		if ($this->hasData($ikey)) {
+			return $this->_getData($ikey);
+		}
+		
+		if (!Mage::helper('wordpress')->isAddonInstalled('ACF')) {
+			$this->setData($ikey, null);
+			
+			return null;
+		}
+		
+		$this->setData($ikey, Mage::helper('wp_addon_acf')->getTermValue($key, $this));
+
+		return $this->_getData($ikey);
 	}
 }

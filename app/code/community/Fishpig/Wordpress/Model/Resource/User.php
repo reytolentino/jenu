@@ -12,7 +12,7 @@ class Fishpig_Wordpress_Model_Resource_User extends Fishpig_Wordpress_Model_Reso
 	{
 		$this->_init('wordpress/user', 'ID');
 	}
-	
+
 	/**
 	 * Load the WP User associated with the current logged in Customer
 	 *
@@ -34,12 +34,79 @@ class Fishpig_Wordpress_Model_Resource_User extends Fishpig_Wordpress_Model_Reso
 		return false;
 	}
 	
+	/**
+	 * Ensure the model has the necessary data attributes set
+	 *
+	 * @param Mage_Core_Model_Abstract $object
+	 * @return $this
+	 */
     protected function _beforeSave(Mage_Core_Model_Abstract $object)
     {
     	if (!$object->getUserEmail()) {
     		throw new Exception('Cannot save WordPress user without email address');
     	}
     	
+    	if (!$object->getUserRegistered()) {
+    		$object->setUserRegistered(now());
+    	}
+    	
+		if (!$object->getUserStatus()) {
+			$object->setUserStatus(0);
+		}
+		
+		if (!$object->getRole()) {
+			$object->setRole($object->getDefaultUserRole());
+		}
+		
+		if (!$object->getUserLevel()) {
+			$object->setUserLevel(0);
+		}
+			
     	return parent::_beforeSave($object);
+    }
+    
+    /**
+     * Remove duplicate user accounts from WordPress that use the same email address
+     *
+     * @return $this
+     */
+    public function cleanDuplicates()
+    {
+		$collection = Mage::getResourceModel('wordpress/user_collection')->load();
+		$byEmail = array();
+		
+		foreach($collection as $user) {
+			$email = $user->getUserEmail();
+			
+			if (!isset($byEmail[$email])) {
+				$byEmail[$email] = array();
+			}
+
+			$byEmail[$email]	[] = (int)$user->getId();
+		}
+
+	    $db = $this->_getWriteAdapter();
+		$postTable = $this->getTable('wordpress/post');
+		
+	    foreach($byEmail as $email => $users) {
+		    if (count($users) > 1) {
+			    $original = array_shift($users);
+
+			    $db->update($postTable, array('post_author' => $original), $db->quoteInto('post_author IN (?)', $users));
+				$db->delete($this->getMainTable(), $db->quoteInto('ID IN (?)', $users));
+			}
+	    }
+	    
+	    $select = $db->select()
+	    	->distinct()
+	    	->from($this->getTable('wordpress/user'), 'ID');
+	    	
+	    $userIds = $db->fetchCol($select);
+		
+		if (count($userIds) > 0) {
+			$db->delete($this->getTable('wordpress/user_meta'), $db->quoteInto('user_id NOT IN (?)', $userIds));
+		}
+
+		return $this;
     }
 }

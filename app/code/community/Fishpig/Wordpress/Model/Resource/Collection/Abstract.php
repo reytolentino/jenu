@@ -7,23 +7,7 @@
  * @info			http://fishpig.co.uk/wordpress-integration.html
  */
 
-	/**
-	 * I know this is an ugly hack but it's the only way I can get Magento 1.5.1.0 to work 
-	 * now that I have converted the extension to the new Resource model system
-	 *
-	 */
-	if (version_compare(Mage::getVersion(), '1.6.0.0', '<')) {
-		abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract_Hack extends Mage_Core_Model_Mysql4_Collection_Abstract{}
-	}
-	else {
-		abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract_Hack extends Mage_Core_Model_Resource_Db_Collection_Abstract{}
-	}
-	/**
-	 * End of hack, thank fully
-	 *
-	 */
-
-abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract extends Fishpig_Wordpress_Model_Resource_Collection_Abstract_Hack
+abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
 	/**
 	 * An array of all of the meta fields that have been joined to this collection
@@ -33,15 +17,28 @@ abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract extends Fish
 	protected $_metaFieldsJoined = array();
 	
 	/**
+	 * Removes all order data set at the collection level
+	 * This does not remove order set using self::getSelect()->order($field, $dir)
+	 *
+	 * @return $this
+	 */
+	public function resetOrderBy()
+	{
+		$this->_orders = array();
+		
+		return $this;
+	}
+	
+	/**
 	 * Add a meta field to the select statement columns section
 	 *
 	 * @param string $field
 	 * @return $this
 	 */
-	public function addMetaFieldToSelect($field)
+	public function addMetaFieldToSelect($metaKey)
 	{
-		if ($this->_joinMetaField($field)) {
-			$this->getSelect()->columns(array($field => $this->_getMetaFieldAlias($field) . '.meta_value'));
+		if (($field = $this->_joinMetaField($metaKey)) !== false) {
+			$this->getSelect()->columns(array($metaKey => $field));
 		}
 		
 		return $this;
@@ -54,10 +51,10 @@ abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract extends Fish
 	 * @param string|array $filter
 	 * @return $this
 	 */
-	public function addMetaFieldToFilter($field, $filter)
+	public function addMetaFieldToFilter($metaKey, $filter)
 	{
-		if ($this->_joinMetaField($field)) {
-			$this->addFieldToFilter($this->_getMetaFieldAlias($field) . '.meta_value', $filter);
+		if (($field = $this->_joinMetaField($metaKey)) !== false) {
+			$this->addFieldToFilter($field, $filter);
 		}
 		
 		return $this;
@@ -91,16 +88,30 @@ abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract extends Fish
 			if (!isset($this->_metaFieldsJoined[$field])) {
 				$alias = $this->_getMetaFieldAlias($field);
 
-				$condition = "`{$alias}`.`{$model->getMetaObjectField()}`=`main_table`.`{$model->getResource()->getIdFieldName()}` AND "
-					. $this->getConnection()->quoteInto("`{$alias}`.`meta_key`=?", $field);
-					
-				$this->getSelect()->joinLeft(array($alias => $model->getMetaTable()), $condition, '');
+				$meta = new Varien_Object(array(
+					'key' => $field,
+					'alias' => $alias,
+				));
+				
+				Mage::dispatchEvent($model->getEventPrefix() . '_join_meta_field', array('collection' => $this, 'meta' => $meta));
+				
+				if ($meta->getCanSkipJoin()) {
+					$this->_metaFieldsJoined[$field] = $meta->getAlias();
+				}
+				else {
+					$condition = "`{$alias}`.`{$model->getMetaObjectField()}`=`main_table`.`{$model->getResource()->getIdFieldName()}` AND "
+						. $this->getConnection()->quoteInto("`{$alias}`.`meta_key`=?", $field);
+						
+					$this->getSelect()->joinLeft(array($alias => $model->getMetaTable()), $condition, '');
 
-				$this->_metaFieldsJoined[$field] = $alias;
+					$this->_metaFieldsJoined[$field] = $alias . '.meta_value';;
+				}
 			}
+			
+			return $this->_metaFieldsJoined[$field];
 		}
 
-		return $model->hasMeta();
+		return false;
 	}
 	
 	/**
@@ -113,5 +124,22 @@ abstract class Fishpig_Wordpress_Model_Resource_Collection_Abstract extends Fish
 	protected function _getMetaFieldAlias($field)
 	{
 		return 'meta_field_' . str_replace('-', '_', $field);
+	}
+
+	/**
+	 * After loading a collection, dispatch the pre-set event
+	 *
+	 * @return $this
+	 */
+	protected function _afterLoad()
+	{
+		if ($this->getFlag('after_load_event_name')) {
+			Mage::dispatchEvent($this->getFlag('after_load_event_name'), array(
+				'collection' => $this,
+				'wrapper_block' => $this->getFlag('after_load_event_block')
+			));
+		}
+
+		return parent::_afterLoad();
 	}
 }

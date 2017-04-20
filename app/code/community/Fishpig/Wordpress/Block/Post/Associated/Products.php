@@ -15,25 +15,17 @@ class Fishpig_Wordpress_Block_Post_Associated_Products extends Mage_Catalog_Bloc
 	 */
 	public function getProducts($attributes = null)
 	{
-		if ($this->getPost() !== null) {
-			$collection = Mage::helper('wordpress/associations')->getAssociatedProductsByPost($this->getPost());
-
-			if ($collection !== false) {
-				if (is_null($attributes)) {
-					$attributes = Mage::getSingleton('catalog/config')->getProductAttributes();
-				}
-				
-				if ($this->getCount()) {
-					$collection->setPageSize($this->getCount())
-						->setCurPage(1);
-				}
-				
-
-
-				return $collection->addAttributeToSelect($attributes);
+		$collection = Mage::helper('wordpress/catalog_product')
+			->getAssociatedProducts($this->getPost());
+		
+		if ($collection) {
+			if (is_null($attributes)) {
+				$attributes = Mage::getSingleton('catalog/config')->getProductAttributes();
 			}
+			
+			return $collection->addAttributeToSelect($attributes);
 		}
-
+		
 		return array();
 	}
 	

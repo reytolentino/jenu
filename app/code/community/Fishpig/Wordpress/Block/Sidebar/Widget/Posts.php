@@ -7,15 +7,7 @@
  */
 
 class Fishpig_Wordpress_Block_Sidebar_Widget_Posts extends Fishpig_Wordpress_Block_Sidebar_Widget_Abstract
-implements Mage_Widget_Block_Interface
 {
-	/**
-	 * Cache for post collection
-	 *
-	 * @var Fishpig_Wordpress_Model_Resource_Post_Collection
-	 */
-	protected $_collection = null;
-	
 	/**
 	 * Set the posts collection
 	 *
@@ -25,10 +17,6 @@ implements Mage_Widget_Block_Interface
 		parent::_beforeToHtml();
 
 		$this->setPosts($this->_getPostCollection());
-		
-		if (!$this->getTemplate()) {
-			$this->setTemplate('wordpress/sidebar/widget/posts.phtml');
-		}
 
 		return $this;
 	}
@@ -45,57 +33,27 @@ implements Mage_Widget_Block_Interface
 	}
 	
 	/**
-	 * Retrieve the number of posts to display
-	 * If the pager is enabled, this is posts per page
-	 *
-	 * @return int
-	 */
-	public function getNumber()
-	{
-		return $this->_getData('number') ? $this->_getData('number') : 5;
-	}
-	
-	/**
 	 * Adds on cateogry/author ID filters
 	 *
 	 * @return Fishpig_Wordpress_Model_Mysql4_Post_Collection
 	 */
 	protected function _getPostCollection()
 	{
-		if (is_null($this->_collection)) {
-			$collection = Mage::getResourceModel('wordpress/post_collection')
-				->setOrderByPostDate()
-				->addIsViewableFilter()
-				->setPageSize($this->getNumber())
-				->setCurPage(1);
-	
-			if ($categoryId = $this->getCategoryId()) {
-				if (strpos($categoryId, ',') !== false) {
-					$categoryId = explode(',', trim($categoryId, ','));
-				}
+		$collection = Mage::getResourceModel('wordpress/post_collection')
+			->addIsPublishedFilter()
+			->setOrderByPostDate()
+			->setPageSize($this->getNumber() ? $this->getNumber() : 5)
+			->setCurPage(1);
 
-				$collection->addCategoryIdFilter($categoryId);
-			}
-			
-			if ($authorId = $this->getAuthorId()) {
-				$collection->addFieldToFilter('post_author', $authorId);
-			}
-			
-			if ($tag = $this->getTag()) {
-				$collection->addTermFilter($tag, 'post_tag', 'name');
-			}
-
-			if ($postTypes = $this->getPostType()) {
-				$collection->addPostTypeFilter(explode(',', $postTypes));
-			}
-			else {
-				$collection->addPostTypeFilter('post');
-			}
-
-			$this->_collection = $collection;
+		if ($categoryId = $this->getCategoryId()) {
+			$collection->addCategoryIdFilter($categoryId);
 		}
 		
-		return $this->_collection;
+		if ($authorId = $this->getAuthorId()) {
+			$collection->addAuthorIdFilter($authorId);
+		}
+
+		return $collection;
 	}
 	
 	/**
@@ -122,7 +80,7 @@ implements Mage_Widget_Block_Interface
 		if (!$this->hasCategory()) {
 			$this->setCategory(false);
 			if ($this->getCategoryId()) {
-				$category = Mage::getModel('wordpress/term')->setTaxonomy('category')->load($this->getCategoryId());
+				$category = Mage::getModel('wordpress/post_category')->load($this->getCategoryId());
 
 				if ($category->getId()) {
 					$this->setCategory($category)->setCategoryId($category->getId());
@@ -173,51 +131,21 @@ implements Mage_Widget_Block_Interface
 		return $this->_getData('comment_num') == 'on';
 	}
 	
-	/**
-	 * Determine whether we can display the date
-	 *
-	 * @return bool
-	 */
 	public function canDisplayDate()
 	{
 		return $this->_getData('date') == 'on';
 	}
 	
-	/**
-	 * Determine whether we can display the excerpt
-	 *
-	 * @return bool
-	 */
 	public function canDisplayExcerpt()
 	{
 		return $this->getData('excerpt') == 'on';
 	}
 	
-	/**
-	 * Determine whether we can display the image
-	 *
-	 * @return bool
-	 */
-	public function canDisplayImage()
-	{
-		return $this->getData('thumb') === 'on';
-	}
-	
-	/**
-	 * Determine whether we can display the title link
-	 *
-	 * @return bool
-	 */
 	public function canDisplayTitleLink()
 	{
 		return $this->getData('title_link') == 'on';
 	}
 	
-	/**
-	 * Retrieve the excerpt length
-	 *
-	 * @return null|int
-	 */
 	public function getExcerptLength()
 	{
 		if ($this->canDisplayExcerpt()) {
@@ -227,19 +155,13 @@ implements Mage_Widget_Block_Interface
 		return null;
 	}
 	
-	/**
-	 * Retrieve a string indicating the number of comments
-	 *
-	 * @param Fishpig_Wordpress_Model_Post $post
-	 * @return string
-	 */
 	public function getCommentCountString(Fishpig_Wordpress_Model_Post $post)
 	{
 		if ($post->getCommentCount() == 0) {
 			return $this->__('No Comments');
 		}
 		else if ($post->getCommentCount() > 1) {
-			return $this->__('%s Comments', $post->getCommentCount());
+			return $this->__('%d Comments', $post->getCommentCount());
 		}
 
 		return $this->__('1 Comment');	

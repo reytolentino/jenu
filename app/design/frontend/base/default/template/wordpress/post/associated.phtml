@@ -6,21 +6,13 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 ?>
-<?php if (($posts = $this->getPostCollection()) !== false): ?>
-<?php if (count($posts) > 0): ?>
-	<div class="box-collateral box-related-posts">
+<?php if ($postListHtml = $this->getPostListHtml()): ?>
+	<div class="box-collateral box-description">
 		<?php if ($title = $this->getTitle()): ?>
 			<h2><?php echo $this->__($title) ?></h2>
 		<?php endif; ?>
 		<div class="std">
-			<ul>
-			<?php foreach($posts as $post): ?>
-				<li>
-					<a href="<?php echo $post->getPermalink() ?>"><?php echo $this->escapeHtml($post->getPostTitle()) ?></a>
-				</li>
-			<?php endforeach; ?>
-			</ul>
+			<?php echo $postListHtml ?>
 		</div>
 	</div>
-<?php endif; ?>
 <?php endif; ?>

@@ -9,57 +9,58 @@
 class Fishpig_Wordpress_Block_Post_List_Pager extends Mage_Page_Block_Html_Pager 
 {
 	/**
-	 * Construct the pager and set the limits
-	 *
-	 */
-	protected function _construct()
-	{
-		parent::_construct();	
-
-		$this->setPageVarName('page');
-
-		$baseLimit = $this->helper('wordpress')->getWpOption('posts_per_page', 10);
-
-		$this->setDefaultLimit($baseLimit);
-		$this->setLimit($baseLimit);
-		
-		$this->setAvailableLimit(array(
-			$baseLimit => $baseLimit,
-		));
-		
-		$this->setFrameLength(5);
-	}
-	
-	/**
 	 * Return the URL for a certain page of the collection
 	 *
 	 * @return string
 	 */
 	public function getPagerUrl($params=array())
 	{
-		$pageVarName = $this->getPageVarName();
-
-		$slug = isset($params[$pageVarName]) 
-			? $pageVarName . '/' . $params[$pageVarName] . '/'
-			: '';
+		$helper = Mage::helper('wordpress');
 		
-		$slug = ltrim($slug, '/');
-
-		$baseUrl = $this->getUrl('*/*/*', array(
-			'_current' => true,
-			'_escape' => true,
-			'_use_rewrite' => true,
-			'_nosid' => true,
-			'_query' => array('___refresh' => null),
-		));
-		
-		$queryString = '';
-		
-		if (strpos($baseUrl, '?') !== false) {
-			$queryString = substr($baseUrl, strpos($baseUrl, '?'));
-			$baseUrl = substr($baseUrl, 0, strpos($baseUrl, '?'));
+		if ($baseUrl = $this->_getBaseUrl()) {
+			$uri = str_replace($helper->getUrl(), '', $baseUrl);
+			
+			return $helper->getUrl($uri, $params);		
 		}
 		
-		return rtrim($baseUrl, '/') . '/' . $slug . $queryString;
+		return $helper->getUrl('', $params);;
+	}
+
+	/**
+	 * Retrieve the base URL for the pager
+	 *
+	 * @return false|string
+	 */
+	protected function _getBaseUrl()
+	{
+		$keys = array('wordpress_category', 'wordpress_archive', 'wordpress_author', array(Mage::helper('wordpress/search'), 'getResultsUrl'), 'wordpress_page', 'wordpress_post_tag');
+		
+		foreach($keys as $key) {
+			if (is_array($key)) {
+				try {
+					if ($url = $key[0]->$key[1]()) {
+						return $url;
+					}
+				}
+				catch (Exception $e) {}
+			}
+			else if ($object = Mage::registry($key)) {
+				if ($url = $object->getUrl()) {
+					return $url;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Gets the path info from the request object
+	 *
+	 * @return string
+	 */
+	protected function _getPathInfo()
+	{
+		return trim(Mage::app()->getRequest()->getPathInfo(), '/');;
 	}
 }

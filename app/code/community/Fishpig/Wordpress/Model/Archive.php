@@ -8,11 +8,6 @@
 
 class Fishpig_Wordpress_Model_Archive extends Varien_Object
 {
-	public function getName()
-	{
-		return Mage::helper('wordpress')->translateDate($this->_getData('name'));
-	}
-	
 	/**
 	 * Load an archive model by it's YYYY/MM
 	 * EG: 2010/06
@@ -25,26 +20,13 @@ class Fishpig_Wordpress_Model_Archive extends Varien_Object
 		
 		if (strlen($value) == 7) {
 			$this->setName(date('F Y', strtotime($value.'/01 01:01:01')));
-			$this->setDateString(strtotime(str_replace('/', '-', $value) . ' 01:01:01'));
 		}
 		else {
 			$this->setName(date('F j, Y', strtotime($value.' 01:01:01')));
-			$this->setDateString(strtotime(str_replace('/', '-', $value) . '-01 01:01:01'));
 			$this->setIsDaily(true);
 		}
 		
 		return $this;
-	}
-
-	/**
-	 * Get a date formatted string
-	 *
-	 * @param string $format
-	 * @return string
-	 */
-	public function getDatePart($format)
-	{
-		return date($format, $this->getDateString());
 	}
 
 	/**
@@ -54,7 +36,7 @@ class Fishpig_Wordpress_Model_Archive extends Varien_Object
 	 */
 	public function getUrl()
 	{
-		return rtrim(Mage::helper('wordpress')->getUrl($this->getId()), '/') . '/';
+		return Mage::helper('wordpress')->getUrl($this->getId());
 	}
 	
 	/**
@@ -80,8 +62,7 @@ class Fishpig_Wordpress_Model_Archive extends Varien_Object
 	{
 		if (!$this->hasPostCollection()) {
 			$collection = Mage::getResourceModel('wordpress/post_collection')
-				->setFlag('source', $this)
-				->addIsViewableFilter()
+				->addIsPublishedFilter()
 				->addArchiveDateFilter($this->getId(), $this->getIsDaily())
 				->setOrderByPostDate();
 

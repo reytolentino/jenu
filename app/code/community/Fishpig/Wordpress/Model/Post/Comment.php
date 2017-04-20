@@ -14,11 +14,45 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 	 * @var const string
 	 */
 	const GRAVATAR_BASE_URL = 'http://www.gravatar.com/avatar/';
-	const GRAVATAR_BASE_URL_SECURE = 'https://secure.gravatar.com/avatar/';
 	
 	public function _construct()
 	{
 		$this->_init('wordpress/post_comment');
+	}
+	
+	/**
+	  * Returns a collection of comments for a certain post
+	  *
+	  * @param int $postId
+	  * @param bool $isApproved
+	  * @return Fishpig_Wordpress_Model_Mysql4_Post_Comment_Collection
+	  */
+	public function loadByPostId($postId, $isApproved = true)
+	{
+		$comments = Mage::getResourceModel('wordpress/post_comment_collection')
+			->addPostIdFilter($postId);
+								
+		if ($isApproved) {
+			$comments->addCommentApprovedFilter();
+		}
+		
+		return $comments;
+	}
+	
+	/**
+	 * Set the post this comment is associated to
+	 *
+	 * @param mixed $post
+	 * @return Fishpig_Wordpress_Model_Post_Comment
+	 */
+	public function setPost($post)
+	{
+		if ($post instanceof Fishpig_Wordpress_Model_Post_Abstract) {
+			$this->setPostId($post->getId());
+			$this->setData('comment_post_ID', $post->getId());
+		}
+
+		return $this->setData('post', $post);
 	}
 
 	/**
@@ -29,16 +63,17 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 	public function getPost()
 	{
 		if (!$this->hasPost()) {
-			$this->setPost(false);
-
-			$posts = Mage::getResourceModel('wordpress/post_collection')
-				->addPostTypeFilter(array('post', 'page'))
-				->addFieldToFilter('ID', $this->getData('comment_post_ID'))
-				->setPageSize(1)
-				->load();
+			$post = Mage::getModel('wordpress/post')->load($this->getData('comment_post_ID'));
 				
-			if (count($posts) > 0) {
-				$this->setPost($posts->getFirstItem());
+			if ($post->getId()) {
+				if ($post->getPostType() === 'page') {
+					$post = Mage::getModel('wordpress/page')->load($post->getId());
+				}
+
+				$this->setPost($post);
+			}
+			else {
+				$this->setPost(false);
 			}
 		}
 		
@@ -86,10 +121,85 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 	}
 	
 	/**
-	 * Get the comment GUID
+	 * Send a notification email to the blog Admin
+	 *
+	 * @return bool
+	 */
+	public function sendNotificationEmail()
+	{
+		// Coming soon
+	}
+
+	/**
+	 * Send a moderation email to the blog Admin
+	 *
+	 * @return bool
+	 */	
+	public function sendModerationEmail()
+	{
+		if ($emailHtml = $this->_getModerationHtmlContent()) {
+			$helper = Mage::helper('wordpress');
+
+			$mail = new Zend_Mail();
+			$mail->setBodyHtml($emailHtml);
+			$mail->setFrom($this->_getNotificiationFromEmail(), $helper->__('WordPress'));
+			$mail->addTo($helper->getWpOption('admin_email'));
+			$mail->setSubject(sprintf('[%s] Please moderate: "%s"', $helper->getWpOption('blogname'), $this->getPost()->getPostTitle()));
+			
+			try {
+				$mail->send();		
+				return true;
+			}
+			catch (Exception $e) {
+				$helper->log($e->getMessage());
+				return false;
+			}
+		}
+	}
+
+	/**
+	 * Retrieve the WordPress domain by getting the URL and the path
 	 *
 	 * @return string
-	 */	
+	 */
+	protected function _getNotificiationFromEmail()
+	{	
+		$url = parse_url(Mage::getStoreConfig('web/unsecure/base_url'));
+		$host = $url['host'];
+		
+		if (strpos($host, 'www.') !== false) {
+			$host = substr($host, 4);
+		}
+	
+		return 'wordpress@' . $host;
+	}
+	
+	protected function _afterSave()
+	{
+		Mage::helper('wordpress/plugin_commentReplyNotification')->notify($this);
+		
+//		Mage::getResourceModel('wordpress/post')->updatePostCommentCount($this->_getData('comment_post_ID'));
+		
+		return parent::_afterSave();
+	}
+	
+	/**
+	 * Retrieve the HTML for the moderation email
+	 *
+	 * @return string
+	 */
+	protected function _getModerationHtmlContent()
+	{
+		$moderatedCommentCount = count($this->getCollection()->addFieldToFilter('comment_approved', array('neq' => 1)));
+
+		return Mage::getSingleton('core/layout')
+			->createBlock('core/template')
+			->setTemplate('wordpress/email/comment/moderation.phtml')
+			->setComment($this)
+			->setModeratedCommentCount($moderatedCommentCount)
+			->toHtml();
+	}
+	
 	public function getGuid()
 	{
 		return Mage::helper('wordpress')->getUrl('?p='. $this->getPost()->getId() . '#comment-' . $this->getId());
@@ -104,19 +214,14 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 	{
 		if (!$this->hasUrl()) {
 			if ($post = $this->getPost()) {
-				$pageId = '';
-				
-				if (Mage::helper('wordpress')->getWpOption('page_comments')) {
-					$pageId = '/comment-page-' . $this->getCommentPageId();
-				}
-				
+				$pageId = $this->getCommentPageId();
 				$fragment = '#comment-' . $this->getId();
-
-				if ($post->getTypeInstance()->permalinkHasTrainingSlash()) {
+				
+				if (Mage::helper('wordpress/post')->permalinkHasTrainingSlash()) {
 					$fragment = '/' . $fragment;
 				}
 
-				$this->setUrl(rtrim($post->getUrl(), '/') . $pageId . $fragment);
+				$this->setUrl(rtrim($post->getUrl(), '/') . '/comment-page-' . $pageId . $fragment);
 			}
 		}
 		
@@ -134,7 +239,7 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 			$this->setCommentPageId(1);
 			if ($post = $this->getPost()) {
 				$totalComments = count($post->getComments());
-				$commentsPerPage = Mage::helper('wordpress')->getWpOption('comments_per_page', 50);
+				$commentsPerPage = Mage::helper('wordpress/post')->getCommentsPerPage();
 
 				if ($commentsPerPage > 0 && $totalComments > $commentsPerPage) {
 					$it = 0;
@@ -158,43 +263,22 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 	}
 	
 	/**
-	 * Retrieve the child comments
-	 *
-	 * @return Varien_Data_Collection
-	 */
-	public function getChildrenComments()
-	{
-		return $this->getCollection()
-			->addCommentApprovedFilter()
-			->addParentCommentFilter($this->getId())
-			->addOrderByDate();
-	}
-	
-	/**
 	 * Retrieve the Gravatar URL for the comment
 	 *
 	 * @return null|string
 	 */
-	public function getAvatarUrl($size = 50)
+	public function getGravatarUrl()
 	{
 		if (!$this->hasGravatarUrl()) {
 			if (Mage::helper('wordpress')->getWpOption('show_avatars')) {
 				if ($this->getCommentAuthorEmail()) {
-					$params = array(
-						'r' => Mage::helper('wordpress')->getWpOption('avatar_rating'),
-						's' => (int)$size,
-						'd' => Mage::helper('wordpress')->getWpOption('avatar_default'),
-						'v' => 45345
-					);
-
-					$baseUrl = Mage::app()->getStore()->isCurrentlySecure()
-						? self::GRAVATAR_BASE_URL_SECURE
-						: self::GRAVATAR_BASE_URL;
-						
-					$url = $baseUrl
+					$url = self::GRAVATAR_BASE_URL
 						. md5(strtolower($this->getCommentAuthorEmail()))
-						. '/?' . http_build_query($params);
+						. '?=&amp;r=' . strtolower(Mage::helper('wordpress')->getWpOption('avatar_rating'))
+						. '&amp;s=50'
+						. '&amp;d=' . $this->_getDefaultGravatarCode();
 
+						
 					$this->setGravatarUrl($url);
 				}
 			}
@@ -204,35 +288,23 @@ class Fishpig_Wordpress_Model_Post_Comment extends Fishpig_Wordpress_Model_Abstr
 	}
 	
 	/**
-	 * Deprecated. Use self::getAvatarUrl($size)
-	 *
-	 * @param int $size
-	 * @return string
-	 */	
-	public function getGravatarUrl($size = 50)
-	{
-		return $this->getAvatarUrl($size);
-	}
-
-	/**
-	 * Determine whether the comment is approved
-	 *
-	 * @return bool
-	 */
-	public function isApproved()
-	{
-		return $this->_getData('comment_approved') === '1';
-	}
-	
-	/**
-	 * Retrieve the comment anchor
+	 * Convert the Gravatar code to the default code
 	 *
 	 * @return string
 	 */
-	public function getAnchor()
+	protected function _getDefaultGravatarCode()
 	{
-		$helper = Mage::helper('wordpress');
+		$code = Mage::helper('wordpress')->getWpOption('avatar_default');
+		$defaults = array(
+			'mystery' => 'mm',
+			'blank' => 'mm',
+			'gravatar_default' => '',
+		);
 		
-		return sprintf('<a href="%s" title="%s">%s</a>', $this->getUrl(), $helper->escapeHtml($this->getCommentAuthor()), $helper->escapeHtml($this->getPost()->getPostTitle()));
+		if (isset($defaults[$code])) {
+			return $defaults[$code];
+		}
+		
+		return $code;
 	}
 }

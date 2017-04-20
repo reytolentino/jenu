@@ -7,7 +7,23 @@
  * @info			http://fishpig.co.uk/wordpress-integration.html
  */
 
-abstract class Fishpig_Wordpress_Model_Resource_Abstract extends Mage_Core_Model_Resource_Db_Abstract
+	/**
+	 * I know this is an ugly hack but it's the only way I can get Magento 1.5.1.0 to work 
+	 * now that I have converted the extension to the new Resource model system
+	 *
+	 */
+	if (version_compare(Mage::getVersion(), '1.6.0.0', '<')) {
+		abstract class Fishpig_Wordpress_Model_Resource_Abstract_Hack extends Mage_Core_Model_Mysql4_Abstract{}
+	}
+	else {
+		abstract class Fishpig_Wordpress_Model_Resource_Abstract_Hack extends Mage_Core_Model_Resource_Db_Abstract{}
+	}
+	/**
+	 * End of hack, thank fully
+	 *
+	 */
+
+abstract class Fishpig_Wordpress_Model_Resource_Abstract extends Fishpig_Wordpress_Model_Resource_Abstract_Hack
 {
 	/**
 	 * Retrieve the appropriate read adapter
@@ -16,7 +32,7 @@ abstract class Fishpig_Wordpress_Model_Resource_Abstract extends Mage_Core_Model
 	 */
 	protected function _getReadAdapter()
 	{
-		return Mage::helper('wordpress/app')->getDbConnection();
+		return Mage::helper('wordpress/database')->getReadAdapter();
 	}
 
 	/**
@@ -26,7 +42,7 @@ abstract class Fishpig_Wordpress_Model_Resource_Abstract extends Mage_Core_Model
 	 */	
 	protected function _getWriteAdapter()
 	{
-		return Mage::helper('wordpress/app')->getDbConnection();
+		return Mage::helper('wordpress/database')->getWriteAdapter();
 	}
 	
 	/**
@@ -49,7 +65,7 @@ abstract class Fishpig_Wordpress_Model_Resource_Abstract extends Mage_Core_Model
 				->where('meta_key=?', $metaKey)
 				->limit(1);
 
-			if (($value = $this->_getReadAdapter()->fetchOne($select)) !== false) {
+			if(($value = $this->_getReadAdapter()->fetchOne($select)) !== false) {
 				return trim($value);
 			}
 			
@@ -84,27 +100,5 @@ abstract class Fishpig_Wordpress_Model_Resource_Abstract extends Mage_Core_Model
 				$this->_getWriteAdapter()->insert($object->getMetaTable(), $metaData);
 			}
 		}
-	}
-	
-	/**
-	 * Get an array of all of the meta values associated with this post
-	 *
-	 * @param Fishpig_Wordpress_Model_Meta_Abstract $object
-	 * @return false|array
-	 */
-	public function getAllMetaValues(Fishpig_Wordpress_Model_Meta_Abstract $object)
-	{
-		if ($object->hasMeta()) {
-			$select = $this->_getReadAdapter()
-				->select()
-				->from($object->getMetaTable(), array('meta_key', 'meta_value'))
-				->where($object->getMetaObjectField() . '=?', $object->getId());
-
-			if (($values = $this->_getReadAdapter()->fetchPairs($select)) !== false) {
-				return $values;
-			}
-		}
-		
-		return false;
 	}
 }

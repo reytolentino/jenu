@@ -11,18 +11,27 @@ class Fishpig_Wordpress_Block_Sidebar_Widget_Categories extends Fishpig_Wordpres
 	/**
 	 * Returns the current category collection
 	 *
-	 * @return Fishpig_Wordpress_Model_Mysql4_Category_Collection
+	 * @return Fishpig_Wordpress_Model_Resource_Term_Collection
 	 */
 	public function getCategories()
 	{
-		if (!$this->hasCategories()) {
-			$collection = Mage::getResourceModel('wordpress/post_category_collection')
-				->addParentIdFilter($this->getParentId());
+		$collection = Mage::getResourceModel('wordpress/term_collection')
+			->addTaxonomyFilter($this->getTaxonomy())
+			->addParentIdFilter($this->getParentId())
+			->addHasObjectsFilter();
 
-			$this->setCategories($collection);
-		}
-		
-		return $this->getData('categories');
+		$collection->getSelect()
+			->reset('order')
+			->order('name ASC');
+
+		return $collection;
+	}
+	
+	public function getTaxonomy()
+	{
+		return $this->_getData('taxonomy')
+			? $this->_getData('taxonomy')
+			: 'category';
 	}
 	
 	/**
@@ -59,7 +68,7 @@ class Fishpig_Wordpress_Block_Sidebar_Widget_Categories extends Fishpig_Wordpres
 	public function getCurrentCategory()
 	{
 		if (!$this->hasCurrentCategory()) {
-			$this->setCurrentCategory(Mage::registry('wordpress_category'));
+			$this->setCurrentCategory(Mage::registry('wordpress_term'));
 		}
 		
 		return $this->getData('current_category');
@@ -73,5 +82,18 @@ class Fishpig_Wordpress_Block_Sidebar_Widget_Categories extends Fishpig_Wordpres
 	public function getDefaultTitle()
 	{
 		return $this->__('Categories');
+	}
+	
+	/**
+	 * Set the posts collection
+	 *
+	 */
+	protected function _beforeToHtml()
+	{
+		if (!$this->getTemplate()) {
+			$this->setTemplate('wordpress/sidebar/widget/categories.phtml');
+		}
+
+		return parent::_beforeToHtml();
 	}
 }

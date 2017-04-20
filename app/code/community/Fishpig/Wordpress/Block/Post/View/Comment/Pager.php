@@ -15,10 +15,8 @@ class Fishpig_Wordpress_Block_Post_View_Comment_Pager extends Fishpig_Wordpress_
 	 */
 	public function getLimit()
 	{
-		if (is_null($this->_limit)) {
-			$this->_limit = $this->getRequest()->getParam('limit', $this->helper('wordpress/post')->getCommentsPerPage());
-		}
-		
+		$this->_limit = $this->getRequest()->getParam('limit', Mage::helper('wordpress')->getWpOption('comments_per_page', 50));
+
 		return $this->_limit;
 	}
 
@@ -52,7 +50,7 @@ class Fishpig_Wordpress_Block_Post_View_Comment_Pager extends Fishpig_Wordpress_
 	public function getPagerUrl($params=array())
 	{
 		if (isset($params['page']) && $params['page'] != 1) {
-			return $this->getPost()->getPermalink() 
+			return rtrim($this->getPost()->getPermalink(), '/')
 				. '/' . sprintf(trim($this->helper('wordpress/router')->getCommentPagerVarFormat(), '^$'), $params['page']) . '#comments';
 		}
 		

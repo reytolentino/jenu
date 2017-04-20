@@ -6,12 +6,34 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 
-class Fishpig_Wordpress_Block_Post_View_Comment_Form extends Fishpig_Wordpress_Block_Post_View_Abstract
+class Fishpig_Wordpress_Block_Post_View_Comment_Form extends Fishpig_Wordpress_Block_Post_Abstract
 {
-	public function __construct()
+	/**
+	 * Inject the comments js
+	 *
+	 * @return $this
+	 */
+	protected function _prepareLayout()
 	{
-		parent::__construct();
-		$this->setTemplate('wordpress/post/view/comment/form.phtml');
+		if (($head = $this->getLayout()->getBlock('head')) !== false) {
+			$head->addJs('fishpig/wordpress/comments.js');
+		}
+
+		return parent::_prepareLayout();
+	}
+	
+	/**
+	 * Ensure a valid template is set
+	 *
+	 * @return $this
+	 */
+	protected function _beforeToHtml()
+	{
+		if (!$this->getTemplate()) {
+			$this->setTemplate('wordpress/post/view/comment/form.phtml');
+		}
+		
+		return parent::_beforeToHtml();		
 	}
 	
 	/**
@@ -21,7 +43,7 @@ class Fishpig_Wordpress_Block_Post_View_Comment_Form extends Fishpig_Wordpress_B
 	 */
 	public function getCommentFormAction()
 	{
-		return $this->helper('wordpress')->getUrl('post-comment') . '/';
+		return Mage::helper('wordpress')->getBaseUrl('wp-comments-post.php');
 	}
 
 	/**
@@ -37,7 +59,7 @@ class Fishpig_Wordpress_Block_Post_View_Comment_Form extends Fishpig_Wordpress_B
 		
 		return false;
 	}
-	
+
 	/**
 	 * Retrieve the link used to log the user in
 	 * If redirect to dashboard after login is disabled, the user will be redirected back to the blog post
@@ -50,26 +72,6 @@ class Fishpig_Wordpress_Block_Post_View_Comment_Form extends Fishpig_Wordpress_B
 			'referer' => $this->helper('core')->urlEncode($this->getPost()->getPermalink() . '#respond'),
 		));
 	}
-	
-	/**
-	 * Retrieve the HTML used to display the Recaptcha box
-	 *
-	 * @return string
-	 */
-	public function getRecaptchaHtml()
-	{
-		return $this->helper('wordpress/plugin_recaptcha')->getRecaptchaHtml();
-	}
-
-	/**
-	 * Determine whether Recaptcha is installed and enabled
-	 *
-	 * @return bool
-	 */
-	public function canDisplayRecaptcha()
-	{
-		return Mage::helper('wordpress/plugin_recaptcha')->isEnabled();
-	}
 
 	/**
 	 * Returns true if the user is logged in
@@ -79,15 +81,5 @@ class Fishpig_Wordpress_Block_Post_View_Comment_Form extends Fishpig_Wordpress_B
 	public function isCustomerLoggedIn()
 	{
 		return Mage::getSingleton('customer/session')->isLoggedIn();
-	}
-	
-	/**
-	 * Retrieve the post comment data stored in the session
-	 *
-	 * @return null|array
-	 */
-	public function getSessionData()
-	{
-		return Mage::getSingleton('wordpress/session')->getPostCommentData($this->getPost());
 	}
 }

@@ -14,7 +14,7 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 	 * @var array
 	 */
 	static protected $_cache = array();
-	
+
 	/**
 	 * Returns the URL used to access your Wordpress frontend
 	 *
@@ -34,7 +34,7 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 		
 		if ($this->isFullyIntegrated()) {
 			$params = array(
-				'_direct' 	=> $this->getBlogRoute() . '/' . ltrim($extra, '/'), 
+				'_direct' 	=> ltrim($this->getBlogRoute() . '/' . ltrim($extra, '/'), '/'),
 				'_secure' 	=> false,
 				'_nosid' 	=> true,
 				'_store'		=> Mage::app()->getStore()->getId(),
@@ -66,7 +66,15 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 	public function getBlogRoute()
 	{
 		if ($this->isFullyIntegrated()) {
-			return trim(strtolower($this->getConfigValue('wordpress/integration/route')), '/');
+			if (!$this->_isCached('blog_route')) {
+				$transport = new Varien_Object(array('blog_route' => trim(strtolower(Mage::getStoreConfig('wordpress/integration/route', Mage::helper('wordpress/app')->getStore()->getId())), '/')));
+			
+				Mage::dispatchEvent('wordpress_get_blog_route', array('transport' => $transport));
+			
+				$this->_cache('blog_route', $transport->getBlogRoute());
+			}
+			
+			return $this->_cached('blog_route');
 		}
 		
 		return null;
@@ -80,19 +88,20 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 	  */
 	public function isFullyIntegrated()
 	{
-		return $this->getConfigValue('wordpress/integration/full');
+		return Mage::getStoreConfigFlag('wordpress/integration/full', Mage::helper('wordpress/app')->getStore()->getId());
 	}
 	
-	/**
-	 * Gets a Wordpress option based on it's option name
-	 *
-	 * @param string $optionName
-	 * @param mixed $default = null
-	 * @return string
-	 */
-	public function getCachedWpOption($optionName, $default = null)
+	public function getCustomizerData()
 	{
-		return $this->getWpOption($optionName, $default);
+		if (Mage::app()->getRequest()->getPost('wp_customize') === 'on') {
+			if ($data = Mage::app()->getRequest()->getPost('customized')) {
+				if ($data = json_decode(stripslashes($data), true)) {
+					return $data;
+				}
+			}
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -104,59 +113,62 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 	 */
 	public function getWpOption($key, $default = null)
 	{
-		$cacheKey = '_wp_option_' . $key;
-		
-		if (!$this->_isCached($cacheKey)) {
-			$this->_cache($cacheKey, $default);
-			
-			try {
-				$option = Mage::getModel('wordpress/option')->load($key, 'option_name');
-				
-				if ($option->getId() && $option->getOptionValue()) {
-					$this->_cache($cacheKey, $option->getOptionValue());
-				}
-			}
-			catch (Exception $e) {
-				$this->_cache($cacheKey, '');
+		if ($data = $this->getCustomizerData()) {
+			if (isset($data[$key])) {
+				return $data[$key];
 			}
 		}
+			
+		$db = $this instanceof Fishpig_Wordpress_Helper_App
+			? $this->getDbConnection()
+			: Mage::helper('wordpress/app')->getDbConnection();
+			
+		if (!$db) {
+			return false;
+		}
 		
-		return $this->_cached($cacheKey);
+		$cacheKey = 'wp_option_' . $key;
+		
+		if ($this->_isCached($cacheKey)) {
+			return $this->_cached($cacheKey);
+		}
+		
+		$this->_cache($cacheKey, $default);
+		
+		try {
+			$select = $db->select()
+				->from(Mage::getSingleton('core/resource')->getTableName('wordpress/option'), 'option_value')
+				->where('option_name = ?', $key)
+				->limit(1);
+
+			if ($value = $db->fetchOne($select)) {
+				$this->_cache($cacheKey, $value);
+				
+				return $value;
+			}
+
+			return $default;
+		}
+		catch (Exception $e) {
+			$this->log($e->getMessage());
+		}
+		
+		return false;
 	}
 	
 	/**
 	  * Logs an error to the Wordpress error log
 	  *
 	  */
-	public function log($message, $level = null, $file = 'wordpress.log')
+	public function log($message, $serious = true)
 	{
-		if ($this->getConfigValue('wordpress/debug/log_enabled')) {
-			if ($message = trim($message)) {
-				return Mage::log($message, $level, $file, true);
-			}
+		if (is_object($message) && $message instanceof Exception) {
+			$message = $message->__toString();
 		}
-	}
-	
-	/**
-	 * Retrieve a cached config value
-	 *
-	 * @param string $key
-	 * @return mixed
-	 */
-	public function getConfigValue($key)
-	{
-		return Mage::helper('wordpress/config')->getConfigValue($key);
-	}
-
-	/**
-	 * Retrieve a cached config value as a bool
-	 *
-	 * @param string $key
-	 * @return bool
-	 */	
-	public function getConfigFlag($key)
-	{
-		return Mage::helper('wordpress/config')->getConfigFlag($key);
+		
+		if ($message = trim($message)) {
+			return Mage::log($message, null, 'wordpress.log', true);
+		}
 	}
 
 	/**
@@ -166,33 +178,15 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 	 */
 	public function getDefaultStore($websiteCode = null)
 	{
-		if (!$this->_isCached('default_store')) {	
-			$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
-			$select = $connection->select()
-				->from(array('_store_table' => Mage::helper('wordpress/db')->getTableName('core/store')), 'store_id')
-				->where('_store_table.store_id > ?', 0)
-				->where('_store_table.code != ?', 'admin')
-				->limit(1)
-				->order('_store_table.sort_order ASC');
-			
-			if (!is_null($websiteCode)) {
-				$select->join(
-					array('_website_table' => $this->getTableName('core/website')),
-					$connection->quoteInto('`_website_table`.`website_id`=`_store_table`.`website_id` AND `_website_table`.`code`=?', $websiteCode),
-					''
-				);
-			}
-			
-			$store = Mage::getModel('core/store')->load($connection->fetchOne($select));
-			
-			if (!$store->getId() && !is_null($websiteCode)) {
-				return $this->getDefaultStore();
-			}
-			
-			$this->_cache('default_store', $store);
+		if (!is_null($websiteCode)) {
+			$website = Mage::app()->getWebsite($websiteCode);
 		}
-		
-		return $this->_cached('default_store');
+		else {
+			$allWebsites = Mage::app()->getWebsites(false);
+			$website = array_shift($allWebsites);
+		}
+			
+		return $website->getDefaultStore();
 	}
 	
 	/**
@@ -234,5 +228,29 @@ class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
 		}
 		
 		return $default;
+	}
+	
+	/**
+	 * Retrieve a plugin option
+	 *
+	 * @param string $plugin
+	 * @param string $key = null
+	 * @return mixed
+	 */
+	public function getPluginOption($plugin, $key = null)
+	{
+		$options = $this->getWpOption($plugin);
+		
+		if (($data = @unserialize($options)) !== false) {
+			if (is_null($key)) {
+				return $data;
+			}
+
+			return isset($data[$key])
+				? $data[$key]
+				: null;
+		}
+		
+		return $options;
 	}
 }

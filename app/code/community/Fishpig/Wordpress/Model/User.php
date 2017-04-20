@@ -18,6 +18,14 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 	protected $_metaHasPrefix = true;
 
 	/**
+	 * Event information
+	 *
+	 * @var string
+	*/
+	protected $_eventPrefix = 'wordpress_user';
+	protected $_eventObject = 'user';
+
+	/**
 	 * Retrieve the column name of the primary key fields
 	 *
 	 * @return string
@@ -50,10 +58,11 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 	 */
 	public function getUrl()
 	{
-		$slug = preg_replace("/[^a-zA-Z0-9-]/", "-", strtolower($this->getUserLogin()));
-		$slug = str_replace('--', '-', $slug);
-
-		return Mage::helper('wordpress')->getUrl('author/' . $slug) . '/';
+		if (!$this->hasUrl()) {
+			$this->setUrl(Mage::helper('wordpress')->getUrl('author/' . urlencode($this->getUserNicename())) . '/');
+		}
+		
+		return $this->_getData('url');
 	}
 
 	/**
@@ -67,13 +76,24 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 	}
 	
 	/**
+	 * Retrieve the table prefix
+	 * This is also used to prefix some fields (roles)
+	 *
+	 * @return string
+	 */
+	public function getTablePrefix()
+	{
+		return Mage::helper('wordpress/app')->getTablePrefix();
+	}
+	
+	/**
 	 * Retrieve the user's role
 	 *
 	 * @return false|string
 	 */
 	public function getRole()
 	{
-		if ($roles = $this->getMetaValue('wp_capabilities')) {
+		if ($roles = $this->getMetaValue($this->getTablePrefix() . 'capabilities')) {
 			foreach(unserialize($roles) as $role => $junk) {
 				return $role;
 			}
@@ -90,7 +110,7 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 	 */
 	public function setRole($role)
 	{
-		$this->setMetaValue('wp_capabilities', serialize(array($role => '1')));
+		$this->setMetaValue($this->getTablePrefix() . 'capabilities', serialize(array($role => '1')));
 		
 		return $this;
 	}
@@ -102,7 +122,7 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 	 */
 	public function getUserLevel()
 	{
-		return $this->getMetaValue('wp_user_level');
+		return $this->getMetaValue($this->getTablePrefix() . 'user_level');
 	}
 	
 	/**
@@ -113,7 +133,7 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 	 */
 	public function setUserLevel($level)
 	{
-		$this->setMetaValue('wp_user_level', $level);
+		$this->setMetaValue($this->getTablePrefix() . 'user_level', $level);
 		return $this;
 	}
 	
@@ -160,6 +180,29 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 		$this->setMetaValue('last_name', $name);
 		return $this;
 	}
+	
+	/**
+	 * Retrieve the user's nickname
+	 *
+	 * @return string
+	 */
+	public function getNickname()
+	{
+		return $this->getMetaValue('nickname');
+	}
+	
+	/**
+	 * Set the user's nickname
+	 *
+	 * @param string $nickname
+	 * @return $this
+	 */
+	public function setNickname($nickname)
+	{
+		$this->setMetaValue('nickname', $nickname);
+		return $this;
+	}
+
 	/**
 	 * Retrieve the URL for Gravatar
 	 *
@@ -206,5 +249,19 @@ class Fishpig_Wordpress_Model_User extends Fishpig_Wordpress_Model_Abstract
 		}
 		
 		return $this->_getData($dataKey);
+	}
+	
+	/**
+	 * Retrieve the default user role from the WordPress Database
+	 *
+	 * @return string
+	 */
+	public function getDefaultUserRole()
+	{
+		if (($role = trim(Mage::helper('wordpress')->getWpOption('default_role', 'subscriber'))) !== '') {
+			return $role;
+		}
+
+		return 'subscriber';
 	}
 }

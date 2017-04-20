@@ -6,14 +6,23 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 
-abstract class Fishpig_Wordpress_Model_Post_Attachment_Abstract extends Fishpig_Wordpress_Model_Post
+abstract class Fishpig_Wordpress_Model_Post_Attachment_Abstract extends Fishpig_Wordpress_Model_Abstract
 {
-	
-	protected function _afterLoad()
+	/**
+	 * Loads the associated attachment meta data
+	 * This data is stored as a serialized array
+	 *
+	 * @param int $id
+	 * @param string $field
+	 * @return Fishpig_Wordpress_Model_Post_Attachment_Abstract
+	 */
+	public function load($id, $field = null)
 	{
-		$this->loadSerializedData();
+		parent::load($id, $field);
 		
-		return parent::_afterLoad();
+		$this->loadSerializedData();
+
+		return $this;
 	}
 	
 	/**
@@ -25,14 +34,14 @@ abstract class Fishpig_Wordpress_Model_Post_Attachment_Abstract extends Fishpig_
 		if ($this->getId() > 0 && !$this->getIsFullyLoaded()) {
 			$this->setIsFullyLoaded(true);
 
-			$select = Mage::helper('wordpress/app')->getDbConnection()
+			$select = Mage::helper('wordpress/database')->getReadAdapter()
 				->select()
 				->from($this->getResource()->getTable('wordpress/post_meta'), 'meta_value')
 				->where('meta_key=?', '_wp_attachment_metadata')
 				->where('post_id=?', $this->getId())
 				->limit(1);
 
-			$data = unserialize(Mage::helper('wordpress/app')->getDbConnection()->fetchOne($select));
+			$data = unserialize(Mage::helper('wordpress/database')->getReadAdapter()->fetchOne($select));
 
 			if (is_array($data)) {
 				foreach($data as $key => $value) {
@@ -40,10 +49,5 @@ abstract class Fishpig_Wordpress_Model_Post_Attachment_Abstract extends Fishpig_
 				}			
 			}
 		}
-	}
-	
-	public function getMetaValue($key)
-	{
-		return parent::getMetaValue('_wp_attachment_' . $key);
 	}
 }

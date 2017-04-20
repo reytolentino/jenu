@@ -9,13 +9,6 @@
 class Fishpig_Wordpress_ArchiveController extends Fishpig_Wordpress_Controller_Abstract
 {
 	/**
-	 * Set the feed blocks
-	 *
-	 * @var string
-	 */
-	protected $_feedBlock = 'archive_view';
-	
-	/**
 	 * Used to do things en-masse
 	 * eg. include canonical URL
 	 *
@@ -35,19 +28,19 @@ class Fishpig_Wordpress_ArchiveController extends Fishpig_Wordpress_Controller_A
 		$archive = Mage::registry('wordpress_archive');
 		
 		$this->_addCustomLayoutHandles(array(
-			'wordpress_post_list',
-			'wordpress_archive_view',
+			'wordpress_archive_view_index', 
 		));
 			
 		$this->_initLayout();
+		
+		$this->_rootTemplates[] = 'template_post_list';
 
 		$this->_title($archive->getName());
-		$this->addCrumb('archive_label', array('label' => $this->__('Archives')));
-		$this->addCrumb('archive', array('label' => $archive->getName()));
+		$this->_addCrumb('archive', array('label' => $archive->getName()));
 
 		$this->renderLayout();
 	}
-
+	
 	/**
 	 * Loads an archive model based on the URI
 	 *
@@ -58,18 +51,10 @@ class Fishpig_Wordpress_ArchiveController extends Fishpig_Wordpress_Controller_A
 		if (($archive = Mage::registry('wordpress_archive')) !== null) {
 			return $archive;
 		}
-
-		$date = trim(implode('/', array(
-			$this->getRequest()->getParam('year'),
-			$this->getRequest()->getParam('month'),
-			$this->getRequest()->getParam('day'),
-		)), '/');
-
 		
-		if ($archive = Mage::getModel('wordpress/archive')->load($date)) {
+		if ($archive = Mage::getModel('wordpress/archive')->load(Mage::helper('wordpress/router')->getBlogUri())) {
 			if ($archive->hasPosts()) {
 				Mage::register('wordpress_archive', $archive);
-
 				return $archive;
 			}
 		}

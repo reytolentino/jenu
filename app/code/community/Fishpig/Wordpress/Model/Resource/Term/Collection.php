@@ -8,20 +8,6 @@
 
 class Fishpig_Wordpress_Model_Resource_Term_Collection extends Fishpig_Wordpress_Model_Resource_Collection_Abstract
 {
-	/**
-	 * Name prefix of events that are dispatched by model
-	 *
-	 * @var string
-	*/
-	protected $_eventPrefix = 'wordpress_term_collection';
-	
-	/**
-	 * Name of event parameter
-	 *
-	 * @var string
-	*/
-	protected $_eventObject = 'terms';
-	
 	public function _construct()
 	{
 		$this->_init('wordpress/term');
@@ -50,27 +36,8 @@ class Fishpig_Wordpress_Model_Resource_Term_Collection extends Fishpig_Wordpress
 		);
 		
 		// Reverse the order. This then matches the WP order
-		if (Mage::getResourceSingleton('wordpress/term')->tableHasTermOrderField()) {
-			$this->getSelect()->order('term_order ASC');
-		}
+		$this->getSelect()->order('term_id DESC');
 
-		$this->getSelect()->order('term_id ASC');
-
-		return $this;
-	}
-	
-	/**
-	 * Set the collection by the name field
-	 *
-	 * @param string $dir = 'ASC'
-	 * @return $this
-	 **/
-	public function setOrderByName($dir = 'ASC')
-	{
-		$this->getSelect()
-			->reset(Zend_Db_Select::ORDER)
-			->order('main_table.name ' . $dir);
-			
 		return $this;
 	}
 	
@@ -179,35 +146,5 @@ class Fishpig_Wordpress_Model_Resource_Term_Collection extends Fishpig_Wordpress
 		$this->getSelect()->order('taxonomy.count ' . $dir);
 		
 		return $this;
-	}
-	
-	/**
-	 * Determine whether the term has objects associated with it
-	 *
-	 * @return $this
-	 */
-	public function addHasObjectsFilter()
-	{
-		return $this->addFieldToFilter('count', array('gt' => 0));
-	}
-	
-	/**
-	 * Filter the collection so that only tags in the cloud
-	 * are returned
-	 *
-	 */
-	public function addCloudFilter($taxonomy)
-	{
-		$cloudIdsSelect = Mage::getResourceModel('wordpress/term_collection')
-			->addTaxonomyFilter($taxonomy)
-			->addOrderByItemCount()
-			->setPageSize(20)
-			->setCurPage(1)
-				->getSelect()
-					->setPart('columns', array())
-					->columns(array('main_table.term_id'));		
-
-		return $this->addTaxonomyFilter($taxonomy)
-			->addFieldToFilter('main_table.term_id', array('in' => new Zend_Db_Expr($cloudIdsSelect)));
 	}
 }

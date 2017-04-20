@@ -5,19 +5,13 @@
             <active>true</active>
             <codePool>community</codePool>
         </Fishpig_Wordpress>
-		<Fishpig_Wordpress_Addon_AllInOneSEO>
-			<active>true</active>
-			<codePool>community</codePool>
-			<depends>
-				<Fishpig_Wordpress />
-			</depends>
-		</Fishpig_Wordpress_Addon_AllInOneSEO>
 		<Fishpig_Wordpress_Addon_WordPressSEO>
 			<active>true</active>
 			<codePool>community</codePool>
-			<depends>
-				<Fishpig_Wordpress />
-			</depends>
 		</Fishpig_Wordpress_Addon_WordPressSEO>
+		<Fishpig_Wordpress_Addon_Yarpp>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Fishpig_Wordpress_Addon_Yarpp>
     </modules>
 </config>

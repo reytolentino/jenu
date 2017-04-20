@@ -6,7 +6,7 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 ?>
-<?php $items = $this->getRssItems() ?>
+<?php $items = $this->getFeedItems() ?>
 <?php if (count($items) > 0): ?>
 	<div class="block block-blog block-rss">
 		<?php if ($title = $this->getTitle()): ?>
@@ -18,7 +18,7 @@
 			<ul id="<?php echo $this->getListId() ?>">
 			<?php foreach($items as $item): ?>
 				<li class="item">
-					<a href="<?php echo $item->getLink() ?>" title="<?php echo $this->htmlEscape($item->getTitle()) ?>" class="ext">
+					<a href="<?php echo $item->getLink() ?>" title="<?php echo $this->htmlEscape($item->getTitle()) ?>">
 						<?php echo $this->htmlEscape($item->getTitle()) ?>
 					</a>
 					<?php if ($this->getShowDate()): ?>
@@ -30,7 +30,7 @@
 				</li>
 			<?php endforeach; ?>
 			</ul>
-			<script type="text/javascript">decorateList('<?php echo $this->getListId() ?>');$('<?php echo $this->getListId() ?>').select('a.ext').invoke('writeAttribute', 'target', '_blank');</script>
+			<script type="text/javascript">decorateList('<?php echo $this->getListId() ?>');$('<?php echo $this->getListId() ?>').select('a').invoke('writeAttribute', 'target', '_blank');</script>
 		</div>
 	</div>
 <?php endif; ?>

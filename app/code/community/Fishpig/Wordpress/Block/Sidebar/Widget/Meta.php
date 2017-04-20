@@ -15,7 +15,7 @@ class Fishpig_Wordpress_Block_Sidebar_Widget_Meta extends Fishpig_Wordpress_Bloc
 	 */
 	public function getDefaultTitle()
 	{
-		return $this->__('Site Meta');
+		return $this->__('Meta');
 	}
 	
 	/**

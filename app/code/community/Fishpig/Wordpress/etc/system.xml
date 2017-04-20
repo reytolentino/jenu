@@ -1,211 +1,467 @@
 <?xml version="1.0"?>
 <config>
 	<tabs>
-		<fishpig translate="label" module="wordpress">
-			<label>FishPig</label>
-			<sort_order>200</sort_order>
-		</fishpig>
+		<wordpress translate="label" module="wordpress">
+			<label>WordPress</label>
+			<sort_order>300</sort_order>
+		</wordpress>
 	</tabs>
     <sections>
         <wordpress translate="label" module="wordpress">
-            <label>WordPress Integration</label>
-            <tab>fishpig</tab>
-            <sort_order>999</sort_order>
+            <label>Database / Integration</label>
+            <tab>wordpress</tab>
+            <sort_order>501</sort_order>
             <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
             	<module>
             		<label>WordPress Integration</label>
             		<sort_order>1</sort_order>
             		<show_in_default>1</show_in_default>
-            		<show_in_store>1</show_in_store>
-					<expanded>0</expanded>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>            		
             		<fields>
             			<enabled>
             				<label>Enabled</label>
+            				<comment>Set this to true to disable WordPress Integration for the current scope</comment>
 							<frontend_type>select</frontend_type>
 							<source_model>adminhtml/system_config_source_yesno</source_model>
             				<sort_order>1</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
             			</enabled>
-            			<check_for_updates>
-            				<label>Check for Updates</label>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-            				<sort_order>6</sort_order>
-            				<show_in_default>1</show_in_default>
-            			</check_for_updates>
             		</fields>            	
             	</module>
             	<database>
             		<label>Database</label>
+					<comment>
+            			<![CDATA[<p>If WordPress is not installed in the same database as Magento, check wp-config.php in your WordPress root for your WordPress database information.</p>]]>
+            		</comment>
             		<sort_order>6</sort_order>
             		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
             		<show_in_store>1</show_in_store>
-					<expanded>0</expanded>
             		<fields>
-            			<is_shared>
-            				<label>Do Magento and WordPress share a database?</label>
+            			<is_different_db>
+            				<label>Database Location</label>
 							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<source_model>wordpress/system_config_source_database_location</source_model>
             				<sort_order>1</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
-            			</is_shared>
+            			</is_different_db>
             			<host>
             				<label>Host</label>
+            				<comment>eg. localhost</comment>
             				<frontend_type>text</frontend_type>
             				<sort_order>6</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
             				<validate>required-entry</validate>
-            				<depends><is_shared>0</is_shared></depends>
+            				<depends><is_different_db>1</is_different_db></depends>
             			</host>
             			<username>
             				<label>Username</label>
+            				<comment>This is your database username and NOT your WordPress username</comment>
             				<frontend_type>text</frontend_type>
             				<backend_model>wordpress/system_config_backend_encrypted</backend_model>
             				<sort_order>11</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
             				<validate>required-entry</validate>
-            				<depends><is_shared>0</is_shared></depends>
+            				<depends><is_different_db>1</is_different_db></depends>
             			</username>
             			<password>
             				<label>Password</label>
+            				<comment>This is your database password and NOT your WordPress password</comment>
             				<frontend_type>password</frontend_type>
             				<backend_model>wordpress/system_config_backend_encrypted</backend_model>
             				<sort_order>16</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
             				<validate>required-entry</validate>
-            				<depends><is_shared>0</is_shared></depends>
+            				<depends><is_different_db>1</is_different_db></depends>
             			</password>
             			<dbname>
-            				<label>Name</label>
+            				<label>Database Name</label>
             				<frontend_type>text</frontend_type>
             				<backend_model>wordpress/system_config_backend_encrypted</backend_model>
             				<sort_order>21</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
             				<validate>required-entry</validate>
-            				<depends><is_shared>0</is_shared></depends>
+            				<depends><is_different_db>1</is_different_db></depends>
             			</dbname>
             			<charset>
-            				<label>Charset</label>
+            				<label>Database Charset</label>
             				<frontend_type>text</frontend_type>
             				<sort_order>26</sort_order>
             				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
             				<show_in_store>1</show_in_store>
-            				<depends><is_shared>0</is_shared></depends>
+            				<depends><is_different_db>1</is_different_db></depends>
             			</charset>
                         <table_prefix>
                             <label>Table Prefix</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>31</sort_order>
                             <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </table_prefix>
             		</fields>
             	</database>
             	<integration>
             		<label>Integration</label>
+					<comment>
+            			<![CDATA[<p>Learn more about integration levels and your blog route in <a href="http://fishpig.co.uk/wordpress-integration/docs/installation-and-configuration.html" target="_blank" style="margin-left: 0;">this article</a>.</p>]]>
+            		</comment>
 					<sort_order>16</sort_order>
 					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
 					<show_in_store>1</show_in_store>
-					<expanded>0</expanded>
 					<fields>
                     	<full>
-                    		<label>Integrate Theme</label>
-                    		<tooltip>If Yes, your blog will use your Magento theme</tooltip>
+                    		<label>Integration Level</label>
 							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-							<sort_order>1</sort_order>
+							<source_model>wordpress/system_config_source_integration</source_model>
+							<sort_order>6</sort_order>
 							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                     	</full>
                         <route>
-                            <label>Home URL</label>
+                            <label>Blog Route</label>
                             <frontend_type>text</frontend_type>
-                            <frontend_model>wordpress/adminhtml_system_config_form_field_route</frontend_model>
-                            <validate>required-entry validate-blog-route</validate>
+                            <comment>This will be appended to your Magento base URL and will be the URL that the frontend of your integrated blog will be visible on.</comment>
+                            <validate>required-entry</validate>
                             <sort_order>11</sort_order>
                             <show_in_default>1</show_in_default>
-
+                            <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
 							<depends><full>1</full></depends>
                         </route>
+					</fields>
+            	</integration>
+            	<misc>
+            		<label>Miscellaneous</label>
+            		<sort_order>17</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
                         <path>
-                            <label>Path</label>
-                            <comment>Enter the path to your WordPress installation.</comment>
-                            <tooltip>If WordPress is installed in a sub-directory, enter the name without any slashes.</tooltip>
-                            <validate>required-entry validate-blog-path</validate>
+                            <label>WordPress Path</label>
+                            <comment><![CDATA[Enter the relative path to your WordPress installation. If WordPress is installed in a sub-directory of Magento, enter the name of that sub-directory here.]]></comment>
                             <frontend_type>text</frontend_type>
-                            <sort_order>21</sort_order>
+                            <sort_order>11</sort_order>
                             <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </path>
-        				<force_single_store>
-        					<label>Single Store</label>
-							<tooltip>Select Yes if you have multiple stores that share a single blog</tooltip>
-        					<sort_order>100</sort_order>
+					</fields>
+            	</misc>
+            	<debug>
+            		<label>Logging and Debugging</label>
+					<comment><![CDATA[<p>Enable logging if you are having problems with the extension. Please include any relevant log files (var/log/wordpress.log) when emailing support.</p>]]></comment>
+            		<sort_order>21</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_store>1</show_in_store>
+            		<show_in_website>1</show_in_website>
+            		<fields>
+            			<log_enabled>
+            				<label>Enable Logging</label>
+            				<sort_order>6</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+            			</log_enabled>
+            		</fields>
+            	</debug>
+            </groups>
+        </wordpress>
+        <wordpress_blog translate="label" module="wordpress">
+        	<label>Blog Settings</label>
+        	<tab>wordpress</tab>
+        	<sort_order>506</sort_order>
+        	<show_in_default>1</show_in_default>
+        	<show_in_store>1</show_in_store>
+        	<show_in_website>1</show_in_website>
+        	<groups>
+        		<layout>
+        			<label>Layout</label>
+        			<sort_order>1</sort_order>
+        			<show_in_default>1</show_in_default>
+        			<show_in_website>1</show_in_website>
+        			<show_in_store>1</show_in_store>
+        			<fields>
+            			<template_default>
+            				<label>Default Template</label>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_page_template</source_model>
+            				<sort_order>1</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</template_default>
+            			<template_homepage>
+            				<label>Homepage Template</label>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_page_template</source_model>
+            				<sort_order>6</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</template_homepage>
+            			<template_post_list>
+            				<label>Post List Template</label>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_page_template</source_model>
+            				<sort_order>11</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</template_post_list>
+            			<template_post_view>
+            				<label>Post View Template</label>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_page_template</source_model>
+            				<sort_order>16</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</template_post_view>
+            			<template_page>
+            				<label>Page Template (WP Page)</label>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_page_template</source_model>
+            				<sort_order>21</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</template_page>
+            			<update_xml>
+            				<label>Layout Update XML</label>
+            				<comment>This XML will be used on all WordPress/Blog pages.</comment>
+            				<frontend_type>editor</frontend_type>
+            				<sort_order>26</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</update_xml>
+        				<sidebar_left_empty>
+        					<label>Remove Magento Blocks from Left Sidebar</label>
+        					<comment>Attempt to automatically remove Magento blocks from left sidebar</comment>
+        					<sort_order>31</sort_order>
 							<frontend_type>select</frontend_type>
 							<source_model>adminhtml/system_config_source_yesno</source_model>
 							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>     
-        				</force_single_store>
-					</fields>
-            	</integration>
-            	<license>
-            		<label>License</label>
-            		<comment>You must have a valid license for each add-on extension listed below. Licenses are automatically validated and logged by FishPig. It is illegal to use an extension listed below with an invalid license.</comment>
-            		<sort_order>17</sort_order>
-            		<show_in_default>1</show_in_default>
-					<expanded>1</expanded>
-            		<fields></fields>            	
-            	</license>
-            	<autologin>
-            		<label>Auto-Login</label>
-					<sort_order>18</sort_order>
-					<show_in_default>1</show_in_default>
-					<expanded>0</expanded>
-					<comment><![CDATA[<p>For help setting up the Auto-Login features, see <a href="http://fishpig.co.uk/magento/wordpress-integration/auto-login/" target="_blank">this article</a>.</p>]]></comment>
-					<fields>
-            			<username>
-            				<label>Username</label>
-            				<sort_order>1</sort_order>
+        				</sidebar_left_empty>
+        				<sidebar_right_empty>
+        					<label>Remove Magento Blocks from Right Sidebar</label>
+        					<comment>Attempt to automatically remove Magento blocks from right sidebar</comment>
+        					<sort_order>32</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>     
+        				</sidebar_right_empty>
+        				<include_css>
+        					<label>Include CSS File</label>
+        					<comment>If enabled, a simple WordPress CSS file will be included on the blog only.</comment>
+        					<sort_order>36</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>     
+        				</include_css>
+        				<toplink_enabled>
+        					<label>Display Top Link</label>
+        					<comment>This will only work if the XML is still in wordpress.xml</comment>
+        					<sort_order>51</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>     
+        				</toplink_enabled>
+        				<toplink_label>
+        					<label>Top Link Label</label>
+        					<comment>This is also used for the blog Breadcrumb label</comment>
+        					<sort_order>52</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><toplink_enabled>1</toplink_enabled></depends>   
+        				</toplink_label>
+           				<toplink_position>
+            				<label>Top Link Position</label>
             				<frontend_type>text</frontend_type>
-            				<frontend_model>wordpress/adminhtml_frontend_autologin</frontend_model>
-            				<backend_model>wordpress/system_config_backend_autologin</backend_model>
-							<show_in_default>1</show_in_default>
-							<comment>WordPress Admin username</comment>
-            			</username>
-						<password>
-            				<label>Password</label>
-            				<sort_order>6</sort_order>
-            				<frontend_type>password</frontend_type>
-            				<frontend_model>wordpress/adminhtml_frontend_autologin</frontend_model>
-            				<backend_model>wordpress/system_config_backend_autologin</backend_model>
-							<show_in_default>1</show_in_default>
-							<comment>WordPress Admin password</comment>
-						</password>
-					</fields>
-            	</autologin>
-            	<extend>
-					<label>Add-Ons</label>
-					<sort_order>20</sort_order>
+            				<sort_order>53</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+							<depends><toplink_enabled>1</toplink_enabled></depends>
+           				</toplink_position>
+            		</fields>
+        		</layout>
+        		<posts>
+	        		<label>Posts</label>
+					<sort_order>6</sort_order>
 					<show_in_default>1</show_in_default>
-					<show_in_store>1</show_in_store>
-					<fields />
-            	</extend>
-            	<menu>
-            		<label>Menu</label>
-            		<comment>Append a WordPress custom menu onto your Magento Topmenu</comment>
-            		<sort_order>26</sort_order>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>        		
+					<fields>
+						<excerpt_size>
+							<label>Auto-Generated Excerpt Size</label>
+							<comment>The number of words to take from the post_content field to automatically fill empty excerpts</comment>
+							<sort_order>6</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>        
+						</excerpt_size>
+						<excerpt_suffix>
+							<label>Auto-Generated Excerpt Suffix</label>
+							<comment>This is inserted after the auto-generated excerpt</comment>
+							<sort_order>8</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>        
+						</excerpt_suffix>
+						<more_anchor>
+							<label>Read More Anchor Test</label>
+							<comment>eg. Read More</comment>
+							<sort_order>11</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>        
+						</more_anchor>
+						<display_previous_next>
+							<label>Display Next/Previous Links</label>
+							<sort_order>16</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+		        		</display_previous_next>
+						<opengraph>
+							<label>Include OpenGraph Tags</label>
+							<sort_order>26</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+		        		</opengraph>
+						<comment_success_msg>
+							<label>Comment Success Message</label>
+							<comment></comment>
+							<sort_order>51</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>        
+						</comment_success_msg>
+						<comment_error_msg>
+							<label>Comment Error Message</label>
+							<comment></comment>
+							<sort_order>52</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>        
+						</comment_error_msg>
+					</fields>
+            	</posts>
+            	<recaptcha>
+            		<label>Recaptcha</label>
+            		<sort_order>11</sort_order>
             		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
             		<show_in_store>1</show_in_store>
-					<expanded>0</expanded>
+            		<fields>
+            			<enabled>
+            				<label>Enabled</label>
+            				<sort_order>10</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</enabled>
+						<public_key>
+							<label>Public Key</label>
+							<comment>You can get a public key from: https://www.google.com/recaptcha/admin/create</comment>
+							<sort_order>7</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</public_key>
+						<private_key>
+							<label>Private Key</label>
+							<comment>You can get a public key from: https://www.google.com/recaptcha/admin/create</comment>
+							<sort_order>8</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</private_key>
+            			<theme>
+            				<label>Theme</label>
+            				<comment><![CDATA[For more information on Recaptcha themes and how to create a custom theme, see <a href="http://code.google.com/apis/recaptcha/docs/customization.html" target="_black">this article</a>.]]></comment>
+            				<sort_order>10</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_recaptcha_theme</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</theme>
+            			<language>
+            				<label>Language</label>
+            				<sort_order>12</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_recaptcha_language</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</language>
+						<error_msg>
+							<label>Error Message</label>
+							<comment>Will be displayed when user enters an invalid captcha code.</comment>
+							<sort_order>16</sort_order>
+							<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</error_msg>
+            		</fields>
+            	</recaptcha>
+            	<search>
+            		<label>Search</label>
+            		<sort_order>11</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>
             		<fields>
             			<enabled>
             				<label>Enabled</label>
@@ -213,155 +469,286 @@
             				<frontend_type>select</frontend_type>
             				<source_model>adminhtml/system_config_source_yesno</source_model>
 							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
             			</enabled>
-            			<id>
-            				<label>Menu</label>
-            				<comment>You can create new menu's in the WordPress Admin</comment>
-            				<sort_order>8</sort_order>
-            				<frontend_type>select</frontend_type>
-            				<source_model>wordpress/system_config_source_menu</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>
-							<depends><enabled>1</enabled></depends>
-            			</id>
-            		</fields>
-            	</menu>
-            	<toplink>
-            		<label>Top Link</label>
-            		<sort_order>31</sort_order>
-            		<show_in_default>1</show_in_default>
-            		<show_in_store>1</show_in_store>
-					<expanded>0</expanded>
-            		<fields>
-        				<enabled>
-        					<label>Enabled</label>
-        					<sort_order>51</sort_order>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-        				</enabled>
-        				<label>
-        					<label>Label</label>
-        					<comment>This is also used for the blog Breadcrumb label</comment>
-        					<sort_order>52</sort_order>
-							<frontend_type>text</frontend_type>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>
-							<depends><enabled>1</enabled></depends>
-        				</label>
-        				<position>
-            				<label>Position</label>
+            			<search_base>
+            				<label>Search Route</label>
+            				<comment>This is the route used for the search page. By default this is search</comment>
+            				<sort_order>6</sort_order>
             				<frontend_type>text</frontend_type>
-            				<sort_order>53</sort_order>
-            				<show_in_default>1</show_in_default>
-            				<show_in_store>1</show_in_store>
-							<depends><enabled>1</enabled></depends>
-        				</position>
-            		</fields>
-            	</toplink>
-            	<misc>
-        			<label>Misc</label>
-        			<sort_order>500</sort_order>
-        			<show_in_default>1</show_in_default>
-        			<show_in_store>1</show_in_store>
-        			<fields>
-        				<include_css>
-        					<label>Stylesheet</label>
-        					<comment>If enabled, a simple WordPress CSS file will be included on the blog only.</comment>
-        					<sort_order>1</sort_order>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
 							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-        				</include_css>
-        				<sidebar_left_empty>
-        					<label>Remove Magento Blocks from Left Sidebar</label>
-        					<sort_order>31</sort_order>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-        				</sidebar_left_empty>
-        				<sidebar_right_empty>
-        					<label>Remove Magento Blocks from Right Sidebar</label>
-        					<sort_order>32</sort_order>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-        				</sidebar_right_empty>
-						<autop>
-							<label>Automatically add paragraphs</label>
-							<sort_order>41</sort_order>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</search_base>
+            			<use_seo_urls>
+            				<label>Use SEO URLs</label>
+            				<comment>If set to yes, the search URL's will be converted to http://www.magento.com/blog/search/search-string/</comment>
+            				<sort_order>8</sort_order>
             				<frontend_type>select</frontend_type>
             				<source_model>adminhtml/system_config_source_yesno</source_model>
 							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
-		        		</autop>
-        				<include_jquery>
-        					<label>Include jQuery</label>
-        					<sort_order>101</sort_order>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
+            			</use_seo_urls>
+            			<default_input_value>
+            				<label>Default Input Value</label>
+            				<sort_order>11</sort_order>
+            				<frontend_type>text</frontend_type>
 							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-        				</include_jquery>
-        				<include_underscore>
-        					<label>Include underscore.js</label>
-        					<sort_order>102</sort_order>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</default_input_value>
+            			<logical_operator>
+            				<label>Logical Operator</label>
+            				<sort_order>21</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>wordpress/system_config_source_sql_operator</source_model>
 							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-        				</include_underscore>
-					</fields>
-            	</misc>
-            	<social>
-        			<label>Social Media Buttons</label>
-        			<sort_order>500</sort_order>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</logical_operator>
+            			<searchable_fields>
+            				<label>Searchable Fields</label>
+            				<sort_order>22</sort_order>
+            				<frontend_type>multiselect</frontend_type>
+            				<source_model>wordpress/system_config_source_post_fields</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</searchable_fields>
+            			<search_by_words>
+            				<label>Split Search String</label>
+            				<comment>If set to yes, the search string will be split into individual words. If set to no, the whole phrase will be searched for.</comment>
+            				<sort_order>31</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</search_by_words>
+            			<max_search_words>
+            				<label>Maximum Search Words</label>
+            				<sort_order>32</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><search_by_words>1</search_by_words></depends>
+            			</max_search_words>
+            			<min_word_length>
+            				<label>Minimum Word Length</label>
+            				<sort_order>33</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</min_word_length>
+            		</fields>
+            	</search>
+            	<tag_cloud>
+            		<label>Tag Cloud</label>
+            		<sort_order>12</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>
+            		<fields>
+            			<max_tags_to_display>
+            				<label>Tags to Display</label>
+            				<comment>Set the maximum amount of tags you want to be displayed</comment>
+            				<sort_order>4</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</max_tags_to_display>
+            			<font_size_below_25>
+            				<label>Font Size Below 25% Popularity</label>
+            				<sort_order>6</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</font_size_below_25>
+            			<font_size_below_50>
+            				<label>Font Size Below 50% Popularity</label>
+            				<sort_order>8</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</font_size_below_50>
+            			<font_size_below_75>
+            				<label>Font Size Below 75% Popularity</label>
+            				<sort_order>10</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</font_size_below_75>
+            			<font_size_below_90>
+            				<label>Font Size Below 90% Popularity</label>
+            				<sort_order>12</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</font_size_below_90>
+            			<font_size_below_100>
+            				<label>Font Size Below 100% Popularity</label>
+            				<sort_order>14</sort_order>
+            				<frontend_type>text</frontend_type>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+            			</font_size_below_100>
+            		</fields>
+            	</tag_cloud>
+        		<associations>
+        			<label>Entity Associations</label>
+        			<sort_order>100</sort_order>
         			<show_in_default>1</show_in_default>
+        			<show_in_website>1</show_in_website>
         			<show_in_store>1</show_in_store>
         			<fields>
-        				<enabled>
-        					<label>Enabled</label>
+        				<force_single_store>
+        					<label>Force Single Store</label>
+        					<comment>Enable this if you have multiple stores that share 1 blog</comment>
         					<sort_order>1</sort_order>
 							<frontend_type>select</frontend_type>
 							<source_model>adminhtml/system_config_source_yesno</source_model>
 							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>     
-        				</enabled>
-        				<service>
-        					<label>Service</label>
-        					<sort_order>31</sort_order>
+        				</force_single_store>
+        			</fields>
+        		</associations>
+        		<locale>
+        			<label>Locale</label>
+        			<sort_order>110</sort_order>
+        			<show_in_default>1</show_in_default>
+        			<show_in_website>1</show_in_website>
+        			<show_in_store>1</show_in_store>
+        			<fields>
+        				<cyrillic_enabled>
+        					<label>Cyrillic</label>
+        					<comment>Allow Cryllic characters in URL permalinks</comment>
+        					<sort_order>1</sort_order>
 							<frontend_type>select</frontend_type>
-							<source_model>wordpress/system_config_source_social_media_service</source_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
 							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>     
-							<depends><enabled>1</enabled></depends>
-        				</service>
-        				<head_html>
-        					<label>Head Code</label>
-        					<comment>Enter code added to head of page</comment>
-        					<sort_order>32</sort_order>
-							<frontend_type>editor</frontend_type>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-							<depends><enabled>1</enabled></depends>
-        				</head_html>
-        				<buttons_html>
-							<label>Buttons Code</label>
-        					<comment>Enter the buttons code</comment>
-        					<sort_order>33</sort_order>
-							<frontend_type>editor</frontend_type>
-							<show_in_default>1</show_in_default>
-							<show_in_store>1</show_in_store>     
-							<depends><enabled>1</enabled></depends>
-        				</buttons_html>
-					</fields>
-            	</social>
+        				</cyrillic_enabled>
+        			</fields>
+        		</locale>
+        	</groups>
+        </wordpress_blog>
+        <wordpress_extend>
+            <label>Extend WordPress Integration</label>
+            <tab>wordpress</tab>
+            <sort_order>511</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<about>
+					<label>About</label>
+					<sort_order>0</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>            	
+					<comment>When you purchase extensions to improve your integrated WordPress blog, they will show up below.</comment>
+            	</about>
             </groups>
-        </wordpress>
+        </wordpress_extend>
+        <sitemap>
+        	<groups>
+        		<wordpress_homepage>
+					<label>WordPress Homepage Options</label>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<changefreq>
+            				<label>Frequency</label>
+            				<sort_order>1</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_frequency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</changefreq>
+						<priority>
+            				<label>Priority</label>
+            				<sort_order>2</sort_order>
+            				<frontend_type>text</frontend_type>
+            				<backend_model>adminhtml/system_config_backend_sitemap</backend_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Valid values range: from 0.0 to 1.0.</comment>
+						</priority>
+					</fields>
+        		</wordpress_homepage>
+        		<wordpress_post>
+					<label>WordPress Post Options</label>
+					<sort_order>42</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<changefreq>
+            				<label>Frequency</label>
+            				<sort_order>1</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_frequency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</changefreq>
+						<priority>
+            				<label>Priority</label>
+            				<sort_order>2</sort_order>
+            				<frontend_type>text</frontend_type>
+            				<backend_model>adminhtml/system_config_backend_sitemap</backend_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Valid values range: from 0.0 to 1.0.</comment>
+						</priority>
+					</fields>
+        		</wordpress_post>
+        		<wordpress_page>
+					<label>WordPress Pages Options</label>
+					<sort_order>44</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<changefreq>
+            				<label>Frequency</label>
+            				<sort_order>1</sort_order>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_frequency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</changefreq>
+						<priority>
+            				<label>Priority</label>
+            				<sort_order>2</sort_order>
+            				<frontend_type>text</frontend_type>
+            				<backend_model>adminhtml/system_config_backend_sitemap</backend_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Valid values range: from 0.0 to 1.0.</comment>
+						</priority>
+					</fields>
+        		</wordpress_page>
+        	</groups>
+        </sitemap>
     </sections>
 </config>

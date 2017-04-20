@@ -15,9 +15,7 @@ class Fishpig_Wordpress_Block_Sidebar_Widget_Search extends Fishpig_Wordpress_Bl
 	 */
 	public function getFormActionUrl()
 	{
-		return $this->helper('wordpress')->getUrl(
-			$this->helper('wordpress/router')->getSearchRoute()
-		) . '/';
+		return $this->helper('wordpress')->getUrl($this->helper('wordpress/search')->getSearchRoute()) . '/';
 	}
 	
 	/**
@@ -27,30 +25,6 @@ class Fishpig_Wordpress_Block_Sidebar_Widget_Search extends Fishpig_Wordpress_Bl
 	 */
 	public function getDefaultTitle()
 	{
-		return $this->__('Search');
-	}
-	
-	/**
-	 * Retrieve the search term used
-	 *
-	 * @return string
-	 */
-	public function getSearchTerm()
-	{
-		return $this->helper('wordpress/router')->getSearchTerm();
-	}
-	
-	/**
-	 * Ensure template is set
-	 *
-	 * @return string
-	 */
-	protected function _beforeToHtml()
-	{
-		if (!$this->getTemplate()) {
-			$this->setTemplate('wordpress/sidebar/widget/search.phtml');
-		}
-		
-		return parent::_beforeToHtml();
+		return $this->__('Blog Search');
 	}
 }

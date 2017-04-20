@@ -56,6 +56,12 @@ class Fishpig_Wordpress_Block_Archive_View extends Fishpig_Wordpress_Block_Post_
 	 */
 	public function translateDate($date, $splitter = ' ')
 	{
-		return $this->helper('wordpress')->translateDate($date, $splitter);
+		$dates = explode($splitter, $date);
+		
+		foreach($dates as $it => $part) {
+			$dates[$it] = $this->__($part);
+		}
+		
+		return implode($splitter, $dates);
 	}
 }

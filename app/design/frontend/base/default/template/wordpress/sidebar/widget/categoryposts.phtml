@@ -23,14 +23,11 @@
 					<?php if ($this->canDisplayDate()): ?>
 						<p class="post-date"><?php echo $post->getPostDate() ?></p>
 					<?php endif; ?>
-					<?php if ($this->canDisplayImage() && $post->getFeaturedImage()): ?>
-						<p class="post-image">
-							<a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->htmlEscape($post->getPostTitle()) ?>"><img src="<?php echo $post->getFeaturedImage()->getAvailableImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>" style="<?php if ($this->getThumbW()): ?>max-width:<?php echo $this->getThumbW() ?>px;<?php endif; ?><?php if ($this->getThumbH()): ?>max-height:<?php echo $this->getThumbH() ?>px;<?php endif; ?>"/></a>
-						</p>
-					<?php endif; ?>
 					<?php if ($this->canDisplayExcerpt()): ?>
-						<p class="post-excerpt"><?php echo $post->getPostExcerpt() ?></p>
+						<p class="post-excerpt"><?php echo $post->getPostExcerpt() ?></p>					
 					<?php endif; ?>
+					
+					
 					<?php if ($post->getCommentCount() > 0): ?><span>(<?php echo $this->getCommentCountString($post) ?>)</span><?php endif; ?>
 				</li>
 			<?php endforeach; ?>

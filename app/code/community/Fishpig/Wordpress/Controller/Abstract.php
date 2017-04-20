@@ -9,19 +9,11 @@
 abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controller_Front_Action
 {
 	/**
-	 * Blocks used to generate RSS feed items
-	 *
-	 * @var string
-	 */
-	 protected $_feedBlock = false;
-	
-	/**
-	 * Storage for breadcrumbs
-	 * These are added to the breadcrumbs block before rendering the page
+	 * Root templates to be used
 	 *
 	 * @var array
 	 */
-	protected $_crumbs = array();
+	protected $_rootTemplates = array('template_default');
 	
 	/**
 	 * Used to do things en-masse
@@ -45,12 +37,6 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 	 */
     public function preDispatch()
     {
-	    if (Mage::registry('wordpress_controller')) {
-		    Mage::unregister('wordpress_controller');
-	    }
-
-	    Mage::register('wordpress_controller', $this);
-	    
     	parent::preDispatch();
 
 		try {
@@ -58,12 +44,15 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 				$this->_forceForwardViaException('noRoute');
 				return;
 			}
+			
+			if ($this->getRequest()->getParam('feed')) {
+				if ($this->getRequest()->getActionName() !== 'feed') {
+					if ($this->hasAction('feed')) {
+						$this->_forceForwardViaException('feed');
+						return;
+					}
 
-			if ($this->getRequest()->getParam('feed_type')) {
-				$this->getRequest()->setParam('feed', $this->getRequest()->getParam('feed_type')); // Legacy fix
-				
-				if (strpos(strtolower($this->getRequest()->getActionName()), 'feed') === false) {
-					$this->_forceForwardViaException('feed');
+					$this->_forceForwardViaException('noRoute');
 					return;
 				}
 			}
@@ -78,25 +67,6 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 			return;
 		}
 
-		// Check for redirects and forwards
-		$transport = new Varien_Object();
-
-		Mage::dispatchEvent(
-			'wordpress_' . strtolower(substr(get_class($this), strlen('Fishpig_Wordpress_'), -strlen('Controller'))) . '_controller_pre_dispatch_after', 
-			array(
-				'transport' => $transport,
-				'action' => $this,
-			)
-		);
-		
-		if ($transport->getForward()) {
-			return $this->_forward(
-				$transport->getForward()->getAction(),
-				$transport->getForward()->getController(),
-				$transport->getForward()->getModule()
-			);
-		}
-		
 		return $this;
     }
 
@@ -112,15 +82,17 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 			return false;
 		}
 
-		if (Mage::helper('wordpress/app')->getDbConnection() === false) {
-			return false;
-		}
-
-		if (($object = $this->getEntityObject()) === false) {
+		$helper = Mage::helper('wordpress/database');
+		
+		if (!$helper->isConnected() || !$helper->isQueryable()) {
 			return false;
 		}
 		
-		Mage::dispatchEvent($this->getFullActionName() . '_init_after', array('object' => $object, $this->getRequest()->getControllerName() => $object, 'action' => $this));
+		$helper->getReadAdapter()->query('SET NAMES UTF8');
+
+		if ($this->getEntityObject() === false) {
+			return false;
+		}
 
 		return true;
 	}
@@ -134,23 +106,22 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 	 */
     public function renderLayout($output='')
     {
-		Mage::dispatchEvent('wordpress_render_layout_before', array('object' => $this->getEntityObject(), 'action' => $this));
-		
 		if (($headBlock = $this->getLayout()->getBlock('head')) !== false) {
 			if ($entity = $this->getEntityObject()) {
-				$headBlock->addItem('link_rel', ($entity->getCanonicalUrl() ? $entity->getCanonicalUrl() : $entity->getUrl()), 'rel="canonical"');
+				$headBlock->addItem('link_rel', $entity->getUrl(), 'rel="canonical"');
 			}
-
-			$headBlock->addItem('link_rel', 
-				Mage::helper('wordpress')->getUrl('feed/'), 
-				'rel="alternate" type="application/rss+xml" title="' . Mage::helper('wordpress')->getWpOption('blogname') . ' &raquo; Feed"'
-			);
-			
-			$headBlock->addItem('link_rel', 
-				Mage::helper('wordpress')->getUrl('comments/feed/'), 
-				'rel="alternate" type="application/rss+xml" title="' . Mage::helper('wordpress')->getWpOption('blogname') . ' &raquo; Comments Feed"'
-			);
 		}
+
+		$rootTemplates = array_reverse($this->_rootTemplates);
+		
+		foreach($rootTemplates as $rootTemplate) {
+			if ($template = Mage::getStoreConfig('wordpress_blog/layout/' . $rootTemplate)) {
+				$this->getLayout()->helper('page/layout')->applyTemplate($template);
+				break;
+			}
+		}
+
+		Mage::dispatchEvent('wordpress_render_layout_before', array('object' => $this->getEntityObject(), 'action' => $this));
 
 		if (($headBlock = $this->getLayout()->getBlock('head')) !== false) {
 			if (Mage::helper('wordpress')->getWpOption('blog_public') !== '1') {
@@ -158,24 +129,6 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 			}
 		}
 
-		$crumbCount = count($this->_crumbs);
-		
-		if ($crumbCount > 0 && ($block = $this->getLayout()->getBlock('breadcrumbs')) !== false) {
-			foreach($this->_crumbs as $crumbName => $crumb) {
-				if (--$crumbCount === 0 && isset($crumb[0]['link'])) {
-					unset($crumb[0]['link']);
-				}
-				
-				if ($crumb[0]['title']) {
-					$block->addCrumb($crumbName, $crumb[0], $crumb[1]);
-				}
-			}
-		}
-		
-		$this->_renderTitles();
-
-		Mage::helper('wordpress/social')->addCodeToHead();
-		
 		return parent::renderLayout($output);
 	}
 
@@ -188,29 +141,22 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 		if (!$this->_isLayoutLoaded) {
 			$this->loadLayout();
 		}
-
+		
 		$this->_title()->_title(Mage::helper('wordpress')->getWpOption('blogname'));
 
-		$this->addCrumb('home', array('link' => Mage::getUrl(), 'label' => $this->__('Home')));
+		$this->_addCrumb('home', array('link' => Mage::getUrl(), 'label' => $this->__('Home')));
 		
 		if (!$this->isFrontPage()) {
-			$toplinkUrl = Mage::helper('wordpress')->getTopLinkUrl();
-			
-			if ($toplinkUrl !== Mage::getUrl()) {
-				$this->addCrumb('blog', array('link' => $toplinkUrl, 'label' => $this->__(Mage::helper('wordpress')->getTopLinkLabel())));
-			}
+			$this->_addCrumb('blog', array('link' => Mage::helper('wordpress')->getUrl(), 'label' => $this->__(Mage::helper('wordpress')->getTopLinkLabel())));
 		}
 		else {
-			$this->addCrumb('blog', array('label' => $this->__(Mage::helper('wordpress')->getTopLinkLabel())));
+			$this->_addCrumb('blog', array('label' => $this->__(Mage::helper('wordpress')->getTopLinkLabel())));
 		}
 		
 		if ($rootBlock = $this->getLayout()->getBlock('root')) {
 			$rootBlock->addBodyClass('is-blog');
 		}
 		
-		Mage::dispatchEvent('wordpress_init_layout_after', array('object' => $this->getEntityObject(), 'controller' => $this));
-		Mage::dispatchEvent($this->getFullActionName() . '_init_layout_after', array('object' => $this->getEntityObject(), 'controller' => $this));
-
 		return $this;
 	}
 	
@@ -221,53 +167,19 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 	 * @param array $crumbInfo
 	 * @param string $after
 	 */
-	public function addCrumb($crumbName, array $crumbInfo, $after = false)
+	protected function _addCrumb($crumbName, array $crumbInfo, $after = false)
 	{
-		if (!isset($crumbInfo['title'])) {
-			$crumbInfo['title'] = $crumbInfo['label'];
-		}
+		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
+			if (!isset($crumbInfo['title'])) {
+				$crumbInfo['title'] = $crumbInfo['label'];
+			}
 		
-		$this->_crumbs[$crumbName] = array($crumbInfo, $after);
+			$breadcrumbs->addCrumb($crumbName, $crumbInfo, $after);
+		}
 		
 		return $this;
 	}
 
-	/**
-	 * Remove a breadcrumb by it's name
-	 *
-	 * @param string $crumbName
-	 * @return $this
-	 */
-	public function removeCrumb($crumbName)
-	{
-		if (isset($this->_crumbs[$crumbName])) {
-			unset($this->_crumbs[$crumbName]);
-		}
-		
-		return $this;
-	}
-	
-	/**
-	 * Retrieve a breadcrumb
-	 *
-	 * @param string $crumbName
-	 * @return array
-	 */
-	public function getCrumb($crumbName)
-	{
-		return isset($this->_crumbs[$crumbName]) ? $this->_crumbs[$crumbName] : false;
-	}
-	
-	/**
-	 * Get the breadcrumbs array
-	 *
-	 * @return array
-	 */
-	public function getCrumbs()
-	{
-		return $this->_crumbs;	
-	}
-	
 	/**
 	 * Adds custom layout handles
 	 *
@@ -275,37 +187,36 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 	 */
 	protected function _addCustomLayoutHandles(array $handles = array())
 	{
+		array_unshift($handles, 'default', 'wordpress_default');
+
 		$update = $this->getLayout()->getUpdate();
-
-		array_unshift($handles, 'wordpress_default');
-
-		$storeHandlePrefix = 'STORE_' . Mage::app()->getStore()->getCode() . '_';
-		$allHandles = array();
 		
-		foreach($handles as $it => $handle) {
-			$allHandles[] = $handle;
-			$allHandles[] = $storeHandlePrefix . $handle;
-		}
-
-		array_unshift($allHandles, 'default');
-		
-		foreach($allHandles as $handle) {
+		foreach($handles as $handle) {
 			$update->addHandle($handle);
 		}
 		
 		$this->addActionLayoutHandles();
+		$this->loadLayoutUpdates();
 		
-		$handles = $update->getHandles();
-
-		$update->addHandle($storeHandlePrefix . array_pop($handles));
+		if (($xml = $this->_getLayoutUpdateXml()) !== false) {
+			$this->getLayout()->getUpdate()->addUpdate($xml);
+		}
 		
-		$this->loadLayoutUpdates();		
-		$this->generateLayoutXml();
-		$this->generateLayoutBlocks();
-
+		$this->generateLayoutXml()->generateLayoutBlocks();
 		$this->_isLayoutLoaded = true;
 		
 		return $this;
+	}
+	
+	/**
+	 * Retrieve the user specified layout update XML
+	 * This is specified in the Magento config
+	 *
+	 * @return false|string
+	 */
+	protected function _getLayoutUpdateXml()
+	{
+		return trim(Mage::getStoreConfig('wordpress_blog/layout/update_xml'));
 	}
 	
 	/**
@@ -340,8 +251,7 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 	 */
 	public function isEnabledForStore()
 	{
-		return (!Mage::getStoreConfigFlag('advanced/modules_disable_output/Fishpig_Wordpress')
-			&& Mage::getStoreConfigFlag('wordpress/module/enabled'));
+		return !Mage::getStoreConfigFlag('advanced/modules_disable_output/Fishpig_Wordpress');
 	}
 	
 	/**
@@ -385,92 +295,5 @@ abstract class Fishpig_Wordpress_Controller_Abstract extends Mage_Core_Controlle
 		$e = new Mage_Core_Controller_Varien_Exception();
 	
 		throw $e->prepareForward($action, $controller, $module, $params);
-	}
-	
-	/**
-	 * Forward a request to WordPress
-	 *
-	 * @param string $uri = ''
-	 * @return $this
-	 */
-	protected function _forwardToWordPress($uri = '')
-	{
-		return $this->_redirectUrl(
-			rtrim(Mage::helper('wordpress')->getWpOption('siteurl'), '/') . '/' . ltrim($uri, '/')
-		);
-	}
-	
-	/**
-	 * Render the RSS Feed
-	 *
-	 * @return void
-	 */
-	public function feedAction()
-	{
-		if (($block = $this->_feedBlock) !== false) {
-			if (strpos($block, '/') === false) {
-				$block = 'wordpress/' . $block;
-			}
-
-			$this->getResponse()
-				->setHeader('Content-Type', 'text/xml; charset=UTF-8')
-				->setBody(
-					$this->getLayout()->createBlock('wordpress/feed_post')->setSourceBlock($block)->setFeedType(
-						$this->getRequest()->getParam('feed', 'rss2')
-					)->toHtml()
-				);
-		}
-		else {
-			$this->_forward('noRoute');
-		}
-	}
-	
-	/**
-	 * Display the comments feed
-	 *
-	 * @return void
-	 */
-	public function commentsFeedAction()
-	{
-		$this->getResponse()
-			->setHeader('Content-Type', 'text/xml; charset=UTF-8')
-			->setBody(
-				$this->getLayout()->createBlock('wordpress/feed_post_comment')
-					->setSource(Mage::registry('wordpress_post'))
-					->setFeedType($this->getRequest()->getParam('feed', 'rss2'))
-					->toHtml()
-			);
-	}
-	
-	/**
-	 * Allows for legacy methods to be catered for
-	 *
-	 * @param string $method
-	 * @param array $args
-	 * @return mixed
-	 */
-	public function __call($method, $args)
-	{
-		$transport = new Varien_Object(array());
-		
-		Mage::dispatchEvent('wordpress_controller_method_invalid', array('method' => $method, 'args' => $args, 'object' => $this, 'transport' => $transport));
-		
-		if (!$transport->hasReturnValue()) {
-			throw new Varien_Exception("Invalid method ".get_class($this)."::".$method."(".print_r($args,1).")");
-		}
-		
-		return $transport->getReturnValue();
-	}    
-	
-	/**
-	 * If this method is called, you need to update your Magento WordPress Integration add-on extensions
-	 *
-	 * @return $this
-	 **/
-	public function includejQuery()
-	{
-		Mage::helper('wordpress')->log("You need to update your Magento WordPress Integration add-on extensions.");
-		
-		return $this;
 	}
 }

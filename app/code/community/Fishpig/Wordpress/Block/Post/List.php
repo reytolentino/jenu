@@ -6,14 +6,36 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 
-class Fishpig_Wordpress_Block_Post_List extends Fishpig_Wordpress_Block_Post_Abstract
+class Fishpig_Wordpress_Block_Post_List extends Mage_Core_Block_Template
 {
 	/**
 	 * Cache for post collection
 	 *
-	 * @var Fishpig_Wordpress_Model_Resource_Post_Collection
+	 * @var Fishpig_Wordpress_Model_Mysql4_Post_Collection
 	 */
 	protected $_postCollection = null;
+
+	/**
+	 * Block wrapper (category, tag, author etc)
+	 *
+	 * @var Fishpig_Wordpress_Block_Post_List_Abstract
+	 */
+	protected $_wrapperBlock = null;
+	
+	/**
+	 * Amount of posts to display on a page
+	 * If this is left null then this value is taken form the WP-Admin config
+	 *
+	 * @var int
+	 */
+	protected $_pagerLimit = null;
+	
+	/**
+	 * Name of the pager block
+	 *
+	 * @var string
+	 */
+	protected $_pagerBlockName = 'wordpress_post_list_pager';
 	
 	/**
 	 * Returns the collection of posts
@@ -32,17 +54,9 @@ class Fishpig_Wordpress_Block_Post_List extends Fishpig_Wordpress_Block_Post_Abs
 	 */
 	protected function _getPostCollection()
 	{
-		if (is_null($this->_postCollection) && $this->getWrapperBlock()) {
-			$this->_postCollection = $this->getWrapperBlock()->getPostCollection();
-			
-			if ($this->_postCollection) {
-				if ($this->getPostType()) {
-					$this->_postCollection->addPostTypeFilter($this->getPostType());
-				}
-				
-				if ($this->getPagerBlock()) {
-					$this->getPagerBlock()->setCollection($this->_postCollection);
-				}
+		if (is_null($this->_postCollection)) {
+			if (is_null($this->getWrapperBlock()) == false) {
+				$this->_postCollection = $this->getWrapperBlock()->getPostCollection();
 			}
 		}
 		
@@ -54,11 +68,21 @@ class Fishpig_Wordpress_Block_Post_List extends Fishpig_Wordpress_Block_Post_Abs
 	 * This block can be used to auto generate the post list
 	 *
 	 * @param Fishpig_Wordpress_Block_Post_List_Wrapper_Abstract $wrapper
-	 * @return $this
 	 */
 	public function setWrapperBlock(Fishpig_Wordpress_Block_Post_List_Wrapper_Abstract $wrapper)
 	{
-		return $this->setData('wrapper_block', $wrapper);
+		$this->_wrapperBlock = $wrapper;
+		return $this;
+	}
+	
+	/**
+	 * Returns the block wrapper object
+	 *
+	 * @return Fishpig_Wordpress_Block_Post_List_Wrapper_Abstract
+	 */
+	public function getWrapperBlock()
+	{
+		return $this->_wrapperBlock;
 	}
 	
 	/**
@@ -69,25 +93,20 @@ class Fishpig_Wordpress_Block_Post_List extends Fishpig_Wordpress_Block_Post_Abs
 	 */
 	public function getPagerBlock()
 	{
-		if (!$this->hasPagerBlock()) {
-			$this->setPagerBlock(false);
-			
-			if (!$this->getChild('pager')) {
-				$this->setChild('pager', $this->getLayout()
-					->createBlock('wordpress/post_list_pager')
-						->setNameInLayout('wordpress_post_list')
-						->setAlias('pager')
-				);
-			}
-
-			if ($pager = $this->getChild('pager')) {
-				$this->setPagerBlock(
-					$pager->setPostListBlock($this)
-				);
-			}
-		}
+		$pagerBlock = $this->getChild($this->_pagerBlockName);
 		
-		return $this->_getData('pager_block');
+		if (!$pagerBlock) {
+			$pagerBlock = $this->getLayout()
+				->createBlock('wordpress/post_list_pager', $this->_pagerBlockName.microtime().rand(1,9999));
+		}
+
+		$pagerBlock->setLimit($this->_getPagerLimit())
+			->setPageVarName('page')
+			->setAvailableLimit($this->_getPagerAvailableLimit());
+			
+		$pagerBlock->setCollection($this->_getPostCollection());
+		
+		return $pagerBlock;
 	}
 	
 	/**
@@ -97,76 +116,58 @@ class Fishpig_Wordpress_Block_Post_List extends Fishpig_Wordpress_Block_Post_Abs
 	 */
 	public function getPagerHtml()
 	{
-		return $this->getChildHtml('pager');
+		return $this->getPagerBlock()->toHtml();
+	}
+
+	/**
+	 * Gets the posts per page limit
+	 *
+	 * @return int
+	 */
+	protected function _getPagerLimit()
+	{
+		if (is_null($this->_pagerLimit)) {
+			$this->_pagerLimit = $this->getRequest()->getParam('limit', Mage::helper('wordpress')->getWpOption('posts_per_page', 10));
+		}
+		
+		return (int)$this->_pagerLimit;
 	}
 	
 	/**
-	 * Retrieve the correct renderer and template for $post
+	 * Returns the available limits for the pager
+	 * As Wordpress uses a fixed page size limit, this returns only 1 limit (the value set in WP admin)
+	 * This effectively hides the 'Show 4/Show 10' drop down
 	 *
-	 * @param Fishpig_Wordpress_Model_Post $post
-	 * @return Fishpig_Wordpress_Block_Post_List_Renderer
+	 * @return array
 	 */
-	public function getPostRenderer(Fishpig_Wordpress_Model_Post $post)
+	protected function _getPagerAvailableLimit()
 	{
-		if (!$this->hasPostRenderer()) {
-			$this->setPostRenderer(
-				$this->getLayout()->createBlock('wordpress/post_list_renderer')
-					->setParentBlock($this)
-					->setExcerptSize($this->getExcerptSize())
-			);
-		}
-
-		return $this->_getData('post_renderer')
-			->setPost($post)
-			->setTemplate(
-				$this->getPostRendererTemplate($post)
-			);
+		return array($this->_getPagerLimit() => $this->_getPagerLimit());
 	}
-
+	
 	/**
-	 * Get the post renderer template
+	 * Retrieve the HTML for the password protect form
 	 *
 	 * @param Fishpig_Wordpress_Model_Post $post
 	 * @return string
 	 */
-	public function getPostRendererTemplate(Fishpig_Wordpress_Model_Post $post)
+	public function getPasswordProtectHtml($post)
 	{
-		if ($archiveTemplate = $post->getTypeInstance()->getArchiveTemplate()) {
-			return $archiveTemplate;
-		}
-		
-		if ($this->hasPostRendererTemplate()) {
-			return $this->_getData('post_renderer_template');
-		}
-		
-		return 'wordpress/post/list/renderer/default.phtml';
+		$block = $this->getLayout()
+			->createBlock('core/template')
+			->setTemplate('wordpress/post/protected.phtml')
+			->setPost($post);
+					
+		return $block->toHtml();
 	}
 	
 	/**
-	 * Ensure that the post list handle is set (adds the pager)
+	 * Determine whether to display the full post content or the excerpt
 	 *
-	 * @return $this
+	 * @return bool
 	 */
-	protected function _prepareLayout()
+	public function displayExcerptInFeed()
 	{
-		$this->getLayout()
-			->getUpdate()
-			->addHandle('wordpress_post_list');
-
-		return parent::_prepareLayout();
-	}
-	
-	/**
-	 * Ensure a valid template is set
-	 *
-	 * @return $this
-	 */
-	protected function _beforeToHtml()
-	{
-		if (!$this->getTemplate()) {
-			$this->setTemplate('wordpress/post/list.phtml');
-		}
-		
-		return parent::_beforeToHtml();
+		return Mage::helper('wordpress')->getWpOption('rss_use_excerpt') == '1';
 	}
 }

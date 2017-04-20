@@ -6,103 +6,80 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 
-class Fishpig_Wordpress_Adminhtml_WordpressController extends Mage_Adminhtml_Controller_Action
+class Fishpig_Wordpress_Adminhtml_WordpressController extends Fishpig_Wordpress_Controller_Adminhtml_Abstract
 {
 	/**
-	 * URL to get release information for extension
-	 *
-	 * @const string
-	 */
-	const URL_RELEASES = 'http://connect20.magentocommerce.com/community/Fishpig_Wordpress_Integration/releases.xml';
-
-	/**
-	 * Attempt to login to the WordPress Admin action
+	 * Display the form for auto-login details
 	 *
 	 */
-	public function loginAction()
+	public function autologinAction()
 	{
-		$autoLogin = Mage::getSingleton('wordpress/system_config_backend_autologin');
-
-		$username = $autoLogin->getUsername();
-		$password = $autoLogin->getPassword();
+		$user = Mage::getModel('wordpress/admin_user')->load(0, 'store_id');
+			
+		if ($user->getId()) {
+			Mage::register('wordpress_admin_user', $user);
+		}
 		
-		try {
-			if (!$username || !$password) {
-				throw new Exception($this->__('WordPress Admin details not set.'));
-			}
-			
-			Mage::helper('wordpress/system')->loginToWordPress($username, $password, Mage::helper('wordpress')->getAdminUrl());
-			exit;
-
-			$this->_redirectUrl(Mage::helper('wordpress')->getAdminUrl('index.php'));
-		}
-		catch (Exception $e) {
-			Mage::helper('wordpress')->log($e);
-			Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-			
-			$this->_redirect('adminhtml/system_config/edit', array('section' => 'wordpress'));
-		}
+		$this->loadLayout();
+		$this->_setPageTitle('WP Login Details');
+		$this->_setActiveMenu('wordpress');
+		$this->renderLayout();
 	}
 	
 	/**
-	 * Check for the latest WordPress versions
+	 * Save the auto-login details
 	 *
 	 */
-	public function checkVersionAction()
+	public function autologinpostAction()
 	{
-		$current = Mage::helper('wordpress/system')->getExtensionVersion();
-		$cacheKey = 'wordpress_integration_update' . str_replace('.', '_', $current);
+		if ($data = $this->getRequest()->getPost()) {
+			try {
+				$data['user_id'] = Mage::getSingleton('admin/session')->getUser()->getUserId();
+				$autologin	= Mage::getModel('wordpress/admin_user');
+				$autologin->setData($data)->setId($this->getRequest()->getParam('id'));
 
-		try {
-			if (($latest = Mage::app()->getCache()->load($cacheKey)) === false) {
-				$response = Mage::helper('wordpress/system')->makeHttpGetRequest(
-					self::URL_RELEASES
-				);
-				
-				if (strpos($response, '<?xml') === false) {
-					throw new Exception('Invalid response');
-				}
-
-				$response = trim(substr($response, strpos($response, '<?xml')));
-				$xml = simplexml_load_string($response);
-				$latest = false;
-				
-				foreach($xml->r as $release) {
-					if ((string)$release->s === 'stable') {
-						if (!$latest || version_compare($release->v, $latest, '>=')) {
-							$latest = (string)$release->v;
-						}
-					}
-				}
-				
-				Mage::app()->getCache()->save(
-					$latest,
-					$cacheKey, 
-					array('WP_UPDATE'), 
-					((60*60)*24)*7
-				);
+				$autologin->save();
+				Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Your Wordpress Auto-login details were successfully saved.'));
+				Mage::getSingleton('adminhtml/session')->setFormData(false);				
 			}
-
-			$this->getResponse()
-				->setHeader('Content-Type', 'application/json; charset=UTF-8')
-				->setBody(
-					json_encode(
-						array('latest_version' => $latest)
-					)
-				);
+			catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                Mage::getSingleton('adminhtml/session')->setFormData($data);
+			}
 		}
-		catch (Exception $e) {
-			Mage::helper('wordpress')->log($e);
-		}		
+		else {
+			Mage::getSingleton('adminhtml/session')->addError($this->__('There was an error while trying to save your Wordpress Auto-login details.'));
+		}
+		
+        $this->_redirect('*/*/autologin');
 	}
-
+	
 	/**
-	 * Determine ACL permissions
+	 * Redirect the user to the addons page
 	 *
-	 * @return bool
 	 */
-	protected function _isAllowed()
+	public function addonsAction()
 	{
-		return true;
-	}	
+		$this->_redirectUrl('http://fishpig.co.uk/magento-extensions.html?ref=adn');
+	}
+	
+	/**
+	 * Set the page title
+	 *
+	 * @param string $title
+	 * @param bool $includePostFIx
+	 * @return $this
+	 */
+	protected function _setPageTitle($title, $includePostFIx = true)
+	{
+		if ($includePostFIx) {
+			$title .= ' | WordPress Integration by FishPig';
+		}
+		
+		if ($headBlock = $this->getLayout()->getBlock('head')) {
+			$headBlock->setTitle($title);
+		}
+		
+		return $this;
+	}
 }

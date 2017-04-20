@@ -15,7 +15,21 @@ class Fishpig_Wordpress_Block_Author_View extends Fishpig_Wordpress_Block_Post_L
 	 */
 	public function getAuthor()
 	{
-		return Mage::registry('wordpress_author');
+		if (!$this->hasWordpressAuthor()) {
+			$this->setWordpressAuthor(Mage::registry('wordpress_author'));
+		}
+		
+		return $this->getData('wordpress_author');
+	}
+
+	/**
+	 * Retrieve the Author ID
+	 *
+	 * @return int|false
+	 */
+	public function getAuthorId()
+	{
+		return $this->getAuthor() ? $this->getAuthor()->getId() : false;
 	}
 	
 	/**
@@ -25,7 +39,6 @@ class Fishpig_Wordpress_Block_Author_View extends Fishpig_Wordpress_Block_Post_L
 	 */
 	protected function _getPostCollection()
 	{
-		return parent::_getPostCollection()
-			->addFieldToFilter('post_author', $this->getAuthor()->getId());
+		return parent::_getPostCollection()->addAuthorIdFilter($this->getAuthorId());
 	}
 }

@@ -6,7 +6,7 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 
-abstract class Fishpig_Wordpress_Block_Sidebar_Widget_Abstract extends Fishpig_Wordpress_Block_Abstract
+abstract class Fishpig_Wordpress_Block_Sidebar_Widget_Abstract extends Mage_Core_Block_Template
 {
 	/**
 	 * Retrieve the default title for the block
@@ -21,6 +21,20 @@ abstract class Fishpig_Wordpress_Block_Sidebar_Widget_Abstract extends Fishpig_W
 	 * @var bool
 	 */
 	protected $_fixOptionKeys = false;
+	
+	/**
+	 * Set the block's cache options
+	 *
+	 */
+	protected function _construct()
+	{
+        $this->addData(array(
+            'cache_lifetime'    => 120,
+            'cache_tags'        => array('wordpress_sidebar_widget', Mage_Core_Model_Store::CACHE_TAG),
+        ));
+        
+        return parent::_construct();
+	}
     
 	/**
 	 * Retrieve the default title
@@ -29,11 +43,7 @@ abstract class Fishpig_Wordpress_Block_Sidebar_Widget_Abstract extends Fishpig_W
 	 */
 	public function getTitle()
 	{
-		if (($title = $this->_getData('title')) !== false) {
-			return $title ? $title : $this->getDefaultTitle();
-		}
-		
-		return false;
+		return $this->_getData('title') ? $this->_getData('title') : $this->getDefaultTitle();
 	}
 	
 	/**
@@ -63,7 +73,41 @@ abstract class Fishpig_Wordpress_Block_Sidebar_Widget_Abstract extends Fishpig_W
 			}
 		}
 
+		$this->setCacheKey($this->getNameInLayout());
+
 		return parent::_beforeToHtml();
+	}
+	
+	/**
+	 * Override cache loading mechanism
+	 * Allows us to not load block if WP database details are not valid
+	 *
+	 * @retrun string|false
+	 */
+	protected function _loadCache()
+	{
+		if (Mage::helper('wordpress/database')->isQueryable()) {
+			return parent::_loadCache();
+		}
+		
+		return '';
+	}
+	
+	/**
+	 * Override the cache saving method
+	 * If bad WP db details, _loadCache() returns an empty string (instead of false)
+	 * Use this to not save value
+	 *
+	 * @param string $data|false
+	 * @return $this
+	 */
+	protected function _saveCache($data)
+	{
+		if (Mage::helper('wordpress/database')->isQueryable()) {
+			return parent::_saveCache($data);
+		}
+		
+		return $this;
 	}
 	
 	/**
@@ -221,5 +265,5 @@ abstract class Fishpig_Wordpress_Block_Sidebar_Widget_Abstract extends Fishpig_W
 		}
 		
 		return $out;
-	}
+	}	
 }

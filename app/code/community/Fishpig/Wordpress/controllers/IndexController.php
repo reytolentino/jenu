@@ -9,6 +9,13 @@
 class Fishpig_Wordpress_IndexController extends Fishpig_Wordpress_Controller_Abstract
 {
 	/**
+	 * Set the feed blocks
+	 *
+	 * @var string
+	 */
+	protected $_feedBlock = 'homepage';
+	
+	/**
 	 * Used to do things en-masse
 	 * eg. include canonical URL
 	 *
@@ -16,81 +23,57 @@ class Fishpig_Wordpress_IndexController extends Fishpig_Wordpress_Controller_Abs
 	 */
 	public function getEntityObject()
 	{
-		if (Mage::registry('wordpress_page')) {
-			return Mage::registry('wordpress_page');
+		if (Mage::registry('wordpress_post')) {
+			return Mage::registry('wordpress_post');
 		}
 
 		return new Varien_Object(array(
 			'url' => Mage::helper('wordpress')->getUrl(),
 		));
 	}
-	
-	/**
-	 * Ensure that this controller can run
-	 *
-	 * @return $this
-	 */
-	public function preDispatch()
-	{
-		parent::preDispatch();
-
-		if ($this->getRequest()->getActionName() === 'index') {
-			if (!Mage::registry('wordpress_page')) {
-				if (Mage::helper('wordpress')->getWpOption('show_on_front')) {
-					if ($pageId = Mage::helper('wordpress')->getWpOption('page_on_front')) {
-						$page = Mage::getModel('wordpress/page')->load($pageId);
-						
-						if ($page->getId()) {
-							Mage::register('wordpress_page', $page);
-							$this->_forceForwardViaException('view', 'page');
-							return false;
-						}
-					}
-				}
-			}
-		}
-				
-		return $this;	
-	}
 
 	/**
 	 * Display the blog homepage
 	 *
+	 * @return void
 	 */
 	public function indexAction()
 	{
-		$this->_addCustomLayoutHandles(array(
-			'wordpress_homepage',
-			'wordpress_homepage_index',
-		));
-		
-		$this->_initLayout();
-
-		$this->_rootTemplates[] = 'template_homepage';
-		
-		$this->renderLayout();
-	}
+		/**
+		 * If configured to display page as homepage,
+		 * forward to post controller and set request variables
+		 **/
+		if (($post = Mage::registry('wordpress_post')) === null) {
+			if (($postId = Mage::helper('wordpress/router')->getHomepagePageId()) !== false) {
+				$this->getRequest()
+					->setParam('id', $postId)
+					->setParam('post_type', 'page')
+					->setParam('is_homepage', 1);
 	
-	/**
-	 * Display the main blog RSS feed
-	 *
-	 */
-	public function feedAction()
-	{
-		$this->getResponse()
-			->setHeader('Content-Type', 'text/xml; charset=' . Mage::helper('wordpress')->getWpOption('blog_charset'), true)
-			->setBody($this->getLayout()->createBlock('wordpress/feed_home')->toHtml());
+				return $this->_forward('view', 'post');
+			}
+		}
+		
+		$this->_addCustomLayoutHandles(array(
+			'wordpress_post_list',
+			'wordpress_homepage',
+			'wordpress_frontpage',
+		));
+
+		$this->_initLayout();
+		$this->renderLayout();
 	}
 	
 	/**
 	 * Display the blog robots.txt file
 	 *
+	 * @return void
 	 */
 	public function robotsAction()
 	{
 		if (($path = Mage::helper('wordpress')->getWordPressPath()) !== false) {
 			$robotsFile = $path . 'robots.txt';
-			
+
 			if (is_file($robotsFile) && is_readable($robotsFile)) {
 				if ($robotsTxt = file_get_contents($robotsFile)) {
 					$this->getResponse()->setHeader('Content-Type', 'text/plain;charset=utf8');
@@ -103,10 +86,11 @@ class Fishpig_Wordpress_IndexController extends Fishpig_Wordpress_Controller_Abs
 			$this->_forward('noRoute');
 		}
 	}
-	
+
 	/**
 	 * Redirect the user to the WordPress Admin
 	 *
+	 * @return void
 	 */
 	public function wpAdminAction()
 	{
@@ -116,40 +100,47 @@ class Fishpig_Wordpress_IndexController extends Fishpig_Wordpress_Controller_Abs
 	/**
 	 * Forward requests to the WordPress installation
 	 *
+	 * @return void
 	 */
 	public function forwardAction()
 	{
-		$queryString = $_SERVER['QUERY_STRING'];
-		
-		$forwardTo = rtrim(Mage::helper('wordpress')->getWpOption('siteurl'), '/') . '/index.php?' . $queryString;
-
-		$this->_redirectUrl($forwardTo);
+		return $this->_forwardToWordPress('index.php?' . $_SERVER['QUERY_STRING']);
 	}
 	
 	/**
 	 * Forward requests for images
 	 *
+	 * @return void
 	 */
 	public function forwardFileAction()
 	{
-		$url = rtrim(Mage::helper('wordpress')->getWpOption('siteurl'), '/');
-		
-		$forwardTo = $url . '/' . ltrim(Mage::helper('wordpress/router')->getBlogUri(), '/');
-
-		$this->_redirectUrl($forwardTo);
+		return $this->_forwardToWordPress(Mage::helper('wordpress/router')->getBlogUri());
 	}	
+
+	/**
+	 * Validate the new blog user
+	 *
+	 * @return void
+	 */
+	public function newBlogUserAction()
+	{
+	}
 	
 	/**
 	 * Set the post password and redirect to the referring page
 	 *
+	 * @return void
 	 */
 	public function applyPostPasswordAction()
 	{
-		$password = $this->getRequest()->getPost('post_password');
+		Mage::getSingleton('core/session')->setPostPassword($this->getRequest()->getPost('post_password'));
 		
-		Mage::getSingleton('wordpress/session')->setPostPassword($password);
-		
-		$this->_redirectReferer();
+		if ($redirectTo = $this->getRequest()->getPost('redirect_to')) {
+			$this->_redirectUrl($redirectTo);	
+		}
+		else {
+			$this->_redirectReferer();
+		}
 	}
 		
 	/**
@@ -162,5 +153,4 @@ class Fishpig_Wordpress_IndexController extends Fishpig_Wordpress_Controller_Abs
 	{
 		return $this->getResponse()->setRedirect($url)->sendResponse();
 	}
-
 }

@@ -1,13 +1,20 @@
 <?php
 /**
- * @category    Fishpig
- * @package     Fishpig_Wordpress
- * @license     http://fishpig.co.uk/license.txt
- * @author      Ben Tideswell <help@fishpig.co.uk>
+ * @category		Fishpig
+ * @package		Fishpig_Wordpress
+ * @license		http://fishpig.co.uk/license.txt
+ * @author		Ben Tideswell <help@fishpig.co.uk>
  */
 
 class Fishpig_Wordpress_TermController extends Fishpig_Wordpress_Controller_Abstract
 {
+	/**
+	 * Blocks used to generate RSS feed items
+	 *
+	 * @var string
+	 */
+	 protected $_feedBlock = 'term_view';
+	 
 	/**
 	 * Used to do things en-masse
 	 * eg. include canonical URL
@@ -29,13 +36,7 @@ class Fishpig_Wordpress_TermController extends Fishpig_Wordpress_Controller_Abst
 	{
 		parent::preDispatch();
 		
-		$term = $this->_initTerm();
-		
-		if ($term->isDefaultTerm()) {
-			$this->_forceForwardViaException('noRoute');
-			return false;
-		}
-		
+		$term = $this->_initTerm();		
 
 		return $this;	
 	}
@@ -49,24 +50,31 @@ class Fishpig_Wordpress_TermController extends Fishpig_Wordpress_Controller_Abst
 		$term = Mage::registry('wordpress_term');
 		
 		$this->_addCustomLayoutHandles(array(
-			'wordpress_term_index', 
+			'wordpress_post_list',
+			'wordpress_term_view',
+			'wordpress_post_' . $term->getTaxonomyType() . '_view',  // Legacy
+			'wordpress_' . $term->getTaxonomyType() . '_view',
+			'wordpress_' . $term->getTaxonomyType() . '_' . $term->getId(), // Legacy
+			'wordpress_' . $term->getTaxonomyType() . '_view_' . $term->getId(),
 		));
-			
+
 		$this->_initLayout();
 		
-		$this->_rootTemplates[] = 'template_post_list';
-
-		if (($category = $this->_getCategory()) !== false) {
-			if (($tree = $category->getTermTree()) !== false) {
-				foreach($tree as $branch) {
-					$this->_addCrumb('category_' . $branch->getId(), array('link' => $branch->getUrl(), 'label' => $branch->getName()));
-					$this->_title($branch->getName());
-				}
-			}
+		$tree = array($term);
+		$buffer = $term;
+		
+		while($buffer = $buffer->getParentTerm()) {
+			array_unshift($tree, $buffer);
 		}
 		
-		$this->_title($term->getName());
-		$this->_addCrumb('term', array('label' => $term->getName()));
+		while($branch = array_shift($tree)) {
+			$this->addCrumb('term_' . $branch->getId(), array(
+				'link' => ($tree ? $branch->getUrl() : null), 
+				'label' => $branch->getName())
+			);
+
+			$this->_title($branch->getName());
+		}
 		
 		$this->renderLayout();
 	}
@@ -82,29 +90,17 @@ class Fishpig_Wordpress_TermController extends Fishpig_Wordpress_Controller_Abst
 		if (($term = Mage::registry('wordpress_term')) !== null) {
 			return $term;
 		}
-		
-		$term = Mage::getModel('wordpress/term')->loadBySlug($this->getRouterHelper()->getBlogUri());
-			
-		if ($term->getId()) {
-			Mage::register('wordpress_term', $term);
-			return $term;
-		}
 
-		return false;
-	}
-	
-	/**
-	 * Retrieve the WordPress category
-	 * This can sometimes be set when a %category%/%term%
-	 *
-	 * @return false|Fishpig_Wordpress_Model_Post_Category
-	 */
-	protected function _getCategory()
-	{
-		if (($category = Mage::registry('wordpress_category')) !== null) {
-			return $category;
+		$term = Mage::getModel('wordpress/term')
+			->setTaxonomy($this->getRequest()->getParam('taxonomy'))
+			->load($this->getRequest()->getParam('id'));
+
+		if (!$term->getId()) {
+			return false;
 		}
 		
-		return false;
+		Mage::register('wordpress_term', $term);
+
+		return $term;
 	}
 }

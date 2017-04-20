@@ -48,7 +48,7 @@ abstract class Fishpig_Wordpress_Helper_Plugin_Seo_Abstract extends Fishpig_Word
 	{
 		if ($this->isEnabled()) {
 			$method = sprintf('processRoute%s', uc_words($observer->getEvent()->getAction()->getFullActionName(), ''));
-			
+
 			try {
 				if (method_exists($this, $method) && is_callable(array($this, $method))) {
 					$this->_action = $observer->getEvent()->getAction();
@@ -68,8 +68,6 @@ abstract class Fishpig_Wordpress_Helper_Plugin_Seo_Abstract extends Fishpig_Word
 				throw $e;
 			}
 			catch (Exception $e) {
-				echo sprintf('<h1>%s</h1><pre>%s</pre>', $e->getMessage(), $e->getTraceAsString());
-				exit;
 				Mage::helper('wordpress')->log($e->getMessage());
 			}
 		}
@@ -167,6 +165,23 @@ abstract class Fishpig_Wordpress_Helper_Plugin_Seo_Abstract extends Fishpig_Word
 		return array();
 	}
 
+	protected function _updateBreadcrumb($name, $label, $link = null)
+	{
+		if (($label = trim($label)) !== '') {
+			if (($crumb = $this->getAction()->getCrumb($name)) !== false) {
+				$crumb[0]['label'] = $label;
+				
+				if (!is_null($link)) {
+					$crumb[0]['link'] = $link;				
+				}
+				
+				$this->getAction()->addCrumb($name, $crumb[0], $crumb[1]);
+			}
+		}
+		
+		return $this;
+	}
+
 	/**
 	 * Retrieve the head block from the layout object
 	 *
@@ -188,8 +203,21 @@ abstract class Fishpig_Wordpress_Helper_Plugin_Seo_Abstract extends Fishpig_Word
 	 */
 	protected function _redirect($path)
 	{
+		header('Location: ' . Mage::getUrl('', array('_direct' => $path)));;
+		exit;
+		
 		$exception = new Mage_Core_Controller_Varien_Exception();
 
 		throw $exception->prepareRedirect($path);
+	}
+	
+	/**
+	 * Retrieve the action class
+	 *
+	 * @return Fishpig_Wordpress_Controller_Abstract
+	 */
+	public function getAction()
+	{
+		return $this->_action;
 	}
 }

@@ -6,15 +6,8 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 
-class Fishpig_Wordpress_Block_Post_View extends Fishpig_Wordpress_Block_Post_View_Abstract
+class Fishpig_Wordpress_Block_Post_View extends Fishpig_Wordpress_Block_Post_Abstract
 {
-	/**
-	 * The block name for the comments block
-	 *
-	 * @var string
-	 */
-	protected $_commentsBlockName = 'wordpress_post_comments';
-	
 	/**
 	  * Returns the HTML for the comments block
 	  *
@@ -22,21 +15,7 @@ class Fishpig_Wordpress_Block_Post_View extends Fishpig_Wordpress_Block_Post_Vie
 	  */
 	public function getCommentsHtml()
 	{
-		return $this->getChildHtml($this->_commentsBlockName);
-	}
-	
-	/**
-	 * Gets the comments block
-	 *
-	 * @return Fishpig_Wordpress_Block_Post_View_Comments
-	 */
-	public function getCommentsBlock()
-	{
-		if (!$this->getChild($this->_commentsBlockName)) {
-			$this->setChild($this->_commentsBlockName, $this->getLayout()->createBlock('wordpress/post_view_comments'));
-		}
-		
-		return $this->getChild($this->_commentsBlockName);
+		return $this->getChildHtml('comments');
 	}
 
 	/**
@@ -45,30 +24,37 @@ class Fishpig_Wordpress_Block_Post_View extends Fishpig_Wordpress_Block_Post_Vie
 	 */
 	protected function _beforeToHtml()
 	{
-		if ($commentsBlock = $this->getCommentsBlock()) {
-			$commentsBlock->setPost($this->getPost());
+		if ($this->getChild('comments')) {
+			$this->getChild('comments')->setPost($this->getPost());
 		}
 		
+		$this->_initPostViewTemplate();
+
 		return parent::_beforeToHtml();
 	}
 	
 	/**
-	 * Retrieve the HTML for the password protect form
+	 * Get the post renderer template
 	 *
+	 * @param Fishpig_Wordpress_Model_Post $post
 	 * @return string
 	 */
-	public function getPasswordProtectHtml()
+	protected function _initPostViewTemplate()
 	{
-		if (!$this->hasPasswordProtectHtml()) {
-
-			$block = $this->getLayout()
-				->createBlock('core/template')
-				->setTemplate('wordpress/post/protected.phtml')
-				->setPost($this->getPost());
-					
-			$this->setPasswordProtectHtml($block->toHtml());
+		if ($this->getTemplate()) {
+			return $this;
 		}
-		
-		return $this->_getData('password_protect_html');
-	}	
+
+		if ($viewTemplate = $this->getPost()->getTypeInstance()->getViewTemplate()) {
+			return $this->setTemplate($viewTemplate);
+		}
+		else if ($this->getPost()->getPostViewTemplate()) {
+			return $this->setTemplate($this->getPost()->getPostViewTemplate());
+		}
+		else {
+			$this->setTemplate('wordpress/post/view.phtml');
+		}
+
+		return $this;
+	}
 }

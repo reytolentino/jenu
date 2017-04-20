@@ -38,11 +38,12 @@ class Fishpig_Wordpress_Block_Post_List_Associated extends Fishpig_Wordpress_Blo
 	 */
 	protected function _getPostCollection()
 	{
-		$collection = Mage::helper('wordpress/catalog_product')
-			->getAssociatedPosts($this->getProduct());
+		if ($this->getProduct()) {
+			$collection = Mage::helper('wordpress/associations')->getAssociatedPostsByProduct($this->getProduct());
 			
-		if ($collection) {
-			return $collection->setCurPage(1);
+			if ($collection !== false) {
+				return $collection->setCurPage(1);
+			}
 		}
 		
 		return false;
@@ -65,5 +66,16 @@ class Fishpig_Wordpress_Block_Post_List_Associated extends Fishpig_Wordpress_Blo
 		}
 		
 		return $this->getData('product');
+	}
+	
+	/**
+	 * Retrieve the base URI to be used for the pager
+	 * This isn't needed for this page but has to be included anyway
+	 *
+	 * @return false|string
+	 */
+	protected function _getPagerUri()
+	{
+		return '/';
 	}
 }

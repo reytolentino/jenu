@@ -898,12 +898,12 @@ color: #000;
 }
 
 .droz-about .how-jenu-works-videos,
-.droz-about .using-vid {
+.using-vid{
     text-align: center;
 }
 
 .droz-about .how-jenu-works-videos img,
-.droz-about .using-vid img {
+.using-vid img {
     max-width: 230px;
     width: 100%;
 }
@@ -915,7 +915,7 @@ color: #000;
 }
 
 .droz-about .how-jenu-works-videos p,
-.droz-about .using-vid p {
+.using-vid p{
     text-align: center;
     font-style: italic;
     font-size: 12px;
@@ -1462,7 +1462,7 @@ p.olay-disclaimer {
     margin: 0;
 }
 
-.using-vid a.vidlink img {
+.using-vid a.vidlink img, {
     margin-top: 30px;
 }
 
@@ -1519,10 +1519,6 @@ p.olay-disclaimer {
     color:#d19a8c;
     left: -12px;
     position: relative;
-}
-
-.droz-hero-list.list-clickable li {
-    cursor: pointer;
 }
 
 .droz-gold .droz-hero-right .droz-hero-list.list-clickable li.active:before {
@@ -2912,7 +2908,7 @@ a#w4offers-close {
     .droz-about .how-jenu-works-videos, .droz-about .vid-gel {
         margin-top: 16px;
     }
-    .droz-about .how-jenu-works-videos p, .droz-about .using-vid p {
+    .droz-about .how-jenu-works-videos p, .using-vid p{
         font-size: 11px;
         line-height: normal;
     }

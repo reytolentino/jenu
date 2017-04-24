@@ -1,0 +1,439 @@
+.lpmobile-hero-wrap,
+.lpmobile-header,
+.lpmobile-cta,
+.droz-reviews-mobile {
+    display: none;
+}
+
+.droz-hero {
+    background: rgba(0, 0, 0, 0) url("/media/landing_pages/20170313/bg-model.jpg") no-repeat scroll left top / auto 600px;
+    padding-top: 35px;
+}
+
+.droz-gold .droz-hero-right h3 {
+    border-bottom: 1px solid #d19a8c;
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.droz-hero-right .droz-hero-list {
+    margin: 10px 0;
+}
+
+.droz-hero-right .droz-hero-list {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.droz-hero-right .droz-price-wrap {
+    margin: 0;
+}
+
+.droz-hero-right .cta-more a.w4offers-wrap_open {
+    margin-top: 0;
+}
+
+.cta-colors, .cta-colors-mobile {
+    margin-top: 0;
+}
+
+.droz-hero-right .buynow-heading {
+    margin-bottom: 20px;
+}
+
+.droz-hero-right .droz-price-wrap {
+    padding: 10px 0;
+}
+
+.droz-hero {
+    padding-top: 20px;
+}
+
+.droz-hero-right-test {
+    padding-bottom: 20px;
+}
+
+.droz-hero-right .droz-price {
+    font-size: 16px;
+}
+
+.droz-vidbox .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.droz-vidbox .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.droz-vidcopy .lp-step {
+    margin: 20px auto 0 auto;
+    height: auto;
+}
+
+.droz-vidcopy .lp-step.step1 {
+    background: url('/media/landing_pages/20170228/bg-step1b.jpg') no-repeat bottom right;
+    background-size: auto 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.droz-vidcopy .lp-step.step2 {
+    background: url('/media/landing_pages/20170228/bg-step2b.jpg') no-repeat bottom right;
+    background-size: auto 90%;
+    border-bottom: 1px solid #ccc;
+}
+
+.droz-vidcopy .lp-step.step3 {
+    background: url('/media/landing_pages/20170228/bg-step3b.jpg') no-repeat bottom right;
+    background-size: auto 90%;
+    border-bottom: 1px solid #ccc;
+}
+
+.droz-vidcopy .lp-stepcopy {
+    width: 50%;
+    padding-bottom: 10%;
+}
+
+.droz-vidcopy .lp-stepcopy h5 {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    font-size: 18px;
+}
+
+.droz-vidcopy .lp-stepcopy p {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+}
+
+.droz-vidbox .lp-howcta,
+.droz-aboutha .lp-aboutcta {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.droz-vidbox .lp-howcta a.ctabtn,
+.droz-aboutha .lp-aboutcta a.ctabtn {
+    background-color: transparent;
+    border:2px solid #1992c1;
+    display: inline-block;
+    color: #1992c1;
+    text-transform: uppercase;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 80px;
+    height: 55px;
+    line-height: 53px;
+    letter-spacing: 1px;
+}
+
+.droz-vidbox .lp-howcta a.ctabtn:hover,
+.droz-aboutha .lp-aboutcta a.ctabtn:hover {
+    background:#1992c1;
+    color: #fff;
+}
+
+.droz-vidbox .lp-howcta .ctacopy,
+.droz-aboutha .lp-aboutcta .ctacopy {
+    color: #000;
+    display: block;
+    margin: 10px auto 0 auto;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.droz-results1 .droz-ba-prod img {
+    width: 100%;
+    max-width: 324px;
+}
+
+.droz-results1 .ba-slick-set3 li img{
+    width: 450px;
+}
+
+.droz-results1 .ba-slick-set3 {
+    width: 450px;
+}
+
+.droz-results1 h2,
+.droz-aboutha h2 {
+    margin-bottom: 40px;
+}
+
+.droz-aboutha {
+    background: #efd0b6 url('/media/landing_pages/20170313/bg-about.jpg') no-repeat center;
+    min-height: 700px;
+    background-size: cover;
+}
+
+.droz-aboutha .aboutha {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 0.6px;
+    font-style: italic;
+    font-size: 14px;
+    color: #000;
+    border-bottom: 1px solid #b0927e;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.droz-aboutha .droz-aboutha-copy {
+    margin-top: 40px;
+}
+
+.droz-wrap .ba-slick-set3 .slick-dots {
+    bottom: 0;
+}
+
+@media(max-width: 991px) {
+    .droz-hero {
+        background-image: none;
+    }
+    .droz-gold .droz-hero-right h3 {
+        font-size: 18px;
+    }
+    .droz-hero-right .droz-hero-list {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .droz-hero-right .affirm-box .affirm-box-copy {
+        font-size: 12px;
+    }
+    .droz-hero-right .cta-content-wrap {
+        padding: 0;
+    }
+    .droz-hero-right a#multipay {
+        font-size: 11px;
+        width: 105px;
+    }
+    .droz-hero-right .affirm-box .affirm-logo {
+        height: 11px;
+    }
+    .droz-hero-right .droz-price {
+        font-size: 13px;
+    }
+    .droz-hero-right .btn-cart {
+        width: 105px;
+        font-size: 11px;
+    }
+}
+
+@media(max-width: 767px) {
+
+    .lpmobile-hero-wrap,
+    .lpmobile-header,
+    .lpmobile-cta,
+    .lpmobile-wrap {
+        display: block;
+    }
+
+    .header-container,
+    #buywrap,
+    .droz-ba-prod,
+    #droz-results,
+    #droz-asseenon,
+    #droz-about,
+    #droz-batra,
+    #droz-press,
+    .droz-reviews,
+    .mobile-lpsubnav
+    {
+        display: none;
+    }
+
+    .droz-reviews-mobile {
+        display: block;
+    }
+
+    .lpmobile-header h4 {
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
+    .lpmobile-header h1 {
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .lpmobile-header h1 .hlight {
+        color:#b37c6e;
+        font-style:italic;
+    }
+
+    .lpmobile-hero .slide1 {
+        text-align: center;
+    }
+
+    img#mobile-slide1 {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 3%;
+    }
+
+    .cta-more {
+        text-align: center;
+    }
+
+    .cta-more a {
+        text-align: center;
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .droz-hero-right .col-sm-7 {
+        width: 58%;
+    }
+
+    .droz-hero-right .col-sm-5 {
+        width: 38%;
+    }
+
+    .cta-colors-mobile {
+        margin-top: 10px;
+    }
+
+    .droz-hero-right .col-sm-5.cta-colors-mobile-box {
+        width: 48%;
+    }
+
+    .droz-results1 h2 {
+        font-size: 17px !important;
+    }
+
+    .droz-ba-ha {
+        padding: 0;
+    }
+
+    .droz-results1 .ba-slick-set3 {
+        width: 100%;
+    }
+
+    .droz-results1 .ba-slick-set3 li img {
+        width: 100%;
+    }
+
+    img.lp-hero-img {
+        width: 100%;
+        max-width: 767px;
+    }
+
+    .lpmobile-hero .slide1 {
+        padding: 0;
+    }
+
+    .droz-gold {
+        display: block;
+    }
+
+    .lpmobile-header {
+        padding: 18px 0;
+    }
+
+    .cms-page-view .main-content .product-cta {
+        overflow: visible;
+    }
+
+    .product-cta h2 {
+        font-size: 18px;
+        text-align: center;
+        display: block;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #ebebeb;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+    .product-cta p {
+        line-height: normal;
+        margin-bottom: 12px;
+    }
+
+    .product-cta p.ltocopy {
+        font-size: 14px;
+    }
+
+    .product-cta .bottombar {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 20px 0 0;
+    }
+
+    .product-cta .bottombar span {
+        display: block;
+        font-size: 12px;
+        font-family: "lato", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        display: inline-block;
+    }
+
+    .product-cta .bottombar .warranty {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 3px;
+        margin-bottom: 3px;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
+    .product-cta .bottombar .freeshipping {
+        display: block;
+    }
+
+    .mobile-riskfree {
+        float: right;margin-top: -60px
+    }
+
+    .droz-aboutha {
+        background: #efd0b6 url('/media/landing_pages/20170313/bg-about.jpg') no-repeat center;
+        min-height: 300px;
+        background-size: cover;
+        background-position-x: 55%;
+    }
+
+    .droz-aboutha .aboutha {
+        font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+        letter-spacing: 0.6px;
+        font-style: italic;
+        font-size: 12px;
+        color: #000;
+        border-bottom: 1px solid #b0927e;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        width: 60%;
+    }
+
+    .droz-aboutha .droz-aboutha-copy {
+        margin-top: 40px;
+    }
+
+    .droz-aboutha .lp-aboutcta {
+        padding: 30px 0;
+        text-align: center;
+        width: 60%;
+    }
+
+    .droz-aboutha .lp-aboutcta a.ctabtn {
+        font-size: 12px;
+        font-weight: bold;
+        height: 45px;
+        letter-spacing: 0.5px;
+        line-height: 43px;
+        padding: 0 50px;
+    }
+
+}

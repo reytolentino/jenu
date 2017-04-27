@@ -58,11 +58,13 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 
     <?php
 
+    /**
+
     if(stripos($this->getProductName(), 'collagen mineral gel') == true){
         echo '<p class="item-msg red">Your order includes an item on pre-order and will be delayed until the week of April 24, 2017. Your card will be charged at time of purchase. You will be notified via email once your order ships.</p>';
     }
 
-/**
+
     $productid = $_item->getProductId();
 
     if($productid == "46" || $productid == "45"){

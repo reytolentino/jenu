@@ -249,7 +249,11 @@ $canDo =  in_array($this->getProduct()->getSku(), $active);
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
 
-    <?php if (stripos($_product->getName(), 'infuser') == true): ?>
+    <?php if (stripos($_product->getName(), 'plus ultrasonic infuser, open box') == true): ?>
+        <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
+            This special promotion includes a FREE Infusion Gel (1 oz). Due to high demand, please allow extra time for your order to ship. Orders are expected to ship the first week of June. Your card will be charged at the time of purchase.
+        </div>
+    <?php elseif (stripos($_product->getName(), 'infuser') == true): ?>
         <div style="color:red;font-style:italic;clear: both;margin: 20px auto;float: left;">
             Due to high demand, all JeNu Infusers are currently on back-order and expected to ship the first week of June. RESERVE YOURS NOW. Your card will be charged at the time of purchase.
         </div>

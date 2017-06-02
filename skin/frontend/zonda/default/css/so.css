@@ -1,5 +1,9 @@
 /** special offers styles  **/
 
+.popup_align {
+    display: none;
+}
+
 #w4offers-wrap_background {
     background: #fff !important;
 }

@@ -1,0 +1,97 @@
+/** styles for specific pages **/
+
+.content-buynow {
+    margin: 50px 0 30px;
+}
+
+.content-buynow.movetop {
+    margin-bottom: 0;
+}
+
+.content-buynow-heading {
+    font-family: "Avenir Next Condensed Demi Bold", Helvetica, Arial;
+    font-size: 24px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    height: 24px;
+    line-height: 26px;
+    background: transparent url('/media/content/bg-buynow-heading.png') repeat-x center;
+    background-size: 100% 24px;
+    margin: 20px 0;
+}
+
+.content-buynow-heading span {
+    display: inline-block;
+    padding: 0 14px;
+    background-color: #fff;
+}
+
+.content-buynow .riskfree-seal {
+    display: block;
+    margin: 0 auto;
+    max-width: 124px;
+    width: 100%;
+}
+
+#cta-contentbtn {
+    background: #04c8e7 none repeat scroll 0 0;
+    display: inline-block;
+    font-size: 13px;
+    height: auto;
+    line-height: inherit;
+    margin-top: 40px;
+    padding: 14px 16px;
+    width: auto;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.7px;
+}
+
+.content-buynow .content-buynow-wrap {
+    float: right;
+}
+
+.content-buynow .bottomcopy {
+    color: #000;
+    display: block;
+    font-family: "lato",Helvetica,"Helvetica Neue",Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px auto 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media(max-width: 991px) {
+    .content-buynow .riskfree-seal-wrap, .content-buynow .riskfree-seal-wrap .bottomcopy {
+        display: block;
+    }
+}
+
+@media(max-width: 767px) {
+    .content-buynow-heading {
+        font-size: 20px;
+    }
+    .content-buynow-wrapper .col-sm-6 {
+        width: 65%;
+        float: right !important;
+    }
+    .content-buynow-wrapper .col-sm-4 {
+        width: 32%;
+        float: right !important;
+    }
+    .content-buynow .content-buynow-wrapper .content-buynow-wrap .affirm-box div, .content-buynow .price-wrap div {
+        width: 100%;
+    }
+    .content-buynow .riskfree-seal-wrap .bottomcopy {
+        font-size: 10px;
+    }
+
+    #cta-contentbtn {
+        font-size: 11px;
+        margin-top: 20px;
+        padding: 8px 8px;
+        letter-spacing: 0.7px;
+    }
+}

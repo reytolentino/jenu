@@ -424,6 +424,7 @@ class Enterprise_PageCache_Model_Processor
             $formKey = Enterprise_PageCache_Helper_Data::getRandomString(16);
             Enterprise_PageCache_Model_Cookie::setFormKeyCookieValue($formKey);
         }
+        
         Enterprise_PageCache_Helper_Form_Key::restoreFormKey($content, $formKey);
 
         /**

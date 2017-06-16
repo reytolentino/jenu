@@ -143,11 +143,11 @@
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: bold;
     text-align: center;
-    font-size: 14px;
-    padding: 0 80px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 0 30px;
     height: 55px;
     line-height: 53px;
-    letter-spacing: 1px;
 }
 
 .droz-vidbox .lp-howcta a.ctabtn:hover,

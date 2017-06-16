@@ -1,3 +1,5 @@
+
+
 .w4offer-featured .w4-featured-name {
     background: #dfc457 none repeat scroll 0 0;
     color: #fff;
@@ -19,6 +21,12 @@
     padding-top: 30px;
     padding-bottom: 50px;
     margin: 0;
+}
+
+.droz-vidbox .lp-howcta a.ctabtn, .droz-aboutha .lp-aboutcta a.ctabtn {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 0 30px;
 }
 
 

@@ -428,11 +428,11 @@
 
             <!--groupd product submit information-->
             <block type="catalog/product_view_type_grouped" name="product.info.grouped.submit" as="grouped_submit" template="catalog/product/view/type/grouped_submit.phtml" />
-            <!--
+
             <reference name="content">
                 <block type="core/template" name="productPixels" template="pixels/catalog/product/view.phtml"/>
             </reference>
-            -->
+
             <reference name="alert.urls">
                 <reference name="productalert.stock">
                     <action method="setSignupLabel" translate="value"><value>Notify me when this product is back in stock</value></action>

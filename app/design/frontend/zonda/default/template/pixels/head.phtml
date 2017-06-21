@@ -27,6 +27,20 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     $shippingRegion = $order->getShippingAddress()->getRegion();
     $shippingCountry = $order->getShippingAddress()->getCountry();
     $customerEmail = $order->getCustomerEmail();
+    
+    $productIds = array();
+    foreach ($order->getAllVisibleItems() as $item):
+        array_push($productIds, $item->getProductId());
+    endforeach;
+}
+?>
+<?php
+if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()) {
+    $session = Mage::getSingleton('checkout/session');
+    $productIds = array();
+    foreach ($session->getQuote()->getAllItems() as $item):
+        array_push($productIds, $item->getProductId());
+    endforeach;
 }
 ?>
 <!--
@@ -65,13 +79,13 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     fbq('init', '1235554323133423');
     fbq('track', 'PageView');
     <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
-    fbq('track', 'AddToCart');
+    fbq('track', 'AddToCart', {content_type: 'product',content_ids: '<?php echo implode(", ", $productIds); ?>'});
     <?php endif; ?>
     <?php if(Mage::getURL('checkout/onepage') == Mage::helper('core/url')->getCurrentUrl()): ?>
     fbq('track', 'InitiateCheckout');
     <?php endif; ?>
     <?php if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurrentUrl()): ?>
-    fbq('track', 'Purchase', {value: '<?php echo $amount; ?>', currency: 'USD', order_id: '<?php echo $orderId; ?>'});
+    fbq('track', 'Purchase', {content_type: 'product', content_ids: '<?php echo implode(", ", $productIds); ?>', value: '<?php echo $amount; ?>', currency: 'USD', order_id: '<?php echo $orderId; ?>'});
     <?php endif; ?>
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1391558251146849&ev=PageView&noscript=1"/></noscript>

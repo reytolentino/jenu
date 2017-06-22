@@ -27,7 +27,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
     $shippingRegion = $order->getShippingAddress()->getRegion();
     $shippingCountry = $order->getShippingAddress()->getCountry();
     $customerEmail = $order->getCustomerEmail();
-    
+
     $productIds = array();
     foreach ($order->getAllVisibleItems() as $item):
         array_push($productIds, $item->getProductId());
@@ -51,22 +51,6 @@ if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()) {
 <!-- yahoo gemini dot tag -->
 <script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10001732416207','properties':{'pixelId':'425203'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
 <!-- end yahoo gemini -->
-<!--friendbuy tracking-->
-<script>
-    window['friendbuy'] = window['friendbuy'] || [];
-    window['friendbuy'].push(['site', 'site-6d2dfbf8-www.jenu.com']);
-    window['friendbuy'].push(['track', 'customer',
-        {
-            id: '', //INSERT CUSTOMER ID PARAMETER
-            email: '', //INSERT CUSTOMER EMAIL PARAMETER
-            first_name: '', //INSERT CUSTOMER FIRST NAME PARAMETER
-            last_name: '' //INSERT CUSTOMER LAST NAME PARAMETER
-        }
-    ]);
-    (function (f, r, n, d, b, y) {
-        b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
-    })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
-</script>
 <!-- Facebook Pixel Code -->
 <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -76,7 +60,6 @@ if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()) {
         document,'script','//connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1391558251146849');
-    fbq('init', '1235554323133423');
     fbq('track', 'PageView');
     <?php if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()): ?>
     fbq('track', 'AddToCart', {content_type: 'product',content_ids: '<?php echo implode(", ", $productIds); ?>'});
@@ -112,70 +95,3 @@ if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()) {
          src="https://ct.pinterest.com/v3/?tid=2619335824307&noscript=1" />
 </noscript>
 <!-- End Pinterest Pixel Code -->
-<!--Letterpress Pixel -->
-<script type="text/javascript">
-    ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
-        p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
-        };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.as
-        ync=1;
-        n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.6.0/sp.js","letterpress"));
-    window.letterpress('newTracker', 'mycljcoll', 't.getletterpress.com', {
-        appId: '427635',
-        cookieDomain: '.jenu.com',
-        forceSecureTracker: '',
-        contexts: {
-            webPage: true,
-            performanceTiming: true,
-            gaCookies: true,
-            geolocation: false
-        }
-    });
-    window.letterpress('trackPageView');
-
-    <?php if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurrentUrl()): ?>
-
-    window.letterpress('addTrans',
-        '<?php echo $orderId; ?>', // order ID
-        'Jenu', // affiliation or store name
-        '<?php echo $amount; ?>', // grand total
-        '<?php echo $taxAmount; ?>', // tax amount
-        '<?php echo $shippingAmount; ?>', // shipping amount
-        '<?php echo $shippingCity; ?>', // city
-        '<?php echo $shippingRegion; ?>', // state or province
-        '<?php echo $shippingCountry; ?>', // country
-        'USD', // currency
-        [{
-        schema: 'iglu:com.getletterpress/address/jsonschema/1-0-0',
-        data: {
-            name: '<?php echo $customerName; ?>',
-            street: '<?php echo $billingStreet1; ?>',
-            street_2: '<?php echo $billingStreet2; ?>',
-            zip: '<?php echo $billingZipCode; ?>',
-            city: '<?php echo $billingCity; ?>',
-            state: '<?php echo $billingRegion; ?>',
-            country: '<?php echo $billingCountry; ?>',
-            email: '<?php echo $customerEmail; ?>'
-            }
-        }]
-    );
-
-    <?php foreach($order->getAllVisibleItems() as $item): ?>
-    <?php
-    /** @var Mage_Catalog_Model_Product $product */
-    $product = $item->getProduct();?>
-        window.letterpress('addItem',
-            '<?php echo $orderId; ?>', // order ID
-            '<?php echo $product->getSku() ?>', // SKU
-            '<?php echo $product->getName() ?>', // product name
-            '', // category or variation
-            '<?php echo round($item->getPrice(),2) ?>', // unit price
-            '<?php echo round($item->getQtyOrdered()) ?>', // quantity
-            'USD' // currency
-        );
-    <?php endforeach; ?>
-
-    window.letterpress('trackTrans');
-
-    <?php endif; ?>
-
-</script>

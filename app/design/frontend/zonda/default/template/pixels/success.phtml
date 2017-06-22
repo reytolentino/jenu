@@ -10,35 +10,7 @@ $affiliateTotal = ($subtotal + $discount);
 $billingAddress = $order->getBillingAddress();
 $customerEmail = $order->getCustomerEmail();
 ?>
-<!-- HowLifeWorks Conversion Pixel Start-->
-<script type="text/javascript">
-    (function(d) {
-        var params =
-        {
-            pid: 29
-            , details: "<?php echo $orderId; ?>"
-        };
-        var qs = Object.keys(params).reduce(function(a, k){ a.push(k + '=' + encodeURIComponent(params[k])); return a},[]).join('&');
-        var i = d.createElement('iframe'); i.style = "width:1px;height:1px;display:none;";
-        i.src = ('https:' === document.location.protocol? 'https' : 'http') + "://www.howlifeworks.com/Lib/Pixel.aspx?" + qs;
-        d.body.appendChild(i);
-    })(document);
-</script>
-<!-- HowLifeWorks Conversion Pixel End-->
-<!--friendbuy tracking-->
-<script>
-    window['friendbuy'] = window['friendbuy'] || [];
-    window['friendbuy'].push(['track', 'order',
-        {
-            id: '<?php echo $orderId; ?>', //INPUT ORDER ID
-            amount: '<?php echo $amount; ?>', //INPUT ORDER AMOUNT
-            //new_customer: false, //OPTIONAL, true if this is the customer's first purchase
-            email: '<?php echo $customerEmail; ?>' //INPUT EMAIL
-        }
-    ]);
-</script>
-<!-- Rev Content Conversion -->
-<img src='https://trending.revcontent.com/ads/tracker.php?t=MzkxODs2OTU4' style="visibility:hidden;position: absolute;"/>
+
 <!--Google Adwords Pixel -->
 <!-- Google Code for Order Conversion Page -->
 <script type="text/javascript">
@@ -67,12 +39,6 @@ $customerEmail = $order->getCustomerEmail();
 </script>
 <script src="//cdn.taboola.com/libtrc/jenu-sc/tfa.js"></script>
 <img src="https://sp.analytics.yahoo.com/spp.pl?a=10001732416207&.yp=25800&js=no"/>
-<!-- Glitter Network Offer Conversion: JeNu Ultrasonic Infuser System -->
-<img src="//glitternetwork.go2cloud.org/SL1NE" width="1" height="1" style="visibility:hidden;position: absolute;"/>
-<!-- // End Offer Conversion -->
-<!--howlifeworks pixel-->
-<img src='//www.howlifeworks.com/Lib/conversion_tracker.aspx?Adv_ID=1172' width='1' height='1' style="visibility:hidden;position: absolute;" />
-<!--end hwl pixel-->
 <!--yahoo pixel-->
 <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"4023887"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
 <!--Outbrain pixel-->

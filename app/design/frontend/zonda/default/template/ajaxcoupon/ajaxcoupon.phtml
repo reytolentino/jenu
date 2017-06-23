@@ -46,12 +46,13 @@
 	                <button style="border:1px solid #000;background:transparent;color:#000;height:35px;line-height:25px;width:150px;margin-bottom:5px;float: left;margin-right:5px;" type="button" title="<?php echo $this->__('Apply Coupon') ?>" class="button addcoupon" value="<?php echo $this->__('Apply Coupon') ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>
 	                <?php if(strlen(Mage::getSingleton('checkout/session')->getQuote()->getCouponCode())): ?>
 	                    &nbsp; <button style="border:1px solid #000;background:transparent;color:#000;height:35px;line-height:25px;width:150px;margin-bottom:5px;float: left;margin-right:5px;" type="button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button cancelcoupon" value="<?php echo $this->__('Cancel Coupon') ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
-	                <?php endif;?>
-                    <span class="coupon-please-wait" id="coupon-please-wait" style="display:none; line-height:19px; margin-left:5px;">
-				            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Submitting coupon information...') ?>" title="<?php echo $this->__('Submitting coupon information...') ?>" class="v-middle" />
-				        </span>
+	                        <style type="text/css">button.addcoupon {display:none;}</style>
+                    <?php endif;?>
 	            </div>
 	        </div>
+            <span class="coupon-please-wait" id="coupon-please-wait" style="display:none; line-height:19px; margin: 5px;clear: both;">
+				            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Submitting coupon information...') ?>" title="<?php echo $this->__('Submitting coupon information...') ?>" class="v-middle" />
+                    </span>
             <span id="msg" style="display:none; clear: both;color:red;"></span>
 	    </div>
 	</form>

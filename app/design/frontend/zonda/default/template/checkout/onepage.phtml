@@ -56,5 +56,9 @@
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );
+    checkout.gotoSection = function (section, reloadProgressBlock) {
+        Checkout.prototype.gotoSection.call(this, section, reloadProgressBlock);
+        $('opc-' + section).scrollTo();
+    };
 //]]>
 </script>

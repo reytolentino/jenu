@@ -1,0 +1,23 @@
+.droz-hero {
+    background: rgba(0, 0, 0, 0) url("/media/landing_pages/nonretina/bg-model.jpg") no-repeat scroll left top / auto 600px;
+}
+
+.droz-vidcopy .lp-step.step1 {
+    background-image: url("/media/landing_pages/nonretina/bg-step1b.jpg");
+}
+
+.droz-vidcopy .lp-step.step2 {
+    background-image: url("/media/landing_pages/nonretina/bg-step2b.jpg");
+}
+
+.droz-vidcopy .lp-step.step3 {
+    background-image: url("/media/landing_pages/nonretina/bg-step3b.jpg");
+}
+
+.lpmobile-hero .womanbg {
+    background-image: url("/media/landing_pages/nonretina/lpmobile-hero-bg1.jpg");
+}
+
+.lpmobile-hero .productbg {
+    background-image: url("/media/landing_pages/nonretina/lpmobile-hero-bg2.jpg");
+}

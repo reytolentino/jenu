@@ -30,6 +30,7 @@
 <meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
 <meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
 <meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<?php echo $this->getChildHtml('piwik_testing_script'); ?>
 <?php 
 $zonda = Mage::helper('zonda');
 $brands = Mage::helper('eternal_brands');

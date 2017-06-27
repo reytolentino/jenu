@@ -1090,11 +1090,9 @@ class Enterprise_PageCache_Model_Observer
             return;
         }
 
-        /** @var $session Mage_Core_Model_Session  */
-        $session = Mage::getSingleton('core/session');
-        $cachedFrontFormKey = Enterprise_PageCache_Model_Cookie::getFormKeyCookieValue();
-        if ($cachedFrontFormKey && !$session->getData('_form_key')) {
-            $session->setData('_form_key', $cachedFrontFormKey);
+        $cachedFrontFormKey = Enterprise_PageCache_Helper_Form_Key::getFormKey();
+        if ($cachedFrontFormKey) {
+            Mage::getSingleton('core/session')->setData('_form_key', $cachedFrontFormKey);
         }
     }
 
@@ -1211,10 +1209,10 @@ class Enterprise_PageCache_Model_Observer
     }
 
     /**
-     * Updates form key cookie with hash from session
+     * Updates FPC form key
      */
     public function updateFormKeyCookie()
     {
-        Enterprise_PageCache_Model_Cookie::setFormKeyCookieValue(Mage::getSingleton('core/session')->getFormKey());
+        Enterprise_PageCache_Helper_Form_Key::getFormKey(true);
     }
 }

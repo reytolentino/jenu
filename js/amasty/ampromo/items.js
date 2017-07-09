@@ -5,19 +5,47 @@ function ampromo_init()
     if (!itemsNode)
         return;
 
-    $$('#ampromo-items form').each(function(e){
-        var validation = new Validation(e, {
-            onFormValidate: function(res, form){
-                if (res)
-                {
+    $$('#ampromo-items form').each(function (form) {
+        var validation = new Validation(form);
+        form.validation = validation;
+
+        var button = form.down('.button.add');
+        if (button) {
+            button.observe('click', function () {
+                if (validation.validate()) {
                     $$('#ampromo-items button').each(function(element){
                         element.setAttribute('disabled', 'disabled');
                     });
+                    this.up('form').submit();
                 }
-            }});
-        e.down('.button.add').observe('click', function(){
-            if (validation.validate())
-                this.up('form').submit();
+            });
+        }
+
+        form.select('.mark input[type=radio]').each(function (radio) {
+            radio.observe('change', function () {
+                var rule = this.up('[data-role="rule"]');
+                rule.select('.mark input[type=radio]').each(function (radioToUncheck) {
+                    radioToUncheck.checked = false;
+                });
+
+                rule.select('[data-role="item"]').each(function (item) {
+                    item.removeClassName('checked');
+                });
+
+                this.checked = true;
+            });
+        });
+
+        form.select('.mark input').each(function (input) {
+            input.observe('change', function () {
+                this.up('[data-role="item"]').toggleClassName('checked', this.checked);
+            });
+        });
+    });
+
+    $$('[data-role="rule"] [data-role="ampromo-rule-header"]').each(function (header) {
+        header.observe('click', function () {
+            this.up('[data-role="rule"]').toggleClassName('collapsed');
         });
     });
 
@@ -40,13 +68,13 @@ function ampromo_init()
 
     var overlay = $('ampromo-overlay');
 
-    if (overlay)
-    {
-        $('ampromo-items-add').down('a').observe('click', ampromo_popup);
-
-        overlay.down('.close').observe('click', function(){
-            $('ampromo-overlay').fade();
-        });
+    if (overlay) {
+        var close = overlay.down('.close');
+        if (close) {
+            close.observe('click', function () {
+                $('ampromo-overlay').fade();
+            });
+        }
 
         overlay.observe('click', function(event){
             if (event.target.id == 'ampromo-overlay')
@@ -57,9 +85,9 @@ function ampromo_init()
         {
             window.ampromo_carousel = new Carousel(
                 'ampromo-carousel-wrapper',
-                $$('#ampromo-carousel-content .slide'),
+                $$('#ampromo-carousel-content .ampromo-slide'),
                 $$('.ampromo-carousel-control'), {
-                    visibleSlides: 4,
+                    visibleSlides: 2,
                     controlClassName: 'ampromo-carousel-control'
                 }
             );
@@ -67,9 +95,42 @@ function ampromo_init()
             ampromo_update_width();
             Event.observe(window, 'resize', ampromo_update_width);
         }
-    }
 
-    $('ampromo-items-add').setAttribute('data-initialized', '1');
+        var addAll = overlay.down('[data-role="add-all"]');
+
+        if (addAll) {
+            addAll.observe('click', ampromo_send_all);
+        }
+    }
+}
+
+function ampromo_send_all() {
+    var data = [];
+
+    var validationPassed = true;
+
+    $$('#ampromo-items form').each(function (form) {
+        var formData = form.serialize(true);
+        if (formData.checked) {
+            if (validationPassed &= form.validation.validate()) {
+                data.push(formData);
+            }
+        }
+    });
+
+    if (validationPassed) {
+        if (data.length > 0) {
+            $$('#ampromo-overlay [data-role="add-all"]').each(function (button) {
+                button.setAttribute('disabled', 'disabled');
+            });
+
+            var form = $('ampromo_metaform');
+            form.down('[name=data]').value = JSON.stringify(data);
+            form.submit();
+        } else {
+            alert('Please select any item');
+        }
+    }
 }
 
 function ampromo_update_width()
@@ -87,10 +148,13 @@ function ampromo_update_width()
 function ampromo_check_initialization(e)
 {
     e.stop();
-    if ($('ampromo-items-add').readAttribute('data-initialized') === null)
+    var addBlock = $('ampromo-items-add');
+    if (addBlock.readAttribute('data-initialized') === null)
     {
+        addBlock.down('a').observe('click', ampromo_popup);
         ampromo_init();
         ampromo_popup();
+        addBlock.setAttribute('data-initialized', '1');
     }
 }
 
@@ -143,3 +207,33 @@ document.observe('dom:loaded', function(){
         })
     }
 });
+
+function ampromo_tooltip_show(evt){
+    var img = Event.findElement(evt, 'img');
+    var txt = img.alt;
+
+    var data = $(img.id + '-data');
+    var tooltip = $(img.id + '-tooltip');
+
+    if (!tooltip && data) {
+        tooltip           = document.createElement('div');
+        tooltip.className = 'ampromo-tooltip';
+        tooltip.id        = img.id + '-tooltip';
+        tooltip.innerHTML = data.innerHTML;
+
+        document.body.appendChild(tooltip);
+    }
+
+    var offset = Element.cumulativeOffset(img);
+    tooltip.style.top  = (offset[1] + img.getHeight() + 5) + 'px';
+    tooltip.style.left = (offset[0] ) + 'px';
+    tooltip.show();
+}
+
+function ampromo_tooltip_hide(evt){
+    var img = Event.findElement(evt, 'img');
+    var tooltip = $(img.id + '-tooltip');
+    if (tooltip) {
+        tooltip.remove();
+    }
+}

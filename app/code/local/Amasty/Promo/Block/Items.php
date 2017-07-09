@@ -1,39 +1,137 @@
 <?php
+
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
 class Amasty_Promo_Block_Items extends Mage_Core_Block_Template
 {
-    public function getFormActionUrl()
+    /**
+     * @return Mage_Catalog_Model_Resource_Product_Collection
+     */
+    public function getItems()
     {
-        $returnUrl = Mage::getUrl('*/*/*', array('_use_rewrite' => true, '_current' => true));
+        if (!$this->hasData('items')) {
+            /** @var Amasty_Promo_Helper_Data $helper */
+            $helper = Mage::helper('ampromo');
+            //force reload new items collection, possible changes in quote object
+            $products = $helper->getNewItems(true);
+            $this->setData('items', $products);
+        }
 
-        $params = array(
-            Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => Mage::helper('core')->urlEncode($returnUrl)
+        return $this->getData('items');
+    }
+
+    public function getItemsByRule()
+    {
+        if (!$this->hasData('items_by_rule')) {
+            $products = $this->getItems();
+            $result = array();
+
+            foreach ($products as $product) {
+                /** @var Mage_SalesRule_Model_Rule $rule */
+                $rule = $product->getData('ampromo_rule');
+
+                if (!array_key_exists($rule->getId(), $result)) {
+                    $result[$rule->getId()] = array(
+                        'rule' => $rule,
+                        'products' => array()
+                    );
+                }
+
+                $result[$rule->getId()]['products'][] = $product;
+            }
+            $this->setData('items_by_rule', $result);
+        }
+
+        return $this->getData('items_by_rule');
+    }
+
+    public function renderItem(Mage_Catalog_Model_Product $product, $rule = null)
+    {
+        $block = $this->getLayout()->createBlock(
+            'ampromo/items_item',
+            'ampromo_item_' . $product->getId(),
+            array(
+                'product' => $product,
+                'rule' => $rule
+            )
         );
 
-        return $this->getUrl('ampromo/cart/update', $params);
+        $block->setParentBlock($this);
+
+        return $block->toHtml();
     }
 
-    protected function _prepareLayout()
+    public function getModeName()
     {
-        $products = Mage::helper('ampromo')->getNewItems();
-        $this->setNewItems($products);
+        $mode = Mage::getStoreConfig('ampromo/popup/mode');
+
+        return $mode == Amasty_Promo_Model_Source_DisplayMode::MODE_INLINE ? 'inline' : 'popup';
     }
 
-    protected function _getReferer()
+    public function useCarousel()
     {
-        if ($this->getRequest()->isXmlHttpRequest()){
-            $referer = $this->getRequest()->getServer('HTTP_REFERER');
+        if (Mage::getStoreConfig('ampromo/popup/mode') == Amasty_Promo_Model_Source_DisplayMode::MODE_INLINE) {
+            return false;
+        }
+
+        $items = $this->getItems();
+
+        if (!$items || count($items) <= 2) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function getPopupHeader()
+    {
+        return trim(Mage::getStoreConfig('ampromo/popup/block_header'));
+    }
+
+    public function getAddToCartText()
+    {
+        return trim(Mage::getStoreConfig('ampromo/popup/add_to_cart_text'));
+    }
+
+    public function getOptionsJs()
+    {
+        return $this->getLayout()
+            ->createBlock('core/template')
+            ->setTemplate('catalog/product/view/options/js.phtml')
+            ->toHtml();
+    }
+
+    public function getCalendarJs()
+    {
+        return $this->getLayout()
+            ->createBlock('core/html_calendar')
+            ->setTemplate('page/js/calendar.phtml')
+            ->toHtml();
+    }
+
+    public function _toHtml()
+    {
+        if (count($this->getItems()) > 0) {
+            if (Mage::getStoreConfigFlag('ampromo/popup/multiselect')
+                && Mage::getStoreConfig('ampromo/popup/mode') == Amasty_Promo_Model_Source_DisplayMode::MODE_INLINE) {
+
+                $this->setTemplate('amasty/ampromo/items/by_rule.phtml');
+            }
+
+            return parent::_toHtml();
         }
         else {
-            $referer = Mage::getUrl('*/*/*', array('_current' => true, '_use_rewrite' => true));
+            return '';
         }
+    }
 
-        $referer = Mage::helper('core')->urlEncode($referer);
+    public function getFormActionUrl()
+    {
+        $params = Mage::helper('ampromo')->getUrlParams();
 
-        return $referer;
+        return $this->getUrl('ampromo/cart/updateMultiple', $params);
     }
 }

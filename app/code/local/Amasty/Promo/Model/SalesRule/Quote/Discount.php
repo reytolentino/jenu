@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
 class Amasty_Promo_Model_SalesRule_Quote_Discount extends Mage_SalesRule_Model_Quote_Discount
@@ -19,15 +20,16 @@ class Amasty_Promo_Model_SalesRule_Quote_Discount extends Mage_SalesRule_Model_Q
      */
     public function fetch(Mage_Sales_Model_Quote_Address $address)
     {
-        if (!Mage::getStoreConfig('amrules/general/breakdown'))
+        if (!Mage::getStoreConfig('amrules/general/breakdown')) {
             return parent::fetch($address);
+        }
         
         $amount = $address->getDiscountAmount();
         if ($amount != 0) {
             $address->addTotal(array(
-                'code'      => $this->getCode(),
-                'title'     => Mage::helper('sales')->__('Discount'),
-                'value'     => $amount,
+                'code' => $this->getCode(),
+                'title' => Mage::helper('sales')->__('Discount'),
+                'value' => $amount,
                 'full_info' => $address->getFullDescr(),
             ));
         }

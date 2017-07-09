@@ -1,10 +1,10 @@
 <?php
+
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
-
 class Amasty_Promo_Model_Sales_Quote_Address extends Mage_Sales_Model_Quote_Address
 {
     protected $_currentCollector = false;
@@ -30,13 +30,18 @@ class Amasty_Promo_Model_Sales_Quote_Address extends Mage_Sales_Model_Quote_Addr
     {
         $items = parent::getAllNonNominalItems();
 
-        $collectShipping = ($this->_currentCollector == 'shipping') && !Mage::getStoreConfigFlag('ampromo/general/free_shipping');
+        foreach ($items as $key => $item) {
+            if (!($item instanceof Amasty_Promo_Model_Sales_Quote_Item)) continue;
 
-        if (!$collectShipping)
-        {
-            foreach ($items as $key => $item)
+            $collectShipping = ($this->_currentCollector == 'shipping') && !$item->isFreeShipping();
+            if (!$collectShipping
+                && $this->_currentCollector !== 'subtotal'
+                && $this->_currentCollector !== 'tax_subtotal'
+                && $this->_currentCollector !== 'discount'
+                && ((!Mage::getStoreConfig('ampromo/general/calculate_tax')) || ($this->_currentCollector !== 'tax'))
+            ) //skip all except shipping and subtotal collectors
             {
-                if ($item->getIsFree()) {
+                if ($item->getIsPromo()) {
                     unset($items[$key]);
                 }
             }

@@ -1,11 +1,15 @@
 <?php
+
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
 class Amasty_Promo_Block_Items_Bundle extends Mage_Bundle_Block_Catalog_Product_View_Type_Bundle
 {
+    /**
+     * 
+     */
     public function _construct()
     {
         $this->addRenderer('select', 'bundle/catalog_product_view_type_bundle_option_select');
@@ -16,6 +20,10 @@ class Amasty_Promo_Block_Items_Bundle extends Mage_Bundle_Block_Catalog_Product_
         return parent::_construct();
     }
 
+    /**
+     * @param Mage_Catalog_Model_Product_Option $option
+     * @return string
+     */
     public function getOptionHtml($option)
     {
         if (!isset($this->_optionRenderers[$option->getType()])) {

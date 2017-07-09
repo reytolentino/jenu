@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
 class Amasty_Promo_Model_SalesRule_Rule_Condition_Product extends Mage_SalesRule_Model_Rule_Condition_Product
@@ -24,17 +25,19 @@ class Amasty_Promo_Model_SalesRule_Rule_Condition_Product extends Mage_SalesRule
         $product = false;
         if ($object->getProduct() instanceof Mage_Catalog_Model_Product) {
             $product = $object->getProduct();
-        } 
-        else {
+        } else {
             $product = Mage::getModel('catalog/product')
                 ->load($object->getProductId());
         }
-        
+
         $product->setQuoteItemSku($object->getSku());
-        
+
         //$newObject = new Varien_Object();
         $object->setProduct($product);
-        
+        if ($object->getIsPromo()) {
+            return false;
+        }
+
         return parent::validate($object);
     }
 }

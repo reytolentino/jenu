@@ -1,16 +1,17 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
 ?>
 <?php
-$products = Mage::helper('ampromo')->getNewItems();
-$autoOpen = Mage::getStoreConfig('ampromo/general/auto_open_popup');
+$products = Mage::helper('ampromo')->getNewItems(true);
+$autoOpen = Mage::getStoreConfig('ampromo/popup/auto_open_popup');
 ?>
+
 <?php if (sizeof($products) > 0): ?>
-    <div id="ampromo-items-add"><?php echo Mage::getStoreConfig('ampromo/general/add_message')?></div>
+    <div id="ampromo-items-add"><?php echo Mage::getStoreConfig('ampromo/popup/add_message')?></div>
     <script type="text/javascript">
         var button = $('ampromo-items-add').down('a');
         button.observe('click', ampromo_check_initialization);

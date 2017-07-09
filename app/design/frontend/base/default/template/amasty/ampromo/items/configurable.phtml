@@ -1,16 +1,21 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
 ?>
 <?php
 $_product    = $this->getProduct();
+
+$_instance = Mage::getSingleton('catalog/product_type_configurable');
+$_product->setTypeInstance($_instance, true);
+
 $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 $_jsonConfig = $this->getJsonConfig();
-$_containerId = "ampromo_items_options-{$_product->getId()}";
-$_idKey = strtr($_product->getId(),'0123456789','abcdefghij');
+
+$_idKey = strtr(uniqid($_product->getId()), '0123456789', 'abcdefghij');
+$_containerId = "ampromo_items_options-{$_product->getId()}-$_idKey";
 ?>
 <?php if ($_product->isSaleable() && count($_attributes)):?>
     <dl id="<?php echo $_containerId?>">

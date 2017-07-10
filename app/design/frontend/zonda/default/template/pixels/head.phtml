@@ -30,7 +30,7 @@ if(Mage::getURL('checkout/onepage/success') == Mage::helper('core/url')->getCurr
 
     $productIds = array();
     foreach ($order->getAllVisibleItems() as $item):
-        array_push($productIds, $item->getProductId());
+        array_push($productIds, $item->getSku());
     endforeach;
 }
 ?>
@@ -39,7 +39,7 @@ if(Mage::getURL('checkout/cart') == Mage::helper('core/url')->getCurrentUrl()) {
     $session = Mage::getSingleton('checkout/session');
     $productIds = array();
     foreach ($session->getQuote()->getAllItems() as $item):
-        array_push($productIds, $item->getProductId());
+        array_push($productIds, $item->getSku());
     endforeach;
 }
 ?>

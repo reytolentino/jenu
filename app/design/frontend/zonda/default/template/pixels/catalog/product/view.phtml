@@ -19,7 +19,7 @@ $finalPrice = $product->getFinalPrice();
 
     window._fbq('track', 'ViewContent', {
         content_type: 'product', //either 'product' or 'product_group'
-        content_ids: ['<?php echo Mage::registry('current_product')->getId(); ?>'], //array of one or more product ids in the page
+        content_ids: ['<?php echo Mage::registry('current_product')->getSKU(); ?>'], //array of one or more product ids in the page
         value: <?php echo $finalPrice; ?>,    //OPTIONAL, but highly recommended
         currency: 'USD' //REQUIRED if you a pass value
     });

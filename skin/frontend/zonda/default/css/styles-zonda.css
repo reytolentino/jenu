@@ -4817,7 +4817,6 @@ ul.homepage-content-worksgreat-list ul {
     }
 
     #slide-ha .homepage-hero-banner--copy {
-        float: right;
         width: 520px;
     }
 
@@ -5151,7 +5150,6 @@ ul.homepage-content-worksgreat-list ul {
         height: auto;
     }
     #slide-2 {
-        background: url("../images/homepage-hero-banner-2-desktop2.jpg") no-repeat center bottom #d0b698;
         background-size: auto 100%;
     }
     #slide-1 .homepage-hero-banner--copy,

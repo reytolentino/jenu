@@ -1,0 +1,20 @@
+.w4offers-box .w4-prod-cta .coloroptions .selecttext {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.w4offers-box .w4-prod-cta .coloricon.color-b {
+    background: #000;
+}
+
+.w4offers-box .w4-prod-cta .coloricon {
+    border-radius: 15px;
+    height: 30px;
+    margin-left: 5px;
+    overflow: hidden;
+    width: 30px;
+}
+
+.soffers-box .coloricon.color-b {
+    background: #000;
+}

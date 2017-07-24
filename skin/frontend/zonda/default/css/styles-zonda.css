@@ -4201,6 +4201,10 @@ div.cart-empty {
     margin-bottom: 8px;
 }
 
+#slide-1 .homepage-hero-banner-copy--image {
+    max-width: 140px;
+}
+
 #slide-2 .homepage-hero-banner--copy {
     color: #333;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -4865,6 +4869,9 @@ ul.homepage-content-worksgreat-list ul {
         font-size: 22px;
         line-height: normal;
     }
+    #slide-1 .homepage-hero-banner-copy--image {
+        max-width: 100px;
+    }
     #slide-2 .homepage-hero-banner--copy {
         margin: 159px 0 0;
     }
@@ -4978,6 +4985,9 @@ ul.homepage-content-worksgreat-list ul {
         font-size: 18px;
         margin: 45px 0 0 0;
         width: 310px;
+    }
+    #slide-1 .homepage-hero-banner-copy--image {
+        max-width: 80px;
     }
     #slide-3 .homepage-hero-banner--copy {
         font-size: 22px;

@@ -13,5 +13,6 @@ if ($product): ?>
 <meta property="og:image" content="<?php echo Mage::helper('catalog/image')->init($product, 'image');?>"/>
 <?php elseif (!$product): ?>
 <meta property="og:image" content="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>content/fb-image-default.jpg"/>
+<meta property="og:image:width" content="1000" />
 <?php endif; ?>
 <!-- SocialShare - OpenGraphTags Head END -->

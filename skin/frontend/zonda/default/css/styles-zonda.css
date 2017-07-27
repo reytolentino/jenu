@@ -10742,3 +10742,7 @@ iframe[name='google_conversion_frame'] {
     height: 100%;
 }
 
+.have-discount {
+    display: none;
+}
+

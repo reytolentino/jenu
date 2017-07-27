@@ -19,6 +19,7 @@ $zonda = $this->helper('zonda');
 <div class="show-your-carts">
     <?php echo $this->__('Items in Cart ') ?><?php echo $this->__('(') ?><?php echo $this->helper('checkout/cart')->getSummaryCount(); ?><?php echo $this->__(')') ?>
 </div>
+ <div class="have-discount"><a href="#discount-coupon-form"><?php echo $this->__('Have a Promo Code?') ?></a></div>
  <div class="checkout-box clearfix">
      <?php if($this->getContinueShoppingUrl()): ?>
          <?php if (Mage::getStoreConfig('quickview/viewsetting/enableview') && !Mage::getStoreConfig('ajaxcart/addtocart/enablecategory')) {

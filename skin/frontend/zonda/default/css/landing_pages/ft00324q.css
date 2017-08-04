@@ -1922,6 +1922,8 @@ p.olay-disclaimer {
 .w4offers-box .w4-prod-cta .coloroptions .selecttext {
     height: 40px;
     line-height: 40px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .w4offers-box .w4-prod-cta .coloroptions sup {
@@ -1929,15 +1931,15 @@ p.olay-disclaimer {
 }
 
 .w4offers-box .w4-prod-cta .coloricon {
-    border-radius: 20px;
     display: inline-block;
     font-weight: 400;
-    height: 40px;
-    overflow: hidden;
     text-indent: -9999px;
-    width: 40px;
     vertical-align: middle;
-    margin-left: 8px;
+    border-radius: 15px;
+    height: 30px;
+    margin-left: 5px;
+    overflow: hidden;
+    width: 30px;
 }
 
 .w4offers-box .w4-prod-cta .coloricon.active,
@@ -1951,6 +1953,10 @@ p.olay-disclaimer {
 
 .w4offers-box .w4-prod-cta .coloricon.color-g {
     background: #d2c483;
+}
+
+.w4offers-box .w4-prod-cta .coloricon.color-b {
+    background: #000;
 }
 
 .w4offers-box .w4-prod-cta .btn-cart {

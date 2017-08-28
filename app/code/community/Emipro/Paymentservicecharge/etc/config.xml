@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Emipro_Paymentservicecharge>
+      <version>1.3.0</version>
+    </Emipro_Paymentservicecharge>
+  </modules>
+  <frontend>
+    <routers>
+      <emipro_paymentservicecharge>
+        <use>standard</use>
+          <args>
+            <module>Emipro_Paymentservicecharge</module>
+            <frontName>paymentservicecharge</frontName>
+          </args>
+      </emipro_paymentservicecharge>
+    </routers>
+</frontend>
+ <global>
+	 <sales>
+		<quote>
+			<totals>
+				<paymentservicecharge>
+				<class>Emipro_Paymentservicecharge_Model_Sales_Paymentservicecharge</class>
+				<after>subtotal</after>
+				   <before>tax</before>
+				</paymentservicecharge>
+			</totals>
+		</quote>
+		 <order_invoice>
+                <totals>
+                    <paymentservicecharge>
+                        <class>Emipro_Paymentservicecharge_Model_Invoice</class>
+                        <after>subtotal</after>
+                           <before>tax</before>
+                    </paymentservicecharge>
+                </totals>
+            </order_invoice>
+			
+            <order_creditmemo>
+                <totals>
+                    <paymentservicecharge>
+                        <class>Emipro_Paymentservicecharge_Model_Creditmemo</class>
+                        <after>subtotal</after>
+                           <before>tax</before>
+                    </paymentservicecharge>
+                </totals>
+            </order_creditmemo>
+            
+              <order_invoice>
+                <totals>
+                    <paymentservicecharge>
+                        <class>Emipro_Paymentservicecharge_Model_Order_Invoice_Total_Servicecharge</class>
+                        <after>subtotal</after>
+                           <before>tax</before>
+                    </paymentservicecharge>
+                </totals>
+            </order_invoice>
+	</sales>
+	<pdf>
+	<totals>
+	 <paymentservicecharge>
+            <title>Payment Service Charge</title>
+           <model>emipro_paymentservicecharge/order_pdf_total_servicecharge</model>
+            <sort_order>300</sort_order>
+        </paymentservicecharge>
+	</totals>
+	</pdf>
+	  <fieldsets>
+            <sales_convert_quote_address>
+                <service_charge><to_order>*</to_order></service_charge>
+                <base_service_charge><to_order>*</to_order></base_service_charge>
+                <service_charge_name><to_order>*</to_order></service_charge_name>
+            </sales_convert_quote_address>
+        </fieldsets>
+      
+    <helpers>
+      <emipro_paymentservicecharge>
+        <class>Emipro_Paymentservicecharge_Helper</class>
+      </emipro_paymentservicecharge>
+    </helpers>
+    
+    
+	<blocks>
+	  <emipro_paymentservicecharge>
+		<class>Emipro_Paymentservicecharge_Block</class>
+	  </emipro_paymentservicecharge>
+	      <sales>
+                <rewrite>
+					<order_totals>Emipro_Paymentservicecharge_Block_Sales_Order</order_totals>
+                  <order_invoice_totals>Emipro_Paymentservicecharge_Block_Sales_Invoice</order_invoice_totals>
+					<order_creditmemo_totals>Emipro_Paymentservicecharge_Block_Sales_Creditmemo</order_creditmemo_totals>
+                </rewrite>
+		</sales>
+		<adminhtml>
+               <rewrite>
+            <sales_order_totals>Emipro_Paymentservicecharge_Block_Adminhtml_Block_Sales_Order_Totals</sales_order_totals>
+            <sales_order_invoice_totals>Emipro_Paymentservicecharge_Block_Adminhtml_Block_Sales_Order_Invoice_Totals</sales_order_invoice_totals>
+            <sales_order_creditmemo_totals>Emipro_Paymentservicecharge_Block_Adminhtml_Block_Sales_Order_Creditmemo_Totals</sales_order_creditmemo_totals>
+        </rewrite>
+        </adminhtml>	
+	</blocks>
+	
+    <models>
+        <emipro_paymentservicecharge>
+            <class>Emipro_Paymentservicecharge_Model</class>
+         </emipro_paymentservicecharge>
+        
+    </models>
+    <resources> 
+        <paymentservicecharge_setup>
+            <setup>
+                <module>Emipro_Paymentservicecharge</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </paymentservicecharge_setup>
+        <paymentservicecharge_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </paymentservicecharge_write>
+        <paymentservicecharge_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </paymentservicecharge_read>
+    </resources> 
+<events>    
+<admin_system_config_changed_section_paymentservicecharge>
+				<observers>
+					<emipro_paymentservicecharge>
+						<type>model</type>
+						<class>emipro_paymentservicecharge/observer</class>
+						<method>checkpaymentservicecharge</method>
+					</emipro_paymentservicecharge>
+				</observers>
+</admin_system_config_changed_section_paymentservicecharge>
+<admin_system_config_changed_section_checkout>
+				<observers>
+					<emipro_paymentservicecharge>
+						<type>model</type>
+						<class>emipro_paymentservicecharge/observer</class>
+						<method>savePaymentServiceCharge</method>
+					</emipro_paymentservicecharge>
+				</observers>
+</admin_system_config_changed_section_checkout>
+			<paypal_prepare_line_items>
+				<observers>
+					<emipro_paymentservicecharge>
+						<type>singleton</type>
+						<class>emipro_paymentservicecharge/observer</class>
+						<method>updatePaypalTotal</method>
+					</emipro_paymentservicecharge>
+				</observers>
+             </paypal_prepare_line_items>
+</events>
+
+    
+     
+  </global>
+  <admin>
+	<routers>
+	  <emipro_paymentservicecharge>
+	    <use>admin</use>
+		<args>
+		  <module>Emipro_Paymentservicecharge</module>
+		  <frontName>admin_paymentservicecharge</frontName>
+		</args>
+	  </emipro_paymentservicecharge>
+	</routers>
+  </admin>
+<default>
+        <checkout>
+          <emipro_paymentservicecharge>
+               <active>1</active>
+               <model>paymentservicecharge/checkout_paymentservicecharge</model>
+          </emipro_paymentservicecharge>
+         </checkout>
+</default>
+<adminhtml>
+<acl>
+		<resources>
+			<admin>
+             <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <paymentservicecharge>
+                                        <title>Manage Payment Extra Service Charge</title>
+                                    </paymentservicecharge>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+                
+            </admin>
+        </resources>
+    </acl>
+</adminhtml>
+</config> 

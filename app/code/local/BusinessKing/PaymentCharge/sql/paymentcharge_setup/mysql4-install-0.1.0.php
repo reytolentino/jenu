@@ -4,6 +4,8 @@ $installer = $this;
 
 $installer->startSetup();
 
+/**
+
 $installer->addAttribute('quote_address', 'payment_charge', array('type' => 'decimal'));
 $installer->addAttribute('quote_address', 'base_payment_charge', array('type' => 'decimal'));
 
@@ -15,5 +17,7 @@ $installer->addAttribute('invoice', 'base_payment_charge', array('type' => 'deci
 
 $installer->addAttribute('creditmemo', 'payment_charge', array('type' => 'decimal'));
 $installer->addAttribute('creditmemo', 'base_payment_charge', array('type' => 'decimal'));
+
+ **/
 
 $installer->endSetup();

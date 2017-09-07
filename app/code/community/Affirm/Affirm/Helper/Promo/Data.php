@@ -230,7 +230,7 @@ class Affirm_Affirm_Helper_Promo_Data extends Mage_Core_Helper_Abstract
         if (!Mage::helper('affirm/promo_asLowAs')->isAsLowAsDisabledOnCheckout()) {
             return 'js/affirm/aslowas.js';
         }
-        return '';
+        return 'js/affirm/noconf.js';
     }
 
     /**
@@ -243,6 +243,19 @@ class Affirm_Affirm_Helper_Promo_Data extends Mage_Core_Helper_Abstract
         if (!Mage::helper('affirm/promo_asLowAs')->isAsLowAsDisabledOnPDP()) {
             return 'js/affirm/aslowas.js';
         }
-        return '';
+        return 'js/affirm/noconf.js';
+    }
+
+    /**
+     * Get plp promo Affirm js
+     *
+     * @return string
+     */
+    public function getPLPAffirmJsScript()
+    {
+        if (!Mage::helper('affirm/promo_asLowAs')->isAsLowAsDisabledOnPLP()) {
+            return 'js/affirm/aslowas.js';
+        }
+        return 'js/affirm/noconf.js';
     }
 }

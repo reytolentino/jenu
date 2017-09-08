@@ -14,15 +14,6 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
     public function collect(Mage_Sales_Model_Quote_Address $address)
     {
 
-        $productId = 205;
-        $productId2 = 206;
-        $productId3 = 207;
-        $quote = Mage::getSingleton('checkout/session')->getQuote();
-        $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
-        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3)) && $grandTotal < 100) {
-
-            // Product is not in the shopping cart so
-            // enable service charge
             $address->setPaymentCharge(0);
             $address->setBasePaymentCharge(0);
 
@@ -42,18 +33,10 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
             $address->setBaseGrandTotal($address->getBaseGrandTotal() + $address->getBasePaymentCharge());
 
             return $this;
-        }
     }
 
     public function fetch(Mage_Sales_Model_Quote_Address $address)
     {
-        $productId = 205;
-        $productId2 = 206;
-        $productId3 = 207;
-        $quote = Mage::getSingleton('checkout/session')->getQuote();
-        $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
-        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3)) && $grandTotal < 100) {
-
             $amount = $address->getPaymentCharge();
             if (($amount!=0)) {
                 $address->addTotal(array(
@@ -66,5 +49,4 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
             return $this;
 
         }
-    }
 }

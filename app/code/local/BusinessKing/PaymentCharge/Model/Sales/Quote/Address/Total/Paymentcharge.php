@@ -17,9 +17,12 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
         $productId = 205;
         $productId2 = 206;
         $productId3 = 207;
+        $productId4 = 208;
+        $productId5 = 209;
+        $productId6 = 210;
         $quote = Mage::getSingleton('checkout/session')->getQuote();
         $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
-        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3)) && $grandTotal < 100) {
+        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3) || $quote->hasProductId($productId4) || $quote->hasProductId($productId5) || $quote->hasProductId($productId6)) && $grandTotal < 100) {
 
             // Product is not in the shopping cart so
             // enable service charge
@@ -50,15 +53,18 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
         $productId = 205;
         $productId2 = 206;
         $productId3 = 207;
+        $productId4 = 208;
+        $productId5 = 209;
+        $productId6 = 210;
         $quote = Mage::getSingleton('checkout/session')->getQuote();
         $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
-        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3)) && $grandTotal < 100) {
+        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3) || $quote->hasProductId($productId4) || $quote->hasProductId($productId5) || $quote->hasProductId($productId6)) && $grandTotal < 100) {
 
             $amount = $address->getPaymentCharge();
             if (($amount!=0)) {
                 $address->addTotal(array(
                     'code' => $this->getCode(),
-                    'title' => Mage::helper('sales')->__('Service Charge'),
+                    'title' => Mage::helper('sales')->__('Affirm Service Charge'),
                     'full_info' => array(),
                     'value' => $amount
                 ));

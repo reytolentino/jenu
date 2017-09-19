@@ -128,6 +128,7 @@
 <script type="text/javascript">
     //<![CDATA[
     // submit buttons are not needed when submitting with ajax
+    jQuery('#shipping_method option:first-child').attr("selected", "selected");
     $('review_submit').hide();
     if ($('update_shipping_method_submit')) {
         $('update_shipping_method_submit').hide();
@@ -138,7 +139,6 @@
         jQuery('#shipping_method').css('left','0');
         jQuery('#shipping_method').css('top','0');
         jQuery('#shipping_method').css('width','auto');
-        jQuery('#shipping_method option:first-child').attr("selected", "selected");
     });
     <?php if ($this->getUseAjax()):?>
     OrderReviewController.prototype._submitOrder = function() {

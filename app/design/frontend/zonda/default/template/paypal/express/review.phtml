@@ -128,7 +128,6 @@
 <script type="text/javascript">
     //<![CDATA[
     // submit buttons are not needed when submitting with ajax
-    jQuery('#shipping_method option:first-child').attr("selected", "selected");
     $('review_submit').hide();
     if ($('update_shipping_method_submit')) {
         $('update_shipping_method_submit').hide();
@@ -186,8 +185,9 @@
     <?php endif ?>
 
     PayPalExpressAjax = new OrderReviewController($('order_review_form'), $('review_button'),
-        $('shipping_method'), $('shipping_method_form'), 'details-reload'
+         $('shipping_method'), $('shipping_method_form'), 'details-reload'
     );
+
     PayPalExpressAjax.addPleaseWait($('review-please-wait'));
     //]]>
 </script>

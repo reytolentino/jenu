@@ -138,6 +138,7 @@
         jQuery('#shipping_method').css('left','0');
         jQuery('#shipping_method').css('top','0');
         jQuery('#shipping_method').css('width','auto');
+        jQuery('#shipping_method option:first-child').attr("selected", "selected");
     });
     <?php if ($this->getUseAjax()):?>
     OrderReviewController.prototype._submitOrder = function() {

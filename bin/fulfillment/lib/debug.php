@@ -57,7 +57,7 @@ function sendErrorReport()
     }
 
     $action = getScriptAction();
-    $to = 'rey@jenu.com';
+    $to = 'lauren@jenu.com';
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "MyJenu.com Prolog Prowares Fulfillment " . strtoupper($action) . " Error Report";
 

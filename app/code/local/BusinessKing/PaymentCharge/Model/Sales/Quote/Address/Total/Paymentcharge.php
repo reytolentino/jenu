@@ -20,9 +20,15 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
         $productId4 = 208;
         $productId5 = 209;
         $productId6 = 210;
+        $productId7 = 212;
+        $productId8 = 213;
+        $productId9 = 214;
+        $productId10 = 215;
+        $productId11 = 216;
+        $productId12 = 217;
         $quote = Mage::getSingleton('checkout/session')->getQuote();
         $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
-        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3) || $quote->hasProductId($productId4) || $quote->hasProductId($productId5) || $quote->hasProductId($productId6)) && $grandTotal < 100) {
+        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3) || $quote->hasProductId($productId4) || $quote->hasProductId($productId5) || $quote->hasProductId($productId6)) && $grandTotal < 100 || $quote->hasProductId($productId7) || $quote->hasProductId($productId8) || $quote->hasProductId($productId9) || $quote->hasProductId($productId10) || $quote->hasProductId($productId11) || $quote->hasProductId($productId12)) && $grandTotal < 100) {
 
             // Product is not in the shopping cart so
             // enable service charge
@@ -56,9 +62,15 @@ class BusinessKing_PaymentCharge_Model_Sales_Quote_Address_Total_Paymentcharge e
         $productId4 = 208;
         $productId5 = 209;
         $productId6 = 210;
+        $productId7 = 212;
+        $productId8 = 213;
+        $productId9 = 214;
+        $productId10 = 215;
+        $productId11 = 216;
+        $productId12 = 217;
         $quote = Mage::getSingleton('checkout/session')->getQuote();
         $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
-        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3) || $quote->hasProductId($productId4) || $quote->hasProductId($productId5) || $quote->hasProductId($productId6)) && $grandTotal < 100) {
+        if (($quote->hasProductId($productId) || $quote->hasProductId($productId2) || $quote->hasProductId($productId3) || $quote->hasProductId($productId4) || $quote->hasProductId($productId5) || $quote->hasProductId($productId6)) && $grandTotal < 100 || $quote->hasProductId($productId7) || $quote->hasProductId($productId8) || $quote->hasProductId($productId9) || $quote->hasProductId($productId10) || $quote->hasProductId($productId11) || $quote->hasProductId($productId12)) && $grandTotal < 100) {
 
             $amount = $address->getPaymentCharge();
             if (($amount!=0)) {

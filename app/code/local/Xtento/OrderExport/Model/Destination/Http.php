@@ -101,7 +101,7 @@ $logstr = new SimpleXMLElement($str);
 $errornode = $logstr->ErrorMsg;
 if($errornode == 'Success') {
 } else {
-    $to = 'rey@jenu.com';
+    $to = 'lauren@jenu.com';
     $headers = 'From: info@jenu.com' . "\r\n";
     $subject = "Moulton Error Report";
 

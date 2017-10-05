@@ -43,46 +43,4 @@ class Amazon_Payments_Block_Onepage_Widget extends Mage_Checkout_Block_Onepage_A
         //return !$this->getQuote()->isVirtual();
     }
 
-    /**
-     * Get additional form HTML
-     *
-     * @return string
-     */
-    public function getAdditionalForm()
-    {
-        $output = '';
-        if (Mage::helper('core')->isModuleEnabled('Amasty_Customerattr')) {
-            $output .= Mage::helper('amcustomerattr')->fields();
-        }
-        return $output;
-    }
-
-    /**
-     *  Newsletter module availability
-     *
-     *  @return boolean
-     */
-    public function isNewsletterEnabled()
-    {
-        return (Mage::helper('core')->isModuleOutputEnabled('Mage_Newsletter') &&
-                !Mage::getModel('newsletter/subscriber')->loadByCustomer(Mage::getSingleton('customer/session')->getCustomer())->isSubscribed());
-
-    }
-
-    /**
-     * Is tokenized payments enabled?
-     */
-    public function isTokenEnabled()
-    {
-        return Mage::getSingleton('amazon_payments/config')->isTokenEnabled();
-    }
-
-    /**
-     * Is tokenized payments required?
-     */
-    public function isTokenRequired()
-    {
-        return $this->isTokenEnabled() && Mage::getSingleton('amazon_payments/config')->isTokenRequired();
-    }
-
 }

@@ -20,6 +20,7 @@ class Amazon_Payments_Model_Config
     const CONFIG_XML_PATH_SELLER_ID      = 'payment/amazon_payments/seller_id';
     const CONFIG_XML_PATH_ACCESS_KEY     = 'payment/amazon_payments/access_key';
     const CONFIG_XML_PATH_ACCESS_SECRET  = 'payment/amazon_payments/access_secret';
+    const CONFIG_XML_PATH_REGION         = 'payment/amazon_payments/region';
     const CONFIG_XML_PATH_SANDBOX        = 'payment/amazon_payments/sandbox';
     const CONFIG_XML_PATH_DEBUG          = 'payment/amazon_payments/debug';
     const CONFIG_XML_PATH_CHECKOUT_PAGE  = 'payment/amazon_payments/checkout_page';
@@ -27,22 +28,17 @@ class Amazon_Payments_Model_Config
     const CONFIG_XML_PATH_ORDER_STATUS   = 'payment/amazon_payments/order_status';
     const CONFIG_XML_PATH_SHOW_PAY_CART  = 'payment/amazon_payments/show_pay_cart';
     const CONFIG_XML_PATH_STORE_NAME     = 'payment/amazon_payments/store_name';
-    const CONFIG_XML_PATH_SOFT_DESC      = 'payment/amazon_payments/soft_descriptor';
     const CONFIG_XML_PATH_SECURE_CART    = 'payment/amazon_payments/secure_cart';
     const CONFIG_XML_PATH_IS_ASYNC       = 'payment/amazon_payments/is_async';
-    const CONFIG_XML_PATH_TOKEN_ENABLED  = 'payment/amazon_payments/token_enabled';
-    const CONFIG_XML_PATH_TOKEN_REQUIRED = 'payment/amazon_payments/token_required';
     const CONFIG_XML_PATH_RESTRICTED_IPS = 'payment/amazon_payments/restricted_ips';
-    const CONFIG_XML_PATH_SHOW_COUPON    = 'payment/amazon_payments/show_coupon';
 
     const CONFIG_XML_PATH_BUTTON_TYPE    = 'payment/amazon_payments/button_type';
     const CONFIG_XML_PATH_BUTTON_COLOR   = 'payment/amazon_payments/button_color';
     const CONFIG_XML_PATH_BUTTON_SIZE    = 'payment/amazon_payments/button_size';
     const CONFIG_XML_PATH_BUTTON_BADGE   = 'payment/amazon_payments/button_badge';
 
-    const CONFIG_XML_PATH_REGION         = 'amazon_login/settings/region';
-    const CONFIG_XML_PATH_LANGUAGE       = 'amazon_login/settings/language';
     const CONFIG_XML_PATH_LOGIN_ENABLED  = 'amazon_login/settings/enabled';
+
 
     /**
      * Retrieve config value for store by path
@@ -86,14 +82,14 @@ class Amazon_Payments_Model_Config
     }
 
     /**
-     * Is Login with Amazon enabled?
+     * Is guest checkout/pay only? (does not create customer account)
      *
      * @param   store $store
      * @return  bool
      */
-    public function isLoginEnabled($store = null)
+    public function isGuestCheckout($store = null)
     {
-        return (bool) $this->_getStoreConfig(self::CONFIG_XML_PATH_LOGIN_ENABLED, $store);
+        return ! (bool) $this->_getStoreConfig(self::CONFIG_XML_PATH_LOGIN_ENABLED, $store);
     }
 
     /**
@@ -105,28 +101,6 @@ class Amazon_Payments_Model_Config
     public function isDebugMode($store = null)
     {
         return (bool) $this->_getStoreConfig(self::CONFIG_XML_PATH_DEBUG, $store);
-    }
-
-    /**
-     * Is tokenized payments enabled?
-     *
-     * @param   store $store
-     * @return  bool
-     */
-    public function isTokenEnabled($store = null)
-    {
-        return (bool) $this->_getStoreConfig(self::CONFIG_XML_PATH_TOKEN_ENABLED, $store);
-    }
-
-    /**
-     * Is tokenized payments required?
-     *
-     * @param   store $store
-     * @return  bool
-     */
-    public function isTokenRequired($store = null)
-    {
-        return (bool) $this->_getStoreConfig(self::CONFIG_XML_PATH_TOKEN_REQUIRED, $store);
     }
 
     /**
@@ -148,7 +122,7 @@ class Amazon_Payments_Model_Config
      */
     public function getClientSecret($store = null)
     {
-        return Mage::helper('core')->decrypt(trim($this->_getStoreConfig(self::CONFIG_XML_PATH_CLIENT_SECRET, $store)));
+        return trim($this->_getStoreConfig(self::CONFIG_XML_PATH_CLIENT_SECRET, $store));
     }
 
     /**
@@ -170,7 +144,7 @@ class Amazon_Payments_Model_Config
      */
     public function getAccessKey($store = null)
     {
-        return $this->_getStoreConfig(self::CONFIG_XML_PATH_ACCESS_KEY, $store);
+        return trim($this->_getStoreConfig(self::CONFIG_XML_PATH_ACCESS_KEY, $store));
     }
 
     /**
@@ -197,17 +171,6 @@ class Amazon_Payments_Model_Config
             $region = 'us';
         }
         return $region;
-    }
-
-    /**
-     * Get language UI
-     *
-     * @param   store $store
-     * @return  string
-     */
-    public function getLanguage($store = null)
-    {
-        return trim($this->_getStoreConfig(self::CONFIG_XML_PATH_LANGUAGE, $store));
     }
 
     /**
@@ -258,22 +221,6 @@ class Amazon_Payments_Model_Config
         else {
             return Mage::app()->getStore()->getName();
         }
-    }
-
-    /**
-     * Get customzied soft descriptor, if used
-     *
-     * @param   store $store
-     * @return  string
-     */
-    public function getSoftDesc($store = null)
-    {
-        $softDesc = $this->_getStoreConfig(self::CONFIG_XML_PATH_SOFT_DESC, $store);
-        if (!$softDesc) {
-            $softDesc = Mage::app()->getStore()->getName();
-        }
-
-        return substr($softDesc, 0, 16); // 16 chars max
     }
 
     /**
@@ -373,17 +320,6 @@ class Amazon_Payments_Model_Config
     public function isButtonBadgeEnabled($store = null)
     {
         return ($this->_getStoreConfig(self::CONFIG_XML_PATH_BUTTON_BADGE, $store));
-    }
-
-    /**
-     * Show coupon/discount code?
-     *
-     * @param   store $store
-     * @return  bool
-     */
-    public function isShowCoupon($store = null)
-    {
-        return ($this->_getStoreConfig(self::CONFIG_XML_PATH_SHOW_COUPON, $store));
     }
 
 }

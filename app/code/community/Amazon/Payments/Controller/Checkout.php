@@ -10,7 +10,7 @@
 
 abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Controller_Action
 {
-    protected $_amazonOrderReferenceId;
+    protected $_amazonOrderReferenceId, $_amazonBillingAgreementId, $_amazonBillingAgreementConsent;
     protected $_checkoutUrl;
 
     /**
@@ -22,11 +22,34 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
     }
 
     /**
+     * Return Amazon Billing Agreement Id
+     */
+    public function getAmazonBillingAgreementId()
+    {
+        return $this->_amazonBillingAgreementId;
+    }
+
+    /**
+     * Return Amazon Billing Agreement Consent
+     */
+    public function getAmazonBillingAgreementConsent()
+    {
+        return $this->_amazonBillingAgreementConsent;
+    }
+
+    /**
      * Check query string paramters for order reference and/or access token
      */
     public function preDispatch()
     {
         parent::preDispatch();
+
+        // User clicked "Cancel" on Amazon Login consent form
+        if ($this->getRequest()->getParam('error') == 'access_denied') {
+            $this->_redirect('checkout/cart');
+            return;
+        }
+
         $this->_amazonOrderReferenceId = htmlentities($this->getRequest()->getParam('amazon_order_reference_id'));
 
         if (!$this->_amazonOrderReferenceId) {
@@ -36,16 +59,29 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
             Mage::getSingleton('checkout/session')->setAmazonOrderReferenceId($this->_amazonOrderReferenceId);
         }
 
+        $this->_amazonBillingAgreementId = htmlentities($this->getRequest()->getParam('amazon_billing_agreement_id'));
+        $this->_amazonBillingAgreementConsent = $this->getRequest()->getParam('amazon_billing_agreement_consent') == 'true' ? true : false;
+
         // User is logging in...
 
         $token = htmlentities($this->getRequest()->getParam('access_token'));
 
         if ($token) {
-            $_amazonLogin = Mage::getModel('amazon_login/customer');
+            $_amazonLogin = Mage::getModel('amazon_payments/customer');
 
             if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
-                if (!$this->_getConfig()->isGuestCheckout() || !$this->_getOnepage()->getQuote()->isAllowedGuestCheckout()) {
-                    $customer = $_amazonLogin->loginWithToken($token, $this->_checkoutUrl);
+                if ($this->_getConfig()->isLoginEnabled() || !$this->_getOnepage()->getQuote()->isAllowedGuestCheckout()) {
+                    /** @var Amazon_Payments_Model_Customer $customer */
+                    $customer = $_amazonLogin->loginWithToken($token);
+                    if (is_array($customer)) {
+                        Mage::app()->getResponse()
+                            ->setRedirect(
+                                Mage::helper('amazon_payments')->getVerifyUrl() . '?redirect=' . $this->getRequest()->getParam('account_login') ? 'customer/account' : $this->_checkoutUrl,
+                                301
+                            )
+                            ->sendResponse();
+                        return;
+                    }
                 }
                 // Guest
                 else {
@@ -62,13 +98,32 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
             // Full-page redirect (user did not sign in using popup)
             if ($this->getRequest()->getParam('nopopup')) {
                 $this->_redirectUrl(Mage::helper('amazon_payments')->getCheckoutUrl(false) . '#access_token=' . $token);
-
             }
-            // Redirect to clean URL
+            // Redirect to account page
+            else if (Mage::app()->getRequest()->getParams('account') == 'redirect') {
+                $this->_redirect('customer/account');
+            }
+            // User signed-in via popup
             else if (!$this->getRequest()->getParam('ajax')) {
+                $state = $this->getRequest()->getParam('state');
+                // Shortcut clicked (e.g. from product page)
+                if ($state == 'shortcut' && $this->_getConfig()->isTokenEnabled()) {
+                    // Does user have billing agreement token?
+                    $token = Mage::getModel('amazon_payments/token')->getBillingAgreement();
+                    if ($amazonBillingAgreementId = $token->getAmazonBillingAgreementId()) {
+                        $this->_redirect('amazon_payments/token/checkout');
+                        return;
+                    }
+                }
+
+                // Redirect to clean URL
                 $this->_redirect($this->_checkoutUrl, array('_secure' => true));
                 return;
             }
+
+
+
+
 
 
         }
@@ -83,6 +138,27 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
         Mage::helper('amazon_payments/data')->clearSession();
     }
 
+    /**
+     * Redirect to account
+     */
+    public function accountAction()
+    {
+        // User logged in at order details page and wants to update payment method from async decline
+        if ($orderIdRedirect = Mage::getModel('core/cookie')->get('amazonOrderIdRedirect')) {
+            Mage::getModel('core/cookie')->delete('amazonOrderIdRedirect');
+            $this->_redirect('sales/order/view/order_id/' . $orderIdRedirect);
+        } else {
+            $this->_redirect('customer/account');
+        }
+    }
+
+    /**
+     * Check if country is allowed by config
+     */
+    public function isCountryAllowed($country)
+    {
+        return in_array(strtoupper($country), explode(',', Mage::getStoreConfig('general/country/allow')));
+    }
 
     /**
      * Validate ajax request and redirect on failure
@@ -183,61 +259,48 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
      */
     protected function _saveShipping()
     {
-        if ($this->getAmazonOrderReferenceId()) {
+        if ($this->getAmazonOrderReferenceId() || $this->getAmazonBillingAgreementId()) {
 
-            $orderReferenceDetails = $this->_getApi()->getOrderReferenceDetails($this->getAmazonOrderReferenceId(), Mage::getSingleton('checkout/session')->getAmazonAccessToken());
+            if ($this->getAmazonBillingAgreementId()) {
+                $orderReferenceDetails = $this->_getApi()->getBillingAgreementDetails($this->getAmazonBillingAgreementId(), Mage::getSingleton('checkout/session')->getAmazonAccessToken());
+            }
+            else {
+                $orderReferenceDetails = $this->_getApi()->getOrderReferenceDetails($this->getAmazonOrderReferenceId(), Mage::getSingleton('checkout/session')->getAmazonAccessToken());
+            }
 
             $address = $orderReferenceDetails->getDestination()->getPhysicalDestination();
 
             // Split name into first/last
-            $name      = $address->getName();
-            $firstName = substr($name, 0, strrpos($name, ' '));
-            $lastName  = substr($name, strlen($firstName) + 1);
 
             // Find Mage state/region ID
             $regionModel = Mage::getModel('directory/region')->loadByCode($address->getStateOrRegion(), $address->getCountryCode());
             $regionId    = $regionModel->getId();
 
-            $data = array(
-                'firstname'   => $firstName,
-                'lastname'    => $lastName,
-                'street'      => array($address->getAddressLine1(), $address->getAddressLine2()),
-                'city'        => $address->getCity(),
-                'region_id'   => $regionId,
-                'postcode'    => $address->getPostalCode(),
-                'country_id'  => $address->getCountryCode(),
-                'telephone'   => ($address->getPhone()) ? $address->getPhone() : '-', // Mage requires phone number
-                'use_for_shipping' => true,
-            );
+            // Load region ID by name
+            if (!$regionId) {
+                $regionModel = Mage::getModel('directory/region')->loadByName($address->getStateOrRegion(), $address->getCountryCode());
+                $regionId    = $regionModel->getId();
+            }
+
+            $data = Mage::helper('amazon_payments')->transformAmazonAddressToMagentoAddress($address);
+            $data['use_for_shipping'] = true;
+            $data['region'] = $address->getStateOrRegion();
+            $data['region_id'] = $regionId;
 
             if ($email = Mage::getSingleton('checkout/session')->getCustomerEmail()) {
                 $data['email'] = $email;
             }
 
-
             // Set billing address (if allowed by scope)
             if ($orderReferenceDetails->getBillingAddress()) {
                 $billing = $orderReferenceDetails->getBillingAddress()->getPhysicalAddress();
-                $data['use_for_shipping'] = false;
 
-                $name      = $billing->getName();
-                $firstName = substr($name, 0, strrpos($name, ' '));
-                $lastName  = substr($name, strlen($firstName) + 1);
-
-                $regionModel = Mage::getModel('directory/region')->loadByCode($address->getStateOrRegion(), $address->getCountryCode());
+                $regionModel = Mage::getModel('directory/region')->loadByCode($billing->getStateOrRegion(), $billing->getCountryCode());
                 $regionId    = $regionModel->getId();
-
-                $dataBilling = array(
-                    'firstname'   => $firstName,
-                    'lastname'    => $lastName,
-                    'street'      => array($billing->getAddressLine1(), $billing->getAddressLine2()),
-                    'city'        => $billing->getCity(),
-                    'region_id'   => $regionId,
-                    'postcode'    => $billing->getPostalCode(),
-                    'country_id'  => $billing->getCountryCode(),
-                    'telephone'   => ($billing->getPhone()) ? $billing->getPhone() : '-',
-                    'use_for_shipping' => false,
-                );
+                $dataBilling = Mage::helper('amazon_payments')->transformAmazonAddressToMagentoAddress($billing);
+                $dataBilling['use_for_shipping'] = false;
+                $dataBilling['region'] = $billing->getStateOrRegion();
+                $dataBilling['region_id'] = $regionId;
 
                 $this->_getCheckout()->saveBilling($dataBilling, null);
 
@@ -249,6 +312,5 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
             return $this->_getCheckout()->saveShipping($data);
         }
     }
-
 }
 

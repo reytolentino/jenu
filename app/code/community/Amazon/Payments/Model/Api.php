@@ -8,7 +8,7 @@
  * @license     http://opensource.org/licenses/Apache-2.0  Apache License, Version 2.0
  */
 
-class Amazon_Payments_Model_Api
+class Amazon_Payments_Model_Api extends Varien_Object
 {
     const ORDER_PLATFORM_ID = 'A2K7HE1S3M5XJ';
 
@@ -21,7 +21,7 @@ class Amazon_Payments_Model_Api
     const AUTH_STATUS_SUSPENDED = 'Suspended';
 
     protected $api;
-    protected $log_file = 'amazon.log';
+    protected $logFile = 'amazon.log';
 
     /**
      * Return and/or initiate Amazon's Client Library API
@@ -32,13 +32,13 @@ class Amazon_Payments_Model_Api
     {
         if (!$this->api) {
             $config = array(
-                'merchantId'         => $this->getConfig()->getSellerId(),
-                'accessKey'          => $this->getConfig()->getAccessKey(),
-                'secretKey'          => $this->getConfig()->getAccessSecret(),
-                'region'             => $this->getConfig()->getRegion(),
-                'environment'        => ($this->getConfig()->isSandbox()) ? 'sandbox' : 'live',
+                'merchantId'         => $this->getConfig()->getSellerId($this->getStoreId()),
+                'accessKey'          => $this->getConfig()->getAccessKey($this->getStoreId()),
+                'secretKey'          => $this->getConfig()->getAccessSecret($this->getStoreId()),
+                'region'             => $this->getConfig()->getRegion($this->getStoreId()),
+                'environment'        => ($this->getConfig()->isSandbox($this->getStoreId())) ? 'sandbox' : 'live',
                 'applicationName'    => 'Amazon Payments Magento Extension',
-                'applicationVersion' => current(Mage::getConfig()->getNode('modules/Amazon_Payments/version')),
+                'applicationVersion' => (string) Mage::getConfig()->getNode('modules/Amazon_Payments/version'),
                 'serviceURL'         => '',
                 'widgetURL'          => '',
                 'caBundleFile'       => '',
@@ -64,7 +64,7 @@ class Amazon_Payments_Model_Api
     protected function _getRequiredParams()
     {
         return array(
-            'SellerId' => $this->getConfig()->getSellerId(),
+            'SellerId' => $this->getConfig()->getSellerId($this->getStoreId()),
         );
     }
 
@@ -105,13 +105,13 @@ class Amazon_Payments_Model_Api
         // Debugging/Logging
         if ($this->_isLoggingEnabled()) {
 
-            Mage::log('Request: ' . $method . "\n" . print_r($request, true), null, $this->log_file);
+            Mage::log('Request: ' . $method . "\n" . print_r($request, true), null, $this->logFile);
 
             $time = round(microtime(TRUE) - $start_time, 2) . ' seconds.';
-            Mage::log($method . " Time: " . $time, null, $this->log_file);
+            Mage::log($method . " Time: " . $time, null, $this->logFile);
 
             if (isset($exception)) {
-                Mage::log($exception->__toString(), Zend_Log::ERR, $this->log_file);
+                Mage::log($exception->__toString(), Zend_Log::ERR, $this->logFile);
             }
             else {
 
@@ -123,7 +123,7 @@ class Amazon_Payments_Model_Api
                         $fields[substr($methodName, 3)] = $response->$methodName();
                     }
                 }
-                Mage::log('Response: ' . print_r($fields, true), null, $this->log_file);
+                Mage::log('Response: ' . print_r($fields, true), null, $this->logFile);
             }
         }
 
@@ -141,7 +141,7 @@ class Amazon_Payments_Model_Api
      * @return OffAmazonPaymentsService_Model_AuthorizeResponse
      * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_Authorize.html
      */
-    public function authorize($orderReferenceId, $authorizationReferenceId, $authorizationAmount, $authorizationCurrency, $captureNow = false, $softDescriptor = null, $sellerAuthorizationNote = null)
+    public function authorize($orderReferenceId, $authorizationReferenceId, $authorizationAmount, $authorizationCurrency, $captureNow = false, $softDescriptor = null, $sellerAuthorizationNote = null, $forceSync = false)
     {
         $request = array(
             'AmazonOrderReferenceId' => $orderReferenceId,
@@ -153,7 +153,7 @@ class Amazon_Payments_Model_Api
             'CaptureNow' => $captureNow,
         );
 
-        if (!$this->getConfig()->isAsync()) {
+        if (!$this->getConfig()->isAsync($this->getStoreId()) || $forceSync) {
             $request['TransactionTimeout'] = 0; // Synchronous Mode
         }
 
@@ -199,7 +199,7 @@ class Amazon_Payments_Model_Api
             ),
         );
 
-        if (!$this->getConfig()->isAsync()) {
+        if (!$this->getConfig()->isAsync($this->getStoreId())) {
             $request['TransactionTimeout'] = 0; // Synchronous Mode
         }
 
@@ -224,7 +224,7 @@ class Amazon_Payments_Model_Api
      *
      * @param string $amazonOrderReferenceId
      * @param string $addressConsentToken
-     * @return OffAmazonPaymentsService_Model_GetOrderReferenceDetailsResponse
+     * @return OrderReferenceDetails
      * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_GetOrderReferenceDetails.html
      */
     public function getOrderReferenceDetails($amazonOrderReferenceId, $addressConsentToken = null)
@@ -233,6 +233,10 @@ class Amazon_Payments_Model_Api
             'AmazonOrderReferenceId' => $amazonOrderReferenceId,
             'AddressConsentToken' => $addressConsentToken,
         );
+
+        if (!$amazonOrderReferenceId && $this->_isLoggingEnabled()) {
+            Mage::log('GetOrderReferenceDetails Error: No Order Reference ID', null, $this->logFile);
+        }
 
         $response = $this->request('getOrderReferenceDetails', $request);
 
@@ -279,7 +283,7 @@ class Amazon_Payments_Model_Api
      * @param string $orderCurrency
      * @param string $orderId
      * @param string $storeName
-     * @return OffAmazonPaymentsService_Model_SetOrderReferenceDetailsResponse
+     * @return OrderReferenceDetails
      * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_SetOrderReferenceDetails.html
      */
     public function setOrderReferenceDetails($orderReferenceId, $orderAmount, $orderCurrency, $orderId = '', $storeName = '')
@@ -395,6 +399,149 @@ class Amazon_Payments_Model_Api
                 return $result->getRefundDetails();
             }
         }
+        return $response;
+    }
+
+    /**
+     * GetBillingAgreementDetails
+     *
+     * @param string $amazonBillingAgreementId
+     * @param string $addressConsentToken
+     * @return OffAmazonPaymentsService_Model_GetBillingAgreementDetails
+     * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_GetBillingAgreementDetails.html
+     */
+    public function getBillingAgreementDetails($amazonBillingAgreementId, $addressConsentToken = null)
+    {
+        $request = array(
+            'AmazonBillingAgreementId' => $amazonBillingAgreementId,
+            'AddressConsentToken'      => $addressConsentToken,
+        );
+
+        $response = $this->request('getBillingAgreementDetails', $request);
+
+        if ($response && $response->isSetGetBillingAgreementDetailsResult()) {
+            $result = $response->getGetBillingAgreementDetailsResult();
+            if ($result->isSetBillingAgreementDetails()) {
+                return $result->getBillingAgreementDetails();
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * ConfirmBillingAgreement
+     *
+     * @param string $amazonBillingAgreementId
+     * @return OffAmazonPaymentsService_Model_ConfirmBillingAgreementResponse
+     * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_ConfirmOrderReference.html
+     */
+    public function confirmBillingAgreement($amazonBillingAgreementId)
+    {
+        $request = array(
+            'AmazonBillingAgreementId' => $amazonBillingAgreementId,
+        );
+
+        return $this->request('confirmBillingAgreement', $request);
+    }
+
+    /**
+     * AuthorizeOnBillingAgreement
+     *
+     * @param string $amazonBillingAgreementId
+     * @return OffAmazonPaymentsService_Model_AuthorizeOnBillingAgreementResult
+     * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_AuthorizeOnBillingAgreement.html
+     */
+    public function authorizeOnBillingAgreement($amazonBillingAgreementId, $authorizationReferenceId, $authorizationAmount, $authorizationCurrency, $captureNow = false, $softDescriptor = null, $sellerAuthorizationNote = null, $forceSync = false)
+    {
+        $request = array(
+            'AmazonBillingAgreementId' => $amazonBillingAgreementId,
+            'AuthorizationReferenceId' => $authorizationReferenceId,
+            'AuthorizationAmount' => array(
+                'Amount'       => $authorizationAmount,
+                'CurrencyCode' => $authorizationCurrency
+            ),
+            'CaptureNow' => $captureNow,
+        );
+
+        if (!$this->getConfig()->isAsync() || $forceSync) {
+            $request['TransactionTimeout'] = 0; // Synchronous Mode
+        }
+
+        if ($softDescriptor) {
+            $request['SoftDescriptor'] = $softDescriptor;
+        }
+
+        if ($sellerAuthorizationNote) {
+            $request['SellerAuthorizationNote'] = trim($sellerAuthorizationNote);
+        }
+
+        $response = $this->request('authorizeOnBillingAgreement', $request);
+
+        if ($response && $response->isSetAuthorizeOnBillingAgreementResult()) {
+            return $response->getAuthorizeOnBillingAgreementResult();
+        }
+
+        return $response;
+    }
+
+    /**
+     * CreateOrderReferenceForId
+     *
+     * @param string $id
+     * @param string $idType
+     * @param bool $inheritShippingAddress
+     * @param bool $confirmNow
+     * @param OrderReferenceAttributes $orderReferenceAttributes
+     * @return OffAmazonPaymentsService_Model_CreateOrderReferenceForIdResult
+     * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_CreateOrderReferenceForId.html
+     */
+    public function createOrderReferenceForId($id, $idType, $inheritShippingAddress = true, $confirmNow = false, array $orderReferenceAttributes = null)
+    {
+        $request = array(
+            'Id' => $id,
+            'IdType' => $idType,
+            'InheritShippingAddress' => $inheritShippingAddress,
+            'ConfirmNow' => $confirmNow,
+        );
+
+        if ($orderReferenceAttributes) {
+            $request['OrderReferenceAttributes'] = $orderReferenceAttributes;
+        }
+
+        $response = $this->request('createOrderReferenceForId', $request);
+
+        if ($response && $response->isSetCreateOrderReferenceForIdResult()) {
+            $result = $response->getCreateOrderReferenceForIdResult();
+            if ($result->isSetOrderReferenceDetails()) {
+                return $result->getOrderReferenceDetails();
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * CloseBillingAgreement
+     *
+     * @param string $amazonBillingAgreementId
+     * @param string $closureReason
+     * @return OffAmazonPaymentsService_Model_CloseBillingAgreementResult
+     * @link http://docs.developer.amazonservices.com/en_US/off_amazon_payments/OffAmazonPayments_CloseBillingAgreement.html
+     */
+    public function closeBillingAgreement($amazonBillingAgreementId, $closureReason = null)
+    {
+        $request = array(
+            'AmazonBillingAgreementId' => $amazonBillingAgreementId,
+            'ClosureReason' => $closureReason,
+        );
+
+        $response = $this->request('closeBillingAgreement', $request);
+
+        if ($response && $response->isSetCloseBillingAgreementResult()) {
+            return $response->getCloseBillingAgreement();
+        }
+
         return $response;
     }
 

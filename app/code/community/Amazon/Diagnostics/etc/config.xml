@@ -10,7 +10,7 @@
 <config>
     <modules>
         <Amazon_Diagnostics>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Amazon_Diagnostics>
     </modules>
     <global>
@@ -36,4 +36,15 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Amazon_Diagnostics>
+                    <files>
+                        <default>Amazon_Diagnostics.csv</default>
+                    </files>
+                </Amazon_Diagnostics>
+            </modules>
+        </translate>
+    </adminhtml>
 </config>

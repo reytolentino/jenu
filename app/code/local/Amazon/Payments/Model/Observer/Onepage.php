@@ -22,28 +22,8 @@ class Amazon_Payments_Model_Observer_Onepage
         $_helper = Mage::helper('amazon_payments/data');
         $fullActionName = $observer->getEvent()->getAction()->getFullActionName();
 
-        
+
         if ($fullActionName == 'checkout_onepage_index' && $_helper->getConfig()->isEnabled() && $_helper->isCheckoutAmazonSession() && $_helper->isEnableProductPayments()) {
-            // Magedelight added code for amazon module login issue.
-            if(Mage::helper('core')->isModuleEnabled('MD_Partialpayment')){
-                if(Mage::helper('md_partialpayment')->isQuotePartialPayment(Mage::getSingleton('checkout/session')->getQuote())){
-                    Mage::getSingleton('checkout/session')->unsAmazonAccessToken();
-                    return $this;
-                }
-            }
-            if(Mage::helper('core')->isModuleEnabled('Amazon_Payments')){
-                $quote = Mage::getSingleton("checkout/session")->getQuote();
-                foreach ($quote->getAllItems() as $item)
-                {
-                    $sarpSubscriptionType = $item->getProduct()->getCustomOption('aw_sarp_subscription_type');
-                    if (Mage::helper('sarp')->isSubscriptionType($item) && !is_null($sarpSubscriptionType)) {
-                        Mage::getSingleton('checkout/session')->unsAmazonAccessToken();
-                        return $this;
-                        break;
-                    }
-                }
-            }
-            // magedelight code end.
             // If One Page is disable and user has active Amazon Session, redirect to standalone checkout
             if (!$_helper->getConfig()->isCheckoutOnepage()) {
                 Mage::app()->getFrontController()->getResponse()->setRedirect($_helper->getStandaloneUrl());

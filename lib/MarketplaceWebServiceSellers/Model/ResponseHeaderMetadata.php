@@ -9,7 +9,7 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
- * PHP Version 5
+ * PHP Version 5 
  * @category Amazon
  * @package  Marketplace Web Service Sellers
  * @version  2011-07-01
@@ -29,12 +29,12 @@ class MarketplaceWebServiceSellers_Model_ResponseHeaderMetadata {
   private $metadata = array();
 
   public function __construct($requestId = null, $responseContext = null, $timestamp = null,
-                              $quotaMax = null, $quotaRemaining = null, $quotaResetsAt = null) {
+                              $quotaMax = null, $quotaMax = null, $quotaResetsAt = null) {
     $this->metadata[self::REQUEST_ID] = $requestId;
     $this->metadata[self::RESPONSE_CONTEXT] = $responseContext;
     $this->metadata[self::TIMESTAMP] = $timestamp;
     $this->metadata[self::QUOTA_MAX] = $quotaMax;
-    $this->metadata[self::QUOTA_REMAINING] = $quotaRemaining;
+    $this->metadata[self::QUOTA_REMAINING] = $quotaMax;
     $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
   }
 

@@ -57,5 +57,4 @@ class Amazon_Payments_Block_Onepage extends Mage_Checkout_Block_Onepage_Abstract
     {
         return array('login', 'widget', 'shipping_method', 'review');
     }
-
 }

@@ -32,20 +32,6 @@
   z-index:50;
 }
 
-#additional-form-fields {
-  clear:both;
-}
-
-#amazon-widget-consent {
-  clear:both;
-  height:100px;
-  width:98%;
-}
-
-#checkout-amazon-columns .f-left {
-  display:none;
-}
-
 @media all and (max-width: 640px) {
   #amazon-widget-address-wrapper,
   #amazon-widget-wallet-wrapper {

@@ -47,7 +47,7 @@ $spanClass = $zonda->getSpanClass();
                             <div class="field">
                                 <label for="billing:telephone" class="required"><i class="icon-phone"></i><?php echo $this->__('Telephone') ?><em>*</em></label>
                                 <div class="input-box">
-                                    <input type="text" name="billing[telephone]" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="billing:telephone" minlength='10' maxlength='11'/>
+                                    <input type="tel" name="billing[telephone]" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="billing:telephone" />
                                 </div>
                             </div>
                             <div class="field">

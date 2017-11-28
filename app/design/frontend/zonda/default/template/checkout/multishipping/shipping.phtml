@@ -43,7 +43,8 @@ $spanClass = $zonda->getSpanClass();
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="shipping_method_form">
-        <?php foreach ($this->getAddresses() as $_index => $_address): ?>
+    <?php echo $this->getBlockHtml('formkey') ?>
+    <?php foreach ($this->getAddresses() as $_index => $_address): ?>
         <h2 class="legend"><?php echo $this->__('Address %s of %s', ($_index+1), $this->getAddressCount()) ?></h2>
         <div class="<?php echo $rowClass ?>">
             <div class="<?php echo $spanClass ?>6 col-narrow">
